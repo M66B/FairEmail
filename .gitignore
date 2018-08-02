@@ -9,4 +9,4 @@
 /captures
 .externalNativeBuild
 /app/release
-/TODO.txt
+/tools/config.sh
