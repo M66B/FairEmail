@@ -21,8 +21,14 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Helper {
     static final String TAG = BuildConfig.APPLICATION_ID;
@@ -59,5 +65,53 @@ public class Helper {
             cause = cause.getCause();
         }
         return sb.toString();
+    }
+
+    static StringBuilder getDebugInfo() {
+        StringBuilder sb = new StringBuilder();
+
+        // Get version info
+        sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+        sb.append("\r\n");
+
+        // Get device info
+        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+        sb.append(String.format("Host: %s\r\n", Build.HOST));
+        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+        sb.append(String.format("Id: %s\r\n", Build.ID));
+        sb.append("\r\n");
+
+        // Get logcat
+        Process proc = null;
+        BufferedReader br = null;
+        try {
+            String[] cmd = new String[]{"logcat", "-d", "-v", "threadtime"};
+            proc = Runtime.getRuntime().exec(cmd);
+            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            String line;
+            while ((line = br.readLine()) != null)
+                sb.append(line).append("\r\n");
+        } catch (IOException ex) {
+            Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
+        } finally {
+            if (br != null)
+                try {
+                    br.close();
+                } catch (IOException ignored) {
+                }
+            if (proc != null)
+                try {
+                    proc.destroy();
+                } catch (Throwable ex) {
+                    Log.w(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
+                }
+        }
+
+        return sb;
     }
 }

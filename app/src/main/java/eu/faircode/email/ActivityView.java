@@ -36,6 +36,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,12 +47,19 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     static final int LOADER_ACCOUNT_PUT = 1;
     static final int LOADER_IDENTITY_PUT = 2;
@@ -112,6 +120,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         break;
                     case R.string.menu_setup:
                         onMenuSetup();
+                        break;
+                    case R.string.menu_debug:
+                        onMenuDebug();
                         break;
                 }
 
@@ -240,6 +251,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_identities));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_theme, "dark".equals(prefs.getString("theme", "light"))));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
+        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_debug));
         drawerList.setAdapter(drawerArray);
     }
 
@@ -282,6 +294,40 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
+    private void onMenuDebug() {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(ActivityView.this);
+                    EntityFolder drafts = db.folder().getPrimaryDraftFolder();
+                    if (drafts != null) {
+                        StringBuilder info = Helper.getDebugInfo();
+
+                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+
+                        EntityMessage draft = new EntityMessage();
+                        draft.account = drafts.account;
+                        draft.folder = drafts.id;
+                        draft.to = MessageHelper.encodeAddresses(new Address[]{to});
+                        draft.subject = BuildConfig.APPLICATION_ID + " debug info";
+                        draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                        draft.received = new Date().getTime();
+                        draft.seen = false;
+                        draft.ui_seen = false;
+                        draft.ui_hide = false;
+                        draft.id = db.message().insertMessage(draft);
+
+                        startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                                .putExtra("id", draft.id));
+                    }
+                } catch (Throwable ex) {
+                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
+            }
+        });
     }
 
     private class DrawerItem {
