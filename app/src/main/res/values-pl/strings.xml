@@ -13,6 +13,7 @@
   <string name="menu_identities">Identities</string>
   <string name="menu_theme">Dark theme</string>
   <string name="menu_setup">Setup</string>
+  <string name="menu_debug">Debug info</string>
   <string name="title_agree">I agree</string>
   <string name="title_disagree">I disagree</string>
   <string name="title_list_accounts">Accounts</string>
