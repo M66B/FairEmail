@@ -179,6 +179,8 @@ public class FragmentMessage extends Fragment {
                             : R.drawable.baseline_visibility_24);
                     actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
 
+                    bottom_navigation.getMenu().findItem(R.id.action_spam).setEnabled(message.account != null);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setEnabled(message.account != null);
                     tvBody.setText(message.body == null
                             ? null
                             : Html.fromHtml(HtmlHelper.sanitize(getContext(), message.body, false)));
