@@ -419,12 +419,15 @@ public class ServiceSynchronize extends LifecycleService {
                 public void messagesRemoved(MessageCountEvent e) {
                     try {
                         Log.i(Helper.TAG, folder.name + " messages removed");
-                        for (Message imessage : e.getMessages()) {
-                            long uid = ffolder.getUID(imessage);
-                            DB db = DB.getInstance(ServiceSynchronize.this);
-                            db.message().deleteMessage(folder.id, uid);
-                            Log.i(Helper.TAG, "Deleted uid=" + uid);
-                        }
+                        for (Message imessage : e.getMessages())
+                            try {
+                                long uid = ffolder.getUID(imessage);
+                                DB db = DB.getInstance(ServiceSynchronize.this);
+                                db.message().deleteMessage(folder.id, uid);
+                                Log.i(Helper.TAG, "Deleted uid=" + uid);
+                            } catch (MessageRemovedException ex) {
+                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
@@ -804,10 +807,12 @@ public class ServiceSynchronize extends LifecycleService {
 
             List<Message> added = new ArrayList<>();
             for (Message imessage : imessages)
-                if (!imessage.isExpunged() && !imessage.isSet(Flags.Flag.DELETED)) {
+                try {
                     long uid = ifolder.getUID(imessage);
                     if (!uids.remove(uid))
                         added.add(imessage);
+                } catch (MessageRemovedException ex) {
+                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
 
             // Delete local messages not at remote
@@ -844,13 +849,6 @@ public class ServiceSynchronize extends LifecycleService {
         fp.add(UIDFolder.FetchProfileItem.UID);
         fp.add(IMAPFolder.FetchProfileItem.FLAGS);
         ifolder.fetch(new Message[]{imessage}, fp);
-
-        boolean expunged = imessage.isExpunged();
-        boolean deleted = (!expunged && imessage.isSet(Flags.Flag.DELETED));
-        if (expunged || deleted) {
-            Log.i(Helper.TAG, "Message gone expunged=" + expunged + " deleted=" + deleted);
-            return;
-        }
 
         long uid = ifolder.getUID(imessage);
         Log.i(Helper.TAG, folder.name + " sync uid=" + uid);
