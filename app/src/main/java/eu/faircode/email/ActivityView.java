@@ -320,6 +320,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
 
+                        EntityOperation.queue(ActivityView.this, draft, EntityOperation.ADD);
+
                         startActivity(new Intent(ActivityView.this, ActivityCompose.class)
                                 .putExtra("id", draft.id));
                     }
