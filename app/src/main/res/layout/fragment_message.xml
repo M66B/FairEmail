@@ -44,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="monospace"
-            android:text="Body" />
+            android:text="Body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
     </ScrollView>
 
     <android.support.design.widget.BottomNavigationView

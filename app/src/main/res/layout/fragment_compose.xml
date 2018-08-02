@@ -73,7 +73,8 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
         android:fillViewport="true"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
@@ -89,7 +90,7 @@
             android:gravity="top"
             android:hint="@string/title_body_hint"
             android:inputType="textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
     </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
