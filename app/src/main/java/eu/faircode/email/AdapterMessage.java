@@ -86,22 +86,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             executor.submit(new Runnable() {
                 @Override
                 public void run() {
-                    if (EntityFolder.TYPE_DRAFTS.equals(message.folderType))
-                        context.startActivity(
-                                new Intent(context, ActivityCompose.class)
-                                        .putExtra("id", message.id));
-                    else {
-                        if (!message.seen && !message.ui_seen) {
-                            message.ui_seen = !message.ui_seen;
-                            DB.getInstance(context).message().updateMessage(message);
-                            EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
-                        }
+                    try {
+                        if (EntityFolder.TYPE_DRAFTS.equals(message.folderType))
+                            context.startActivity(
+                                    new Intent(context, ActivityCompose.class)
+                                            .putExtra("id", message.id));
+                        else {
+                            if (!message.seen && !message.ui_seen) {
+                                message.ui_seen = !message.ui_seen;
+                                DB.getInstance(context).message().updateMessage(message);
+                                EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
+                            }
 
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                        .putExtra("folder", message.folder)
-                                        .putExtra("id", message.id));
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
+                                            .putExtra("folder", message.folder)
+                                            .putExtra("id", message.id));
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
                 }
             });

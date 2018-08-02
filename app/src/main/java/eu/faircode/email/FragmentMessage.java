@@ -35,6 +35,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -213,11 +214,15 @@ public class FragmentMessage extends Fragment {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                DB db = DB.getInstance(getContext());
-                EntityMessage message = db.message().getMessage(id);
-                message.ui_seen = !message.ui_seen;
-                db.message().updateMessage(message);
-                EntityOperation.queue(getContext(), message, EntityOperation.SEEN, message.ui_seen);
+                try {
+                    DB db = DB.getInstance(getContext());
+                    EntityMessage message = db.message().getMessage(id);
+                    message.ui_seen = !message.ui_seen;
+                    db.message().updateMessage(message);
+                    EntityOperation.queue(getContext(), message, EntityOperation.SEEN, message.ui_seen);
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
             }
         });
     }
@@ -259,12 +264,16 @@ public class FragmentMessage extends Fragment {
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
-                                DB db = DB.getInstance(getContext());
-                                EntityMessage message = db.message().getMessage(id);
-                                message.ui_hide = true;
-                                db.message().updateMessage(message);
+                                try {
+                                    DB db = DB.getInstance(getContext());
+                                    EntityMessage message = db.message().getMessage(id);
+                                    message.ui_hide = true;
+                                    db.message().updateMessage(message);
 
-                                EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
+                                    EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
                             }
                         });
                     }
@@ -282,18 +291,22 @@ public class FragmentMessage extends Fragment {
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
-                                DB db = DB.getInstance(getContext());
-                                EntityMessage message = db.message().getMessage(id);
-                                EntityFolder spam = db.folder().getSpamFolder(message.account);
-                                if (spam == null) {
-                                    Toast.makeText(getContext(), R.string.title_no_spam, Toast.LENGTH_LONG).show();
-                                    return;
+                                try {
+                                    DB db = DB.getInstance(getContext());
+                                    EntityMessage message = db.message().getMessage(id);
+                                    EntityFolder spam = db.folder().getSpamFolder(message.account);
+                                    if (spam == null) {
+                                        Toast.makeText(getContext(), R.string.title_no_spam, Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
+
+                                    message.ui_hide = true;
+                                    db.message().updateMessage(message);
+
+                                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                 }
-
-                                message.ui_hide = true;
-                                db.message().updateMessage(message);
-
-                                EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
                             }
                         });
                     }
@@ -305,18 +318,22 @@ public class FragmentMessage extends Fragment {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                DB db = DB.getInstance(getContext());
-                EntityMessage message = db.message().getMessage(id);
-                EntityFolder archive = db.folder().getArchiveFolder(message.account);
-                if (archive == null) {
-                    Toast.makeText(getContext(), R.string.title_no_archive, Toast.LENGTH_LONG).show();
-                    return;
+                try {
+                    DB db = DB.getInstance(getContext());
+                    EntityMessage message = db.message().getMessage(id);
+                    EntityFolder archive = db.folder().getArchiveFolder(message.account);
+                    if (archive == null) {
+                        Toast.makeText(getContext(), R.string.title_no_archive, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    message.ui_hide = true;
+                    db.message().updateMessage(message);
+
+                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
-
-                message.ui_hide = true;
-                db.message().updateMessage(message);
-
-                EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
             }
         });
     }

@@ -257,63 +257,66 @@ public class FragmentCompose extends Fragment {
         @Nullable
         @Override
         public Bundle loadInBackground() {
-            String action = args.getString("action");
-            long id = args.getLong("id", -1);
-            EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
-
             Bundle result = new Bundle();
-            result.putString("action", action);
+            try {
+                String action = args.getString("action");
+                long id = args.getLong("id", -1);
+                EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
 
-            if (msg != null) {
-                if (msg.identity != null)
-                    result.putLong("iid", msg.identity);
-                if (msg.replying != null)
-                    result.putLong("rid", msg.replying);
-                result.putString("thread", msg.thread);
-                result.putString("subject", msg.subject);
-                result.putString("body", msg.body);
-            }
+                result.putString("action", action);
 
-            if (TextUtils.isEmpty(action)) {
                 if (msg != null) {
-                    result.putString("from", msg.from);
-                    result.putString("to", msg.to);
+                    if (msg.identity != null)
+                        result.putLong("iid", msg.identity);
+                    if (msg.replying != null)
+                        result.putLong("rid", msg.replying);
+                    result.putString("thread", msg.thread);
+                    result.putString("subject", msg.subject);
+                    result.putString("body", msg.body);
                 }
-            } else if ("reply".equals(action)) {
-                String to = null;
-                if (msg != null)
-                    try {
-                        Address[] reply = MessageHelper.decodeAddresses(msg.reply);
-                        to = (reply.length == 0 ? msg.from : msg.reply);
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-                result.putLong("rid", msg.id);
-                result.putString("from", msg.to);
-                result.putString("to", to);
-            } else if ("reply_all".equals(action)) {
-                String to = null;
-                if (msg != null) {
-                    try {
-                        Address[] from = MessageHelper.decodeAddresses(msg.from);
-                        Address[] reply = MessageHelper.decodeAddresses(msg.reply);
-                        Address[] cc = MessageHelper.decodeAddresses(msg.cc);
-                        List<Address> addresses = new ArrayList<>();
-                        addresses.addAll(Arrays.asList(reply.length == 0 ? from : reply));
-                        addresses.addAll(Arrays.asList(cc));
-                        to = MessageHelper.encodeAddresses(addresses.toArray(new Address[0]));
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-                }
-                result.putLong("rid", msg.id);
-                result.putString("from", msg.to);
-                result.putString("to", to);
-            } else if ("forward".equals(action)) {
-                result.putString("from", msg.to);
-                result.putString("to", null);
-            }
 
+                if (TextUtils.isEmpty(action)) {
+                    if (msg != null) {
+                        result.putString("from", msg.from);
+                        result.putString("to", msg.to);
+                    }
+                } else if ("reply".equals(action)) {
+                    String to = null;
+                    if (msg != null)
+                        try {
+                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
+                            to = (reply.length == 0 ? msg.from : msg.reply);
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+                    result.putLong("rid", msg.id);
+                    result.putString("from", msg.to);
+                    result.putString("to", to);
+                } else if ("reply_all".equals(action)) {
+                    String to = null;
+                    if (msg != null) {
+                        try {
+                            Address[] from = MessageHelper.decodeAddresses(msg.from);
+                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
+                            Address[] cc = MessageHelper.decodeAddresses(msg.cc);
+                            List<Address> addresses = new ArrayList<>();
+                            addresses.addAll(Arrays.asList(reply.length == 0 ? from : reply));
+                            addresses.addAll(Arrays.asList(cc));
+                            to = MessageHelper.encodeAddresses(addresses.toArray(new Address[0]));
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+                    }
+                    result.putLong("rid", msg.id);
+                    result.putString("from", msg.to);
+                    result.putString("to", to);
+                } else if ("forward".equals(action)) {
+                    result.putString("from", msg.to);
+                    result.putString("to", null);
+                }
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
             return result;
         }
     }
@@ -405,15 +408,19 @@ public class FragmentCompose extends Fragment {
 
         @Override
         public Throwable loadInBackground() {
-            long id = args.getLong("id");
-            DaoMessage message = DB.getInstance(getContext()).message();
-            EntityMessage draft = message.getMessage(id);
-            if (draft != null) {
-                draft.ui_hide = true;
-                message.updateMessage(draft);
-                EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+            try {
+                long id = args.getLong("id");
+                DaoMessage message = DB.getInstance(getContext()).message();
+                EntityMessage draft = message.getMessage(id);
+                if (draft != null) {
+                    draft.ui_hide = true;
+                    message.updateMessage(draft);
+                    EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+                }
+                return null;
+            } catch (Throwable ex) {
+                return ex;
             }
-            return null;
         }
     }
 
