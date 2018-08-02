@@ -18,4 +18,13 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider name="mailbox.org">
+        <imap
+            host="imap.mailbox.org"
+            port="993" />
+        <smtp
+            host="smtp.mailbox.org"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
