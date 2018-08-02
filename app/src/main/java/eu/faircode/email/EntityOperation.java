@@ -74,8 +74,13 @@ public class EntityOperation {
         DaoOperation dao = DB.getInstance(context).operation();
 
         int purged = 0;
-        if (SEEN.equals(name))
+        if (SEEN.equals(name)) {
+            if (message.uid == null) {
+                // local message
+                return;
+            }
             purged = dao.deleteOperations(message.id, name);
+        }
 
         EntityOperation operation = new EntityOperation();
         operation.message = message.id;
