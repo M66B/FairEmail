@@ -176,21 +176,22 @@ public class MessageHelper {
 
     static Address[] decodeAddresses(String json) {
         List<Address> result = new ArrayList<>();
-        try {
-            JSONArray jaddresses = new JSONArray(json);
-            for (int i = 0; i < jaddresses.length(); i++) {
-                JSONObject jaddress = (JSONObject) jaddresses.get(i);
-                if (jaddress.has("personal"))
-                    result.add(new InternetAddress(
-                            jaddress.getString("address"),
-                            jaddress.getString("personal")));
-                else
-                    result.add(new InternetAddress(
-                            jaddress.getString("address")));
+        if (json != null)
+            try {
+                JSONArray jaddresses = new JSONArray(json);
+                for (int i = 0; i < jaddresses.length(); i++) {
+                    JSONObject jaddress = (JSONObject) jaddresses.get(i);
+                    if (jaddress.has("personal"))
+                        result.add(new InternetAddress(
+                                jaddress.getString("address"),
+                                jaddress.getString("personal")));
+                    else
+                        result.add(new InternetAddress(
+                                jaddress.getString("address")));
+                }
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
-        } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-        }
         return result.toArray(new Address[0]);
     }
 
