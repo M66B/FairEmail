@@ -498,7 +498,7 @@ public class ServiceSynchronize extends LifecycleService {
             };
 
             // Listen for process operations requests
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
             lbm.registerReceiver(receiver, new IntentFilter(ACTION_PROCESS_OPERATIONS + folder.id));
             Log.i(Helper.TAG, folder.name + " listen process id=" + folder.id);
             try {
@@ -561,7 +561,7 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             Log.i(Helper.TAG, folder.name + " start process");
 
-            DB db = DB.getInstance(ServiceSynchronize.this);
+            DB db = DB.getInstance(this);
             DaoOperation operation = db.operation();
             DaoMessage message = db.message();
             for (TupleOperationEx op : operation.getOperations(folder.id)) {
@@ -571,99 +571,59 @@ public class ServiceSynchronize extends LifecycleService {
                         " msg=" + op.message);
 
                 JSONArray jargs = new JSONArray(op.args);
-
-                if (EntityOperation.SEEN.equals(op.name)) {
-                    // Mark message (un)seen
-                    try {
+                try {
+                    if (EntityOperation.SEEN.equals(op.name)) {
+                        // Mark message (un)seen
                         Message imessage = ifolder.getMessageByUID(op.uid);
-                        if (imessage != null)
-                            imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
-                        else
-                            Log.w(Helper.TAG, "Remote message not found uid=" + op.uid);
-                    } catch (MessagingException ex) {
-                        // Countermeasure
-                        Log.i(Helper.TAG, folder.name + " countermeasure " + op.id + "/" + op.name);
-                        EntityMessage msg = message.getMessage(op.message);
-                        msg.ui_seen = msg.seen;
-                        message.updateMessage(msg);
-                        throw ex;
-                    }
+                        if (imessage == null)
+                            throw new MessageRemovedException();
+                        imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
 
-                } else if (EntityOperation.ADD.equals(op.name)) {
-                    // Append message
-                    try {
+                    } else if (EntityOperation.ADD.equals(op.name)) {
+                        // Append message
                         EntityMessage msg = message.getMessage(op.message);
                         Properties props = MessageHelper.getSessionProperties();
                         Session isession = Session.getDefaultInstance(props, null);
                         MimeMessage imessage = MessageHelper.from(msg, isession);
-
                         ifolder.appendMessages(new Message[]{imessage});
 
-                        // Draft can be saved multiple times
-                        if (msg.uid != null) {
-                            Message previously = ifolder.getMessageByUID(msg.uid);
-                            previously.setFlag(Flags.Flag.DELETED, true);
-                            ifolder.expunge();
+                        // Drafts can be appended multiple times
+                        try {
+                            if (msg.uid != null) {
+                                Message previously = ifolder.getMessageByUID(msg.uid);
+                                previously.setFlag(Flags.Flag.DELETED, true);
+                                ifolder.expunge();
+                            }
+                        } finally {
+                            // Remote will report appended
+                            message.deleteMessage(op.message);
                         }
 
-                        message.deleteMessage(op.message);
-                    } catch (MessagingException ex) {
-                        // Countermeasure
-                        // TODO: try again?
-                        throw ex;
-                    }
-
-                } else if (EntityOperation.MOVE.equals(op.name)) {
-                    // Move message
-                    try {
-                        Message imessage = ifolder.getMessageByUID(op.uid);
+                    } else if (EntityOperation.MOVE.equals(op.name)) {
+                        // Move message
                         EntityFolder archive = db.folder().getFolder(jargs.getLong(0));
+                        Message imessage = ifolder.getMessageByUID(op.uid);
                         Folder target = istore.getFolder(archive.name);
-
                         ifolder.moveMessages(new Message[]{imessage}, target);
 
                         message.deleteMessage(op.message);
-                    } catch (MessagingException ex) {
-                        // Countermeasure
-                        Log.i(Helper.TAG, folder.name + " countermeasure " + op.id + "/" + op.name);
-                        EntityMessage msg = message.getMessage(op.message);
-                        msg.ui_hide = false;
-                        message.updateMessage(msg);
-                        throw ex;
-                    }
 
-                } else if (EntityOperation.DELETE.equals(op.name)) {
-                    // Delete message
-                    try {
-                        if (op.uid != null) {
-                            Message imessage = ifolder.getMessageByUID(op.uid);
-                            if (imessage != null) {
-                                imessage.setFlag(Flags.Flag.DELETED, true);
-                                ifolder.expunge();
-                            } else
-                                Log.w(Helper.TAG, "Remote message not found uid=" + op.uid);
-                        } else {
-                            // Not appended draft
-                            Log.w(Helper.TAG, "Delete without uid id=" + op.message);
-                        }
+                    } else if (EntityOperation.DELETE.equals(op.name)) {
+                        // Delete message
+                        Message imessage = ifolder.getMessageByUID(op.uid);
+                        if (imessage == null)
+                            throw new MessageRemovedException();
+                        imessage.setFlag(Flags.Flag.DELETED, true);
+                        ifolder.expunge();
 
                         message.deleteMessage(op.message);
-                    } catch (MessagingException ex) {
-                        // Countermeasure
-                        Log.i(Helper.TAG, folder.name + " countermeasure " + op.id + "/" + op.name);
+
+                    } else if (EntityOperation.SEND.equals(op.name)) {
+                        // Send message
                         EntityMessage msg = message.getMessage(op.message);
-                        msg.ui_hide = false;
-                        message.updateMessage(msg);
-                        throw ex;
-                    }
+                        EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
+                        EntityIdentity ident = db.identity().getIdentity(msg.identity);
 
-                } else if (EntityOperation.SEND.equals(op.name)) {
-                    // Send message
-                    EntityMessage msg = message.getMessage(op.message);
-                    EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
-                    EntityIdentity ident = db.identity().getIdentity(msg.identity);
-
-                    try {
                         Properties props = MessageHelper.getSessionProperties();
                         Session isession = Session.getDefaultInstance(props, null);
 
@@ -686,26 +646,22 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // Make sure the message is sent only once
                             operation.deleteOperation(op.id);
-
                             message.deleteMessage(op.message);
                         } finally {
                             itransport.close();
                         }
 
-                    } catch (MessagingException ex) {
-                        // Countermeasure
-                        Log.i(Helper.TAG, folder.name + " countermeasure " + op.id + "/" + op.name);
-                        EntityFolder drafts = db.folder().getPrimaryDraftFolder();
-                        msg.folder = drafts.id;
-                        message.updateMessage(msg);
-                        // Message will not be sent to remote
-                        throw ex;
-                    }
+                    } else
+                        throw new MessagingException("Unknown operation name=" + op.name);
 
-                } else
-                    throw new MessagingException("Unknown operation name=" + op.name);
+                    // Operation succeeded
+                    operation.deleteOperation(op.id);
 
-                operation.deleteOperation(op.id);
+                } catch (MessageRemovedException ex) {
+                    // There is no use in repeating
+                    operation.deleteOperation(op.id);
+                    throw ex;
+                }
             }
         } finally {
             Log.i(Helper.TAG, folder.name + " end process");
@@ -769,7 +725,7 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             Log.i(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
-            DB db = DB.getInstance(ServiceSynchronize.this);
+            DB db = DB.getInstance(this);
             DaoMessage dao = db.message();
 
             // Get reference times
@@ -851,50 +807,63 @@ public class ServiceSynchronize extends LifecycleService {
         ifolder.fetch(new Message[]{imessage}, fp);
 
         long uid = ifolder.getUID(imessage);
-        Log.i(Helper.TAG, folder.name + " sync uid=" + uid);
+        try {
+            Log.i(Helper.TAG, folder.name + " start sync uid=" + uid);
 
-        MessageHelper helper = new MessageHelper(imessage);
-        boolean seen = helper.getSeen();
+            if (imessage.isExpunged()) {
+                Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
+                return;
+            }
+            if (imessage.isSet(Flags.Flag.DELETED)) {
+                Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
+                return;
+            }
 
-        DB db = DB.getInstance(ServiceSynchronize.this);
-        EntityMessage message = db.message().getMessage(folder.id, uid);
-        if (message == null) {
-            FetchProfile fp1 = new FetchProfile();
-            fp1.add(FetchProfile.Item.ENVELOPE);
-            fp1.add(FetchProfile.Item.CONTENT_INFO);
-            fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
-            fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            ifolder.fetch(new Message[]{imessage}, fp1);
+            MessageHelper helper = new MessageHelper(imessage);
+            boolean seen = helper.getSeen();
 
-            message = new EntityMessage();
-            message.account = folder.account;
-            message.folder = folder.id;
-            message.uid = uid;
-            message.msgid = helper.getMessageID();
-            message.references = TextUtils.join(" ", helper.getReferences());
-            message.inreplyto = helper.getInReplyTo();
-            message.thread = helper.getThreadId(uid);
-            message.from = helper.getFrom();
-            message.to = helper.getTo();
-            message.cc = helper.getCc();
-            message.bcc = null;
-            message.reply = helper.getReply();
-            message.subject = imessage.getSubject();
-            message.body = helper.getHtml();
-            message.received = imessage.getReceivedDate().getTime();
-            message.sent = imessage.getSentDate().getTime();
-            message.seen = seen;
-            message.ui_seen = seen;
-            message.ui_hide = false;
+            DB db = DB.getInstance(this);
+            EntityMessage message = db.message().getMessage(folder.id, uid);
+            if (message == null) {
+                FetchProfile fp1 = new FetchProfile();
+                fp1.add(FetchProfile.Item.ENVELOPE);
+                fp1.add(FetchProfile.Item.CONTENT_INFO);
+                fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
+                fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                ifolder.fetch(new Message[]{imessage}, fp1);
 
-            message.id = db.message().insertMessage(message);
-            Log.i(Helper.TAG, folder.name + " added uid=" + uid + " id=" + message.id);
-        } else if (message.seen != seen) {
-            message.seen = seen;
-            message.ui_seen = seen;
+                message = new EntityMessage();
+                message.account = folder.account;
+                message.folder = folder.id;
+                message.uid = uid;
+                message.msgid = helper.getMessageID();
+                message.references = TextUtils.join(" ", helper.getReferences());
+                message.inreplyto = helper.getInReplyTo();
+                message.thread = helper.getThreadId(uid);
+                message.from = helper.getFrom();
+                message.to = helper.getTo();
+                message.cc = helper.getCc();
+                message.bcc = null;
+                message.reply = helper.getReply();
+                message.subject = imessage.getSubject();
+                message.body = helper.getHtml();
+                message.received = imessage.getReceivedDate().getTime();
+                message.sent = imessage.getSentDate().getTime();
+                message.seen = seen;
+                message.ui_seen = seen;
+                message.ui_hide = false;
 
-            db.message().updateMessage(message);
-            Log.i(Helper.TAG, folder.name + " updated uid=" + uid + " id=" + message.id);
+                message.id = db.message().insertMessage(message);
+                Log.i(Helper.TAG, folder.name + " added id=" + message.id);
+            } else if (message.seen != seen) {
+                message.seen = seen;
+                message.ui_seen = seen;
+
+                db.message().updateMessage(message);
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
+            }
+        } finally {
+            Log.i(Helper.TAG, folder.name + " end sync uid=" + uid);
         }
     }
 
