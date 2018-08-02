@@ -63,6 +63,7 @@ import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
+import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -392,6 +393,8 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(Helper.TAG, folder.name + " messages added");
                         for (Message imessage : e.getMessages())
                             synchronizeMessage(folder, ffolder, (IMAPMessage) imessage);
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
@@ -441,6 +444,8 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         Log.i(Helper.TAG, folder.name + " message changed");
                         synchronizeMessage(folder, ffolder, (IMAPMessage) e.getMessage());
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
@@ -812,7 +817,11 @@ public class ServiceSynchronize extends LifecycleService {
                 try {
                     db.beginTransaction();
                     for (int i = 0; i < FETCH_BATCH_SIZE && batch + i < added.size(); i++)
-                        synchronizeMessage(folder, ifolder, (IMAPMessage) added.get(batch + i));
+                        try {
+                            synchronizeMessage(folder, ifolder, (IMAPMessage) added.get(batch + i));
+                        } catch (MessageRemovedException ex) {
+                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        }
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
