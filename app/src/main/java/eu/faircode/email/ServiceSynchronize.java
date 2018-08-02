@@ -62,6 +62,7 @@ import javax.mail.Address;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
+import javax.mail.FolderClosedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -211,8 +212,16 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
+    private void reportError(String account, String folder, Throwable ex) {
+        String action = account + "/" + folder;
+        if (!(ex instanceof IllegalStateException) &&
+                !(ex instanceof FolderClosedException)) {
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            nm.notify(action, 1, getNotification(action, ex).build());
+        }
+    }
+
     private void monitorAccount(final EntityAccount account) {
-        final NotificationManager nm = getSystemService(NotificationManager.class);
         Log.i(Helper.TAG, account.name + " start ");
 
         while (state.running) {
@@ -274,10 +283,10 @@ public class ServiceSynchronize extends LifecycleService {
                                     @Override
                                     public void run() {
                                         try {
-                                            monitorFolder(folder, fstore);
+                                            monitorFolder(account, folder, fstore);
                                         } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                            nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            reportError(account.name, folder.name, ex);
 
                                             // Cascade up
                                             try {
@@ -293,7 +302,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            nm.notify("error", account.id.intValue(), getNotification(account.name, ex).build());
+                            reportError(account.name, null, ex);
 
                             // Cascade up
                             try {
@@ -374,9 +383,7 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, account.name + " stopped");
     }
 
-    private void monitorFolder(final EntityFolder folder, final IMAPStore istore) throws MessagingException, JSONException {
-        final NotificationManager nm = getSystemService(NotificationManager.class);
-
+    private void monitorFolder(final EntityAccount account, final EntityFolder folder, final IMAPStore istore) throws MessagingException, JSONException {
         IMAPFolder ifolder = null;
         try {
             Log.i(Helper.TAG, folder.name + " start");
@@ -397,7 +404,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                        nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                        reportError(account.name, folder.name, ex);
 
                         // Cascade up
                         try {
@@ -420,7 +427,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                        nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                        reportError(account.name, folder.name, ex);
 
                         // Cascade up
                         try {
@@ -448,7 +455,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                        nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                        reportError(account.name, folder.name, ex);
 
                         // Cascade up
                         try {
@@ -473,7 +480,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                                reportError(account.name, folder.name, ex);
 
                                 // Cascade up
                                 try {
@@ -512,7 +519,7 @@ public class ServiceSynchronize extends LifecycleService {
                             } while (open);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            nm.notify("error", folder.id.intValue(), getNotification(folder.name, ex).build());
+                            reportError(account.name, folder.name, ex);
 
                             // Cascade up
                             try {
@@ -995,8 +1002,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            NotificationManager nm = getSystemService(NotificationManager.class);
-                            nm.notify("error", outbox.id.intValue(), getNotification(outbox.name, ex).build());
+                            reportError(null, outbox.name, ex);
                         }
                     }
                 });
