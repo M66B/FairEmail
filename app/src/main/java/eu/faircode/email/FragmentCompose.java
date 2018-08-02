@@ -477,7 +477,7 @@ public class FragmentCompose extends Fragment {
                 String subject = args.getString("subject");
 
                 Address afrom = (ident == null ? null : new InternetAddress(ident.email, ident.name));
-                Address ato[] = (TextUtils.isEmpty(to) ? new Address[0] : InternetAddress.parse(to));
+                Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
 
                 // Build draft
                 boolean update = (draft != null);
