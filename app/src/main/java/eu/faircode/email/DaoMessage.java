@@ -37,7 +37,9 @@ public interface DaoMessage {
             " JOIN message ON folder = folder.id" +
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
             " AND NOT ui_hide" +
-            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder GROUP BY m.thread)")
+            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
+            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
+        // in theory the message id and thread could be the same
     LiveData<List<TupleMessageEx>> liveUnifiedInbox();
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
@@ -47,7 +49,8 @@ public interface DaoMessage {
             " JOIN message ON folder = folder.id" +
             " WHERE folder.id = :folder" +
             " AND NOT ui_hide" +
-            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder GROUP BY m.thread)")
+            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
+            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
     LiveData<List<TupleMessageEx>> liveMessages(long folder);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
