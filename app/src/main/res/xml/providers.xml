@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<providers>
+    <provider name="Gmail">
+        <imap
+            host="imap.gmail.com"
+            port="993" />
+        <smtp
+            host="smtp.gmail.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider name="Outlook">
+        <imap
+            host="imap-mail.outlook.com"
+            port="993" />
+        <smtp
+            host="smtp-mail.outlook.com"
+            port="587"
+            starttls="true" />
+    </provider>
+</providers>

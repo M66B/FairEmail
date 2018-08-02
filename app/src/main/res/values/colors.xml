@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039be5</color>
+    <color name="colorPrimaryDark">#006db3</color>
+    <color name="colorAccent">#ffb300</color>
+
+    <color name="colorActionForeground">#fff</color>
+
+    <color name="lightColorSeparator">#ffaaaaaa</color>
+    <color name="lightColorDrawerScrim">#99000000</color>
+    <color name="lightColorDrawerText">#111</color>
+    <color name="lightColorDrawerBackground">#eee</color>
+
+    <color name="darkColorSeparator">#ff878787</color>
+    <color name="darkColorDrawerScrim">#997f7f7f</color>
+    <color name="darkColorDrawerText">#fff</color>
+    <color name="darkColorDrawerBackground">#222</color>
+</resources>

@@ -1,0 +1,32 @@
+<resources>
+    <attr name="colorSeparator" format="reference" />
+    <attr name="colorDrawerScrim" format="reference" />
+    <attr name="colorDrawerText" format="reference" />
+    <attr name="colorDrawerBackground" format="reference" />
+
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowDisablePreview">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSeparator">@color/lightColorSeparator</item>
+        <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
+        <item name="colorDrawerText">@color/lightColorDrawerText</item>
+        <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat">
+        <item name="android:windowDisablePreview">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSeparator">@color/darkColorSeparator</item>
+        <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>
+        <item name="colorDrawerText">@color/darkColorDrawerText</item>
+        <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
+    </style>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_seen"
+        android:icon="@drawable/baseline_visibility_off_black_18"
+        android:title="@string/title_seen"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_thread"
+        android:icon="@drawable/baseline_message_24"
+        android:title="@string/title_thread"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_move"
+        android:icon="@drawable/baseline_folder_24"
+        android:title="@string/title_move"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_forward"
+        android:icon="@drawable/baseline_forward_24"
+        android:title="@string/title_forward"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_reply_all"
+        android:icon="@drawable/baseline_reply_all_24"
+        android:title="@string/title_reply_all"
+        app:showAsAction="ifRoom" />
+</menu>
