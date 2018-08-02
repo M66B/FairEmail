@@ -56,12 +56,12 @@ This app starts a foreground service with a low priority status bar notification
 Frequently Asked Questions
 --------------------------
 
-See [here](https://github.com/M66B/SafeEmail/blob/master/FAQ.md) for a list of often asked questions.
+See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions.
 
 Support
 -------
 
-* For support on Safe email, please go [here](https://forum.xda-developers.com/)
+* For support on Safe email, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 
 Contributing
 ------------
