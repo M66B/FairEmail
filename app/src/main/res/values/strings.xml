@@ -39,6 +39,8 @@
 
     <string name="title_name">Your name</string>
     <string name="title_email">Your email address</string>
+    <string name="title_reply_to">Reply to address</string>
+    <string name="title_optional">Optional</string>
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">optional</string>
     <string name="title_imap">IMAP</string>

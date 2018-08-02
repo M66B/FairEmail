@@ -59,6 +59,7 @@ public class FragmentIdentity extends Fragment {
     private Spinner spProfile;
     private EditText etName;
     private EditText etEmail;
+    private EditText etReplyTo;
     private EditText etHost;
     private CheckBox cbStartTls;
     private EditText etPort;
@@ -86,6 +87,7 @@ public class FragmentIdentity extends Fragment {
         spProfile = view.findViewById(R.id.spProvider);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
+        etReplyTo = view.findViewById(R.id.etReplyTo);
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
         etPort = view.findViewById(R.id.etPort);
@@ -152,6 +154,7 @@ public class FragmentIdentity extends Fragment {
                 args.putLong("id", id);
                 args.putString("name", etName.getText().toString());
                 args.putString("email", etEmail.getText().toString());
+                args.putString("replyto", etReplyTo.getText().toString());
                 args.putString("host", etHost.getText().toString());
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
@@ -169,6 +172,7 @@ public class FragmentIdentity extends Fragment {
             public void onChanged(@Nullable EntityIdentity identity) {
                 etName.setText(identity == null ? null : identity.name);
                 etEmail.setText(identity == null ? null : identity.email);
+                etReplyTo.setText(identity == null ? null : identity.replyto);
                 etHost.setText(identity == null ? null : identity.host);
                 cbStartTls.setChecked(identity == null ? false : identity.starttls);
                 etPort.setText(identity == null ? null : Long.toString(identity.port));
@@ -216,6 +220,7 @@ public class FragmentIdentity extends Fragment {
                     identity = new EntityIdentity();
                 identity.name = Objects.requireNonNull(args.getString("name"));
                 identity.email = Objects.requireNonNull(args.getString("email"));
+                identity.replyto = args.getString("replyto");
                 identity.host = host;
                 identity.port = Integer.parseInt(port);
                 identity.starttls = starttls;
