@@ -102,9 +102,10 @@
     <string name="title_send">Send</string>
 
     <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+
     <string name="title_from_missing">Sender missing</string>
     <string name="title_to_missing">Recipient missing</string>
-    <string name="title_deleted">Message deleted</string>
-    <string name="title_saved">Message saved</string>
+    <string name="title_draft_deleted">Draft deleted</string>
+    <string name="title_draft_saved">Draft saved</string>
     <string name="title_queued">Message queued</string>
 </resources>

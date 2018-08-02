@@ -432,7 +432,7 @@ public class FragmentCompose extends Fragment {
 
             if (ex == null) {
                 getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), R.string.title_deleted, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
             }
         }
 
@@ -571,7 +571,7 @@ public class FragmentCompose extends Fragment {
 
             if (ex == null) {
                 getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), send ? R.string.title_queued : R.string.title_saved, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), send ? R.string.title_queued : R.string.title_draft_saved, Toast.LENGTH_LONG).show();
             } else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
