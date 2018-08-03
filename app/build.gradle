@@ -9,6 +9,12 @@ android {
         versionCode 3
         versionName "0.3"
         archivesBaseName = "SafeEmail-v$versionName"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {

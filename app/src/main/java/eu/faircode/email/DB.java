@@ -37,9 +37,10 @@ import android.util.Log;
                 EntityAccount.class,
                 EntityFolder.class,
                 EntityMessage.class,
+                EntityAttachment.class,
                 EntityOperation.class
         },
-        version = 1,
+        version = 2,
         exportSchema = true
 )
 
@@ -52,6 +53,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoFolder folder();
 
     public abstract DaoMessage message();
+
+    public abstract DaoAttachment attachment();
 
     public abstract DaoOperation operation();
 
@@ -67,7 +70,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
         return builder
-                //.addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_1_2)
                 .build();
     }
 
@@ -75,7 +78,14 @@ public abstract class DB extends RoomDatabase {
         @Override
         public void migrate(SupportSQLiteDatabase db) {
             Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("ALTER TABLE message ADD COLUMN error TEXT");
+            db.execSQL("CREATE TABLE IF NOT EXISTS `attachment`" +
+                    " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                    ", `message` INTEGER NOT NULL" +
+                    ", `sequence` INTEGER NOT NULL" +
+                    ", `type` TEXT NOT NULL, `name` TEXT" +
+                    ", `content` BLOB, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+            db.execSQL("CREATE INDEX `index_attachment_message` ON `attachment` (`message`)");
+            db.execSQL("CREATE UNIQUE INDEX `index_attachment_message_sequence` ON `attachment` (`message`, `sequence`)");
         }
     };
 

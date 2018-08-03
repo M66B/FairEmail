@@ -50,6 +50,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -101,7 +102,10 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     public ServiceSynchronize() {
+        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
         System.setProperty("mail.mime.ignoreunknownencoding", "true");
+        System.setProperty("mail.mime.decodefilename", "true");
+        System.setProperty("mail.mime.encodefilename", "true");
     }
 
     @Override
@@ -383,7 +387,7 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, account.name + " stopped");
     }
 
-    private void monitorFolder(final EntityAccount account, final EntityFolder folder, final IMAPStore istore) throws MessagingException, JSONException {
+    private void monitorFolder(final EntityAccount account, final EntityFolder folder, final IMAPStore istore) throws MessagingException, JSONException, IOException {
         IMAPFolder ifolder = null;
         try {
             Log.i(Helper.TAG, folder.name + " start");
@@ -722,7 +726,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessages(EntityFolder folder, IMAPFolder ifolder) throws MessagingException, JSONException {
+    private void synchronizeMessages(EntityFolder folder, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         try {
             Log.i(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
@@ -801,7 +805,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, JSONException {
+    private void synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, JSONException, IOException {
         FetchProfile fp = new FetchProfile();
         fp.add(UIDFolder.FetchProfileItem.UID);
         fp.add(IMAPFolder.FetchProfileItem.FLAGS);
@@ -856,6 +860,13 @@ public class ServiceSynchronize extends LifecycleService {
 
                 message.id = db.message().insertMessage(message);
                 Log.i(Helper.TAG, folder.name + " added id=" + message.id);
+
+                for (EntityAttachment attachment : helper.getAttachments()) {
+                    Log.i(Helper.TAG, "attachment name=" + attachment.name + " type=" + attachment.type);
+                    attachment.message = message.id;
+                    db.attachment().insertAttachment(attachment);
+                }
+
             } else if (message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;

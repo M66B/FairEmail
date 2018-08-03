@@ -33,7 +33,8 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                 @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
-                @Index(value = {"message"})
+                @Index(value = {"message"}),
+                @Index(value = {"message", "sequence"}, unique = true)
         }
 )
 public class EntityAttachment {
@@ -44,7 +45,9 @@ public class EntityAttachment {
     @NonNull
     public Long message;
     @NonNull
-    public String type;
+    public Integer sequence;
     public String name;
+    @NonNull
+    public String type;
     public byte[] content;
 }

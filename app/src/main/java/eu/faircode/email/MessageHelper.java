@@ -37,12 +37,14 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.BodyPart;
 import javax.mail.Flags;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.Session;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -121,6 +123,10 @@ public class MessageHelper {
         byte[] bytes = Base64.decode(raw, Base64.URL_SAFE);
         InputStream is = new ByteArrayInputStream(bytes);
         this.imessage = new MimeMessage(isession, is);
+    }
+
+    boolean getSeen() throws MessagingException {
+        return imessage.isSet(Flags.Flag.SEEN);
     }
 
     String getMessageID() throws MessagingException {
@@ -205,10 +211,6 @@ public class MessageHelper {
         return result.toArray(new Address[0]);
     }
 
-    String getHtml() throws MessagingException {
-        return getHtml(imessage);
-    }
-
     static String getFormattedAddresses(String json) {
         if (json == null)
             return null;
@@ -228,6 +230,10 @@ public class MessageHelper {
         } catch (Throwable ex) {
             return ex.getMessage();
         }
+    }
+
+    String getHtml() throws MessagingException {
+        return getHtml(imessage);
     }
 
     private String getHtml(Part part) throws MessagingException {
@@ -280,8 +286,42 @@ public class MessageHelper {
         return null;
     }
 
-    boolean getSeen() throws MessagingException {
-        return imessage.isSet(Flags.Flag.SEEN);
+    public List<EntityAttachment> getAttachments() throws IOException, MessagingException {
+        List<EntityAttachment> result = new ArrayList<>();
+
+        Object content = imessage.getContent();
+        if (content instanceof String)
+            return result;
+
+        if (content instanceof Multipart) {
+            Multipart multipart = (Multipart) content;
+            for (int i = 0; i < multipart.getCount(); i++)
+                result.addAll(getAttachments(multipart.getBodyPart(i)));
+        }
+
+        return result;
+    }
+
+    private List<EntityAttachment> getAttachments(BodyPart part) throws IOException, MessagingException {
+        List<EntityAttachment> result = new ArrayList<>();
+
+        Object content = part.getContent();
+        if (content instanceof InputStream || content instanceof String) {
+            if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()) || !TextUtils.isEmpty(part.getFileName())) {
+                ContentType ct = new ContentType(part.getContentType());
+                EntityAttachment attachment = new EntityAttachment();
+                attachment.sequence = result.size() + 1;
+                attachment.name = part.getFileName();
+                attachment.type = ct.getBaseType();
+                result.add(attachment);
+            }
+        } else if (content instanceof Multipart) {
+            Multipart multipart = (Multipart) content;
+            for (int i = 0; i < multipart.getCount(); i++)
+                result.addAll(getAttachments(multipart.getBodyPart(i)));
+        }
+
+        return result;
     }
 
     String getRaw() throws IOException, MessagingException {
