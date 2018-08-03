@@ -158,8 +158,6 @@ public class FragmentCompose extends Fragment {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                bottom_navigation.setEnabled(false);
-
                 switch (item.getItemId()) {
                     case R.id.action_delete:
                         actionDelete(id);
@@ -182,7 +180,7 @@ public class FragmentCompose extends Fragment {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(id > 0);
-        bottom_navigation.setEnabled(false);
+        bottom_navigation.getMenu().setGroupEnabled(0, false);
 
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(getActivity(), new Observer<List<EntityIdentity>>() {
             @Override
@@ -288,13 +286,15 @@ public class FragmentCompose extends Fragment {
     }
 
     private void actionDelete(final long id) {
+        bottom_navigation.getMenu().setGroupEnabled(0, false);
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_DELETE, args, deleteLoaderCallbacks).forceLoad();
     }
 
     private void actionPut(long id, boolean send) {
-        bottom_navigation.setEnabled(false);
+        bottom_navigation.getMenu().setGroupEnabled(0, false);
 
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
@@ -403,7 +403,7 @@ public class FragmentCompose extends Fragment {
         }
 
         @Override
-        public void onLoadFinished(@NonNull Loader<Bundle> loader, final Bundle result) {
+        public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle result) {
             getLoaderManager().destroyLoader(loader.getId());
 
             long iid = result.getLong("iid", -1);
@@ -463,7 +463,7 @@ public class FragmentCompose extends Fragment {
                 }
             }
 
-            bottom_navigation.setEnabled(true);
+            bottom_navigation.getMenu().setGroupEnabled(0, true);
         }
 
         @Override
@@ -516,6 +516,10 @@ public class FragmentCompose extends Fragment {
             if (ex == null) {
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+            } else {
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                bottom_navigation.getMenu().setGroupEnabled(0, true);
+                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
             }
         }
 
@@ -654,6 +658,7 @@ public class FragmentCompose extends Fragment {
                 Toast.makeText(getContext(), send ? R.string.title_queued : R.string.title_draft_saved, Toast.LENGTH_LONG).show();
             } else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                bottom_navigation.getMenu().setGroupEnabled(0, true);
                 Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
             }
         }
