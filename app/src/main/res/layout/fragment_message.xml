@@ -7,13 +7,138 @@
     android:orientation="vertical"
     tools:context=".ActivityView">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/message_header"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="From"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toStartOf="@+id/tvTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:maxLines="1"
+        android:text="Time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFrom" />
+
+    <TextView
+        android:id="@+id/tvSubject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="Subject"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toStartOf="@+id/tvCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:maxLines="1"
+        android:text="3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvSubject" />
+
+    <View
+        android:id="@+id/vSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+    <TextView
+        android:id="@+id/tvToTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="@string/title_to"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="To"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvToTitle"
+        app:layout_constraintTop_toTopOf="@id/tvToTitle" />
+
+    <TextView
+        android:id="@+id/tvCcTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="@string/title_cc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+    <TextView
+        android:id="@+id/tvCc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="Cc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvCcTitle"
+        app:layout_constraintTop_toTopOf="@id/tvCcTitle" />
+
+    <TextView
+        android:id="@+id/tvBccTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="@string/title_bcc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+    <TextView
+        android:id="@+id/tvBcc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:maxLines="1"
+        android:text="Bcc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvBccTitle"
+        app:layout_constraintTop_toTopOf="@id/tvBccTitle" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/top_navigation"
@@ -25,7 +150,7 @@
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/include"
+        app:layout_constraintTop_toBottomOf="@id/tvBcc"
         app:menu="@menu/action_view_top" />
 
     <ScrollView
@@ -45,7 +170,8 @@
             android:layout_height="match_parent"
             android:fontFamily="monospace"
             android:text="Body"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true" />
     </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
@@ -73,8 +199,14 @@
         app:layout_constraintTop_toBottomOf="parent" />
 
     <android.support.constraint.Group
+        android:id="@+id/grpCc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparator,tvToTitle,tvTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />
+
+    <android.support.constraint.Group
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="include,top_navigation,scroll,bottom_navigation" />
+        app:constraint_referenced_ids="tvFrom,tvTime,tvSubject,tvCount,top_navigation,scroll,bottom_navigation" />
 </android.support.constraint.ConstraintLayout>

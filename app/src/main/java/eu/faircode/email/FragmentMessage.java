@@ -37,6 +37,8 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,12 +55,16 @@ import java.util.concurrent.Executors;
 public class FragmentMessage extends Fragment {
     private TextView tvTime;
     private TextView tvFrom;
+    private TextView tvTo;
+    private TextView tvCc;
+    private TextView tvBcc;
     private TextView tvSubject;
     private TextView tvCount;
     private BottomNavigationView top_navigation;
     private TextView tvBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
+    private Group grpCc;
     private Group grpReady;
 
     private LiveData<TupleFolderEx> liveFolder;
@@ -77,7 +83,10 @@ public class FragmentMessage extends Fragment {
         final long id = args.getLong("id");
 
         // Get controls
-        tvFrom = view.findViewById(R.id.tvAddress);
+        tvFrom = view.findViewById(R.id.tvFrom);
+        tvTo = view.findViewById(R.id.tvTo);
+        tvCc = view.findViewById(R.id.tvCc);
+        tvBcc = view.findViewById(R.id.tvBcc);
         tvTime = view.findViewById(R.id.tvTime);
         tvSubject = view.findViewById(R.id.tvSubject);
         tvCount = view.findViewById(R.id.tvCount);
@@ -85,12 +94,10 @@ public class FragmentMessage extends Fragment {
         tvBody = view.findViewById(R.id.tvBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
+        grpCc = view.findViewById(R.id.grpCc);
         grpReady = view.findViewById(R.id.grpReady);
 
-        tvTime.setTextIsSelectable(true);
-        tvFrom.setTextIsSelectable(true);
-        tvSubject.setTextIsSelectable(true);
-        tvBody.setTextIsSelectable(true);
+        setHasOptionsMenu(true);
         tvBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Wire controls
@@ -141,6 +148,7 @@ public class FragmentMessage extends Fragment {
         });
 
         // Initialize
+        grpCc.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -161,7 +169,10 @@ public class FragmentMessage extends Fragment {
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
                 } else {
-                    tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from));
+                    tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
+                    tvTo.setText(MessageHelper.getFormattedAddresses(message.to));
+                    tvCc.setText(MessageHelper.getFormattedAddresses(message.cc));
+                    tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
                     tvCount.setText(Integer.toString(message.count));
@@ -201,6 +212,27 @@ public class FragmentMessage extends Fragment {
     public void onPause() {
         super.onPause();
         liveFolder.removeObservers(this);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_cc, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_cc:
+                onMenuCc();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuCc() {
+        grpCc.setVisibility(grpCc.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     Observer<TupleFolderEx> folderObserver = new Observer<TupleFolderEx>() {

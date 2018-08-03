@@ -56,7 +56,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         View itemView;
-        TextView tvAddress;
+        TextView tvFrom;
         TextView tvTime;
         TextView tvSubject;
         TextView tvCount;
@@ -65,7 +65,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             super(itemView);
 
             this.itemView = itemView;
-            tvAddress = itemView.findViewById(R.id.tvAddress);
+            tvFrom = itemView.findViewById(R.id.tvFrom);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvCount = itemView.findViewById(R.id.tvCount);
@@ -220,10 +220,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         TupleMessageEx message = filtered.get(position);
 
         if (EntityFolder.isOutgoing(message.folderType)) {
-            holder.tvAddress.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to));
+            holder.tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
             holder.tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
         } else {
-            holder.tvAddress.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from));
+            holder.tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
             holder.tvTime.setText(message.sent == null ? null : DateUtils.getRelativeTimeSpanString(context, message.sent));
         }
 
@@ -236,7 +236,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         boolean unseen = (message.thread == null ? !message.seen : message.unseen > 0);
         int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
-        holder.tvAddress.setTypeface(null, visibility);
+        holder.tvFrom.setTypeface(null, visibility);
         holder.tvTime.setTypeface(null, visibility);
         holder.tvSubject.setTypeface(null, visibility);
         holder.tvCount.setTypeface(null, visibility);

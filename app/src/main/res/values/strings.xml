@@ -99,6 +99,8 @@
     <string name="title_compose">Compose</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
+    <string name="title_cc">CC:</string>
+    <string name="title_bcc">BCC:</string>
     <string name="title_subject">Subject:</string>
     <string name="title_body_hint">Your message</string>
     <string name="title_save">Save</string>

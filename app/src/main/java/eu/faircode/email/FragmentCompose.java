@@ -40,6 +40,8 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,13 +71,18 @@ public class FragmentCompose extends Fragment {
     private long rid = -1;
 
     private Spinner spFrom;
-    private ImageView ivIdentyAdd;
+    private ImageView ivIdentityAdd;
     private EditText etTo;
-    private ImageView ivContactAdd;
+    private ImageView ivToAdd;
+    private EditText etCc;
+    private ImageView ivCcAdd;
+    private EditText etBcc;
+    private ImageView ivBccAdd;
     private EditText etSubject;
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
+    private Group grpCc;
     private Group grpReady;
 
     @Override
@@ -90,20 +97,26 @@ public class FragmentCompose extends Fragment {
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
-        ivIdentyAdd = view.findViewById(R.id.ivIdentyAdd);
+        ivIdentityAdd = view.findViewById(R.id.ivIdentityAdd);
         etTo = view.findViewById(R.id.etTo);
-        ivContactAdd = view.findViewById(R.id.ivContactAdd);
+        ivToAdd = view.findViewById(R.id.ivToAdd);
+        etCc = view.findViewById(R.id.etCc);
+        ivCcAdd = view.findViewById(R.id.ivCcAdd);
+        etBcc = view.findViewById(R.id.etBcc);
+        ivBccAdd = view.findViewById(R.id.ivBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
         etBody = view.findViewById(R.id.etBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
+        grpCc = view.findViewById(R.id.grpCc);
         grpReady = view.findViewById(R.id.grpReady);
 
+        grpCc.setVisibility(View.GONE);
         etBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Wire controls
 
-        ivIdentyAdd.setOnClickListener(new View.OnClickListener() {
+        ivIdentityAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
@@ -116,11 +129,27 @@ public class FragmentCompose extends Fragment {
             }
         });
 
-        ivContactAdd.setOnClickListener(new View.OnClickListener() {
+        ivToAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT);
+                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_TO);
+            }
+        });
+
+        ivCcAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_CC);
+            }
+        });
+
+        ivBccAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_BCC);
             }
         });
 
@@ -144,6 +173,8 @@ public class FragmentCompose extends Fragment {
                 return false;
             }
         });
+
+        setHasOptionsMenu(true);
 
         // Initialize
         grpReady.setVisibility(View.GONE);
@@ -186,8 +217,29 @@ public class FragmentCompose extends Fragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_cc, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_cc:
+                onMenuCc();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuCc() {
+        grpCc.setVisibility(grpCc.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ActivityCompose.REQUEST_CONTACT && resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             Cursor cursor = null;
             try {
                 cursor = getContext().getContentResolver().query(data.getData(),
@@ -202,12 +254,26 @@ public class FragmentCompose extends Fragment {
                     String email = cursor.getString(colEmail);
                     String name = cursor.getString(colName);
 
+                    String text = null;
+                    if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                        text = etTo.getText().toString();
+                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                        text = etCc.getText().toString();
+                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                        text = etBcc.getText().toString();
+
                     InternetAddress address = new InternetAddress(email, name);
-                    StringBuilder sb = new StringBuilder(etTo.getText().toString());
+                    StringBuilder sb = new StringBuilder(text);
                     if (sb.length() > 0)
                         sb.append("; ");
                     sb.append(address.toString());
-                    etTo.setText(sb.toString());
+
+                    if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                        etTo.setText(sb.toString());
+                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                        etCc.setText(sb.toString());
+                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                        etBcc.setText(sb.toString());
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -236,6 +302,8 @@ public class FragmentCompose extends Fragment {
         args.putString("thread", FragmentCompose.this.thread);
         args.putLong("rid", FragmentCompose.this.rid);
         args.putString("to", etTo.getText().toString());
+        args.putString("cc", etCc.getText().toString());
+        args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
         args.putString("body", etBody.getText().toString());
         args.putBoolean("send", send);
@@ -270,6 +338,8 @@ public class FragmentCompose extends Fragment {
                         result.putLong("iid", msg.identity);
                     if (msg.replying != null)
                         result.putLong("rid", msg.replying);
+                    result.putString("cc", msg.cc);
+                    result.putString("bcc", msg.bcc);
                     result.putString("thread", msg.thread);
                     result.putString("subject", msg.subject);
                     result.putString("body", msg.body);
@@ -339,6 +409,8 @@ public class FragmentCompose extends Fragment {
             String thread = result.getString("thread");
             String from = result.getString("from");
             String to = result.getString("to");
+            String cc = result.getString("cc");
+            String bcc = result.getString("bcc");
             String subject = result.getString("subject");
             String body = result.getString("body");
             String action = result.getString("action");
@@ -363,9 +435,11 @@ public class FragmentCompose extends Fragment {
                 // Prevent changed fields from being overwritten
                 once = true;
 
+                etCc.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(cc)));
+                etBcc.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(bcc)));
+
                 if (action == null) {
-                    if (to != null)
-                        etTo.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(to)));
+                    etTo.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(to)));
                     etSubject.setText(subject);
                     if (body != null)
                         etBody.setText(Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false)));
@@ -480,11 +554,15 @@ public class FragmentCompose extends Fragment {
                 long rid = args.getLong("rid", -1);
                 String thread = args.getString("thread");
                 String to = args.getString("to");
+                String cc = args.getString("cc");
+                String bcc = args.getString("bcc");
                 String body = args.getString("body");
                 String subject = args.getString("subject");
 
                 Address afrom = (ident == null ? null : new InternetAddress(ident.email, ident.name));
                 Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
 
                 // Build draft
                 boolean update = (draft != null);
@@ -495,8 +573,10 @@ public class FragmentCompose extends Fragment {
                 draft.identity = (ident == null ? null : ident.id);
                 draft.replying = (rid < 0 ? null : rid);
                 draft.thread = thread;
-                draft.from = (afrom == null ? null : MessageHelper.encodeAddresses(new Address[]{afrom}));
-                draft.to = (ato == null ? null : MessageHelper.encodeAddresses(ato));
+                draft.from = MessageHelper.encodeAddresses(new Address[]{afrom});
+                draft.to = MessageHelper.encodeAddresses(ato);
+                draft.cc = MessageHelper.encodeAddresses(acc);
+                draft.bcc = MessageHelper.encodeAddresses(abcc);
                 draft.subject = subject;
                 draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 draft.received = new Date().getTime();
@@ -514,7 +594,7 @@ public class FragmentCompose extends Fragment {
                 if (send) {
                     if (draft.identity == null)
                         throw new MessagingException(getContext().getString(R.string.title_from_missing));
-                    if (draft.to == null)
+                    if (draft.to == null && draft.cc == null && draft.bcc == null)
                         throw new MessagingException(getContext().getString(R.string.title_to_missing));
 
                     // Get outbox
@@ -536,6 +616,8 @@ public class FragmentCompose extends Fragment {
                     out.thread = draft.thread;
                     out.from = draft.from;
                     out.to = draft.to;
+                    out.cc = draft.cc;
+                    out.bcc = draft.bcc;
                     out.subject = draft.subject;
                     out.body = draft.body;
                     out.received = draft.received;

@@ -639,7 +639,7 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             itransport.connect(ident.host, ident.port, ident.user, ident.password);
 
-                            Address[] to = imessage.getRecipients(Message.RecipientType.TO);
+                            Address[] to = imessage.getAllRecipients();
                             itransport.sendMessage(imessage, to);
                             Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
                                     " to " + TextUtils.join(", ", to));
@@ -680,14 +680,14 @@ public class ServiceSynchronize extends LifecycleService {
                 names.add(folder.name);
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
-            Folder[] ifolders = istore.getDefaultFolder().list("*");
+            Folder[] ifolders = istore.getDefaultFolder().list("*"); // TODO: is the pattern correct?
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 boolean candidate = true;
                 for (String attr : attrs) {
-                    if ("\\Noselect".equals(attr)) {
+                    if ("\\Noselect".equals(attr)) { // TODO: is this attribute correct?
                         candidate = false;
                         break;
                     }
@@ -844,7 +844,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.from = helper.getFrom();
                 message.to = helper.getTo();
                 message.cc = helper.getCc();
-                message.bcc = null;
+                message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
                 message.subject = imessage.getSubject();
                 message.body = helper.getHtml();

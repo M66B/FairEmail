@@ -28,7 +28,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     static final int LOADER_COMPOSE_PUT = 2;
     static final int LOADER_COMPOSE_DELETE = 3;
 
-    static final int REQUEST_CONTACT = 1;
+    static final int REQUEST_CONTACT_TO = 1;
+    static final int REQUEST_CONTACT_CC = 2;
+    static final int REQUEST_CONTACT_BCC = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

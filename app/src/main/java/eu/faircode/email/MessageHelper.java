@@ -90,7 +90,10 @@ public class MessageHelper {
             imessage.setRecipients(Message.RecipientType.TO, MessageHelper.decodeAddresses(message.to));
 
         if (message.cc != null)
-            imessage.setRecipients(Message.RecipientType.CC, MessageHelper.decodeAddresses(message.to));
+            imessage.setRecipients(Message.RecipientType.CC, MessageHelper.decodeAddresses(message.cc));
+
+        if (message.bcc != null)
+            imessage.setRecipients(Message.RecipientType.BCC, MessageHelper.decodeAddresses(message.bcc));
 
         if (message.subject != null)
             imessage.setSubject(message.subject);
@@ -153,11 +156,17 @@ public class MessageHelper {
         return encodeAddresses(imessage.getRecipients(Message.RecipientType.CC));
     }
 
+    String getBcc() throws MessagingException, JSONException {
+        return encodeAddresses(imessage.getRecipients(Message.RecipientType.BCC));
+    }
+
     String getReply() throws MessagingException, JSONException {
         return encodeAddresses(imessage.getReplyTo());
     }
 
     static String encodeAddresses(Address[] addresses) throws JSONException {
+        if (addresses == null)
+            return null;
         JSONArray jaddresses = new JSONArray();
         if (addresses != null)
             for (Address address : addresses)
@@ -175,23 +184,24 @@ public class MessageHelper {
     }
 
     static Address[] decodeAddresses(String json) {
+        if (json == null)
+            return new Address[0];
         List<Address> result = new ArrayList<>();
-        if (json != null)
-            try {
-                JSONArray jaddresses = new JSONArray(json);
-                for (int i = 0; i < jaddresses.length(); i++) {
-                    JSONObject jaddress = (JSONObject) jaddresses.get(i);
-                    if (jaddress.has("personal"))
-                        result.add(new InternetAddress(
-                                jaddress.getString("address"),
-                                jaddress.getString("personal")));
-                    else
-                        result.add(new InternetAddress(
-                                jaddress.getString("address")));
-                }
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+        try {
+            JSONArray jaddresses = new JSONArray(json);
+            for (int i = 0; i < jaddresses.length(); i++) {
+                JSONObject jaddress = (JSONObject) jaddresses.get(i);
+                if (jaddress.has("personal"))
+                    result.add(new InternetAddress(
+                            jaddress.getString("address"),
+                            jaddress.getString("personal")));
+                else
+                    result.add(new InternetAddress(
+                            jaddress.getString("address")));
             }
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+        }
         return result.toArray(new Address[0]);
     }
 
@@ -200,6 +210,8 @@ public class MessageHelper {
     }
 
     static String getFormattedAddresses(String json) {
+        if (json == null)
+            return null;
         try {
             List<String> addresses = new ArrayList<>();
             for (Address address : decodeAddresses(json))
