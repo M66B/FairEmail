@@ -64,6 +64,7 @@ import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
+import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -549,6 +550,10 @@ public class ServiceSynchronize extends LifecycleService {
                 lbm.unregisterReceiver(receiver);
                 Log.i(Helper.TAG, folder.name + " unlisten process id=" + folder.id);
             }
+        } catch (FolderNotFoundException ex) {
+            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+            folder.synchronize = false;
+            DB.getInstance(this).folder().updateFolder(folder);
         } finally {
             if (ifolder != null && ifolder.isOpen()) {
                 try {
@@ -584,6 +589,12 @@ public class ServiceSynchronize extends LifecycleService {
                         imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
 
                     } else if (EntityOperation.ADD.equals(op.name)) {
+                        if (!folder.synchronize) {
+                            // Local drafts
+                            Log.w(Helper.TAG, "Folder synchronization disabled");
+                            return;
+                        }
+
                         // Append message
                         EntityMessage msg = message.getMessage(op.message);
                         Properties props = MessageHelper.getSessionProperties();

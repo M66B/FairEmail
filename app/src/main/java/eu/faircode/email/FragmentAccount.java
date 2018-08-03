@@ -243,8 +243,14 @@ public class FragmentAccount extends Fragment {
                                 }
                             }
                         }
-                        if (account.primary && !drafts)
-                            throw new MessagingException(getContext().getString(R.string.title_no_drafts));
+                        if (!drafts) {
+                            EntityFolder folder = new EntityFolder();
+                            folder.name = getContext().getString(R.string.title_local_drafts);
+                            folder.type = EntityFolder.TYPE_DRAFTS;
+                            folder.synchronize = false;
+                            folder.after = 0;
+                            folders.add(folder);
+                        }
                     } finally {
                         if (istore != null)
                             istore.close();
@@ -254,30 +260,31 @@ public class FragmentAccount extends Fragment {
                 if (account.primary)
                     db.account().resetPrimary();
 
-                if (update)
-                    db.account().updateAccount(account);
-                else
-                    try {
-                        db.beginTransaction();
+                try {
+                    db.beginTransaction();
+                    if (update)
+                        db.account().updateAccount(account);
+                    else
                         account.id = db.account().insertAccount(account);
 
-                        EntityFolder inbox = new EntityFolder();
-                        inbox.name = "INBOX";
-                        inbox.type = EntityFolder.TYPE_INBOX;
-                        inbox.synchronize = true;
-                        inbox.after = DEFAULT_INBOX_SYNC;
-                        folders.add(0, inbox);
+                    EntityFolder inbox = new EntityFolder();
+                    inbox.name = "INBOX";
+                    inbox.type = EntityFolder.TYPE_INBOX;
+                    inbox.synchronize = true;
+                    inbox.after = DEFAULT_INBOX_SYNC;
+                    folders.add(0, inbox);
 
-                        for (EntityFolder folder : folders) {
+                    for (EntityFolder folder : folders)
+                        if (db.folder().getFolder(account.id, folder.name) == null) {
                             folder.account = account.id;
                             Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
                             folder.id = db.folder().insertFolder(folder);
                         }
 
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 ServiceSynchronize.restart(getContext(), "account");
 
