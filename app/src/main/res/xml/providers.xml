@@ -33,8 +33,8 @@
             port="993" />
         <smtp
             host="smtp.mail.yahoo.com"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider name="Posteo.de">
         <imap
