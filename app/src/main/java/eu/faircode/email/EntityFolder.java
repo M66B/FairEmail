@@ -73,6 +73,10 @@ public class EntityFolder {
         return (TYPE_OUTBOX.equals(type) || TYPE_DRAFTS.equals(type) || TYPE_SENT.equals(type));
     }
 
+    static Boolean isUser(String type) {
+        return TYPE_USER.equals(type);
+    }
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     public Long account; // Outbox = null

@@ -119,15 +119,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         Collections.sort(folders, new Comparator<TupleFolderEx>() {
             @Override
             public int compare(TupleFolderEx f1, TupleFolderEx f2) {
-                if (f1.accountName == null)
-                    if (f2.accountName == null)
-                        return 0;
+                int s = EntityFolder.isUser(f1.type).compareTo(EntityFolder.isUser(f2.type));
+                if (s == 0) {
+                    int a = collator.compare(
+                            f1.accountName == null ? "" : f1.accountName,
+                            f2.accountName == null ? "" : f2.accountName);
+                    if (a == 0)
+                        return collator.compare(f1.name, f2.name);
                     else
-                        return -1;
-                else if (f2.accountName == null)
-                    return 1;
-                else
-                    return collator.compare(f1.accountName, f2.accountName);
+                        return a;
+                } else
+                    return s;
             }
         });
 
