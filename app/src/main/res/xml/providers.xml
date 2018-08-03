@@ -27,4 +27,22 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider name="Yahoo!">
+        <imap
+            host="imap.mail.yahoo.com"
+            port="993" />
+        <smtp
+            host="smtp.mail.yahoo.com"
+            port="587"
+            starttls="true" />
+    </provider>
+    <provider name="Posteo.de">
+        <imap
+            host="posteo.de"
+            port="993" />
+        <smtp
+            host="posteo.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
