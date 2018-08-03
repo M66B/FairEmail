@@ -181,7 +181,7 @@ public class FragmentCompose extends Fragment {
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        bottom_navigation.getMenu().findItem(R.id.action_delete).setEnabled(id > 0);
+        bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(id > 0);
         bottom_navigation.setEnabled(false);
 
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(getActivity(), new Observer<List<EntityIdentity>>() {
