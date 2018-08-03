@@ -45,4 +45,13 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider name="free.fr">
+        <imap
+            host="imap.free.fr"
+            port="993" />
+        <smtp
+            host="smtp.free.fr"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
