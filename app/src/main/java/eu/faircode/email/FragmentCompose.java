@@ -599,20 +599,9 @@ public class FragmentCompose extends Fragment {
                     if (draft.to == null && draft.cc == null && draft.bcc == null)
                         throw new MessagingException(getContext().getString(R.string.title_to_missing));
 
-                    // Get outbox
-                    EntityFolder outbox = folder.getOutbox();
-                    if (outbox == null) {
-                        outbox = new EntityFolder();
-                        outbox.name = "OUTBOX";
-                        outbox.type = EntityFolder.TYPE_OUTBOX;
-                        outbox.synchronize = false;
-                        outbox.after = 0;
-                        outbox.id = folder.insertFolder(outbox);
-                    }
-
                     // Build outgoing message
                     EntityMessage out = new EntityMessage();
-                    out.folder = outbox.id;
+                    out.folder = folder.getOutbox().id;
                     out.identity = draft.identity;
                     out.replying = draft.replying;
                     out.thread = draft.thread;

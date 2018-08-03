@@ -37,6 +37,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class FragmentSetup extends Fragment {
     private Button btnAccount;
@@ -47,6 +49,8 @@ public class FragmentSetup extends Fragment {
     private TextView tvAccountDone;
     private TextView tvIdentityDone;
     private TextView tvPermissionsDone;
+
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -151,7 +155,7 @@ public class FragmentSetup extends Fragment {
         tvIdentityDone.setVisibility(View.INVISIBLE);
         tvPermissionsDone.setVisibility(View.INVISIBLE);
 
-        DB db = DB.getInstance(getContext());
+        final DB db = DB.getInstance(getContext());
 
         db.account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
             @Override
@@ -172,6 +176,22 @@ public class FragmentSetup extends Fragment {
             grantResults[i] = ContextCompat.checkSelfPermission(getActivity(), permissions[i]);
 
         onRequestPermissionsResult(0, permissions, grantResults);
+
+        // Creat outbox
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                EntityFolder outbox = db.folder().getOutbox();
+                if (outbox == null) {
+                    outbox = new EntityFolder();
+                    outbox.name = "OUTBOX";
+                    outbox.type = EntityFolder.TYPE_OUTBOX;
+                    outbox.synchronize = false;
+                    outbox.after = 0;
+                    outbox.id = db.folder().insertFolder(outbox);
+                }
+            }
+        });
 
         return view;
     }
