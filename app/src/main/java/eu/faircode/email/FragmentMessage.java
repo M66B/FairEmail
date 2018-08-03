@@ -33,6 +33,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -53,6 +55,7 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -62,15 +65,18 @@ public class FragmentMessage extends Fragment {
     private TextView tvTo;
     private TextView tvCc;
     private TextView tvBcc;
+    private RecyclerView rvAttachment;
     private TextView tvSubject;
     private TextView tvCount;
     private BottomNavigationView top_navigation;
     private TextView tvBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpCc;
+    private Group grpAddress;
+    private Group grpAttachments;
     private Group grpReady;
 
+    private AdapterAttachment adapter;
     private LiveData<TupleFolderEx> liveFolder;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
@@ -91,6 +97,7 @@ public class FragmentMessage extends Fragment {
         tvTo = view.findViewById(R.id.tvTo);
         tvCc = view.findViewById(R.id.tvCc);
         tvBcc = view.findViewById(R.id.tvBcc);
+        rvAttachment = view.findViewById(R.id.rvAttachment);
         tvTime = view.findViewById(R.id.tvTime);
         tvSubject = view.findViewById(R.id.tvSubject);
         tvCount = view.findViewById(R.id.tvCount);
@@ -98,12 +105,13 @@ public class FragmentMessage extends Fragment {
         tvBody = view.findViewById(R.id.tvBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpCc = view.findViewById(R.id.grpCc);
+        grpAddress = view.findViewById(R.id.grpAddress);
+        grpAttachments = view.findViewById(R.id.grpAttachments);
         grpReady = view.findViewById(R.id.grpReady);
 
         setHasOptionsMenu(true);
-        tvBody.setMovementMethod(new LinkMovementMethod() {
 
+        tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() != MotionEvent.ACTION_UP)
                     return super.onTouchEvent(widget, buffer, event);
@@ -130,7 +138,7 @@ public class FragmentMessage extends Fragment {
                     fragment.setArguments(args);
 
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("link");
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
                     fragmentTransaction.commit();
                 }
                 return true;
@@ -185,11 +193,19 @@ public class FragmentMessage extends Fragment {
         });
 
         // Initialize
-        grpCc.setVisibility(View.GONE);
+        grpAddress.setVisibility(View.GONE);
+        grpAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
-        DB db = DB.getInstance(getContext());
+        rvAttachment.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvAttachment.setLayoutManager(llm);
+
+        adapter = new AdapterAttachment(getContext());
+        rvAttachment.setAdapter(adapter);
+
+        final DB db = DB.getInstance(getContext());
 
         // Observe folder
         liveFolder = db.folder().liveFolderEx(folder);
@@ -213,13 +229,16 @@ public class FragmentMessage extends Fragment {
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
                     tvCount.setText(Integer.toString(message.count));
-                    tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
 
                     int visibility = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
                     tvFrom.setTypeface(null, visibility);
                     tvTime.setTypeface(null, visibility);
                     tvSubject.setTypeface(null, visibility);
                     tvCount.setTypeface(null, visibility);
+
+                    // Observe attachments
+                    db.attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
+                    db.attachment().liveAttachments(id).observe(FragmentMessage.this, attachmentsObserver);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen
@@ -269,7 +288,8 @@ public class FragmentMessage extends Fragment {
     }
 
     private void onMenuCc() {
-        grpCc.setVisibility(grpCc.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        if (grpReady.getVisibility() == View.VISIBLE)
+            grpAddress.setVisibility(grpAddress.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     Observer<TupleFolderEx> folderObserver = new Observer<TupleFolderEx>() {
@@ -278,6 +298,14 @@ public class FragmentMessage extends Fragment {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(folder == null
                     ? null
                     : Helper.localizeFolderName(getContext(), folder));
+        }
+    };
+
+    Observer<List<EntityAttachment>> attachmentsObserver = new Observer<List<EntityAttachment>>() {
+        @Override
+        public void onChanged(@Nullable List<EntityAttachment> attachments) {
+            adapter.set(attachments);
+            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
         }
     };
 

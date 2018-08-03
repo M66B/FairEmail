@@ -19,12 +19,19 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
+import android.arch.persistence.room.Query;
+
+import java.util.List;
 
 @Dao
 public interface DaoAttachment {
+    @Query("SELECT * FROM attachment WHERE message = :message")
+    LiveData<List<EntityAttachment>> liveAttachments(long message);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertAttachment(EntityAttachment attachment);
 }
