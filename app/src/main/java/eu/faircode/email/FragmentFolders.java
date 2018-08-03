@@ -33,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -85,6 +86,9 @@ public class FragmentFolders extends Fragment {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+
+        // Show hint
+        Toast.makeText(getContext(), R.string.title_item_edit_hint, Toast.LENGTH_SHORT).show();
 
         return view;
     }

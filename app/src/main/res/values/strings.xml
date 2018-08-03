@@ -111,4 +111,6 @@
     <string name="title_draft_deleted">Draft deleted</string>
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_queued">Message queued</string>
+
+    <string name="title_item_edit_hint">Long press item to edit properties</string>
 </resources>
