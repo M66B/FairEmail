@@ -242,7 +242,7 @@ public class FragmentAccount extends Fragment {
                                 }
                             }
                         }
-                        if (!drafts)
+                        if (account.primary && !drafts)
                             throw new MessagingException(getContext().getString(R.string.title_no_drafts));
                     } finally {
                         if (istore != null)
