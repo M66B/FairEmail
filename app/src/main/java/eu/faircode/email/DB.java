@@ -68,6 +68,10 @@ public abstract class DB extends RoomDatabase {
         return sInstance;
     }
 
+    public static DB getBlockingInstance(Context context) {
+        return migrate(Room.databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME).allowMainThreadQueries());
+    }
+
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
         return builder
                 .addMigrations(MIGRATION_1_2)
