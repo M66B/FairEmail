@@ -712,7 +712,7 @@ public class ServiceSynchronize extends LifecycleService {
                         break;
                     }
                     if (attr.startsWith("\\"))
-                        if (EntityFolder.STANDARD_FOLDER_ATTR.contains(attr.substring(1))) {
+                        if (EntityFolder.SYSTEM_FOLDER_ATTR.contains(attr.substring(1))) {
                             candidate = false;
                             break;
                         }

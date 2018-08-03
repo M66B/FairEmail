@@ -54,20 +54,20 @@ public class EntityFolder {
     static final String TYPE_SENT = "Sent";
     static final String TYPE_USER = "User";
 
-    static final List<String> STANDARD_FOLDER_ATTR = Arrays.asList(
+    static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
             "All",
             "Drafts",
             "Trash",
             "Junk",
             "Sent"
     );
-    static final List<String> STANDARD_FOLDER_TYPE = Arrays.asList(
+    static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
             TYPE_ARCHIVE,
             TYPE_DRAFTS,
             TYPE_TRASH,
             TYPE_JUNK,
             TYPE_SENT
-    ); // Must match STANDARD_FOLDER_ATTR
+    ); // Must match SYSTEM_FOLDER_ATTR
 
     static boolean isOutgoing(String type) {
         return (TYPE_OUTBOX.equals(type) || TYPE_DRAFTS.equals(type) || TYPE_SENT.equals(type));

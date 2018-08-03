@@ -218,29 +218,48 @@ public class FragmentAccount extends Fragment {
                         if (!istore.hasCapability("IDLE"))
                             throw new MessagingException(getContext().getString(R.string.title_no_idle));
 
+                        // Find system folders
                         boolean drafts = false;
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                            String type = null;
+
+                            // First check folder attributes
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                             for (String attr : attrs) {
                                 if (attr.startsWith("\\")) {
-                                    int index = EntityFolder.STANDARD_FOLDER_ATTR.indexOf(attr.substring(1));
+                                    int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
                                     if (index >= 0) {
-                                        EntityFolder folder = new EntityFolder();
-                                        folder.name = ifolder.getFullName();
-                                        folder.type = EntityFolder.STANDARD_FOLDER_TYPE.get(index);
-                                        folder.synchronize = standard_sync.contains(folder.type);
-                                        folder.after = DEFAULT_STANDARD_SYNC;
-                                        folders.add(folder);
-
-                                        Log.i(Helper.TAG, "Standard folder=" + folder.name +
-                                                " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
-
-                                        if (EntityFolder.TYPE_DRAFTS.equals(folder.type))
-                                            drafts = true;
-
+                                        type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
                                         break;
                                     }
                                 }
+                            }
+
+                            // Next check folder full name
+                            if (type == null) {
+                                String fullname = ifolder.getFullName();
+                                for (String attr : EntityFolder.SYSTEM_FOLDER_ATTR)
+                                    if (attr.equals(fullname)) {
+                                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
+                                        type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                                        break;
+                                    }
+                            }
+
+                            if (type != null) {
+                                EntityFolder folder = new EntityFolder();
+                                folder.name = ifolder.getFullName();
+                                folder.type = type;
+                                folder.synchronize = standard_sync.contains(folder.type);
+                                folder.after = DEFAULT_STANDARD_SYNC;
+                                folders.add(folder);
+
+                                Log.i(Helper.TAG, account.name +
+                                        " system=" + folder.name +
+                                        " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
+
+                                if (EntityFolder.TYPE_DRAFTS.equals(folder.type))
+                                    drafts = true;
                             }
                         }
                         if (!drafts) {
