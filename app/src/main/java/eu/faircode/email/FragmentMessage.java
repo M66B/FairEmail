@@ -34,12 +34,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.Layout;
+import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
+import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -98,7 +102,40 @@ public class FragmentMessage extends Fragment {
         grpReady = view.findViewById(R.id.grpReady);
 
         setHasOptionsMenu(true);
-        tvBody.setMovementMethod(LinkMovementMethod.getInstance());
+        tvBody.setMovementMethod(new LinkMovementMethod() {
+
+            public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
+                if (event.getAction() != MotionEvent.ACTION_UP)
+                    return super.onTouchEvent(widget, buffer, event);
+
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+
+                x -= widget.getTotalPaddingLeft();
+                y -= widget.getTotalPaddingTop();
+
+                x += widget.getScrollX();
+                y += widget.getScrollY();
+
+                Layout layout = widget.getLayout();
+                int line = layout.getLineForVertical(y);
+                int off = layout.getOffsetForHorizontal(line, x);
+
+                URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                if (link.length != 0) {
+                    Bundle args = new Bundle();
+                    args.putString("link", link[0].getURL());
+
+                    FragmentWebView fragment = new FragmentWebView();
+                    fragment.setArguments(args);
+
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("link");
+                    fragmentTransaction.commit();
+                }
+                return true;
+            }
+        });
 
         // Wire controls
 

@@ -77,6 +77,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

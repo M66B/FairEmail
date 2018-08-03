@@ -17,6 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight">
 
+        <!-- do not contact Google servers -->
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" />
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+
         <activity android:name=".ActivitySetup" />
 
         <activity android:name=".ActivityView">
