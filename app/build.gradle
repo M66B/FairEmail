@@ -32,7 +32,7 @@ android {
 repositories {
     jcenter()
     maven {
-        url "https://maven.java.net/content/groups/public/"
+        url "https://repo1.maven.org/maven2/"
     }
 }
 
