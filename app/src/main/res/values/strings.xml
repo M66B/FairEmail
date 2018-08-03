@@ -54,7 +54,7 @@
     <string name="title_password">Password</string>
     <string name="title_synchronize_account">Synchronize (receive messages)</string>
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
-    <string name="title_primary_account">Primary (use to store drafts)</string>
+    <string name="title_primary_account">Primary (used to store drafts)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_no_name">Name mandatory</string>
     <string name="title_no_email">Email address mandatory</string>

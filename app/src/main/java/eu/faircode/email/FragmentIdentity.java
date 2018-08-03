@@ -160,7 +160,7 @@ public class FragmentIdentity extends Fragment {
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
-                args.putString("password", tilPassword.getEditText().toString());
+                args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
 
@@ -208,9 +208,13 @@ public class FragmentIdentity extends Fragment {
         public Throwable loadInBackground() {
             try {
                 long id = args.getLong("id");
+                String replyto = args.getString("replyto");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 String port = args.getString("port");
+
+                if (TextUtils.isEmpty(replyto))
+                    replyto = null;
                 if (TextUtils.isEmpty(port))
                     port = "0";
 
@@ -221,7 +225,7 @@ public class FragmentIdentity extends Fragment {
                     identity = new EntityIdentity();
                 identity.name = Objects.requireNonNull(args.getString("name"));
                 identity.email = Objects.requireNonNull(args.getString("email"));
-                identity.replyto = args.getString("replyto");
+                identity.replyto = replyto;
                 identity.host = host;
                 identity.port = Integer.parseInt(port);
                 identity.starttls = starttls;

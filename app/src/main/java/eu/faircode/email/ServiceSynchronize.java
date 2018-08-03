@@ -639,6 +639,11 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
                         EntityIdentity ident = db.identity().getIdentity(msg.identity);
 
+                        if (!ident.synchronize) {
+                            // Message will remain in outbox
+                            return;
+                        }
+
                         Properties props = MessageHelper.getSessionProperties();
                         Session isession = Session.getDefaultInstance(props, null);
 

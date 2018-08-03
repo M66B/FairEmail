@@ -92,7 +92,7 @@ public class FragmentMessages extends Fragment {
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        fab.setEnabled(false);
+        fab.setVisibility(View.GONE);
 
         DB db = DB.getInstance(getContext());
 
@@ -109,8 +109,6 @@ public class FragmentMessages extends Fragment {
             db.message().liveThread(thread).observe(this, messagesObserver);
         }
 
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
-
         return view;
     }
 
@@ -121,6 +119,8 @@ public class FragmentMessages extends Fragment {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_folder_thread);
         else
             liveFolder.observe(this, folderObserver);
+
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
     }
 
     @Override
@@ -181,7 +181,7 @@ public class FragmentMessages extends Fragment {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle data) {
-            fab.setEnabled(data.getBoolean("drafts", false));
+            fab.setVisibility(data.getBoolean("drafts", false) ? View.VISIBLE : View.GONE);
         }
 
         @Override
