@@ -658,9 +658,10 @@ public class ServiceSynchronize extends LifecycleService {
                     operation.deleteOperation(op.id);
 
                 } catch (MessageRemovedException ex) {
+                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
                     // There is no use in repeating
                     operation.deleteOperation(op.id);
-                    throw ex;
                 }
             }
         } finally {
