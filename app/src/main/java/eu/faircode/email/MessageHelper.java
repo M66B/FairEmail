@@ -239,7 +239,7 @@ public class MessageHelper {
     private String getHtml(Part part) throws MessagingException {
         if (part.isMimeType("text/*"))
             try {
-                String s = (String) part.getContent();
+                String s = part.getContent().toString();
                 if (part.isMimeType("text/plain"))
                     s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 return s;
