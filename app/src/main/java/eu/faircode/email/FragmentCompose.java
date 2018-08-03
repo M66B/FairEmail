@@ -121,8 +121,10 @@ public class FragmentCompose extends Fragment {
             public void onClick(View view) {
                 Bundle args = new Bundle();
                 args.putLong("id", -1);
+
                 FragmentIdentity fragment = new FragmentIdentity();
                 fragment.setArguments(args);
+
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                 fragmentTransaction.commit();

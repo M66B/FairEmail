@@ -40,11 +40,13 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
-            FragmentCompose fragment = new FragmentCompose();
             Bundle args = getIntent().getExtras();
             if (args == null)
                 args = new Bundle();
+
+            FragmentCompose fragment = new FragmentCompose();
             fragment.setArguments(args);
+
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose");
             fragmentTransaction.commit();

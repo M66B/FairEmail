@@ -262,9 +262,10 @@ public class FragmentMessage extends Fragment {
     }
 
     private void onActionThread(long id) {
-        FragmentMessages fragment = new FragmentMessages();
         Bundle args = new Bundle();
         args.putLong("thread", id); // message ID
+
+        FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

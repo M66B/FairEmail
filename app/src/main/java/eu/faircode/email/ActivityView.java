@@ -212,9 +212,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         if (prefs.getBoolean("eula", false)) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
 
-            FragmentMessages fragment = new FragmentMessages();
             Bundle args = new Bundle();
             args.putLong("folder", -1);
+
+            FragmentMessages fragment = new FragmentMessages();
             fragment.setArguments(args);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -257,9 +258,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void onMenuUnified() {
-        FragmentMessages fragment = new FragmentMessages();
         Bundle args = new Bundle();
         args.putLong("folder", -1);
+
+        FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

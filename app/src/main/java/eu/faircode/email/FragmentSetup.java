@@ -86,11 +86,14 @@ public class FragmentSetup extends Fragment {
 
                         if (!once) {
                             once = true;
+
                             Bundle args = new Bundle();
                             if (account != null)
                                 args.putLong("id", account.id);
+
                             FragmentAccount fragment = new FragmentAccount();
                             fragment.setArguments(args);
+
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
                             fragmentTransaction.commit();
@@ -120,8 +123,10 @@ public class FragmentSetup extends Fragment {
                             Bundle args = new Bundle();
                             if (identity != null)
                                 args.putLong("id", identity.id);
+
                             FragmentIdentity fragment = new FragmentIdentity();
                             fragment.setArguments(args);
+
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                             fragmentTransaction.commit();
