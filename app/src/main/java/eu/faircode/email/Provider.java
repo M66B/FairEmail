@@ -25,8 +25,12 @@ import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public class Provider {
     public String name;
@@ -77,6 +81,16 @@ public class Provider {
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
         }
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(result, new Comparator<Provider>() {
+            @Override
+            public int compare(Provider p1, Provider p2) {
+                return collator.compare(p1.name, p2.name);
+            }
+        });
+
         return result;
     }
 
