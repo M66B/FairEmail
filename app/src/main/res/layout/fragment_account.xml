@@ -142,14 +142,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etUser" />
 
-        <EditText
-            android:id="@+id/etPassword"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPassword" />
+            app:layout_constraintTop_toBottomOf="@id/tvPassword"
+            app:passwordToggleEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -158,7 +165,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_primary_account"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <CheckBox
             android:id="@+id/cbSynchronize"
@@ -193,6 +200,6 @@
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="spProvider,etName,etHost,etPort,etUser,etPassword,cbPrimary,cbSynchronize,btnOk" />
+            app:constraint_referenced_ids="spProvider,etName,etHost,etPort,etUser,tilPassword,cbPrimary,cbSynchronize,btnOk" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

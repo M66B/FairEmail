@@ -24,6 +24,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -64,7 +65,7 @@ public class FragmentIdentity extends Fragment {
     private CheckBox cbStartTls;
     private EditText etPort;
     private EditText etUser;
-    private EditText etPassword;
+    private TextInputLayout tilPassword;
     private CheckBox cbPrimary;
     private CheckBox cbSynchronize;
     private Button btnOk;
@@ -92,7 +93,7 @@ public class FragmentIdentity extends Fragment {
         cbStartTls = view.findViewById(R.id.cbStartTls);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
-        etPassword = view.findViewById(R.id.etPassword);
+        tilPassword = view.findViewById(R.id.tilPassword);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         btnOk = view.findViewById(R.id.btnOk);
@@ -159,7 +160,7 @@ public class FragmentIdentity extends Fragment {
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
-                args.putString("password", etPassword.getText().toString());
+                args.putString("password", tilPassword.getEditText().toString());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
 
@@ -177,7 +178,7 @@ public class FragmentIdentity extends Fragment {
                 cbStartTls.setChecked(identity == null ? false : identity.starttls);
                 etPort.setText(identity == null ? null : Long.toString(identity.port));
                 etUser.setText(identity == null ? null : identity.user);
-                etPassword.setText(identity == null ? null : identity.password);
+                tilPassword.getEditText().setText(identity == null ? null : identity.password);
                 cbPrimary.setChecked(identity == null ? true : identity.primary);
                 cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
             }
