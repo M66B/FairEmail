@@ -181,7 +181,7 @@
         android:background="@color/colorPrimary"
         app:itemIconTint="@color/colorActionForeground"
         app:itemTextColor="@color/colorActionForeground"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
