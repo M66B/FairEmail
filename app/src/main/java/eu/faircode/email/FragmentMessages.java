@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,6 +29,9 @@ import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -88,6 +92,7 @@ public class FragmentMessages extends Fragment {
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        fab.setEnabled(false);
 
         DB db = DB.getInstance(getContext());
 
@@ -103,6 +108,8 @@ public class FragmentMessages extends Fragment {
         else {
             db.message().liveThread(thread).observe(this, messagesObserver);
         }
+
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
 
         return view;
     }
@@ -147,6 +154,38 @@ public class FragmentMessages extends Fragment {
                 tvNoEmail.setVisibility(View.GONE);
                 rvMessage.setVisibility(View.VISIBLE);
             }
+        }
+    };
+
+    private static class InitLoader extends AsyncTaskLoader<Bundle> {
+        public InitLoader(@NonNull Context context) {
+            super(context);
+        }
+
+        @Nullable
+        @Override
+        public Bundle loadInBackground() {
+            Bundle result = new Bundle();
+            EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryDraftFolder();
+            result.putBoolean("drafts", drafts != null);
+            return result;
+        }
+    }
+
+    private LoaderManager.LoaderCallbacks initLoaderCallbacks = new LoaderManager.LoaderCallbacks<Bundle>() {
+        @NonNull
+        @Override
+        public Loader<Bundle> onCreateLoader(int id, @Nullable Bundle args) {
+            return new InitLoader(getContext());
+        }
+
+        @Override
+        public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle data) {
+            fab.setEnabled(data.getBoolean("drafts", false));
+        }
+
+        @Override
+        public void onLoaderReset(@NonNull Loader<Bundle> loader) {
         }
     };
 }
