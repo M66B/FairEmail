@@ -92,8 +92,8 @@ public class FragmentAccount extends Fragment {
         providers.add(0, new Provider(getString(R.string.title_custom)));
 
         // Get controls
-        etName = view.findViewById(R.id.etName);
         spProfile = view.findViewById(R.id.spProvider);
+        etName = view.findViewById(R.id.etName);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
