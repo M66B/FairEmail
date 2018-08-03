@@ -82,9 +82,9 @@
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
 
+    <string name="title_thread">Thread</string>
     <string name="title_seen">Read</string>
     <string name="title_unseen">Unread</string>
-    <string name="title_thread">Thread</string>
     <string name="title_move">Move</string>
     <string name="title_forward">Forward</string>
     <string name="title_reply_all">Reply to all</string>

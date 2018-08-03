@@ -240,6 +240,8 @@ public class FragmentMessage extends Fragment {
                     db.attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
                     db.attachment().liveAttachments(id).observe(FragmentMessage.this, attachmentsObserver);
 
+                    top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
+
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen
                             ? R.drawable.baseline_visibility_off_24
