@@ -395,7 +395,7 @@ public class FragmentCompose extends Fragment {
         @NonNull
         @Override
         public Loader<Bundle> onCreateLoader(int id, @Nullable Bundle args) {
-            GetLoader loader = new GetLoader(getActivity());
+            GetLoader loader = new GetLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
@@ -502,7 +502,7 @@ public class FragmentCompose extends Fragment {
         @NonNull
         @Override
         public Loader<Throwable> onCreateLoader(int id, @Nullable Bundle args) {
-            DeleteLoader loader = new DeleteLoader(getActivity());
+            DeleteLoader loader = new DeleteLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
@@ -646,7 +646,7 @@ public class FragmentCompose extends Fragment {
         @Override
         public Loader<Throwable> onCreateLoader(int id, Bundle args) {
             this.args = args;
-            PutLoader loader = new PutLoader(getActivity());
+            PutLoader loader = new PutLoader(getContext());
             loader.setArgs(args);
             return loader;
         }

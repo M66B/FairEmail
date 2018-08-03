@@ -267,7 +267,7 @@ public class FragmentIdentity extends Fragment {
         @NonNull
         @Override
         public Loader<Throwable> onCreateLoader(int id, Bundle args) {
-            PutLoader loader = new PutLoader(getActivity());
+            PutLoader loader = new PutLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
