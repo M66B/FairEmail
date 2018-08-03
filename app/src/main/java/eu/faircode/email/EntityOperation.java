@@ -58,6 +58,7 @@ public class EntityOperation {
     public static final String MOVE = "move";
     public static final String DELETE = "delete";
     public static final String SEND = "send";
+    public static final String ATTACHMENT = "attachment";
 
     static void queue(Context context, EntityMessage message, String name) {
         JSONArray jsonArray = new JSONArray();

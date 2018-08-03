@@ -16,25 +16,38 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
+        app:layout_constraintEnd_toStartOf="@+id/tvSize"
         app:layout_constraintStart_toEndOf="@id/ivAttachments"
         app:layout_constraintTop_toTopOf="@id/ivAttachments" />
 
     <TextView
-        android:id="@+id/tvType"
-        android:layout_width="0dp"
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:gravity="end"
-        android:text="Type"
+        android:text="10 kB"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivDownload"
         app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="@id/ivAttachments" />
+
+    <ImageView
+        android:id="@+id/ivDownload"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_get_app_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvSize"
         app:layout_constraintTop_toTopOf="@id/ivAttachments" />
 </android.support.constraint.ConstraintLayout>

@@ -28,15 +28,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     private List<EntityAttachment> all = new ArrayList<>();
     private List<EntityAttachment> filtered = new ArrayList<>();
@@ -45,30 +49,39 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             implements View.OnClickListener {
         View itemView;
         TextView tvName;
-        TextView tvType;
+        TextView tvSize;
+        ImageView ivDownload;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView;
             tvName = itemView.findViewById(R.id.tvName);
-            tvType = itemView.findViewById(R.id.tvType);
+            tvSize = itemView.findViewById(R.id.tvSize);
+            ivDownload = itemView.findViewById(R.id.ivDownload);
         }
 
         private void wire() {
             itemView.setOnClickListener(this);
+            ivDownload.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            ivDownload.setOnClickListener(null);
         }
 
         @Override
         public void onClick(View view) {
-            EntityAttachment attachment = filtered.get(getLayoutPosition());
-            if (attachment.content == null) {
-
-            }
+            final EntityAttachment attachment = filtered.get(getLayoutPosition());
+            if (attachment != null && attachment.content == null)
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        EntityMessage message = DB.getInstance(context).message().getMessage(attachment.message);
+                        EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                    }
+                });
         }
     }
 
@@ -175,7 +188,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         EntityAttachment attachment = filtered.get(position);
         holder.tvName.setText(attachment.name);
-        holder.tvType.setText(attachment.type);
+        holder.tvSize.setVisibility((attachment.content == null ? View.GONE : View.VISIBLE));
+        holder.ivDownload.setVisibility((attachment.content == null ? View.VISIBLE : View.GONE));
+
+        if (attachment.content != null)
+            holder.tvSize.setText(Helper.humanReadableByteCount(attachment.content.length, false));
 
         holder.wire();
     }

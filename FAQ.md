@@ -21,6 +21,7 @@ The low priority status bar notification shows the number of pending operations,
 * Move message to another remote folder
 * Delete message from remote folder
 * Send message
+* Download attachment
 
 <a name="FAQ3"></a>
 **(3) What is a valid security certificate?**

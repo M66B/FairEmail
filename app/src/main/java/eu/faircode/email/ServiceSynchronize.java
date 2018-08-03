@@ -50,7 +50,9 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -566,124 +568,151 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void processOperations(EntityFolder folder, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException {
+    private void processOperations(EntityFolder folder, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         try {
             Log.i(Helper.TAG, folder.name + " start process");
 
             DB db = DB.getInstance(this);
             DaoOperation operation = db.operation();
             DaoMessage message = db.message();
-            for (TupleOperationEx op : operation.getOperations(folder.id)) {
-                Log.i(Helper.TAG, folder.name +
-                        " Process op=" + op.id + "/" + op.name +
-                        " args=" + op.args +
-                        " msg=" + op.message);
-
-                JSONArray jargs = new JSONArray(op.args);
+            for (TupleOperationEx op : operation.getOperations(folder.id))
                 try {
-                    if (EntityOperation.SEEN.equals(op.name)) {
-                        // Mark message (un)seen
-                        Message imessage = ifolder.getMessageByUID(op.uid);
-                        if (imessage == null)
-                            throw new MessageRemovedException();
-                        imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
+                    Log.i(Helper.TAG, folder.name +
+                            " start op=" + op.id + "/" + op.name +
+                            " args=" + op.args +
+                            " msg=" + op.message);
 
-                    } else if (EntityOperation.ADD.equals(op.name)) {
-                        if (!folder.synchronize) {
-                            // Local drafts
-                            Log.w(Helper.TAG, "Folder synchronization disabled");
-                            return;
-                        }
+                    JSONArray jargs = new JSONArray(op.args);
+                    try {
+                        if (EntityOperation.SEEN.equals(op.name)) {
+                            // Mark message (un)seen
+                            Message imessage = ifolder.getMessageByUID(op.uid);
+                            if (imessage == null)
+                                throw new MessageRemovedException();
+                            imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
 
-                        // Append message
-                        EntityMessage msg = message.getMessage(op.message);
-                        Properties props = MessageHelper.getSessionProperties();
-                        Session isession = Session.getDefaultInstance(props, null);
-                        MimeMessage imessage = MessageHelper.from(msg, isession);
-                        ifolder.appendMessages(new Message[]{imessage});
-
-                        // Drafts can be appended multiple times
-                        try {
-                            if (msg.uid != null) {
-                                Message previously = ifolder.getMessageByUID(msg.uid);
-                                previously.setFlag(Flags.Flag.DELETED, true);
-                                ifolder.expunge();
+                        } else if (EntityOperation.ADD.equals(op.name)) {
+                            if (!folder.synchronize) {
+                                // Local drafts
+                                Log.w(Helper.TAG, "Folder synchronization disabled");
+                                return;
                             }
-                        } finally {
-                            // Remote will report appended
+
+                            // Append message
+                            EntityMessage msg = message.getMessage(op.message);
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getDefaultInstance(props, null);
+                            MimeMessage imessage = MessageHelper.from(msg, isession);
+                            ifolder.appendMessages(new Message[]{imessage});
+
+                            // Drafts can be appended multiple times
+                            try {
+                                if (msg.uid != null) {
+                                    Message previously = ifolder.getMessageByUID(msg.uid);
+                                    previously.setFlag(Flags.Flag.DELETED, true);
+                                    ifolder.expunge();
+                                }
+                            } finally {
+                                // Remote will report appended
+                                message.deleteMessage(op.message);
+                            }
+
+                        } else if (EntityOperation.MOVE.equals(op.name)) {
+                            // Move message
+                            EntityFolder archive = db.folder().getFolder(jargs.getLong(0));
+                            Message imessage = ifolder.getMessageByUID(op.uid);
+                            Folder target = istore.getFolder(archive.name);
+                            ifolder.moveMessages(new Message[]{imessage}, target);
+
                             message.deleteMessage(op.message);
-                        }
 
-                    } else if (EntityOperation.MOVE.equals(op.name)) {
-                        // Move message
-                        EntityFolder archive = db.folder().getFolder(jargs.getLong(0));
-                        Message imessage = ifolder.getMessageByUID(op.uid);
-                        Folder target = istore.getFolder(archive.name);
-                        ifolder.moveMessages(new Message[]{imessage}, target);
+                        } else if (EntityOperation.DELETE.equals(op.name)) {
+                            // Delete message
+                            Message imessage = ifolder.getMessageByUID(op.uid);
+                            if (imessage == null)
+                                throw new MessageRemovedException();
+                            imessage.setFlag(Flags.Flag.DELETED, true);
+                            ifolder.expunge();
 
-                        message.deleteMessage(op.message);
-
-                    } else if (EntityOperation.DELETE.equals(op.name)) {
-                        // Delete message
-                        Message imessage = ifolder.getMessageByUID(op.uid);
-                        if (imessage == null)
-                            throw new MessageRemovedException();
-                        imessage.setFlag(Flags.Flag.DELETED, true);
-                        ifolder.expunge();
-
-                        message.deleteMessage(op.message);
-
-                    } else if (EntityOperation.SEND.equals(op.name)) {
-                        // Send message
-                        EntityMessage msg = message.getMessage(op.message);
-                        EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
-                        EntityIdentity ident = db.identity().getIdentity(msg.identity);
-
-                        if (!ident.synchronize) {
-                            // Message will remain in outbox
-                            return;
-                        }
-
-                        Properties props = MessageHelper.getSessionProperties();
-                        Session isession = Session.getDefaultInstance(props, null);
-
-                        MimeMessage imessage;
-                        if (reply == null)
-                            imessage = MessageHelper.from(msg, isession);
-                        else
-                            imessage = MessageHelper.from(msg, reply, isession);
-                        if (ident.replyto != null)
-                            imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
-
-                        Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
-                        try {
-                            itransport.connect(ident.host, ident.port, ident.user, ident.password);
-
-                            Address[] to = imessage.getAllRecipients();
-                            itransport.sendMessage(imessage, to);
-                            Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                                    " to " + TextUtils.join(", ", to));
-
-                            // Make sure the message is sent only once
-                            operation.deleteOperation(op.id);
                             message.deleteMessage(op.message);
-                        } finally {
-                            itransport.close();
-                        }
 
-                    } else
-                        throw new MessagingException("Unknown operation name=" + op.name);
+                        } else if (EntityOperation.SEND.equals(op.name)) {
+                            // Send message
+                            EntityMessage msg = message.getMessage(op.message);
+                            EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
+                            EntityIdentity ident = db.identity().getIdentity(msg.identity);
 
-                    // Operation succeeded
-                    operation.deleteOperation(op.id);
+                            if (!ident.synchronize) {
+                                // Message will remain in outbox
+                                return;
+                            }
 
-                } catch (MessageRemovedException ex) {
-                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getDefaultInstance(props, null);
 
-                    // There is no use in repeating
-                    operation.deleteOperation(op.id);
+                            MimeMessage imessage;
+                            if (reply == null)
+                                imessage = MessageHelper.from(msg, isession);
+                            else
+                                imessage = MessageHelper.from(msg, reply, isession);
+                            if (ident.replyto != null)
+                                imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
+
+                            Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
+                            try {
+                                itransport.connect(ident.host, ident.port, ident.user, ident.password);
+
+                                Address[] to = imessage.getAllRecipients();
+                                itransport.sendMessage(imessage, to);
+                                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+                                        " to " + TextUtils.join(", ", to));
+
+                                // Make sure the message is sent only once
+                                operation.deleteOperation(op.id);
+                                message.deleteMessage(op.message);
+                            } finally {
+                                itransport.close();
+                            }
+
+                        } else if (EntityOperation.ATTACHMENT.equals(op.name)) {
+                            int sequence = jargs.getInt(0);
+                            EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
+
+                            Message imessage = ifolder.getMessageByUID(op.uid);
+                            if (imessage == null)
+                                throw new MessageRemovedException();
+
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getDefaultInstance(props, null);
+
+                            MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                            EntityAttachment a = helper.getAttachments().get(sequence - 1);
+
+                            InputStream is = a.part.getInputStream();
+                            ByteArrayOutputStream os = new ByteArrayOutputStream();
+                            byte[] buffer = new byte[4096];
+                            for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                                os.write(buffer, 0, len);
+
+                            attachment.content = os.toByteArray();
+                            db.attachment().updateAttachment(attachment);
+                            Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
+
+                        } else
+                            throw new MessagingException("Unknown operation name=" + op.name);
+
+                        // Operation succeeded
+                        operation.deleteOperation(op.id);
+
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+                        // There is no use in repeating
+                        operation.deleteOperation(op.id);
+                    }
+                } finally {
+                    Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
                 }
-            }
         } finally {
             Log.i(Helper.TAG, folder.name + " end process");
         }

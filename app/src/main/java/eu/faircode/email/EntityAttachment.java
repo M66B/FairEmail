@@ -21,9 +21,12 @@ package eu.faircode.email;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+
+import javax.mail.BodyPart;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
@@ -50,4 +53,7 @@ public class EntityAttachment {
     @NonNull
     public String type;
     public byte[] content;
+
+    @Ignore
+    BodyPart part;
 }

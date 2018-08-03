@@ -24,6 +24,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -32,6 +33,12 @@ public interface DaoAttachment {
     @Query("SELECT * FROM attachment WHERE message = :message")
     LiveData<List<EntityAttachment>> liveAttachments(long message);
 
+    @Query("SELECT * FROM attachment WHERE message = :message AND sequence = :sequence")
+    EntityAttachment getAttachment(long message, int sequence);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertAttachment(EntityAttachment attachment);
+
+    @Update
+    void updateAttachment(EntityAttachment attachment);
 }
