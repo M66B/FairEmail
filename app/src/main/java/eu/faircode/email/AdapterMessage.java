@@ -32,6 +32,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         View itemView;
         TextView tvFrom;
         TextView tvTime;
+        ImageView ivAttachments;
         TextView tvSubject;
         TextView tvCount;
 
@@ -67,6 +69,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.itemView = itemView;
             tvFrom = itemView.findViewById(R.id.tvFrom);
             tvTime = itemView.findViewById(R.id.tvTime);
+            ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvCount = itemView.findViewById(R.id.tvCount);
         }
@@ -238,6 +241,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
         holder.tvFrom.setTypeface(null, visibility);
         holder.tvTime.setTypeface(null, visibility);
+        holder.ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
         holder.tvSubject.setTypeface(null, visibility);
         holder.tvCount.setTypeface(null, visibility);
 

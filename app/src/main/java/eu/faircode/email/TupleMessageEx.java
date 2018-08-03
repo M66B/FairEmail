@@ -24,6 +24,7 @@ public class TupleMessageEx extends EntityMessage {
     public String folderType;
     public int count;
     public int unseen;
+    public int attachments;
 
     @Override
     public boolean equals(Object obj) {
@@ -32,7 +33,8 @@ public class TupleMessageEx extends EntityMessage {
             return (super.equals(obj) &&
                     this.folderType.equals(other.folderType) &&
                     this.count == other.count &&
-                    this.unseen == other.unseen);
+                    this.unseen == other.unseen &&
+                    this.attachments == other.attachments);
         }
         return super.equals(obj);
     }

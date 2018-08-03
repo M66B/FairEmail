@@ -33,6 +33,7 @@ public interface DaoMessage {
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM folder" +
             " JOIN message ON folder = folder.id" +
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
@@ -45,6 +46,7 @@ public interface DaoMessage {
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM folder" +
             " JOIN message ON folder = folder.id" +
             " WHERE folder.id = :folder" +
@@ -56,6 +58,7 @@ public interface DaoMessage {
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN message m1 ON m1.id = :msgid AND m1.account = message.account AND m1.thread = message.thread" +
@@ -71,6 +74,7 @@ public interface DaoMessage {
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
