@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.Html;
 import android.text.TextUtils;
 
 import org.jsoup.Jsoup;
@@ -36,7 +37,7 @@ import java.util.List;
 public class HtmlHelper implements NodeVisitor {
     private Context context;
     private String newline;
-    private List<String> links = new ArrayList<>();
+    private List<String> refs = new ArrayList<>();
     private StringBuilder sb = new StringBuilder();
 
     private HtmlHelper(Context context, boolean reply) {
@@ -61,28 +62,36 @@ public class HtmlHelper implements NodeVisitor {
         if (StringUtil.in(name, "br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5", "div"))
             sb.append(newline);
         else if (name.equals("a")) {
-            String link = node.absUrl("href");
-            if (!TextUtils.isEmpty(link)) {
-                if (!links.contains(link))
-                    links.add(link);
-                sb.append(" ").append(context.getString(R.string.title_link, link, links.size()));
+            String ref = node.absUrl("href");
+            if (!TextUtils.isEmpty(ref)) {
+                if (!refs.contains(ref))
+                    refs.add(ref);
+                String alt = node.attr("alt");
+                if (TextUtils.isEmpty(alt))
+                    alt = context.getString(R.string.title_link);
+                alt = Html.escapeHtml(alt);
+                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
             }
         } else if (name.equals("img")) {
-            String link = node.absUrl("src");
-            if (!TextUtils.isEmpty(link)) {
-                if (!links.contains(link))
-                    links.add(link);
-                sb.append(" ").append(context.getString(R.string.title_image, link, links.size()));
+            String ref = node.absUrl("src");
+            if (!TextUtils.isEmpty(ref)) {
+                if (!refs.contains(ref))
+                    refs.add(ref);
+                String alt = node.attr("alt");
+                if (TextUtils.isEmpty(alt))
+                    alt = context.getString(R.string.title_image);
+                alt = Html.escapeHtml(alt);
+                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
             }
         }
     }
 
     @Override
     public String toString() {
-        if (links.size() > 0)
+        if (refs.size() > 0)
             sb.append(newline).append(newline);
-        for (int i = 0; i < links.size(); i++)
-            sb.append(String.format("[%d] %s ", i + 1, links.get(i))).append(newline);
+        for (int i = 0; i < refs.size(); i++)
+            sb.append(String.format("[%d] %s ", i + 1, refs.get(i))).append(newline);
         return sb.toString();
     }
 
