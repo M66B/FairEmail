@@ -20,7 +20,7 @@
   <string name="title_list_identities">Identities</string>
   <string name="title_list_folders">Folders</string>
   <string name="title_edit_account">Edit account</string>
-  <string name="title_edit_indentity">Edit identity</string>
+  <string name="title_edit_identity">Edit identity</string>
   <string name="title_edit_folder">Edit folder</string>
   <string name="title_setup">Setup</string>
   <string name="title_setup_account">Configure account</string>

@@ -189,7 +189,7 @@ public class FragmentIdentity extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_edit_indentity);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_edit_identity);
     }
 
     private static class PutLoader extends AsyncTaskLoader<Throwable> {
