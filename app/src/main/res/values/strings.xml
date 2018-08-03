@@ -68,8 +68,12 @@
     <string name="title_folder_unified">Unified inbox</string>
     <string name="title_folder_inbox">Inbox</string>
     <string name="title_folder_outbox">Outbox</string>
+    <string name="title_folder_all">Archive</string>
     <string name="title_folder_drafts">Drafts</string>
+    <string name="title_folder_trash">Trash</string>
+    <string name="title_folder_junk">Spam</string>
     <string name="title_folder_sent">Sent</string>
+    <string name="title_folder_user">User</string>
     <string name="title_folder_thread">Message thread</string>
     <string name="title_no_messages">No messages</string>
 

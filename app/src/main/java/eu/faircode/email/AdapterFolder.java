@@ -224,13 +224,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             holder.tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
         else
             holder.tvName.setText(name);
-
         holder.tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+
         holder.tvAfter.setText(Integer.toString(folder.after));
         holder.tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+
         holder.ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
         holder.tvCount.setText(Integer.toString(folder.messages));
-        holder.tvType.setText(folder.type);
+
+        int resid = context.getResources().getIdentifier(
+                "title_folder_" + folder.type.toLowerCase(),
+                "string",
+                context.getPackageName());
+        holder.tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+
         holder.tvAccount.setText(folder.accountName);
 
         holder.wire();
