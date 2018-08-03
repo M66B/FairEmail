@@ -5,7 +5,7 @@ Simple, secure and efficient email app
 
 This email app might be for you if your current email app:
 
-* takes long to show messages
+* takes long to show or receive messages
 * can manage only one mailbox
 * cannot show related messages
 * cannot work offline
@@ -47,8 +47,8 @@ Secure
 Efficient
 ---------
 
-* No [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) support
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) required
+* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) required (no [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) support)
+* Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
