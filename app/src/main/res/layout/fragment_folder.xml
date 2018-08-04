@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".ActivityView">
 
@@ -52,10 +53,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etAfter" />
 
+        <ProgressBar
+            android:id="@+id/pbWait"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <android.support.constraint.Group
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="cbSynchronize,etAfter,btnOk" />
+            app:constraint_referenced_ids="cbSynchronize,tvAfter,etAfter,btnOk" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

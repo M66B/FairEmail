@@ -24,6 +24,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.Group;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -37,12 +38,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class FragmentFolder extends Fragment {
     private CheckBox cbSynchronize;
     private EditText etAfter;
     private Button btnOk;
+    private ProgressBar pbWait;
+    private Group grpReady;
 
     @Override
     @Nullable
@@ -57,6 +61,8 @@ public class FragmentFolder extends Fragment {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         etAfter = view.findViewById(R.id.etAfter);
         btnOk = view.findViewById(R.id.btnOk);
+        pbWait = view.findViewById(R.id.pbWait);
+        grpReady = view.findViewById(R.id.grpReady);
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +78,11 @@ public class FragmentFolder extends Fragment {
             }
         });
 
+        // Initialize
+        grpReady.setVisibility(View.GONE);
+        pbWait.setVisibility(View.VISIBLE);
+
+        // Observe
         DB.getInstance(getContext()).folder().liveFolder(id).observe(this, new Observer<EntityFolder>() {
             @Override
             public void onChanged(@Nullable EntityFolder folder) {
@@ -79,6 +90,9 @@ public class FragmentFolder extends Fragment {
                     cbSynchronize.setChecked(folder.synchronize);
                     etAfter.setText(Integer.toString(folder.after));
                 }
+
+                pbWait.setVisibility(View.GONE);
+                grpReady.setVisibility(View.VISIBLE);
             }
         });
 

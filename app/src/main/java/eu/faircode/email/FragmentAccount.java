@@ -69,6 +69,7 @@ public class FragmentAccount extends Fragment {
     private CheckBox cbSynchronize;
     private Button btnOk;
     private ProgressBar pbCheck;
+    // TODO: loading spinner
 
     static final int DEFAULT_INBOX_SYNC = 30;
     static final int DEFAULT_STANDARD_SYNC = 7;
@@ -296,7 +297,7 @@ public class FragmentAccount extends Fragment {
                     folders.add(0, inbox);
 
                     for (EntityFolder folder : folders)
-                        if (db.folder().getFolder(account.id, folder.name) == null) {
+                        if (db.folder().getFolderByName(account.id, folder.name) == null) {
                             folder.account = account.id;
                             Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
                             folder.id = db.folder().insertFolder(folder);

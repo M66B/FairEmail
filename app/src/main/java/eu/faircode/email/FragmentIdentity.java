@@ -70,6 +70,7 @@ public class FragmentIdentity extends Fragment {
     private CheckBox cbSynchronize;
     private Button btnOk;
     private ProgressBar pbCheck;
+    // TODO: loading spinner
 
     @Override
     @Nullable
