@@ -541,10 +541,11 @@ public class FragmentCompose extends Fragment {
 
         @Override
         public Throwable loadInBackground() {
-            long id = args.getLong("id");
-            boolean send = args.getBoolean("send", false);
-            Log.i(Helper.TAG, "Put load id=" + id + " send=" + send);
             try {
+                long id = args.getLong("id");
+                boolean send = args.getBoolean("send", false);
+                Log.i(Helper.TAG, "Put load id=" + id + " send=" + send);
+
                 DB db = DB.getInstance(getContext());
                 DaoMessage message = db.message();
                 DaoIdentity identity = db.identity();

@@ -35,6 +35,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -166,8 +167,13 @@ public class FragmentMessages extends Fragment {
         @Override
         public Bundle loadInBackground() {
             Bundle result = new Bundle();
-            EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryDraftFolder();
-            result.putBoolean("drafts", drafts != null);
+            try {
+                EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryDraftFolder();
+                result.putBoolean("drafts", drafts != null);
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                result.putBoolean("drafts", false);
+            }
             return result;
         }
     }
