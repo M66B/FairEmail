@@ -96,6 +96,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private static final long NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int FETCH_BATCH_SIZE = 10;
+    private static final int DOWNLOAD_BUFFER_SIZE = 8192; // bytes
 
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS.";
 
@@ -699,23 +700,47 @@ public class ServiceSynchronize extends LifecycleService {
                             if (attachment == null)
                                 return;
 
-                            Message imessage = ifolder.getMessageByUID(op.uid);
-                            if (imessage == null)
-                                throw new MessageRemovedException();
+                            try {
+                                // Get message
+                                Message imessage = ifolder.getMessageByUID(op.uid);
+                                if (imessage == null)
+                                    throw new MessageRemovedException();
 
-                            MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                            EntityAttachment a = helper.getAttachments().get(sequence - 1);
+                                // Get attachment
+                                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                                EntityAttachment a = helper.getAttachments().get(sequence - 1);
 
-                            InputStream is = a.part.getInputStream();
-                            ByteArrayOutputStream os = new ByteArrayOutputStream();
-                            byte[] buffer = new byte[4096];
-                            for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-                                os.write(buffer, 0, len);
+                                // Download attachment
+                                InputStream is = a.part.getInputStream();
+                                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                                byte[] buffer = new byte[DOWNLOAD_BUFFER_SIZE];
+                                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                                    os.write(buffer, 0, len);
 
-                            attachment.content = os.toByteArray();
-                            db.attachment().updateAttachment(attachment);
-                            Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
+                                    // Update progress
+                                    if (attachment.size != null) {
+                                        attachment.progress = os.size() * 100 / attachment.size;
+                                        db.attachment().updateAttachment(attachment);
+                                        Log.i(Helper.TAG, "Progress %=" + attachment.progress);
+                                        try {
+                                            Thread.sleep(1000);
+                                        } catch (InterruptedException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
 
+                                // Store attachment data
+                                attachment.progress = 100;
+                                attachment.content = os.toByteArray();
+                                db.attachment().updateAttachment(attachment);
+                                Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
+                            } catch (Throwable ex) {
+                                // Reset progress on failure
+                                attachment.progress = null;
+                                db.attachment().updateAttachment(attachment);
+                                throw ex;
+                            }
                         } else
                             throw new MessagingException("Unknown operation name=" + op.name);
 

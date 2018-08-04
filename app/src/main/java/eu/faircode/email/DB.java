@@ -40,7 +40,7 @@ import android.util.Log;
                 EntityAttachment.class,
                 EntityOperation.class
         },
-        version = 2,
+        version = 3,
         exportSchema = true
 )
 
@@ -75,6 +75,7 @@ public abstract class DB extends RoomDatabase {
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
         return builder
                 .addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_2_3)
                 .build();
     }
 
@@ -90,6 +91,15 @@ public abstract class DB extends RoomDatabase {
                     ", `content` BLOB, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
             db.execSQL("CREATE INDEX `index_attachment_message` ON `attachment` (`message`)");
             db.execSQL("CREATE UNIQUE INDEX `index_attachment_message_sequence` ON `attachment` (`message`, `sequence`)");
+        }
+    };
+
+    private static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase db) {
+            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+            db.execSQL("ALTER TABLE `attachment` ADD COLUMN `size` INTEGER");
+            db.execSQL("ALTER TABLE `attachment` ADD COLUMN `progress` INTEGER");
         }
     };
 

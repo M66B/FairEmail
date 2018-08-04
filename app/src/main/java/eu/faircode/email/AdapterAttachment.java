@@ -50,7 +50,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         View itemView;
         TextView tvName;
         TextView tvSize;
-        ImageView ivDownload;
+        TextView tvProgress;
+        ImageView ivStatus;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -58,30 +59,37 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             this.itemView = itemView;
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
-            ivDownload = itemView.findViewById(R.id.ivDownload);
+            tvProgress = itemView.findViewById(R.id.tvProgress);
+            ivStatus = itemView.findViewById(R.id.ivStatus);
         }
 
         private void wire() {
             itemView.setOnClickListener(this);
-            ivDownload.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            ivDownload.setOnClickListener(null);
         }
 
         @Override
         public void onClick(View view) {
             final EntityAttachment attachment = filtered.get(getLayoutPosition());
-            if (attachment != null && attachment.content == null)
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        EntityMessage message = DB.getInstance(context).message().getMessage(attachment.message);
-                        EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
-                    }
-                });
+            if (attachment != null)
+                if (attachment.content == null) {
+                    if (attachment.progress == null)
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                DB db = DB.getInstance(context);
+                                attachment.progress = 0;
+                                db.attachment().updateAttachment(attachment);
+                                EntityMessage message = db.message().getMessage(attachment.message);
+                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                            }
+                        });
+                } else {
+                    // View
+                }
         }
     }
 
@@ -188,11 +196,25 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         EntityAttachment attachment = filtered.get(position);
         holder.tvName.setText(attachment.name);
-        holder.tvSize.setVisibility((attachment.content == null ? View.GONE : View.VISIBLE));
-        holder.ivDownload.setVisibility((attachment.content == null ? View.VISIBLE : View.GONE));
 
-        if (attachment.content != null)
-            holder.tvSize.setText(Helper.humanReadableByteCount(attachment.content.length, false));
+        if (attachment.size != null)
+            holder.tvSize.setText(Helper.humanReadableByteCount(attachment.size, false));
+        holder.tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
+
+        if (attachment.progress != null)
+            holder.tvProgress.setText(String.format("%d %%", attachment.progress));
+        holder.tvProgress.setVisibility(attachment.progress == null ? View.GONE : View.VISIBLE);
+
+        if (attachment.content == null) {
+            if (attachment.progress == null) {
+                holder.ivStatus.setImageResource(R.drawable.baseline_get_app_24);
+                holder.ivStatus.setVisibility(View.VISIBLE);
+            } else
+                holder.ivStatus.setVisibility(View.GONE);
+        } else {
+            holder.ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+            holder.ivStatus.setVisibility(View.VISIBLE);
+        }
 
         holder.wire();
     }

@@ -52,6 +52,8 @@ public class EntityAttachment {
     public String name;
     @NonNull
     public String type;
+    public Integer size;
+    public Integer progress;
     public byte[] content;
 
     @Ignore

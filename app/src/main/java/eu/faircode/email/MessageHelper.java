@@ -313,7 +313,10 @@ public class MessageHelper {
                 attachment.sequence = result.size() + 1;
                 attachment.name = part.getFileName();
                 attachment.type = ct.getBaseType();
+                attachment.size = part.getSize();
                 attachment.part = part;
+                if (attachment.size < 0)
+                    attachment.size = null;
                 result.add(attachment);
             }
         } else if (content instanceof Multipart) {
