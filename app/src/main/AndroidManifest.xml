@@ -25,7 +25,9 @@
             android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="false" />
 
-        <activity android:name=".ActivitySetup" />
+        <activity
+            android:name=".ActivitySetup"
+            android:parentActivityName=".ActivityView" />
 
         <activity android:name=".ActivityView">
             <intent-filter>
@@ -35,7 +37,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityCompose" />
+        <activity
+            android:name=".ActivityCompose"
+            android:parentActivityName=".ActivityView" />
 
         <service android:name=".ServiceSynchronize" />
 

@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.MenuItem;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int LOADER_COMPOSE_GET = 1;
@@ -37,6 +38,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
@@ -51,6 +54,16 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose");
             fragmentTransaction.commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

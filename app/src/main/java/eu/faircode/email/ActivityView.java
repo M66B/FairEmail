@@ -135,6 +135,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
+        syncState();
     }
 
     @Override
@@ -159,6 +160,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
+
     }
 
     @Override
@@ -188,6 +190,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             finish();
     }
 
+    private void syncState() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean eula = prefs.getBoolean("eula", false);
+        drawerToggle.setDrawerIndicatorEnabled(eula);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(eula);
+        getSupportActionBar().setHomeButtonEnabled(eula);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item))
@@ -197,10 +207,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void init() {
+        syncState();
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("eula", false)) {
-            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-
             Bundle args = new Bundle();
             args.putLong("folder", -1);
 
@@ -225,8 +235,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 }
             });
         } else {
-            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentEula(), "eula");
             fragmentTransaction.commit();
@@ -234,7 +242,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     public void updateDrawer() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_unified));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_folders));
