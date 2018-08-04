@@ -898,7 +898,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.subject = imessage.getSubject();
                 message.body = helper.getHtml();
                 message.received = imessage.getReceivedDate().getTime();
-                message.sent = imessage.getSentDate().getTime();
+                message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
                 message.seen = seen;
                 message.ui_seen = seen;
                 message.ui_hide = false;
