@@ -104,7 +104,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                            .putExtra("folder", message.folder)
                                             .putExtra("id", message.id));
                         }
                     } catch (Throwable ex) {

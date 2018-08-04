@@ -65,6 +65,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final int LOADER_IDENTITY_PUT = 2;
     static final int LOADER_FOLDER_PUT = 3;
     static final int LOADER_MESSAGES_INIT = 4;
+    static final int LOADER_MESSAGE_INIT = 5;
 
     static final int REQUEST_VIEW = 1;
 

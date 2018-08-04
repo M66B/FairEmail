@@ -218,14 +218,14 @@ public class FragmentCompose extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_cc, menu);
+        inflater.inflate(R.menu.menu_address, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_cc:
+            case R.id.menu_address:
                 onMenuCc();
                 return true;
             default:

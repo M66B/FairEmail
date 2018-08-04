@@ -796,7 +796,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
                 if (candidate) {
                     Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join(",", attrs));
-                    EntityFolder folder = dao.getFolder(account.id, ifolder.getFullName());
+                    EntityFolder folder = dao.getFolderByName(account.id, ifolder.getFullName());
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;

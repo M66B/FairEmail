@@ -98,9 +98,6 @@
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_spam">Report message as spam?</string>
 
-    <string name="title_no_archive">This account has no archive folder</string>
-    <string name="title_no_spam">This account has no spam folder</string>
-
     <string name="title_compose">Compose</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>

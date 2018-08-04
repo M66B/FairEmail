@@ -19,8 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -31,6 +31,9 @@ import android.support.constraint.Group;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -77,7 +80,6 @@ public class FragmentMessage extends Fragment {
     private Group grpReady;
 
     private AdapterAttachment adapter;
-    private LiveData<TupleFolderEx> liveFolder;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
@@ -88,9 +90,7 @@ public class FragmentMessage extends Fragment {
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
         // Get arguments
-        Bundle args = getArguments();
-        final long folder = args.getLong("folder");
-        final long id = args.getLong("id");
+        final long id = getArguments().getLong("id");
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
@@ -195,6 +195,7 @@ public class FragmentMessage extends Fragment {
         // Initialize
         grpAddress.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -207,16 +208,10 @@ public class FragmentMessage extends Fragment {
 
         final DB db = DB.getInstance(getContext());
 
-        // Observe folder
-        liveFolder = db.folder().liveFolderEx(folder);
-
         // Observe message
         db.message().liveMessage(id).observe(this, new Observer<TupleMessageEx>() {
             @Override
             public void onChanged(@Nullable TupleMessageEx message) {
-                pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
-
                 if (message == null || message.ui_hide) {
                     // Message gone (moved, deleted)
                     if (FragmentMessage.this.isVisible())
@@ -236,10 +231,6 @@ public class FragmentMessage extends Fragment {
                     tvSubject.setTypeface(null, visibility);
                     tvCount.setTypeface(null, visibility);
 
-                    // Observe attachments
-                    db.attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
-                    db.attachment().liveAttachments(id).observe(FragmentMessage.this, attachmentsObserver);
-
                     top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
@@ -248,14 +239,18 @@ public class FragmentMessage extends Fragment {
                             : R.drawable.baseline_visibility_24);
                     actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
 
-                    bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.account != null);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.account != null);
                     tvBody.setText(message.body == null
                             ? null
                             : Html.fromHtml(HtmlHelper.sanitize(getContext(), message.body, false)));
                 }
+
+                pbWait.setVisibility(View.GONE);
+                grpReady.setVisibility(View.VISIBLE);
             }
         });
+
+        // Setup attachments and bottom toolbar
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, getArguments(), metaLoaderCallbacks).forceLoad();
 
         return view;
     }
@@ -263,53 +258,32 @@ public class FragmentMessage extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        liveFolder.observe(this, folderObserver);
-    }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        liveFolder.removeObservers(this);
+        // Set subtitle
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, getArguments(), metaLoaderCallbacks).forceLoad();
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_cc, menu);
+        inflater.inflate(R.menu.menu_address, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_cc:
-                onMenuCc();
+            case R.id.menu_address:
+                onMenuAddress();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuCc() {
+    private void onMenuAddress() {
         if (grpReady.getVisibility() == View.VISIBLE)
             grpAddress.setVisibility(grpAddress.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
-
-    Observer<TupleFolderEx> folderObserver = new Observer<TupleFolderEx>() {
-        @Override
-        public void onChanged(@Nullable TupleFolderEx folder) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(folder == null
-                    ? null
-                    : Helper.localizeFolderName(getContext(), folder));
-        }
-    };
-
-    Observer<List<EntityAttachment>> attachmentsObserver = new Observer<List<EntityAttachment>>() {
-        @Override
-        public void onChanged(@Nullable List<EntityAttachment> attachments) {
-            adapter.set(attachments);
-            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
-        }
-    };
 
     private void onActionSeen(final long id) {
         executor.submit(new Runnable() {
@@ -357,30 +331,50 @@ public class FragmentMessage extends Fragment {
     }
 
     private void onActionDelete(final long id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder
-                .setMessage(R.string.title_ask_delete)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        executor.submit(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    DB db = DB.getInstance(getContext());
-                                    EntityMessage message = db.message().getMessage(id);
-                                    message.ui_hide = true;
-                                    db.message().updateMessage(message);
+        String folderType = (String) bottom_navigation.getTag();
+        if (EntityFolder.TYPE_TRASH.equals(folderType)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder
+                    .setMessage(R.string.title_ask_delete)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            executor.submit(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        DB db = DB.getInstance(getContext());
+                                        EntityMessage message = db.message().getMessage(id);
+                                        message.ui_hide = true;
+                                        db.message().updateMessage(message);
 
-                                    EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
-                                } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
+                                    } catch (Throwable ex) {
+                                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null).show();
+        } else {
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        DB db = DB.getInstance(getContext());
+                        EntityMessage message = db.message().getMessage(id);
+                        message.ui_hide = true;
+                        db.message().updateMessage(message);
+
+                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH);
+                        EntityOperation.queue(getContext(), message, EntityOperation.MOVE, trash.id);
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, null).show();
+                }
+            });
+        }
     }
 
     private void onActionSpam(final long id) {
@@ -396,15 +390,10 @@ public class FragmentMessage extends Fragment {
                                 try {
                                     DB db = DB.getInstance(getContext());
                                     EntityMessage message = db.message().getMessage(id);
-                                    EntityFolder spam = db.folder().getSpamFolder(message.account);
-                                    if (spam == null) {
-                                        Toast.makeText(getContext(), R.string.title_no_spam, Toast.LENGTH_LONG).show();
-                                        return;
-                                    }
-
                                     message.ui_hide = true;
                                     db.message().updateMessage(message);
 
+                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK);
                                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -423,15 +412,10 @@ public class FragmentMessage extends Fragment {
                 try {
                     DB db = DB.getInstance(getContext());
                     EntityMessage message = db.message().getMessage(id);
-                    EntityFolder archive = db.folder().getArchiveFolder(message.account);
-                    if (archive == null) {
-                        Toast.makeText(getContext(), R.string.title_no_archive, Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
                     message.ui_hide = true;
                     db.message().updateMessage(message);
 
+                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE);
                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -444,5 +428,83 @@ public class FragmentMessage extends Fragment {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("id", id)
                 .putExtra("action", "reply"));
+    }
+
+
+    private static class MetaLoader extends AsyncTaskLoader<MetaData> {
+        private Bundle args;
+
+        MetaLoader(Context context) {
+            super(context);
+        }
+
+        void setArgs(Bundle args) {
+            this.args = args;
+        }
+
+        @Override
+        public MetaData loadInBackground() {
+            MetaData result = new MetaData();
+            try {
+                long id = args.getLong("id"); // message
+
+                DB db = DB.getInstance(getContext());
+                EntityMessage message = db.message().getMessage(id);
+                result.folder = db.folder().getFolder(message.folder);
+                result.hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH) != null);
+                result.hasJunk = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK) != null);
+                result.hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE) != null);
+                result.attachments = db.attachment().getAttachments(id);
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                result.ex = ex;
+            }
+            return result;
+        }
+    }
+
+    private LoaderManager.LoaderCallbacks metaLoaderCallbacks = new LoaderManager.LoaderCallbacks<MetaData>() {
+        @NonNull
+        @Override
+        public Loader<MetaData> onCreateLoader(int id, Bundle args) {
+            MetaLoader loader = new MetaLoader(getContext());
+            loader.setArgs(args);
+            return loader;
+        }
+
+        @Override
+        public void onLoadFinished(@NonNull Loader<MetaData> loader, MetaData data) {
+            getLoaderManager().destroyLoader(loader.getId());
+
+            if (data.ex == null) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(data.folder == null
+                        ? null
+                        : Helper.localizeFolderName(getContext(), data.folder.name));
+
+                adapter.set(data.attachments);
+                grpAttachments.setVisibility(data.attachments.size() > 0 ? View.VISIBLE : View.GONE);
+
+                boolean outbox = EntityFolder.TYPE_OUTBOX.equals(data.folder.type);
+
+                bottom_navigation.setTag(data.folder.type); // trash or delete
+                bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.hasJunk);
+                bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && data.hasJunk);
+                bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && data.hasArchive);
+                bottom_navigation.setVisibility(View.VISIBLE);
+            }
+        }
+
+        @Override
+        public void onLoaderReset(@NonNull Loader<MetaData> loader) {
+        }
+    };
+
+    private static class MetaData {
+        Throwable ex;
+        EntityFolder folder;
+        boolean hasTrash;
+        boolean hasJunk;
+        boolean hasArchive;
+        List<EntityAttachment> attachments;
     }
 }

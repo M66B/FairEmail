@@ -61,23 +61,19 @@ public interface DaoFolder {
     EntityFolder getFolder(Long id);
 
     @Query("SELECT * FROM folder WHERE account = :account AND name = :name")
-    EntityFolder getFolder(Long account, String name);
+    EntityFolder getFolderByName(Long account, String name);
+
+    @Query("SELECT folder.* FROM folder" +
+            " WHERE account = :account AND type = :type")
+    EntityFolder getFolderByType(long account, String type);
+
+    @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.TYPE_OUTBOX + "'")
+    EntityFolder getOutbox();
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.`primary` AND type = '" + EntityFolder.TYPE_DRAFTS + "' ")
     EntityFolder getPrimaryDraftFolder();
-
-    @Query("SELECT folder.* FROM folder" +
-            " WHERE account = :account AND type = '" + EntityFolder.TYPE_ARCHIVE + "' ")
-    EntityFolder getArchiveFolder(long account);
-
-    @Query("SELECT folder.* FROM folder" +
-            " WHERE account = :account AND type = '" + EntityFolder.TYPE_JUNK + "' ")
-    EntityFolder getSpamFolder(long account);
-
-    @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.TYPE_OUTBOX + "'")
-    EntityFolder getOutbox();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertFolder(EntityFolder folder);

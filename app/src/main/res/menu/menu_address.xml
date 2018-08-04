@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_cc"
+        android:id="@+id/menu_address"
         android:icon="@drawable/baseline_people_24"
         android:title="@string/title_cc"
         app:showAsAction="always" />
