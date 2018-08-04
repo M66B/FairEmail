@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:ellipsize="marquee"
-        android:singleLine="true"
+        android:maXlines="1"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
