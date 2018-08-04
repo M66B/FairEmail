@@ -267,7 +267,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         if (attachment.progress != null)
             holder.tvProgress.setText(String.format("%d %%", attachment.progress));
-        holder.tvProgress.setVisibility(attachment.progress == null ? View.GONE : View.VISIBLE);
+        holder.tvProgress.setVisibility(
+                attachment.progress == null || attachment.content != null ? View.GONE : View.VISIBLE);
 
         if (attachment.content == null) {
             if (attachment.progress == null) {

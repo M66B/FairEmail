@@ -731,7 +731,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
 
                                 // Store attachment data
-                                attachment.progress = 100;
+                                attachment.progress = null;
                                 attachment.content = os.toByteArray();
                                 db.attachment().updateAttachment(attachment);
                                 Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);

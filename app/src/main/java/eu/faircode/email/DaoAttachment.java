@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -30,7 +31,7 @@ import java.util.List;
 @Dao
 public interface DaoAttachment {
     @Query("SELECT * FROM attachment WHERE message = :message")
-    List<EntityAttachment> getAttachments(long message);
+    LiveData<List<EntityAttachment>> liveAttachments(long message);
 
     @Query("SELECT * FROM attachment WHERE message = :message AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);

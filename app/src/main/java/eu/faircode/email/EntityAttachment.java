@@ -58,4 +58,20 @@ public class EntityAttachment {
 
     @Ignore
     BodyPart part;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof EntityAttachment) {
+            EntityAttachment other = (EntityAttachment) obj;
+            return (this.message.equals(other.message) &&
+                    this.sequence.equals(other.sequence) &&
+                    (this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    this.type.equals(other.type) &&
+                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
+                    (this.progress == null ? other.progress == null : this.progress.equals(other.progress)) &&
+                    (this.content == null ? other.content == null : other.content != null));
+        } else
+            return false;
+    }
+
 }

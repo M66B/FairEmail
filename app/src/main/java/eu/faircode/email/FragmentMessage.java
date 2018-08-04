@@ -231,6 +231,16 @@ public class FragmentMessage extends Fragment {
                     tvSubject.setTypeface(null, visibility);
                     tvCount.setTypeface(null, visibility);
 
+                    DB.getInstance(getContext()).attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
+                    DB.getInstance(getContext()).attachment().liveAttachments(id).observe(FragmentMessage.this,
+                            new Observer<List<EntityAttachment>>() {
+                                @Override
+                                public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                                    adapter.set(attachments);
+                                    grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                                }
+                            });
+
                     top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
@@ -454,7 +464,6 @@ public class FragmentMessage extends Fragment {
                 result.hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH) != null);
                 result.hasJunk = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK) != null);
                 result.hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE) != null);
-                result.attachments = db.attachment().getAttachments(id);
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 result.ex = ex;
@@ -481,9 +490,6 @@ public class FragmentMessage extends Fragment {
                         ? null
                         : Helper.localizeFolderName(getContext(), data.folder.name));
 
-                adapter.set(data.attachments);
-                grpAttachments.setVisibility(data.attachments.size() > 0 ? View.VISIBLE : View.GONE);
-
                 boolean outbox = EntityFolder.TYPE_OUTBOX.equals(data.folder.type);
 
                 bottom_navigation.setTag(data.folder.type); // trash or delete
@@ -505,6 +511,5 @@ public class FragmentMessage extends Fragment {
         boolean hasTrash;
         boolean hasJunk;
         boolean hasArchive;
-        List<EntityAttachment> attachments;
     }
 }
