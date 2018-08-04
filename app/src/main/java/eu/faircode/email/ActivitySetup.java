@@ -19,11 +19,19 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+    static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
+    static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +47,44 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_EDIT_ACCOUNT);
+        iff.addAction(ACTION_EDIT_IDENTITY);
+        lbm.registerReceiver(receiver, iff);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.unregisterReceiver(receiver);
+    }
+
+    @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
             finish();
     }
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (ACTION_EDIT_ACCOUNT.equals(intent.getAction())) {
+                FragmentAccount fragment = new FragmentAccount();
+                fragment.setArguments(intent.getExtras());
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
+                fragmentTransaction.commit();
+            } else if (ACTION_EDIT_IDENTITY.equals(intent.getAction())) {
+                FragmentIdentity fragment = new FragmentIdentity();
+                fragment.setArguments(intent.getExtras());
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+                fragmentTransaction.commit();
+            }
+        }
+    };
 }

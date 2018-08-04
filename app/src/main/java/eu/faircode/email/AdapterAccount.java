@@ -79,7 +79,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_EDIT_ACCOUNT)
+                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                             .putExtra("id", account.id));
         }
     }

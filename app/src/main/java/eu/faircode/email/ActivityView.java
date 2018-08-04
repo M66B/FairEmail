@@ -71,8 +71,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
-    static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
-    static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,8 +145,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
-        iff.addAction(ACTION_EDIT_ACCOUNT);
-        iff.addAction(ACTION_EDIT_IDENTITY);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -391,18 +387,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 fragment.setArguments(intent.getExtras());
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
-                fragmentTransaction.commit();
-            } else if (ACTION_EDIT_ACCOUNT.equals(intent.getAction())) {
-                FragmentAccount fragment = new FragmentAccount();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
-                fragmentTransaction.commit();
-            } else if (ACTION_EDIT_IDENTITY.equals(intent.getAction())) {
-                FragmentIdentity fragment = new FragmentIdentity();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                 fragmentTransaction.commit();
             }
         }

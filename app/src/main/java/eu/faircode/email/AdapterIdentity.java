@@ -79,7 +79,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_EDIT_IDENTITY)
+                    new Intent(ActivitySetup.ACTION_EDIT_IDENTITY)
                             .putExtra("id", identity.id));
         }
     }
