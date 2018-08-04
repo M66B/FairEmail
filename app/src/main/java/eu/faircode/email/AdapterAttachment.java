@@ -98,15 +98,26 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             }
                         });
                 } else {
+                    // Build file name
+                    File dir = new File(context.getCacheDir(), "attachments");
+                    dir.mkdir();
+                    final File file = new File(dir, TextUtils.isEmpty(attachment.name) ? "noname" : attachment.name);
+
+                    // Check if viewer available
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.fromFile(file));
+                    PackageManager pm = context.getPackageManager();
+                    if (pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) == null) {
+                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
                     // View
                     executor.submit(new Runnable() {
                         @Override
                         public void run() {
                             try {
-                                // Build file name
-                                File dir = new File(context.getCacheDir(), "attachments");
-                                dir.mkdir();
-                                File file = new File(dir, TextUtils.isEmpty(attachment.name) ? "" : attachment.name);
+                                // Create file
                                 if (!file.exists()) {
                                     file.createNewFile();
 
@@ -135,12 +146,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 for (ResolveInfo resolveInfo : targets)
                                     context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-                                // Start view
-                                Log.i(Helper.TAG, "Targets=" + targets.size());
-                                if (targets.size() > 0)
-                                    context.startActivity(intent);
-                                else
-                                    Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                                // Start viewer
+                                context.startActivity(intent);
                             } catch (Throwable ex) {
                                 Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                             }
