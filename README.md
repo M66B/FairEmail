@@ -5,7 +5,7 @@ Simple, secure and efficient email app
 
 This email app might be for you if your current email app:
 
-* takes long to show or receive messages
+* takes long to receive or show messages
 * can manage only one mailbox
 * cannot show related messages
 * cannot work offline
@@ -47,13 +47,19 @@ Secure
 Efficient
 ---------
 
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) required (no [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) support)
+* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) required (no Yahoo! support; no [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) support)
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
-Frequently Asked Questions
+Downloads
+---------
+
+* [GitHub](https://github.com/M66B/open-source-email/releases) (no update notifications)
+* [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/eu.faircode.email)
+
+Frequently asked questions
 --------------------------
 
 See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions.
