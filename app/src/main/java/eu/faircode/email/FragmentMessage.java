@@ -37,6 +37,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Layout;
@@ -53,12 +54,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -412,7 +416,9 @@ public class FragmentMessage extends Fragment {
     }
 
     private void onActionMove(final long id) {
-        Toast.makeText(getContext(), "Not implemented yet", Toast.LENGTH_LONG).show();
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, args, folderLoaderCallbacks).forceLoad();
     }
 
     private void onActionArchive(final long id) {
@@ -439,7 +445,6 @@ public class FragmentMessage extends Fragment {
                 .putExtra("id", id)
                 .putExtra("action", "reply"));
     }
-
 
     private static class MetaLoader extends AsyncTaskLoader<MetaData> {
         private Bundle args;
@@ -512,4 +517,96 @@ public class FragmentMessage extends Fragment {
         boolean hasJunk;
         boolean hasArchive;
     }
+
+    private static class FolderLoader extends AsyncTaskLoader<List<EntityFolder>> {
+        private Bundle args;
+
+        FolderLoader(Context context) {
+            super(context);
+        }
+
+        void setArgs(Bundle args) {
+            this.args = args;
+        }
+
+        @Override
+        public List<EntityFolder> loadInBackground() {
+            DB db = DB.getInstance(getContext());
+            EntityMessage message = db.message().getMessage(args.getLong("id"));
+            List<EntityFolder> folders = db.folder().getUserFolders(message.account);
+
+            for (int i = 0; i < folders.size(); i++)
+                if (folders.get(i).id == message.folder) {
+                    folders.remove(i);
+                    break;
+                }
+
+            final Collator collator = Collator.getInstance(Locale.getDefault());
+            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+            Collections.sort(folders, new Comparator<EntityFolder>() {
+                @Override
+                public int compare(EntityFolder f1, EntityFolder f2) {
+                    int s = EntityFolder.isUser(f1.type).compareTo(EntityFolder.isUser(f2.type));
+                    return collator.compare(f1.name, f2.name);
+                }
+            });
+
+            return folders;
+        }
+    }
+
+    private LoaderManager.LoaderCallbacks folderLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<EntityFolder>>() {
+        Bundle args;
+
+        @NonNull
+        @Override
+        public Loader<List<EntityFolder>> onCreateLoader(int id, Bundle args) {
+            this.args = args;
+            FolderLoader loader = new FolderLoader(getContext());
+            loader.setArgs(args);
+            return loader;
+        }
+
+        @Override
+        public void onLoadFinished(@NonNull Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
+            getLoaderManager().destroyLoader(loader.getId());
+
+            View anchor = top_navigation.findViewById(R.id.action_thread);
+            PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
+            int order = 0;
+            for (EntityFolder folder : folders)
+                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.name);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    final long folder = item.getItemId();
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                DB db = DB.getInstance(getContext());
+                                EntityMessage message = db.message().getMessage(args.getLong("id"));
+                                message.ui_hide = true;
+                                db.message().updateMessage(message);
+
+                                EntityOperation.queue(getContext(), message, EntityOperation.MOVE, folder);
+                            } catch (Throwable ex) {
+                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                        }
+                    });
+
+                    return true;
+                }
+            });
+
+            popupMenu.show();
+        }
+
+        @Override
+        public void onLoaderReset(@NonNull Loader<List<EntityFolder>> loader) {
+        }
+    };
 }
