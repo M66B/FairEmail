@@ -15,12 +15,6 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_move"
-        android:icon="@drawable/baseline_folder_24"
-        android:title="@string/title_move"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_forward"
         android:icon="@drawable/baseline_forward_24"
         android:title="@string/title_forward"

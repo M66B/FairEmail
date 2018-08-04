@@ -157,9 +157,6 @@ public class FragmentMessage extends Fragment {
                     case R.id.action_thread:
                         onActionThread(id);
                         return true;
-                    case R.id.action_move:
-                        onActionMove(id);
-                        return true;
                     case R.id.action_forward:
                         onActionForward(id);
                         return true;
@@ -180,6 +177,9 @@ public class FragmentMessage extends Fragment {
                         return true;
                     case R.id.action_spam:
                         onActionSpam(id);
+                        return true;
+                    case R.id.action_move:
+                        onActionMove(id);
                         return true;
                     case R.id.action_archive:
                         onActionArchive(id);
@@ -324,10 +324,6 @@ public class FragmentMessage extends Fragment {
         fragmentTransaction.commit();
     }
 
-    private void onActionMove(final long id) {
-        Toast.makeText(getContext(), "Not implemented yet", Toast.LENGTH_LONG).show();
-    }
-
     private void onActionForward(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("id", id)
@@ -413,6 +409,10 @@ public class FragmentMessage extends Fragment {
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null).show();
+    }
+
+    private void onActionMove(final long id) {
+        Toast.makeText(getContext(), "Not implemented yet", Toast.LENGTH_LONG).show();
     }
 
     private void onActionArchive(final long id) {

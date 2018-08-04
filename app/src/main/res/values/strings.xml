@@ -85,12 +85,12 @@
     <string name="title_thread">Thread</string>
     <string name="title_seen">Read</string>
     <string name="title_unseen">Unread</string>
-    <string name="title_move">Move</string>
     <string name="title_forward">Forward</string>
     <string name="title_reply_all">Reply to all</string>
 
     <string name="title_delete">Delete</string>
     <string name="title_spam">Spam</string>
+    <string name="title_move">Move</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
 
