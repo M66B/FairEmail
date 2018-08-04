@@ -20,17 +20,26 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.content.FileProvider;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.util.ListUpdateCallback;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -77,6 +86,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment != null)
                 if (attachment.content == null) {
                     if (attachment.progress == null)
+                        // Download
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
@@ -89,6 +99,53 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         });
                 } else {
                     // View
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                // Build file name
+                                File dir = new File(context.getCacheDir(), "attachments");
+                                dir.mkdir();
+                                File file = new File(dir, TextUtils.isEmpty(attachment.name) ? "" : attachment.name);
+                                if (!file.exists()) {
+                                    file.createNewFile();
+
+                                    FileOutputStream fos = null;
+                                    try {
+                                        fos = new FileOutputStream(file);
+                                        fos.write(attachment.content);
+                                    } finally {
+                                        if (fos != null)
+                                            fos.close();
+                                    }
+                                }
+
+                                // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                                Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
+
+                                // Build intent
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(uri);
+                                //intent.setType(attachment.type);
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+
+                                // Set permissions
+                                List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                                for (ResolveInfo resolveInfo : targets)
+                                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                                // Start view
+                                Log.i(Helper.TAG, "Targets=" + targets.size());
+                                if (targets.size() > 0)
+                                    context.startActivity(intent);
+                                else
+                                    Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                            } catch (Throwable ex) {
+                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                        }
+                    });
                 }
         }
     }

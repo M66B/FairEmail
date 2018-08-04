@@ -39,6 +39,16 @@
 
         <service android:name=".ServiceSynchronize" />
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="eu.faircode.email"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_paths" />
+        </provider>
+
         <receiver android:name=".ReceiverAutostart">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
