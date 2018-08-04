@@ -51,7 +51,7 @@ public class EntityAccount {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
-            return (this.name == null ? other.name == null : this.name.equals(other.name) &&
+            return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
                     this.host.equals(other.host) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&

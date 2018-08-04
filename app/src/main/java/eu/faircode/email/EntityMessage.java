@@ -84,23 +84,23 @@ public class EntityMessage {
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
             EntityMessage other = (EntityMessage) obj;
-            return (this.account == null ? other.account == null : this.account.equals(other.account) &&
+            return ((this.account == null ? other.account == null : this.account.equals(other.account)) &&
                     this.folder.equals(other.folder) &&
-                    this.identity == null ? other.identity == null : this.identity.equals(other.identity) &&
-                    this.replying == null ? other.replying == null : this.replying.equals(other.replying) &&
-                    this.uid == null ? other.uid == null : this.uid.equals(other.uid) &&
-                    this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid) &&
-                    this.references == null ? other.references == null : this.references.equals(other.references) &&
-                    this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto) &&
-                    this.thread == null ? other.thread == null : thread.equals(other.thread) &&
-                    this.from == null ? other.from == null : this.from.equals(other.from) &&
-                    this.to == null ? other.to == null : this.to.equals(other.to) &&
-                    this.cc == null ? other.cc == null : this.cc.equals(other.cc) &&
-                    this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc) &&
-                    this.reply == null ? other.reply == null : this.reply.equals(other.reply) &&
-                    this.subject == null ? other.subject == null : this.subject.equals(other.subject) &&
-                    this.body == null ? other.body == null : this.body.equals(other.body) &&
-                    this.sent == null ? other.sent == null : this.sent.equals(other.sent) &&
+                    (this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
+                    (this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
+                    (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
+                    (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
+                    (this.references == null ? other.references == null : this.references.equals(other.references)) &&
+                    (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
+                    (this.thread == null ? other.thread == null : thread.equals(other.thread)) &&
+                    (this.from == null ? other.from == null : this.from.equals(other.from)) &&
+                    (this.to == null ? other.to == null : this.to.equals(other.to)) &&
+                    (this.cc == null ? other.cc == null : this.cc.equals(other.cc)) &&
+                    (this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc)) &&
+                    (this.reply == null ? other.reply == null : this.reply.equals(other.reply)) &&
+                    (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
+                    (this.body == null ? other.body == null : this.body.equals(other.body)) &&
+                    (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.seen.equals(other.seen) &&
                     this.ui_seen.equals(other.ui_seen) &&

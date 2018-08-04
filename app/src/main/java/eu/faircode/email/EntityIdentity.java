@@ -59,7 +59,7 @@ public class EntityIdentity {
             EntityIdentity other = (EntityIdentity) obj;
             return (this.name.equals(other.name) &&
                     this.email.equals(other.email) &&
-                    this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto) &&
+                    (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
                     this.host.equals(other.host) &&
                     this.port.equals(other.port) &&
                     this.starttls.equals(other.starttls) &&

@@ -93,7 +93,7 @@ public class EntityFolder {
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {
             EntityFolder other = (EntityFolder) obj;
-            return (this.account == null ? other.account == null : this.account.equals(other.account) &&
+            return ((this.account == null ? other.account == null : this.account.equals(other.account)) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
