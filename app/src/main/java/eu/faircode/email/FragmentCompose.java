@@ -182,7 +182,7 @@ public class FragmentCompose extends Fragment {
         bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(id > 0);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
-        DB.getInstance(getContext()).identity().liveIdentities(true).observe(getActivity(), new Observer<List<EntityIdentity>>() {
+        DB.getInstance(getContext()).identity().liveIdentities(true).observe(FragmentCompose.this, new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable final List<EntityIdentity> identities) {
                 Collections.sort(identities, new Comparator<EntityIdentity>() {

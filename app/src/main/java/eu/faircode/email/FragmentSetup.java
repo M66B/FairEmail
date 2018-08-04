@@ -82,7 +82,7 @@ public class FragmentSetup extends Fragment {
                 btnAccount.setEnabled(false);
                 pbAccount.setVisibility(View.VISIBLE);
 
-                DB.getInstance(getContext()).account().liveFirstAccount().observe(getActivity(), new Observer<EntityAccount>() {
+                DB.getInstance(getContext()).account().liveFirstAccount().observe(FragmentSetup.this, new Observer<EntityAccount>() {
                     @Override
                     public void onChanged(@Nullable EntityAccount account) {
                         btnAccount.setEnabled(true);
@@ -116,7 +116,7 @@ public class FragmentSetup extends Fragment {
                 btnIdentity.setEnabled(false);
                 pbIdentity.setVisibility(View.VISIBLE);
 
-                DB.getInstance(getContext()).identity().liveFirstIdentity().observe(getActivity(), new Observer<EntityIdentity>() {
+                DB.getInstance(getContext()).identity().liveFirstIdentity().observe(FragmentSetup.this, new Observer<EntityIdentity>() {
                     @Override
                     public void onChanged(@Nullable EntityIdentity identity) {
                         btnIdentity.setEnabled(true);
