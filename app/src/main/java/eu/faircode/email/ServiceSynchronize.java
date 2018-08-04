@@ -957,7 +957,7 @@ public class ServiceSynchronize extends LifecycleService {
                 for (EntityAttachment attachment : helper.getAttachments()) {
                     Log.i(Helper.TAG, "attachment name=" + attachment.name + " type=" + attachment.type);
                     attachment.message = message.id;
-                    db.attachment().insertAttachment(attachment);
+                    attachment.id = db.attachment().insertAttachment(attachment);
                 }
 
             } else if (message.seen != seen) {

@@ -86,5 +86,5 @@ public interface DaoFolder {
     void updateFolder(EntityFolder folder);
 
     @Query("DELETE FROM folder WHERE account= :account AND name = :name")
-    int deleteFolder(Long account, String name);
+    void deleteFolder(Long account, String name);
 }

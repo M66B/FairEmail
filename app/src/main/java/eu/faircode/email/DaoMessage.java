@@ -96,7 +96,7 @@ public interface DaoMessage {
     void deleteMessage(long folder, long uid);
 
     @Query("DELETE FROM message WHERE folder = :folder")
-    int deleteMessages(long folder);
+    void deleteMessages(long folder);
 
     @Query("DELETE FROM message WHERE folder = :folder AND received < :received AND NOT uid IS NULL")
     int deleteMessagesBefore(long folder, long received);
