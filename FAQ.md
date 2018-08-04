@@ -28,6 +28,11 @@ The low priority status bar notification shows the number of pending operations,
 
 Valid security certificates are officially signed (not self signed) and have matching a host name.
 
+<a name="FAQ4"></a>
+**(4) Why is IMAP IDLE required?**
+
+Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,
+which is a waste of battery power and internet bandwidth and will delay notification of new emails.
 
 <br>
 
