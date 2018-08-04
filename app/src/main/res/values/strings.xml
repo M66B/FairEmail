@@ -119,4 +119,6 @@
     <string name="title_queued">Message queued</string>
 
     <string name="title_item_edit_hint">Long press item to edit properties</string>
+
+    <string name="title_debug_info">Please describe the problem and indicate the time of the problem:</string>
 </resources>

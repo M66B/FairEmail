@@ -309,6 +309,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     EntityFolder drafts = db.folder().getPrimaryDraftFolder();
                     if (drafts != null) {
                         StringBuilder info = Helper.getDebugInfo();
+                        info.insert(0, getString(R.string.title_debug_info) + "\n\n\n\n");
 
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
 
