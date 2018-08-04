@@ -10,8 +10,6 @@
 
     <string name="menu_unified">Unified inbox</string>
     <string name="menu_folders">Folders</string>
-    <string name="menu_accounts">Accounts</string>
-    <string name="menu_identities">Identities</string>
     <string name="menu_theme">Dark theme</string>
     <string name="menu_setup">Setup</string>
     <string name="menu_debug">Debug info</string>
@@ -30,10 +28,12 @@
 
     <string name="title_setup">Setup</string>
     <string name="title_setup_account">Configure account</string>
-    <string name="title_setup_indentity">Configure identity</string>
-    <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_account_remark">To receive email</string>
+    <string name="title_setup_account_manage">Manage accounts</string>
+    <string name="title_setup_indentity">Configure identity</string>
     <string name="title_setup_identity_remark">To send email</string>
+    <string name="title_setup_identity_manage">Manage identities</string>
+    <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To read contacts (optional)</string>
     <string name="title_setup_done">Done</string>
 

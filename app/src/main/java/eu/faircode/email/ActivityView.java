@@ -111,12 +111,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_folders:
                         onMenuFolders();
                         break;
-                    case R.string.menu_accounts:
-                        onMenuAccounts();
-                        break;
-                    case R.string.menu_identities:
-                        onMenuIdentities();
-                        break;
                     case R.string.menu_theme:
                         onMenuTheme();
                         break;
@@ -250,8 +244,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_unified));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_folders));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_accounts));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_identities));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_theme, "dark".equals(prefs.getString("theme", "light"))));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_debug));
@@ -273,18 +265,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private void onMenuFolders() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentFolders()).addToBackStack("folders");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuAccounts() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-        fragmentTransaction.commit();
-    }
-
-    private void onMenuIdentities() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
         fragmentTransaction.commit();
     }
 
