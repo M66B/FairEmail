@@ -101,9 +101,6 @@ public class FragmentSetup extends Fragment {
                 DB.getInstance(getContext()).account().liveFirstAccount().observe(FragmentSetup.this, new Observer<EntityAccount>() {
                     @Override
                     public void onChanged(@Nullable EntityAccount account) {
-                        btnAccount.setEnabled(true);
-                        pbAccount.setVisibility(View.GONE);
-
                         if (!once) {
                             once = true;
 
@@ -117,6 +114,9 @@ public class FragmentSetup extends Fragment {
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
                             fragmentTransaction.commit();
+
+                            btnAccount.setEnabled(true);
+                            pbAccount.setVisibility(View.GONE);
                         }
                     }
                 });
@@ -145,9 +145,6 @@ public class FragmentSetup extends Fragment {
                 DB.getInstance(getContext()).identity().liveFirstIdentity().observe(FragmentSetup.this, new Observer<EntityIdentity>() {
                     @Override
                     public void onChanged(@Nullable EntityIdentity identity) {
-                        btnIdentity.setEnabled(true);
-                        pbIdentity.setVisibility(View.GONE);
-
                         if (!once) {
                             once = true;
                             Bundle args = new Bundle();
@@ -161,6 +158,9 @@ public class FragmentSetup extends Fragment {
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                             fragmentTransaction.commit();
                         }
+
+                        btnIdentity.setEnabled(true);
+                        pbIdentity.setVisibility(View.GONE);
                     }
                 });
             }
