@@ -601,6 +601,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // Append message
                             EntityMessage msg = message.getMessage(op.message);
+                            if (msg == null)
+                                return;
+
                             Properties props = MessageHelper.getSessionProperties();
                             Session isession = Session.getDefaultInstance(props, null);
                             MimeMessage imessage = MessageHelper.from(msg, isession);
@@ -610,6 +613,9 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 if (msg.uid != null) {
                                     Message previously = ifolder.getMessageByUID(msg.uid);
+                                    if (previously == null)
+                                        throw new MessageRemovedException();
+
                                     previously.setFlag(Flags.Flag.DELETED, true);
                                     ifolder.expunge();
                                 }
@@ -619,11 +625,17 @@ public class ServiceSynchronize extends LifecycleService {
                             }
 
                         } else if (EntityOperation.MOVE.equals(op.name)) {
+                            EntityFolder target = db.folder().getFolder(jargs.getLong(0));
+                            if (target == null)
+                                throw new FolderNotFoundException();
+
                             // Move message
-                            EntityFolder archive = db.folder().getFolder(jargs.getLong(0));
                             Message imessage = ifolder.getMessageByUID(op.uid);
-                            Folder target = istore.getFolder(archive.name);
-                            ifolder.moveMessages(new Message[]{imessage}, target);
+                            if (imessage == null)
+                                throw new MessageRemovedException();
+
+                            Folder itarget = istore.getFolder(target.name);
+                            ifolder.moveMessages(new Message[]{imessage}, itarget);
 
                             message.deleteMessage(op.message);
 
@@ -640,17 +652,22 @@ public class ServiceSynchronize extends LifecycleService {
                         } else if (EntityOperation.SEND.equals(op.name)) {
                             // Send message
                             EntityMessage msg = message.getMessage(op.message);
+                            if (msg == null)
+                                return;
+
                             EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
                             EntityIdentity ident = db.identity().getIdentity(msg.identity);
 
-                            if (!ident.synchronize) {
+                            if (ident == null || !ident.synchronize) {
                                 // Message will remain in outbox
                                 return;
                             }
 
+                            // Create session
                             Properties props = MessageHelper.getSessionProperties();
                             Session isession = Session.getDefaultInstance(props, null);
 
+                            // Create message
                             MimeMessage imessage;
                             if (reply == null)
                                 imessage = MessageHelper.from(msg, isession);
@@ -659,17 +676,18 @@ public class ServiceSynchronize extends LifecycleService {
                             if (ident.replyto != null)
                                 imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
 
+                            // Create transport
                             Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
                             try {
+                                // Connect transport
                                 itransport.connect(ident.host, ident.port, ident.user, ident.password);
 
+                                // Send message
                                 Address[] to = imessage.getAllRecipients();
                                 itransport.sendMessage(imessage, to);
                                 Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
                                         " to " + TextUtils.join(", ", to));
 
-                                // Make sure the message is sent only once
-                                operation.deleteOperation(op.id);
                                 message.deleteMessage(op.message);
                             } finally {
                                 itransport.close();
@@ -678,13 +696,12 @@ public class ServiceSynchronize extends LifecycleService {
                         } else if (EntityOperation.ATTACHMENT.equals(op.name)) {
                             int sequence = jargs.getInt(0);
                             EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
+                            if (attachment == null)
+                                return;
 
                             Message imessage = ifolder.getMessageByUID(op.uid);
                             if (imessage == null)
                                 throw new MessageRemovedException();
-
-                            Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getDefaultInstance(props, null);
 
                             MessageHelper helper = new MessageHelper((MimeMessage) imessage);
                             EntityAttachment a = helper.getAttachments().get(sequence - 1);
@@ -706,6 +723,11 @@ public class ServiceSynchronize extends LifecycleService {
                         operation.deleteOperation(op.id);
 
                     } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+                        // There is no use in repeating
+                        operation.deleteOperation(op.id);
+                    } catch (FolderNotFoundException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is no use in repeating
