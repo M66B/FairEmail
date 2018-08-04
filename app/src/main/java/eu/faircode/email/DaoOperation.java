@@ -37,6 +37,12 @@ public interface DaoOperation {
             " ORDER BY operation.id")
     List<TupleOperationEx> getOperations(long folder);
 
+    @Query("SELECT COUNT(operation.id) FROM operation" +
+            " JOIN message ON message.id = operation.message" +
+            " WHERE folder = :folder" +
+            " ORDER BY operation.id")
+    int getOperationCount(long folder);
+
     @Query("DELETE FROM operation WHERE id = :id")
     void deleteOperation(long id);
 

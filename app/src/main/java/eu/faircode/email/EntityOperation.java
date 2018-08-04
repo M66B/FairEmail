@@ -99,6 +99,9 @@ public class EntityOperation {
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
         lbm.sendBroadcast(
-                new Intent(ServiceSynchronize.ACTION_PROCESS_OPERATIONS + message.folder));
+                new Intent(SEND.equals(name)
+                        ? ServiceSynchronize.ACTION_PROCESS_OUTBOX
+                        : ServiceSynchronize.ACTION_PROCESS_FOLDER)
+                        .putExtra("folder", message.folder));
     }
 }
