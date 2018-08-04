@@ -94,7 +94,7 @@
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
 
-    <string name="title_no_viewer">There is no app installed to view this file type</string>
+    <string name="title_no_viewer">No app available to view attachment</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_spam">Report message as spam?</string>
 
