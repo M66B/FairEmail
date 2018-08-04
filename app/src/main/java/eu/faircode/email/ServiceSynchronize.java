@@ -722,11 +722,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         attachment.progress = os.size() * 100 / attachment.size;
                                         db.attachment().updateAttachment(attachment);
                                         Log.i(Helper.TAG, "Progress %=" + attachment.progress);
-                                        try {
-                                            Thread.sleep(1000);
-                                        } catch (InterruptedException e) {
-                                            e.printStackTrace();
-                                        }
                                     }
                                 }
 
