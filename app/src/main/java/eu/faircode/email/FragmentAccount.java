@@ -262,6 +262,7 @@ public class FragmentAccount extends Fragment {
                                     drafts = true;
                             }
                         }
+/*
                         if (!drafts) {
                             EntityFolder folder = new EntityFolder();
                             folder.name = getContext().getString(R.string.title_local_drafts);
@@ -270,6 +271,7 @@ public class FragmentAccount extends Fragment {
                             folder.after = 0;
                             folders.add(folder);
                         }
+*/
                     } finally {
                         if (istore != null)
                             istore.close();
