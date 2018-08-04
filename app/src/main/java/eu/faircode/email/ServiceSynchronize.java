@@ -109,6 +109,7 @@ public class ServiceSynchronize extends LifecycleService {
         System.setProperty("mail.mime.ignoreunknownencoding", "true");
         System.setProperty("mail.mime.decodefilename", "true");
         System.setProperty("mail.mime.encodefilename", "true");
+        System.setProperty("mail.mime.address.strict", "false");
     }
 
     @Override
@@ -221,7 +222,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void reportError(String account, String folder, Throwable ex) {
         String action = account + "/" + folder;
-        if (!(ex instanceof IllegalStateException) &&
+        if (!(ex instanceof IllegalStateException) && // This operation is not allowed on a closed folder
                 !(ex instanceof FolderClosedException)) {
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotification(action, ex).build());
