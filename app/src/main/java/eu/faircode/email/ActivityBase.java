@@ -23,13 +23,30 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-abstract class ActivityBase extends AppCompatActivity {
+abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(Helper.TAG, "Create " + this.getClass().getName());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = prefs.getString("theme", "light");
-        setTheme("dark".equals(theme) ? R.style.AppThemeDark : R.style.AppThemeLight);
+        setTheme("light".equals(theme) ? R.style.AppThemeLight : R.style.AppThemeDark);
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(Helper.TAG, "Destroy " + this.getClass().getName());
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        Log.i(Helper.TAG, "Preference " + key + "=" + prefs.getAll().get(key));
+        if ("theme".equals(key))
+            recreate();
     }
 }

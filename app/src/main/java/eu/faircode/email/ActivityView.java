@@ -111,9 +111,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_folders:
                         onMenuFolders();
                         break;
-                    case R.string.menu_theme:
-                        onMenuTheme();
-                        break;
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
@@ -184,6 +181,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        super.onSharedPreferenceChanged(prefs, key);
         if ("eula".equals(key))
             init();
     }
@@ -244,7 +242,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_unified));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_folders));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_theme, "dark".equals(prefs.getString("theme", "light"))));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_debug));
         drawerList.setAdapter(drawerArray);
@@ -266,14 +263,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentFolders()).addToBackStack("folders");
         fragmentTransaction.commit();
-    }
-
-    private void onMenuTheme() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", "light");
-        theme = ("dark".equals(theme) ? "light" : "dark");
-        prefs.edit().putString("theme", theme).apply();
-        recreate();
     }
 
     private void onMenuSetup() {

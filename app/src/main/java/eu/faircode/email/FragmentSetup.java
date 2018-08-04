@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.arch.lifecycle.Observer;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +35,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -53,6 +57,8 @@ public class FragmentSetup extends Fragment {
 
     private Button btnPermissions;
     private TextView tvPermissionsDone;
+
+    private CheckBox cbDarkTheme;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -78,6 +84,8 @@ public class FragmentSetup extends Fragment {
 
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
+
+        cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
 
         // Wire controls
 
@@ -172,6 +180,22 @@ public class FragmentSetup extends Fragment {
             @Override
             public void onClick(View view) {
                 requestPermissions(permissions, 1);
+            }
+        });
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String theme = prefs.getString("theme", "light");
+        boolean dark = "dark".equals(theme);
+        cbDarkTheme.setTag(dark);
+        cbDarkTheme.setChecked(dark);
+        cbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton button, boolean checked) {
+                if (checked != (Boolean) button.getTag()) {
+                    button.setTag(checked);
+                    cbDarkTheme.setChecked(checked);
+                    prefs.edit().putString("theme", checked ? "dark" : "light").apply();
+                }
             }
         });
 

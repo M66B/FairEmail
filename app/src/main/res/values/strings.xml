@@ -10,7 +10,6 @@
 
     <string name="menu_unified">Unified inbox</string>
     <string name="menu_folders">Folders</string>
-    <string name="menu_theme">Dark theme</string>
     <string name="menu_setup">Setup</string>
     <string name="menu_debug">Debug info</string>
 
@@ -36,6 +35,7 @@
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To read contacts (optional)</string>
     <string name="title_setup_done">Done</string>
+    <string name="title_setup_dark_theme">Dark theme</string>
 
     <string name="title_name">Your name</string>
     <string name="title_email">Your email address</string>
