@@ -854,7 +854,10 @@ public class ServiceSynchronize extends LifecycleService {
                         // There is no use in repeating
                         operation.deleteOperation(op.id);
                     } catch (SMTPSendFailedException ex) {
+                        // Response codes: https://www.ietf.org/rfc/rfc821.txt
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+                        // There is probably no use in repeating
                         operation.deleteOperation(op.id);
                         reportError(null, folder.name, ex);
                     }
