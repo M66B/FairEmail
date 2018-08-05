@@ -33,12 +33,15 @@ import org.jsoup.select.NodeVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HtmlHelper implements NodeVisitor {
     private Context context;
     private String newline;
     private List<String> refs = new ArrayList<>();
     private StringBuilder sb = new StringBuilder();
+    private Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
 
     private HtmlHelper(Context context, boolean reply) {
         this.context = context;
@@ -47,9 +50,18 @@ public class HtmlHelper implements NodeVisitor {
 
     public void head(Node node, int depth) {
         String name = node.nodeName();
-        if (node instanceof TextNode)
-            sb.append(((TextNode) node).text());
-        else if (name.equals("li"))
+        if (node instanceof TextNode) {
+            String text = ((TextNode) node).text();
+            Matcher matcher = pattern.matcher(text);
+            while (matcher.find()) {
+                String ref = matcher.group();
+                if (!refs.contains(ref))
+                    refs.add(ref);
+                String alt = context.getString(R.string.title_link);
+                text = text.replace(ref, String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
+            }
+            sb.append(text);
+        } else if (name.equals("li"))
             sb.append(newline).append(" * ");
         else if (name.equals("dt"))
             sb.append("  ");
