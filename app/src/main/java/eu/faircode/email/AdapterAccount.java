@@ -75,7 +75,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         @Override
         public void onClick(View view) {
-            EntityAccount account = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+            EntityAccount account = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(

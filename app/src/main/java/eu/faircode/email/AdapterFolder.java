@@ -81,7 +81,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         @Override
         public void onClick(View view) {
-            TupleFolderEx folder = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+            TupleFolderEx folder = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -91,7 +94,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         @Override
         public boolean onLongClick(View view) {
-            TupleFolderEx folder = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+            TupleFolderEx folder = filtered.get(pos);
 
             if (!EntityFolder.TYPE_OUTBOX.equals(folder.type)) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);

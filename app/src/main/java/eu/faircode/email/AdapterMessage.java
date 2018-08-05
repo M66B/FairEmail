@@ -84,7 +84,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @Override
         public void onClick(View view) {
-            final TupleMessageEx message = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+            final TupleMessageEx message = filtered.get(pos);
 
             executor.submit(new Runnable() {
                 @Override

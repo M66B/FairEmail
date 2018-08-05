@@ -75,7 +75,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
         @Override
         public void onClick(View view) {
-            EntityIdentity identity = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+            EntityIdentity identity = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(

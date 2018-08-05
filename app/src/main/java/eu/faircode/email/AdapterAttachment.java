@@ -82,7 +82,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         @Override
         public void onClick(View view) {
-            final TupleAttachment attachment = filtered.get(getLayoutPosition());
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+            final TupleAttachment attachment = filtered.get(pos);
             if (attachment != null)
                 if (attachment.content) {
                     // Build file name
