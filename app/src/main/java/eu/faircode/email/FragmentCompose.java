@@ -588,7 +588,7 @@ public class FragmentCompose extends FragmentEx {
             if (ex == null) {
                 getFragmentManager().popBackStack();
                 if ("trash".equals(action))
-                    Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
                 else if ("save".equals(action))
                     Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
                 else if ("send".equals(action))
