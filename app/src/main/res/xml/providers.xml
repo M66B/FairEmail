@@ -54,4 +54,13 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider name="FastMail">
+        <imap
+            host="imap.fastmail.com"
+            port="993" />
+        <smtp
+            host="smtp.fastmail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
