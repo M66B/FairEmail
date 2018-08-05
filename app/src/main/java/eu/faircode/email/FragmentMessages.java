@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +30,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -51,7 +49,6 @@ public class FragmentMessages extends FragmentEx {
     private FloatingActionButton fab;
 
     private AdapterMessage adapter;
-    private LiveData<TupleFolderEx> liveFolder;
 
     @Override
     @Nullable
@@ -59,8 +56,9 @@ public class FragmentMessages extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_messages, container, false);
 
         // Get arguments
-        long folder = getArguments().getLong("folder", -1);
-        long thread = getArguments().getLong("thread", -1); // message ID
+        Bundle args = getArguments();
+        long folder = (args == null ? -1 : args.getLong("folder", -1));
+        long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
         // Get controls
         rvMessage = view.findViewById(R.id.rvFolder);
@@ -96,48 +94,29 @@ public class FragmentMessages extends FragmentEx {
 
         DB db = DB.getInstance(getContext());
 
-        // Observe folder
-        liveFolder = (thread < 0 ? DB.getInstance(getContext()).folder().liveFolderEx(folder) : null);
-
-        // Observe messages
+        // Observe folder/messages
         if (thread < 0)
-            if (folder < 0)
+            if (folder < 0) {
+                setSubtitle(R.string.title_folder_unified);
                 db.message().liveUnifiedInbox().observe(this, messagesObserver);
-            else
+            } else {
+                DB.getInstance(getContext()).folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
+                    @Override
+                    public void onChanged(@Nullable TupleFolderEx folder) {
+                        setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
+                    }
+                });
                 db.message().liveMessages(folder).observe(this, messagesObserver);
+            }
         else {
+            setSubtitle(R.string.title_folder_thread);
             db.message().liveThread(thread).observe(this, messagesObserver);
         }
 
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
+
         return view;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (liveFolder == null)
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_folder_thread);
-        else
-            liveFolder.observe(this, folderObserver);
-
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (liveFolder != null)
-            liveFolder.removeObservers(this);
-    }
-
-    Observer<TupleFolderEx> folderObserver = new Observer<TupleFolderEx>() {
-        @Override
-        public void onChanged(@Nullable TupleFolderEx folder) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(folder.name == null
-                    ? getString(R.string.title_folder_unified)
-                    : Helper.localizeFolderName(getContext(), folder));
-        }
-    };
 
     Observer<List<TupleMessageEx>> messagesObserver = new Observer<List<TupleMessageEx>>() {
         @Override
@@ -147,7 +126,7 @@ public class FragmentMessages extends FragmentEx {
             pbWait.setVisibility(View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
-            if (messages.size() == 0) {
+            if (messages == null || messages.size() == 0) {
                 tvNoEmail.setVisibility(View.VISIBLE);
                 rvMessage.setVisibility(View.GONE);
             } else {
@@ -158,7 +137,7 @@ public class FragmentMessages extends FragmentEx {
     };
 
     private static class InitLoader extends AsyncTaskLoader<Bundle> {
-        public InitLoader(@NonNull Context context) {
+        InitLoader(@NonNull Context context) {
             super(context);
         }
 
