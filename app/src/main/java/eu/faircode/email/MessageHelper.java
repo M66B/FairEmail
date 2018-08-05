@@ -85,8 +85,11 @@ public class MessageHelper {
     static MimeMessage from(EntityMessage message, Session isession) throws MessagingException {
         MimeMessage imessage = new MimeMessage(isession);
 
-        if (message.from != null)
-            imessage.setFrom(MessageHelper.decodeAddresses(message.from)[0]);
+        if (message.from != null) {
+            Address[] from = MessageHelper.decodeAddresses(message.from);
+            if (from.length > 0)
+                imessage.setFrom(from[0]);
+        }
 
         if (message.to != null)
             imessage.setRecipients(Message.RecipientType.TO, MessageHelper.decodeAddresses(message.to));
