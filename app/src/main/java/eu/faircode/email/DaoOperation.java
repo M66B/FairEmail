@@ -39,8 +39,7 @@ public interface DaoOperation {
 
     @Query("SELECT COUNT(operation.id) FROM operation" +
             " JOIN message ON message.id = operation.message" +
-            " WHERE folder = :folder" +
-            " ORDER BY operation.id")
+            " WHERE folder = :folder")
     int getOperationCount(long folder);
 
     @Query("DELETE FROM operation WHERE id = :id")

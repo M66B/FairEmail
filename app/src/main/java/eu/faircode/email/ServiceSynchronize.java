@@ -92,7 +92,7 @@ import javax.mail.search.ReceivedDateTerm;
 
 public class ServiceSynchronize extends LifecycleService {
     private ServiceState state = new ServiceState();
-    private ExecutorService executor = Executors.newCachedThreadPool();
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
 
@@ -100,8 +100,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int FETCH_BATCH_SIZE = 10;
     private static final int DOWNLOAD_BUFFER_SIZE = 8192; // bytes
 
-    static final String ACTION_PROCESS_OUTBOX = BuildConfig.APPLICATION_ID + ".PROCESS_OUTBOX";
     static final String ACTION_PROCESS_FOLDER = BuildConfig.APPLICATION_ID + ".PROCESS_FOLDER";
+    static final String ACTION_PROCESS_OUTBOX = BuildConfig.APPLICATION_ID + ".PROCESS_OUTBOX";
 
     private class ServiceState {
         boolean running = false;
@@ -307,13 +307,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
 
                                             monitorFolder(account, folder, fstore, ifolder);
-
                                         } catch (FolderNotFoundException ex) {
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-
-                                            // Disable synchronization
-                                            folder.synchronize = false;
-                                            DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
@@ -341,11 +336,10 @@ public class ServiceSynchronize extends LifecycleService {
                             }
 
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                            lbm.registerReceiver(offline, new IntentFilter(ACTION_PROCESS_FOLDER));
+                            lbm.registerReceiver(processReceiver, new IntentFilter(ACTION_PROCESS_FOLDER));
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id, false))
-                                if (!EntityFolder.TYPE_OUTBOX.equals(folder.type) &&
-                                        db.operation().getOperationCount(folder.id) > 0)
+                                if (!EntityFolder.TYPE_OUTBOX.equals(folder.type))
                                     lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER).putExtra("folder", folder.id));
 
                         } catch (Throwable ex) {
@@ -366,7 +360,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, account.name + " disconnected");
 
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                        lbm.unregisterReceiver(offline);
+                        lbm.unregisterReceiver(processReceiver);
 
                         synchronized (mapFolder) {
                             mapFolder.clear();
@@ -383,7 +377,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, account.name + " closed");
 
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                        lbm.unregisterReceiver(offline);
+                        lbm.unregisterReceiver(processReceiver);
 
                         synchronized (mapFolder) {
                             mapFolder.clear();
@@ -395,32 +389,40 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     }
 
-                    BroadcastReceiver offline = new BroadcastReceiver() {
+                    BroadcastReceiver processReceiver = new BroadcastReceiver() {
                         @Override
                         public void onReceive(Context context, Intent intent) {
                             final long fid = intent.getLongExtra("folder", -1);
 
-                            IMAPFolder x;
+                            IMAPFolder ifolder;
                             synchronized (mapFolder) {
-                                x = mapFolder.get(fid);
+                                ifolder = mapFolder.get(fid);
                             }
-                            final boolean shouldClose = (x == null);
-                            final IMAPFolder ffolder = x;
+                            final boolean shouldClose = (ifolder == null);
+                            final IMAPFolder ffolder = ifolder;
 
                             Log.i(Helper.TAG, "run operations folder=" + fid + " offline=" + shouldClose);
                             executor.submit(new Runnable() {
                                 @Override
                                 public void run() {
-                                    EntityFolder folder = DB.getInstance(ServiceSynchronize.this).folder().getFolder(fid);
+                                    DB db = DB.getInstance(ServiceSynchronize.this);
+                                    EntityFolder folder = db.folder().getFolder(fid);
                                     IMAPFolder ifolder = ffolder;
                                     try {
                                         Log.i(Helper.TAG, folder.name + " start operations");
+
                                         if (ifolder == null) {
+                                            // Prevent unnecessary folder connections
+                                            if (db.operation().getOperationCount(fid) == 0)
+                                                return;
+
                                             ifolder = (IMAPFolder) fstore.getFolder(folder.name);
                                             ifolder.open(Folder.READ_WRITE);
                                         }
 
                                         processOperations(folder, fstore, ifolder);
+                                    } catch (FolderNotFoundException ex) {
+                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
@@ -432,7 +434,6 @@ public class ServiceSynchronize extends LifecycleService {
                                             Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
                                         }
                                     } finally {
-                                        Log.i(Helper.TAG, folder.name + " start operations");
                                         if (shouldClose)
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
@@ -577,10 +578,9 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        // Listen for process operations requests
+        // Keep alive
         Log.i(Helper.TAG, folder.name + " start");
         try {
-            // Keep alive
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
