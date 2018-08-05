@@ -38,6 +38,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,9 +107,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
                 switch (item.getId()) {
-                    case R.string.menu_unified:
-                        onMenuUnified();
-                        break;
                     case R.string.menu_folders:
                         onMenuFolders();
                         break;
@@ -159,6 +158,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_view, menu);
+        return true;
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
@@ -205,7 +211,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
 
-        return false;
+        switch (item.getItemId()) {
+            case R.id.menu_folders:
+                onMenuFolders();
+                return true;
+            default:
+                return false;
+        }
     }
 
     private void init() {
@@ -245,26 +257,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     public void updateDrawer() {
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_unified));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_folders));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_debug));
         drawerList.setAdapter(drawerArray);
     }
 
-    private void onMenuUnified() {
-        Bundle args = new Bundle();
-        args.putLong("folder", -1);
-
-        FragmentMessages fragment = new FragmentMessages();
-        fragment.setArguments(args);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
-        fragmentTransaction.commit();
-    }
-
     private void onMenuFolders() {
+        getSupportFragmentManager().popBackStack("unified", 0);
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentFolders()).addToBackStack("folders");
         fragmentTransaction.commit();
@@ -380,6 +380,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_VIEW_MESSAGES.equals(intent.getAction())) {
+                getSupportFragmentManager().popBackStack("unified", 0);
+
                 FragmentMessages fragment = new FragmentMessages();
                 fragment.setArguments(intent.getExtras());
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

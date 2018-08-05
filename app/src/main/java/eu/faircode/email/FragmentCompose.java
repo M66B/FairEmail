@@ -218,7 +218,7 @@ public class FragmentCompose extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_address, menu);
+        inflater.inflate(R.menu.menu_message, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

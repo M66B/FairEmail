@@ -8,7 +8,6 @@
     <string name="title_operations">%1$d operation(s) pending</string>
     <string name="title_failed">\'%1$s\' failed</string>
 
-    <string name="menu_unified">Unified inbox</string>
     <string name="menu_folders">Folders</string>
     <string name="menu_setup">Setup</string>
     <string name="menu_debug">Debug info</string>
