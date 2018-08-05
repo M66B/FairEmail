@@ -120,7 +120,7 @@ public class ServiceSynchronize extends LifecycleService {
     public void onCreate() {
         Log.i(Helper.TAG, "Service create");
         super.onCreate();
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotification(0, -1).build());
+        startForeground(NOTIFICATION_SYNCHRONIZE, getNotification(0, -1, 0).build());
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -134,7 +134,7 @@ public class ServiceSynchronize extends LifecycleService {
             public void onChanged(@Nullable TupleAccountStats stats) {
                 if (stats != null) {
                     NotificationManager nm = getSystemService(NotificationManager.class);
-                    nm.notify(NOTIFICATION_SYNCHRONIZE, getNotification(stats.accounts, stats.operations).build());
+                    nm.notify(NOTIFICATION_SYNCHRONIZE, getNotification(stats.accounts, stats.operations, stats.unseen).build());
                 }
             }
         });
@@ -165,7 +165,7 @@ public class ServiceSynchronize extends LifecycleService {
         return START_STICKY;
     }
 
-    private Notification.Builder getNotification(int acounts, int operations) {
+    private Notification.Builder getNotification(int accounts, int operations, int unseen) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -175,23 +175,21 @@ public class ServiceSynchronize extends LifecycleService {
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, "service");
+            builder = new Notification.Builder(this, unseen == 0 ? "service" : "notification");
         else
             builder = new Notification.Builder(this);
 
         builder
                 .setSmallIcon(R.drawable.baseline_mail_outline_24)
-                .setContentTitle(getString(R.string.title_synchronizing, acounts))
-                .setContentText(getString(R.string.title_operations, operations))
+                .setContentTitle(getString(R.string.title_notification_synchronizing, accounts))
+                .setContentText(getString(R.string.title_notification_unseen, unseen))
                 .setContentIntent(pi)
+                .setStyle(new Notification.BigTextStyle().setSummaryText(getString(R.string.title_operations, operations)))
                 .setAutoCancel(false)
-                .setShowWhen(false)
-                .setPriority(Notification.PRIORITY_MIN)
+                .setShowWhen(unseen > 0)
+                .setPriority(unseen == 0 ? Notification.PRIORITY_MIN : Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_SECRET);
-
-        if (operations >= 0)
-            builder.setContentText(getString(R.string.title_operations, operations));
 
         return builder;
     }
@@ -212,7 +210,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(android.R.drawable.stat_notify_error)
-                .setContentTitle(getString(R.string.title_failed, action))
+                .setContentTitle(getString(R.string.title_notification_failed, action))
                 .setContentText(Helper.formatThrowable(ex))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
@@ -1147,6 +1145,12 @@ public class ServiceSynchronize extends LifecycleService {
                     NotificationManager.IMPORTANCE_MIN);
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             nm.createNotificationChannel(service);
+
+            NotificationChannel notification = new NotificationChannel(
+                    "notification",
+                    context.getString(R.string.channel_notification),
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            nm.createNotificationChannel(notification);
 
             NotificationChannel error = new NotificationChannel(
                     "error",

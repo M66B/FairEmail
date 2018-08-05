@@ -2,11 +2,13 @@
     <string name="app_name">Safe email</string>
 
     <string name="channel_service">Service</string>
+    <string name="channel_notification">Notifications</string>
     <string name="channel_error">Errors</string>
 
-    <string name="title_synchronizing">Synchronizing %1$d account(s)</string>
-    <string name="title_operations">%1$d operation(s) pending</string>
-    <string name="title_failed">\'%1$s\' failed</string>
+    <string name="title_notification_synchronizing">Synchronizing %1$d account(s)</string>
+    <string name="title_notification_operations">%1$d operation(s) pending</string>
+    <string name="title_notification_unseen">%1$d new message(s)</string>
+    <string name="title_notification_failed">\'%1$s\' failed</string>
 
     <string name="menu_folders">Folders</string>
     <string name="menu_setup">Setup</string>
