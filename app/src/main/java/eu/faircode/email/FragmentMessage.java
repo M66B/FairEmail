@@ -547,10 +547,13 @@ public class FragmentMessage extends Fragment {
             Collections.sort(folders, new Comparator<EntityFolder>() {
                 @Override
                 public int compare(EntityFolder f1, EntityFolder f2) {
-                    int s = EntityFolder.isUser(f1.type).compareTo(EntityFolder.isUser(f2.type));
                     return collator.compare(f1.name, f2.name);
                 }
             });
+
+            EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.TYPE_INBOX);
+            if (message.folder != inbox.id)
+                folders.add(0, inbox);
 
             return folders;
         }
@@ -576,7 +579,8 @@ public class FragmentMessage extends Fragment {
             PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
             int order = 0;
             for (EntityFolder folder : folders)
-                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.name);
+                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++,
+                        Helper.localizeFolderName(getContext(), folder.name));
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
