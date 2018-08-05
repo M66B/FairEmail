@@ -44,8 +44,8 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                 @Index(value = {"replying"}),
                 @Index(value = {"folder", "uid"}, unique = true),
                 @Index(value = {"thread"}),
-                @Index(value = {"received"})
-                // ui_seen? ui_seen?
+                @Index(value = {"received"}),
+                @Index(value = {"ui_seen"}),
         }
 )
 public class EntityMessage {
