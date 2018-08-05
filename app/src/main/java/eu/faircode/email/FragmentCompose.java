@@ -93,7 +93,7 @@ public class FragmentCompose extends FragmentEx {
         // Get arguments
         Bundle args = getArguments();
         String action = (args == null ? null : args.getString("action"));
-        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id")) : -1);
+        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id", -1)) : -1);
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
@@ -159,14 +159,14 @@ public class FragmentCompose extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_delete:
-                        actionDelete(id);
+                    case R.id.action_trash:
+                        actionPut(id, "trash");
                         return true;
                     case R.id.action_save:
-                        actionPut(id, false);
+                        actionPut(id, "save");
                         return true;
                     case R.id.action_send:
-                        actionPut(id, true);
+                        actionPut(id, "send");
                         return true;
                 }
 
@@ -179,7 +179,6 @@ public class FragmentCompose extends FragmentEx {
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(id > 0);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(FragmentCompose.this, new Observer<List<EntityIdentity>>() {
@@ -279,15 +278,8 @@ public class FragmentCompose extends FragmentEx {
         }
     }
 
-    private void actionDelete(final long id) {
-        bottom_navigation.getMenu().setGroupEnabled(0, false);
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_DELETE, args, deleteLoaderCallbacks).forceLoad();
-    }
-
-    private void actionPut(long id, boolean send) {
+    private void actionPut(long id, String action) {
+        Log.i(Helper.TAG, "Put id=" + id + " action=" + action);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
@@ -302,7 +294,7 @@ public class FragmentCompose extends FragmentEx {
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
         args.putString("body", etBody.getText().toString());
-        args.putBoolean("send", send);
+        args.putString("action", action);
 
         getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
     }
@@ -465,63 +457,6 @@ public class FragmentCompose extends FragmentEx {
         }
     };
 
-    private static class DeleteLoader extends AsyncTaskLoader<Throwable> {
-        private Bundle args;
-
-        DeleteLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        @Override
-        public Throwable loadInBackground() {
-            try {
-                long id = args.getLong("id");
-                DaoMessage message = DB.getInstance(getContext()).message();
-                EntityMessage draft = message.getMessage(id);
-                if (draft != null) {
-                    draft.ui_hide = true;
-                    message.updateMessage(draft);
-                    EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
-                }
-                return null;
-            } catch (Throwable ex) {
-                return ex;
-            }
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks deleteLoaderCallbacks = new LoaderManager.LoaderCallbacks<Throwable>() {
-        @NonNull
-        @Override
-        public Loader<Throwable> onCreateLoader(int id, @Nullable Bundle args) {
-            DeleteLoader loader = new DeleteLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            getLoaderManager().destroyLoader(loader.getId());
-
-            if (ex == null) {
-                getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
-            } else {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                bottom_navigation.getMenu().setGroupEnabled(0, true);
-                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Throwable> loader) {
-        }
-    };
-
     private static class PutLoader extends AsyncTaskLoader<Throwable> {
         private Bundle args;
 
@@ -537,8 +472,8 @@ public class FragmentCompose extends FragmentEx {
         public Throwable loadInBackground() {
             try {
                 long id = args.getLong("id");
-                boolean send = args.getBoolean("send", false);
-                Log.i(Helper.TAG, "Put load id=" + id + " send=" + send);
+                String action = args.getString("action");
+                Log.i(Helper.TAG, "Put load id=" + id + " action=" + action);
 
                 DB db = DB.getInstance(getContext());
                 DaoMessage message = db.message();
@@ -548,7 +483,7 @@ public class FragmentCompose extends FragmentEx {
                 // Get data
                 EntityMessage draft = message.getMessage(id);
                 EntityIdentity ident = identity.getIdentity(args.getLong("iid"));
-                EntityFolder drafts = db.folder().getPrimaryDraftFolder();
+                EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                 if (drafts == null)
                     throw new Throwable(getContext().getString(R.string.title_no_primary_drafts));
 
@@ -583,7 +518,7 @@ public class FragmentCompose extends FragmentEx {
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;
-                draft.ui_hide = send;
+                draft.ui_hide = !"save".equals(action);
 
                 // Store draft
                 if (update)
@@ -592,34 +527,36 @@ public class FragmentCompose extends FragmentEx {
                     draft.id = message.insertMessage(draft);
 
                 // Check data
-                if (send) {
+                if ("send".equals(action)) {
                     if (draft.identity == null)
                         throw new MessagingException(getContext().getString(R.string.title_from_missing));
                     if (draft.to == null && draft.cc == null && draft.bcc == null)
                         throw new MessagingException(getContext().getString(R.string.title_to_missing));
 
-                    // Build outgoing message
-                    EntityMessage out = new EntityMessage();
-                    out.folder = folder.getOutbox().id;
-                    out.identity = draft.identity;
-                    out.replying = draft.replying;
-                    out.thread = draft.thread;
-                    out.from = draft.from;
-                    out.to = draft.to;
-                    out.cc = draft.cc;
-                    out.bcc = draft.bcc;
-                    out.subject = draft.subject;
-                    out.body = draft.body;
-                    out.received = draft.received;
-                    out.seen = draft.seen;
-                    out.ui_seen = draft.ui_seen;
-                    out.ui_hide = false;
-                    out.id = message.insertMessage(out);
-
-                    EntityOperation.queue(getContext(), out, EntityOperation.SEND);
                     EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
-                } else
+
+                    draft.id = null;
+                    draft.folder = folder.getOutbox().id;
+                    draft.ui_hide = false;
+                    draft.id = db.message().insertMessage(draft);
+
+                    EntityOperation.queue(getContext(), draft, EntityOperation.SEND);
+
+                } else if ("save".equals(action))
                     EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
+
+                else if ("trash".equals(action)) {
+                    EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+
+                    EntityFolder trash = db.folder().getPrimaryFolder(EntityFolder.TYPE_TRASH);
+                    if (trash != null) {
+                        draft.id = null;
+                        draft.folder = trash.id;
+                        draft.id = db.message().insertMessage(draft);
+
+                        EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
+                    }
+                }
 
                 return null;
             } catch (Throwable ex) {
@@ -645,12 +582,17 @@ public class FragmentCompose extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             getLoaderManager().destroyLoader(loader.getId());
 
-            boolean send = args.getBoolean("send", false);
-            Log.i(Helper.TAG, "Put finished send=" + send + " ex=" + ex);
+            String action = args.getString("action");
+            Log.i(Helper.TAG, "Put finished action=" + action + " ex=" + ex);
 
             if (ex == null) {
                 getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), send ? R.string.title_queued : R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                if ("trash".equals(action))
+                    Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                else if ("save".equals(action))
+                    Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                else if ("send".equals(action))
+                    Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
             } else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 bottom_navigation.getMenu().setGroupEnabled(0, true);

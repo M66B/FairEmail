@@ -308,7 +308,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             public void run() {
                 try {
                     DB db = DB.getInstance(ActivityView.this);
-                    EntityFolder drafts = db.folder().getPrimaryDraftFolder();
+                    EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                     if (drafts != null) {
                         StringBuilder info = Helper.getDebugInfo();
                         info.insert(0, getString(R.string.title_debug_info) + "\n\n\n\n");

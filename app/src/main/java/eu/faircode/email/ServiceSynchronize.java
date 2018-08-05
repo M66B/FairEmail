@@ -48,6 +48,7 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.smtp.SMTPSendFailedException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -852,6 +853,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // There is no use in repeating
                         operation.deleteOperation(op.id);
+                    } catch (SMTPSendFailedException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        operation.deleteOperation(op.id);
+                        reportError(null, folder.name, ex);
                     }
                 } finally {
                     Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);

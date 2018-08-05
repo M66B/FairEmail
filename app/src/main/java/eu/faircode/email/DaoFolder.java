@@ -78,8 +78,8 @@ public interface DaoFolder {
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE account.`primary` AND type = '" + EntityFolder.TYPE_DRAFTS + "' ")
-    EntityFolder getPrimaryDraftFolder();
+            " WHERE account.`primary` AND type = :type ")
+    EntityFolder getPrimaryFolder(String type);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertFolder(EntityFolder folder);

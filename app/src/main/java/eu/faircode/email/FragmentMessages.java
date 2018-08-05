@@ -146,7 +146,7 @@ public class FragmentMessages extends FragmentEx {
         public Bundle loadInBackground() {
             Bundle result = new Bundle();
             try {
-                EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryDraftFolder();
+                EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                 result.putBoolean("drafts", drafts != null);
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));

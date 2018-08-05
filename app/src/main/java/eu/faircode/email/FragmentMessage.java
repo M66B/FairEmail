@@ -175,7 +175,7 @@ public class FragmentMessage extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_delete:
+                    case R.id.action_trash:
                         onActionDelete(id);
                         return true;
                     case R.id.action_spam:
@@ -282,7 +282,7 @@ public class FragmentMessage extends FragmentEx {
                             boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
                             boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
 
-                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
                             bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && hasArchive);

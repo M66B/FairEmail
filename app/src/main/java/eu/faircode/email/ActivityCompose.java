@@ -27,7 +27,6 @@ import android.view.MenuItem;
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int LOADER_COMPOSE_GET = 1;
     static final int LOADER_COMPOSE_PUT = 2;
-    static final int LOADER_COMPOSE_DELETE = 3;
 
     static final int REQUEST_CONTACT_TO = 1;
     static final int REQUEST_CONTACT_CC = 2;
