@@ -89,7 +89,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         setHasStableIds(true);
     }
 
-    public void set(List<EntityIdentity> identities) {
+    public void set(@NonNull List<EntityIdentity> identities) {
         Log.i(Helper.TAG, "Set identities=" + identities.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());

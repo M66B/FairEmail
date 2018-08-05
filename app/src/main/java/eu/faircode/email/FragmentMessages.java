@@ -126,7 +126,7 @@ public class FragmentMessages extends FragmentEx {
             pbWait.setVisibility(View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
-            if (messages == null || messages.size() == 0) {
+            if (messages.size() == 0) {
                 tvNoEmail.setVisibility(View.VISIBLE);
                 rvMessage.setVisibility(View.GONE);
             } else {

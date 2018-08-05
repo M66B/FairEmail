@@ -110,7 +110,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         setHasStableIds(true);
     }
 
-    public void set(List<TupleFolderEx> folders) {
+    public void set(@NonNull List<TupleFolderEx> folders) {
         Log.i(Helper.TAG, "Set folders=" + folders.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());

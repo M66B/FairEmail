@@ -120,7 +120,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         setHasStableIds(true);
     }
 
-    public void set(List<TupleMessageEx> messages) {
+    public void set(@NonNull List<TupleMessageEx> messages) {
         Log.i(Helper.TAG, "Set messages=" + messages.size());
 
         Collections.sort(messages, new Comparator<TupleMessageEx>() {

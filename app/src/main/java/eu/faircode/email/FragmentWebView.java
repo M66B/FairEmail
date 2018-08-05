@@ -69,7 +69,8 @@ public class FragmentWebView extends FragmentEx {
             }
         });
 
-        url = getArguments().getString("link");
+        Bundle args = getArguments();
+        url = (args == null ? null : args.getString("link"));
         webview.loadUrl(url);
         setSubtitle(url);
 

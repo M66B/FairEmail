@@ -89,7 +89,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         setHasStableIds(true);
     }
 
-    public void set(List<EntityAccount> accounts) {
+    public void set(@NonNull List<EntityAccount> accounts) {
         Log.i(Helper.TAG, "Set accounts=" + accounts.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());

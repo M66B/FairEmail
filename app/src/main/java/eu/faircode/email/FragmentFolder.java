@@ -56,7 +56,7 @@ public class FragmentFolder extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        final long id = args.getLong("id");
+        final long id = (args == null ? -1 : args.getLong("id"));
 
         // Get controls
         cbSynchronize = view.findViewById(R.id.cbSynchronize);

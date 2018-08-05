@@ -92,7 +92,8 @@ public class FragmentMessage extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
         // Get arguments
-        final long id = getArguments().getLong("id");
+        Bundle args = getArguments();
+        final long id = (args == null ? -1 : args.getLong("id"));
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
@@ -467,14 +468,6 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("action", "reply"));
     }
 
-    private static class MetaData {
-        Throwable ex;
-        EntityFolder folder;
-        boolean hasTrash;
-        boolean hasJunk;
-        boolean hasArchive;
-    }
-
     private static class MoveLoader extends AsyncTaskLoader<List<EntityFolder>> {
         private Bundle args;
 
@@ -493,7 +486,7 @@ public class FragmentMessage extends FragmentEx {
             List<EntityFolder> folders = db.folder().getUserFolders(message.account);
 
             for (int i = 0; i < folders.size(); i++)
-                if (folders.get(i).id == message.folder) {
+                if (folders.get(i).id.equals(message.folder)) {
                     folders.remove(i);
                     break;
                 }
@@ -509,7 +502,7 @@ public class FragmentMessage extends FragmentEx {
             });
 
             EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.TYPE_INBOX);
-            if (message.folder != inbox.id)
+            if (!message.folder.equals(inbox.id))
                 folders.add(0, inbox);
 
             return folders;

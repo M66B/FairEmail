@@ -164,7 +164,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         setHasStableIds(true);
     }
 
-    public void set(List<TupleAttachment> attachments) {
+    public void set(@NonNull List<TupleAttachment> attachments) {
         Log.i(Helper.TAG, "Set attachments=" + attachments.size());
 
         Collections.sort(attachments, new Comparator<TupleAttachment>() {

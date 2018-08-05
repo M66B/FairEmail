@@ -79,7 +79,7 @@ public class FragmentIdentity extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        final long id = args.getLong("id", -1);
+        final long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Get providers
         providers = Provider.loadProfiles(getContext());
@@ -221,7 +221,7 @@ public class FragmentIdentity extends FragmentEx {
                 identity.name = Objects.requireNonNull(args.getString("name"));
                 identity.email = Objects.requireNonNull(args.getString("email"));
                 identity.replyto = replyto;
-                identity.host = host;
+                identity.host = Objects.requireNonNull(host);
                 identity.port = Integer.parseInt(port);
                 identity.starttls = starttls;
                 identity.user = Objects.requireNonNull(args.getString("user"));

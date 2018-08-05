@@ -92,8 +92,8 @@ public class FragmentCompose extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        String action = args.getString("action");
-        final long id = (TextUtils.isEmpty(action) ? args.getLong("id") : -1);
+        String action = (args == null ? null : args.getString("action"));
+        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id")) : -1);
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
@@ -242,7 +242,7 @@ public class FragmentCompose extends FragmentEx {
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
                         null, null, null);
-                if (cursor.moveToFirst()) {
+                if (cursor != null && cursor.moveToFirst()) {
                     int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                     int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
                     String email = cursor.getString(colEmail);

@@ -86,7 +86,7 @@ public class FragmentAccount extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        final long id = args.getLong("id", -1);
+        final long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Get providers
         providers = Provider.loadProfiles(getContext());
