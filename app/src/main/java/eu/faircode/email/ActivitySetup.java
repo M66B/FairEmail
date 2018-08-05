@@ -70,7 +70,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                getSupportFragmentManager().popBackStack();
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -60,7 +60,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                getSupportFragmentManager().popBackStack();
                 return true;
         }
         return super.onOptionsItemSelected(item);
