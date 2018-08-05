@@ -54,8 +54,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private List<EntityAttachment> all = new ArrayList<>();
     private List<EntityAttachment> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView tvName;
         TextView tvSize;
@@ -100,7 +99,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 } else {
                     // Build file name
                     final File dir = new File(context.getCacheDir(), "attachments");
-                    final File file = new File(dir, TextUtils.isEmpty(attachment.name) ? "noname" : attachment.name);
+                    final File file = new File(dir, TextUtils.isEmpty(attachment.name)
+                            ? "attachment_" + attachment.id : attachment.name);
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
                     Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
