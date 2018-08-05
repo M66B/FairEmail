@@ -43,6 +43,7 @@ public class FragmentFolder extends FragmentEx {
     private CheckBox cbSynchronize;
     private EditText etAfter;
     private Button btnOk;
+    private ProgressBar pbSave;
     private ProgressBar pbWait;
     private Group grpReady;
 
@@ -60,6 +61,7 @@ public class FragmentFolder extends FragmentEx {
         // Get controls
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         etAfter = view.findViewById(R.id.etAfter);
+        pbSave = view.findViewById(R.id.pbSave);
         btnOk = view.findViewById(R.id.btnOk);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -68,6 +70,7 @@ public class FragmentFolder extends FragmentEx {
             @Override
             public void onClick(View v) {
                 btnOk.setEnabled(false);
+                pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -79,6 +82,7 @@ public class FragmentFolder extends FragmentEx {
         });
 
         // Initialize
+        pbSave.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -152,6 +156,7 @@ public class FragmentFolder extends FragmentEx {
             getLoaderManager().destroyLoader(loader.getId());
 
             btnOk.setEnabled(true);
+            pbSave.setVisibility(View.GONE);
 
             if (ex == null)
                 getFragmentManager().popBackStack();
