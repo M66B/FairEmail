@@ -48,6 +48,9 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders();
 
+    @Query("SELECT * FROM folder WHERE account = :account")
+    LiveData<List<EntityFolder>> liveFolders(long account);
+
     @Query("SELECT folder.* FROM folder WHERE folder.id = :id")
     LiveData<EntityFolder> liveFolder(long id);
 

@@ -34,7 +34,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
@@ -214,12 +213,14 @@ public class FragmentMessage extends FragmentEx {
         // Observe message
         db.message().liveMessage(id).observe(this, new Observer<TupleMessageEx>() {
             @Override
-            public void onChanged(@Nullable TupleMessageEx message) {
+            public void onChanged(@Nullable final TupleMessageEx message) {
                 if (message == null || message.ui_hide) {
                     // Message gone (moved, deleted)
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
                 } else {
+                    setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+
                     tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
                     tvTo.setText(MessageHelper.getFormattedAddresses(message.to));
                     tvCc.setText(MessageHelper.getFormattedAddresses(message.cc));
@@ -255,6 +256,38 @@ public class FragmentMessage extends FragmentEx {
                     tvBody.setText(message.body == null
                             ? null
                             : Html.fromHtml(HtmlHelper.sanitize(getContext(), message.body, false)));
+
+                    bottom_navigation.setTag(message.folderType);
+
+                    db.folder().liveFolders(message.account).removeObservers(FragmentMessage.this);
+                    db.folder().liveFolders(message.account).observe(FragmentMessage.this, new Observer<List<EntityFolder>>() {
+                        @Override
+                        public void onChanged(@Nullable List<EntityFolder> folders) {
+                            boolean hasTrash = false;
+                            boolean hasJunk = false;
+                            boolean hasArchive = false;
+                            boolean hasUser = false;
+                            for (EntityFolder folder : folders) {
+                                if (EntityFolder.TYPE_TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.TYPE_JUNK.equals(folder.type))
+                                    hasJunk = true;
+                                else if (EntityFolder.TYPE_ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
+                                else if (EntityFolder.TYPE_USER.equals(folder.type))
+                                    hasUser = true;
+                            }
+
+                            boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
+                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
+
+                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && hasArchive);
+                            bottom_navigation.setVisibility(View.VISIBLE);
+                        }
+                    });
                 }
 
                 pbWait.setVisibility(View.GONE);
@@ -262,18 +295,7 @@ public class FragmentMessage extends FragmentEx {
             }
         });
 
-        // Setup attachments and bottom toolbar
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, getArguments(), metaLoaderCallbacks).forceLoad();
-
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        // Set subtitle
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, getArguments(), metaLoaderCallbacks).forceLoad();
     }
 
     @Override
@@ -444,70 +466,6 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("id", id)
                 .putExtra("action", "reply"));
     }
-
-    private static class MetaLoader extends AsyncTaskLoader<MetaData> {
-        private Bundle args;
-
-        MetaLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        @Override
-        public MetaData loadInBackground() {
-            MetaData result = new MetaData();
-            try {
-                long id = args.getLong("id"); // message
-
-                DB db = DB.getInstance(getContext());
-                EntityMessage message = db.message().getMessage(id);
-                result.folder = db.folder().getFolder(message.folder);
-                result.hasTrash = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH) != null);
-                result.hasJunk = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK) != null);
-                result.hasArchive = (db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE) != null);
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                result.ex = ex;
-            }
-            return result;
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks metaLoaderCallbacks = new LoaderManager.LoaderCallbacks<MetaData>() {
-        @NonNull
-        @Override
-        public Loader<MetaData> onCreateLoader(int id, Bundle args) {
-            MetaLoader loader = new MetaLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<MetaData> loader, MetaData data) {
-            getLoaderManager().destroyLoader(loader.getId());
-
-            if (data.ex == null) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(data.folder == null
-                        ? null
-                        : Helper.localizeFolderName(getContext(), data.folder.name));
-
-                boolean outbox = EntityFolder.TYPE_OUTBOX.equals(data.folder.type);
-
-                bottom_navigation.setTag(data.folder.type); // trash or delete
-                bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(data.hasJunk);
-                bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && data.hasJunk);
-                bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && data.hasArchive);
-                bottom_navigation.setVisibility(View.VISIBLE);
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<MetaData> loader) {
-        }
-    };
 
     private static class MetaData {
         Throwable ex;
