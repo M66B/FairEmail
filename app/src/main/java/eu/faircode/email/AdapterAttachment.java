@@ -35,6 +35,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,15 +52,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private Context context;
     private ExecutorService executor = Executors.newCachedThreadPool();
 
-    private List<EntityAttachment> all = new ArrayList<>();
-    private List<EntityAttachment> filtered = new ArrayList<>();
+    private List<TupleAttachment> all = new ArrayList<>();
+    private List<TupleAttachment> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView tvName;
         TextView tvSize;
-        TextView tvProgress;
         ImageView ivStatus;
+        ProgressBar progressbar;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,8 +68,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             this.itemView = itemView;
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
-            tvProgress = itemView.findViewById(R.id.tvProgress);
             ivStatus = itemView.findViewById(R.id.ivStatus);
+            progressbar = itemView.findViewById(R.id.progressbar);
         }
 
         private void wire() {
@@ -81,26 +82,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         @Override
         public void onClick(View view) {
-            final EntityAttachment attachment = filtered.get(getLayoutPosition());
+            final TupleAttachment attachment = filtered.get(getLayoutPosition());
             if (attachment != null)
-                if (attachment.content == null) {
-                    if (attachment.progress == null)
-                        // Download
-                        executor.submit(new Runnable() {
-                            @Override
-                            public void run() {
-                                DB db = DB.getInstance(context);
-                                attachment.progress = 0;
-                                db.attachment().updateAttachment(attachment);
-                                EntityMessage message = db.message().getMessage(attachment.message);
-                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
-                            }
-                        });
-                } else {
+                if (attachment.content) {
                     // Build file name
                     final File dir = new File(context.getCacheDir(), "attachments");
                     final File file = new File(dir, TextUtils.isEmpty(attachment.name)
-                            ? "attachment_" + attachment.id : attachment.name);
+                            ? "attachment_" + attachment.id
+                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]", "_"));
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
                     Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
@@ -133,10 +122,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                     dir.mkdir();
                                     file.createNewFile();
 
+                                    // Get attachment content
+                                    byte[] content = DB.getInstance(context).attachment().getContent(attachment.id);
+
+                                    // Write attachment content to file
                                     FileOutputStream fos = null;
                                     try {
                                         fos = new FileOutputStream(file);
-                                        fos.write(attachment.content);
+                                        fos.write(content);
                                     } finally {
                                         if (fos != null)
                                             fos.close();
@@ -150,6 +143,18 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             }
                         }
                     });
+                } else {
+                    if (attachment.progress == null)
+                        // Download
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                DB db = DB.getInstance(context);
+                                db.attachment().setProgress(attachment.id, 0);
+                                EntityMessage message = db.message().getMessage(attachment.message);
+                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                            }
+                        });
                 }
         }
     }
@@ -159,12 +164,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         setHasStableIds(true);
     }
 
-    public void set(List<EntityAttachment> attachments) {
+    public void set(List<TupleAttachment> attachments) {
         Log.i(Helper.TAG, "Set attachments=" + attachments.size());
 
-        Collections.sort(attachments, new Comparator<EntityAttachment>() {
+        Collections.sort(attachments, new Comparator<TupleAttachment>() {
             @Override
-            public int compare(EntityAttachment a1, EntityAttachment a2) {
+            public int compare(TupleAttachment a1, TupleAttachment a2) {
                 return a1.sequence.compareTo(a2.sequence);
             }
         });
@@ -202,10 +207,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<EntityAttachment> prev;
-        private List<EntityAttachment> next;
+        private List<TupleAttachment> prev;
+        private List<TupleAttachment> next;
 
-        MessageDiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
+        MessageDiffCallback(List<TupleAttachment> prev, List<TupleAttachment> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -222,15 +227,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAttachment a1 = prev.get(oldItemPosition);
-            EntityAttachment a2 = next.get(newItemPosition);
+            TupleAttachment a1 = prev.get(oldItemPosition);
+            TupleAttachment a2 = next.get(newItemPosition);
             return a1.id.equals(a2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAttachment a1 = prev.get(oldItemPosition);
-            EntityAttachment a2 = next.get(newItemPosition);
+            TupleAttachment a1 = prev.get(oldItemPosition);
+            TupleAttachment a2 = next.get(newItemPosition);
             return a1.equals(a2);
         }
     }
@@ -255,7 +260,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityAttachment attachment = filtered.get(position);
+        TupleAttachment attachment = filtered.get(position);
         holder.tvName.setText(attachment.name);
 
         if (attachment.size != null)
@@ -263,19 +268,19 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         holder.tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
 
         if (attachment.progress != null)
-            holder.tvProgress.setText(String.format("%d %%", attachment.progress));
-        holder.tvProgress.setVisibility(
-                attachment.progress == null || attachment.content != null ? View.GONE : View.VISIBLE);
+            holder.progressbar.setProgress(attachment.progress);
+        holder.progressbar.setVisibility(
+                attachment.progress == null || attachment.content ? View.GONE : View.VISIBLE);
 
-        if (attachment.content == null) {
+        if (attachment.content) {
+            holder.ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+            holder.ivStatus.setVisibility(View.VISIBLE);
+        } else {
             if (attachment.progress == null) {
                 holder.ivStatus.setImageResource(R.drawable.baseline_get_app_24);
                 holder.ivStatus.setVisibility(View.VISIBLE);
             } else
                 holder.ivStatus.setVisibility(View.GONE);
-        } else {
-            holder.ivStatus.setImageResource(R.drawable.baseline_visibility_24);
-            holder.ivStatus.setVisibility(View.VISIBLE);
         }
 
         holder.wire();

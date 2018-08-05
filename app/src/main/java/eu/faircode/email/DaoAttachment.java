@@ -30,11 +30,19 @@ import java.util.List;
 
 @Dao
 public interface DaoAttachment {
-    @Query("SELECT * FROM attachment WHERE message = :message")
-    LiveData<List<EntityAttachment>> liveAttachments(long message);
+    @Query("SELECT id,message,sequence,name,type,size,progress" +
+            ", (NOT content IS NULL) as content" +
+            " FROM attachment WHERE message = :message")
+    LiveData<List<TupleAttachment>> liveAttachments(long message);
 
     @Query("SELECT * FROM attachment WHERE message = :message AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);
+
+    @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
+    void setProgress(long id, int progress);
+
+    @Query("SELECT content FROM attachment WHERE id = :id")
+    byte[] getContent(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertAttachment(EntityAttachment attachment);

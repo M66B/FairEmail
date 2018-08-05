@@ -153,10 +153,11 @@
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="3dp"
-        android:maxHeight="90dp"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical"
+        app:layout_constrainedHeight="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 

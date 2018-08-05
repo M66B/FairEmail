@@ -338,7 +338,7 @@ public class ServiceSynchronize extends LifecycleService {
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                             lbm.registerReceiver(processReceiver, new IntentFilter(ACTION_PROCESS_FOLDER));
                             Log.i(Helper.TAG, "listen process folder");
-                            for (final EntityFolder folder : db.folder().getFolders(account.id, false))
+                            for (final EntityFolder folder : db.folder().getFolders(account.id))
                                 if (!EntityFolder.TYPE_OUTBOX.equals(folder.type))
                                     lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER).putExtra("folder", folder.id));
 
@@ -1002,9 +1002,13 @@ public class ServiceSynchronize extends LifecycleService {
                 message.id = db.message().insertMessage(message);
                 Log.i(Helper.TAG, folder.name + " added id=" + message.id);
 
+                int sequence = 0;
                 for (EntityAttachment attachment : helper.getAttachments()) {
-                    Log.i(Helper.TAG, "attachment name=" + attachment.name + " type=" + attachment.type);
+                    sequence++;
+                    Log.i(Helper.TAG, "attachment seq=" + sequence +
+                            " name=" + attachment.name + " type=" + attachment.type);
                     attachment.message = message.id;
+                    attachment.sequence = sequence;
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
 

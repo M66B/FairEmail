@@ -237,9 +237,9 @@ public class FragmentMessage extends Fragment {
 
                     DB.getInstance(getContext()).attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
                     DB.getInstance(getContext()).attachment().liveAttachments(id).observe(FragmentMessage.this,
-                            new Observer<List<EntityAttachment>>() {
+                            new Observer<List<TupleAttachment>>() {
                                 @Override
-                                public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                                public void onChanged(@Nullable List<TupleAttachment> attachments) {
                                     adapter.set(attachments);
                                     grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                                 }

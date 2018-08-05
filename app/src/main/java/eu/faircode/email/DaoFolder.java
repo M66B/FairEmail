@@ -30,6 +30,9 @@ import java.util.List;
 
 @Dao
 public interface DaoFolder {
+    @Query("SELECT * FROM folder WHERE account = :account")
+    List<EntityFolder> getFolders(long account);
+
     @Query("SELECT * FROM folder WHERE account = :account AND synchronize = :synchronize")
     List<EntityFolder> getFolders(long account, boolean synchronize);
 

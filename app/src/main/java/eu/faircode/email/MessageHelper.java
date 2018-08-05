@@ -310,7 +310,6 @@ public class MessageHelper {
             if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()) || !TextUtils.isEmpty(part.getFileName())) {
                 ContentType ct = new ContentType(part.getContentType());
                 EntityAttachment attachment = new EntityAttachment();
-                attachment.sequence = result.size() + 1;
                 attachment.name = part.getFileName();
                 attachment.type = ct.getBaseType();
                 attachment.size = part.getSize();
