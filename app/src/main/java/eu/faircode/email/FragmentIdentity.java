@@ -244,7 +244,7 @@ public class FragmentIdentity extends Fragment {
                 // Check SMTP server
                 if (identity.synchronize) {
                     Properties props = MessageHelper.getSessionProperties();
-                    Session isession = Session.getDefaultInstance(props, null);
+                    Session isession = Session.getInstance(props, null);
                     Transport itransport = isession.getTransport(identity.starttls ? "smtp" : "smtps");
                     try {
                         itransport.connect(identity.host, identity.port, identity.user, identity.password);

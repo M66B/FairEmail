@@ -242,7 +242,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Properties props = MessageHelper.getSessionProperties();
                 props.put("mail.imaps.peek", "true");
                 //props.put("mail.imaps.minidletime", "5000");
-                Session isession = Session.getDefaultInstance(props, null);
+                Session isession = Session.getInstance(props, null);
                 // isession.setDebug(true);
                 // adb -t 1 logcat | grep "eu.faircode.email\|System.out"
 
@@ -658,7 +658,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 return;
 
                             Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getDefaultInstance(props, null);
+                            Session isession = Session.getInstance(props, null);
                             MimeMessage imessage = MessageHelper.from(msg, isession);
                             ifolder.appendMessages(new Message[]{imessage});
 
@@ -718,7 +718,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // Create session
                             Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getDefaultInstance(props, null);
+                            Session isession = Session.getInstance(props, null);
 
                             // Create message
                             MimeMessage imessage;

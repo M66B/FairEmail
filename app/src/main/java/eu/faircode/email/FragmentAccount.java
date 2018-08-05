@@ -210,7 +210,7 @@ public class FragmentAccount extends Fragment {
                 // Check IMAP server
                 List<EntityFolder> folders = new ArrayList<>();
                 if (account.synchronize) {
-                    Session isession = Session.getDefaultInstance(MessageHelper.getSessionProperties(), null);
+                    Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
                     IMAPStore istore = null;
                     try {
                         istore = (IMAPStore) isession.getStore("imaps");
