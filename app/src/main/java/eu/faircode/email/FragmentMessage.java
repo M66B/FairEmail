@@ -418,7 +418,7 @@ public class FragmentMessage extends Fragment {
     private void onActionMove(final long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_INIT, args, folderLoaderCallbacks).forceLoad();
+        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
     }
 
     private void onActionArchive(final long id) {
@@ -518,10 +518,10 @@ public class FragmentMessage extends Fragment {
         boolean hasArchive;
     }
 
-    private static class FolderLoader extends AsyncTaskLoader<List<EntityFolder>> {
+    private static class MoveLoader extends AsyncTaskLoader<List<EntityFolder>> {
         private Bundle args;
 
-        FolderLoader(Context context) {
+        MoveLoader(Context context) {
             super(context);
         }
 
@@ -559,14 +559,14 @@ public class FragmentMessage extends Fragment {
         }
     }
 
-    private LoaderManager.LoaderCallbacks folderLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<EntityFolder>>() {
+    private LoaderManager.LoaderCallbacks moveLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<EntityFolder>>() {
         Bundle args;
 
         @NonNull
         @Override
         public Loader<List<EntityFolder>> onCreateLoader(int id, Bundle args) {
             this.args = args;
-            FolderLoader loader = new FolderLoader(getContext());
+            MoveLoader loader = new MoveLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
