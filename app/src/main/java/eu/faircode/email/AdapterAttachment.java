@@ -99,15 +99,26 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         });
                 } else {
                     // Build file name
-                    File dir = new File(context.getCacheDir(), "attachments");
-                    dir.mkdir();
+                    final File dir = new File(context.getCacheDir(), "attachments");
                     final File file = new File(dir, TextUtils.isEmpty(attachment.name) ? "noname" : attachment.name);
 
+                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
+
+                    // Build intent
+                    final Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(uri);
+                    //intent.setType(attachment.type);
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+
+                    // Set permissions
+                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                    for (ResolveInfo resolveInfo : targets)
+                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
                     // Check if viewer available
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.fromFile(file));
-                    PackageManager pm = context.getPackageManager();
-                    if (pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) == null) {
+                    if (targets.size() == 0) {
                         Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -119,6 +130,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             try {
                                 // Create file
                                 if (!file.exists()) {
+                                    dir.mkdir();
                                     file.createNewFile();
 
                                     FileOutputStream fos = null;
@@ -130,21 +142,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                             fos.close();
                                     }
                                 }
-
-                                // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                                Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
-
-                                // Build intent
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setData(uri);
-                                //intent.setType(attachment.type);
-                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                                Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
-
-                                // Set permissions
-                                List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                                for (ResolveInfo resolveInfo : targets)
-                                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
                                 // Start viewer
                                 context.startActivity(intent);
