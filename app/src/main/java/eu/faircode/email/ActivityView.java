@@ -58,6 +58,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
+    private boolean newIntent = false;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
@@ -78,6 +79,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(Helper.TAG, "View create");
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_view);
@@ -134,6 +136,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
+        Log.i(Helper.TAG, "View post create");
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
         syncState();
@@ -141,20 +144,72 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onResume() {
+        Log.i(Helper.TAG, "View resume");
         super.onResume();
+
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
         lbm.registerReceiver(receiver, iff);
+
+        if (newIntent) {
+            newIntent = false;
+            getSupportFragmentManager().popBackStack("unified", 0);
+        }
     }
 
     @Override
     protected void onPause() {
+        Log.i(Helper.TAG, "View pause");
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Log.i(Helper.TAG, "View new intent=" + intent);
+        newIntent = true;
+        super.onNewIntent(intent);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.i(Helper.TAG, "View configuration changed");
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(Helper.TAG, "View destroyed");
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(drawerList))
+            drawerLayout.closeDrawer(drawerList);
+        else
+            super.onBackPressed();
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+            finish();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        super.onSharedPreferenceChanged(prefs, key);
+        if ("eula".equals(key))
+            init();
     }
 
     @Override
@@ -172,55 +227,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
-        Log.i(Helper.TAG, "New intent=" + intent);
-        getSupportFragmentManager().popBackStack("unified", 0);
-        super.onNewIntent(intent);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(drawerList))
-            drawerLayout.closeDrawer(drawerList);
-        else
-            super.onBackPressed();
-    }
-
-    @Override
-    protected void onDestroy() {
-        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
-        super.onDestroy();
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        super.onSharedPreferenceChanged(prefs, key);
-        if ("eula".equals(key))
-            init();
-    }
-
-    @Override
-    public void onBackStackChanged() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
-            finish();
-    }
-
-    private void syncState() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean eula = prefs.getBoolean("eula", false);
-        drawerToggle.setDrawerIndicatorEnabled(eula);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(eula);
-        getSupportActionBar().setHomeButtonEnabled(eula);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
@@ -232,6 +238,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             default:
                 return false;
         }
+    }
+
+    private void syncState() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean eula = prefs.getBoolean("eula", false);
+        drawerToggle.setDrawerIndicatorEnabled(eula);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(eula);
+        getSupportActionBar().setHomeButtonEnabled(eula);
     }
 
     private void init() {

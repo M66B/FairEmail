@@ -27,6 +27,7 @@
 
         <activity
             android:name=".ActivitySetup"
+            android:launchMode="singleTop"
             android:parentActivityName=".ActivityView" />
 
         <activity
