@@ -29,7 +29,9 @@
             android:name=".ActivitySetup"
             android:parentActivityName=".ActivityView" />
 
-        <activity android:name=".ActivityView">
+        <activity
+            android:name=".ActivityView"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

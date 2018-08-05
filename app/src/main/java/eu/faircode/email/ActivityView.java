@@ -165,6 +165,20 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        menu.findItem(R.id.menu_folders).setVisible(prefs.getBoolean("eula", false));
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Log.i(Helper.TAG, "New intent=" + intent);
+        getSupportFragmentManager().popBackStack("unified", 0);
+        super.onNewIntent(intent);
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
@@ -222,6 +236,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void init() {
         syncState();
+        invalidateOptionsMenu();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("eula", false)) {
