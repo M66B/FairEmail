@@ -46,17 +46,18 @@ public class FragmentSetup extends FragmentEx {
     private Button btnAccount;
     private ProgressBar pbAccount;
     private TextView tvAccountDone;
-    private Button btnAccountManage;
 
     private Button btnIdentity;
     private ProgressBar pbIdentity;
     private TextView tvIdentityDone;
-    private Button btnIdentityManage;
 
     private Button btnPermissions;
     private TextView tvPermissionsDone;
 
     private CheckBox cbDarkTheme;
+
+    private Button btnAccountManage;
+    private Button btnIdentityManage;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -75,17 +76,18 @@ public class FragmentSetup extends FragmentEx {
         btnAccount = view.findViewById(R.id.btnAccount);
         pbAccount = view.findViewById(R.id.pbAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
-        btnAccountManage = view.findViewById(R.id.btnAccountManage);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
         pbIdentity = view.findViewById(R.id.pbIdentity);
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
-        btnIdentityManage = view.findViewById(R.id.btnIdentityManage);
 
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
 
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
+
+        btnAccountManage = view.findViewById(R.id.btnAccountManage);
+        btnIdentityManage = view.findViewById(R.id.btnIdentityManage);
 
         // Wire controls
 
@@ -123,16 +125,6 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
-        btnAccountManage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //getFragmentManager().popBackStack();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-                fragmentTransaction.commit();
-            }
-        });
-
         btnIdentity.setOnClickListener(new View.OnClickListener() {
             private boolean once;
 
@@ -166,6 +158,23 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
+        btnPermissions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestPermissions(permissions, 1);
+            }
+        });
+
+        btnAccountManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //getFragmentManager().popBackStack();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+                fragmentTransaction.commit();
+            }
+        });
+
         btnIdentityManage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,13 +182,6 @@ public class FragmentSetup extends FragmentEx {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
                 fragmentTransaction.commit();
-            }
-        });
-
-        btnPermissions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requestPermissions(permissions, 1);
             }
         });
 
