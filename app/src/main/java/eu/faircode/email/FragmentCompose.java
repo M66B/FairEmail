@@ -111,7 +111,7 @@ public class FragmentCompose extends FragmentEx {
         grpCc = view.findViewById(R.id.grpCc);
         grpReady = view.findViewById(R.id.grpReady);
 
-        grpCc.setVisibility(View.GONE);
+        grpCc.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
         etBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Wire controls
