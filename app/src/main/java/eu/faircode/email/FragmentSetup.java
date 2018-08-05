@@ -27,10 +27,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +42,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class FragmentSetup extends Fragment {
+public class FragmentSetup extends FragmentEx {
     private Button btnAccount;
     private ProgressBar pbAccount;
     private TextView tvAccountDone;
@@ -69,6 +67,8 @@ public class FragmentSetup extends Fragment {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_setup);
+
         View view = inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
@@ -246,12 +246,6 @@ public class FragmentSetup extends Fragment {
         });
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_setup);
     }
 
     @Override

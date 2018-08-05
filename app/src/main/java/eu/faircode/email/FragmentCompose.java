@@ -29,12 +29,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -65,7 +63,7 @@ import javax.mail.internet.InternetAddress;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentCompose extends Fragment {
+public class FragmentCompose extends FragmentEx {
     private boolean once = false;
     private String thread = null;
     private long rid = -1;
@@ -88,6 +86,8 @@ public class FragmentCompose extends Fragment {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_compose);
+
         View view = inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get arguments
@@ -208,12 +208,6 @@ public class FragmentCompose extends Fragment {
         getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_compose);
     }
 
     @Override

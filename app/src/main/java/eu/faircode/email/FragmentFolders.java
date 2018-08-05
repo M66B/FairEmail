@@ -25,8 +25,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,7 +35,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class FragmentFolders extends Fragment {
+public class FragmentFolders extends FragmentEx {
     private RecyclerView rvFolder;
     private ProgressBar pbWait;
     private Group grpReady;
@@ -48,6 +46,8 @@ public class FragmentFolders extends Fragment {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_list_folders);
+
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
 
         // Get controls
@@ -91,11 +91,5 @@ public class FragmentFolders extends Fragment {
         Toast.makeText(getContext(), R.string.title_item_edit_hint, Toast.LENGTH_SHORT).show();
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_list_folders);
     }
 }

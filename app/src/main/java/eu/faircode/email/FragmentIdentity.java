@@ -25,11 +25,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -54,7 +52,7 @@ import java.util.Properties;
 import javax.mail.Session;
 import javax.mail.Transport;
 
-public class FragmentIdentity extends Fragment {
+public class FragmentIdentity extends FragmentEx {
     private List<Provider> providers;
 
     private Spinner spProfile;
@@ -75,6 +73,8 @@ public class FragmentIdentity extends Fragment {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_edit_identity);
+
         View view = inflater.inflate(R.layout.fragment_identity, container, false);
 
         // Get arguments
@@ -186,12 +186,6 @@ public class FragmentIdentity extends Fragment {
         });
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_edit_identity);
     }
 
     private static class PutLoader extends AsyncTaskLoader<Throwable> {

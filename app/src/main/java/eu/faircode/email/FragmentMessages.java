@@ -28,7 +28,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
@@ -44,7 +43,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class FragmentMessages extends Fragment {
+public class FragmentMessages extends FragmentEx {
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;

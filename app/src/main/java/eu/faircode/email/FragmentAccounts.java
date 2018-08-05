@@ -25,9 +25,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,7 +35,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-public class FragmentAccounts extends Fragment {
+public class FragmentAccounts extends FragmentEx {
     private RecyclerView rvAccount;
     private ProgressBar pbWait;
     private Group grpReady;
@@ -48,6 +46,8 @@ public class FragmentAccounts extends Fragment {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_list_accounts);
+
         View view = inflater.inflate(R.layout.fragment_accounts, container, false);
 
         // Get controls
@@ -92,11 +92,5 @@ public class FragmentAccounts extends Fragment {
         });
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_list_accounts);
     }
 }
