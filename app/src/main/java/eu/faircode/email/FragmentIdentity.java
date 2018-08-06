@@ -64,8 +64,8 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private CheckBox cbPrimary;
     private CheckBox cbSynchronize;
+    private CheckBox cbPrimary;
     private Button btnOk;
     private ProgressBar pbCheck;
     // TODO: loading spinner
@@ -95,8 +95,8 @@ public class FragmentIdentity extends FragmentEx {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        cbPrimary = view.findViewById(R.id.cbPrimary);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
+        cbPrimary = view.findViewById(R.id.cbPrimary);
         btnOk = view.findViewById(R.id.btnOk);
         pbCheck = view.findViewById(R.id.pbCheck);
 
@@ -146,6 +146,13 @@ public class FragmentIdentity extends FragmentEx {
 
         pbCheck.setVisibility(View.GONE);
 
+        cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbPrimary.setEnabled(checked);
+            }
+        });
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,8 +169,8 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("primary", cbPrimary.isChecked());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_IDENTITY_PUT, args, putLoaderCallbacks).forceLoad();
             }
@@ -180,8 +187,9 @@ public class FragmentIdentity extends FragmentEx {
                 etPort.setText(identity == null ? null : Long.toString(identity.port));
                 etUser.setText(identity == null ? null : identity.user);
                 tilPassword.getEditText().setText(identity == null ? null : identity.password);
-                cbPrimary.setChecked(identity == null ? true : identity.primary);
                 cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
+                cbPrimary.setChecked(identity == null ? true : identity.primary);
+                cbPrimary.setEnabled(identity == null ? true : identity.synchronize);
             }
         });
 
@@ -226,8 +234,8 @@ public class FragmentIdentity extends FragmentEx {
                 identity.starttls = starttls;
                 identity.user = Objects.requireNonNull(args.getString("user"));
                 identity.password = Objects.requireNonNull(args.getString("password"));
-                identity.primary = args.getBoolean("primary");
                 identity.synchronize = args.getBoolean("synchronize");
+                identity.primary = (identity.synchronize && args.getBoolean("primary"));
 
                 if (TextUtils.isEmpty(identity.name))
                     throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));

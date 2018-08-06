@@ -159,22 +159,22 @@
         </android.support.design.widget.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/cbPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_primary_account"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
-
-        <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_account"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+        <CheckBox
+            android:id="@+id/cbPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_primary_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
         <Button
             android:id="@+id/btnOk"
@@ -183,7 +183,7 @@
             android:layout_marginTop="12dp"
             android:text="@android:string/ok"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <ProgressBar
             android:id="@+id/pbCheck"

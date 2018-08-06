@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -63,8 +64,8 @@ public class FragmentAccount extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private CheckBox cbPrimary;
     private CheckBox cbSynchronize;
+    private CheckBox cbPrimary;
     private Button btnOk;
     private ProgressBar pbCheck;
     // TODO: loading spinner
@@ -99,8 +100,8 @@ public class FragmentAccount extends FragmentEx {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        cbPrimary = view.findViewById(R.id.cbPrimary);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
+        cbPrimary = view.findViewById(R.id.cbPrimary);
         btnOk = view.findViewById(R.id.btnOk);
         pbCheck = view.findViewById(R.id.pbCheck);
 
@@ -128,6 +129,13 @@ public class FragmentAccount extends FragmentEx {
 
         pbCheck.setVisibility(View.GONE);
 
+        cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbPrimary.setEnabled(checked);
+            }
+        });
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,8 +149,8 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("primary", cbPrimary.isChecked());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_ACCOUNT_PUT, args, putLoaderCallbacks).forceLoad();
             }
@@ -156,8 +164,9 @@ public class FragmentAccount extends FragmentEx {
                 etPort.setText(account == null ? null : Long.toString(account.port));
                 etUser.setText(account == null ? null : account.user);
                 tilPassword.getEditText().setText(account == null ? null : account.password);
-                cbPrimary.setChecked(account == null ? true : account.primary);
                 cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                cbPrimary.setChecked(account == null ? true : account.primary);
+                cbPrimary.setEnabled(account == null ? true : account.synchronize);
             }
         });
 
@@ -198,8 +207,8 @@ public class FragmentAccount extends FragmentEx {
                 account.port = Integer.parseInt(port);
                 account.user = user;
                 account.password = Objects.requireNonNull(args.getString("password"));
-                account.primary = args.getBoolean("primary");
                 account.synchronize = args.getBoolean("synchronize");
+                account.primary = (account.synchronize && args.getBoolean("primary"));
 
                 // Check IMAP server
                 List<EntityFolder> folders = new ArrayList<>();
