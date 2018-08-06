@@ -74,7 +74,7 @@
             port="465"
             starttls="false" />
     </provider-->
-    <!--provider name="infomaniak">
+    <provider name="infomaniak">
         <imap
             host="mail.infomaniak.com"
             port="993" />
@@ -82,7 +82,7 @@
             host="mail.infomaniak.com"
             port="587"
             starttls="true" />
-    </provider-->
+    </provider>
     <provider name="OVH.net">
         <imap
             host="ssl0.ovh.net"
