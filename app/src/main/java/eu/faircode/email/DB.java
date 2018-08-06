@@ -41,7 +41,7 @@ import android.util.Log;
                 EntityAttachment.class,
                 EntityOperation.class
         },
-        version = 5,
+        version = 4,
         exportSchema = true
 )
 
@@ -78,7 +78,6 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(MIGRATION_1_2)
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)
-                .addMigrations(MIGRATION_4_5)
                 .build();
     }
 
@@ -111,14 +110,6 @@ public abstract class DB extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase db) {
             Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
             db.execSQL("CREATE  INDEX `index_message_ui_seen` ON `message` (`ui_seen`)");
-        }
-    };
-
-    private static final Migration MIGRATION_4_5 = new Migration(4, 5) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("ALTER TABLE `account` ADD COLUMN `capabilities` TEXT NOT NULL DEFAULT ''");
         }
     };
 

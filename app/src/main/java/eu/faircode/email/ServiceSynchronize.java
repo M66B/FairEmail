@@ -336,15 +336,6 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             DB db = DB.getInstance(ServiceSynchronize.this);
 
-                            List<String> capabilities = new ArrayList<>();
-                            if (fstore.hasCapability("IDLE"))
-                                capabilities.add("IDLE");
-                            if (fstore.hasCapability("MOVE"))
-                                capabilities.add("MOVE");
-                            account.capabilities = capabilities.toArray(new String[0]);
-                            db.account().updateAccount(account);
-                            Log.i(Helper.TAG, "capabilities=" + TextUtils.join(",", capabilities));
-
                             synchronizeFolders(account, fstore);
 
                             for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
@@ -739,7 +730,22 @@ public class ServiceSynchronize extends LifecycleService {
                                 throw new MessageRemovedException();
 
                             Folder itarget = istore.getFolder(target.name);
-                            ifolder.moveMessages(new Message[]{imessage}, itarget);
+                            if (istore.hasCapability("MOVE"))
+                                ifolder.moveMessages(new Message[]{imessage}, itarget);
+                            else {
+                                Log.i(Helper.TAG, "MOVE by APPEND/DELETE");
+                                EntityMessage msg = message.getMessage(op.message);
+
+                                // Execute append
+                                Properties props = MessageHelper.getSessionProperties();
+                                Session isession = Session.getInstance(props, null);
+                                MimeMessage icopy = MessageHelper.from(msg, isession);
+                                itarget.appendMessages(new Message[]{icopy});
+
+                                // Execute delete
+                                imessage.setFlag(Flags.Flag.DELETED, true);
+                                ifolder.expunge();
+                            }
 
                             message.deleteMessage(op.message);
 
@@ -872,7 +878,7 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (NullPointerException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
-                        // There is probably no use in repeating
+                        // There is no use in repeating
                         operation.deleteOperation(op.id);
                         reportError(null, folder.name, ex);
                     }

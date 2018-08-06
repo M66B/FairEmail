@@ -25,7 +25,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
@@ -57,7 +56,6 @@ import android.widget.TextView;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -212,13 +210,12 @@ public class FragmentMessage extends FragmentEx {
         rvAttachment.setAdapter(adapter);
 
         final DB db = DB.getInstance(getContext());
-        final boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
 
         // Observe message
         db.message().liveMessage(id).observe(this, new Observer<TupleMessageEx>() {
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
-                if (message == null || (message.ui_hide && !debug)) {
+                if (message == null || message.ui_hide) {
                     // Message gone (moved, deleted)
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
@@ -266,7 +263,7 @@ public class FragmentMessage extends FragmentEx {
                     db.folder().liveFolders(message.account).removeObservers(FragmentMessage.this);
                     db.folder().liveFolders(message.account).observe(FragmentMessage.this, new Observer<List<EntityFolder>>() {
                         @Override
-                        public void onChanged(@Nullable List<EntityFolder> folders) {
+                        public void onChanged(@Nullable final List<EntityFolder> folders) {
                             boolean hasTrash = false;
                             boolean hasJunk = false;
                             boolean hasArchive = false;
@@ -287,19 +284,9 @@ public class FragmentMessage extends FragmentEx {
 
                             bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(false);
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && hasArchive);
                             bottom_navigation.setVisibility(View.VISIBLE);
-
-                            final boolean fHasUser = hasUser;
-                            db.account().liveAccount(message.id).removeObservers(FragmentMessage.this);
-                            db.account().liveAccount(message.account).observe(FragmentMessage.this, new Observer<EntityAccount>() {
-                                @Override
-                                public void onChanged(@Nullable EntityAccount account) {
-                                    boolean move = Arrays.asList(account.capabilities).contains("MOVE");
-                                    bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || fHasUser) && move);
-                                }
-                            });
                         }
                     });
                 }

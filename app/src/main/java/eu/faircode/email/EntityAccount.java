@@ -46,8 +46,6 @@ public class EntityAccount {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
-    @NonNull
-    public String[] capabilities;
 
     @Override
     public boolean equals(Object obj) {

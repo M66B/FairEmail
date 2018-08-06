@@ -21,13 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.util.ListUpdateCallback;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +42,6 @@ import java.util.Locale;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
-    private boolean debug;
 
     private List<EntityAccount> all = new ArrayList<>();
     private List<EntityAccount> filtered = new ArrayList<>();
@@ -56,7 +53,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ImageView ivSync;
         TextView tvHost;
         TextView tvUser;
-        TextView tvCapabilities;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,7 +63,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync = itemView.findViewById(R.id.ivSync);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvUser = itemView.findViewById(R.id.tvUser);
-            tvCapabilities = itemView.findViewById(R.id.tvCapabilities);
         }
 
         private void wire() {
@@ -94,7 +89,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     AdapterAccount(Context context) {
         this.context = context;
-        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
         setHasStableIds(true);
     }
 
@@ -204,8 +198,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         holder.ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
         holder.tvHost.setText(String.format("%s:%d", account.host, account.port));
         holder.tvUser.setText(account.user);
-        holder.tvCapabilities.setText(TextUtils.join(", ", account.capabilities));
-        holder.tvCapabilities.setVisibility(debug ? View.VISIBLE : View.GONE);
 
         holder.wire();
     }
