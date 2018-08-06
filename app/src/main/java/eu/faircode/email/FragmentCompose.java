@@ -111,8 +111,6 @@ public class FragmentCompose extends FragmentEx {
         grpCc = view.findViewById(R.id.grpCc);
         grpReady = view.findViewById(R.id.grpReady);
 
-        grpCc.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-
         // Wire controls
 
         ivIdentityAdd.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +174,9 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
+        spFrom.setVisibility(View.GONE);
+        ivIdentityAdd.setVisibility(View.GONE);
+        grpCc.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
@@ -203,7 +204,10 @@ public class FragmentCompose extends FragmentEx {
                         break;
                     }
 
-                // This seems to be necessary to prevent layout freezes
+                spFrom.setVisibility(View.VISIBLE);
+                ivIdentityAdd.setVisibility(View.VISIBLE);
+
+                // For some reason this is needed to make sure the loader starts
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -421,6 +425,7 @@ public class FragmentCompose extends FragmentEx {
             String action = result.getString("action");
 
             pbWait.setVisibility(View.GONE);
+            grpCc.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
             FragmentCompose.this.thread = thread;
