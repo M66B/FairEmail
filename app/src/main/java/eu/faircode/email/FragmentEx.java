@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 public class FragmentEx extends Fragment {
-    private String subtitle = "";
+    private String subtitle = " ";
 
     protected void setSubtitle(int resid) {
         setSubtitle(getString(resid));
@@ -29,9 +29,9 @@ public class FragmentEx extends Fragment {
         super.onDetach();
 
         InputMethodManager im = getContext().getSystemService(InputMethodManager.class);
-        View focussed = getActivity().getCurrentFocus();
-        if (focussed != null)
-            im.hideSoftInputFromWindow(focussed.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        View focused = getActivity().getCurrentFocus();
+        if (focused != null)
+            im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private void updateSubtitle() {
