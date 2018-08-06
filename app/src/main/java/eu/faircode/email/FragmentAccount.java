@@ -126,8 +126,6 @@ public class FragmentAccount extends FragmentEx {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spProfile.setAdapter(adapter);
 
-        pbCheck.setVisibility(View.GONE);
-
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -155,6 +153,11 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        // Initialize
+        tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        pbCheck.setVisibility(View.GONE);
+
+        // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(this, new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {

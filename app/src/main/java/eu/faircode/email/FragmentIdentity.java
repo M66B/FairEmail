@@ -144,8 +144,6 @@ public class FragmentIdentity extends FragmentEx {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spProfile.setAdapter(adapter);
 
-        pbCheck.setVisibility(View.GONE);
-
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -176,6 +174,11 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        // Initialize
+        tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        pbCheck.setVisibility(View.GONE);
+
+        // Observer
         DB.getInstance(getContext()).identity().liveIdentity(id).observe(this, new Observer<EntityIdentity>() {
             @Override
             public void onChanged(@Nullable EntityIdentity identity) {
