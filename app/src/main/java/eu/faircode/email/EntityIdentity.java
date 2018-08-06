@@ -73,6 +73,6 @@ public class EntityIdentity {
 
     @Override
     public String toString() {
-        return name;
+        return name + (primary ? " ★" : "");
     }
 }
