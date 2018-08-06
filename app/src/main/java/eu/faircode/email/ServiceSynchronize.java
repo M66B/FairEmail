@@ -960,12 +960,9 @@ public class ServiceSynchronize extends LifecycleService {
             long fetch = SystemClock.elapsedRealtime();
             Log.i(Helper.TAG, folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
-            List<Message> added = new ArrayList<>();
             for (Message imessage : imessages)
                 try {
-                    long uid = ifolder.getUID(imessage);
-                    if (!uids.remove(uid))
-                        added.add(imessage);
+                    uids.remove(ifolder.getUID(imessage));
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
@@ -976,16 +973,16 @@ public class ServiceSynchronize extends LifecycleService {
                 int count = dao.deleteMessage(folder.id, uid);
                 Log.i(Helper.TAG, folder.name + " delete local uid=" + uid + " count=" + count);
             }
-            Log.i(Helper.TAG, folder.name + " synced");
 
-            Log.i(Helper.TAG, folder.name + " added count=" + added.size());
-            for (int batch = 0; batch < added.size(); batch += FETCH_BATCH_SIZE) {
+            // Add/update local messages
+            Log.i(Helper.TAG, folder.name + " added count=" + imessages.length);
+            for (int batch = 0; batch < imessages.length; batch += FETCH_BATCH_SIZE) {
                 Log.i(Helper.TAG, folder.name + " fetch @" + batch);
                 try {
                     db.beginTransaction();
-                    for (int i = 0; i < FETCH_BATCH_SIZE && batch + i < added.size(); i++)
+                    for (int i = 0; i < FETCH_BATCH_SIZE && batch + i < imessages.length; i++)
                         try {
-                            synchronizeMessage(folder, ifolder, (IMAPMessage) added.get(batch + i));
+                            synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[batch + i]);
                         } catch (MessageRemovedException ex) {
                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         }
@@ -1078,7 +1075,6 @@ public class ServiceSynchronize extends LifecycleService {
             } else if (message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
-
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
             }
