@@ -131,7 +131,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         Log.i(Helper.TAG, "View post create");
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
-        syncState();
     }
 
     @Override
@@ -172,7 +171,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         Log.i(Helper.TAG, "View configuration changed");
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
-
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        drawerToggle.setDrawerIndicatorEnabled(count == 1);
     }
 
     @Override
@@ -193,8 +193,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     public void onBackStackChanged() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count == 0)
             finish();
+        drawerToggle.setDrawerIndicatorEnabled(count == 1);
     }
 
     @Override
@@ -224,6 +226,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             return true;
 
         switch (item.getItemId()) {
+            case android.R.id.home:
+                getSupportFragmentManager().popBackStack();
+                return true;
             case R.id.menu_folders:
                 onMenuFolders();
                 return true;
@@ -232,16 +237,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         }
     }
 
-    private void syncState() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean eula = prefs.getBoolean("eula", false);
-        drawerToggle.setDrawerIndicatorEnabled(eula);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(eula);
-        getSupportActionBar().setHomeButtonEnabled(eula);
-    }
-
     private void init() {
-        syncState();
         invalidateOptionsMenu();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
