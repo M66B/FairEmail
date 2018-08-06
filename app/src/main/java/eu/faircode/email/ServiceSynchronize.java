@@ -790,7 +790,9 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
                                         " to " + TextUtils.join(", ", to));
 
-                                msg.ui_hide = true;
+                                msg.sent = new Date().getTime();
+                                msg.seen = true;
+                                msg.ui_seen = true;
                                 message.updateMessage(msg);
                                 // TODO: purge sent messages
                             } finally {
@@ -858,6 +860,12 @@ public class ServiceSynchronize extends LifecycleService {
                         operation.deleteOperation(op.id);
                     } catch (SMTPSendFailedException ex) {
                         // Response codes: https://www.ietf.org/rfc/rfc821.txt
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+                        // There is probably no use in repeating
+                        operation.deleteOperation(op.id);
+                        reportError(null, folder.name, ex);
+                    } catch (NullPointerException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is probably no use in repeating

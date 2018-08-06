@@ -98,7 +98,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     new Intent(context, ActivityCompose.class)
                                             .putExtra("id", message.id));
                         else {
-                            if (!message.seen && !message.ui_seen) {
+                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
+                            if (!outbox && !message.seen && !message.ui_seen) {
                                 message.ui_seen = !message.ui_seen;
                                 DB.getInstance(context).message().updateMessage(message);
                                 EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
@@ -227,8 +228,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.unwire();
 
         TupleMessageEx message = filtered.get(position);
+        boolean outgoing = EntityFolder.isOutgoing(message.folderType);
+        boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
 
-        if (EntityFolder.isOutgoing(message.folderType)) {
+        if (outgoing) {
             holder.tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
             holder.tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
         } else {
@@ -246,7 +249,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         holder.ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
-        boolean unseen = (message.thread == null ? message.unseen > 0 : !message.seen);
+        boolean unseen = (message.thread == null && !outbox ? message.unseen > 0 : !message.seen);
 
         int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
         holder.tvFrom.setTypeface(null, visibility);

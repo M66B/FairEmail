@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
@@ -211,12 +212,13 @@ public class FragmentMessage extends FragmentEx {
         rvAttachment.setAdapter(adapter);
 
         final DB db = DB.getInstance(getContext());
+        final boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
 
         // Observe message
         db.message().liveMessage(id).observe(this, new Observer<TupleMessageEx>() {
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
-                if (message == null || message.ui_hide) {
+                if (message == null || (message.ui_hide && !debug)) {
                     // Message gone (moved, deleted)
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
