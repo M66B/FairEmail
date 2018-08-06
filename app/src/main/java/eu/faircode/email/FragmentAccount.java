@@ -47,7 +47,6 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.mail.Folder;
@@ -68,14 +67,6 @@ public class FragmentAccount extends FragmentEx {
     private Button btnSave;
     private ProgressBar pbCheck;
     // TODO: loading spinner
-
-    static final int DEFAULT_INBOX_SYNC = 30;
-    static final int DEFAULT_STANDARD_SYNC = 7;
-
-    private static final List<String> standard_sync = Arrays.asList(
-            EntityFolder.TYPE_DRAFTS,
-            EntityFolder.TYPE_SENT
-    );
 
     @Override
     @Nullable
@@ -264,8 +255,8 @@ public class FragmentAccount extends FragmentEx {
                                 EntityFolder folder = new EntityFolder();
                                 folder.name = ifolder.getFullName();
                                 folder.type = type;
-                                folder.synchronize = standard_sync.contains(folder.type);
-                                folder.after = DEFAULT_STANDARD_SYNC;
+                                folder.synchronize = EntityFolder.SYSTEM_FOLDER_SYNC.contains(folder.type);
+                                folder.after = EntityFolder.DEFAULT_STANDARD_SYNC;
                                 folders.add(folder);
 
                                 Log.i(Helper.TAG, account.name +
@@ -306,7 +297,7 @@ public class FragmentAccount extends FragmentEx {
                     inbox.name = "INBOX";
                     inbox.type = EntityFolder.TYPE_INBOX;
                     inbox.synchronize = true;
-                    inbox.after = DEFAULT_INBOX_SYNC;
+                    inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
                     folders.add(0, inbox);
 
                     for (EntityFolder folder : folders)
