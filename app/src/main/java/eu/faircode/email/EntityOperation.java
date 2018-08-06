@@ -31,6 +31,9 @@ import android.util.Log;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 @Entity(
@@ -59,6 +62,8 @@ public class EntityOperation {
     public static final String DELETE = "delete";
     public static final String SEND = "send";
     public static final String ATTACHMENT = "attachment";
+
+    private static List<Intent> queue = new ArrayList<>();
 
     static void queue(Context context, EntityMessage message, String name) {
         JSONArray jsonArray = new JSONArray();
@@ -92,16 +97,26 @@ public class EntityOperation {
         operation.args = jsonArray.toString();
         operation.id = dao.insertOperation(operation);
 
+        synchronized (queue) {
+            queue.add(new Intent(SEND.equals(name)
+                    ? ServiceSynchronize.ACTION_PROCESS_OUTBOX
+                    : ServiceSynchronize.ACTION_PROCESS_FOLDER)
+                    .putExtra("folder", message.folder));
+        }
+
         Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + name +
                 " args=" + operation.args +
                 " msg=" + message.folder + "/" + message.id + " uid=" + message.uid +
                 " purged=" + purged);
+    }
 
+    public static void process(Context context) {
+        // Processing needs to be done after committing to the database
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        lbm.sendBroadcast(
-                new Intent(SEND.equals(name)
-                        ? ServiceSynchronize.ACTION_PROCESS_OUTBOX
-                        : ServiceSynchronize.ACTION_PROCESS_FOLDER)
-                        .putExtra("folder", message.folder));
+        synchronized (queue) {
+            for (Intent intent : queue)
+                lbm.sendBroadcast(intent);
+            queue.clear();
+        }
     }
 }

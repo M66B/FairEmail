@@ -192,9 +192,9 @@ public class MessageHelper {
         return jaddresses.toString();
     }
 
-    static Address[] decodeAddresses(String json) {
+    static InternetAddress[] decodeAddresses(String json) {
         if (json == null)
-            return new Address[0];
+            return new InternetAddress[0];
         List<Address> result = new ArrayList<>();
         try {
             JSONArray jaddresses = new JSONArray(json);
@@ -211,7 +211,7 @@ public class MessageHelper {
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
         }
-        return result.toArray(new Address[0]);
+        return result.toArray(new InternetAddress[0]);
     }
 
     static String getFormattedAddresses(String json) {

@@ -331,6 +331,7 @@ public class FragmentMessage extends FragmentEx {
                     message.ui_seen = !message.ui_seen;
                     db.message().updateMessage(message);
                     EntityOperation.queue(getContext(), message, EntityOperation.SEEN, message.ui_seen);
+                    EntityOperation.process(getContext());
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
@@ -381,6 +382,7 @@ public class FragmentMessage extends FragmentEx {
                                         db.message().updateMessage(message);
 
                                         EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
+                                        EntityOperation.process(getContext());
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                     }
@@ -401,6 +403,7 @@ public class FragmentMessage extends FragmentEx {
 
                         EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH);
                         EntityOperation.queue(getContext(), message, EntityOperation.MOVE, trash.id);
+                        EntityOperation.process(getContext());
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
@@ -427,6 +430,7 @@ public class FragmentMessage extends FragmentEx {
 
                                     EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK);
                                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
+                                    EntityOperation.process(getContext());
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                 }
@@ -455,6 +459,7 @@ public class FragmentMessage extends FragmentEx {
 
                     EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE);
                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
+                    EntityOperation.process(getContext());
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
@@ -546,6 +551,7 @@ public class FragmentMessage extends FragmentEx {
                                 db.message().updateMessage(message);
 
                                 EntityOperation.queue(getContext(), message, EntityOperation.MOVE, folder);
+                                EntityOperation.process(getContext());
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                             }

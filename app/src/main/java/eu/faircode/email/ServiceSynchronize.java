@@ -242,7 +242,6 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-
     private Notification.Builder getNotification(String action, Throwable ex) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
@@ -579,8 +578,8 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             long uid = ifolder.getUID(imessage);
                             DB db = DB.getInstance(ServiceSynchronize.this);
-                            db.message().deleteMessage(folder.id, uid);
-                            Log.i(Helper.TAG, "Deleted uid=" + uid);
+                            int count = db.message().deleteMessage(folder.id, uid);
+                            Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
                         } catch (MessageRemovedException ex) {
                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         }
@@ -694,25 +693,27 @@ public class ServiceSynchronize extends LifecycleService {
                             imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
 
                         } else if (EntityOperation.ADD.equals(op.name)) {
-                            if (!folder.synchronize) {
-                                // Local drafts
-                                Log.w(Helper.TAG, "Folder synchronization disabled");
-                                return;
-                            }
-
                             // Append message
                             EntityMessage msg = message.getMessage(op.message);
                             if (msg == null)
                                 return;
 
+                            // Disconnect from remote to prevent deletion
+                            Long uid = msg.uid;
+                            if (msg.uid != null) {
+                                msg.uid = null;
+                                message.updateMessage(msg);
+                            }
+
+                            // Execute append
                             Properties props = MessageHelper.getSessionProperties();
                             Session isession = Session.getInstance(props, null);
                             MimeMessage imessage = MessageHelper.from(msg, isession);
                             ifolder.appendMessages(new Message[]{imessage});
 
                             // Drafts can be appended multiple times
-                            if (msg.uid != null) {
-                                Message previously = ifolder.getMessageByUID(msg.uid);
+                            if (uid != null) {
+                                Message previously = ifolder.getMessageByUID(uid);
                                 if (previously == null)
                                     throw new MessageRemovedException();
 
@@ -972,8 +973,8 @@ public class ServiceSynchronize extends LifecycleService {
             // Delete local messages not at remote
             Log.i(Helper.TAG, folder.name + " delete=" + uids.size());
             for (Long uid : uids) {
-                Log.i(Helper.TAG, folder.name + " delete local uid=" + uid);
-                dao.deleteMessage(folder.id, uid);
+                int count = dao.deleteMessage(folder.id, uid);
+                Log.i(Helper.TAG, folder.name + " delete local uid=" + uid + " count=" + count);
             }
             Log.i(Helper.TAG, folder.name + " synced");
 

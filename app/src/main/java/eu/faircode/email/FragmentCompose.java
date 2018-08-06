@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -195,16 +196,18 @@ public class FragmentCompose extends FragmentEx {
                 adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                 spFrom.setAdapter(adapter);
 
-                // Select primary identity, also for saved drafts
+                // Select primary identity
                 for (int pos = 0; pos < identities.size(); pos++)
                     if (identities.get(pos).primary) {
                         spFrom.setSelection(pos);
                         break;
                     }
+
+                // Get might select another identity
+                getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
             }
         });
 
-        getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
 
         return view;
     }
@@ -369,8 +372,16 @@ public class FragmentCompose extends FragmentEx {
                     result.putString("from", msg.to);
                     result.putString("to", to);
                 } else if ("forward".equals(action)) {
+                    String to = null;
+                    if (msg != null)
+                        try {
+                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
+                            to = (reply.length == 0 ? msg.from : msg.reply);
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                     result.putString("from", msg.to);
-                    result.putString("to", null);
+                    result.putString("to", to);
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -410,18 +421,22 @@ public class FragmentCompose extends FragmentEx {
             FragmentCompose.this.rid = rid;
 
             ArrayAdapter adapter = (ArrayAdapter) spFrom.getAdapter();
-            if (adapter != null)
+            if (adapter != null) {
+                InternetAddress[] afrom = MessageHelper.decodeAddresses(from);
                 for (int pos = 0; pos < adapter.getCount(); pos++) {
                     EntityIdentity identity = (EntityIdentity) adapter.getItem(pos);
-                    if (iid < 0 ? identity.primary : iid == identity.id) {
+                    if (iid < 0 ? afrom.length > 0 && afrom[0].getAddress().equals(identity.email) : iid == identity.id) {
                         spFrom.setSelection(pos);
                         break;
                     }
                 }
+            }
 
             if (!once) {
                 // Prevent changed fields from being overwritten
                 once = true;
+
+                Handler handler = new Handler();
 
                 etCc.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(cc)));
                 etBcc.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(bcc)));
@@ -431,21 +446,34 @@ public class FragmentCompose extends FragmentEx {
                     etSubject.setText(subject);
                     if (body != null)
                         etBody.setText(Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false)));
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            etTo.requestFocus();
+                        }
+                    });
                 } else if ("reply".equals(action) || "reply_all".equals(action)) {
                     etTo.setText(TextUtils.join(", ", MessageHelper.decodeAddresses(to)));
                     String text = String.format("<br><br>%s %s:<br><br>%s",
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(TextUtils.join(", ", MessageHelper.decodeAddresses(from))),
+                            Html.escapeHtml(TextUtils.join(", ", MessageHelper.decodeAddresses(to))),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_reply, subject));
                     etBody.setText(Html.fromHtml(text));
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            etBody.requestFocus();
+                        }
+                    }, 500);
                 } else if ("forward".equals(action)) {
                     String text = String.format("<br><br>%s %s:<br><br>%s",
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(TextUtils.join(", ", MessageHelper.decodeAddresses(from))),
+                            Html.escapeHtml(TextUtils.join(", ", MessageHelper.decodeAddresses(to))),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_forward, subject));
                     etBody.setText(Html.fromHtml(text));
+                    etTo.requestFocus();
                 }
             }
 
@@ -527,36 +555,46 @@ public class FragmentCompose extends FragmentEx {
                     draft.id = message.insertMessage(draft);
 
                 // Check data
-                if ("send".equals(action)) {
-                    if (draft.identity == null)
-                        throw new MessagingException(getContext().getString(R.string.title_from_missing));
-                    if (draft.to == null && draft.cc == null && draft.bcc == null)
-                        throw new MessagingException(getContext().getString(R.string.title_to_missing));
+                try {
+                    db.beginTransaction();
 
-                    EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+                    if ("send".equals(action)) {
+                        if (draft.identity == null)
+                            throw new MessagingException(getContext().getString(R.string.title_from_missing));
+                        if (draft.to == null && draft.cc == null && draft.bcc == null)
+                            throw new MessagingException(getContext().getString(R.string.title_to_missing));
 
-                    draft.id = null;
-                    draft.folder = folder.getOutbox().id;
-                    draft.ui_hide = false;
-                    draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
 
-                    EntityOperation.queue(getContext(), draft, EntityOperation.SEND);
-
-                } else if ("save".equals(action))
-                    EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
-
-                else if ("trash".equals(action)) {
-                    EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
-
-                    EntityFolder trash = db.folder().getPrimaryFolder(EntityFolder.TYPE_TRASH);
-                    if (trash != null) {
                         draft.id = null;
-                        draft.folder = trash.id;
+                        draft.folder = folder.getOutbox().id;
+                        draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
 
+                        EntityOperation.queue(getContext(), draft, EntityOperation.SEND);
+
+                    } else if ("save".equals(action))
                         EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
+
+                    else if ("trash".equals(action)) {
+                        EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+
+                        EntityFolder trash = db.folder().getPrimaryFolder(EntityFolder.TYPE_TRASH);
+                        if (trash != null) {
+                            draft.id = null;
+                            draft.folder = trash.id;
+                            draft.id = db.message().insertMessage(draft);
+
+                            EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
+                        }
                     }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
+
+                EntityOperation.process(getContext());
 
                 return null;
             } catch (Throwable ex) {

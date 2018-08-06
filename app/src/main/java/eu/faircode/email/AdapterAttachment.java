@@ -156,6 +156,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 db.attachment().setProgress(attachment.id, 0);
                                 EntityMessage message = db.message().getMessage(attachment.message);
                                 EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                                EntityOperation.process(context);
                             }
                         });
                 }

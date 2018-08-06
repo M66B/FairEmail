@@ -102,6 +102,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 message.ui_seen = !message.ui_seen;
                                 DB.getInstance(context).message().updateMessage(message);
                                 EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
+                                EntityOperation.process(context);
                             }
 
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
