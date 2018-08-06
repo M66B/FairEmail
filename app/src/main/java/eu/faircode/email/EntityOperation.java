@@ -94,11 +94,17 @@ public class EntityOperation {
         operation.args = jsonArray.toString();
         operation.id = dao.insertOperation(operation);
 
+        Intent intent = new Intent();
+        if (SEND.equals(name))
+            intent.setAction(ServiceSynchronize.ACTION_PROCESS_OUTBOX);
+        else {
+            intent.setType("account/" + message.account);
+            intent.setAction(ServiceSynchronize.ACTION_PROCESS_FOLDER);
+        }
+        intent.putExtra("folder", message.folder);
+
         synchronized (queue) {
-            queue.add(new Intent(SEND.equals(name)
-                    ? ServiceSynchronize.ACTION_PROCESS_OUTBOX
-                    : ServiceSynchronize.ACTION_PROCESS_FOLDER)
-                    .putExtra("folder", message.folder));
+            queue.add(intent);
         }
 
         Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + name +

@@ -392,12 +392,16 @@ public class ServiceSynchronize extends LifecycleService {
                                 thread.start();
                             }
 
+                            IntentFilter f = new IntentFilter(ACTION_PROCESS_FOLDER);
+                            f.addDataType("account/" + account.id);
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                            lbm.registerReceiver(processReceiver, new IntentFilter(ACTION_PROCESS_FOLDER));
+                            lbm.registerReceiver(processReceiver, f);
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id))
                                 if (!EntityFolder.TYPE_OUTBOX.equals(folder.type))
-                                    lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER).putExtra("folder", folder.id));
+                                    lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER)
+                                            .setType("account/" + account.id)
+                                            .putExtra("folder", folder.id));
 
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
