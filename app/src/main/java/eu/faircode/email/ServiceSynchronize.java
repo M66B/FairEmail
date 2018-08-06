@@ -334,9 +334,19 @@ public class ServiceSynchronize extends LifecycleService {
                     public void opened(ConnectionEvent e) {
                         Log.i(Helper.TAG, account.name + " opened");
                         try {
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+
+                            List<String> capabilities = new ArrayList<>();
+                            if (fstore.hasCapability("IDLE"))
+                                capabilities.add("IDLE");
+                            if (fstore.hasCapability("MOVE"))
+                                capabilities.add("MOVE");
+                            account.capabilities = capabilities.toArray(new String[0]);
+                            db.account().updateAccount(account);
+                            Log.i(Helper.TAG, "capabilities=" + TextUtils.join(",", capabilities));
+
                             synchronizeFolders(account, fstore);
 
-                            DB db = DB.getInstance(ServiceSynchronize.this);
                             for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
                                 Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
                                 Thread thread = new Thread(new Runnable() {

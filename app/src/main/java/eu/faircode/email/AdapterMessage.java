@@ -46,12 +46,11 @@ import java.util.concurrent.Executors;
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
     private ViewType viewType;
-    private boolean debug = false;
+    private boolean debug;
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     private List<TupleMessageEx> all = new ArrayList<>();
     private List<TupleMessageEx> filtered = new ArrayList<>();
-
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     enum ViewType {FOLDER, THREAD}
 

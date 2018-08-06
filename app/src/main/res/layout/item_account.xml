@@ -61,6 +61,16 @@
         app:layout_constraintStart_toEndOf="@id/tvHost"
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
+    <TextView
+        android:id="@+id/tvCapabilities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="capabilities"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
+
     <View
         android:id="@+id/vSeparator"
         android:layout_width="match_parent"
@@ -68,5 +78,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+        app:layout_constraintTop_toBottomOf="@id/tvCapabilities" />
 </android.support.constraint.ConstraintLayout>
