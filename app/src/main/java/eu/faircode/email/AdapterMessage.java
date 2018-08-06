@@ -132,7 +132,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (EntityFolder.isOutgoing(m1.folderType))
                     return -Long.compare(m1.received, m2.received);
                 else
-                    return -Long.compare(m1.sent, m2.sent);
+                    return -Long.compare(
+                            m1.sent == null ? 0 : m1.sent,
+                            m2.sent == null ? 0 : m2.sent);
             }
         });
 
