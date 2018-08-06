@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.util.DiffUtil;
@@ -44,6 +45,8 @@ import java.util.concurrent.Executors;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
+    private ViewType viewType;
+    private boolean debug = false;
 
     private List<TupleMessageEx> all = new ArrayList<>();
     private List<TupleMessageEx> filtered = new ArrayList<>();
@@ -51,8 +54,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private ExecutorService executor = Executors.newCachedThreadPool();
 
     enum ViewType {FOLDER, THREAD}
-
-    private ViewType viewType;
 
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
@@ -121,6 +122,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     AdapterMessage(Context context, ViewType viewType) {
         this.context = context;
         this.viewType = viewType;
+        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
         setHasStableIds(true);
     }
 
@@ -237,8 +239,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         holder.tvSubject.setText(message.subject);
         if (viewType == ViewType.FOLDER) {
-            holder.tvCount.setText(Integer.toString(message.count));
-            holder.tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
+            holder.tvCount.setText((debug ? message.uid + "/" + message.id : "") + Integer.toString(message.count));
+            holder.tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
         } else
             holder.tvCount.setText(Helper.localizeFolderName(context, message.folderName));
 
