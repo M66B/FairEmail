@@ -3,6 +3,7 @@ package eu.faircode.email;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 public class FragmentEx extends Fragment {
@@ -28,7 +29,9 @@ public class FragmentEx extends Fragment {
         super.onDetach();
 
         InputMethodManager im = getContext().getSystemService(InputMethodManager.class);
-        im.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        View focussed = getActivity().getCurrentFocus();
+        if (focussed != null)
+            im.hideSoftInputFromWindow(focussed.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private void updateSubtitle() {
