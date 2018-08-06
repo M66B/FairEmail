@@ -117,7 +117,6 @@ public class ServiceSynchronize extends LifecycleService {
         System.setProperty("mail.mime.ignoreunknownencoding", "true");
         System.setProperty("mail.mime.decodefilename", "true");
         System.setProperty("mail.mime.encodefilename", "true");
-        System.setProperty("mail.mime.address.strict", "false");
     }
 
     @Override
@@ -289,6 +288,7 @@ public class ServiceSynchronize extends LifecycleService {
             try {
                 Properties props = MessageHelper.getSessionProperties();
                 props.put("mail.imaps.peek", "true");
+                props.setProperty("mail.mime.address.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
                 Session isession = Session.getInstance(props, null);
                 // isession.setDebug(true);
