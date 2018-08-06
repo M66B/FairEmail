@@ -1044,8 +1044,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                 long id = MimeMessageEx.getId(imessage);
                 message = db.message().getMessage(id);
-                if (message != null && message.folder != folder.id)
-                    message = null; // Archive
+                if (message != null && message.folder != folder.id) {
+                    if (EntityFolder.TYPE_ARCHIVE.equals(folder.type))
+                        message = null;
+                    else // Outbox to sent
+                        message.folder = folder.id;
+                }
                 boolean update = (message != null);
                 if (message == null)
                     message = new EntityMessage();
