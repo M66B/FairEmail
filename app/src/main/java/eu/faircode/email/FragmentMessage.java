@@ -56,6 +56,7 @@ import android.widget.TextView;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -279,14 +280,24 @@ public class FragmentMessage extends FragmentEx {
                                     hasUser = true;
                             }
 
-                            boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
-                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
+                            final boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
+                            final boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
 
                             bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(false);
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && hasArchive);
                             bottom_navigation.setVisibility(View.VISIBLE);
+
+                            final boolean fHasUser = hasUser;
+                            db.account().liveAccount(message.id).removeObservers(FragmentMessage.this);
+                            db.account().liveAccount(message.account).observe(FragmentMessage.this, new Observer<EntityAccount>() {
+                                @Override
+                                public void onChanged(@Nullable EntityAccount account) {
+                                    boolean move = Arrays.asList(account.capabilities).contains("MOVE");
+                                    bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || fHasUser) && move);
+                                }
+                            });
                         }
                     });
                 }
