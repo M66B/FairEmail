@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
     <TextView
-        android:id="@+id/tvUser"
+        android:id="@+id/tvEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
@@ -68,5 +68,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
 </android.support.constraint.ConstraintLayout>

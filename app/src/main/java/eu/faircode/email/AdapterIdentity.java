@@ -52,7 +52,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         TextView tvName;
         ImageView ivSync;
         TextView tvHost;
-        TextView tvUser;
+        TextView tvEmail;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -62,7 +62,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvHost = itemView.findViewById(R.id.tvHost);
-            tvUser = itemView.findViewById(R.id.tvUser);
+            tvEmail = itemView.findViewById(R.id.tvEmail);
         }
 
         private void wire() {
@@ -197,7 +197,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         holder.tvName.setText(identity.name);
         holder.ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
         holder.tvHost.setText(String.format("%s:%d", identity.host, identity.port));
-        holder.tvUser.setText(identity.user);
+        holder.tvEmail.setText(identity.email);
 
         holder.wire();
     }
