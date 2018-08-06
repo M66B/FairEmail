@@ -84,9 +84,10 @@ public class EntityFolder {
     static final int DEFAULT_STANDARD_SYNC = 7;
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
-            EntityFolder.TYPE_ARCHIVE,
-            EntityFolder.TYPE_DRAFTS,
-            EntityFolder.TYPE_SENT
+            TYPE_ARCHIVE,
+            TYPE_DRAFTS,
+            TYPE_TRASH,
+            TYPE_SENT
     );
 
     static boolean isOutgoing(String type) {

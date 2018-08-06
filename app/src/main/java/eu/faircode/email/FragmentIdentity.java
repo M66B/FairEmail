@@ -175,6 +175,7 @@ public class FragmentIdentity extends FragmentEx {
         });
 
         // Initialize
+        etName.requestFocus();
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         pbCheck.setVisibility(View.GONE);
 
