@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:ellipsize="start"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@+id/ivSync"
@@ -38,36 +39,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvType"
+        android:id="@+id/tvAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:text="type"
+        android:text="account"
         android:textAppearance="@android:style/TextAppearance.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
     <TextView
-        android:id="@+id/tvCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:text="23"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintStart_toEndOf="@id/tvType"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
-
-    <TextView
-        android:id="@+id/tvAccount"
+        android:id="@+id/tvType"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
-        android:text="account"
+        android:text="type"
         android:textAlignment="textEnd"
         android:textAppearance="@android:style/TextAppearance.Small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvType"
+        app:layout_constraintStart_toEndOf="@id/tvAccount"
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
     <View
@@ -77,5 +68,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+        app:layout_constraintTop_toBottomOf="@id/tvType" />
 </android.support.constraint.ConstraintLayout>

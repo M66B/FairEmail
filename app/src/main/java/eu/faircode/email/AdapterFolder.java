@@ -53,9 +53,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TextView tvName;
         TextView tvAfter;
         ImageView ivSync;
-        TextView tvCount;
-        TextView tvType;
         TextView tvAccount;
+        TextView tvType;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -64,9 +63,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
-            tvCount = itemView.findViewById(R.id.tvCount);
-            tvType = itemView.findViewById(R.id.tvType);
             tvAccount = itemView.findViewById(R.id.tvAccount);
+            tvType = itemView.findViewById(R.id.tvType);
         }
 
         private void wire() {
@@ -125,7 +123,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         Collections.sort(folders, new Comparator<TupleFolderEx>() {
             @Override
             public int compare(TupleFolderEx f1, TupleFolderEx f2) {
-                int s = EntityFolder.isUser(f1.type).compareTo(EntityFolder.isUser(f2.type));
+                int s = ((Integer) EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type))
+                        .compareTo(EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
                 if (s == 0) {
                     int a = collator.compare(
                             f1.accountName == null ? "" : f1.accountName,
@@ -228,10 +227,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TupleFolderEx folder = filtered.get(position);
 
         String name = Helper.localizeFolderName(context, folder.name);
-        if (folder.unseen > 0)
-            holder.tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
-        else
-            holder.tvName.setText(name);
+        holder.tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen, folder.messages));
         holder.tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
         holder.tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
 
@@ -239,15 +235,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         holder.tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
 
         holder.ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-        holder.tvCount.setText(Integer.toString(folder.messages));
+
+        holder.tvAccount.setText(folder.accountName);
+        holder.tvAccount.setVisibility(EntityFolder.TYPE_OUTBOX.equals(folder.type) ? View.GONE : View.VISIBLE);
 
         int resid = context.getResources().getIdentifier(
                 "title_folder_" + folder.type.toLowerCase(),
                 "string",
                 context.getPackageName());
         holder.tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
-
-        holder.tvAccount.setText(folder.accountName);
 
         holder.wire();
     }

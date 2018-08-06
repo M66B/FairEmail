@@ -69,12 +69,19 @@ public class EntityFolder {
             TYPE_SENT
     ); // Must match SYSTEM_FOLDER_ATTR
 
+    static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
+            TYPE_INBOX,
+            TYPE_OUTBOX,
+            TYPE_DRAFTS,
+            TYPE_SENT,
+            TYPE_ARCHIVE,
+            TYPE_JUNK,
+            TYPE_TRASH,
+            TYPE_USER
+    );
+
     static boolean isOutgoing(String type) {
         return (TYPE_OUTBOX.equals(type) || TYPE_DRAFTS.equals(type) || TYPE_SENT.equals(type));
-    }
-
-    static Boolean isUser(String type) {
-        return TYPE_USER.equals(type);
     }
 
     @PrimaryKey(autoGenerate = true)
