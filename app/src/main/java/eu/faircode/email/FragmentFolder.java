@@ -42,7 +42,7 @@ import android.widget.Toast;
 public class FragmentFolder extends FragmentEx {
     private CheckBox cbSynchronize;
     private EditText etAfter;
-    private Button btnOk;
+    private Button btnSave;
     private ProgressBar pbSave;
     private ProgressBar pbWait;
     private Group grpReady;
@@ -62,14 +62,14 @@ public class FragmentFolder extends FragmentEx {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         etAfter = view.findViewById(R.id.etAfter);
         pbSave = view.findViewById(R.id.pbSave);
-        btnOk = view.findViewById(R.id.btnOk);
+        btnSave = view.findViewById(R.id.btnSave);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnOk.setEnabled(false);
+                btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
@@ -155,7 +155,7 @@ public class FragmentFolder extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             getLoaderManager().destroyLoader(loader.getId());
 
-            btnOk.setEnabled(true);
+            btnSave.setEnabled(true);
             pbSave.setVisibility(View.GONE);
 
             if (ex == null)

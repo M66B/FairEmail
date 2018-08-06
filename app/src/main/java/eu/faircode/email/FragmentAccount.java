@@ -66,7 +66,7 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
-    private Button btnOk;
+    private Button btnSave;
     private ProgressBar pbCheck;
     // TODO: loading spinner
 
@@ -102,7 +102,7 @@ public class FragmentAccount extends FragmentEx {
         tilPassword = view.findViewById(R.id.tilPassword);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-        btnOk = view.findViewById(R.id.btnOk);
+        btnSave = view.findViewById(R.id.btnSave);
         pbCheck = view.findViewById(R.id.pbCheck);
 
         // Wire controls
@@ -136,10 +136,10 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnOk.setEnabled(false);
+                btnSave.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
@@ -334,7 +334,7 @@ public class FragmentAccount extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             getLoaderManager().destroyLoader(loader.getId());
 
-            btnOk.setEnabled(true);
+            btnSave.setEnabled(true);
             pbCheck.setVisibility(View.GONE);
 
             if (ex == null)
