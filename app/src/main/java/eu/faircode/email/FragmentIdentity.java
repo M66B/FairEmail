@@ -215,11 +215,20 @@ public class FragmentIdentity extends FragmentEx {
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 String port = args.getString("port");
+                String user = args.getString("user");
+                String password = args.getString("password");
+
+                if (TextUtils.isEmpty(host))
+                    throw new Throwable(getContext().getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(port))
+                    throw new Throwable(getContext().getString(R.string.title_no_port));
+                if (TextUtils.isEmpty(user))
+                    throw new Throwable(getContext().getString(R.string.title_no_user));
+                if (TextUtils.isEmpty(password))
+                    throw new Throwable(getContext().getString(R.string.title_no_password));
 
                 if (TextUtils.isEmpty(replyto))
                     replyto = null;
-                if (TextUtils.isEmpty(port))
-                    port = "0";
 
                 DB db = DB.getInstance(getContext());
                 EntityIdentity identity = db.identity().getIdentity(id);
@@ -232,8 +241,8 @@ public class FragmentIdentity extends FragmentEx {
                 identity.host = Objects.requireNonNull(host);
                 identity.port = Integer.parseInt(port);
                 identity.starttls = starttls;
-                identity.user = Objects.requireNonNull(args.getString("user"));
-                identity.password = Objects.requireNonNull(args.getString("password"));
+                identity.user = user;
+                identity.password = password;
                 identity.synchronize = args.getBoolean("synchronize");
                 identity.primary = (identity.synchronize && args.getBoolean("primary"));
 

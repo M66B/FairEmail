@@ -62,7 +62,10 @@
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_no_name">Name mandatory</string>
     <string name="title_no_email">Email address mandatory</string>
-    <string name="title_no_idle">IDLE not supported</string>
+    <string name="title_no_host">Host name missing</string>
+    <string name="title_no_port">Port number missing</string>
+    <string name="title_no_user">User name missing</string>
+    <string name="title_no_password">Password missing</string>
     <string name="title_local_drafts">Local drafts</string>
 
     <string name="title_folder_unseen">%1$s (%2$d/%3$d)</string>

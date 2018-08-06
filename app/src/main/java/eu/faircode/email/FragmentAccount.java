@@ -49,7 +49,6 @@ import com.sun.mail.imap.IMAPStore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import javax.mail.Folder;
 import javax.mail.MessagingException;
@@ -191,11 +190,19 @@ public class FragmentAccount extends FragmentEx {
                 String host = args.getString("host");
                 String port = args.getString("port");
                 String user = args.getString("user");
+                String password = args.getString("password");
+
+                if (TextUtils.isEmpty(host))
+                    throw new Throwable(getContext().getString(R.string.title_no_host));
+                if (TextUtils.isEmpty(port))
+                    throw new Throwable(getContext().getString(R.string.title_no_port));
+                if (TextUtils.isEmpty(user))
+                    throw new Throwable(getContext().getString(R.string.title_no_user));
+                if (TextUtils.isEmpty(password))
+                    throw new Throwable(getContext().getString(R.string.title_no_password));
 
                 if (TextUtils.isEmpty(name))
                     name = host + "/" + user;
-                if (TextUtils.isEmpty(port))
-                    port = "0";
 
                 DB db = DB.getInstance(getContext());
                 EntityAccount account = db.account().getAccount(args.getLong("id"));
@@ -206,7 +213,7 @@ public class FragmentAccount extends FragmentEx {
                 account.host = host;
                 account.port = Integer.parseInt(port);
                 account.user = user;
-                account.password = Objects.requireNonNull(args.getString("password"));
+                account.password = password;
                 account.synchronize = args.getBoolean("synchronize");
                 account.primary = (account.synchronize && args.getBoolean("primary"));
 
