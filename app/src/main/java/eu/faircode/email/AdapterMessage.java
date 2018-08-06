@@ -242,7 +242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         } else
             holder.tvCount.setText(Helper.localizeFolderName(context, message.folderName));
 
-        boolean unseen = (message.thread == null ? !message.seen : message.unseen > 0);
+        boolean unseen = (message.thread == null ? message.unseen > 0 : !message.seen);
         int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
         holder.tvFrom.setTypeface(null, visibility);
         holder.tvTime.setTypeface(null, visibility);
