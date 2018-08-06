@@ -711,18 +711,13 @@ public class ServiceSynchronize extends LifecycleService {
                             ifolder.appendMessages(new Message[]{imessage});
 
                             // Drafts can be appended multiple times
-                            try {
-                                if (msg.uid != null) {
-                                    Message previously = ifolder.getMessageByUID(msg.uid);
-                                    if (previously == null)
-                                        throw new MessageRemovedException();
+                            if (msg.uid != null) {
+                                Message previously = ifolder.getMessageByUID(msg.uid);
+                                if (previously == null)
+                                    throw new MessageRemovedException();
 
-                                    previously.setFlag(Flags.Flag.DELETED, true);
-                                    ifolder.expunge();
-                                }
-                            } finally {
-                                // Remote will report appended
-                                message.deleteMessage(op.message);
+                                previously.setFlag(Flags.Flag.DELETED, true);
+                                ifolder.expunge();
                             }
 
                         } else if (EntityOperation.MOVE.equals(op.name)) {
@@ -789,7 +784,9 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
                                         " to " + TextUtils.join(", ", to));
 
-                                message.deleteMessage(op.message);
+                                msg.ui_hide = true;
+                                message.updateMessage(msg);
+                                // TODO: purge sent messages
                             } finally {
                                 itransport.close();
                             }
@@ -1002,13 +999,14 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, JSONException, IOException {
-        FetchProfile fp = new FetchProfile();
-        fp.add(UIDFolder.FetchProfileItem.UID);
-        fp.add(IMAPFolder.FetchProfileItem.FLAGS);
-        ifolder.fetch(new Message[]{imessage}, fp);
-
-        long uid = ifolder.getUID(imessage);
+        long uid = -1;
         try {
+            FetchProfile fp = new FetchProfile();
+            fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(IMAPFolder.FetchProfileItem.FLAGS);
+            ifolder.fetch(new Message[]{imessage}, fp);
+
+            uid = ifolder.getUID(imessage);
             Log.i(Helper.TAG, folder.name + " start sync uid=" + uid);
 
             if (imessage.isExpunged()) {
@@ -1033,7 +1031,12 @@ public class ServiceSynchronize extends LifecycleService {
                 fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 ifolder.fetch(new Message[]{imessage}, fp1);
 
-                message = new EntityMessage();
+                long id = MimeMessageEx.getId(imessage);
+                message = db.message().getMessage(id);
+                boolean update = (message != null);
+                if (message == null)
+                    message = new EntityMessage();
+
                 message.account = folder.account;
                 message.folder = folder.id;
                 message.uid = uid;
@@ -1054,8 +1057,13 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = seen;
                 message.ui_hide = false;
 
-                message.id = db.message().insertMessage(message);
-                Log.i(Helper.TAG, folder.name + " added id=" + message.id);
+                if (update) {
+                    db.message().updateMessage(message);
+                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
+                } else {
+                    message.id = db.message().insertMessage(message);
+                    Log.i(Helper.TAG, folder.name + " added id=" + message.id);
+                }
 
                 int sequence = 0;
                 for (EntityAttachment attachment : helper.getAttachments()) {
@@ -1066,7 +1074,6 @@ public class ServiceSynchronize extends LifecycleService {
                     attachment.sequence = sequence;
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
-
             } else if (message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
@@ -1074,6 +1081,7 @@ public class ServiceSynchronize extends LifecycleService {
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
             }
+
         } finally {
             Log.i(Helper.TAG, folder.name + " end sync uid=" + uid);
         }

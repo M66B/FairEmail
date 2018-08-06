@@ -82,8 +82,8 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessage from(EntityMessage message, Session isession) throws MessagingException {
-        MimeMessage imessage = new MimeMessage(isession);
+    static MimeMessageEx from(EntityMessage message, Session isession) throws MessagingException {
+        MimeMessageEx imessage = new MimeMessageEx(isession, message.id);
 
         if (message.from != null) {
             Address[] from = MessageHelper.decodeAddresses(message.from);
@@ -111,8 +111,8 @@ public class MessageHelper {
         return imessage;
     }
 
-    static MimeMessage from(EntityMessage message, EntityMessage reply, Session isession) throws MessagingException {
-        MimeMessage imessage = from(message, isession);
+    static MimeMessageEx from(EntityMessage message, EntityMessage reply, Session isession) throws MessagingException {
+        MimeMessageEx imessage = from(message, isession);
         imessage.addHeader("In-Reply-To", reply.msgid);
         imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
         return imessage;
