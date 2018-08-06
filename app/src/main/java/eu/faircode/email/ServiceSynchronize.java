@@ -1026,7 +1026,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 long id = MimeMessageEx.getId(imessage);
                 message = db.message().getMessage(id);
-                if (message.folder != folder.id)
+                if (message != null && message.folder != folder.id)
                     message = null; // Archive
                 boolean update = (message != null);
                 if (message == null)
