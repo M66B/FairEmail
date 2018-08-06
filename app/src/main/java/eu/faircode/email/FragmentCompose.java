@@ -36,7 +36,6 @@ import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -113,7 +112,6 @@ public class FragmentCompose extends FragmentEx {
         grpReady = view.findViewById(R.id.grpReady);
 
         grpCc.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-        etBody.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Wire controls
 
@@ -182,6 +180,8 @@ public class FragmentCompose extends FragmentEx {
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
+        final Handler handler = new Handler();
+
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(FragmentCompose.this, new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable final List<EntityIdentity> identities) {
@@ -203,8 +203,14 @@ public class FragmentCompose extends FragmentEx {
                         break;
                     }
 
-                // Get might select another identity
-                getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
+                // This seems to be necessary to prevent layout freezes
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Get might select another identity
+                        getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
+                    }
+                });
             }
         });
 
@@ -460,12 +466,12 @@ public class FragmentCompose extends FragmentEx {
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_reply, subject));
                     etBody.setText(Html.fromHtml(text));
-                    handler.postDelayed(new Runnable() {
+                    handler.post(new Runnable() {
                         @Override
                         public void run() {
                             etBody.requestFocus();
                         }
-                    }, 500);
+                    });
                 } else if ("forward".equals(action)) {
                     String text = String.format("<br><br>%s %s:<br><br>%s",
                             Html.escapeHtml(new Date().toString()),
@@ -473,7 +479,12 @@ public class FragmentCompose extends FragmentEx {
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_forward, subject));
                     etBody.setText(Html.fromHtml(text));
-                    etTo.requestFocus();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            etTo.requestFocus();
+                        }
+                    });
                 }
             }
 
