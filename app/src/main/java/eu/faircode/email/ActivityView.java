@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
@@ -135,6 +134,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         Log.i(Helper.TAG, "View post create");
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
+        syncState();
+    }
+
+    private void syncState() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean eula = prefs.getBoolean("eula", false);
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        drawerToggle.setDrawerIndicatorEnabled(count == 1 && eula);
     }
 
     @Override
@@ -175,8 +182,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         Log.i(Helper.TAG, "View configuration changed");
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        drawerToggle.setDrawerIndicatorEnabled(count == 1);
+        syncState();
     }
 
     @Override
@@ -200,7 +206,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
             finish();
-        drawerToggle.setDrawerIndicatorEnabled(count == 1);
+        syncState();
     }
 
     @Override
@@ -246,6 +252,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("eula", false)) {
+            getSupportFragmentManager().popBackStack(); // eula
+
             Bundle args = new Bundle();
             args.putLong("folder", -1);
 
@@ -255,10 +263,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
             fragmentTransaction.commit();
-
-            Fragment eula = getSupportFragmentManager().findFragmentByTag("eula");
-            if (eula != null)
-                getSupportFragmentManager().beginTransaction().remove(eula).commit();
 
             DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
                 @Override
@@ -271,7 +275,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             });
         } else {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentEula(), "eula");
+            fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
             fragmentTransaction.commit();
         }
     }
