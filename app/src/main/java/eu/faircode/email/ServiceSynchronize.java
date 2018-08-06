@@ -975,7 +975,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             // Add/update local messages
-            Log.i(Helper.TAG, folder.name + " added count=" + imessages.length);
+            Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int batch = 0; batch < imessages.length; batch += FETCH_BATCH_SIZE) {
                 Log.i(Helper.TAG, folder.name + " fetch @" + batch);
                 try {
@@ -1057,10 +1057,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (update) {
                     db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
+                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
                 } else {
                     message.id = db.message().insertMessage(message);
-                    Log.i(Helper.TAG, folder.name + " added id=" + message.id);
+                    Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
                 }
 
                 int sequence = 0;
@@ -1075,8 +1075,11 @@ public class ServiceSynchronize extends LifecycleService {
             } else if (message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
+                // TODO: synchronize all data?
                 db.message().updateMessage(message);
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id);
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
+            } else {
+                Log.i(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
             }
 
         } finally {

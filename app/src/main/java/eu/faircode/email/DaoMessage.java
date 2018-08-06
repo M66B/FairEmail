@@ -37,11 +37,11 @@ public interface DaoMessage {
             " FROM folder" +
             " JOIN message ON folder = folder.id" +
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
-            " AND NOT ui_hide" +
+            " AND (NOT ui_hide OR :debug)" +
             " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
             " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
         // in theory the message id and thread could be the same
-    LiveData<List<TupleMessageEx>> liveUnifiedInbox();
+    LiveData<List<TupleMessageEx>> liveUnifiedInbox(boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
@@ -50,10 +50,10 @@ public interface DaoMessage {
             " FROM folder" +
             " JOIN message ON folder = folder.id" +
             " WHERE folder.id = :folder" +
-            " AND NOT ui_hide" +
+            " AND (NOT ui_hide OR :debug)" +
             " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
             " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
-    LiveData<List<TupleMessageEx>> liveMessages(long folder);
+    LiveData<List<TupleMessageEx>> liveMessages(long folder, boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
@@ -62,8 +62,8 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN message m1 ON m1.id = :msgid AND m1.account = message.account AND m1.thread = message.thread" +
-            " WHERE NOT message.ui_hide")
-    LiveData<List<TupleMessageEx>> liveThread(long msgid);
+            " WHERE NOT message.ui_hide OR :debug")
+    LiveData<List<TupleMessageEx>> liveThread(long msgid, boolean debug);
 
     @Query("SELECT * FROM message WHERE id = :id")
     EntityMessage getMessage(long id);

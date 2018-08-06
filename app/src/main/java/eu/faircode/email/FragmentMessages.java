@@ -23,6 +23,7 @@ import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
@@ -95,10 +96,11 @@ public class FragmentMessages extends FragmentEx {
         DB db = DB.getInstance(getContext());
 
         // Observe folder/messages
+        boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
         if (thread < 0)
             if (folder < 0) {
                 setSubtitle(R.string.title_folder_unified);
-                db.message().liveUnifiedInbox().observe(this, messagesObserver);
+                db.message().liveUnifiedInbox(debug).observe(this, messagesObserver);
             } else {
                 DB.getInstance(getContext()).folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
                     @Override
@@ -106,11 +108,11 @@ public class FragmentMessages extends FragmentEx {
                         setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
                     }
                 });
-                db.message().liveMessages(folder).observe(this, messagesObserver);
+                db.message().liveMessages(folder, debug).observe(this, messagesObserver);
             }
         else {
             setSubtitle(R.string.title_folder_thread);
-            db.message().liveThread(thread).observe(this, messagesObserver);
+            db.message().liveThread(thread, debug).observe(this, messagesObserver);
         }
 
         getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();

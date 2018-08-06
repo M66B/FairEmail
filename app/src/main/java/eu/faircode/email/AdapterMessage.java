@@ -239,7 +239,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         holder.tvSubject.setText(message.subject);
         if (viewType == ViewType.FOLDER) {
-            holder.tvCount.setText((debug ? message.uid + "/" + message.id : "") + Integer.toString(message.count));
+            String extra = (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id;
+            holder.tvCount.setText((debug ? extra + " " : "") + Integer.toString(message.count));
             holder.tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
         } else
             holder.tvCount.setText(Helper.localizeFolderName(context, message.folderName));
