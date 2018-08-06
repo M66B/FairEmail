@@ -86,9 +86,6 @@ public class EntityOperation {
                 return;
             }
             purged = dao.deleteOperations(message.id, name);
-        } else if (DELETE.equals(name)) {
-            if (message.uid == null)
-                return;
         }
 
         EntityOperation operation = new EntityOperation();

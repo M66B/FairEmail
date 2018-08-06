@@ -473,13 +473,6 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
-
-                                        // Cascade up
-                                        try {
-                                            fstore.close();
-                                        } catch (MessagingException e1) {
-                                            Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                        }
                                     } finally {
                                         if (shouldClose)
                                             if (ifolder != null && ifolder.isOpen()) {
@@ -738,11 +731,13 @@ public class ServiceSynchronize extends LifecycleService {
 
                         } else if (EntityOperation.DELETE.equals(op.name)) {
                             // Delete message
-                            Message imessage = ifolder.getMessageByUID(op.uid);
-                            if (imessage == null)
-                                throw new MessageRemovedException();
-                            imessage.setFlag(Flags.Flag.DELETED, true);
-                            ifolder.expunge();
+                            if (op.uid != null) {
+                                Message imessage = ifolder.getMessageByUID(op.uid);
+                                if (imessage == null)
+                                    throw new MessageRemovedException();
+                                imessage.setFlag(Flags.Flag.DELETED, true);
+                                ifolder.expunge();
+                            }
 
                             message.deleteMessage(op.message);
 
@@ -1031,6 +1026,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                 long id = MimeMessageEx.getId(imessage);
                 message = db.message().getMessage(id);
+                if (message.folder != folder.id)
+                    message = null; // Archive
                 boolean update = (message != null);
                 if (message == null)
                     message = new EntityMessage();
