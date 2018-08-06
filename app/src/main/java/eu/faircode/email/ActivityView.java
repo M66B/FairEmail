@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -106,6 +107,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         break;
                     case R.string.menu_setup:
                         onMenuSetup();
+                        break;
+                    case R.string.menu_faq:
+                        onMenuFAQ();
                         break;
                     case R.string.menu_about:
                         onMenuAbout();
@@ -275,8 +279,16 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     public void updateDrawer() {
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
+        if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
+            drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_faq));
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_about));
         drawerList.setAdapter(drawerArray);
+    }
+
+    private Intent getIntentFAQ() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
+        return intent;
     }
 
     private void onMenuFolders() {
@@ -289,6 +301,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
+    private void onMenuFAQ() {
+        startActivity(getIntentFAQ());
     }
 
     private void onMenuAbout() {
