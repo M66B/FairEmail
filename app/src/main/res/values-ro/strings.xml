@@ -53,6 +53,10 @@
   <string name="title_primary_identity">Primară (identitatea implicită)</string>
   <string name="title_no_name">Numele este obligatoriu</string>
   <string name="title_no_email">Adresa de e-mail este obligatorie</string>
+  <string name="title_no_host">Host name missing</string>
+  <string name="title_no_port">Port number missing</string>
+  <string name="title_no_user">User name missing</string>
+  <string name="title_no_password">Password missing</string>
   <string name="title_no_idle">IDLE nu este suportat</string>
   <string name="title_local_drafts">Ciorne locale</string>
   <string name="title_folder_unseen">%1$s (%2$d/%3$d)</string>
