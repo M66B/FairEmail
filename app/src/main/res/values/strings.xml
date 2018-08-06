@@ -27,16 +27,15 @@
     <string name="title_edit_folder">Edit folder</string>
 
     <string name="title_setup">Setup</string>
-    <string name="title_setup_account">Configure account</string>
+    <string name="title_setup_account">Manage accounts</string>
     <string name="title_setup_account_remark">To receive email</string>
-    <string name="title_setup_account_manage">Manage accounts</string>
-    <string name="title_setup_indentity">Configure identity</string>
+    <string name="title_setup_identity">Manage identities</string>
     <string name="title_setup_identity_remark">To send email</string>
-    <string name="title_setup_identity_manage">Manage identities</string>
     <string name="title_setup_permissions">Grant permissions</string>
     <string name="title_setup_permissions_remark">To read contacts (optional)</string>
     <string name="title_setup_done">Done</string>
     <string name="title_setup_dark_theme">Dark theme</string>
+    <string name="title_setup_debug">Debug</string>
 
     <string name="title_name">Your name</string>
     <string name="title_email">Your email address</string>

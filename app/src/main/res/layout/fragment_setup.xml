@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/title_setup_indentity"
+            android:text="@string/title_setup_identity"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,32 +146,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
 
-        <Button
-            android:id="@+id/btnAccountManage"
-            style="?android:attr/buttonStyleSmall"
+        <CheckBox
+            android:id="@+id/cbDebug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:text="@string/title_setup_account_manage"
+            android:text="@string/title_setup_debug"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDarkTheme" />
-
-        <Button
-            android:id="@+id/btnIdentityManage"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:text="@string/title_setup_identity_manage"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAccountManage" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

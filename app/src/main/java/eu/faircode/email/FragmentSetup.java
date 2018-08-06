@@ -55,9 +55,7 @@ public class FragmentSetup extends FragmentEx {
     private TextView tvPermissionsDone;
 
     private CheckBox cbDarkTheme;
-
-    private Button btnAccountManage;
-    private Button btnIdentityManage;
+    private CheckBox cbDebug;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -85,76 +83,25 @@ public class FragmentSetup extends FragmentEx {
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
 
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
-
-        btnAccountManage = view.findViewById(R.id.btnAccountManage);
-        btnIdentityManage = view.findViewById(R.id.btnIdentityManage);
+        cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
-            private boolean once;
-
             @Override
             public void onClick(View view) {
-                once = false;
-                btnAccount.setEnabled(false);
-                pbAccount.setVisibility(View.VISIBLE);
-
-                DB.getInstance(getContext()).account().liveFirstAccount().observe(FragmentSetup.this, new Observer<EntityAccount>() {
-                    @Override
-                    public void onChanged(@Nullable EntityAccount account) {
-                        if (!once) {
-                            once = true;
-
-                            Bundle args = new Bundle();
-                            if (account != null)
-                                args.putLong("id", account.id);
-
-                            FragmentAccount fragment = new FragmentAccount();
-                            fragment.setArguments(args);
-
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
-                            fragmentTransaction.commit();
-
-                            btnAccount.setEnabled(true);
-                            pbAccount.setVisibility(View.GONE);
-                        }
-                    }
-                });
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
+                fragmentTransaction.commit();
             }
         });
 
         btnIdentity.setOnClickListener(new View.OnClickListener() {
-            private boolean once;
-
             @Override
             public void onClick(View view) {
-                once = false;
-                btnIdentity.setEnabled(false);
-                pbIdentity.setVisibility(View.VISIBLE);
-
-                DB.getInstance(getContext()).identity().liveFirstIdentity().observe(FragmentSetup.this, new Observer<EntityIdentity>() {
-                    @Override
-                    public void onChanged(@Nullable EntityIdentity identity) {
-                        if (!once) {
-                            once = true;
-                            Bundle args = new Bundle();
-                            if (identity != null)
-                                args.putLong("id", identity.id);
-
-                            FragmentIdentity fragment = new FragmentIdentity();
-                            fragment.setArguments(args);
-
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
-                            fragmentTransaction.commit();
-                        }
-
-                        btnIdentity.setEnabled(true);
-                        pbIdentity.setVisibility(View.GONE);
-                    }
-                });
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
+                fragmentTransaction.commit();
             }
         });
 
@@ -165,27 +112,8 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
-        btnAccountManage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //getFragmentManager().popBackStack();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");
-                fragmentTransaction.commit();
-            }
-        });
-
-        btnIdentityManage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //getFragmentManager().popBackStack();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentIdentities()).addToBackStack("identities");
-                fragmentTransaction.commit();
-            }
-        });
-
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         String theme = prefs.getString("theme", "light");
         boolean dark = "dark".equals(theme);
         cbDarkTheme.setTag(dark);
@@ -198,6 +126,14 @@ public class FragmentSetup extends FragmentEx {
                     cbDarkTheme.setChecked(checked);
                     prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                 }
+            }
+        });
+
+        cbDebug.setChecked(prefs.getBoolean("debug", false));
+        cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("debug", checked).apply();
             }
         });
 
@@ -231,7 +167,7 @@ public class FragmentSetup extends FragmentEx {
 
         onRequestPermissionsResult(0, permissions, grantResults);
 
-        // Creat outbox
+        // Create outbox
         executor.submit(new Runnable() {
             @Override
             public void run() {
