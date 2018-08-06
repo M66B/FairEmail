@@ -233,6 +233,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         else
             holder.tvName.setText(name);
         holder.tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+        holder.tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
 
         holder.tvAfter.setText(Integer.toString(folder.after));
         holder.tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);

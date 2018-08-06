@@ -1,4 +1,5 @@
 <resources>
+    <attr name="colorUnread" format="reference" />
     <attr name="colorSeparator" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
@@ -11,6 +12,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="colorUnread">@color/lightColorUnread</item>
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
         <item name="colorDrawerText">@color/lightColorDrawerText</item>
@@ -24,6 +26,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="colorUnread">@color/darkColorUnread</item>
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>
         <item name="colorDrawerText">@color/darkColorDrawerText</item>

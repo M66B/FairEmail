@@ -245,13 +245,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         } else
             holder.tvCount.setText(Helper.localizeFolderName(context, message.folderName));
 
+        holder.ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+
         boolean unseen = (message.thread == null ? message.unseen > 0 : !message.seen);
+
         int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
         holder.tvFrom.setTypeface(null, visibility);
         holder.tvTime.setTypeface(null, visibility);
-        holder.ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
         holder.tvSubject.setTypeface(null, visibility);
         holder.tvCount.setTypeface(null, visibility);
+
+        holder.tvFrom.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+        holder.tvTime.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
 
         holder.wire();
     }

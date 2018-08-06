@@ -20,11 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,10 +33,11 @@ public class Helper {
     static final String TAG = BuildConfig.APPLICATION_ID;
 
     static int resolveColor(Context context, int attr) {
-        TypedValue typedValue = new TypedValue();
-        Resources.Theme theme = context.getTheme();
-        theme.resolveAttribute(attr, typedValue, true);
-        return typedValue.data;
+        int[] attrs = new int[]{attr};
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs);
+        int color = a.getColor(0, 0xFF0000);
+        a.recycle();
+        return color;
     }
 
     static String localizeFolderName(Context context, String name) {
