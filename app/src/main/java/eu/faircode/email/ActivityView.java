@@ -49,20 +49,13 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean newIntent = false;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     static final int LOADER_ACCOUNT_PUT = 1;
     static final int LOADER_IDENTITY_PUT = 2;
@@ -114,8 +107,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
-                    case R.string.menu_debug:
-                        onMenuDebug();
+                    case R.string.menu_about:
+                        onMenuAbout();
                         break;
                 }
 
@@ -286,7 +279,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     public void updateDrawer() {
         ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
         drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_debug));
+        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_about));
         drawerList.setAdapter(drawerArray);
     }
 
@@ -302,42 +295,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
     }
 
-    private void onMenuDebug() {
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    DB db = DB.getInstance(ActivityView.this);
-                    EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
-                    if (drafts != null) {
-                        StringBuilder info = Helper.getDebugInfo();
-                        info.insert(0, getString(R.string.title_debug_info) + "\n\n\n\n");
-
-                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
-
-                        EntityMessage draft = new EntityMessage();
-                        draft.account = drafts.account;
-                        draft.folder = drafts.id;
-                        draft.to = MessageHelper.encodeAddresses(new Address[]{to});
-                        draft.subject = BuildConfig.APPLICATION_ID + " debug info";
-                        draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-                        draft.received = new Date().getTime();
-                        draft.seen = false;
-                        draft.ui_seen = false;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
-
-                        EntityOperation.queue(ActivityView.this, draft, EntityOperation.ADD);
-                        EntityOperation.process(ActivityView.this);
-
-                        startActivity(new Intent(ActivityView.this, ActivityCompose.class)
-                                .putExtra("id", draft.id));
-                    }
-                } catch (Throwable ex) {
-                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-            }
-        });
+    private void onMenuAbout() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
+        fragmentTransaction.commit();
     }
 
     private class DrawerItem {

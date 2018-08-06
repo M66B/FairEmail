@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Safe email</string>
+    <string name="app_name" translatable="false">Safe email</string>
+    <string name="app_copyright">Copyright &#x24B8; 2018 by M. Bokhorst</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
 
     <string name="channel_service">Service</string>
     <string name="channel_notification">Notifications</string>
@@ -12,11 +14,12 @@
 
     <string name="menu_folders">Folders</string>
     <string name="menu_setup">Setup</string>
-    <string name="menu_debug">Debug info</string>
+    <string name="menu_about">About</string>
 
-    <string name="title_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="title_agree">I agree</string>
     <string name="title_disagree">I disagree</string>
+
+    <string name="title_version">Version %1$s</string>
 
     <string name="title_list_accounts">Accounts</string>
     <string name="title_list_identities">Identities</string>
@@ -118,5 +121,6 @@
 
     <string name="title_item_edit_hint">Long press item to edit properties</string>
 
-    <string name="title_debug_info">Please describe the problem and indicate the time of the problem:</string>
+    <string name="title_debug_info">Debug info</string>
+    <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
 </resources>

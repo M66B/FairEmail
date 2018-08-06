@@ -13,7 +13,7 @@
             android:id="@+id/tvEula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_eula"
+            android:text="@string/app_eula"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
