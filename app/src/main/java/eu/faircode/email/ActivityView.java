@@ -50,14 +50,18 @@ import android.widget.TextView;
 import java.text.Collator;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean newIntent = false;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     static final int LOADER_ACCOUNT_PUT = 1;
     static final int LOADER_IDENTITY_PUT = 2;
@@ -66,6 +70,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final int LOADER_MESSAGE_MOVE = 5;
 
     static final int REQUEST_VIEW = 1;
+    static final int REQUEST_UNSEEN = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
@@ -153,6 +158,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
         if (getSupportFragmentManager().getFragments().size() == 0)
             init();
+
+        checkIntent(getIntent());
     }
 
     @Override
@@ -198,8 +205,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.i(Helper.TAG, "View new intent=" + intent);
         newIntent = true;
+        checkIntent(intent);
         super.onNewIntent(intent);
     }
 
@@ -254,6 +261,28 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             default:
                 return false;
         }
+    }
+
+    private void checkIntent(Intent intent) {
+        Log.i(Helper.TAG, "View intent=" + intent + " action=" + intent.getAction());
+        String action = intent.getAction();
+        intent.setAction(null);
+        setIntent(intent);
+
+        final long now = new Date().getTime();
+
+        if ("unseen".equals(action))
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    DaoAccount dao = DB.getInstance(ActivityView.this).account();
+                    for (EntityAccount account : dao.getAccounts(true)) {
+                        account.seen_until = now;
+                        dao.updateAccount(account);
+                    }
+                    Log.i(Helper.TAG, "Updated seen until");
+                }
+            });
     }
 
     private void init() {

@@ -51,7 +51,7 @@ import javax.mail.internet.InternetAddress;
                 EntityAttachment.class,
                 EntityOperation.class
         },
-        version = 5,
+        version = 6,
         exportSchema = true
 )
 
@@ -89,6 +89,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)
                 .addMigrations(MIGRATION_4_5)
+                .addMigrations(MIGRATION_5_6)
                 .build();
     }
 
@@ -129,6 +130,14 @@ public abstract class DB extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase db) {
             Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
             db.execSQL("CREATE INDEX `index_message_ui_hide` ON `message` (`ui_hide`)");
+        }
+    };
+
+    private static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(SupportSQLiteDatabase db) {
+            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+            db.execSQL("ALTER TABLE `account` ADD COLUMN `seen_until` INTEGER");
         }
     };
 

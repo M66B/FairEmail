@@ -46,6 +46,7 @@ public class EntityAccount {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
+    public Long seen_until;
 
     @Override
     public boolean equals(Object obj) {

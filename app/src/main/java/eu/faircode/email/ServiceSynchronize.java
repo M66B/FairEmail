@@ -123,7 +123,7 @@ public class ServiceSynchronize extends LifecycleService {
     public void onCreate() {
         Log.i(Helper.TAG, "Service create");
         super.onCreate();
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotification(0, 0).build());
+        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0).build());
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -140,13 +140,12 @@ public class ServiceSynchronize extends LifecycleService {
                 if (stats != null) {
                     NotificationManager nm = getSystemService(NotificationManager.class);
                     nm.notify(NOTIFICATION_SYNCHRONIZE,
-                            getNotification(stats.accounts, stats.operations).build());
+                            getNotificationService(stats.accounts, stats.operations).build());
 
                     if (stats.unseen > 0) {
-                        if (stats.unseen != prev_unseen) {
-                            boolean sound = (stats.unseen > prev_unseen);
+                        if (stats.unseen > prev_unseen) {
                             nm.cancel(NOTIFICATION_UNSEEN);
-                            nm.notify(NOTIFICATION_UNSEEN, getNotification(stats.unseen, sound).build());
+                            nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(stats.unseen).build());
                         }
                     } else
                         nm.cancel(NOTIFICATION_UNSEEN);
@@ -182,7 +181,7 @@ public class ServiceSynchronize extends LifecycleService {
         return START_STICKY;
     }
 
-    private Notification.Builder getNotification(int accounts, int operations) {
+    private Notification.Builder getNotificationService(int accounts, int operations) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -210,12 +209,15 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private Notification.Builder getNotification(int unseen, boolean sound) {
+    private Notification.Builder getNotificationUnseen(int unseen) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
+        intent.setAction("unseen");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_VIEW, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityView.REQUEST_UNSEEN, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         // Build notification
         Notification.Builder builder;
@@ -228,21 +230,17 @@ public class ServiceSynchronize extends LifecycleService {
                 .setSmallIcon(R.drawable.baseline_mail_24)
                 .setContentTitle(getString(R.string.title_notification_unseen, unseen))
                 .setContentIntent(pi)
-                .setAutoCancel(true)
-                .setShowWhen(false) // when of first or last new email?
+                .setSound(uri)
+                .setOngoing(true)
+                .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PUBLIC);
 
-        if (sound) {
-            Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            builder.setSound(uri);
-        }
-
         return builder;
     }
 
-    private Notification.Builder getNotification(String action, Throwable ex) {
+    private Notification.Builder getNotificationError(String action, Throwable ex) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -275,7 +273,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (!(ex instanceof IllegalStateException) && // This operation is not allowed on a closed folder
                 !(ex instanceof FolderClosedException)) {
             NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.notify(action, 1, getNotification(action, ex).build());
+            nm.notify(action, 1, getNotificationError(action, ex).build());
         }
     }
 
