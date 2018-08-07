@@ -23,10 +23,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -85,20 +81,17 @@ public class MessageHelper {
     static MimeMessageEx from(EntityMessage message, Session isession) throws MessagingException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.id);
 
-        if (message.from != null) {
-            Address[] from = MessageHelper.decodeAddresses(message.from);
-            if (from.length > 0)
-                imessage.setFrom(from[0]);
-        }
+        if (message.from != null && message.from.length > 0)
+            imessage.setFrom(message.from[0]);
 
-        if (message.to != null)
-            imessage.setRecipients(Message.RecipientType.TO, MessageHelper.decodeAddresses(message.to));
+        if (message.to != null && message.to.length > 0)
+            imessage.setRecipients(Message.RecipientType.TO, message.to);
 
-        if (message.cc != null)
-            imessage.setRecipients(Message.RecipientType.CC, MessageHelper.decodeAddresses(message.cc));
+        if (message.cc != null && message.cc.length > 0)
+            imessage.setRecipients(Message.RecipientType.CC, message.cc);
 
-        if (message.bcc != null)
-            imessage.setRecipients(Message.RecipientType.BCC, MessageHelper.decodeAddresses(message.bcc));
+        if (message.bcc != null && message.bcc.length > 0)
+            imessage.setRecipients(Message.RecipientType.BCC, message.bcc);
 
         if (message.subject != null)
             imessage.setSubject(message.subject);
@@ -153,86 +146,42 @@ public class MessageHelper {
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }
 
-    String getFrom() throws MessagingException, JSONException {
-        return encodeAddresses(imessage.getFrom());
+    Address[] getFrom() throws MessagingException {
+        return imessage.getFrom();
     }
 
-    String getTo() throws MessagingException, JSONException {
-        return encodeAddresses(imessage.getRecipients(Message.RecipientType.TO));
+    Address[] getTo() throws MessagingException {
+        return imessage.getRecipients(Message.RecipientType.TO);
     }
 
-    String getCc() throws MessagingException, JSONException {
-        return encodeAddresses(imessage.getRecipients(Message.RecipientType.CC));
+    Address[] getCc() throws MessagingException {
+        return imessage.getRecipients(Message.RecipientType.CC);
     }
 
-    String getBcc() throws MessagingException, JSONException {
-        return encodeAddresses(imessage.getRecipients(Message.RecipientType.BCC));
+    Address[] getBcc() throws MessagingException {
+        return imessage.getRecipients(Message.RecipientType.BCC);
     }
 
-    String getReply() throws MessagingException, JSONException {
-        return encodeAddresses(imessage.getReplyTo());
+    Address[] getReply() throws MessagingException {
+        return imessage.getReplyTo();
     }
 
-    static String encodeAddresses(Address[] addresses) throws JSONException {
+    static String getFormattedAddresses(Address[] addresses) {
         if (addresses == null)
             return null;
-        JSONArray jaddresses = new JSONArray();
-        if (addresses != null)
-            for (Address address : addresses)
-                if (address instanceof InternetAddress) {
-                    String a = ((InternetAddress) address).getAddress();
-                    String p = ((InternetAddress) address).getPersonal();
-                    JSONObject jaddress = new JSONObject();
-                    if (a != null)
-                        jaddress.put("address" , a);
-                    if (p != null)
-                        jaddress.put("personal" , p);
-                    jaddresses.put(jaddress);
-                }
-        return jaddresses.toString();
-    }
 
-    static InternetAddress[] decodeAddresses(String json) {
-        if (json == null)
-            return new InternetAddress[0];
-        List<Address> result = new ArrayList<>();
-        try {
-            JSONArray jaddresses = new JSONArray(json);
-            for (int i = 0; i < jaddresses.length(); i++) {
-                JSONObject jaddress = (JSONObject) jaddresses.get(i);
-                if (jaddress.has("personal"))
-                    result.add(new InternetAddress(
-                            jaddress.getString("address"),
-                            jaddress.getString("personal")));
+        List<String> formatted = new ArrayList<>();
+        for (Address address : addresses)
+            if (address instanceof InternetAddress) {
+                InternetAddress a = (InternetAddress) address;
+                String personal = a.getPersonal();
+                if (TextUtils.isEmpty(personal))
+                    formatted.add(address.toString());
                 else
-                    result.add(new InternetAddress(
-                            jaddress.getString("address")));
-            }
-        } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-        }
-        return result.toArray(new InternetAddress[0]);
-    }
-
-    static String getFormattedAddresses(String json) {
-        if (json == null)
-            return null;
-        try {
-            List<String> addresses = new ArrayList<>();
-            for (Address address : decodeAddresses(json))
-                if (address instanceof InternetAddress) {
-                    InternetAddress a = (InternetAddress) address;
-                    String personal = a.getPersonal();
-                    if (TextUtils.isEmpty(personal))
-                        addresses.add(address.toString());
-                    else
-                        addresses.add(personal);
-                } else
-                    addresses.add(address.toString());
-            return TextUtils.join(", " , addresses);
-        } catch (Throwable ex) {
-            return ex.getMessage();
-        }
+                    formatted.add(personal);
+            } else
+                formatted.add(address.toString());
+        return TextUtils.join(", " , formatted);
     }
 
     String getHtml() throws MessagingException {

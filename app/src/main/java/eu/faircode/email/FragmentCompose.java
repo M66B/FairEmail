@@ -339,8 +339,8 @@ public class FragmentCompose extends FragmentEx {
                         result.putLong("iid" , msg.identity);
                     if (msg.replying != null)
                         result.putLong("rid" , msg.replying);
-                    result.putString("cc" , msg.cc);
-                    result.putString("bcc" , msg.bcc);
+                    result.putSerializable("cc" , msg.cc);
+                    result.putSerializable("bcc" , msg.bcc);
                     result.putString("thread" , msg.thread);
                     result.putString("subject" , msg.subject);
                     result.putString("body" , msg.body);
@@ -348,50 +348,37 @@ public class FragmentCompose extends FragmentEx {
 
                 if (TextUtils.isEmpty(action)) {
                     if (msg != null) {
-                        result.putString("from" , msg.from);
-                        result.putString("to" , msg.to);
+                        result.putSerializable("from" , msg.from);
+                        result.putSerializable("to" , msg.to);
                     }
                 } else if ("reply".equals(action)) {
-                    String to = null;
+                    Address[] to = null;
                     if (msg != null)
-                        try {
-                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
-                            to = (reply.length == 0 ? msg.from : msg.reply);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
+                        to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
                     result.putLong("rid" , msg.id);
-                    result.putString("from" , msg.to);
-                    result.putString("to" , to);
+                    result.putSerializable("from" , msg.to);
+                    result.putSerializable("to" , to);
                 } else if ("reply_all".equals(action)) {
-                    String to = null;
+                    Address[] to = null;
                     if (msg != null) {
-                        try {
-                            Address[] from = MessageHelper.decodeAddresses(msg.from);
-                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
-                            Address[] cc = MessageHelper.decodeAddresses(msg.cc);
-                            List<Address> addresses = new ArrayList<>();
-                            addresses.addAll(Arrays.asList(reply.length == 0 ? from : reply));
-                            addresses.addAll(Arrays.asList(cc));
-                            to = MessageHelper.encodeAddresses(addresses.toArray(new Address[0]));
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
+                        List<Address> addresses = new ArrayList<>();
+                        if (msg.reply != null)
+                            addresses.addAll(Arrays.asList(msg.reply));
+                        else if (msg.from != null)
+                            addresses.addAll(Arrays.asList(msg.from));
+                        if (msg.cc != null)
+                            addresses.addAll(Arrays.asList(msg.cc));
+                        to = addresses.toArray(new Address[0]);
                     }
                     result.putLong("rid" , msg.id);
-                    result.putString("from" , msg.to);
-                    result.putString("to" , to);
+                    result.putSerializable("from" , msg.to);
+                    result.putSerializable("to" , to);
                 } else if ("forward".equals(action)) {
-                    String to = null;
+                    Address[] to = null;
                     if (msg != null)
-                        try {
-                            Address[] reply = MessageHelper.decodeAddresses(msg.reply);
-                            to = (reply.length == 0 ? msg.from : msg.reply);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                    result.putString("from" , msg.to);
-                    result.putString("to" , to);
+                        to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
+                    result.putSerializable("from" , msg.to);
+                    result.putSerializable("to" , to);
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -416,10 +403,10 @@ public class FragmentCompose extends FragmentEx {
             long iid = result.getLong("iid" , -1);
             long rid = result.getLong("rid" , -1);
             String thread = result.getString("thread");
-            String from = result.getString("from");
-            String to = result.getString("to");
-            String cc = result.getString("cc");
-            String bcc = result.getString("bcc");
+            Address[] from = (Address[]) result.getSerializable("from");
+            Address[] to = (Address[]) result.getSerializable("to");
+            Address[] cc = (Address[]) result.getSerializable("cc");
+            Address[] bcc = (Address[]) result.getSerializable("bcc");
             String subject = result.getString("subject");
             String body = result.getString("body");
             String action = result.getString("action");
@@ -433,10 +420,11 @@ public class FragmentCompose extends FragmentEx {
 
             ArrayAdapter adapter = (ArrayAdapter) spFrom.getAdapter();
             if (adapter != null) {
-                InternetAddress[] afrom = MessageHelper.decodeAddresses(from);
                 for (int pos = 0; pos < adapter.getCount(); pos++) {
                     EntityIdentity identity = (EntityIdentity) adapter.getItem(pos);
-                    if (iid < 0 ? afrom.length > 0 && afrom[0].getAddress().equals(identity.email) : iid == identity.id) {
+                    if (iid < 0
+                            ? from != null && from.length > 0 && ((InternetAddress) from[0]).getAddress().equals(identity.email)
+                            : iid == identity.id) {
                         spFrom.setSelection(pos);
                         break;
                     }
@@ -449,11 +437,11 @@ public class FragmentCompose extends FragmentEx {
 
                 Handler handler = new Handler();
 
-                etCc.setText(TextUtils.join(", " , MessageHelper.decodeAddresses(cc)));
-                etBcc.setText(TextUtils.join(", " , MessageHelper.decodeAddresses(bcc)));
+                etCc.setText(cc == null ? null : TextUtils.join(", " , cc));
+                etBcc.setText(bcc == null ? null : TextUtils.join(", " , bcc));
 
                 if (action == null) {
-                    etTo.setText(TextUtils.join(", " , MessageHelper.decodeAddresses(to)));
+                    etTo.setText(to == null ? null : TextUtils.join(", " , to));
                     etSubject.setText(subject);
                     if (body != null)
                         etBody.setText(Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false)));
@@ -464,10 +452,10 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
                 } else if ("reply".equals(action) || "reply_all".equals(action)) {
-                    etTo.setText(TextUtils.join(", " , MessageHelper.decodeAddresses(to)));
+                    etTo.setText(to == null ? null : TextUtils.join(", " , to));
                     String text = String.format("<br><br>%s %s:<br><br>%s" ,
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(TextUtils.join(", " , MessageHelper.decodeAddresses(to))),
+                            Html.escapeHtml(to == null ? "" : TextUtils.join(", " , to)),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_reply, subject));
                     etBody.setText(Html.fromHtml(text));
@@ -480,7 +468,7 @@ public class FragmentCompose extends FragmentEx {
                 } else if ("forward".equals(action)) {
                     String text = String.format("<br><br>%s %s:<br><br>%s" ,
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(TextUtils.join(", " , MessageHelper.decodeAddresses(to))),
+                            Html.escapeHtml(to == null ? "" : TextUtils.join(", " , to)),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_forward, subject));
                     etBody.setText(Html.fromHtml(text));
@@ -539,7 +527,7 @@ public class FragmentCompose extends FragmentEx {
                 String body = args.getString("body");
                 String subject = args.getString("subject");
 
-                Address afrom = (ident == null ? null : new InternetAddress(ident.email, ident.name));
+                Address afrom[] = (ident == null ? null : new Address[]{new InternetAddress(ident.email, ident.name)});
                 Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                 Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                 Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
@@ -553,10 +541,10 @@ public class FragmentCompose extends FragmentEx {
                 draft.identity = (ident == null ? null : ident.id);
                 draft.replying = (rid < 0 ? null : rid);
                 draft.thread = thread;
-                draft.from = MessageHelper.encodeAddresses(new Address[]{afrom});
-                draft.to = MessageHelper.encodeAddresses(ato);
-                draft.cc = MessageHelper.encodeAddresses(acc);
-                draft.bcc = MessageHelper.encodeAddresses(abcc);
+                draft.from = afrom;
+                draft.to = ato;
+                draft.cc = acc;
+                draft.bcc = abcc;
                 draft.subject = subject;
                 draft.body = "<pre>" + body.replaceAll("\\r?\\n" , "<br />") + "</pre>";
                 draft.received = new Date().getTime();

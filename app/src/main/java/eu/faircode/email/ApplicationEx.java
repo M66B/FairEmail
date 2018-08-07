@@ -46,13 +46,14 @@ public class ApplicationEx extends Application {
                     EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                     if (drafts != null) {
                         Address to = new InternetAddress("marcel+email@faircode.eu" , "FairCode");
+                        String body = ex + "\n" + Log.getStackTraceString(ex);
 
                         EntityMessage draft = new EntityMessage();
                         draft.account = drafts.account;
                         draft.folder = drafts.id;
-                        draft.to = MessageHelper.encodeAddresses(new Address[]{to});
+                        draft.to = new Address[]{to};
                         draft.subject = BuildConfig.APPLICATION_ID + " crash info";
-                        draft.body = "<pre>" + ex.toString().replaceAll("\\r?\\n" , "<br />") + "</pre>";
+                        draft.body = "<pre>" + body.replaceAll("\\r?\\n" , "<br />") + "</pre>";
                         draft.received = new Date().getTime();
                         draft.seen = false;
                         draft.ui_seen = false;

@@ -72,7 +72,7 @@ public class FragmentAbout extends FragmentEx {
                                 EntityMessage draft = new EntityMessage();
                                 draft.account = drafts.account;
                                 draft.folder = drafts.id;
-                                draft.to = MessageHelper.encodeAddresses(new Address[]{to});
+                                draft.to = new Address[]{to};
                                 draft.subject = BuildConfig.APPLICATION_ID + " debug info";
                                 draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n" , "<br />") + "</pre>";
                                 draft.received = new Date().getTime();

@@ -25,6 +25,8 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import javax.mail.Address;
+
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 // https://developer.android.com/training/data-storage/room/defining-data
@@ -64,11 +66,11 @@ public class EntityMessage {
     public String references;
     public String inreplyto;
     public String thread; // compose = null
-    public String from;
-    public String to;
-    public String cc;
-    public String bcc;
-    public String reply;
+    public Address[] from;
+    public Address[] to;
+    public Address[] cc;
+    public Address[] bcc;
+    public Address[] reply;
     public String subject;
     public String body;
     public Long sent; // compose = null

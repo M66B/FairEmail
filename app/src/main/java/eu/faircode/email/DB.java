@@ -11,6 +11,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
 /*
     This file is part of Safe email.
 
@@ -131,6 +141,57 @@ public abstract class DB extends RoomDatabase {
         @TypeConverter
         public static String toStringArray(String[] value) {
             return TextUtils.join("," , value);
+        }
+
+        @TypeConverter
+        public static String encodeAddresses(Address[] addresses) {
+            if (addresses == null)
+                return null;
+            JSONArray jaddresses = new JSONArray();
+            if (addresses != null)
+                for (Address address : addresses)
+                    try {
+                        if (address instanceof InternetAddress) {
+                            String a = ((InternetAddress) address).getAddress();
+                            String p = ((InternetAddress) address).getPersonal();
+                            JSONObject jaddress = new JSONObject();
+                            if (a != null)
+                                jaddress.put("address" , a);
+                            if (p != null)
+                                jaddress.put("personal" , p);
+                            jaddresses.put(jaddress);
+                        } else {
+                            JSONObject jaddress = new JSONObject();
+                            jaddress.put("address" , address.toString());
+                            jaddresses.put(jaddress);
+                        }
+                    } catch (JSONException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+            return jaddresses.toString();
+        }
+
+        @TypeConverter
+        public static Address[] decodeAddresses(String json) {
+            if (json == null)
+                return null;
+            List<Address> result = new ArrayList<>();
+            try {
+                JSONArray jaddresses = new JSONArray(json);
+                for (int i = 0; i < jaddresses.length(); i++) {
+                    JSONObject jaddress = (JSONObject) jaddresses.get(i);
+                    if (jaddress.has("personal"))
+                        result.add(new InternetAddress(
+                                jaddress.getString("address"),
+                                jaddress.getString("personal")));
+                    else
+                        result.add(new InternetAddress(
+                                jaddress.getString("address")));
+                }
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
+            return result.toArray(new Address[0]);
         }
     }
 }
