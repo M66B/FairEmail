@@ -90,7 +90,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             int resid = context.getResources().getIdentifier(
                     "title_folder_" + folder.type.toLowerCase(),
-                    "string" ,
+                    "string",
                     context.getPackageName());
             tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
 
@@ -110,7 +110,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                            .putExtra("folder" , folder.id));
+                            .putExtra("folder", folder.id));
         }
 
         @Override
@@ -124,7 +124,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                .putExtra("id" , folder.id));
+                                .putExtra("id", folder.id));
                 return true;
             }
 
@@ -148,16 +148,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             public int compare(TupleFolderEx f1, TupleFolderEx f2) {
                 int s = ((Integer) EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type))
                         .compareTo(EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                if (s == 0) {
-                    int a = collator.compare(
-                            f1.accountName == null ? "" : f1.accountName,
-                            f2.accountName == null ? "" : f2.accountName);
-                    if (a == 0)
-                        return collator.compare(f1.name, f2.name);
-                    else
-                        return a;
-                } else
+                if (s != 0)
                     return s;
+                int c = -f1.synchronize.compareTo(f2.synchronize);
+                if (c != 0)
+                    return c;
+                return collator.compare(
+                        f1.name == null ? "" : f1.name,
+                        f2.name == null ? "" : f2.name);
             }
         });
 
