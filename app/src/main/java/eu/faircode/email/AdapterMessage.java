@@ -103,12 +103,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             tvSubject.setText(message.subject);
 
+            String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
             if (viewType == ViewType.FOLDER) {
-                String extra = (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id;
-                tvCount.setText((debug ? extra + " " : "") + Integer.toString(message.count));
+                tvCount.setText(extra + Integer.toString(message.count));
                 tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
             } else
-                tvCount.setText(Helper.localizeFolderName(context, message.folderName));
+                tvCount.setText(extra + Helper.localizeFolderName(context, message.folderName));
 
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
