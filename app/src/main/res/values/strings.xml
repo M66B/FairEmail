@@ -69,7 +69,7 @@
     <string name="title_no_idle">IDLE not supported</string>
     <string name="title_local_drafts">Local drafts</string>
 
-    <string name="title_folder_unseen">%1$s (%2$d/%3$d)</string>
+    <string name="title_folder_unseen" translatable="false">%1$s (%2$d/%3$d)</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_after">Synchronize (days)</string>
 
