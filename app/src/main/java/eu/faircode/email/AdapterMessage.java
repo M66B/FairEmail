@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -26,7 +27,6 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.util.DiffUtil;
-import android.support.v7.util.ListUpdateCallback;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -34,23 +34,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
+public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMessage.ViewHolder> {
     private Context context;
     private ViewType viewType;
     private boolean debug;
     private ExecutorService executor = Executors.newCachedThreadPool();
-
-    private List<TupleMessageEx> all = new ArrayList<>();
-    private List<TupleMessageEx> filtered = new ArrayList<>();
 
     enum ViewType {FOLDER, THREAD}
 
@@ -62,6 +56,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ImageView ivAttachments;
         TextView tvSubject;
         TextView tvCount;
+        ProgressBar pbLoading;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -72,6 +67,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvCount = itemView.findViewById(R.id.tvCount);
+            pbLoading = itemView.findViewById(R.id.pbLoading);
         }
 
         private void wire() {
@@ -82,12 +78,58 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             itemView.setOnClickListener(null);
         }
 
+        private void clear() {
+            tvFrom.setText(null);
+            tvTime.setText(null);
+            tvSubject.setText(null);
+            ivAttachments.setVisibility(View.GONE);
+            tvCount.setText(null);
+            pbLoading.setVisibility(View.VISIBLE);
+        }
+
+        private void bindTo(TupleMessageEx message) {
+            boolean outgoing = EntityFolder.isOutgoing(message.folderType);
+            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
+
+            pbLoading.setVisibility(View.GONE);
+
+            if (outgoing) {
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
+                tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
+            } else {
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
+                tvTime.setText(message.sent == null ? null : DateUtils.getRelativeTimeSpanString(context, message.sent));
+            }
+
+            tvSubject.setText(message.subject);
+
+            if (viewType == ViewType.FOLDER) {
+                String extra = (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id;
+                tvCount.setText((debug ? extra + " " : "") + Integer.toString(message.count));
+                tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
+            } else
+                tvCount.setText(Helper.localizeFolderName(context, message.folderName));
+
+            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+
+            boolean unseen = (message.thread == null && !outbox ? message.unseen > 0 : !message.seen);
+
+            int typeface = (unseen ? Typeface.BOLD : Typeface.NORMAL);
+            tvFrom.setTypeface(null, typeface);
+            tvTime.setTypeface(null, typeface);
+            tvSubject.setTypeface(null, typeface);
+            tvCount.setTypeface(null, typeface);
+
+            tvFrom.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+            tvTime.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+        }
+
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            final TupleMessageEx message = filtered.get(pos);
+            final TupleMessageEx message = getItem(pos);
 
             executor.submit(new Runnable() {
                 @Override
@@ -120,102 +162,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, ViewType viewType) {
+        super(DIFF_CALLBACK);
         this.context = context;
         this.viewType = viewType;
         this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
-        setHasStableIds(true);
     }
 
-    public void set(@NonNull List<TupleMessageEx> messages) {
-        Log.i(Helper.TAG, "Set messages=" + messages.size());
+    public static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<TupleMessageEx>() {
+                @Override
+                public boolean areItemsTheSame(
+                        @NonNull TupleMessageEx prev, @NonNull TupleMessageEx next) {
+                    return prev.id.equals(next.id);
+                }
 
-        Collections.sort(messages, new Comparator<TupleMessageEx>() {
-            @Override
-            public int compare(TupleMessageEx m1, TupleMessageEx m2) {
-                if (EntityFolder.isOutgoing(m1.folderType))
-                    return -Long.compare(m1.received, m2.received);
-                else
-                    return -Long.compare(
-                            m1.sent == null ? 0 : m1.sent,
-                            m2.sent == null ? 0 : m2.sent);
-            }
-        });
-
-        all.clear();
-        all.addAll(messages);
-
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
-
-        filtered.clear();
-        filtered.addAll(all);
-
-        diff.dispatchUpdatesTo(new ListUpdateCallback() {
-            @Override
-            public void onInserted(int position, int count) {
-                Log.i(Helper.TAG, "Inserted @" + position + " #" + count);
-            }
-
-            @Override
-            public void onRemoved(int position, int count) {
-                Log.i(Helper.TAG, "Removed @" + position + " #" + count);
-            }
-
-            @Override
-            public void onMoved(int fromPosition, int toPosition) {
-                Log.i(Helper.TAG, "Moved " + fromPosition + ">" + toPosition);
-            }
-
-            @Override
-            public void onChanged(int position, int count, Object payload) {
-                Log.i(Helper.TAG, "Changed @" + position + " #" + count);
-            }
-        });
-        diff.dispatchUpdatesTo(AdapterMessage.this);
-    }
-
-    private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<TupleMessageEx> prev;
-        private List<TupleMessageEx> next;
-
-        MessageDiffCallback(List<TupleMessageEx> prev, List<TupleMessageEx> next) {
-            this.prev = prev;
-            this.next = next;
-        }
-
-        @Override
-        public int getOldListSize() {
-            return prev.size();
-        }
-
-        @Override
-        public int getNewListSize() {
-            return next.size();
-        }
-
-        @Override
-        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleMessageEx m1 = prev.get(oldItemPosition);
-            TupleMessageEx m2 = next.get(newItemPosition);
-            return m1.id.equals(m2.id);
-        }
-
-        @Override
-        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleMessageEx m1 = prev.get(oldItemPosition);
-            TupleMessageEx m2 = next.get(newItemPosition);
-            return m1.equals(m2);
-        }
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return filtered.get(position).id;
-    }
-
-    @Override
-    public int getItemCount() {
-        return filtered.size();
-    }
+                @Override
+                public boolean areContentsTheSame(
+                        @NonNull TupleMessageEx prev, @NonNull TupleMessageEx next) {
+                    return prev.equals(next);
+                }
+            };
 
     @Override
     @NonNull
@@ -227,39 +193,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        TupleMessageEx message = filtered.get(position);
-        boolean outgoing = EntityFolder.isOutgoing(message.folderType);
-        boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
-
-        if (outgoing) {
-            holder.tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
-            holder.tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
-        } else {
-            holder.tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
-            holder.tvTime.setText(message.sent == null ? null : DateUtils.getRelativeTimeSpanString(context, message.sent));
+        TupleMessageEx message = getItem(position);
+        if (message == null)
+            holder.clear();
+        else {
+            holder.bindTo(message);
+            holder.wire();
         }
-
-        holder.tvSubject.setText(message.subject);
-        if (viewType == ViewType.FOLDER) {
-            String extra = (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id;
-            holder.tvCount.setText((debug ? extra + " " : "") + Integer.toString(message.count));
-            holder.tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
-        } else
-            holder.tvCount.setText(Helper.localizeFolderName(context, message.folderName));
-
-        holder.ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
-
-        boolean unseen = (message.thread == null && !outbox ? message.unseen > 0 : !message.seen);
-
-        int visibility = (unseen ? Typeface.BOLD : Typeface.NORMAL);
-        holder.tvFrom.setTypeface(null, visibility);
-        holder.tvTime.setTypeface(null, visibility);
-        holder.tvSubject.setTypeface(null, visibility);
-        holder.tvCount.setTypeface(null, visibility);
-
-        holder.tvFrom.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
-        holder.tvTime.setTextColor(Helper.resolveColor(context, unseen ? R.attr.colorUnread : android.R.attr.textColorSecondary));
-
-        holder.wire();
     }
 }

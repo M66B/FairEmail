@@ -19,7 +19,10 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.paging.LivePagedListBuilder;
+import android.arch.paging.PagedList;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,8 +42,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class FragmentMessages extends FragmentEx {
     private RecyclerView rvMessage;
@@ -93,50 +94,50 @@ public class FragmentMessages extends FragmentEx {
         pbWait.setVisibility(View.VISIBLE);
         fab.setVisibility(View.GONE);
 
-        DB db = DB.getInstance(getContext());
-
         // Observe folder/messages
+        DB db = DB.getInstance(getContext());
+        LiveData<PagedList<TupleMessageEx>> messages;
         boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
         if (thread < 0)
             if (folder < 0) {
                 setSubtitle(R.string.title_folder_unified);
-                db.message().liveUnifiedInbox(debug).observe(this, messagesObserver);
+                messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), 20).build();
             } else {
-                DB.getInstance(getContext()).folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
+                db.folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
                     @Override
                     public void onChanged(@Nullable TupleFolderEx folder) {
                         setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
                     }
                 });
-                db.message().liveMessages(folder, debug).observe(this, messagesObserver);
+                messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), 20).build();
             }
         else {
             setSubtitle(R.string.title_folder_thread);
-            db.message().liveThread(thread, debug).observe(this, messagesObserver);
+            messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), 20).build();
         }
+
+        messages.observe(this, new Observer<PagedList<TupleMessageEx>>() {
+            @Override
+            public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                adapter.submitList(messages);
+
+                pbWait.setVisibility(View.GONE);
+                grpReady.setVisibility(View.VISIBLE);
+
+                if (messages.size() == 0) {
+                    tvNoEmail.setVisibility(View.VISIBLE);
+                    rvMessage.setVisibility(View.GONE);
+                } else {
+                    tvNoEmail.setVisibility(View.GONE);
+                    rvMessage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
 
         return view;
     }
-
-    Observer<List<TupleMessageEx>> messagesObserver = new Observer<List<TupleMessageEx>>() {
-        @Override
-        public void onChanged(@Nullable List<TupleMessageEx> messages) {
-            adapter.set(messages);
-
-            pbWait.setVisibility(View.GONE);
-            grpReady.setVisibility(View.VISIBLE);
-
-            if (messages.size() == 0) {
-                tvNoEmail.setVisibility(View.VISIBLE);
-                rvMessage.setVisibility(View.GONE);
-            } else {
-                tvNoEmail.setVisibility(View.GONE);
-                rvMessage.setVisibility(View.VISIBLE);
-            }
-        }
-    };
 
     private static class InitLoader extends AsyncTaskLoader<Bundle> {
         InitLoader(@NonNull Context context) {

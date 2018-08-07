@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.arch.lifecycle.LiveData;
+import android.arch.paging.DataSource;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -39,9 +40,10 @@ public interface DaoMessage {
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
             " AND (NOT ui_hide OR :debug)" +
             " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
-            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
+            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)" +
+            " ORDER BY received DESC")
         // in theory the message id and thread could be the same
-    LiveData<List<TupleMessageEx>> liveUnifiedInbox(boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
@@ -52,8 +54,13 @@ public interface DaoMessage {
             " WHERE folder.id = :folder" +
             " AND (NOT ui_hide OR :debug)" +
             " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
-            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)")
-    LiveData<List<TupleMessageEx>> liveMessages(long folder, boolean debug);
+            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)" +
+            " ORDER BY CASE WHEN folder.type IN " +
+            "('" + EntityFolder.TYPE_OUTBOX + "'" +
+            ", '" + EntityFolder.TYPE_DRAFTS + "'" +
+            ", '" + EntityFolder.TYPE_SENT + "')" +
+            " THEN sent ELSE received END DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
@@ -62,8 +69,9 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN message m1 ON m1.id = :msgid AND m1.account = message.account AND m1.thread = message.thread" +
-            " WHERE NOT message.ui_hide OR :debug")
-    LiveData<List<TupleMessageEx>> liveThread(long msgid, boolean debug);
+            " WHERE NOT message.ui_hide OR :debug" +
+            " ORDER BY received DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, boolean debug);
 
     @Query("SELECT * FROM message WHERE id = :id")
     EntityMessage getMessage(long id);
