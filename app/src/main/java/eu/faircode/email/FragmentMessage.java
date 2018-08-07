@@ -266,9 +266,9 @@ public class FragmentMessage extends FragmentEx {
                     bottom_navigation.setTag(message.folderType);
 
                     db.folder().liveFolders(message.account).removeObservers(FragmentMessage.this);
-                    db.folder().liveFolders(message.account).observe(FragmentMessage.this, new Observer<List<EntityFolder>>() {
+                    db.folder().liveFolders(message.account).observe(FragmentMessage.this, new Observer<List<TupleFolderEx>>() {
                         @Override
-                        public void onChanged(@Nullable final List<EntityFolder> folders) {
+                        public void onChanged(@Nullable final List<TupleFolderEx> folders) {
                             boolean hasTrash = false;
                             boolean hasJunk = false;
                             boolean hasArchive = false;

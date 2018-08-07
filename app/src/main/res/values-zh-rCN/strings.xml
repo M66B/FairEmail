@@ -17,7 +17,6 @@
   <string name="title_version">Version %1$s</string>
   <string name="title_list_accounts">Accounts</string>
   <string name="title_list_identities">Identities</string>
-  <string name="title_list_folders">Folders</string>
   <string name="title_edit_account">Edit account</string>
   <string name="title_edit_identity">Edit identity</string>
   <string name="title_edit_folder">Edit folder</string>

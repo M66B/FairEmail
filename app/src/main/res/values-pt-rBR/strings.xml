@@ -17,7 +17,6 @@
   <string name="title_version">Versão %1$s</string>
   <string name="title_list_accounts">Contas</string>
   <string name="title_list_identities">Identidades</string>
-  <string name="title_list_folders">Pastas</string>
   <string name="title_edit_account">Editar conta</string>
   <string name="title_edit_identity">Editar identidade</string>
   <string name="title_edit_folder">Editar pasta</string>

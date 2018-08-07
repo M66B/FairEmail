@@ -45,11 +45,9 @@ public interface DaoFolder {
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " WHERE folder.account = :account" +
             " GROUP BY folder.id")
-    LiveData<List<TupleFolderEx>> liveFolders();
-
-    @Query("SELECT * FROM folder WHERE account = :account")
-    LiveData<List<EntityFolder>> liveFolders(long account);
+    LiveData<List<TupleFolderEx>> liveFolders(long account);
 
     @Query("SELECT folder.* FROM folder WHERE folder.id = :id")
     LiveData<EntityFolder> liveFolder(long id);

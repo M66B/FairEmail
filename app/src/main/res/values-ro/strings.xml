@@ -17,7 +17,6 @@
   <string name="title_version">Versiunea %1$s</string>
   <string name="title_list_accounts">Conturi</string>
   <string name="title_list_identities">Identități</string>
-  <string name="title_list_folders">Dosare</string>
   <string name="title_edit_account">Editare cont</string>
   <string name="title_edit_identity">Editare identitate</string>
   <string name="title_edit_folder">Editare dosar</string>

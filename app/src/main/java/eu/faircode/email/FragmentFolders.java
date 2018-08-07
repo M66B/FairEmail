@@ -46,9 +46,11 @@ public class FragmentFolders extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_list_folders);
-
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
+
+        // Get arguments
+        Bundle args = getArguments();
+        long account = (args == null ? -1 : args.getLong("account"));
 
         // Get controls
         rvFolder = view.findViewById(R.id.rvFolder);
@@ -76,8 +78,18 @@ public class FragmentFolders extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
+        DB db = DB.getInstance(getContext());
+
+        // Observe account
+        db.account().liveAccount(account).observe(this, new Observer<EntityAccount>() {
+            @Override
+            public void onChanged(@Nullable EntityAccount account) {
+                setSubtitle(account.name);
+            }
+        });
+
         // Observe folders
-        DB.getInstance(getContext()).folder().liveFolders().observe(this, new Observer<List<TupleFolderEx>>() {
+        db.folder().liveFolders(account).observe(this, new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 adapter.set(folders);
