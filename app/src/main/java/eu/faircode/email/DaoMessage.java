@@ -44,7 +44,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
-            " GROUP BY message.thread" +
+            " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.type = '" + EntityFolder.TYPE_INBOX + "' THEN 1 ELSE 0 END) > 0" +
             " ORDER BY message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
@@ -57,7 +57,7 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
-            " GROUP BY message.thread" +
+            " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
