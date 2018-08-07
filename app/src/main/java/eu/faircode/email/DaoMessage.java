@@ -40,7 +40,7 @@ public interface DaoMessage {
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
             " AND (NOT ui_hide OR :debug)" +
             " GROUP BY thread" +
-            " ORDER BY message.received DESC")
+            " ORDER BY received DESC")
         // in theory the message id and thread could be the same
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
@@ -48,8 +48,8 @@ public interface DaoMessage {
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
             ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            " FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
+            " FROM folder" +
+            " JOIN message ON folder = folder.id" +
             " WHERE folder.id = :folder" +
             " AND (NOT ui_hide OR :debug)" +
             " GROUP BY thread" +
