@@ -73,6 +73,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             itemView.setOnClickListener(null);
         }
 
+        private void bindTo(EntityAccount account) {
+            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
+            tvName.setText(account.name);
+            ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
+            tvHost.setText(String.format("%s:%d", account.host, account.port));
+            tvUser.setText(account.user);
+        }
+
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
@@ -192,12 +200,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         holder.unwire();
 
         EntityAccount account = filtered.get(position);
-
-        holder.ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
-        holder.tvName.setText(account.name);
-        holder.ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-        holder.tvHost.setText(String.format("%s:%d", account.host, account.port));
-        holder.tvUser.setText(account.user);
+        holder.bindTo(account);
 
         holder.wire();
     }

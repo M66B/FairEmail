@@ -77,6 +77,27 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             itemView.setOnLongClickListener(null);
         }
 
+        private void bindTo(TupleFolderEx folder) {
+            String name = Helper.localizeFolderName(context, folder.name);
+            tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen, folder.messages));
+            tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+            tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+
+            tvAfter.setText(Integer.toString(folder.after));
+            tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            tvAccount.setText(folder.accountName);
+            tvAccount.setVisibility(EntityFolder.TYPE_OUTBOX.equals(folder.type) ? View.GONE : View.VISIBLE);
+
+            int resid = context.getResources().getIdentifier(
+                    "title_folder_" + folder.type.toLowerCase(),
+                    "string",
+                    context.getPackageName());
+            tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+        }
+
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
@@ -225,25 +246,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         holder.unwire();
 
         TupleFolderEx folder = filtered.get(position);
+        holder.bindTo(folder);
 
-        String name = Helper.localizeFolderName(context, folder.name);
-        holder.tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen, folder.messages));
-        holder.tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
-        holder.tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
-
-        holder.tvAfter.setText(Integer.toString(folder.after));
-        holder.tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
-        holder.ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
-        holder.tvAccount.setText(folder.accountName);
-        holder.tvAccount.setVisibility(EntityFolder.TYPE_OUTBOX.equals(folder.type) ? View.GONE : View.VISIBLE);
-
-        int resid = context.getResources().getIdentifier(
-                "title_folder_" + folder.type.toLowerCase(),
-                "string",
-                context.getPackageName());
-        holder.tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
 
         holder.wire();
     }

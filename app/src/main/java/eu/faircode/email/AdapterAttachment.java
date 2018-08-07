@@ -80,6 +80,30 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             itemView.setOnClickListener(null);
         }
 
+        private void bindTo(TupleAttachment attachment) {
+            tvName.setText(attachment.name);
+
+            if (attachment.size != null)
+                tvSize.setText(Helper.humanReadableByteCount(attachment.size, false));
+            tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
+
+            if (attachment.progress != null)
+                progressbar.setProgress(attachment.progress);
+            progressbar.setVisibility(
+                    attachment.progress == null || attachment.content ? View.GONE : View.VISIBLE);
+
+            if (attachment.content) {
+                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+                ivStatus.setVisibility(View.VISIBLE);
+            } else {
+                if (attachment.progress == null) {
+                    ivStatus.setImageResource(R.drawable.baseline_get_app_24);
+                    ivStatus.setVisibility(View.VISIBLE);
+                } else
+                    ivStatus.setVisibility(View.GONE);
+            }
+        }
+
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
@@ -265,27 +289,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         holder.unwire();
 
         TupleAttachment attachment = filtered.get(position);
-        holder.tvName.setText(attachment.name);
-
-        if (attachment.size != null)
-            holder.tvSize.setText(Helper.humanReadableByteCount(attachment.size, false));
-        holder.tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
-
-        if (attachment.progress != null)
-            holder.progressbar.setProgress(attachment.progress);
-        holder.progressbar.setVisibility(
-                attachment.progress == null || attachment.content ? View.GONE : View.VISIBLE);
-
-        if (attachment.content) {
-            holder.ivStatus.setImageResource(R.drawable.baseline_visibility_24);
-            holder.ivStatus.setVisibility(View.VISIBLE);
-        } else {
-            if (attachment.progress == null) {
-                holder.ivStatus.setImageResource(R.drawable.baseline_get_app_24);
-                holder.ivStatus.setVisibility(View.VISIBLE);
-            } else
-                holder.ivStatus.setVisibility(View.GONE);
-        }
+        holder.bindTo(attachment);
 
         holder.wire();
     }

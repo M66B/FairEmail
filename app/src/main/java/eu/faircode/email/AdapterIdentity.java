@@ -73,6 +73,14 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             itemView.setOnClickListener(null);
         }
 
+        private void bindTo(EntityIdentity identity) {
+            ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
+            tvName.setText(identity.name);
+            ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
+            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
+            tvEmail.setText(identity.email);
+        }
+
         @Override
         public void onClick(View view) {
             int pos = getAdapterPosition();
@@ -192,12 +200,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         holder.unwire();
 
         EntityIdentity identity = filtered.get(position);
-
-        holder.ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
-        holder.tvName.setText(identity.name);
-        holder.ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
-        holder.tvHost.setText(String.format("%s:%d", identity.host, identity.port));
-        holder.tvEmail.setText(identity.email);
+        holder.bindTo(identity);
 
         holder.wire();
     }
