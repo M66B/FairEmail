@@ -135,7 +135,7 @@ public class FragmentMessage extends FragmentEx {
                 URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
                 if (link.length != 0) {
                     Bundle args = new Bundle();
-                    args.putString("link" , link[0].getURL());
+                    args.putString("link", link[0].getURL());
 
                     FragmentWebView fragment = new FragmentWebView();
                     fragment.setArguments(args);
@@ -230,11 +230,16 @@ public class FragmentMessage extends FragmentEx {
                     tvSubject.setText(message.subject);
                     tvCount.setText(Integer.toString(message.count));
 
-                    int visibility = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
-                    tvFrom.setTypeface(null, visibility);
-                    tvTime.setTypeface(null, visibility);
-                    tvSubject.setTypeface(null, visibility);
-                    tvCount.setTypeface(null, visibility);
+                    int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
+                    tvFrom.setTypeface(null, typeface);
+                    tvTime.setTypeface(null, typeface);
+                    tvSubject.setTypeface(null, typeface);
+                    tvCount.setTypeface(null, typeface);
+
+                    int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
+                            ? android.R.attr.textColorSecondary : R.attr.colorUnread);
+                    tvFrom.setTextColor(colorUnseen);
+                    tvTime.setTextColor(colorUnseen);
 
                     DB.getInstance(getContext()).attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
                     DB.getInstance(getContext()).attachment().liveAttachments(id).observe(FragmentMessage.this,
@@ -341,7 +346,7 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionThread(long id) {
         Bundle args = new Bundle();
-        args.putLong("thread" , id); // message ID
+        args.putLong("thread", id); // message ID
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
@@ -353,14 +358,14 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionForward(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id" , id)
-                .putExtra("action" , "forward"));
+                .putExtra("id", id)
+                .putExtra("action", "forward"));
     }
 
     private void onActionReplyAll(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id" , id)
-                .putExtra("action" , "reply_all"));
+                .putExtra("id", id)
+                .putExtra("action", "reply_all"));
     }
 
     private void onActionDelete(final long id) {
@@ -443,7 +448,7 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionMove(final long id) {
         Bundle args = new Bundle();
-        args.putLong("id" , id);
+        args.putLong("id", id);
         getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
     }
 
@@ -469,8 +474,8 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionReply(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id" , id)
-                .putExtra("action" , "reply"));
+                .putExtra("id", id)
+                .putExtra("action", "reply"));
     }
 
     private static class MoveLoader extends AsyncTaskLoader<List<EntityFolder>> {
