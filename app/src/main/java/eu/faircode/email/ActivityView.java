@@ -172,7 +172,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void syncState() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean eula = prefs.getBoolean("eula" , false);
+        boolean eula = prefs.getBoolean("eula", false);
         int count = getSupportFragmentManager().getBackStackEntryCount();
         drawerToggle.setDrawerIndicatorEnabled(count == 1 && eula);
     }
@@ -191,7 +191,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
         if (newIntent) {
             newIntent = false;
-            getSupportFragmentManager().popBackStack("unified" , 0);
+            getSupportFragmentManager().popBackStack("unified", 0);
         }
     }
 
@@ -269,9 +269,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         intent.setAction(null);
         setIntent(intent);
 
-        final long now = new Date().getTime();
+        if ("unseen".equals(action)) {
+            final long now = new Date().getTime();
 
-        if ("unseen".equals(action))
             executor.submit(new Runnable() {
                 @Override
                 public void run() {
@@ -283,17 +283,18 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     Log.i(Helper.TAG, "Updated seen until");
                 }
             });
+        }
     }
 
     private void init() {
         invalidateOptionsMenu();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("eula" , false)) {
+        if (prefs.getBoolean("eula", false)) {
             getSupportFragmentManager().popBackStack(); // eula
 
             Bundle args = new Bundle();
-            args.putLong("folder" , -1);
+            args.putLong("folder", -1);
 
             FragmentMessages fragment = new FragmentMessages();
             fragment.setArguments(args);
@@ -325,10 +326,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void onMenuFolders(long account) {
-        getSupportFragmentManager().popBackStack("unified" , 0);
+        getSupportFragmentManager().popBackStack("unified", 0);
 
         Bundle args = new Bundle();
-        args.putLong("account" , account);
+        args.putLong("account", account);
 
         FragmentFolders fragment = new FragmentFolders();
         fragment.setArguments(args);
@@ -412,7 +413,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_VIEW_MESSAGES.equals(intent.getAction())) {
-                getSupportFragmentManager().popBackStack("unified" , 0);
+                getSupportFragmentManager().popBackStack("unified", 0);
 
                 FragmentMessages fragment = new FragmentMessages();
                 fragment.setArguments(intent.getExtras());
