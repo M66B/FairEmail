@@ -38,18 +38,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private boolean newIntent = false;
@@ -101,8 +103,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
                 switch (item.getId()) {
-                    case R.string.menu_folders:
-                        onMenuFolders();
+                    case -1:
+                        onMenuFolders((long) item.getData());
                         break;
                     case R.string.menu_setup:
                         onMenuSetup();
@@ -115,15 +117,39 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         break;
                 }
 
-                if (!item.isCheckable())
-                    drawerLayout.closeDrawer(drawerList);
+                drawerLayout.closeDrawer(drawerList);
             }
         });
 
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        updateDrawer();
+        DB.getInstance(this).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
+            @Override
+            public void onChanged(@Nullable List<EntityAccount> accounts) {
+                ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this, R.layout.item_drawer);
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(accounts, new Comparator<EntityAccount>() {
+                    @Override
+                    public int compare(EntityAccount a1, EntityAccount a2) {
+                        return collator.compare(a1.name, a2.name);
+                    }
+                });
+
+                for (EntityAccount account : accounts)
+                    drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
+
+                drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+                if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+                drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_help_24, R.string.menu_about));
+
+                drawerList.setAdapter(drawerArray);
+            }
+        });
 
         if (getSupportFragmentManager().getFragments().size() == 0)
             init();
@@ -217,20 +243,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_view, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        menu.findItem(R.id.menu_folders).setVisible(prefs.getBoolean("eula" , false));
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
@@ -238,9 +250,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         switch (item.getItemId()) {
             case android.R.id.home:
                 getSupportFragmentManager().popBackStack();
-                return true;
-            case R.id.menu_folders:
-                onMenuFolders();
                 return true;
             default:
                 return false;
@@ -280,26 +289,23 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         }
     }
 
-    public void updateDrawer() {
-        ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(this, R.layout.item_drawer);
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_setup));
-        if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
-            drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_faq));
-        drawerArray.add(new DrawerItem(ActivityView.this, R.string.menu_about));
-        drawerList.setAdapter(drawerArray);
-    }
-
     private Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
         return intent;
     }
 
-    private void onMenuFolders() {
+    private void onMenuFolders(long account) {
         getSupportFragmentManager().popBackStack("unified" , 0);
 
+        Bundle args = new Bundle();
+        args.putLong("account" , account);
+
+        FragmentFolders fragment = new FragmentFolders();
+        fragment.setArguments(args);
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentFolders()).addToBackStack("folders");
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
     }
 
@@ -319,38 +325,29 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private class DrawerItem {
         private int id;
+        private int icon;
         private String title;
-        private boolean checkable;
-        private boolean checked;
+        private Object data;
 
-        DrawerItem(Context context, int title) {
+        DrawerItem(Context context, int icon, int title) {
             this.id = title;
+            this.icon = icon;
             this.title = context.getString(title);
-            this.checkable = false;
-            this.checked = false;
         }
 
-        DrawerItem(Context context, int title, boolean checked) {
-            this.id = title;
-            this.title = context.getString(title);
-            this.checkable = true;
-            this.checked = checked;
+        DrawerItem(int id, int icon, String title, Object data) {
+            this.id = id;
+            this.icon = icon;
+            this.title = title;
+            this.data = data;
         }
 
         public int getId() {
             return this.id;
         }
 
-        public String getTitle() {
-            return this.title;
-        }
-
-        public boolean isCheckable() {
-            return this.checkable;
-        }
-
-        public boolean isChecked() {
-            return this.checked;
+        public Object getData() {
+            return this.data;
         }
     }
 
@@ -372,11 +369,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
             DrawerItem item = getItem(position);
 
+            ImageView iv = row.findViewById(R.id.ivItem);
             TextView tv = row.findViewById(R.id.tvItem);
-            CheckBox cb = row.findViewById(R.id.cbItem);
-            tv.setText(item.getTitle());
-            cb.setVisibility(item.isCheckable() ? View.VISIBLE : View.GONE);
-            cb.setChecked(item.isChecked());
+
+            iv.setImageResource(item.icon);
+            tv.setText(item.title);
 
             return row;
         }

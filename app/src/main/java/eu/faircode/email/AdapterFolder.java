@@ -51,20 +51,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvName;
+        TextView tvMessages;
+        TextView tvType;
         TextView tvAfter;
         ImageView ivSync;
-        TextView tvAccount;
-        TextView tvType;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView;
             tvName = itemView.findViewById(R.id.tvName);
+            tvMessages = itemView.findViewById(R.id.tvMessages);
+            tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
-            tvAccount = itemView.findViewById(R.id.tvAccount);
-            tvType = itemView.findViewById(R.id.tvType);
         }
 
         private void wire() {
@@ -79,23 +79,25 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(TupleFolderEx folder) {
             String name = Helper.localizeFolderName(context, folder.name);
-            tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen, folder.messages));
+            if (folder.unseen > 0)
+                tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
+            else
+                tvName.setText(name);
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
 
-            tvAfter.setText(Integer.toString(folder.after));
-            tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
-            ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
-            tvAccount.setText(folder.accountName);
-            tvAccount.setVisibility(EntityFolder.TYPE_OUTBOX.equals(folder.type) ? View.GONE : View.VISIBLE);
+            tvMessages.setText(Integer.toString(folder.messages));
 
             int resid = context.getResources().getIdentifier(
                     "title_folder_" + folder.type.toLowerCase(),
                     "string" ,
                     context.getPackageName());
             tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+
+            tvAfter.setText(Integer.toString(folder.after));
+            tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
         }
 
         @Override

@@ -25,7 +25,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -45,7 +44,6 @@ public class FragmentAbout extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_about);
-        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
@@ -96,10 +94,5 @@ public class FragmentAbout extends FragmentEx {
         });
 
         return view;
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        menu.clear();
     }
 }

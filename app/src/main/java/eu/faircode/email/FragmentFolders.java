@@ -28,7 +28,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -48,7 +47,6 @@ public class FragmentFolders extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_list_folders);
-        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
 
@@ -93,10 +91,5 @@ public class FragmentFolders extends FragmentEx {
         Toast.makeText(getContext(), R.string.title_item_edit_hint, Toast.LENGTH_SHORT).show();
 
         return view;
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        menu.clear();
     }
 }

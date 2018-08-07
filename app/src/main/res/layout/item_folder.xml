@@ -14,8 +14,39 @@
         android:ellipsize="start"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSync"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
         app:layout_constraintEnd_toStartOf="@+id/tvAfter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivMessages" />
+
+    <TextView
+        android:id="@+id/tvMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:text="123"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
+        app:layout_constraintEnd_toStartOf="@+id/ivMessages"
+        app:layout_constraintTop_toTopOf="@+id/ivMessages" />
+
+    <ImageView
+        android:id="@+id/ivMessages"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/baseline_mail_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="type"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSync"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivSync" />
 
@@ -23,7 +54,8 @@
         android:id="@+id/tvAfter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7"
+        android:layout_marginEnd="6dp"
+        android:text="30"
         android:textAppearance="@android:style/TextAppearance.Small"
         app:layout_constraintBottom_toBottomOf="@+id/ivSync"
         app:layout_constraintEnd_toStartOf="@+id/ivSync"
@@ -36,30 +68,7 @@
         android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_sync_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:text="account"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
-
-    <TextView
-        android:id="@+id/tvType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:text="type"
-        android:textAlignment="textEnd"
-        android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvAccount"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+        app:layout_constraintTop_toBottomOf="@id/ivMessages" />
 
     <View
         android:id="@+id/vSeparator"
@@ -68,5 +77,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvType" />
+        app:layout_constraintTop_toBottomOf="@id/ivSync" />
 </android.support.constraint.ConstraintLayout>

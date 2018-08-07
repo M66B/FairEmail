@@ -9,7 +9,6 @@
   <string name="title_notification_operations">%1$d operation(s) pending</string>
   <string name="title_notification_unseen">%1$d neue Nachricht(en)</string>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
-  <string name="menu_folders">Ordner</string>
   <string name="menu_setup">Einstellungen</string>
   <string name="menu_faq">FAQ</string>
   <string name="menu_about">About</string>
@@ -59,7 +58,6 @@
   <string name="title_no_password">Password missing</string>
   <string name="title_no_idle">IDLE wird nicht unterstützt</string>
   <string name="title_local_drafts">Lokale Entwürfe</string>
-  <string name="title_folder_unseen">%1$s (%2$d/%3$d)</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_after">Synchronisiere (Tage)</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
@@ -104,7 +102,7 @@
   <string name="title_to_missing">Empfänger fehlt</string>
   <string name="title_draft_trashed">Entwurf gelöscht</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
-  <string name="title_queued">Message queued</string>
+  <string name="title_queued">Sending message</string>
   <string name="title_item_edit_hint">Long press item to edit properties</string>
   <string name="title_debug_info">Debug info</string>
   <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
