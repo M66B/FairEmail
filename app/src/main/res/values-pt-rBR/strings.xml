@@ -58,6 +58,8 @@
   <string name="title_no_password">Senha faltante</string>
   <string name="title_no_idle">IDLE não suportado</string>
   <string name="title_local_drafts">Rascunhos locais</string>
+  <string name="title_account_delete">Delete this account permanently?</string>
+  <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
   <string name="title_after">Sincronizar (dias)</string>
   <string name="title_folder_unified">Caixa de entrada unificada</string>

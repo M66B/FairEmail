@@ -58,6 +58,8 @@
   <string name="title_no_password">Lipsește parola</string>
   <string name="title_no_idle">IDLE nu este suportat</string>
   <string name="title_local_drafts">Ciorne locale</string>
+  <string name="title_account_delete">Delete this account permanently?</string>
+  <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
   <string name="title_after">Sincronizare (zile)</string>
   <string name="title_folder_unified">Căsuță poștală comună</string>

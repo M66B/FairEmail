@@ -58,6 +58,8 @@
   <string name="title_no_password">Password missing</string>
   <string name="title_no_idle">IDLE wird nicht unterstützt</string>
   <string name="title_local_drafts">Lokale Entwürfe</string>
+  <string name="title_account_delete">Delete this account permanently?</string>
+  <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_after">Synchronisiere (Tage)</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
