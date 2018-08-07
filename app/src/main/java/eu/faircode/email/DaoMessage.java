@@ -31,29 +31,35 @@ import java.util.List;
 
 @Dao
 public interface DaoMessage {
+
+    // About 'dummy': "When the min() or max() aggregate functions are used in an aggregate query,
+    // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
+    // https://www.sqlite.org/lang_select.html
+
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
-            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) AS unseen" +
+            ", COUNT(message.id) as count" +
+            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            " FROM folder" +
-            " JOIN message ON folder = folder.id" +
-            " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
-            " AND (NOT ui_hide OR :debug)" +
-            " GROUP BY thread" +
-            " ORDER BY received DESC")
-        // in theory the message id and thread could be the same
+            ", MAX(CASE WHEN folder.type = '" + EntityFolder.TYPE_INBOX + "' THEN message.id ELSE 0 END) as dummy" +
+            " FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE (NOT message.ui_hide OR :debug)" +
+            " GROUP BY message.thread" +
+            " HAVING SUM(CASE WHEN folder.type = '" + EntityFolder.TYPE_INBOX + "' THEN 1 ELSE 0 END) > 0" +
+            " ORDER BY message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
-            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) AS unseen" +
+            ", COUNT(message.id) as count" +
+            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            " FROM folder" +
-            " JOIN message ON folder = folder.id" +
-            " WHERE folder.id = :folder" +
-            " AND (NOT ui_hide OR :debug)" +
-            " GROUP BY thread" +
-            " ORDER BY received DESC, sent DESC")
+            ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
+            " FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE (NOT message.ui_hide OR :debug)" +
+            " GROUP BY message.thread" +
+            " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
+            " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
@@ -62,10 +68,10 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
-            " WHERE message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
+            " WHERE (NOT message.ui_hide OR :debug)" +
+            " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
             " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
-            " AND (NOT ui_hide OR :debug)" +
-            " ORDER BY received DESC")
+            " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, boolean debug);
 
     @Query("SELECT * FROM message WHERE id = :id")
@@ -75,8 +81,8 @@ public interface DaoMessage {
     EntityMessage getMessage(long folder, long uid);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
+            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide AND NOT m.ui_seen) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
