@@ -114,7 +114,7 @@ public class FragmentSetup extends FragmentEx {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        String theme = prefs.getString("theme", "light");
+        String theme = prefs.getString("theme" , "light");
         boolean dark = "dark".equals(theme);
         cbDarkTheme.setTag(dark);
         cbDarkTheme.setChecked(dark);
@@ -124,16 +124,16 @@ public class FragmentSetup extends FragmentEx {
                 if (checked != (Boolean) button.getTag()) {
                     button.setTag(checked);
                     cbDarkTheme.setChecked(checked);
-                    prefs.edit().putString("theme", checked ? "dark" : "light").apply();
+                    prefs.edit().putString("theme" , checked ? "dark" : "light").apply();
                 }
             }
         });
 
-        cbDebug.setChecked(prefs.getBoolean("debug", false));
+        cbDebug.setChecked(prefs.getBoolean("debug" , false));
         cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("debug", checked).apply();
+                prefs.edit().putBoolean("debug" , checked).apply();
             }
         });
 

@@ -43,7 +43,7 @@ public class FragmentEula extends FragmentEx {
             @Override
             public void onClick(View view) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                prefs.edit().putBoolean("eula", true).apply();
+                prefs.edit().putBoolean("eula" , true).apply();
             }
         });
 

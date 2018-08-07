@@ -130,7 +130,7 @@ public abstract class DB extends RoomDatabase {
 
         @TypeConverter
         public static String toStringArray(String[] value) {
-            return TextUtils.join(",", value);
+            return TextUtils.join("," , value);
         }
     }
 }

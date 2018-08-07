@@ -33,10 +33,10 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 @Entity(
         tableName = EntityFolder.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE)
+                @ForeignKey(childColumns = "account" , entity = EntityAccount.class, parentColumns = "id" , onDelete = CASCADE)
         },
         indices = {
-                @Index(value = {"account", "name"}, unique = true),
+                @Index(value = {"account" , "name"}, unique = true),
                 @Index(value = {"account"}),
                 @Index(value = {"name"}),
                 @Index(value = {"type"})
@@ -55,10 +55,10 @@ public class EntityFolder {
     static final String TYPE_USER = "User";
 
     static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
-            "All",
-            "Drafts",
-            "Trash",
-            "Junk",
+            "All" ,
+            "Drafts" ,
+            "Trash" ,
+            "Junk" ,
             "Sent"
     );
     static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(

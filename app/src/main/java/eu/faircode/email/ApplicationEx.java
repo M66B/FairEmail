@@ -45,14 +45,14 @@ public class ApplicationEx extends Application {
                     db = DB.getBlockingInstance(ApplicationEx.this);
                     EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                     if (drafts != null) {
-                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+                        Address to = new InternetAddress("marcel+email@faircode.eu" , "FairCode");
 
                         EntityMessage draft = new EntityMessage();
                         draft.account = drafts.account;
                         draft.folder = drafts.id;
                         draft.to = MessageHelper.encodeAddresses(new Address[]{to});
                         draft.subject = BuildConfig.APPLICATION_ID + " crash info";
-                        draft.body = "<pre>" + ex.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                        draft.body = "<pre>" + ex.toString().replaceAll("\\r?\\n" , "<br />") + "</pre>";
                         draft.received = new Date().getTime();
                         draft.seen = false;
                         draft.ui_seen = false;

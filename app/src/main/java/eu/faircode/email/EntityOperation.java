@@ -39,7 +39,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 @Entity(
         tableName = EntityOperation.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
+                @ForeignKey(childColumns = "message" , entity = EntityMessage.class, parentColumns = "id" , onDelete = CASCADE)
         },
         indices = {
                 @Index(value = {"message"})
@@ -101,7 +101,7 @@ public class EntityOperation {
             intent.setType("account/" + message.account);
             intent.setAction(ServiceSynchronize.ACTION_PROCESS_FOLDER);
         }
-        intent.putExtra("folder", message.folder);
+        intent.putExtra("folder" , message.folder);
 
         synchronized (queue) {
             queue.add(intent);

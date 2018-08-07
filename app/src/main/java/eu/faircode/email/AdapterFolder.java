@@ -93,7 +93,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             int resid = context.getResources().getIdentifier(
                     "title_folder_" + folder.type.toLowerCase(),
-                    "string",
+                    "string" ,
                     context.getPackageName());
             tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
         }
@@ -108,7 +108,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                            .putExtra("folder", folder.id));
+                            .putExtra("folder" , folder.id));
         }
 
         @Override
@@ -122,7 +122,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                .putExtra("id", folder.id));
+                                .putExtra("id" , folder.id));
                 return true;
             }
 

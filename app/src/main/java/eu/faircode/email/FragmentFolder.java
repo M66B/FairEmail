@@ -73,9 +73,9 @@ public class FragmentFolder extends FragmentEx {
                 pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putString("after", etAfter.getText().toString());
+                args.putLong("id" , id);
+                args.putBoolean("synchronize" , cbSynchronize.isChecked());
+                args.putString("after" , etAfter.getText().toString());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_FOLDER_PUT, args, putLoaderCallbacks).forceLoad();
             }

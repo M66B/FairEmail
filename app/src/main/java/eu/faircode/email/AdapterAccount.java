@@ -77,7 +77,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
             tvName.setText(account.name);
             ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvHost.setText(String.format("%s:%d", account.host, account.port));
+            tvHost.setText(String.format("%s:%d" , account.host, account.port));
             tvUser.setText(account.user);
         }
 
@@ -91,7 +91,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
-                            .putExtra("id", account.id));
+                            .putExtra("id" , account.id));
         }
     }
 

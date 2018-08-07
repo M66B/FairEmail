@@ -79,7 +79,7 @@ public class FragmentIdentity extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id", -1));
+        final long id = (args == null ? -1 : args.getLong("id" , -1));
 
         // Get providers
         providers = Provider.loadProfiles(getContext());
@@ -158,17 +158,17 @@ public class FragmentIdentity extends FragmentEx {
                 pbCheck.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putString("name", etName.getText().toString());
-                args.putString("email", etEmail.getText().toString());
-                args.putString("replyto", etReplyTo.getText().toString());
-                args.putString("host", etHost.getText().toString());
-                args.putBoolean("starttls", cbStartTls.isChecked());
-                args.putString("port", etPort.getText().toString());
-                args.putString("user", etUser.getText().toString());
-                args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("primary", cbPrimary.isChecked());
+                args.putLong("id" , id);
+                args.putString("name" , etName.getText().toString());
+                args.putString("email" , etEmail.getText().toString());
+                args.putString("replyto" , etReplyTo.getText().toString());
+                args.putString("host" , etHost.getText().toString());
+                args.putBoolean("starttls" , cbStartTls.isChecked());
+                args.putString("port" , etPort.getText().toString());
+                args.putString("user" , etUser.getText().toString());
+                args.putString("password" , tilPassword.getEditText().getText().toString());
+                args.putBoolean("synchronize" , cbSynchronize.isChecked());
+                args.putBoolean("primary" , cbPrimary.isChecked());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_IDENTITY_PUT, args, putLoaderCallbacks).forceLoad();
             }

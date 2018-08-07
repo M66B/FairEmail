@@ -67,14 +67,14 @@ public class FragmentAbout extends FragmentEx {
                                 StringBuilder info = Helper.getDebugInfo();
                                 info.insert(0, getString(R.string.title_debug_info_remark) + "\n\n\n\n");
 
-                                Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+                                Address to = new InternetAddress("marcel+email@faircode.eu" , "FairCode");
 
                                 EntityMessage draft = new EntityMessage();
                                 draft.account = drafts.account;
                                 draft.folder = drafts.id;
                                 draft.to = MessageHelper.encodeAddresses(new Address[]{to});
                                 draft.subject = BuildConfig.APPLICATION_ID + " debug info";
-                                draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                                draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n" , "<br />") + "</pre>";
                                 draft.received = new Date().getTime();
                                 draft.seen = false;
                                 draft.ui_seen = false;
@@ -85,7 +85,7 @@ public class FragmentAbout extends FragmentEx {
                                 EntityOperation.process(getContext());
 
                                 startActivity(new Intent(getContext(), ActivityCompose.class)
-                                        .putExtra("id", draft.id));
+                                        .putExtra("id" , draft.id));
                             }
                         } catch (Throwable ex) {
                             Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));

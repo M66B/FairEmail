@@ -32,17 +32,17 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 @Entity(
         tableName = EntityMessage.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE),
-                @ForeignKey(childColumns = "folder", entity = EntityFolder.class, parentColumns = "id", onDelete = CASCADE),
-                @ForeignKey(childColumns = "identity", entity = EntityIdentity.class, parentColumns = "id", onDelete = CASCADE),
-                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
+                @ForeignKey(childColumns = "account" , entity = EntityAccount.class, parentColumns = "id" , onDelete = CASCADE),
+                @ForeignKey(childColumns = "folder" , entity = EntityFolder.class, parentColumns = "id" , onDelete = CASCADE),
+                @ForeignKey(childColumns = "identity" , entity = EntityIdentity.class, parentColumns = "id" , onDelete = CASCADE),
+                @ForeignKey(childColumns = "replying" , entity = EntityMessage.class, parentColumns = "id" , onDelete = CASCADE)
         },
         indices = {
                 @Index(value = {"account"}),
                 @Index(value = {"folder"}),
                 @Index(value = {"identity"}),
                 @Index(value = {"replying"}),
-                @Index(value = {"folder", "uid"}, unique = true),
+                @Index(value = {"folder" , "uid"}, unique = true),
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),

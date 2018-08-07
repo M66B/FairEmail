@@ -138,7 +138,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         if (EntityFolder.TYPE_DRAFTS.equals(message.folderType))
                             context.startActivity(
                                     new Intent(context, ActivityCompose.class)
-                                            .putExtra("id", message.id));
+                                            .putExtra("id" , message.id));
                         else {
                             boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
                             if (!outbox && !message.seen && !message.ui_seen) {
@@ -151,7 +151,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                            .putExtra("id", message.id));
+                                            .putExtra("id" , message.id));
                         }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -165,7 +165,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         super(DIFF_CALLBACK);
         this.context = context;
         this.viewType = viewType;
-        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
+        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug" , false);
     }
 
     public static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =

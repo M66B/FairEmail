@@ -77,7 +77,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             tvName.setText(identity.name);
             ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
+            tvHost.setText(String.format("%s:%d" , identity.host, identity.port));
             tvEmail.setText(identity.email);
         }
 
@@ -91,7 +91,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivitySetup.ACTION_EDIT_IDENTITY)
-                            .putExtra("id", identity.id));
+                            .putExtra("id" , identity.id));
         }
     }
 

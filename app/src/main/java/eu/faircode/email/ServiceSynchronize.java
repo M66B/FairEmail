@@ -114,9 +114,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     public ServiceSynchronize() {
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
-        System.setProperty("mail.mime.ignoreunknownencoding", "true");
-        System.setProperty("mail.mime.decodefilename", "true");
-        System.setProperty("mail.mime.encodefilename", "true");
+        System.setProperty("mail.mime.ignoreunknownencoding" , "true");
+        System.setProperty("mail.mime.decodefilename" , "true");
+        System.setProperty("mail.mime.encodefilename" , "true");
     }
 
     @Override
@@ -286,8 +286,8 @@ public class ServiceSynchronize extends LifecycleService {
             IMAPStore istore = null;
             try {
                 Properties props = MessageHelper.getSessionProperties();
-                props.put("mail.imaps.peek", "true");
-                props.setProperty("mail.mime.address.strict", "false");
+                props.put("mail.imaps.peek" , "true");
+                props.setProperty("mail.mime.address.strict" , "false");
                 //props.put("mail.imaps.minidletime", "5000");
                 Session isession = Session.getInstance(props, null);
                 // isession.setDebug(true);
@@ -392,7 +392,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 if (!EntityFolder.TYPE_OUTBOX.equals(folder.type))
                                     lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER)
                                             .setType("account/" + account.id)
-                                            .putExtra("folder", folder.id));
+                                            .putExtra("folder" , folder.id));
 
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -444,7 +444,7 @@ public class ServiceSynchronize extends LifecycleService {
                     BroadcastReceiver processReceiver = new BroadcastReceiver() {
                         @Override
                         public void onReceive(Context context, Intent intent) {
-                            final long fid = intent.getLongExtra("folder", -1);
+                            final long fid = intent.getLongExtra("folder" , -1);
 
                             IMAPFolder ifolder;
                             synchronized (mapFolder) {
@@ -798,7 +798,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Address[] to = imessage.getAllRecipients();
                                 itransport.sendMessage(imessage, to);
                                 Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                                        " to " + TextUtils.join(", ", to));
+                                        " to " + TextUtils.join(", " , to));
 
                                 msg.sent = new Date().getTime();
                                 msg.seen = true;
@@ -919,7 +919,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                 }
                 if (candidate) {
-                    Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join(",", attrs));
+                    Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join("," , attrs));
                     EntityFolder folder = dao.getFolderByName(account.id, ifolder.getFullName());
                     if (folder == null) {
                         folder = new EntityFolder();
@@ -1068,7 +1068,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.folder = folder.id;
                 message.uid = uid;
                 message.msgid = helper.getMessageID();
-                message.references = TextUtils.join(" ", helper.getReferences());
+                message.references = TextUtils.join(" " , helper.getReferences());
                 message.inreplyto = helper.getInReplyTo();
                 message.thread = helper.getThreadId(uid);
                 message.from = helper.getFrom();
@@ -1121,7 +1121,7 @@ public class ServiceSynchronize extends LifecycleService {
         ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
             public Object doCommand(IMAPProtocol p) throws ProtocolException {
                 Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
-                p.simpleCommand("NOOP", null);
+                p.simpleCommand("NOOP" , null);
                 Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
                 return null;
             }
@@ -1234,20 +1234,20 @@ public class ServiceSynchronize extends LifecycleService {
             NotificationManager nm = context.getSystemService(NotificationManager.class);
 
             NotificationChannel service = new NotificationChannel(
-                    "service",
+                    "service" ,
                     context.getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             nm.createNotificationChannel(service);
 
             NotificationChannel notification = new NotificationChannel(
-                    "notification",
+                    "notification" ,
                     context.getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_DEFAULT);
             nm.createNotificationChannel(notification);
 
             NotificationChannel error = new NotificationChannel(
-                    "error",
+                    "error" ,
                     context.getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
             nm.createNotificationChannel(error);

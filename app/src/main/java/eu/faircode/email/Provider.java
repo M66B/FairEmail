@@ -62,11 +62,11 @@ public class Provider {
                         provider.name = xml.getAttributeValue(null, "name");
                     } else if ("imap".equals(xml.getName())) {
                         provider.imap_host = xml.getAttributeValue(null, "host");
-                        provider.imap_port = xml.getAttributeIntValue(null, "port", 0);
+                        provider.imap_port = xml.getAttributeIntValue(null, "port" , 0);
                     } else if ("smtp".equals(xml.getName())) {
                         provider.smtp_host = xml.getAttributeValue(null, "host");
-                        provider.smtp_port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.smtp_port = xml.getAttributeIntValue(null, "port" , 0);
+                        provider.starttls = xml.getAttributeBooleanValue(null, "starttls" , false);
                     } else
                         throw new IllegalAccessException(xml.getName());
                 } else if (eventType == XmlPullParser.END_TAG) {

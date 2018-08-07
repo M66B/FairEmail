@@ -116,10 +116,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     final File dir = new File(context.getCacheDir(), "attachments");
                     final File file = new File(dir, TextUtils.isEmpty(attachment.name)
                             ? "attachment_" + attachment.id
-                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]", "_"));
+                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]" , "_"));
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
+                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email" , file);
 
                     // Build intent
                     final Intent intent = new Intent(Intent.ACTION_VIEW);
