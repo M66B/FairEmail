@@ -32,44 +32,39 @@ import java.util.List;
 @Dao
 public interface DaoMessage {
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
+            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM folder" +
             " JOIN message ON folder = folder.id" +
             " WHERE folder.type = '" + EntityFolder.TYPE_INBOX + "'" +
             " AND (NOT ui_hide OR :debug)" +
-            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
-            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)" +
-            " ORDER BY received DESC")
+            " GROUP BY thread" +
+            " ORDER BY message.received DESC")
         // in theory the message id and thread could be the same
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            " FROM folder" +
-            " JOIN message ON folder = folder.id" +
-            " WHERE folder.id = :folder" +
-            " AND (NOT ui_hide OR :debug)" +
-            " AND received IN (SELECT MAX(m.received) FROM message m WHERE m.folder = message.folder" +
-            " GROUP BY CASE WHEN m.thread IS NULL THEN m.id ELSE m.thread END)" +
-            " ORDER BY CASE WHEN folder.type IN " +
-            "('" + EntityFolder.TYPE_OUTBOX + "'" +
-            ", '" + EntityFolder.TYPE_DRAFTS + "'" +
-            ", '" + EntityFolder.TYPE_SENT + "')" +
-            " THEN sent ELSE received END DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
-
-    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread) AS count" +
-            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_seen) AS unseen" +
+            ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
+            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
-            " JOIN message m1 ON m1.id = :msgid AND m1.account = message.account AND m1.thread = message.thread" +
-            " WHERE NOT message.ui_hide OR :debug" +
+            " WHERE folder.id = :folder" +
+            " AND (NOT ui_hide OR :debug)" +
+            " GROUP BY thread" +
+            " ORDER BY received DESC, sent DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
+
+    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
+            ", 1 AS count" +
+            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
+            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            " FROM message" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
+            " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
+            " AND (NOT ui_hide OR :debug)" +
             " ORDER BY received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, boolean debug);
 

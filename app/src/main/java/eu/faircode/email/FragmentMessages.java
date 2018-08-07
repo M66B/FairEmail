@@ -52,6 +52,8 @@ public class FragmentMessages extends FragmentEx {
 
     private AdapterMessage adapter;
 
+    private static final int PAGE_SIZE = 100;
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -101,7 +103,7 @@ public class FragmentMessages extends FragmentEx {
         if (thread < 0)
             if (folder < 0) {
                 setSubtitle(R.string.title_folder_unified);
-                messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), 20).build();
+                messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), PAGE_SIZE).build();
             } else {
                 db.folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
                     @Override
@@ -109,11 +111,11 @@ public class FragmentMessages extends FragmentEx {
                         setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
                     }
                 });
-                messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), 20).build();
+                messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), PAGE_SIZE).build();
             }
         else {
             setSubtitle(R.string.title_folder_thread);
-            messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), 20).build();
+            messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), PAGE_SIZE).build();
         }
 
         messages.observe(this, new Observer<PagedList<TupleMessageEx>>() {

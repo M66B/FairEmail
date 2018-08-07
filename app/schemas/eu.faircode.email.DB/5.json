@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 5,
-    "identityHash": "f6603ac36cf520d5bfc2662bf7853c70",
+    "identityHash": "b14a2bd7371400904e10cb3dd32a5d98",
     "entities": [
       {
         "tableName": "identity",
@@ -86,7 +86,7 @@
       },
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `capabilities` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -134,12 +134,6 @@
             "fieldPath": "synchronize",
             "columnName": "synchronize",
             "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "capabilities",
-            "columnName": "capabilities",
-            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -456,6 +450,14 @@
               "ui_seen"
             ],
             "createSql": "CREATE  INDEX `index_message_ui_seen` ON `${TABLE_NAME}` (`ui_seen`)"
+          },
+          {
+            "name": "index_message_ui_hide",
+            "unique": false,
+            "columnNames": [
+              "ui_hide"
+            ],
+            "createSql": "CREATE  INDEX `index_message_ui_hide` ON `${TABLE_NAME}` (`ui_hide`)"
           }
         ],
         "foreignKeys": [
@@ -659,7 +661,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f6603ac36cf520d5bfc2662bf7853c70\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b14a2bd7371400904e10cb3dd32a5d98\")"
     ]
   }
 }
