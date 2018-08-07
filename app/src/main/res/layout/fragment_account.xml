@@ -196,6 +196,14 @@
             app:layout_constraintStart_toEndOf="@id/btnSave"
             app:layout_constraintTop_toTopOf="@id/btnSave" />
 
+        <ImageButton
+            android:id="@+id/ibDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@id/btnSave"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <android.support.constraint.Group
             android:id="@+id/grpReady"
             android:layout_width="0dp"

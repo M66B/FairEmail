@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.arch.lifecycle.Observer;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,6 +29,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +41,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -48,6 +51,8 @@ import com.sun.mail.imap.IMAPStore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.Folder;
 import javax.mail.MessagingException;
@@ -66,7 +71,10 @@ public class FragmentAccount extends FragmentEx {
     private CheckBox cbPrimary;
     private Button btnSave;
     private ProgressBar pbCheck;
+    private ImageButton ibDelete;
     // TODO: loading spinner
+
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     @Override
     @Nullable
@@ -94,6 +102,7 @@ public class FragmentAccount extends FragmentEx {
         cbPrimary = view.findViewById(R.id.cbPrimary);
         btnSave = view.findViewById(R.id.btnSave);
         pbCheck = view.findViewById(R.id.pbCheck);
+        ibDelete = view.findViewById(R.id.ibDelete);
 
         // Wire controls
 
@@ -144,9 +153,40 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        ibDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder
+                        .setMessage(R.string.title_account_delete)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                getFragmentManager().popBackStack();
+                                // TODO: spinner
+                                executor.submit(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            // To prevent foreign key constraints from triggering
+                                            ServiceSynchronize.stop(getContext(), "delete account");
+                                            DB.getInstance(getContext()).account().deleteAccount(id);
+                                            ServiceSynchronize.start(getContext());
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null).show();
+            }
+        });
+
         // Initialize
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         pbCheck.setVisibility(View.GONE);
+        ibDelete.setVisibility(id < 0 ? View.GONE : View.VISIBLE);
 
         // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(this, new Observer<EntityAccount>() {

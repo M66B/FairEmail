@@ -70,5 +70,8 @@ public interface DaoAccount {
 
     @Query("UPDATE account SET `primary` = 0")
     void resetPrimary();
+
+    @Query("DELETE FROM account WHERE id = :id")
+    void deleteAccount(long id);
 }
 

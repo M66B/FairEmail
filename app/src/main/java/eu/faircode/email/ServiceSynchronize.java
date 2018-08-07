@@ -1254,6 +1254,11 @@ public class ServiceSynchronize extends LifecycleService {
         ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
     }
 
+    public static void stop(Context context, String reason) {
+        Log.i(Helper.TAG, "Stop because of '" + reason + "'");
+        context.stopService(new Intent(context, ServiceSynchronize.class));
+    }
+
     public static void restart(Context context, String reason) {
         Log.i(Helper.TAG, "Restart because of '" + reason + "'");
         context.stopService(new Intent(context, ServiceSynchronize.class));

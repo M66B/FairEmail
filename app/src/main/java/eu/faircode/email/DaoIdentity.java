@@ -53,4 +53,7 @@ public interface DaoIdentity {
 
     @Query("UPDATE identity SET `primary` = 0")
     void resetPrimary();
+
+    @Query("DELETE FROM identity WHERE id = :id")
+    void deleteIdentity(long id);
 }
