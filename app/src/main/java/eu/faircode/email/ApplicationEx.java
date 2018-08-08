@@ -60,6 +60,8 @@ public class ApplicationEx extends Application {
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
 
+                        EntityOperation.queue(ApplicationEx.this, draft, EntityOperation.ADD);
+
                         Log.w(Helper.TAG, "Crash info stored as draft");
                     }
                 } catch (Throwable e1) {
