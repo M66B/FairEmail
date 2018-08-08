@@ -824,8 +824,15 @@ public class ServiceSynchronize extends LifecycleService {
                                 msg.sent = new Date().getTime();
                                 msg.seen = true;
                                 msg.ui_seen = true;
+
+                                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_SENT);
+                                if (sent != null) {
+                                    Log.i(Helper.TAG, "Moving to sent folder=" + sent.id);
+                                    msg.folder = sent.id;
+                                }
+
                                 message.updateMessage(msg);
-                                // TODO: purge sent messages
+
                             } finally {
                                 itransport.close();
                             }
