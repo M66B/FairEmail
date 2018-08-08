@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -70,6 +71,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
+    private boolean debug;
     private TextView tvTime;
     private TextView tvFrom;
     private TextView tvTo;
@@ -95,6 +97,8 @@ public class FragmentMessage extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message, container, false);
+
+        this.debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
 
         // Get arguments
         Bundle args = getArguments();
@@ -247,6 +251,10 @@ public class FragmentMessage extends FragmentEx {
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
                 } else {
+                    final boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
+                    final boolean outbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
+                    final boolean archive = EntityFolder.TYPE_ARCHIVE.equals(message.folderType);
+
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                     tvFrom.setText(message.from == null ? null : TextUtils.join(", ", message.from));
@@ -256,6 +264,7 @@ public class FragmentMessage extends FragmentEx {
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
                     tvCount.setText(Integer.toString(message.count));
+                    tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
 
                     int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
                     tvFrom.setTypeface(null, typeface);
@@ -279,6 +288,9 @@ public class FragmentMessage extends FragmentEx {
                             });
 
                     top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
+                    top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!outbox);
+                    top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!outbox);
+                    top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen
@@ -311,13 +323,11 @@ public class FragmentMessage extends FragmentEx {
                                     hasUser = true;
                             }
 
-                            final boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
-                            final boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
-
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
                             bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
-                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && hasArchive);
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && !archive && hasArchive);
+                            bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!outbox);
                             bottom_navigation.setVisibility(View.VISIBLE);
                         }
                     });
