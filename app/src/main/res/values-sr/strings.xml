@@ -93,6 +93,7 @@
   <string name="title_thread">Thread</string>
   <string name="title_seen">Read</string>
   <string name="title_unseen">Unread</string>
+  <string name="title_edit">Edit</string>
   <string name="title_forward">Forward</string>
   <string name="title_reply_all">Reply to all</string>
   <string name="title_trash">Trash</string>

@@ -90,6 +90,7 @@
   <string name="title_thread">Verlauf</string>
   <string name="title_seen">Gelesen</string>
   <string name="title_unseen">Ungelesen</string>
+  <string name="title_edit">Edit</string>
   <string name="title_forward">Weiterleiten</string>
   <string name="title_reply_all">Antworten an alle</string>
   <string name="title_trash">Papierkorb</string>
