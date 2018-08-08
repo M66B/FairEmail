@@ -45,7 +45,7 @@ public interface DaoFolder {
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE folder.account = :account" +
+            " WHERE folder.account = :account OR folder.account IS NULL" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(long account);
 
@@ -71,13 +71,11 @@ public interface DaoFolder {
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
 
+    @Query("SELECT * FROM folder WHERE account IS NULL AND type = '" + EntityFolder.TYPE_DRAFTS + "'")
+    EntityFolder getLocalDrafts();
+
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.TYPE_OUTBOX + "'")
     EntityFolder getOutbox();
-
-    @Query("SELECT folder.* FROM folder" +
-            " JOIN account ON account.id = folder.account" +
-            " WHERE account.`primary` AND type = :type ")
-    EntityFolder getPrimaryFolder(String type);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertFolder(EntityFolder folder);

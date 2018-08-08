@@ -68,9 +68,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivSync = itemView.findViewById(R.id.ivSync);
         }
 
-        private void wire() {
+        private void wire(boolean properties) {
             itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+            if (properties)
+                itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
@@ -249,7 +250,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TupleFolderEx folder = filtered.get(position);
         holder.bindTo(folder);
 
-
-        holder.wire();
+        holder.wire(folder.account != null);
     }
 }

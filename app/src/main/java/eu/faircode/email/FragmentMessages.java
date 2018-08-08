@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -37,9 +36,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -95,7 +91,6 @@ public class FragmentMessages extends FragmentEx {
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        fab.setVisibility(View.GONE);
 
         return view;
     }
@@ -150,45 +145,5 @@ public class FragmentMessages extends FragmentEx {
                 }
             }
         });
-
-        LoaderManager.getInstance(this)
-                .restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
     }
-
-    private static class InitLoader extends AsyncTaskLoader<Bundle> {
-        InitLoader(@NonNull Context context) {
-            super(context);
-        }
-
-        @Nullable
-        @Override
-        public Bundle loadInBackground() {
-            Bundle result = new Bundle();
-            try {
-                EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
-                result.putBoolean("drafts", drafts != null);
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                result.putBoolean("drafts", false);
-            }
-            return result;
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks initLoaderCallbacks = new LoaderManager.LoaderCallbacks<Bundle>() {
-        @NonNull
-        @Override
-        public Loader<Bundle> onCreateLoader(int id, @Nullable Bundle args) {
-            return new InitLoader(getContext());
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle data) {
-            fab.setVisibility(data.getBoolean("drafts", false) ? View.VISIBLE : View.GONE);
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Bundle> loader) {
-        }
-    };
 }

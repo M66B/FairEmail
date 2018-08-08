@@ -61,7 +61,7 @@ public class FragmentAbout extends FragmentEx {
                     public void run() {
                         try {
                             DB db = DB.getInstance(getContext());
-                            EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
+                            EntityFolder drafts = db.folder().getLocalDrafts();
                             if (drafts != null) {
                                 StringBuilder info = Helper.getDebugInfo();
                                 info.insert(0, getString(R.string.title_debug_info_remark) + "\n\n\n\n");

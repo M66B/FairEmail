@@ -324,16 +324,15 @@ public class FragmentAccount extends FragmentEx {
                                     drafts = true;
                             }
                         }
-/*
+
                         if (!drafts) {
                             EntityFolder folder = new EntityFolder();
-                            folder.name = getContext().getString(R.string.title_local_drafts);
+                            folder.name = getContext().getString(R.string.title_folder_local_drafts);
                             folder.type = EntityFolder.TYPE_DRAFTS;
                             folder.synchronize = false;
                             folder.after = 0;
                             folders.add(folder);
                         }
-*/
                     } finally {
                         if (istore != null)
                             istore.close();

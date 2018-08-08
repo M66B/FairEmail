@@ -51,7 +51,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.Address;
-import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -515,9 +514,20 @@ public class FragmentCompose extends FragmentEx {
                 // Get data
                 EntityMessage draft = message.getMessage(id);
                 EntityIdentity ident = identity.getIdentity(args.getLong("iid"));
-                EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
+                if (ident == null)
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_from_missing));
+
+                EntityFolder drafts = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_DRAFTS);
                 if (drafts == null)
-                    throw new Throwable(getContext().getString(R.string.title_no_primary_drafts));
+                    drafts = db.folder().getLocalDrafts();
+                if (drafts == null) {
+                    drafts = new EntityFolder();
+                    drafts.name = getContext().getString(R.string.title_folder_local_drafts);
+                    drafts.type = EntityFolder.TYPE_DRAFTS;
+                    drafts.synchronize = false;
+                    drafts.after = 0;
+                    db.folder().insertFolder(drafts);
+                }
 
                 long rid = args.getLong("rid", -1);
                 String thread = args.getString("thread");
@@ -563,10 +573,8 @@ public class FragmentCompose extends FragmentEx {
                     db.beginTransaction();
 
                     if ("send".equals(action)) {
-                        if (draft.identity == null)
-                            throw new MessagingException(getContext().getString(R.string.title_from_missing));
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
-                            throw new MessagingException(getContext().getString(R.string.title_to_missing));
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_to_missing));
 
                         EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
 
@@ -583,7 +591,7 @@ public class FragmentCompose extends FragmentEx {
                     else if ("trash".equals(action)) {
                         EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
 
-                        EntityFolder trash = db.folder().getPrimaryFolder(EntityFolder.TYPE_TRASH);
+                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_TRASH);
                         if (trash != null) {
                             draft.id = null;
                             draft.folder = trash.id;
