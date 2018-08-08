@@ -80,6 +80,13 @@ public class FragmentAccounts extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         // Observe accounts
         DB.getInstance(getContext()).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
@@ -90,7 +97,5 @@ public class FragmentAccounts extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
-
-        return view;
     }
 }

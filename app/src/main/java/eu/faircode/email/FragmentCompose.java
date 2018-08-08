@@ -93,7 +93,7 @@ public class FragmentCompose extends FragmentEx {
         // Get arguments
         Bundle args = getArguments();
         String action = (args == null ? null : args.getString("action"));
-        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id" , -1)) : -1);
+        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id", -1)) : -1);
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
@@ -117,7 +117,7 @@ public class FragmentCompose extends FragmentEx {
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
-                args.putLong("id" , -1);
+                args.putLong("id", -1);
 
                 FragmentIdentity fragment = new FragmentIdentity();
                 fragment.setArguments(args);
@@ -181,7 +181,12 @@ public class FragmentCompose extends FragmentEx {
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
-        final Handler handler = new Handler();
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(FragmentCompose.this, new Observer<List<EntityIdentity>>() {
             @Override
@@ -207,19 +212,10 @@ public class FragmentCompose extends FragmentEx {
                 spFrom.setVisibility(View.VISIBLE);
                 ivIdentityAdd.setVisibility(View.VISIBLE);
 
-                // For some reason this is needed to make sure the loader starts
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Get might select another identity
-                        getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
-                    }
-                });
+                // Get might select another identity
+                getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
             }
         });
-
-
-        return view;
     }
 
     @Override
@@ -298,16 +294,16 @@ public class FragmentCompose extends FragmentEx {
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
         Bundle args = new Bundle();
-        args.putLong("id" , id);
-        args.putLong("iid" , identity == null ? -1 : identity.id);
-        args.putString("thread" , FragmentCompose.this.thread);
-        args.putLong("rid" , FragmentCompose.this.rid);
-        args.putString("to" , etTo.getText().toString());
-        args.putString("cc" , etCc.getText().toString());
-        args.putString("bcc" , etBcc.getText().toString());
-        args.putString("subject" , etSubject.getText().toString());
-        args.putString("body" , etBody.getText().toString());
-        args.putString("action" , action);
+        args.putLong("id", id);
+        args.putLong("iid", identity == null ? -1 : identity.id);
+        args.putString("thread", FragmentCompose.this.thread);
+        args.putLong("rid", FragmentCompose.this.rid);
+        args.putString("to", etTo.getText().toString());
+        args.putString("cc", etCc.getText().toString());
+        args.putString("bcc", etBcc.getText().toString());
+        args.putString("subject", etSubject.getText().toString());
+        args.putString("body", etBody.getText().toString());
+        args.putString("action", action);
 
         getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
     }
@@ -329,35 +325,35 @@ public class FragmentCompose extends FragmentEx {
             Bundle result = new Bundle();
             try {
                 String action = args.getString("action");
-                long id = args.getLong("id" , -1);
+                long id = args.getLong("id", -1);
                 EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
 
-                result.putString("action" , action);
+                result.putString("action", action);
 
                 if (msg != null) {
                     if (msg.identity != null)
-                        result.putLong("iid" , msg.identity);
+                        result.putLong("iid", msg.identity);
                     if (msg.replying != null)
-                        result.putLong("rid" , msg.replying);
-                    result.putSerializable("cc" , msg.cc);
-                    result.putSerializable("bcc" , msg.bcc);
-                    result.putString("thread" , msg.thread);
-                    result.putString("subject" , msg.subject);
-                    result.putString("body" , msg.body);
+                        result.putLong("rid", msg.replying);
+                    result.putSerializable("cc", msg.cc);
+                    result.putSerializable("bcc", msg.bcc);
+                    result.putString("thread", msg.thread);
+                    result.putString("subject", msg.subject);
+                    result.putString("body", msg.body);
                 }
 
                 if (TextUtils.isEmpty(action)) {
                     if (msg != null) {
-                        result.putSerializable("from" , msg.from);
-                        result.putSerializable("to" , msg.to);
+                        result.putSerializable("from", msg.from);
+                        result.putSerializable("to", msg.to);
                     }
                 } else if ("reply".equals(action)) {
                     Address[] to = null;
                     if (msg != null)
                         to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
-                    result.putLong("rid" , msg.id);
-                    result.putSerializable("from" , msg.to);
-                    result.putSerializable("to" , to);
+                    result.putLong("rid", msg.id);
+                    result.putSerializable("from", msg.to);
+                    result.putSerializable("to", to);
                 } else if ("reply_all".equals(action)) {
                     Address[] to = null;
                     if (msg != null) {
@@ -370,15 +366,15 @@ public class FragmentCompose extends FragmentEx {
                             addresses.addAll(Arrays.asList(msg.cc));
                         to = addresses.toArray(new Address[0]);
                     }
-                    result.putLong("rid" , msg.id);
-                    result.putSerializable("from" , msg.to);
-                    result.putSerializable("to" , to);
+                    result.putLong("rid", msg.id);
+                    result.putSerializable("from", msg.to);
+                    result.putSerializable("to", to);
                 } else if ("forward".equals(action)) {
                     Address[] to = null;
                     if (msg != null)
                         to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
-                    result.putSerializable("from" , msg.to);
-                    result.putSerializable("to" , to);
+                    result.putSerializable("from", msg.to);
+                    result.putSerializable("to", to);
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -400,8 +396,8 @@ public class FragmentCompose extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle result) {
             getLoaderManager().destroyLoader(loader.getId());
 
-            long iid = result.getLong("iid" , -1);
-            long rid = result.getLong("rid" , -1);
+            long iid = result.getLong("iid", -1);
+            long rid = result.getLong("rid", -1);
             String thread = result.getString("thread");
             Address[] from = (Address[]) result.getSerializable("from");
             Address[] to = (Address[]) result.getSerializable("to");
@@ -437,11 +433,11 @@ public class FragmentCompose extends FragmentEx {
 
                 Handler handler = new Handler();
 
-                etCc.setText(cc == null ? null : TextUtils.join(", " , cc));
-                etBcc.setText(bcc == null ? null : TextUtils.join(", " , bcc));
+                etCc.setText(cc == null ? null : TextUtils.join(", ", cc));
+                etBcc.setText(bcc == null ? null : TextUtils.join(", ", bcc));
 
                 if (action == null) {
-                    etTo.setText(to == null ? null : TextUtils.join(", " , to));
+                    etTo.setText(to == null ? null : TextUtils.join(", ", to));
                     etSubject.setText(subject);
                     if (body != null)
                         etBody.setText(Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false)));
@@ -452,10 +448,10 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
                 } else if ("reply".equals(action) || "reply_all".equals(action)) {
-                    etTo.setText(to == null ? null : TextUtils.join(", " , to));
-                    String text = String.format("<br><br>%s %s:<br><br>%s" ,
+                    etTo.setText(to == null ? null : TextUtils.join(", ", to));
+                    String text = String.format("<br><br>%s %s:<br><br>%s",
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(to == null ? "" : TextUtils.join(", " , to)),
+                            Html.escapeHtml(to == null ? "" : TextUtils.join(", ", to)),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_reply, subject));
                     etBody.setText(Html.fromHtml(text));
@@ -466,9 +462,9 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
                 } else if ("forward".equals(action)) {
-                    String text = String.format("<br><br>%s %s:<br><br>%s" ,
+                    String text = String.format("<br><br>%s %s:<br><br>%s",
                             Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(to == null ? "" : TextUtils.join(", " , to)),
+                            Html.escapeHtml(to == null ? "" : TextUtils.join(", ", to)),
                             HtmlHelper.sanitize(getContext(), body, true));
                     etSubject.setText(getContext().getString(R.string.title_subject_forward, subject));
                     etBody.setText(Html.fromHtml(text));
@@ -519,7 +515,7 @@ public class FragmentCompose extends FragmentEx {
                 if (drafts == null)
                     throw new Throwable(getContext().getString(R.string.title_no_primary_drafts));
 
-                long rid = args.getLong("rid" , -1);
+                long rid = args.getLong("rid", -1);
                 String thread = args.getString("thread");
                 String to = args.getString("to");
                 String cc = args.getString("cc");
@@ -546,7 +542,7 @@ public class FragmentCompose extends FragmentEx {
                 draft.cc = acc;
                 draft.bcc = abcc;
                 draft.subject = subject;
-                draft.body = "<pre>" + body.replaceAll("\\r?\\n" , "<br />") + "</pre>";
+                draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;

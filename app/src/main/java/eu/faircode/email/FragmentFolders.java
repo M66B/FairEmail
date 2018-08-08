@@ -48,10 +48,6 @@ public class FragmentFolders extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
 
-        // Get arguments
-        Bundle args = getArguments();
-        long account = (args == null ? -1 : args.getLong("account"));
-
         // Get controls
         rvFolder = view.findViewById(R.id.rvFolder);
         pbWait = view.findViewById(R.id.pbWait);
@@ -78,6 +74,17 @@ public class FragmentFolders extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        long account = (args == null ? -1 : args.getLong("account"));
+
         DB db = DB.getInstance(getContext());
 
         // Observe account
@@ -100,8 +107,7 @@ public class FragmentFolders extends FragmentEx {
         });
 
         // Show hint
+        // TODO: find better solution
         Toast.makeText(getContext(), R.string.title_item_edit_hint, Toast.LENGTH_SHORT).show();
-
-        return view;
     }
 }

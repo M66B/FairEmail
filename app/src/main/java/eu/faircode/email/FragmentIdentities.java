@@ -80,6 +80,13 @@ public class FragmentIdentities extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         // Observe identities
         DB.getInstance(getContext()).identity().liveIdentities().observe(this, new Observer<List<EntityIdentity>>() {
             @Override
@@ -90,7 +97,5 @@ public class FragmentIdentities extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
-
-        return view;
     }
 }

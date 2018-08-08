@@ -188,6 +188,17 @@ public class FragmentAccount extends FragmentEx {
         pbCheck.setVisibility(View.GONE);
         ibDelete.setVisibility(id < 0 ? View.GONE : View.VISIBLE);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        long id = (args == null ? -1 : args.getLong("id", -1));
+
         // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(this, new Observer<EntityAccount>() {
             @Override
@@ -202,8 +213,6 @@ public class FragmentAccount extends FragmentEx {
                 cbPrimary.setEnabled(account == null ? true : account.synchronize);
             }
         });
-
-        return view;
     }
 
     private static class PutLoader extends AsyncTaskLoader<Throwable> {

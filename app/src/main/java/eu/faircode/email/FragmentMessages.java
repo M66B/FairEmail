@@ -61,8 +61,7 @@ public class FragmentMessages extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        long folder = (args == null ? -1 : args.getLong("folder" , -1));
-        long thread = (args == null ? -1 : args.getLong("thread" , -1)); // message ID
+        long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
         // Get controls
         rvMessage = view.findViewById(R.id.rvFolder);
@@ -96,10 +95,22 @@ public class FragmentMessages extends FragmentEx {
         pbWait.setVisibility(View.VISIBLE);
         fab.setVisibility(View.GONE);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        long folder = (args == null ? -1 : args.getLong("folder", -1));
+        long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
+
         // Observe folder/messages
         DB db = DB.getInstance(getContext());
         LiveData<PagedList<TupleMessageEx>> messages;
-        boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug" , false);
+        boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
         if (thread < 0)
             if (folder < 0) {
                 setSubtitle(R.string.title_folder_unified);
@@ -118,9 +129,11 @@ public class FragmentMessages extends FragmentEx {
             messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), PAGE_SIZE).build();
         }
 
+        Log.i(Helper.TAG, "Observing messages");
         messages.observe(this, new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
 
                 pbWait.setVisibility(View.GONE);
@@ -137,8 +150,6 @@ public class FragmentMessages extends FragmentEx {
         });
 
         getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
-
-        return view;
     }
 
     private static class InitLoader extends AsyncTaskLoader<Bundle> {
@@ -152,10 +163,10 @@ public class FragmentMessages extends FragmentEx {
             Bundle result = new Bundle();
             try {
                 EntityFolder drafts = DB.getInstance(getContext()).folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
-                result.putBoolean("drafts" , drafts != null);
+                result.putBoolean("drafts", drafts != null);
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                result.putBoolean("drafts" , false);
+                result.putBoolean("drafts", false);
             }
             return result;
         }
@@ -170,7 +181,7 @@ public class FragmentMessages extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle data) {
-            fab.setVisibility(data.getBoolean("drafts" , false) ? View.VISIBLE : View.GONE);
+            fab.setVisibility(data.getBoolean("drafts", false) ? View.VISIBLE : View.GONE);
         }
 
         @Override

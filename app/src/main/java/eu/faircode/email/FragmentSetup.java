@@ -114,7 +114,7 @@ public class FragmentSetup extends FragmentEx {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        String theme = prefs.getString("theme" , "light");
+        String theme = prefs.getString("theme", "light");
         boolean dark = "dark".equals(theme);
         cbDarkTheme.setTag(dark);
         cbDarkTheme.setChecked(dark);
@@ -124,16 +124,16 @@ public class FragmentSetup extends FragmentEx {
                 if (checked != (Boolean) button.getTag()) {
                     button.setTag(checked);
                     cbDarkTheme.setChecked(checked);
-                    prefs.edit().putString("theme" , checked ? "dark" : "light").apply();
+                    prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                 }
             }
         });
 
-        cbDebug.setChecked(prefs.getBoolean("debug" , false));
+        cbDebug.setChecked(prefs.getBoolean("debug", false));
         cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("debug" , checked).apply();
+                prefs.edit().putBoolean("debug", checked).apply();
             }
         });
 
@@ -145,7 +145,37 @@ public class FragmentSetup extends FragmentEx {
         tvIdentityDone.setVisibility(View.INVISIBLE);
         tvPermissionsDone.setVisibility(View.INVISIBLE);
 
-        final DB db = DB.getInstance(getContext());
+        int[] grantResults = new int[permissions.length];
+        for (int i = 0; i < permissions.length; i++)
+            grantResults[i] = ContextCompat.checkSelfPermission(getActivity(), permissions[i]);
+
+        onRequestPermissionsResult(0, permissions, grantResults);
+
+        // Create outbox
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                DB db = DB.getInstance(getContext());
+                EntityFolder outbox = db.folder().getOutbox();
+                if (outbox == null) {
+                    outbox = new EntityFolder();
+                    outbox.name = "OUTBOX";
+                    outbox.type = EntityFolder.TYPE_OUTBOX;
+                    outbox.synchronize = false;
+                    outbox.after = 0;
+                    outbox.id = db.folder().insertFolder(outbox);
+                }
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        DB db = DB.getInstance(getContext());
 
         db.account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
             @Override
@@ -160,30 +190,6 @@ public class FragmentSetup extends FragmentEx {
                 tvIdentityDone.setVisibility(identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
-
-        int[] grantResults = new int[permissions.length];
-        for (int i = 0; i < permissions.length; i++)
-            grantResults[i] = ContextCompat.checkSelfPermission(getActivity(), permissions[i]);
-
-        onRequestPermissionsResult(0, permissions, grantResults);
-
-        // Create outbox
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                EntityFolder outbox = db.folder().getOutbox();
-                if (outbox == null) {
-                    outbox = new EntityFolder();
-                    outbox.name = "OUTBOX";
-                    outbox.type = EntityFolder.TYPE_OUTBOX;
-                    outbox.synchronize = false;
-                    outbox.after = 0;
-                    outbox.id = db.folder().insertFolder(outbox);
-                }
-            }
-        });
-
-        return view;
     }
 
     @Override

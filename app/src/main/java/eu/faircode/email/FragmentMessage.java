@@ -222,6 +222,17 @@ public class FragmentMessage extends FragmentEx {
         adapter = new AdapterAttachment(getContext());
         rvAttachment.setAdapter(adapter);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        final long id = (args == null ? -1 : args.getLong("id"));
+
         final DB db = DB.getInstance(getContext());
 
         // Observe message
@@ -254,8 +265,8 @@ public class FragmentMessage extends FragmentEx {
                     tvFrom.setTextColor(colorUnseen);
                     tvTime.setTextColor(colorUnseen);
 
-                    DB.getInstance(getContext()).attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
-                    DB.getInstance(getContext()).attachment().liveAttachments(id).observe(FragmentMessage.this,
+                    db.attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
+                    db.attachment().liveAttachments(id).observe(FragmentMessage.this,
                             new Observer<List<TupleAttachment>>() {
                                 @Override
                                 public void onChanged(@Nullable List<TupleAttachment> attachments) {
@@ -313,8 +324,6 @@ public class FragmentMessage extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
-
-        return view;
     }
 
     @Override

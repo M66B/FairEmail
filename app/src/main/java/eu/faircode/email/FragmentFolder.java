@@ -73,9 +73,9 @@ public class FragmentFolder extends FragmentEx {
                 pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
-                args.putLong("id" , id);
-                args.putBoolean("synchronize" , cbSynchronize.isChecked());
-                args.putString("after" , etAfter.getText().toString());
+                args.putLong("id", id);
+                args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putString("after", etAfter.getText().toString());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_FOLDER_PUT, args, putLoaderCallbacks).forceLoad();
             }
@@ -85,6 +85,18 @@ public class FragmentFolder extends FragmentEx {
         pbSave.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        long id = (args == null ? -1 : args.getLong("id"));
 
         // Observe
         DB.getInstance(getContext()).folder().liveFolder(id).observe(this, new Observer<EntityFolder>() {
@@ -99,8 +111,6 @@ public class FragmentFolder extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
-
-        return view;
     }
 
     private static class PutLoader extends AsyncTaskLoader<Throwable> {
