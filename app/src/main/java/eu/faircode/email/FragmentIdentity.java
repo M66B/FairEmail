@@ -130,6 +130,21 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
+                if (account.id >= 0 && TextUtils.isEmpty(tilPassword.getEditText().getText().toString())) {
+                    tilPassword.getEditText().setText(account.password);
+                    tilPassword.setPasswordVisibilityToggleEnabled(false);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
         spProfile.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
