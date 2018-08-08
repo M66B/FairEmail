@@ -44,6 +44,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
+        version = 7,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -51,9 +52,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
                 EntityMessage.class,
                 EntityAttachment.class,
                 EntityOperation.class
-        },
-        version = 6,
-        exportSchema = true
+        }
 )
 
 @TypeConverters({DB.Converters.class})
@@ -86,11 +85,19 @@ public abstract class DB extends RoomDatabase {
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
         return builder
+                .addCallback(new Callback() {
+                    @Override
+                    public void onOpen(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "Database version=" + db.getVersion());
+                        super.onOpen(db);
+                    }
+                })
                 .addMigrations(MIGRATION_1_2)
                 .addMigrations(MIGRATION_2_3)
                 .addMigrations(MIGRATION_3_4)
                 .addMigrations(MIGRATION_4_5)
                 .addMigrations(MIGRATION_5_6)
+                .addMigrations(MIGRATION_6_7)
                 .build();
     }
 
@@ -139,6 +146,29 @@ public abstract class DB extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase db) {
             Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
             db.execSQL("ALTER TABLE `account` ADD COLUMN `seen_until` INTEGER");
+        }
+    };
+
+    private static final Migration MIGRATION_6_7 = new Migration(6, 7) {
+        @Override
+        public void migrate(SupportSQLiteDatabase db) {
+            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+            db.execSQL("DROP TABLE `identity`");
+            db.execSQL("CREATE TABLE `identity`" +
+                    " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                    ", `name` TEXT NOT NULL" +
+                    ", `email` TEXT NOT NULL" +
+                    ", `replyto` TEXT" +
+                    ", `account` INTEGER NOT NULL" +
+                    ", `host` TEXT NOT NULL" +
+                    ", `port` INTEGER NOT NULL" +
+                    ", `starttls` INTEGER NOT NULL" +
+                    ", `user` TEXT NOT NULL" +
+                    ", `password` TEXT NOT NULL" +
+                    ", `primary` INTEGER NOT NULL" +
+                    ", `synchronize` INTEGER NOT NULL" +
+                    ", FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
+            db.execSQL("CREATE INDEX `index_identity_account` ON `identity` (`account`)");
         }
     };
 

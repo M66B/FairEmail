@@ -62,4 +62,9 @@ public class EntityAccount {
         } else
             return false;
     }
+
+    @Override
+    public String toString() {
+        return name + (primary ? " ★" : "");
+    }
 }

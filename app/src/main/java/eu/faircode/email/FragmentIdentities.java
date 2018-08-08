@@ -90,9 +90,9 @@ public class FragmentIdentities extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         // Observe identities
-        DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+        DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
-            public void onChanged(@Nullable List<EntityIdentity> identities) {
+            public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 adapter.set(identities);
 
                 pbWait.setVisibility(View.GONE);

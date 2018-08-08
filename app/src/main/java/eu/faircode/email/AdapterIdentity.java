@@ -44,15 +44,15 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHolder> {
     private Context context;
 
-    private List<EntityIdentity> all = new ArrayList<>();
-    private List<EntityIdentity> filtered = new ArrayList<>();
+    private List<TupleIdentityEx> all = new ArrayList<>();
+    private List<TupleIdentityEx> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         ImageView ivPrimary;
         TextView tvName;
         ImageView ivSync;
-        TextView tvHost;
+        TextView tvAccount;
         TextView tvEmail;
 
         ViewHolder(View itemView) {
@@ -62,7 +62,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
-            tvHost = itemView.findViewById(R.id.tvHost);
+            tvAccount = itemView.findViewById(R.id.tvAccount);
             tvEmail = itemView.findViewById(R.id.tvEmail);
         }
 
@@ -74,12 +74,12 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             itemView.setOnClickListener(null);
         }
 
-        private void bindTo(EntityIdentity identity) {
+        private void bindTo(TupleIdentityEx identity) {
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             tvName.setText(identity.name);
             ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
-            tvEmail.setText(identity.email);
+            tvAccount.setText(identity.accountName);
+            tvEmail.setText(String.format("%s@%s:%d", identity.email, identity.host, identity.port));
         }
 
         @Override
@@ -87,7 +87,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            EntityIdentity identity = filtered.get(pos);
+            TupleIdentityEx identity = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -101,15 +101,15 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityIdentity> identities) {
+    public void set(@NonNull List<TupleIdentityEx> identities) {
         Log.i(Helper.TAG, "Set identities=" + identities.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(identities, new Comparator<EntityIdentity>() {
+        Collections.sort(identities, new Comparator<TupleIdentityEx>() {
             @Override
-            public int compare(EntityIdentity i1, EntityIdentity i2) {
+            public int compare(TupleIdentityEx i1, TupleIdentityEx i2) {
                 return collator.compare(i1.host, i2.host);
             }
         });
@@ -147,10 +147,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<EntityIdentity> prev;
-        private List<EntityIdentity> next;
+        private List<TupleIdentityEx> prev;
+        private List<TupleIdentityEx> next;
 
-        MessageDiffCallback(List<EntityIdentity> prev, List<EntityIdentity> next) {
+        MessageDiffCallback(List<TupleIdentityEx> prev, List<TupleIdentityEx> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -167,15 +167,15 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityIdentity i1 = prev.get(oldItemPosition);
-            EntityIdentity i2 = next.get(newItemPosition);
+            TupleIdentityEx i1 = prev.get(oldItemPosition);
+            TupleIdentityEx i2 = next.get(newItemPosition);
             return i1.id.equals(i2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityIdentity i1 = prev.get(oldItemPosition);
-            EntityIdentity i2 = next.get(newItemPosition);
+            TupleIdentityEx i1 = prev.get(oldItemPosition);
+            TupleIdentityEx i2 = next.get(newItemPosition);
             return i1.equals(i2);
         }
     }
@@ -200,7 +200,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityIdentity identity = filtered.get(position);
+        TupleIdentityEx identity = filtered.get(position);
         holder.bindTo(identity);
 
         holder.wire();

@@ -43,6 +43,7 @@
     <string name="title_email">Your email address</string>
     <string name="title_reply_to">Reply to address</string>
     <string name="title_optional">Optional</string>
+    <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_imap">IMAP</string>
@@ -58,8 +59,9 @@
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (used to store drafts)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
-    <string name="title_no_name">Name mandatory</string>
-    <string name="title_no_email">Email address mandatory</string>
+    <string name="title_no_name">Name missing</string>
+    <string name="title_no_email">Email address missing</string>
+    <string name="title_no_account">Account missing</string>
     <string name="title_no_host">Host name missing</string>
     <string name="title_no_port">Port number missing</string>
     <string name="title_no_user">User name missing</string>

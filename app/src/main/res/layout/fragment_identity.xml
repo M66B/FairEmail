@@ -75,6 +75,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
+
+        <!--- linked account -->
+
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_account_linked"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+
+        <Spinner
+            android:id="@+id/spAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+
         <!--- provider -->
 
         <TextView
@@ -85,7 +105,7 @@
             android:text="@string/title_provider"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+            app:layout_constraintTop_toBottomOf="@id/spAccount" />
 
         <Spinner
             android:id="@+id/spProvider"

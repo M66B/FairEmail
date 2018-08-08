@@ -21,11 +21,19 @@ package eu.faircode.email;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityIdentity.TABLE_NAME,
+        foreignKeys = {
+                @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE)
+        },
         indices = {
+                @Index(value = {"account"})
         }
 )
 public class EntityIdentity {
@@ -38,6 +46,8 @@ public class EntityIdentity {
     @NonNull
     public String email;
     public String replyto;
+    @NonNull
+    public Long account;
     @NonNull
     public String host; // SMTP
     @NonNull
@@ -60,6 +70,7 @@ public class EntityIdentity {
             return (this.name.equals(other.name) &&
                     this.email.equals(other.email) &&
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
+                    this.account.equals(other.account) &&
                     this.host.equals(other.host) &&
                     this.port.equals(other.port) &&
                     this.starttls.equals(other.starttls) &&

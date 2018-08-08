@@ -30,8 +30,9 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoIdentity {
-    @Query("SELECT * FROM identity")
-    LiveData<List<EntityIdentity>> liveIdentities();
+    @Query("SELECT identity.*, account.name AS accountName FROM identity" +
+            " JOIN account ON account.id = identity.account")
+    LiveData<List<TupleIdentityEx>> liveIdentities();
 
     @Query("SELECT * FROM identity WHERE synchronize = :synchronize")
     LiveData<List<EntityIdentity>> liveIdentities(boolean synchronize);
@@ -41,9 +42,6 @@ public interface DaoIdentity {
 
     @Query("SELECT * FROM identity WHERE id = :id")
     LiveData<EntityIdentity> liveIdentity(long id);
-
-    @Query("SELECT * FROM identity ORDER BY id LIMIT 1")
-    LiveData<EntityIdentity> liveFirstIdentity();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertIdentity(EntityIdentity identity);

@@ -45,9 +45,6 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE id = :id")
     LiveData<EntityAccount> liveAccount(long id);
 
-    @Query("SELECT * FROM account ORDER BY id LIMIT 1")
-    LiveData<EntityAccount> liveFirstAccount();
-
     @Query("SELECT" +
             " (SELECT COUNT(*) FROM account WHERE synchronize) AS accounts" +
             ", (SELECT COUNT(*) FROM operation" +

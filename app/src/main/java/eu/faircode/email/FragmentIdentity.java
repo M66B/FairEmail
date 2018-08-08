@@ -62,10 +62,11 @@ import androidx.loader.content.Loader;
 public class FragmentIdentity extends FragmentEx {
     private List<Provider> providers;
 
-    private Spinner spProfile;
     private EditText etName;
     private EditText etEmail;
     private EditText etReplyTo;
+    private Spinner spProfile;
+    private Spinner spAccount;
     private EditText etHost;
     private CheckBox cbStartTls;
     private EditText etPort;
@@ -96,10 +97,11 @@ public class FragmentIdentity extends FragmentEx {
         providers.add(0, new Provider(getString(R.string.title_custom)));
 
         // Get controls
-        spProfile = view.findViewById(R.id.spProvider);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
+        spProfile = view.findViewById(R.id.spProvider);
+        spAccount = view.findViewById(R.id.spAccount);
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
         etPort = view.findViewById(R.id.etPort);
@@ -128,13 +130,6 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
-        cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                etPort.setHint(checked ? "587" : "465");
-            }
-        });
-
         spProfile.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -151,9 +146,16 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
-        ArrayAdapter<Provider> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spProfile.setAdapter(adapter);
+        ArrayAdapter<Provider> adapterProfile = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
+        adapterProfile.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spProfile.setAdapter(adapterProfile);
+
+        cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                etPort.setHint(checked ? "587" : "465");
+            }
+        });
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -168,11 +170,14 @@ public class FragmentIdentity extends FragmentEx {
                 btnSave.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
 
+                EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("name", etName.getText().toString());
                 args.putString("email", etEmail.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
+                args.putLong("account", account == null ? -1 : account.id);
                 args.putString("host", etHost.getText().toString());
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
@@ -230,10 +235,12 @@ public class FragmentIdentity extends FragmentEx {
         Bundle args = getArguments();
         long id = (args == null ? -1 : args.getLong("id", -1));
 
-        // Observer
-        DB.getInstance(getContext()).identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
+        final DB db = DB.getInstance(getContext());
+
+        // Observe identity
+        db.identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
             @Override
-            public void onChanged(@Nullable EntityIdentity identity) {
+            public void onChanged(@Nullable final EntityIdentity identity) {
                 etName.setText(identity == null ? null : identity.name);
                 etEmail.setText(identity == null ? null : identity.email);
                 etReplyTo.setText(identity == null ? null : identity.replyto);
@@ -245,6 +252,29 @@ public class FragmentIdentity extends FragmentEx {
                 cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                 cbPrimary.setChecked(identity == null ? true : identity.primary);
                 cbPrimary.setEnabled(identity == null ? true : identity.synchronize);
+
+                db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
+                db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+                    @Override
+                    public void onChanged(List<EntityAccount> accounts) {
+
+                        EntityAccount unselected = new EntityAccount();
+                        unselected.id = -1L;
+                        unselected.name = "";
+                        unselected.primary = false;
+                        accounts.add(0, unselected);
+
+                        ArrayAdapter<EntityAccount> adapterAccount = new ArrayAdapter<>(getContext(), R.layout.spinner_item, accounts);
+                        adapterAccount.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                        spAccount.setAdapter(adapterAccount);
+
+                        for (int pos = 0; pos < accounts.size(); pos++)
+                            if (accounts.get(pos).id == (identity == null ? -1 : identity.account)) {
+                                spAccount.setSelection(pos);
+                                break;
+                            }
+                    }
+                });
             }
         });
     }
@@ -264,21 +294,30 @@ public class FragmentIdentity extends FragmentEx {
         public Throwable loadInBackground() {
             try {
                 long id = args.getLong("id");
+                String name = args.getString("name");
+                String email = args.getString("email");
                 String replyto = args.getString("replyto");
+                long account = args.getLong("account");
                 String host = args.getString("host");
                 boolean starttls = args.getBoolean("starttls");
                 String port = args.getString("port");
                 String user = args.getString("user");
                 String password = args.getString("password");
 
+                if (TextUtils.isEmpty(name))
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
+                if (TextUtils.isEmpty(email))
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
+                if (account < 0)
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
                 if (TextUtils.isEmpty(host))
-                    throw new Throwable(getContext().getString(R.string.title_no_host));
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
-                    throw new Throwable(getContext().getString(R.string.title_no_port));
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
                 if (TextUtils.isEmpty(user))
-                    throw new Throwable(getContext().getString(R.string.title_no_user));
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
                 if (TextUtils.isEmpty(password))
-                    throw new Throwable(getContext().getString(R.string.title_no_password));
+                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
                 if (TextUtils.isEmpty(replyto))
                     replyto = null;
@@ -288,9 +327,10 @@ public class FragmentIdentity extends FragmentEx {
                 boolean update = (identity != null);
                 if (identity == null)
                     identity = new EntityIdentity();
-                identity.name = Objects.requireNonNull(args.getString("name"));
-                identity.email = Objects.requireNonNull(args.getString("email"));
+                identity.name = name;
+                identity.email = email;
                 identity.replyto = replyto;
+                identity.account = account;
                 identity.host = Objects.requireNonNull(host);
                 identity.port = Integer.parseInt(port);
                 identity.starttls = starttls;
@@ -298,12 +338,6 @@ public class FragmentIdentity extends FragmentEx {
                 identity.password = password;
                 identity.synchronize = args.getBoolean("synchronize");
                 identity.primary = (identity.synchronize && args.getBoolean("primary"));
-
-                if (TextUtils.isEmpty(identity.name))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
-
-                if (TextUtils.isEmpty(identity.email))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
 
                 // Check SMTP server
                 if (identity.synchronize) {

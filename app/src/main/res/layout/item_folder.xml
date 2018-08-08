@@ -12,6 +12,7 @@
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:ellipsize="start"
+        android:singleLine="true"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
