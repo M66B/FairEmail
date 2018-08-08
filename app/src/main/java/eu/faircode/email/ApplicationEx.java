@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Application;
+import android.os.Build;
 import android.util.Log;
 
 import java.util.Date;
@@ -46,14 +47,32 @@ public class ApplicationEx extends Application {
                     EntityFolder drafts = db.folder().getLocalDrafts();
                     if (drafts != null) {
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
-                        String body = ex + "\n" + Log.getStackTraceString(ex);
+
+                        // Get version info
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+                        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+                        sb.append("\r\n");
+
+                        // Get device info
+                        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+                        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+                        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+                        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+                        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+                        sb.append(String.format("Host: %s\r\n", Build.HOST));
+                        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+                        sb.append(String.format("Id: %s\r\n", Build.ID));
+                        sb.append("\r\n");
+
+                        sb.append(ex.toString()).append("\r\n").append(Log.getStackTraceString(ex));
 
                         EntityMessage draft = new EntityMessage();
                         draft.account = drafts.account;
                         draft.folder = drafts.id;
                         draft.to = new Address[]{to};
                         draft.subject = BuildConfig.APPLICATION_ID + " crash info";
-                        draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                        draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
                         draft.received = new Date().getTime();
                         draft.seen = false;
                         draft.ui_seen = false;
