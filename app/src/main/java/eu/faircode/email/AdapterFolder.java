@@ -22,11 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.util.ListUpdateCallback;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +35,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListUpdateCallback;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;

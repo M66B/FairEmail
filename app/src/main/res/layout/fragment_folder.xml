@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ActivityView">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="12dp">
@@ -75,10 +75,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.constraint.Group
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="cbSynchronize,tvAfter,etAfter,btnSave" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

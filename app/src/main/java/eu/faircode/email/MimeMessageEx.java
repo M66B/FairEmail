@@ -30,7 +30,7 @@ public class MimeMessageEx extends MimeMessage {
                     .append("anonymous@localhost")
                     .append('>');
 
-            setHeader("Message-ID" , sb.toString());
+            setHeader("Message-ID", sb.toString());
             Log.i(Helper.TAG, "Override Message-ID=" + sb.toString());
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -50,7 +50,7 @@ public class MimeMessageEx extends MimeMessage {
 
             String part = parts.get(0);
             parts.remove(0);
-            if (!TextUtils.join("." , parts).startsWith(BuildConfig.APPLICATION_ID))
+            if (!TextUtils.join(".", parts).startsWith(BuildConfig.APPLICATION_ID))
                 return -1;
 
             long id = Long.parseLong(part.substring(1));

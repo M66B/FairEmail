@@ -6,5 +6,6 @@
     android:layout_height="?android:attr/listPreferredItemHeightSmall"
     android:ellipsize="marquee"
     android:singleLine="true"
+    android:text="Title"
     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
     android:textColor="?android:textColorPrimary" />

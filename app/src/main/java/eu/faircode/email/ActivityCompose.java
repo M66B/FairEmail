@@ -20,9 +20,10 @@ package eu.faircode.email;
 */
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int LOADER_COMPOSE_GET = 1;

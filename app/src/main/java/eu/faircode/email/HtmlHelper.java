@@ -58,20 +58,20 @@ public class HtmlHelper implements NodeVisitor {
                 if (!refs.contains(ref))
                     refs.add(ref);
                 String alt = context.getString(R.string.title_link);
-                text = text.replace(ref, String.format("<a href=\"%s\">%s [%d]</a>" , ref, alt, refs.size()));
+                text = text.replace(ref, String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
             }
             sb.append(text);
         } else if (name.equals("li"))
             sb.append(newline).append(" * ");
         else if (name.equals("dt"))
             sb.append("  ");
-        else if (StringUtil.in(name, "p" , "h1" , "h2" , "h3" , "h4" , "h5" , "tr" , "div"))
+        else if (StringUtil.in(name, "p", "h1", "h2", "h3", "h4", "h5", "tr", "div"))
             sb.append(newline);
     }
 
     public void tail(Node node, int depth) {
         String name = node.nodeName();
-        if (StringUtil.in(name, "br" , "dd" , "dt" , "p" , "h1" , "h2" , "h3" , "h4" , "h5" , "div"))
+        if (StringUtil.in(name, "br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5", "div"))
             sb.append(newline);
         else if (name.equals("a")) {
             String ref = node.absUrl("href");
@@ -82,7 +82,7 @@ public class HtmlHelper implements NodeVisitor {
                 if (TextUtils.isEmpty(alt))
                     alt = context.getString(R.string.title_link);
                 alt = Html.escapeHtml(alt);
-                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>" , ref, alt, refs.size()));
+                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
             }
         } else if (name.equals("img")) {
             String ref = node.absUrl("src");
@@ -93,7 +93,7 @@ public class HtmlHelper implements NodeVisitor {
                 if (TextUtils.isEmpty(alt))
                     alt = context.getString(R.string.title_image);
                 alt = Html.escapeHtml(alt);
-                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>" , ref, alt, refs.size()));
+                sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
             }
         }
     }
@@ -103,7 +103,7 @@ public class HtmlHelper implements NodeVisitor {
         if (refs.size() > 0)
             sb.append(newline).append(newline);
         for (int i = 0; i < refs.size(); i++)
-            sb.append(String.format("[%d] %s " , i + 1, refs.get(i))).append(newline);
+            sb.append(String.format("[%d] %s ", i + 1, refs.get(i))).append(newline);
         return sb.toString();
     }
 

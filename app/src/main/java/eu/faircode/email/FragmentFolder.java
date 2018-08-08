@@ -19,15 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.Group;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +31,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Observer;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
 
 public class FragmentFolder extends FragmentEx {
     private CheckBox cbSynchronize;
@@ -77,7 +78,8 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("after", etAfter.getText().toString());
 
-                getLoaderManager().restartLoader(ActivityView.LOADER_FOLDER_PUT, args, putLoaderCallbacks).forceLoad();
+                LoaderManager.getInstance(FragmentFolder.this)
+                        .restartLoader(ActivityView.LOADER_FOLDER_PUT, args, putLoaderCallbacks).forceLoad();
             }
         });
 
@@ -163,7 +165,7 @@ public class FragmentFolder extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            getLoaderManager().destroyLoader(loader.getId());
+            LoaderManager.getInstance(FragmentFolder.this).destroyLoader(loader.getId());
 
             btnSave.setEnabled(true);
             pbSave.setVisibility(View.GONE);

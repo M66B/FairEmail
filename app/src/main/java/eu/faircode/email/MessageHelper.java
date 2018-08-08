@@ -52,28 +52,28 @@ public class MessageHelper {
         Properties props = new Properties();
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
-        props.put("mail.imaps.ssl.checkserveridentity" , "true");
-        props.put("mail.imaps.ssl.trust" , "*");
-        props.put("mail.imaps.starttls.enable" , "false");
-        props.put("mail.imaps.timeout" , "20000");
-        props.put("mail.imaps.connectiontimeout" , "20000");
+        props.put("mail.imaps.ssl.checkserveridentity", "true");
+        props.put("mail.imaps.ssl.trust", "*");
+        props.put("mail.imaps.starttls.enable", "false");
+        props.put("mail.imaps.timeout", "20000");
+        props.put("mail.imaps.connectiontimeout", "20000");
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
-        props.put("mail.smtps.ssl.checkserveridentity" , "true");
-        props.put("mail.smtps.ssl.trust" , "*");
-        props.put("mail.smtps.starttls.enable" , "false");
-        props.put("mail.smtps.starttls.required" , "false");
-        props.put("mail.smtps.auth" , "true");
-        props.put("mail.smtps.timeout" , "20000");
-        props.put("mail.smtps.connectiontimeout" , "20000");
+        props.put("mail.smtps.ssl.checkserveridentity", "true");
+        props.put("mail.smtps.ssl.trust", "*");
+        props.put("mail.smtps.starttls.enable", "false");
+        props.put("mail.smtps.starttls.required", "false");
+        props.put("mail.smtps.auth", "true");
+        props.put("mail.smtps.timeout", "20000");
+        props.put("mail.smtps.connectiontimeout", "20000");
 
-        props.put("mail.smtp.ssl.checkserveridentity" , "true");
-        props.put("mail.smtp.ssl.trust" , "*");
-        props.put("mail.smtp.starttls.enable" , "true");
-        props.put("mail.smtp.starttls.required" , "true");
-        props.put("mail.smtp.auth" , "true");
-        props.put("mail.smtp.timeout" , "20000");
-        props.put("mail.smtp.connectiontimeout" , "20000");
+        props.put("mail.smtp.ssl.checkserveridentity", "true");
+        props.put("mail.smtp.ssl.trust", "*");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.required", "true");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.timeout", "20000");
+        props.put("mail.smtp.connectiontimeout", "20000");
 
         return props;
     }
@@ -106,8 +106,8 @@ public class MessageHelper {
 
     static MimeMessageEx from(EntityMessage message, EntityMessage reply, Session isession) throws MessagingException {
         MimeMessageEx imessage = from(message, isession);
-        imessage.addHeader("In-Reply-To" , reply.msgid);
-        imessage.addHeader("References" , (reply.references == null ? "" : reply.references + " ") + reply.msgid);
+        imessage.addHeader("In-Reply-To", reply.msgid);
+        imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
         return imessage;
     }
 
@@ -126,16 +126,16 @@ public class MessageHelper {
     }
 
     String getMessageID() throws MessagingException {
-        return imessage.getHeader("Message-ID" , null);
+        return imessage.getHeader("Message-ID", null);
     }
 
     String[] getReferences() throws MessagingException {
-        String refs = imessage.getHeader("References" , null);
+        String refs = imessage.getHeader("References", null);
         return (refs == null ? new String[0] : refs.split("\\s+"));
     }
 
     String getInReplyTo() throws MessagingException {
-        return imessage.getHeader("In-Reply-To" , null);
+        return imessage.getHeader("In-Reply-To", null);
     }
 
     String getThreadId(long uid) throws MessagingException {
@@ -181,7 +181,7 @@ public class MessageHelper {
                     formatted.add(personal);
             } else
                 formatted.add(address.toString());
-        return TextUtils.join(", " , formatted);
+        return TextUtils.join(", ", formatted);
     }
 
     String getHtml() throws MessagingException {
@@ -193,7 +193,7 @@ public class MessageHelper {
             try {
                 String s = part.getContent().toString();
                 if (part.isMimeType("text/plain"))
-                    s = "<pre>" + s.replaceAll("\\r?\\n" , "<br />") + "</pre>";
+                    s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 return s;
             } catch (IOException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));

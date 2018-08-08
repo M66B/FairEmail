@@ -20,15 +20,10 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.arch.lifecycle.Observer;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +36,12 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 
 public class FragmentSetup extends FragmentEx {
     private Button btnAccount;

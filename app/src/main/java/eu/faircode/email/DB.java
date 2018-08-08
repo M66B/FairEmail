@@ -1,12 +1,5 @@
 package eu.faircode.email;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverter;
-import android.arch.persistence.room.TypeConverters;
-import android.arch.persistence.room.migration.Migration;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +13,14 @@ import java.util.List;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 /*
     This file is part of Safe email.
@@ -149,7 +150,7 @@ public abstract class DB extends RoomDatabase {
 
         @TypeConverter
         public static String toStringArray(String[] value) {
-            return TextUtils.join("," , value);
+            return TextUtils.join(",", value);
         }
 
         @TypeConverter
@@ -165,13 +166,13 @@ public abstract class DB extends RoomDatabase {
                             String p = ((InternetAddress) address).getPersonal();
                             JSONObject jaddress = new JSONObject();
                             if (a != null)
-                                jaddress.put("address" , a);
+                                jaddress.put("address", a);
                             if (p != null)
-                                jaddress.put("personal" , p);
+                                jaddress.put("personal", p);
                             jaddresses.put(jaddress);
                         } else {
                             JSONObject jaddress = new JSONObject();
-                            jaddress.put("address" , address.toString());
+                            jaddress.put("address", address.toString());
                             jaddresses.put(jaddress);
                         }
                     } catch (JSONException ex) {

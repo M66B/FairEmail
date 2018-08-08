@@ -19,17 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -48,6 +40,8 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
@@ -56,6 +50,14 @@ import java.util.concurrent.Executors;
 
 import javax.mail.Session;
 import javax.mail.Transport;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.Observer;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
 
 public class FragmentIdentity extends FragmentEx {
     private List<Provider> providers;
@@ -179,7 +181,8 @@ public class FragmentIdentity extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
-                getLoaderManager().restartLoader(ActivityView.LOADER_IDENTITY_PUT, args, putLoaderCallbacks).forceLoad();
+                LoaderManager.getInstance(FragmentIdentity.this)
+                        .restartLoader(ActivityView.LOADER_IDENTITY_PUT, args, putLoaderCallbacks).forceLoad();
             }
         });
 
@@ -341,7 +344,7 @@ public class FragmentIdentity extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            getLoaderManager().destroyLoader(loader.getId());
+            LoaderManager.getInstance(FragmentIdentity.this).destroyLoader(loader.getId());
 
             btnSave.setEnabled(true);
             pbCheck.setVisibility(View.GONE);

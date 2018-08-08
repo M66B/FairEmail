@@ -45,7 +45,7 @@ public class ApplicationEx extends Application {
                     db = DB.getBlockingInstance(ApplicationEx.this);
                     EntityFolder drafts = db.folder().getPrimaryFolder(EntityFolder.TYPE_DRAFTS);
                     if (drafts != null) {
-                        Address to = new InternetAddress("marcel+email@faircode.eu" , "FairCode");
+                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
                         String body = ex + "\n" + Log.getStackTraceString(ex);
 
                         EntityMessage draft = new EntityMessage();
@@ -53,7 +53,7 @@ public class ApplicationEx extends Application {
                         draft.folder = drafts.id;
                         draft.to = new Address[]{to};
                         draft.subject = BuildConfig.APPLICATION_ID + " crash info";
-                        draft.body = "<pre>" + body.replaceAll("\\r?\\n" , "<br />") + "</pre>";
+                        draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                         draft.received = new Date().getTime();
                         draft.seen = false;
                         draft.ui_seen = false;

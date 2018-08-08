@@ -19,21 +19,12 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.Group;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -50,6 +41,8 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -60,6 +53,15 @@ import java.util.List;
 import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -213,7 +215,8 @@ public class FragmentCompose extends FragmentEx {
                 ivIdentityAdd.setVisibility(View.VISIBLE);
 
                 // Get might select another identity
-                getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
+                LoaderManager.getInstance(FragmentCompose.this)
+                        .restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
             }
         });
     }
@@ -305,7 +308,8 @@ public class FragmentCompose extends FragmentEx {
         args.putString("body", etBody.getText().toString());
         args.putString("action", action);
 
-        getLoaderManager().restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
+        LoaderManager.getInstance(this)
+                .restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
     }
 
     private static class GetLoader extends AsyncTaskLoader<Bundle> {
@@ -394,7 +398,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle result) {
-            getLoaderManager().destroyLoader(loader.getId());
+            LoaderManager.getInstance(FragmentCompose.this).destroyLoader(loader.getId());
 
             long iid = result.getLong("iid", -1);
             long rid = result.getLong("rid", -1);
@@ -618,7 +622,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            getLoaderManager().destroyLoader(loader.getId());
+            LoaderManager.getInstance(FragmentCompose.this).destroyLoader(loader.getId());
 
             String action = args.getString("action");
             Log.i(Helper.TAG, "Put finished action=" + action + " ex=" + ex);

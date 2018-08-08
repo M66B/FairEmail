@@ -72,33 +72,33 @@ public class Helper {
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return String.format("%.1f %sB" , bytes / Math.pow(unit, exp), pre);
+        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
     }
 
     static StringBuilder getDebugInfo() {
         StringBuilder sb = new StringBuilder();
 
         // Get version info
-        sb.append(String.format("%s: %s/%d\r\n" , BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
-        sb.append(String.format("Android: %s (SDK %d)\r\n" , Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+        sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
         sb.append("\r\n");
 
         // Get device info
-        sb.append(String.format("Brand: %s\r\n" , Build.BRAND));
-        sb.append(String.format("Manufacturer: %s\r\n" , Build.MANUFACTURER));
-        sb.append(String.format("Model: %s\r\n" , Build.MODEL));
-        sb.append(String.format("Product: %s\r\n" , Build.PRODUCT));
-        sb.append(String.format("Device: %s\r\n" , Build.DEVICE));
-        sb.append(String.format("Host: %s\r\n" , Build.HOST));
-        sb.append(String.format("Display: %s\r\n" , Build.DISPLAY));
-        sb.append(String.format("Id: %s\r\n" , Build.ID));
+        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+        sb.append(String.format("Host: %s\r\n", Build.HOST));
+        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+        sb.append(String.format("Id: %s\r\n", Build.ID));
         sb.append("\r\n");
 
         // Get logcat
         Process proc = null;
         BufferedReader br = null;
         try {
-            String[] cmd = new String[]{"logcat" , "-d" , "-v" , "threadtime"};
+            String[] cmd = new String[]{"logcat", "-d", "-v", "threadtime"};
             proc = Runtime.getRuntime().exec(cmd);
             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             String line;

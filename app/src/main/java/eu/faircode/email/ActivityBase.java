@@ -22,15 +22,16 @@ package eu.faircode.email;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(Helper.TAG, "Create " + this.getClass().getName());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme" , "light");
+        String theme = prefs.getString("theme", "light");
         setTheme("light".equals(theme) ? R.style.AppThemeLight : R.style.AppThemeDark);
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         super.onCreate(savedInstanceState);

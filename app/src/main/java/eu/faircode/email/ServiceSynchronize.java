@@ -23,8 +23,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.arch.lifecycle.LifecycleService;
-import android.arch.lifecycle.Observer;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -37,9 +35,6 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -92,6 +87,12 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.ReceivedDateTerm;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ServiceSynchronize extends LifecycleService {
     private ServiceState state = new ServiceState();

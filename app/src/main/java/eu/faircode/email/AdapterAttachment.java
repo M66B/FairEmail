@@ -24,11 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.FileProvider;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.util.ListUpdateCallback;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,6 +42,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListUpdateCallback;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
@@ -116,10 +117,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     final File dir = new File(context.getCacheDir(), "attachments");
                     final File file = new File(dir, TextUtils.isEmpty(attachment.name)
                             ? "attachment_" + attachment.id
-                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]" , "_"));
+                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]", "_"));
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email" , file);
+                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
 
                     // Build intent
                     final Intent intent = new Intent(Intent.ACTION_VIEW);

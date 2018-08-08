@@ -19,25 +19,25 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
-
 import javax.mail.BodyPart;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
+import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityAttachment.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "message" , entity = EntityMessage.class, parentColumns = "id" , onDelete = CASCADE)
+                @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
                 @Index(value = {"message"}),
-                @Index(value = {"message" , "sequence"}, unique = true)
+                @Index(value = {"message", "sequence"}, unique = true)
         }
 )
 public class EntityAttachment {

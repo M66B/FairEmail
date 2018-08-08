@@ -21,11 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.util.ListUpdateCallback;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +34,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListUpdateCallback;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
@@ -77,7 +78,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
             tvName.setText(account.name);
             ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvHost.setText(String.format("%s:%d" , account.host, account.port));
+            tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvUser.setText(account.user);
         }
 
@@ -91,7 +92,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
-                            .putExtra("id" , account.id));
+                            .putExtra("id", account.id));
         }
     }
 

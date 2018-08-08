@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:ellipsize="marquee"
     android:singleLine="true"
+    android:text="Title"
     android:textAlignment="inherit"
     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
     android:textColor="?android:textColorPrimary" />

@@ -19,29 +19,31 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.paging.LivePagedListBuilder;
-import android.arch.paging.PagedList;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.Group;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private RecyclerView rvMessage;
@@ -149,7 +151,8 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
+        LoaderManager.getInstance(this)
+                .restartLoader(ActivityView.LOADER_MESSAGES_INIT, new Bundle(), initLoaderCallbacks).forceLoad();
     }
 
     private static class InitLoader extends AsyncTaskLoader<Bundle> {

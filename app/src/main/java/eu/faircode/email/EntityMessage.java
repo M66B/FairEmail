@@ -19,32 +19,32 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
-
 import javax.mail.Address;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
+import static androidx.room.ForeignKey.CASCADE;
 
 // https://developer.android.com/training/data-storage/room/defining-data
 
 @Entity(
         tableName = EntityMessage.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "account" , entity = EntityAccount.class, parentColumns = "id" , onDelete = CASCADE),
-                @ForeignKey(childColumns = "folder" , entity = EntityFolder.class, parentColumns = "id" , onDelete = CASCADE),
-                @ForeignKey(childColumns = "identity" , entity = EntityIdentity.class, parentColumns = "id" , onDelete = CASCADE),
-                @ForeignKey(childColumns = "replying" , entity = EntityMessage.class, parentColumns = "id" , onDelete = CASCADE)
+                @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE),
+                @ForeignKey(childColumns = "folder", entity = EntityFolder.class, parentColumns = "id", onDelete = CASCADE),
+                @ForeignKey(childColumns = "identity", entity = EntityIdentity.class, parentColumns = "id", onDelete = CASCADE),
+                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
                 @Index(value = {"account"}),
                 @Index(value = {"folder"}),
                 @Index(value = {"identity"}),
                 @Index(value = {"replying"}),
-                @Index(value = {"folder" , "uid"}, unique = true),
+                @Index(value = {"folder", "uid"}, unique = true),
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),

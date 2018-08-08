@@ -19,14 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -34,12 +28,19 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
+import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
         tableName = EntityOperation.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "message" , entity = EntityMessage.class, parentColumns = "id" , onDelete = CASCADE)
+                @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
                 @Index(value = {"message"})
@@ -101,7 +102,7 @@ public class EntityOperation {
             intent.setType("account/" + message.account);
             intent.setAction(ServiceSynchronize.ACTION_PROCESS_FOLDER);
         }
-        intent.putExtra("folder" , message.folder);
+        intent.putExtra("folder", message.folder);
 
         synchronized (queue) {
             queue.add(intent);

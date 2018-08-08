@@ -19,15 +19,10 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.paging.PagedListAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +34,12 @@ import android.widget.TextView;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMessage.ViewHolder> {
     private Context context;

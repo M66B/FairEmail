@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -146,7 +146,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAttachment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -197,7 +197,7 @@
             android:textIsSelectable="true" />
     </ScrollView>
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -222,21 +222,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.Group
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAddress"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAddress,tvToTitle,tvTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />
 
-    <android.support.constraint.Group
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAttachments"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
 
-    <android.support.constraint.Group
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="tvFrom,tvTime,tvSubject,tvCount,top_navigation,scroll" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

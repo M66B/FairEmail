@@ -19,26 +19,12 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.Group;
-import android.support.customtabs.CustomTabsIntent;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.AsyncTaskLoader;
-import android.support.v4.content.Loader;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -55,6 +41,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -65,6 +53,20 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
     private TextView tvTime;
@@ -471,7 +473,8 @@ public class FragmentMessage extends FragmentEx {
     private void onActionMove(final long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        getLoaderManager().restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
+        LoaderManager.getInstance(this)
+                .restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
     }
 
     private void onActionArchive(final long id) {
@@ -555,7 +558,7 @@ public class FragmentMessage extends FragmentEx {
 
         @Override
         public void onLoadFinished(@NonNull Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
-            getLoaderManager().destroyLoader(loader.getId());
+            LoaderManager.getInstance(FragmentMessage.this).destroyLoader(loader.getId());
 
             View anchor = top_navigation.findViewById(R.id.action_thread);
             PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
