@@ -238,7 +238,7 @@ public class FragmentMessage extends FragmentEx {
         final DB db = DB.getInstance(getContext());
 
         // Observe message
-        db.message().liveMessage(id).observe(this, new Observer<TupleMessageEx>() {
+        db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
                 if (message == null || message.ui_hide) {
@@ -267,8 +267,8 @@ public class FragmentMessage extends FragmentEx {
                     tvFrom.setTextColor(colorUnseen);
                     tvTime.setTextColor(colorUnseen);
 
-                    db.attachment().liveAttachments(id).removeObservers(FragmentMessage.this);
-                    db.attachment().liveAttachments(id).observe(FragmentMessage.this,
+                    db.attachment().liveAttachments(id).removeObservers(getViewLifecycleOwner());
+                    db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
                             new Observer<List<TupleAttachment>>() {
                                 @Override
                                 public void onChanged(@Nullable List<TupleAttachment> attachments) {
@@ -291,8 +291,8 @@ public class FragmentMessage extends FragmentEx {
 
                     bottom_navigation.setTag(message.folderType);
 
-                    db.folder().liveFolders(message.account).removeObservers(FragmentMessage.this);
-                    db.folder().liveFolders(message.account).observe(FragmentMessage.this, new Observer<List<TupleFolderEx>>() {
+                    db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
+                    db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                         @Override
                         public void onChanged(@Nullable final List<TupleFolderEx> folders) {
                             boolean hasTrash = false;

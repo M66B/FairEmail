@@ -90,7 +90,7 @@ public class FragmentAccounts extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         // Observe accounts
-        DB.getInstance(getContext()).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
+        DB.getInstance(getContext()).account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 adapter.set(accounts);

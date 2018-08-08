@@ -202,7 +202,7 @@ public class FragmentAccount extends FragmentEx {
         long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Observe
-        DB.getInstance(getContext()).account().liveAccount(id).observe(this, new Observer<EntityAccount>() {
+        DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
                 etName.setText(account == null ? null : account.name);

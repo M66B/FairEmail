@@ -231,7 +231,7 @@ public class FragmentIdentity extends FragmentEx {
         long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Observer
-        DB.getInstance(getContext()).identity().liveIdentity(id).observe(this, new Observer<EntityIdentity>() {
+        DB.getInstance(getContext()).identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
             @Override
             public void onChanged(@Nullable EntityIdentity identity) {
                 etName.setText(identity == null ? null : identity.name);

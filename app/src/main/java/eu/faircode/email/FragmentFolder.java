@@ -101,7 +101,7 @@ public class FragmentFolder extends FragmentEx {
         long id = (args == null ? -1 : args.getLong("id"));
 
         // Observe
-        DB.getInstance(getContext()).folder().liveFolder(id).observe(this, new Observer<EntityFolder>() {
+        DB.getInstance(getContext()).folder().liveFolder(id).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
             @Override
             public void onChanged(@Nullable EntityFolder folder) {
                 if (folder != null) {

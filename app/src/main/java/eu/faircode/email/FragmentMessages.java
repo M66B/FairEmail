@@ -118,7 +118,7 @@ public class FragmentMessages extends FragmentEx {
                 setSubtitle(R.string.title_folder_unified);
                 messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), PAGE_SIZE).build();
             } else {
-                db.folder().liveFolderEx(folder).observe(this, new Observer<TupleFolderEx>() {
+                db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
                     @Override
                     public void onChanged(@Nullable TupleFolderEx folder) {
                         setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
@@ -132,7 +132,7 @@ public class FragmentMessages extends FragmentEx {
         }
 
         Log.i(Helper.TAG, "Observing messages");
-        messages.observe(this, new Observer<PagedList<TupleMessageEx>>() {
+        messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());

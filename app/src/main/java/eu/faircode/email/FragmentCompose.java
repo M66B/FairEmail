@@ -190,7 +190,7 @@ public class FragmentCompose extends FragmentEx {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        DB.getInstance(getContext()).identity().liveIdentities(true).observe(FragmentCompose.this, new Observer<List<EntityIdentity>>() {
+        DB.getInstance(getContext()).identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable final List<EntityIdentity> identities) {
                 Collections.sort(identities, new Comparator<EntityIdentity>() {

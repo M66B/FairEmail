@@ -90,7 +90,7 @@ public class FragmentFolders extends FragmentEx {
         DB db = DB.getInstance(getContext());
 
         // Observe account
-        db.account().liveAccount(account).observe(this, new Observer<EntityAccount>() {
+        db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
                 setSubtitle(account.name);
@@ -98,7 +98,7 @@ public class FragmentFolders extends FragmentEx {
         });
 
         // Observe folders
-        db.folder().liveFolders(account).observe(this, new Observer<List<TupleFolderEx>>() {
+        db.folder().liveFolders(account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 adapter.set(folders);

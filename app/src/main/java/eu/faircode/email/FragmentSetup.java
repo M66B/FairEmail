@@ -178,14 +178,14 @@ public class FragmentSetup extends FragmentEx {
 
         DB db = DB.getInstance(getContext());
 
-        db.account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+        db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 tvAccountDone.setVisibility(accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
 
-        db.identity().liveIdentities(true).observe(this, new Observer<List<EntityIdentity>>() {
+        db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
                 tvIdentityDone.setVisibility(identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);

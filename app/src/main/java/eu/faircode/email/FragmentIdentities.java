@@ -90,7 +90,7 @@ public class FragmentIdentities extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         // Observe identities
-        DB.getInstance(getContext()).identity().liveIdentities().observe(this, new Observer<List<EntityIdentity>>() {
+        DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
                 adapter.set(identities);
