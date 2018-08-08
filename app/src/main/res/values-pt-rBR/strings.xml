@@ -5,9 +5,18 @@
   <string name="channel_service">Serviço</string>
   <string name="channel_notification">Notificações</string>
   <string name="channel_error">Erros</string>
-  <string name="title_notification_synchronizing">Sincronizando %1$d conta(s)</string>
-  <string name="title_notification_operations">%1$d operações pendentes</string>
-  <string name="title_notification_unseen">%1$d novas mensagens</string>
+  <plurals name="title_notification_synchronizing">
+    <item quantity="one">Synchronizing %1$d account</item>
+    <item quantity="other">Synchronizing %1$d accounts</item>
+  </plurals>
+  <plurals name="title_notification_operations">
+    <item quantity="one">%1$d operation pending</item>
+    <item quantity="other">%1$d operations pending</item>
+  </plurals>
+  <plurals name="title_notification_unseen">
+    <item quantity="one">%1$d new message</item>
+    <item quantity="other">%1$d new messages</item>
+  </plurals>
   <string name="title_notification_failed">\'%1$s\' falhou</string>
   <string name="menu_setup">Configurar</string>
   <string name="menu_faq">FAQ</string>
@@ -34,6 +43,7 @@
   <string name="title_email">Seu endereço de e-mail</string>
   <string name="title_reply_to">Resposta para o endereço</string>
   <string name="title_optional">Opcional</string>
+  <string name="title_account_linked">Linked account</string>
   <string name="title_account_name">Nome da conta</string>
   <string name="title_account_name_hint">Usada para diferenciar pastas</string>
   <string name="title_imap">IMAP</string>
@@ -49,14 +59,14 @@
   <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
   <string name="title_primary_account">Primária (usada para armazenar rascunhos)</string>
   <string name="title_primary_identity">Primária (identidade padrão)</string>
-  <string name="title_no_name">Nome obrigatório</string>
-  <string name="title_no_email">Endereço de e-mail obrigatório</string>
+  <string name="title_no_name">Name missing</string>
+  <string name="title_no_email">Email address missing</string>
+  <string name="title_no_account">Account missing</string>
   <string name="title_no_host">Nome do servidor faltante</string>
   <string name="title_no_port">Número da porta faltante</string>
   <string name="title_no_user">Nome do usuário faltante</string>
   <string name="title_no_password">Senha faltante</string>
   <string name="title_no_idle">IDLE não suportado</string>
-  <string name="title_local_drafts">Rascunhos locais</string>
   <string name="title_account_delete">Delete this account permanently?</string>
   <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
@@ -70,6 +80,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Enviado</string>
   <string name="title_folder_user">Usuário</string>
+  <string name="title_folder_local_drafts">Local drafts</string>
   <string name="title_folder_thread">Tópico da mensagem</string>
   <string name="title_no_messages">Sem mensagens</string>
   <string name="title_link">link</string>
@@ -98,7 +109,6 @@
   <string name="title_body_hint">Sua mensagem</string>
   <string name="title_save">Salvar</string>
   <string name="title_send">Enviar</string>
-  <string name="title_no_primary_drafts">Sem conta primária ou sem pasta de rascunhos</string>
   <string name="title_from_missing">Remetente faltante</string>
   <string name="title_to_missing">Destinatário faltante</string>
   <string name="title_draft_trashed">Rascunho excluído</string>

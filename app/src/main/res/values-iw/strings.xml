@@ -5,9 +5,24 @@
   <string name="channel_service">Service</string>
   <string name="channel_notification">Notifications</string>
   <string name="channel_error">Errors</string>
-  <string name="title_notification_synchronizing">Synchronizing %1$d account(s)</string>
-  <string name="title_notification_operations">%1$d operation(s) pending</string>
-  <string name="title_notification_unseen">%1$d new message(s)</string>
+  <plurals name="title_notification_synchronizing">
+    <item quantity="one">Synchronizing %1$d account</item>
+    <item quantity="two">Synchronizing %1$d accounts</item>
+    <item quantity="many">Synchronizing %1$d accounts</item>
+    <item quantity="other">Synchronizing %1$d accounts</item>
+  </plurals>
+  <plurals name="title_notification_operations">
+    <item quantity="one">%1$d operation pending</item>
+    <item quantity="two">%1$d operations pending</item>
+    <item quantity="many">%1$d operations pending</item>
+    <item quantity="other">%1$d operations pending</item>
+  </plurals>
+  <plurals name="title_notification_unseen">
+    <item quantity="one">%1$d new message</item>
+    <item quantity="two">%1$d new messages</item>
+    <item quantity="many">%1$d new messages</item>
+    <item quantity="other">%1$d new messages</item>
+  </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
   <string name="menu_faq">FAQ</string>
@@ -34,6 +49,7 @@
   <string name="title_email">Your email address</string>
   <string name="title_reply_to">Reply to address</string>
   <string name="title_optional">Optional</string>
+  <string name="title_account_linked">Linked account</string>
   <string name="title_account_name">Account name</string>
   <string name="title_account_name_hint">Used to differentiate folders</string>
   <string name="title_imap">IMAP</string>
@@ -49,14 +65,14 @@
   <string name="title_synchronize_identity">Synchronize (send messages)</string>
   <string name="title_primary_account">Primary (used to store drafts)</string>
   <string name="title_primary_identity">Primary (default identity)</string>
-  <string name="title_no_name">Name mandatory</string>
-  <string name="title_no_email">Email address mandatory</string>
+  <string name="title_no_name">Name missing</string>
+  <string name="title_no_email">Email address missing</string>
+  <string name="title_no_account">Account missing</string>
   <string name="title_no_host">Host name missing</string>
   <string name="title_no_port">Port number missing</string>
   <string name="title_no_user">User name missing</string>
   <string name="title_no_password">Password missing</string>
   <string name="title_no_idle">IDLE not supported</string>
-  <string name="title_local_drafts">Local drafts</string>
   <string name="title_account_delete">Delete this account permanently?</string>
   <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Synchronize (receive messages)</string>
@@ -70,6 +86,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Sent</string>
   <string name="title_folder_user">User</string>
+  <string name="title_folder_local_drafts">Local drafts</string>
   <string name="title_folder_thread">Message thread</string>
   <string name="title_no_messages">No messages</string>
   <string name="title_link">link</string>
@@ -98,7 +115,6 @@
   <string name="title_body_hint">Your message</string>
   <string name="title_save">Save</string>
   <string name="title_send">Send</string>
-  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
   <string name="title_from_missing">Sender missing</string>
   <string name="title_to_missing">Recipient missing</string>
   <string name="title_draft_trashed">Draft trashed</string>

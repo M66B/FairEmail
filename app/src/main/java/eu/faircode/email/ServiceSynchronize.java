@@ -214,14 +214,16 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(R.drawable.baseline_mail_outline_24)
-                .setContentTitle(getString(R.string.title_notification_synchronizing, accounts))
-                .setContentText(getString(R.string.title_notification_operations, operations))
+                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_synchronizing, accounts, accounts))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_MIN)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_SECRET);
+
+        if (operations > 0)
+            builder.setContentText(getResources().getQuantityString(R.plurals.title_notification_operations, operations, operations));
 
         return builder;
     }
@@ -249,7 +251,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(R.drawable.baseline_mail_24)
-                .setContentTitle(getString(R.string.title_notification_unseen, unseen))
+                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, unseen, unseen))
                 .setContentIntent(pi)
                 .setSound(uri)
                 .setShowWhen(false)
