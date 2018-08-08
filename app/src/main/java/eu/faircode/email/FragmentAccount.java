@@ -85,7 +85,7 @@ public class FragmentAccount extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id" , -1));
+        final long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Get providers
         providers = Provider.loadProfiles(getContext());
@@ -140,14 +140,14 @@ public class FragmentAccount extends FragmentEx {
                 pbCheck.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
-                args.putLong("id" , id);
-                args.putString("name" , etName.getText().toString());
-                args.putString("host" , etHost.getText().toString());
-                args.putString("port" , etPort.getText().toString());
-                args.putString("user" , etUser.getText().toString());
-                args.putString("password" , tilPassword.getEditText().getText().toString());
-                args.putBoolean("synchronize" , cbSynchronize.isChecked());
-                args.putBoolean("primary" , cbPrimary.isChecked());
+                args.putLong("id", id);
+                args.putString("name", etName.getText().toString());
+                args.putString("host", etHost.getText().toString());
+                args.putString("port", etPort.getText().toString());
+                args.putString("user", etUser.getText().toString());
+                args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("primary", cbPrimary.isChecked());
 
                 getLoaderManager().restartLoader(ActivityView.LOADER_ACCOUNT_PUT, args, putLoaderCallbacks).forceLoad();
             }
@@ -296,12 +296,12 @@ public class FragmentAccount extends FragmentEx {
                                 folder.name = ifolder.getFullName();
                                 folder.type = type;
                                 folder.synchronize = EntityFolder.SYSTEM_FOLDER_SYNC.contains(folder.type);
-                                folder.after = EntityFolder.DEFAULT_STANDARD_SYNC;
+                                folder.after = EntityFolder.DEFAULT_SYSTEM_SYNC;
                                 folders.add(folder);
 
                                 Log.i(Helper.TAG, account.name +
                                         " system=" + folder.name +
-                                        " type=" + folder.type + " attr=" + TextUtils.join("," , attrs));
+                                        " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
 
                                 if (EntityFolder.TYPE_DRAFTS.equals(folder.type))
                                     drafts = true;

@@ -944,7 +944,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.name = ifolder.getFullName();
                         folder.type = EntityFolder.TYPE_USER;
                         folder.synchronize = false;
-                        folder.after = 0;
+                        folder.after = EntityFolder.DEFAULT_USER_SYNC;
                         dao.insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
                     } else

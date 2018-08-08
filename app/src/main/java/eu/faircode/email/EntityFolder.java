@@ -33,10 +33,10 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 @Entity(
         tableName = EntityFolder.TABLE_NAME,
         foreignKeys = {
-                @ForeignKey(childColumns = "account" , entity = EntityAccount.class, parentColumns = "id" , onDelete = CASCADE)
+                @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
-                @Index(value = {"account" , "name"}, unique = true),
+                @Index(value = {"account", "name"}, unique = true),
                 @Index(value = {"account"}),
                 @Index(value = {"name"}),
                 @Index(value = {"type"})
@@ -55,10 +55,10 @@ public class EntityFolder {
     static final String TYPE_USER = "User";
 
     static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
-            "All" ,
-            "Drafts" ,
-            "Trash" ,
-            "Junk" ,
+            "All",
+            "Drafts",
+            "Trash",
+            "Junk",
             "Sent"
     );
     static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
@@ -67,7 +67,7 @@ public class EntityFolder {
             TYPE_TRASH,
             TYPE_JUNK,
             TYPE_SENT
-    ); // Must match SYSTEM_FOLDER_ATTR
+    ); // MUST match SYSTEM_FOLDER_ATTR
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
             TYPE_INBOX,
@@ -80,8 +80,9 @@ public class EntityFolder {
             TYPE_USER
     );
 
-    static final int DEFAULT_INBOX_SYNC = 30;
-    static final int DEFAULT_STANDARD_SYNC = 7;
+    static final int DEFAULT_INBOX_SYNC = 30; // days
+    static final int DEFAULT_SYSTEM_SYNC = 7; // days
+    static final int DEFAULT_USER_SYNC = 7; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
             TYPE_ARCHIVE,
