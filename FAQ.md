@@ -12,7 +12,15 @@ Frequently Asked Questions
 * Run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
 
 <a name="FAQ2"></a>
-**(2) What are operations?**
+**(2) Why is there a permanent notification shown?**
+
+A permanent status bar notification with the number of accounts being synchronized and the number of operations pending is shown
+to prevent Android from killing the service that takes care of receiving and sending email.
+
+Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
+
+<a name="FAQ3"></a>
+**(3) What are operations?**
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
@@ -23,13 +31,13 @@ The low priority status bar notification shows the number of pending operations,
 * Send message
 * Download attachment
 
-<a name="FAQ3"></a>
-**(3) What is a valid security certificate?**
+<a name="FAQ4"></a>
+**(4) What is a valid security certificate?**
 
 Valid security certificates are officially signed (not self signed) and have matching a host name.
 
-<a name="FAQ4"></a>
-**(4) Why is IMAP IDLE required?**
+<a name="FAQ5"></a>
+**(5) Why is IMAP IDLE required?**
 
 Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,
 which is a waste of battery power and internet bandwidth and will delay notification of new emails.
