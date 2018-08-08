@@ -51,6 +51,7 @@ import org.json.JSONException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -887,18 +888,26 @@ public class ServiceSynchronize extends LifecycleService {
                         // There is no use in repeating
                         operation.deleteOperation(op.id);
                     } catch (SMTPSendFailedException ex) {
-                        // Response codes: https://www.ietf.org/rfc/rfc821.txt
+                        // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is probably no use in repeating
                         operation.deleteOperation(op.id);
-                        reportError(null, folder.name, ex);
+                        throw ex;
+                    } catch (MessagingException ex) {
+                        // Socket timeout is a recoverable condition (send message)
+                        if (ex.getCause() instanceof SocketTimeoutException) {
+                            Log.w(Helper.TAG, "Recoverable " + ex);
+                            // No need to inform user
+                            return;
+                        } else
+                            throw ex;
                     } catch (NullPointerException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is no use in repeating
                         operation.deleteOperation(op.id);
-                        reportError(null, folder.name, ex);
+                        throw ex;
                     }
                 } finally {
                     Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
