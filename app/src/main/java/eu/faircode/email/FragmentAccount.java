@@ -43,6 +43,7 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -236,6 +237,7 @@ public class FragmentAccount extends FragmentEx {
                 String port = args.getString("port");
                 String user = args.getString("user");
                 String password = args.getString("password");
+                boolean synchronize = args.getBoolean("synchronize");
 
                 if (TextUtils.isEmpty(host))
                     throw new Throwable(getContext().getString(R.string.title_no_host));
@@ -259,8 +261,12 @@ public class FragmentAccount extends FragmentEx {
                 account.port = Integer.parseInt(port);
                 account.user = user;
                 account.password = password;
-                account.synchronize = args.getBoolean("synchronize");
+                account.synchronize = synchronize;
                 account.primary = (account.synchronize && args.getBoolean("primary"));
+
+                // On disabling synchronization mark message seen until now
+                if (!account.synchronize && account.synchronize != synchronize)
+                    account.seen_until = new Date().getTime();
 
                 // Check IMAP server
                 List<EntityFolder> folders = new ArrayList<>();
