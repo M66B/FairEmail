@@ -174,11 +174,14 @@ public class FragmentMessage extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.action_thread:
+                        onActionThread(id);
+                        return true;
                     case R.id.action_seen:
                         onActionSeen(id);
                         return true;
-                    case R.id.action_thread:
-                        onActionThread(id);
+                    case R.id.action_edit:
+                        onActionEdit(id);
                         return true;
                     case R.id.action_forward:
                         onActionForward(id);
@@ -218,6 +221,7 @@ public class FragmentMessage extends FragmentEx {
         // Initialize
         grpAddress.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        top_navigation.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -251,10 +255,6 @@ public class FragmentMessage extends FragmentEx {
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
                 } else {
-                    final boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
-                    final boolean outbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
-                    final boolean archive = EntityFolder.TYPE_ARCHIVE.equals(message.folderType);
-
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                     tvFrom.setText(message.from == null ? null : TextUtils.join(", ", message.from));
@@ -287,11 +287,6 @@ public class FragmentMessage extends FragmentEx {
                                 }
                             });
 
-                    top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                    top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!outbox);
-                    top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!outbox);
-                    top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox);
-
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen
                             ? R.drawable.baseline_visibility_off_24
@@ -308,6 +303,11 @@ public class FragmentMessage extends FragmentEx {
                     db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                         @Override
                         public void onChanged(@Nullable final List<TupleFolderEx> folders) {
+                            boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
+                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
+                            boolean archive = EntityFolder.TYPE_ARCHIVE.equals(message.folderType);
+                            boolean trash = EntityFolder.TYPE_TRASH.equals(message.folderType);
+
                             boolean hasTrash = false;
                             boolean hasJunk = false;
                             boolean hasArchive = false;
@@ -322,6 +322,13 @@ public class FragmentMessage extends FragmentEx {
                                 else if (EntityFolder.TYPE_USER.equals(folder.type))
                                     hasUser = true;
                             }
+
+                            top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
+                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!outbox);
+                            top_navigation.getMenu().findItem(R.id.action_edit).setVisible(trash);
+                            top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!outbox);
+                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox);
+                            top_navigation.setVisibility(View.VISIBLE);
 
                             bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
@@ -361,6 +368,18 @@ public class FragmentMessage extends FragmentEx {
             grpAddress.setVisibility(grpAddress.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
+    private void onActionThread(long id) {
+        Bundle args = new Bundle();
+        args.putLong("thread", id); // message ID
+
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+        fragmentTransaction.commit();
+    }
+
     private void onActionSeen(final long id) {
         executor.submit(new Runnable() {
             @Override
@@ -379,16 +398,30 @@ public class FragmentMessage extends FragmentEx {
         });
     }
 
-    private void onActionThread(long id) {
-        Bundle args = new Bundle();
-        args.putLong("thread", id); // message ID
+    private void onActionEdit(final long id) {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(getContext());
+                    EntityMessage draft = db.message().getMessage(id);
+                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.TYPE_DRAFTS);
+                    if (drafts == null)
+                        drafts = db.folder().getLocalDrafts();
+                    if (drafts == null)
+                        return;
+                    draft.id = null;
+                    draft.folder = drafts.id;
+                    draft.id = db.message().insertMessage(draft);
 
-        FragmentMessages fragment = new FragmentMessages();
-        fragment.setArguments(args);
-
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
-        fragmentTransaction.commit();
+                    getContext().startActivity(
+                            new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("id", draft.id));
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
+            }
+        });
     }
 
     private void onActionForward(long id) {
