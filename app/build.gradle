@@ -64,10 +64,12 @@ dependencies {
     // https://developer.android.com/topic/libraries/architecture/adding-components.html
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation "android.arch.paging:runtime:$paging_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
-    implementation "android.arch.paging:runtime:$paging_version"
+    // https://developer.android.com/topic/libraries/support-library/packages#custom-tabs
+    implementation "com.android.support:customtabs:$support_version"
 
     // https://javaee.github.io/javamail/
     implementation "com.sun.mail:android-mail:$javamail_version"
@@ -75,4 +77,5 @@ dependencies {
 
     // https://jsoup.org/
     implementation "org.jsoup:jsoup:$jsoup_version"
+
 }

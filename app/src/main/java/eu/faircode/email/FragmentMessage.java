@@ -24,10 +24,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.Group;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
@@ -134,15 +136,26 @@ public class FragmentMessage extends FragmentEx {
 
                 URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
                 if (link.length != 0) {
-                    Bundle args = new Bundle();
-                    args.putString("link", link[0].getURL());
+                    String url = link[0].getURL();
 
-                    FragmentWebView fragment = new FragmentWebView();
-                    fragment.setArguments(args);
+                    if (true) {
+                        // https://developer.chrome.com/multidevice/android/customtabs
+                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
 
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
-                    fragmentTransaction.commit();
+                        CustomTabsIntent customTabsIntent = builder.build();
+                        customTabsIntent.launchUrl(getContext(), Uri.parse(url));
+                    } else {
+                        Bundle args = new Bundle();
+                        args.putString("link", url);
+
+                        FragmentWebView fragment = new FragmentWebView();
+                        fragment.setArguments(args);
+
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
+                        fragmentTransaction.commit();
+                    }
                 }
                 return true;
             }
