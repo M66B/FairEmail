@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.util.Log;
@@ -248,10 +249,10 @@ public class FragmentMessage extends FragmentEx {
                 } else {
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
-                    tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
-                    tvTo.setText(MessageHelper.getFormattedAddresses(message.to));
-                    tvCc.setText(MessageHelper.getFormattedAddresses(message.cc));
-                    tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc));
+                    tvFrom.setText(message.from == null ? null : TextUtils.join(", ", message.from));
+                    tvTo.setText(message.to == null ? null : TextUtils.join(", ", message.to));
+                    tvCc.setText(message.cc == null ? null : TextUtils.join(", ", message.cc));
+                    tvBcc.setText(message.bcc == null ? null : TextUtils.join(", ", message.bcc));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
                     tvCount.setText(Integer.toString(message.count));
