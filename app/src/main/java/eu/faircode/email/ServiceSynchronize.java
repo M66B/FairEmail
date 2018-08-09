@@ -307,7 +307,7 @@ public class ServiceSynchronize extends LifecycleService {
             IMAPStore istore = null;
             try {
                 Properties props = MessageHelper.getSessionProperties();
-                props.put("mail.imaps.peek", "true");
+                props.setProperty("mail.imaps.peek", "true");
                 props.setProperty("mail.mime.address.strict", "false");
                 props.setProperty("mail.mime.decodetext.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
