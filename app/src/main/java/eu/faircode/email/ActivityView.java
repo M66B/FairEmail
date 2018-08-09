@@ -414,8 +414,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_VIEW_MESSAGES.equals(intent.getAction())) {
-                getSupportFragmentManager().popBackStack("unified", 0);
-
                 FragmentMessages fragment = new FragmentMessages();
                 fragment.setArguments(intent.getExtras());
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
