@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_trash"
-        android:icon="@drawable/baseline_delete_24"
-        android:title="@string/title_trash"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_spam"
         android:icon="@drawable/baseline_report_24"
         android:title="@string/title_spam"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_trash"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="@string/title_trash"
         app:showAsAction="ifRoom" />
 
     <item

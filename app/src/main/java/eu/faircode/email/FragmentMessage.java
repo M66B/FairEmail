@@ -198,11 +198,11 @@ public class FragmentMessage extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.action_trash:
-                        onActionDelete(id);
-                        return true;
                     case R.id.action_spam:
                         onActionSpam(id);
+                        return true;
+                    case R.id.action_trash:
+                        onActionDelete(id);
                         return true;
                     case R.id.action_move:
                         onActionMove(id);
@@ -333,8 +333,8 @@ public class FragmentMessage extends FragmentEx {
                             top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox && message.cc != null);
                             top_navigation.setVisibility(View.VISIBLE);
 
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && !trash && hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && !junk && hasJunk);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && !trash && hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && !archive && hasArchive);
                             bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!outbox);
@@ -439,6 +439,35 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("action", "reply_all"));
     }
 
+    private void onActionSpam(final long id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder
+                .setMessage(R.string.title_ask_spam)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    DB db = DB.getInstance(getContext());
+                                    EntityMessage message = db.message().getMessage(id);
+                                    message.ui_hide = true;
+                                    db.message().updateMessage(message);
+
+                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK);
+                                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
+                                    EntityOperation.process(getContext());
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null).show();
+    }
+
     private void onActionDelete(final long id) {
         String folderType = (String) bottom_navigation.getTag();
         if (EntityFolder.TYPE_TRASH.equals(folderType)) {
@@ -486,35 +515,6 @@ public class FragmentMessage extends FragmentEx {
                 }
             });
         }
-    }
-
-    private void onActionSpam(final long id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder
-                .setMessage(R.string.title_ask_spam)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        executor.submit(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    DB db = DB.getInstance(getContext());
-                                    EntityMessage message = db.message().getMessage(id);
-                                    message.ui_hide = true;
-                                    db.message().updateMessage(message);
-
-                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK);
-                                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
-                                    EntityOperation.process(getContext());
-                                } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                }
-                            }
-                        });
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null).show();
     }
 
     private void onActionMove(final long id) {
