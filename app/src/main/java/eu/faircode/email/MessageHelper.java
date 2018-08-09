@@ -166,7 +166,7 @@ public class MessageHelper {
         return imessage.getReplyTo();
     }
 
-    static String getFormattedAddresses(Address[] addresses) {
+    static String getFormattedAddresses(Address[] addresses, boolean full) {
         if (addresses == null)
             return null;
 
@@ -177,6 +177,8 @@ public class MessageHelper {
                 String personal = a.getPersonal();
                 if (TextUtils.isEmpty(personal))
                     formatted.add(address.toString());
+                else if (full)
+                    formatted.add(personal + " <" + a.getAddress() + ">");
                 else
                     formatted.add(personal);
             } else

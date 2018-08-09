@@ -89,10 +89,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
                     EntityFolder.SENT.equals(message.folderType)) {
-                tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.to, false));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
             } else {
-                tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, false));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 

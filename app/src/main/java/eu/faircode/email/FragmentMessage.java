@@ -257,10 +257,10 @@ public class FragmentMessage extends FragmentEx {
 
                     String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
 
-                    tvFrom.setText(message.from == null ? null : TextUtils.join(", ", message.from));
-                    tvTo.setText(message.to == null ? null : TextUtils.join(", ", message.to));
-                    tvCc.setText(message.cc == null ? null : TextUtils.join(", ", message.cc));
-                    tvBcc.setText(message.bcc == null ? null : TextUtils.join(", ", message.bcc));
+                    tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
+                    tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
+                    tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
+                    tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
                     tvCount.setText(extra + Integer.toString(message.count));
