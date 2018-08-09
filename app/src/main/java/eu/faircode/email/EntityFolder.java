@@ -47,14 +47,14 @@ import static androidx.room.ForeignKey.CASCADE;
 public class EntityFolder {
     static final String TABLE_NAME = "folder";
 
-    static final String TYPE_INBOX = "Inbox";
-    static final String TYPE_OUTBOX = "Outbox";
-    static final String TYPE_ARCHIVE = "All";
-    static final String TYPE_DRAFTS = "Drafts";
-    static final String TYPE_TRASH = "Trash";
-    static final String TYPE_JUNK = "Junk";
-    static final String TYPE_SENT = "Sent";
-    static final String TYPE_USER = "User";
+    static final String INBOX = "Inbox";
+    static final String OUTBOX = "Outbox";
+    static final String ARCHIVE = "All";
+    static final String DRAFTS = "Drafts";
+    static final String TRASH = "Trash";
+    static final String JUNK = "Junk";
+    static final String SENT = "Sent";
+    static final String USER = "User";
 
     static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
             "All",
@@ -64,22 +64,22 @@ public class EntityFolder {
             "Sent"
     );
     static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
-            TYPE_ARCHIVE,
-            TYPE_DRAFTS,
-            TYPE_TRASH,
-            TYPE_JUNK,
-            TYPE_SENT
+            ARCHIVE,
+            DRAFTS,
+            TRASH,
+            JUNK,
+            SENT
     ); // MUST match SYSTEM_FOLDER_ATTR
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
-            TYPE_INBOX,
-            TYPE_OUTBOX,
-            TYPE_DRAFTS,
-            TYPE_SENT,
-            TYPE_ARCHIVE,
-            TYPE_TRASH,
-            TYPE_JUNK,
-            TYPE_USER
+            INBOX,
+            OUTBOX,
+            DRAFTS,
+            SENT,
+            ARCHIVE,
+            TRASH,
+            JUNK,
+            USER
     );
 
     static final int DEFAULT_INBOX_SYNC = 30; // days
@@ -87,10 +87,10 @@ public class EntityFolder {
     static final int DEFAULT_USER_SYNC = 7; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
-            TYPE_ARCHIVE,
-            TYPE_DRAFTS,
-            TYPE_TRASH,
-            TYPE_SENT
+            ARCHIVE,
+            DRAFTS,
+            TRASH,
+            SENT
     );
 
     @PrimaryKey(autoGenerate = true)
@@ -106,13 +106,13 @@ public class EntityFolder {
     public Integer after; // days
 
     static EntityFolder getDrafts(Context context, DB db, long account) {
-        EntityFolder drafts = db.folder().getFolderByType(account, EntityFolder.TYPE_DRAFTS);
+        EntityFolder drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
         if (drafts == null)
             drafts = db.folder().getLocalDrafts();
         if (drafts == null) {
             drafts = new EntityFolder();
             drafts.name = context.getString(R.string.title_folder_local_drafts);
-            drafts.type = EntityFolder.TYPE_DRAFTS;
+            drafts.type = EntityFolder.DRAFTS;
             drafts.synchronize = false;
             drafts.after = 0;
             drafts.id = db.folder().insertFolder(drafts);

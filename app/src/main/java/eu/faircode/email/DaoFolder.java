@@ -36,7 +36,7 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder WHERE account = :account AND synchronize = :synchronize")
     List<EntityFolder> getFolders(long account, boolean synchronize);
 
-    @Query("SELECT * FROM folder WHERE account = :account AND type = '" + EntityFolder.TYPE_USER + "'")
+    @Query("SELECT * FROM folder WHERE account = :account AND type = '" + EntityFolder.USER + "'")
     List<EntityFolder> getUserFolders(long account);
 
     @Query("SELECT folder.*, account.name AS accountName" +
@@ -71,10 +71,10 @@ public interface DaoFolder {
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
 
-    @Query("SELECT * FROM folder WHERE account IS NULL AND type = '" + EntityFolder.TYPE_DRAFTS + "'")
+    @Query("SELECT * FROM folder WHERE account IS NULL AND type = '" + EntityFolder.DRAFTS + "'")
     EntityFolder getLocalDrafts();
 
-    @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.TYPE_OUTBOX + "'")
+    @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

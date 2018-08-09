@@ -161,7 +161,7 @@ public class FragmentSetup extends FragmentEx {
                 if (outbox == null) {
                     outbox = new EntityFolder();
                     outbox.name = "OUTBOX";
-                    outbox.type = EntityFolder.TYPE_OUTBOX;
+                    outbox.type = EntityFolder.OUTBOX;
                     outbox.synchronize = false;
                     outbox.after = 0;
                     outbox.id = db.folder().insertFolder(outbox);

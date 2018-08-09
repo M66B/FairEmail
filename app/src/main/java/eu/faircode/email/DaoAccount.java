@@ -56,7 +56,7 @@ public interface DaoAccount {
             "     JOIN folder ON folder.id = message.folder" +
             "     WHERE NOT message.ui_seen AND NOT message.ui_hide" +
             "     AND (account.seen_until IS NULL OR message.received > account.seen_until)" +
-            "     AND folder.type = '" + EntityFolder.TYPE_INBOX + "') AS unseen")
+            "     AND folder.type = '" + EntityFolder.INBOX + "') AS unseen")
     LiveData<TupleAccountStats> liveStats();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

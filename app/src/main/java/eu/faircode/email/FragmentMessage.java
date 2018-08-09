@@ -303,26 +303,26 @@ public class FragmentMessage extends FragmentEx {
                     db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                         @Override
                         public void onChanged(@Nullable final List<TupleFolderEx> folders) {
-                            boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
-                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
-                            boolean archive = EntityFolder.TYPE_ARCHIVE.equals(message.folderType);
-                            boolean drafts = EntityFolder.TYPE_DRAFTS.equals(message.folderType);
-                            boolean trash = EntityFolder.TYPE_TRASH.equals(message.folderType);
-                            boolean junk = EntityFolder.TYPE_JUNK.equals(message.folderType);
-                            boolean sent = EntityFolder.TYPE_SENT.equals(message.folderType);
+                            boolean inbox = EntityFolder.INBOX.equals(message.folderType);
+                            boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
+                            boolean archive = EntityFolder.ARCHIVE.equals(message.folderType);
+                            boolean drafts = EntityFolder.DRAFTS.equals(message.folderType);
+                            boolean trash = EntityFolder.TRASH.equals(message.folderType);
+                            boolean junk = EntityFolder.JUNK.equals(message.folderType);
+                            boolean sent = EntityFolder.SENT.equals(message.folderType);
 
                             boolean hasTrash = false;
                             boolean hasJunk = false;
                             boolean hasArchive = false;
                             boolean hasUser = false;
                             for (EntityFolder folder : folders) {
-                                if (EntityFolder.TYPE_TRASH.equals(folder.type))
+                                if (EntityFolder.TRASH.equals(folder.type))
                                     hasTrash = true;
-                                else if (EntityFolder.TYPE_JUNK.equals(folder.type))
+                                else if (EntityFolder.JUNK.equals(folder.type))
                                     hasJunk = true;
-                                else if (EntityFolder.TYPE_ARCHIVE.equals(folder.type))
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
                                     hasArchive = true;
-                                else if (EntityFolder.TYPE_USER.equals(folder.type))
+                                else if (EntityFolder.USER.equals(folder.type))
                                     hasUser = true;
                             }
 
@@ -451,7 +451,7 @@ public class FragmentMessage extends FragmentEx {
                                     message.ui_hide = true;
                                     db.message().updateMessage(message);
 
-                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.TYPE_JUNK);
+                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
                                     EntityOperation.process(getContext());
                                 } catch (Throwable ex) {
@@ -466,7 +466,7 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionDelete(final long id) {
         String folderType = (String) bottom_navigation.getTag();
-        if (EntityFolder.TYPE_TRASH.equals(folderType)) {
+        if (EntityFolder.TRASH.equals(folderType)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder
                     .setMessage(R.string.title_ask_delete)
@@ -502,7 +502,7 @@ public class FragmentMessage extends FragmentEx {
                         message.ui_hide = true;
                         db.message().updateMessage(message);
 
-                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TYPE_TRASH);
+                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                         EntityOperation.queue(getContext(), message, EntityOperation.MOVE, trash.id);
                         EntityOperation.process(getContext());
                     } catch (Throwable ex) {
@@ -530,7 +530,7 @@ public class FragmentMessage extends FragmentEx {
                     message.ui_hide = true;
                     db.message().updateMessage(message);
 
-                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.TYPE_ARCHIVE);
+                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                     EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
                     EntityOperation.process(getContext());
                 } catch (Throwable ex) {
@@ -579,7 +579,7 @@ public class FragmentMessage extends FragmentEx {
                 }
             });
 
-            EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.TYPE_INBOX);
+            EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
             if (!message.folder.equals(inbox.id))
                 folders.add(0, inbox);
 

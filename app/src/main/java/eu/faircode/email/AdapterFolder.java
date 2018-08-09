@@ -122,7 +122,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
             TupleFolderEx folder = filtered.get(pos);
 
-            if (!EntityFolder.TYPE_OUTBOX.equals(folder.type)) {
+            if (!EntityFolder.OUTBOX.equals(folder.type)) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_EDIT_FOLDER)

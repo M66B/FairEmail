@@ -320,7 +320,7 @@ public class FragmentAccount extends FragmentEx {
                                         " system=" + folder.name +
                                         " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
 
-                                if (EntityFolder.TYPE_DRAFTS.equals(folder.type))
+                                if (EntityFolder.DRAFTS.equals(folder.type))
                                     drafts = true;
                             }
                         }
@@ -328,7 +328,7 @@ public class FragmentAccount extends FragmentEx {
                         if (!drafts) {
                             EntityFolder folder = new EntityFolder();
                             folder.name = getContext().getString(R.string.title_folder_local_drafts);
-                            folder.type = EntityFolder.TYPE_DRAFTS;
+                            folder.type = EntityFolder.DRAFTS;
                             folder.synchronize = false;
                             folder.after = 0;
                             folders.add(folder);
@@ -351,7 +351,7 @@ public class FragmentAccount extends FragmentEx {
 
                     EntityFolder inbox = new EntityFolder();
                     inbox.name = "INBOX";
-                    inbox.type = EntityFolder.TYPE_INBOX;
+                    inbox.type = EntityFolder.INBOX;
                     inbox.synchronize = true;
                     inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
                     folders.add(0, inbox);

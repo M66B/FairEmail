@@ -581,7 +581,7 @@ public class FragmentCompose extends FragmentEx {
                     else if ("trash".equals(action)) {
                         EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
 
-                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_TRASH);
+                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TRASH);
                         if (trash != null) {
                             draft.id = null;
                             draft.folder = trash.id;

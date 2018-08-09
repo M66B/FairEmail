@@ -411,7 +411,7 @@ public class ServiceSynchronize extends LifecycleService {
                             lbm.registerReceiver(processReceiver, f);
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id))
-                                if (!EntityFolder.TYPE_OUTBOX.equals(folder.type))
+                                if (!EntityFolder.OUTBOX.equals(folder.type))
                                     lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER)
                                             .setType("account/" + account.id)
                                             .putExtra("folder", folder.id));
@@ -826,7 +826,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 msg.seen = true;
                                 msg.ui_seen = true;
 
-                                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_SENT);
+                                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                                 if (sent != null) {
                                     Log.i(Helper.TAG, "Moving to sent folder=" + sent.id);
                                     msg.folder = sent.id;
@@ -956,7 +956,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = ifolder.getFullName();
-                        folder.type = EntityFolder.TYPE_USER;
+                        folder.type = EntityFolder.USER;
                         folder.synchronize = false;
                         folder.after = EntityFolder.DEFAULT_USER_SYNC;
                         dao.insertFolder(folder);
@@ -1086,7 +1086,7 @@ public class ServiceSynchronize extends LifecycleService {
                 long id = MimeMessageEx.getId(imessage);
                 message = db.message().getMessage(id);
                 if (message != null && message.folder != folder.id) {
-                    if (EntityFolder.TYPE_ARCHIVE.equals(folder.type))
+                    if (EntityFolder.ARCHIVE.equals(folder.type))
                         message = null;
                     else // Outbox to sent
                         message.folder = folder.id;

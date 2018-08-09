@@ -91,9 +91,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private void bindTo(TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
-            if (EntityFolder.TYPE_DRAFTS.equals(message.folderType) ||
-                    EntityFolder.TYPE_OUTBOX.equals(message.folderType) ||
-                    EntityFolder.TYPE_SENT.equals(message.folderType)) {
+            if (EntityFolder.DRAFTS.equals(message.folderType) ||
+                    EntityFolder.OUTBOX.equals(message.folderType) ||
+                    EntityFolder.SENT.equals(message.folderType)) {
                 tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
             } else {
@@ -137,12 +137,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 @Override
                 public void run() {
                     try {
-                        if (EntityFolder.TYPE_DRAFTS.equals(message.folderType))
+                        if (EntityFolder.DRAFTS.equals(message.folderType))
                             context.startActivity(
                                     new Intent(context, ActivityCompose.class)
                                             .putExtra("id", message.id));
                         else {
-                            if (!EntityFolder.TYPE_OUTBOX.equals(message.folderType)) {
+                            if (!EntityFolder.OUTBOX.equals(message.folderType)) {
                                 if (!message.seen && !message.ui_seen) {
                                     message.ui_seen = !message.ui_seen;
                                     DB.getInstance(context).message().updateMessage(message);
