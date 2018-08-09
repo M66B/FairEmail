@@ -306,7 +306,10 @@ public class FragmentMessage extends FragmentEx {
                             boolean inbox = EntityFolder.TYPE_INBOX.equals(message.folderType);
                             boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
                             boolean archive = EntityFolder.TYPE_ARCHIVE.equals(message.folderType);
+                            boolean drafts = EntityFolder.TYPE_DRAFTS.equals(message.folderType);
                             boolean trash = EntityFolder.TYPE_TRASH.equals(message.folderType);
+                            boolean junk = EntityFolder.TYPE_JUNK.equals(message.folderType);
+                            boolean sent = EntityFolder.TYPE_SENT.equals(message.folderType);
 
                             boolean hasTrash = false;
                             boolean hasJunk = false;
@@ -327,11 +330,11 @@ public class FragmentMessage extends FragmentEx {
                             top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!outbox);
                             top_navigation.getMenu().findItem(R.id.action_edit).setVisible(trash);
                             top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!outbox);
-                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox);
+                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox && message.cc != null);
                             top_navigation.setVisibility(View.VISIBLE);
 
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && hasTrash);
-                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && hasJunk);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && !trash && hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && !junk && hasJunk);
                             bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && !archive && hasArchive);
                             bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!outbox);
