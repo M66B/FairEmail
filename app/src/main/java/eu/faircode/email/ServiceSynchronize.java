@@ -1059,7 +1059,7 @@ public class ServiceSynchronize extends LifecycleService {
             ifolder.fetch(new Message[]{imessage}, fp);
 
             uid = ifolder.getUID(imessage);
-            Log.i(Helper.TAG, folder.name + " start sync uid=" + uid);
+            Log.v(Helper.TAG, folder.name + " start sync uid=" + uid);
 
             if (imessage.isExpunged()) {
                 Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
@@ -1139,11 +1139,11 @@ public class ServiceSynchronize extends LifecycleService {
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
             } else {
-                Log.i(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
+                Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
             }
 
         } finally {
-            Log.i(Helper.TAG, folder.name + " end sync uid=" + uid);
+            Log.v(Helper.TAG, folder.name + " end sync uid=" + uid);
         }
     }
 
