@@ -89,17 +89,16 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void bindTo(TupleMessageEx message) {
-            boolean outgoing = EntityFolder.isOutgoing(message.folderType);
-            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
-
             pbLoading.setVisibility(View.GONE);
 
-            if (outgoing) {
+            if (EntityFolder.TYPE_DRAFTS.equals(message.folderType) ||
+                    EntityFolder.TYPE_OUTBOX.equals(message.folderType) ||
+                    EntityFolder.TYPE_SENT.equals(message.folderType)) {
                 tvFrom.setText(MessageHelper.getFormattedAddresses(message.to));
-                tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
+                tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
             } else {
                 tvFrom.setText(MessageHelper.getFormattedAddresses(message.from));
-                tvTime.setText(message.sent == null ? null : DateUtils.getRelativeTimeSpanString(context, message.sent));
+                tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 
             tvSubject.setText(message.subject);
@@ -108,20 +107,20 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             if (viewType == ViewType.FOLDER) {
                 tvCount.setText(extra + Integer.toString(message.count));
                 tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
-            } else
+            } else {
                 tvCount.setText(extra + Helper.localizeFolderName(context, message.folderName));
+                tvCount.setVisibility(View.VISIBLE);
+            }
 
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
-            boolean unseen = (message.thread == null && !outbox ? message.unseen > 0 : !message.seen);
-
-            int typeface = (unseen ? Typeface.BOLD : Typeface.NORMAL);
+            int typeface = (message.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvFrom.setTypeface(null, typeface);
             tvTime.setTypeface(null, typeface);
             tvSubject.setTypeface(null, typeface);
             tvCount.setTypeface(null, typeface);
 
-            int colorUnseen = Helper.resolveColor(context, unseen
+            int colorUnseen = Helper.resolveColor(context, message.unseen > 0
                     ? R.attr.colorUnread : android.R.attr.textColorSecondary);
             tvFrom.setTextColor(colorUnseen);
             tvTime.setTextColor(colorUnseen);
@@ -143,12 +142,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     new Intent(context, ActivityCompose.class)
                                             .putExtra("id", message.id));
                         else {
-                            boolean outbox = EntityFolder.TYPE_OUTBOX.equals(message.folderType);
-                            if (!outbox && !message.seen && !message.ui_seen) {
-                                message.ui_seen = !message.ui_seen;
-                                DB.getInstance(context).message().updateMessage(message);
-                                EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
-                                EntityOperation.process(context);
+                            if (!EntityFolder.TYPE_OUTBOX.equals(message.folderType)) {
+                                if (!message.seen && !message.ui_seen) {
+                                    message.ui_seen = !message.ui_seen;
+                                    DB.getInstance(context).message().updateMessage(message);
+                                    EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
+                                    EntityOperation.process(context);
+                                }
                             }
 
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);

@@ -91,10 +91,6 @@ public class EntityFolder {
             TYPE_SENT
     );
 
-    static boolean isOutgoing(String type) {
-        return (TYPE_OUTBOX.equals(type) || TYPE_DRAFTS.equals(type) || TYPE_SENT.equals(type));
-    }
-
     @PrimaryKey(autoGenerate = true)
     public Long id;
     public Long account; // Outbox = null

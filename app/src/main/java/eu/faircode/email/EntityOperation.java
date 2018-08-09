@@ -80,15 +80,6 @@ public class EntityOperation {
     private static void queue(Context context, EntityMessage message, String name, JSONArray jsonArray) {
         DaoOperation dao = DB.getInstance(context).operation();
 
-        int purged = 0;
-        if (SEEN.equals(name)) {
-            if (message.uid == null) {
-                // local message
-                return;
-            }
-            purged = dao.deleteOperations(message.id, name);
-        }
-
         EntityOperation operation = new EntityOperation();
         operation.message = message.id;
         operation.name = name;
@@ -110,8 +101,7 @@ public class EntityOperation {
 
         Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + name +
                 " args=" + operation.args +
-                " msg=" + message.folder + "/" + message.id + " uid=" + message.uid +
-                " purged=" + purged);
+                " msg=" + message.folder + "/" + message.id + " uid=" + message.uid);
     }
 
     public static void process(Context context) {
