@@ -912,12 +912,6 @@ public class ServiceSynchronize extends LifecycleService {
                             return;
                         } else
                             throw ex;
-                    } catch (NullPointerException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-
-                        // There is no use in repeating
-                        operation.deleteOperation(op.id);
-                        throw ex;
                     }
                 } finally {
                     Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
