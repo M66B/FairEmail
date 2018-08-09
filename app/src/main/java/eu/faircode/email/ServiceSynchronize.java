@@ -794,6 +794,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
+
         // Get folder
         Folder itarget = istore.getFolder(target.name);
 
@@ -829,7 +830,6 @@ public class ServiceSynchronize extends LifecycleService {
             Session isession = Session.getInstance(props, null);
             MimeMessage icopy = MessageHelper.from(message, isession);
             itarget.appendMessages(new Message[]{icopy});
-            icopy.setFlag(Flags.Flag.SEEN, message.seen);
         }
 
         // Delete original
@@ -1122,6 +1122,8 @@ public class ServiceSynchronize extends LifecycleService {
                 return 0;
             }
 
+            MessageHelper helper = new MessageHelper(imessage);
+            boolean seen = helper.getSeen();
 
             DB db = DB.getInstance(this);
 
@@ -1131,19 +1133,25 @@ public class ServiceSynchronize extends LifecycleService {
                 message = db.message().getMessage(id);
                 Log.i(Helper.TAG, "By id=" + id + " uid=" + (message == null ? "n/a" : message.uid));
             }
-            if (message != null && message.folder != folder.id) {
-                if (EntityFolder.ARCHIVE.equals(folder.type))
-                    message = null;
-                else // Outbox to sent
-                    message.folder = folder.id;
-            }
+            if (message != null)
+                if (message.folder == folder.id) {
+                    if (message.uid == null) {
+                        // Append (move)
+                        message.uid = uid;
+                        if (!seen)
+                            imessage.setFlag(Flags.Flag.SEEN, true);
+                        // Will be updated because message.seen <> seen
+                    }
+                } else {
+                    if (EntityFolder.ARCHIVE.equals(folder.type))
+                        message = null;
+                    else // Outbox to sent
+                        message.folder = folder.id;
+                }
             if (message == null) {
                 message = db.message().getMessage(folder.id, uid);
                 Log.i(Helper.TAG, "By uid=" + uid + " id=" + (message == null ? "n/a" : message.id));
             }
-
-            MessageHelper helper = new MessageHelper(imessage);
-            boolean seen = helper.getSeen();
 
             if (message == null) {
                 FetchProfile fp1 = new FetchProfile();
@@ -1189,23 +1197,14 @@ public class ServiceSynchronize extends LifecycleService {
 
                 return 1;
             } else if (message.seen != seen) {
-                //if (message.uid == null)
-                message.uid = uid; //  Complete move
                 message.seen = seen;
                 message.ui_seen = seen;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
                 return -1;
             } else {
-                if (message.uid == null) {
-                    message.uid = uid;
-                    db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " set uid=" + message.uid);
-                    return -1;
-                } else {
-                    Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
-                    return 0;
-                }
+                Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
+                return 0;
             }
 
         } finally {
