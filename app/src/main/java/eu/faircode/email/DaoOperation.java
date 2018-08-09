@@ -31,15 +31,10 @@ public interface DaoOperation {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertOperation(EntityOperation operation);
 
-    @Query("SELECT operation.*, message.uid FROM operation" +
-            " JOIN message ON message.id = operation.message" +
-            " WHERE folder = :folder" +
-            " ORDER BY operation.id")
-    List<TupleOperationEx> getOperations(long folder);
+    @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
+    List<EntityOperation> getOperations(long folder);
 
-    @Query("SELECT COUNT(operation.id) FROM operation" +
-            " JOIN message ON message.id = operation.message" +
-            " WHERE folder = :folder")
+    @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
 
     @Query("DELETE FROM operation WHERE id = :id")

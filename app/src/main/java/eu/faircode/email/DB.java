@@ -44,7 +44,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 7,
+        version = 1,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -71,7 +71,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
 
-    private static final String DB_NAME = "email.db";
+    private static final String DB_NAME = "email.2.db";
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null)
@@ -92,12 +92,12 @@ public abstract class DB extends RoomDatabase {
                         super.onOpen(db);
                     }
                 })
-                .addMigrations(MIGRATION_1_2)
-                .addMigrations(MIGRATION_2_3)
-                .addMigrations(MIGRATION_3_4)
-                .addMigrations(MIGRATION_4_5)
-                .addMigrations(MIGRATION_5_6)
-                .addMigrations(MIGRATION_6_7)
+                //.addMigrations(MIGRATION_1_2)
+                //.addMigrations(MIGRATION_2_3)
+                //.addMigrations(MIGRATION_3_4)
+                //.addMigrations(MIGRATION_4_5)
+                //.addMigrations(MIGRATION_5_6)
+                //.addMigrations(MIGRATION_6_7)
                 .build();
     }
 
@@ -153,6 +153,7 @@ public abstract class DB extends RoomDatabase {
         @Override
         public void migrate(SupportSQLiteDatabase db) {
             Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+            // Recreate is sometimes causing problems with ROOM
             db.execSQL("DROP TABLE `identity`");
             db.execSQL("CREATE TABLE `identity`" +
                     " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +

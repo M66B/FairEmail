@@ -24,16 +24,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -45,7 +41,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private Context context;
     private ViewType viewType;
     private boolean debug;
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     enum ViewType {FOLDER, THREAD}
 
@@ -133,34 +128,16 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 return;
             final TupleMessageEx message = getItem(pos);
 
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        if (EntityFolder.DRAFTS.equals(message.folderType))
-                            context.startActivity(
-                                    new Intent(context, ActivityCompose.class)
-                                            .putExtra("id", message.id));
-                        else {
-                            if (!EntityFolder.OUTBOX.equals(message.folderType)) {
-                                if (!message.seen && !message.ui_seen) {
-                                    message.ui_seen = !message.ui_seen;
-                                    DB.getInstance(context).message().updateMessage(message);
-                                    EntityOperation.queue(context, message, EntityOperation.SEEN, message.ui_seen);
-                                    EntityOperation.process(context);
-                                }
-                            }
-
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                            .putExtra("id", message.id));
-                        }
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-                }
-            });
+            if (EntityFolder.DRAFTS.equals(message.folderType))
+                context.startActivity(
+                        new Intent(context, ActivityCompose.class)
+                                .putExtra("id", message.id));
+            else {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGE)
+                                .putExtra("id", message.id));
+            }
         }
     }
 

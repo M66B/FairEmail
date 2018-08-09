@@ -177,10 +177,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
+                                // No need for a transaction
                                 DB db = DB.getInstance(context);
                                 db.attachment().setProgress(attachment.id, 0);
+
                                 EntityMessage message = db.message().getMessage(attachment.message);
-                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                                EntityOperation.queue(db, message, EntityOperation.ATTACHMENT, attachment.sequence);
                                 EntityOperation.process(context);
                             }
                         });

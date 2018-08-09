@@ -31,7 +31,7 @@ public class MimeMessageEx extends MimeMessage {
                     .append('>');
 
             setHeader("Message-ID", sb.toString());
-            Log.i(Helper.TAG, "Override Message-ID=" + sb.toString());
+            Log.v(Helper.TAG, "Override Message-ID=" + sb.toString());
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             super.updateMessageID();
@@ -54,7 +54,7 @@ public class MimeMessageEx extends MimeMessage {
                 return -1;
 
             long id = Long.parseLong(part.substring(1));
-            Log.i(Helper.TAG, "Parsed Message-ID=" + msgid + " id=" + id);
+            Log.v(Helper.TAG, "Parsed Message-ID=" + msgid + " id=" + id);
             return id;
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));

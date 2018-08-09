@@ -40,6 +40,7 @@ import static androidx.room.ForeignKey.CASCADE;
 @Entity(
         tableName = EntityOperation.TABLE_NAME,
         foreignKeys = {
+                @ForeignKey(childColumns = "folder", entity = EntityFolder.class, parentColumns = "id", onDelete = CASCADE),
                 @ForeignKey(childColumns = "message", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
@@ -51,6 +52,8 @@ public class EntityOperation {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    @NonNull
+    public Long folder;
     @NonNull
     public Long message;
     @NonNull
@@ -66,25 +69,31 @@ public class EntityOperation {
 
     private static List<Intent> queue = new ArrayList<>();
 
-    static void queue(Context context, EntityMessage message, String name) {
+    static void queue(DB db, EntityMessage message, String name) {
         JSONArray jsonArray = new JSONArray();
-        queue(context, message, name, jsonArray);
+        queue(db, message, name, jsonArray);
     }
 
-    static void queue(Context context, EntityMessage message, String name, Object value) {
+    static void queue(DB db, EntityMessage message, String name, Object value) {
         JSONArray jsonArray = new JSONArray();
         jsonArray.put(value);
-        queue(context, message, name, jsonArray);
+        queue(db, message, name, jsonArray);
     }
 
-    private static void queue(Context context, EntityMessage message, String name, JSONArray jsonArray) {
-        DaoOperation dao = DB.getInstance(context).operation();
+    static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.put(value1);
+        jsonArray.put(value2);
+        queue(db, message, name, jsonArray);
+    }
 
+    private static void queue(DB db, EntityMessage message, String name, JSONArray jsonArray) {
         EntityOperation operation = new EntityOperation();
+        operation.folder = message.folder;
         operation.message = message.id;
         operation.name = name;
         operation.args = jsonArray.toString();
-        operation.id = dao.insertOperation(operation);
+        operation.id = db.operation().insertOperation(operation);
 
         Intent intent = new Intent();
         if (SEND.equals(name))
@@ -99,9 +108,9 @@ public class EntityOperation {
             queue.add(intent);
         }
 
-        Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + name +
-                " args=" + operation.args +
-                " msg=" + message.folder + "/" + message.id + " uid=" + message.uid);
+        Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + operation.name +
+                " msg=" + message.folder + "/" + operation.message +
+                " args=" + operation.args);
     }
 
     public static void process(Context context) {

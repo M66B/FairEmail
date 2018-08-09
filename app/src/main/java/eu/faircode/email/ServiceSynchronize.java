@@ -596,8 +596,8 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, folder.name + " messages removed");
                     for (Message imessage : e.getMessages())
                         try {
-                            long uid = ifolder.getUID(imessage);
                             DB db = DB.getInstance(ServiceSynchronize.this);
+                            long uid = ifolder.getUID(imessage);
                             int count = db.message().deleteMessage(folder.id, uid);
                             Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
                         } catch (MessageRemovedException ex) {
@@ -694,215 +694,56 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " start process");
 
             DB db = DB.getInstance(this);
-            DaoOperation operation = db.operation();
-            DaoMessage message = db.message();
-            for (TupleOperationEx op : operation.getOperations(folder.id))
+            for (EntityOperation op : db.operation().getOperations(folder.id))
                 try {
                     Log.i(Helper.TAG, folder.name +
                             " start op=" + op.id + "/" + op.name +
-                            " args=" + op.args +
-                            " msg=" + op.message);
+                            " msg=" + op.message +
+                            " args=" + op.args);
 
                     JSONArray jargs = new JSONArray(op.args);
+                    EntityMessage message = db.message().getMessage(op.message);
                     try {
-                        if (EntityOperation.SEEN.equals(op.name)) {
-                            // Mark message (un)seen
-                            Message imessage = ifolder.getMessageByUID(op.uid);
-                            if (imessage == null)
-                                throw new MessageRemovedException();
-                            imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
+                        if (EntityOperation.SEEN.equals(op.name))
+                            doSeen(ifolder, jargs, message);
 
-                        } else if (EntityOperation.ADD.equals(op.name)) {
-                            // Append message
-                            EntityMessage msg = message.getMessage(op.message);
-                            if (msg == null)
-                                return;
+                        else if (EntityOperation.ADD.equals(op.name))
+                            doAdd(ifolder, message);
 
-                            // Disconnect from remote to prevent deletion
-                            Long uid = msg.uid;
-                            if (msg.uid != null) {
-                                msg.uid = null;
-                                message.updateMessage(msg);
-                            }
+                        else if (EntityOperation.MOVE.equals(op.name))
+                            doMove(folder, istore, ifolder, db, jargs, message);
 
-                            // Execute append
-                            Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getInstance(props, null);
-                            MimeMessage imessage = MessageHelper.from(msg, isession);
-                            ifolder.appendMessages(new Message[]{imessage});
+                        else if (EntityOperation.DELETE.equals(op.name))
+                            doDelete(folder, ifolder, db, message);
 
-                            // Drafts can be appended multiple times
-                            if (uid != null) {
-                                Message previously = ifolder.getMessageByUID(uid);
-                                if (previously == null)
-                                    throw new MessageRemovedException();
+                        else if (EntityOperation.SEND.equals(op.name))
+                            doSend(db, message);
 
-                                previously.setFlag(Flags.Flag.DELETED, true);
-                                ifolder.expunge();
-                            }
+                        else if (EntityOperation.ATTACHMENT.equals(op.name))
+                            doAttachment(ifolder, db, op, jargs, message);
 
-                        } else if (EntityOperation.MOVE.equals(op.name)) {
-                            EntityFolder target = db.folder().getFolder(jargs.getLong(0));
-                            if (target == null)
-                                throw new FolderNotFoundException();
-
-                            // Move message
-                            Message imessage = ifolder.getMessageByUID(op.uid);
-                            if (imessage == null)
-                                throw new MessageRemovedException();
-
-                            Folder itarget = istore.getFolder(target.name);
-                            if (istore.hasCapability("MOVE"))
-                                ifolder.moveMessages(new Message[]{imessage}, itarget);
-                            else {
-                                Log.i(Helper.TAG, "MOVE by APPEND/DELETE");
-                                EntityMessage msg = message.getMessage(op.message);
-
-                                // Execute append
-                                Properties props = MessageHelper.getSessionProperties();
-                                Session isession = Session.getInstance(props, null);
-                                MimeMessage icopy = MessageHelper.from(msg, isession);
-                                itarget.appendMessages(new Message[]{icopy});
-
-                                // Execute delete
-                                imessage.setFlag(Flags.Flag.DELETED, true);
-                                ifolder.expunge();
-                            }
-
-                            message.deleteMessage(op.message);
-
-                        } else if (EntityOperation.DELETE.equals(op.name)) {
-                            // Delete message
-                            if (op.uid != null) {
-                                Message imessage = ifolder.getMessageByUID(op.uid);
-                                if (imessage == null)
-                                    throw new MessageRemovedException();
-                                imessage.setFlag(Flags.Flag.DELETED, true);
-                                ifolder.expunge();
-                            }
-
-                            message.deleteMessage(op.message);
-
-                        } else if (EntityOperation.SEND.equals(op.name)) {
-                            // Send message
-                            EntityMessage msg = message.getMessage(op.message);
-                            if (msg == null)
-                                return;
-
-                            EntityMessage reply = (msg.replying == null ? null : message.getMessage(msg.replying));
-                            EntityIdentity ident = db.identity().getIdentity(msg.identity);
-
-                            if (ident == null || !ident.synchronize) {
-                                // Message will remain in outbox
-                                return;
-                            }
-
-                            // Create session
-                            Properties props = MessageHelper.getSessionProperties();
-                            Session isession = Session.getInstance(props, null);
-
-                            // Create message
-                            MimeMessage imessage;
-                            if (reply == null)
-                                imessage = MessageHelper.from(msg, isession);
-                            else
-                                imessage = MessageHelper.from(msg, reply, isession);
-                            if (ident.replyto != null)
-                                imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
-
-                            // Create transport
-                            Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
-                            try {
-                                // Connect transport
-                                itransport.connect(ident.host, ident.port, ident.user, ident.password);
-
-                                // Send message
-                                Address[] to = imessage.getAllRecipients();
-                                itransport.sendMessage(imessage, to);
-                                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                                        " to " + TextUtils.join(", ", to));
-
-                                msg.sent = new Date().getTime();
-                                msg.seen = true;
-                                msg.ui_seen = true;
-
-                                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
-                                if (sent != null) {
-                                    Log.i(Helper.TAG, "Moving to sent folder=" + sent.id);
-                                    msg.folder = sent.id;
-                                }
-
-                                message.updateMessage(msg);
-
-                            } finally {
-                                itransport.close();
-                            }
-                            // TODO: cache transport?
-
-                        } else if (EntityOperation.ATTACHMENT.equals(op.name)) {
-                            int sequence = jargs.getInt(0);
-                            EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
-                            if (attachment == null)
-                                return;
-
-                            try {
-                                // Get message
-                                Message imessage = ifolder.getMessageByUID(op.uid);
-                                if (imessage == null)
-                                    throw new MessageRemovedException();
-
-                                // Get attachment
-                                MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                                EntityAttachment a = helper.getAttachments().get(sequence - 1);
-
-                                // Download attachment
-                                InputStream is = a.part.getInputStream();
-                                ByteArrayOutputStream os = new ByteArrayOutputStream();
-                                byte[] buffer = new byte[DOWNLOAD_BUFFER_SIZE];
-                                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                                    os.write(buffer, 0, len);
-
-                                    // Update progress
-                                    if (attachment.size != null) {
-                                        attachment.progress = os.size() * 100 / attachment.size;
-                                        db.attachment().updateAttachment(attachment);
-                                        Log.i(Helper.TAG, "Progress %=" + attachment.progress);
-                                    }
-                                }
-
-                                // Store attachment data
-                                attachment.progress = null;
-                                attachment.content = os.toByteArray();
-                                db.attachment().updateAttachment(attachment);
-                                Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
-                            } catch (Throwable ex) {
-                                // Reset progress on failure
-                                attachment.progress = null;
-                                db.attachment().updateAttachment(attachment);
-                                throw ex;
-                            }
-                        } else
+                        else
                             throw new MessagingException("Unknown operation name=" + op.name);
 
                         // Operation succeeded
-                        operation.deleteOperation(op.id);
+                        db.operation().deleteOperation(op.id);
 
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is no use in repeating
-                        operation.deleteOperation(op.id);
+                        db.operation().deleteOperation(op.id);
                     } catch (FolderNotFoundException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is no use in repeating
-                        operation.deleteOperation(op.id);
+                        db.operation().deleteOperation(op.id);
                     } catch (SMTPSendFailedException ex) {
                         // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
                         // There is probably no use in repeating
-                        operation.deleteOperation(op.id);
+                        db.operation().deleteOperation(op.id);
                         throw ex;
                     } catch (MessagingException ex) {
                         // Socket timeout is a recoverable condition (send message)
@@ -918,6 +759,207 @@ public class ServiceSynchronize extends LifecycleService {
                 }
         } finally {
             Log.i(Helper.TAG, folder.name + " end process");
+        }
+    }
+
+    private void doSeen(IMAPFolder ifolder, JSONArray jargs, EntityMessage message) throws MessagingException, JSONException {
+        if (message.uid == null)
+            return;
+
+        // Mark message (un)seen
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
+    }
+
+    private void doAdd(IMAPFolder ifolder, EntityMessage message) throws MessagingException {
+        // Append message
+        Properties props = MessageHelper.getSessionProperties();
+        Session isession = Session.getInstance(props, null);
+        MimeMessage imessage = MessageHelper.from(message, isession);
+        ifolder.appendMessages(new Message[]{imessage});
+    }
+
+    private void doMove(EntityFolder source, IMAPStore istore, IMAPFolder ifolder, DB db, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+        long id = jargs.getLong(0);
+        long uid = jargs.getLong(1);
+        EntityFolder target = db.folder().getFolder(id);
+        if (target == null)
+            throw new FolderNotFoundException();
+
+        // Get message
+        Message imessage = ifolder.getMessageByUID(uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        // Get folder
+        Folder itarget = istore.getFolder(target.name);
+
+        // Append/delete because message ID header needs to be added and not all providers support MOVE
+        long oid = message.id;
+        try {
+            db.beginTransaction();
+
+            // Hide original (to be deleted)
+            message.ui_hide = true;
+            db.message().updateMessage(message);
+
+            // Copy message (to be appended)
+            if (!EntityFolder.ARCHIVE.equals(target.type)) {
+                message.id = null;
+                message.ui_hide = false;
+                message.id = db.message().insertMessage(message);
+
+                // New archived message will be created
+                EntityMessage archived = db.message().getArchivedMessage(message.thread);
+                if (archived != null)
+                    db.message().deleteMessage(archived.id);
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        // Append copy
+        if (!EntityFolder.ARCHIVE.equals(target.type)) {
+            Properties props = MessageHelper.getSessionProperties();
+            Session isession = Session.getInstance(props, null);
+            MimeMessage icopy = MessageHelper.from(message, isession);
+            itarget.appendMessages(new Message[]{icopy});
+            icopy.setFlag(Flags.Flag.SEEN, message.seen);
+        }
+
+        // Delete original
+        imessage.setFlag(Flags.Flag.DELETED, true);
+        ifolder.expunge();
+
+        db.message().deleteMessage(oid);
+    }
+
+    private void doDelete(EntityFolder folder, IMAPFolder ifolder, DB db, EntityMessage message) throws MessagingException {
+        // Delete message
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        imessage.setFlag(Flags.Flag.DELETED, true);
+        ifolder.expunge();
+
+        db.message().deleteMessage(message.id);
+    }
+
+    private void doSend(DB db, EntityMessage message) throws MessagingException {
+        // Send message
+        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
+        EntityIdentity ident = db.identity().getIdentity(message.identity);
+
+        if (!ident.synchronize) {
+            // Message will remain in outbox
+            return;
+        }
+
+        try {
+            db.beginTransaction();
+
+            // Move message to sent
+            EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
+            if (sent == null)
+                ; // Leave message in outbox
+            else {
+                message.folder = sent.id;
+                message.uid = null;
+            }
+
+            // Create session
+            Properties props = MessageHelper.getSessionProperties();
+            Session isession = Session.getInstance(props, null);
+
+            // Create message
+            MimeMessage imessage;
+            if (reply == null)
+                imessage = MessageHelper.from(message, isession);
+            else
+                imessage = MessageHelper.from(message, reply, isession);
+            if (ident.replyto != null)
+                imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
+
+            // Create transport
+            // TODO: cache transport?
+            Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
+            try {
+                // Connect transport
+                itransport.connect(ident.host, ident.port, ident.user, ident.password);
+
+                // Send message
+                Address[] to = imessage.getAllRecipients();
+                itransport.sendMessage(imessage, to);
+                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+                        " to " + TextUtils.join(", ", to));
+
+                // Update state
+                message.sent = new Date().getTime();
+                message.seen = true;
+                message.ui_seen = true;
+                db.message().updateMessage(message);
+
+                if (sent != null)
+                    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+
+            } finally {
+                itransport.close();
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void doAttachment(IMAPFolder ifolder, DB db, EntityOperation op, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
+        int sequence = jargs.getInt(0);
+
+        EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
+        if (attachment == null)
+            return;
+
+        try {
+            // Get message
+            Message imessage = ifolder.getMessageByUID(message.uid);
+            if (imessage == null)
+                throw new MessageRemovedException();
+
+            // Get attachment
+            MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+            EntityAttachment a = helper.getAttachments().get(sequence - 1);
+
+            // Download attachment
+            InputStream is = a.part.getInputStream();
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            byte[] buffer = new byte[DOWNLOAD_BUFFER_SIZE];
+            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                os.write(buffer, 0, len);
+
+                // Update progress
+                if (attachment.size != null) {
+                    attachment.progress = os.size() * 100 / attachment.size;
+                    db.attachment().updateAttachment(attachment);
+                    Log.i(Helper.TAG, "Progress %=" + attachment.progress);
+                }
+            }
+
+            // Store attachment data
+            attachment.progress = null;
+            attachment.content = os.toByteArray();
+            db.attachment().updateAttachment(attachment);
+            Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
+        } catch (Throwable ex) {
+            // Reset progress on failure
+            attachment.progress = null;
+            db.attachment().updateAttachment(attachment);
+            throw ex;
         }
     }
 
@@ -1029,6 +1071,9 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             // Add/update local messages
+            int added = 0;
+            int updated = 0;
+            int unchanged = 0;
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int batch = 0; batch < imessages.length; batch += FETCH_BATCH_SIZE) {
                 Log.i(Helper.TAG, folder.name + " fetch @" + batch);
@@ -1036,7 +1081,13 @@ public class ServiceSynchronize extends LifecycleService {
                     db.beginTransaction();
                     for (int i = 0; i < FETCH_BATCH_SIZE && batch + i < imessages.length; i++)
                         try {
-                            synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[batch + i]);
+                            int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[batch + i]);
+                            if (status > 0)
+                                added++;
+                            else if (status < 0)
+                                updated++;
+                            else
+                                unchanged++;
                         } catch (MessageRemovedException ex) {
                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         }
@@ -1045,12 +1096,13 @@ public class ServiceSynchronize extends LifecycleService {
                     db.endTransaction();
                 }
             }
+            Log.i(Helper.TAG, folder.name + " added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.i(Helper.TAG, folder.name + " end sync");
         }
     }
 
-    private void synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, JSONException, IOException {
+    private int synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, JSONException, IOException {
         long uid = -1;
         try {
             FetchProfile fp = new FetchProfile();
@@ -1063,18 +1115,36 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (imessage.isExpunged()) {
                 Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
-                return;
+                return 0;
             }
             if (imessage.isSet(Flags.Flag.DELETED)) {
                 Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
-                return;
+                return 0;
+            }
+
+
+            DB db = DB.getInstance(this);
+
+            EntityMessage message = null;
+            long id = MimeMessageEx.getId(imessage);
+            if (id >= 0) {
+                message = db.message().getMessage(id);
+                Log.i(Helper.TAG, "By id=" + id + " uid=" + (message == null ? "n/a" : message.uid));
+            }
+            if (message != null && message.folder != folder.id) {
+                if (EntityFolder.ARCHIVE.equals(folder.type))
+                    message = null;
+                else // Outbox to sent
+                    message.folder = folder.id;
+            }
+            if (message == null) {
+                message = db.message().getMessage(folder.id, uid);
+                Log.i(Helper.TAG, "By uid=" + uid + " id=" + (message == null ? "n/a" : message.id));
             }
 
             MessageHelper helper = new MessageHelper(imessage);
             boolean seen = helper.getSeen();
 
-            DB db = DB.getInstance(this);
-            EntityMessage message = db.message().getMessage(folder.id, uid);
             if (message == null) {
                 FetchProfile fp1 = new FetchProfile();
                 fp1.add(FetchProfile.Item.ENVELOPE);
@@ -1083,18 +1153,7 @@ public class ServiceSynchronize extends LifecycleService {
                 fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
                 ifolder.fetch(new Message[]{imessage}, fp1);
 
-                long id = MimeMessageEx.getId(imessage);
-                message = db.message().getMessage(id);
-                if (message != null && message.folder != folder.id) {
-                    if (EntityFolder.ARCHIVE.equals(folder.type))
-                        message = null;
-                    else // Outbox to sent
-                        message.folder = folder.id;
-                }
-                boolean update = (message != null);
-                if (message == null)
-                    message = new EntityMessage();
-
+                message = new EntityMessage();
                 message.account = folder.account;
                 message.folder = folder.id;
                 message.uid = uid;
@@ -1115,13 +1174,8 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = seen;
                 message.ui_hide = false;
 
-                if (update) {
-                    db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
-                } else {
-                    message.id = db.message().insertMessage(message);
-                    Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
-                }
+                message.id = db.message().insertMessage(message);
+                Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 0;
                 for (EntityAttachment attachment : helper.getAttachments()) {
@@ -1132,14 +1186,26 @@ public class ServiceSynchronize extends LifecycleService {
                     attachment.sequence = sequence;
                     attachment.id = db.attachment().insertAttachment(attachment);
                 }
+
+                return 1;
             } else if (message.seen != seen) {
+                //if (message.uid == null)
+                message.uid = uid; //  Complete move
                 message.seen = seen;
                 message.ui_seen = seen;
-                // TODO: synchronize all data?
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
+                return -1;
             } else {
-                Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
+                if (message.uid == null) {
+                    message.uid = uid;
+                    db.message().updateMessage(message);
+                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " set uid=" + message.uid);
+                    return -1;
+                } else {
+                    Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
+                    return 0;
+                }
             }
 
         } finally {

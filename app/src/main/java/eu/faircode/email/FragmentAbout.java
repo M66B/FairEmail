@@ -80,9 +80,6 @@ public class FragmentAbout extends FragmentEx {
                                 draft.ui_hide = false;
                                 draft.id = db.message().insertMessage(draft);
 
-                                EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
-                                EntityOperation.process(getContext());
-
                                 startActivity(new Intent(getContext(), ActivityCompose.class)
                                         .putExtra("id", draft.id));
                             }

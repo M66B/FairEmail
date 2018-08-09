@@ -329,10 +329,10 @@ public class FragmentCompose extends FragmentEx {
             try {
                 String action = args.getString("action");
                 long id = args.getLong("id", -1);
-                EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
 
                 result.putString("action", action);
 
+                EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
                 if (msg != null) {
                     if (msg.identity != null)
                         result.putLong("iid", msg.identity);
@@ -550,46 +550,71 @@ public class FragmentCompose extends FragmentEx {
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;
-                draft.ui_hide = !"save".equals(action);
+                draft.ui_hide = false;
 
                 // Store draft
-                if (update)
-                    message.updateMessage(draft);
-                else
+                if (!update)
                     draft.id = message.insertMessage(draft);
 
                 // Check data
                 try {
                     db.beginTransaction();
 
-                    if ("send".equals(action)) {
+
+                    if ("save".equals(action)) {
+                        // Delete previous draft
+                        if (draft.uid == null)
+                            db.message().deleteMessage(draft.id);
+                        else {
+                            draft.ui_hide = true;
+                            db.message().updateMessage(draft);
+                            EntityOperation.queue(db, draft, EntityOperation.DELETE);
+                        }
+
+                        // Create new draft
+                        draft.id = null;
+                        draft.uid = null;
+                        draft.ui_hide = false;
+                        draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                    } else if ("trash".equals(action)) {
+                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TRASH);
+
+                        boolean move = (draft.uid != null);
+                        if (move)
+                            EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id, draft.uid);
+
+                        draft.folder = trash.id;
+                        draft.uid = null;
+                        db.message().updateMessage(draft);
+
+                        if (!move)
+                            EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                    } else if ("send".equals(action)) {
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_to_missing));
 
-                        EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
+                        // Delete draft (cannot move to outbox)
+                        if (draft.uid == null)
+                            db.message().deleteMessage(draft.id);
+                        else {
+                            draft.ui_hide = true;
+                            db.message().updateMessage(draft);
+                            EntityOperation.queue(db, draft, EntityOperation.DELETE);
+                        }
 
+                        // Copy message to outbox
                         draft.id = null;
                         draft.folder = folder.getOutbox().id;
+                        draft.uid = null;
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
 
-                        EntityOperation.queue(getContext(), draft, EntityOperation.SEND);
-
-                    } else if ("save".equals(action))
-                        EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
-
-                    else if ("trash".equals(action)) {
-                        EntityOperation.queue(getContext(), draft, EntityOperation.DELETE);
-
-                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TRASH);
-                        if (trash != null) {
-                            draft.id = null;
-                            draft.folder = trash.id;
-                            draft.id = db.message().insertMessage(draft);
-
-                            EntityOperation.queue(getContext(), draft, EntityOperation.ADD);
-                        }
+                        EntityOperation.queue(db, draft, EntityOperation.SEND);
                     }
+
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -625,17 +650,20 @@ public class FragmentCompose extends FragmentEx {
             String action = args.getString("action");
             Log.i(Helper.TAG, "Put finished action=" + action + " ex=" + ex);
 
+            bottom_navigation.getMenu().setGroupEnabled(0, true);
+
             if (ex == null) {
-                getFragmentManager().popBackStack();
-                if ("trash".equals(action))
+                if ("trash".equals(action)) {
+                    getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
-                else if ("save".equals(action))
+                } else if ("save".equals(action))
                     Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
-                else if ("send".equals(action))
+                else if ("send".equals(action)) {
+                    getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
+                }
             } else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                bottom_navigation.getMenu().setGroupEnabled(0, true);
                 Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
             }
         }

@@ -38,6 +38,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.Collections;
@@ -45,8 +46,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,13 +61,17 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     static final int LOADER_ACCOUNT_PUT = 1;
     static final int LOADER_IDENTITY_PUT = 2;
     static final int LOADER_FOLDER_PUT = 3;
-    static final int LOADER_MESSAGES_INIT = 4;
-    static final int LOADER_MESSAGE_MOVE = 5;
+    static final int LOADER_MESSAGE_SEEN = 4;
+    static final int LOADER_MESSAGE_EDIT = 5;
+    static final int LOADER_MESSAGE_SPAM = 6;
+    static final int LOADER_MESSAGE_TRASH = 7;
+    static final int LOADER_MESSAGE_MOVE = 8;
+    static final int LOADER_MESSAGE_ARCHIVE = 9;
+    static final int LOADER_SEEN_UNTIL = 10;
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
@@ -271,19 +274,27 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         setIntent(intent);
 
         if ("unseen".equals(action)) {
-            final long now = new Date().getTime();
+            Bundle args = new Bundle();
+            args.putLong("time", new Date().getTime());
 
-            executor.submit(new Runnable() {
+            new SimpleLoader() {
                 @Override
-                public void run() {
+                public Object onLoad(Bundle args) {
+                    long time = args.getLong("time");
                     DaoAccount dao = DB.getInstance(ActivityView.this).account();
                     for (EntityAccount account : dao.getAccounts(true)) {
-                        account.seen_until = now;
+                        account.seen_until = time;
                         dao.updateAccount(account);
                     }
-                    Log.i(Helper.TAG, "Updated seen until");
+                    return null;
                 }
-            });
+
+                @Override
+                public void onLoaded(Bundle args, Result result) {
+                    if (result.ex != null)
+                        Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
+                }
+            }.load(this, LOADER_SEEN_UNTIL, args);
         }
     }
 
@@ -420,11 +431,50 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
                 fragmentTransaction.commit();
             } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
-                FragmentMessage fragment = new FragmentMessage();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
-                fragmentTransaction.commit();
+
+                new SimpleLoader() {
+                    @Override
+                    public Object onLoad(Bundle args) {
+                        long id = args.getLong("id");
+                        DB db = DB.getInstance(ActivityView.this);
+                        EntityMessage message = db.message().getMessage(id);
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (!EntityFolder.OUTBOX.equals(folder.type)) {
+                            if (!message.seen && !message.ui_seen) {
+                                try {
+                                    db.beginTransaction();
+
+                                    message.ui_seen = !message.ui_seen;
+                                    db.message().updateMessage(message);
+
+                                    if (message.uid != null)
+                                        EntityOperation.queue(db, message, EntityOperation.SEEN, message.ui_seen);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                EntityOperation.process(ActivityView.this);
+                            }
+                        }
+
+                        return null;
+                    }
+
+                    @Override
+                    public void onLoaded(Bundle args, Result result) {
+                        if (result.ex == null) {
+                            FragmentMessage fragment = new FragmentMessage();
+                            fragment.setArguments(args);
+                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
+                            fragmentTransaction.commit();
+                        } else
+                            Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }.load(ActivityView.this, 0000, intent.getExtras());
+
             } else if (ACTION_EDIT_FOLDER.equals(intent.getAction())) {
                 FragmentFolder fragment = new FragmentFolder();
                 fragment.setArguments(intent.getExtras());

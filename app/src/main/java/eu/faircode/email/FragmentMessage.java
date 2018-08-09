@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -32,7 +33,6 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,6 +42,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -53,8 +54,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -90,7 +89,6 @@ public class FragmentMessage extends FragmentEx {
 
     private AdapterAttachment adapter;
 
-    private ExecutorService executor = Executors.newCachedThreadPool();
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     @Override
@@ -257,13 +255,15 @@ public class FragmentMessage extends FragmentEx {
                 } else {
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
+                    String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
+
                     tvFrom.setText(message.from == null ? null : TextUtils.join(", ", message.from));
                     tvTo.setText(message.to == null ? null : TextUtils.join(", ", message.to));
                     tvCc.setText(message.cc == null ? null : TextUtils.join(", ", message.cc));
                     tvBcc.setText(message.bcc == null ? null : TextUtils.join(", ", message.bcc));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
-                    tvCount.setText(Integer.toString(message.count));
+                    tvCount.setText(extra + Integer.toString(message.count));
                     tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
 
                     int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
@@ -297,19 +297,17 @@ public class FragmentMessage extends FragmentEx {
                             ? null
                             : Html.fromHtml(HtmlHelper.sanitize(getContext(), message.body, false)));
 
-                    bottom_navigation.setTag(message.folderType);
-
                     db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                     db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                         @Override
                         public void onChanged(@Nullable final List<TupleFolderEx> folders) {
-                            boolean inbox = EntityFolder.INBOX.equals(message.folderType);
-                            boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
-                            boolean archive = EntityFolder.ARCHIVE.equals(message.folderType);
-                            boolean drafts = EntityFolder.DRAFTS.equals(message.folderType);
-                            boolean trash = EntityFolder.TRASH.equals(message.folderType);
-                            boolean junk = EntityFolder.JUNK.equals(message.folderType);
-                            boolean sent = EntityFolder.SENT.equals(message.folderType);
+                            boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                            boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                            boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                            //boolean inDafts = EntityFolder.DRAFTS.equals(message.folderType);
+                            boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                            boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+                            //boolean inSent = EntityFolder.SENT.equals(message.folderType);
 
                             boolean hasTrash = false;
                             boolean hasJunk = false;
@@ -326,18 +324,20 @@ public class FragmentMessage extends FragmentEx {
                                     hasUser = true;
                             }
 
+                            bottom_navigation.setTag(inTrash || !hasTrash);
+
                             top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!outbox);
-                            top_navigation.getMenu().findItem(R.id.action_edit).setVisible(trash);
-                            top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!outbox);
-                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!outbox && message.cc != null);
+                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
+                            top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
+                            top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
+                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
                             top_navigation.setVisibility(View.VISIBLE);
 
-                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!outbox && !junk && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!outbox && !trash && hasTrash);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!outbox && (!inbox || hasUser));
-                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!outbox && !archive && hasArchive);
-                            bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!outbox);
+                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!inOutbox && !inJunk && hasJunk);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && (!inInbox || hasUser));
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!inOutbox && !inArchive && hasArchive);
+                            bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                             bottom_navigation.setVisibility(View.VISIBLE);
                         }
                     });
@@ -383,44 +383,89 @@ public class FragmentMessage extends FragmentEx {
         fragmentTransaction.commit();
     }
 
-    private void onActionSeen(final long id) {
-        executor.submit(new Runnable() {
+    private void onActionSeen(long id) {
+        final MenuItem item = top_navigation.getMenu().findItem(R.id.action_seen);
+        item.setEnabled(false);
+
+        final Drawable icon = item.getIcon();
+        item.setIcon(Helper.toDimmed(icon));
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleLoader() {
             @Override
-            public void run() {
+            public Object onLoad(Bundle args) {
+                long id = args.getLong("id");
+                DB db = DB.getInstance(getContext());
                 try {
-                    DB db = DB.getInstance(getContext());
+                    db.beginTransaction();
+
                     EntityMessage message = db.message().getMessage(id);
                     message.ui_seen = !message.ui_seen;
                     db.message().updateMessage(message);
-                    EntityOperation.queue(getContext(), message, EntityOperation.SEEN, message.ui_seen);
-                    EntityOperation.process(getContext());
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+                    if (message.uid != null)
+                        EntityOperation.queue(db, message, EntityOperation.SEEN, message.ui_seen);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
+
+                EntityOperation.process(getContext());
+
+                return null;
             }
-        });
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+
+                if (result.ex != null)
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, ActivityView.LOADER_MESSAGE_SEEN, args);
     }
 
-    private void onActionEdit(final long id) {
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    DB db = DB.getInstance(getContext());
-                    EntityMessage draft = db.message().getMessage(id);
-                    EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, draft.account);
-                    draft.id = null;
-                    draft.folder = drafts.id;
-                    draft.id = db.message().insertMessage(draft);
+    private void onActionEdit(long id) {
+        final MenuItem item = top_navigation.getMenu().findItem(R.id.action_edit);
+        item.setEnabled(false);
 
+        final Drawable icon = item.getIcon();
+        item.setIcon(Helper.toDimmed(icon));
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleLoader() {
+            @Override
+            public Object onLoad(Bundle args) {
+                long id = args.getLong("id");
+                DB db = DB.getInstance(getContext());
+                EntityMessage draft = db.message().getMessage(id);
+                EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, draft.account);
+                draft.id = null;
+                draft.folder = drafts.id;
+                draft.uid = null;
+                draft.id = db.message().insertMessage(draft);
+                return id;
+            }
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+
+                if (result.ex == null)
                     getContext().startActivity(
                             new Intent(getContext(), ActivityCompose.class)
-                                    .putExtra("id", draft.id));
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
+                                    .putExtra("id", (long) result.data));
+                else
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
             }
-        });
+        }.load(this, ActivityView.LOADER_MESSAGE_EDIT, args);
     }
 
     private void onActionForward(long id) {
@@ -442,102 +487,231 @@ public class FragmentMessage extends FragmentEx {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        executor.submit(new Runnable() {
+                        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_spam);
+                        item.setEnabled(false);
+
+                        final Drawable icon = item.getIcon();
+                        item.setIcon(Helper.toDimmed(icon));
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+
+                        new SimpleLoader() {
                             @Override
-                            public void run() {
+                            public Object onLoad(Bundle args) {
+                                long id = args.getLong("id");
+                                DB db = DB.getInstance(getContext());
                                 try {
-                                    DB db = DB.getInstance(getContext());
+                                    db.beginTransaction();
+
                                     EntityMessage message = db.message().getMessage(id);
-                                    message.ui_hide = true;
+                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+
+                                    boolean move = (message.uid != null);
+                                    if (move)
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id, message.uid);
+
+                                    message.folder = spam.id;
+                                    message.uid = null;
                                     db.message().updateMessage(message);
 
-                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, spam.id);
-                                    EntityOperation.process(getContext());
-                                } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    if (!move)
+                                        EntityOperation.queue(db, message, EntityOperation.ADD);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
                                 }
+
+                                EntityOperation.process(getContext());
+
+                                return null;
                             }
-                        });
+
+                            @Override
+                            public void onLoaded(Bundle args, Result result) {
+                                item.setEnabled(true);
+                                item.setIcon(icon);
+
+                                if (result.ex != null)
+                                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_SPAM, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null).show();
     }
 
     private void onActionDelete(final long id) {
-        String folderType = (String) bottom_navigation.getTag();
-        if (EntityFolder.TRASH.equals(folderType)) {
+        boolean delete = (Boolean) bottom_navigation.getTag();
+        if (delete) {
+            // No trash or is trash
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder
                     .setMessage(R.string.title_ask_delete)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            executor.submit(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        DB db = DB.getInstance(getContext());
-                                        EntityMessage message = db.message().getMessage(id);
-                                        message.ui_hide = true;
-                                        db.message().updateMessage(message);
+                            final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_trash);
+                            item.setEnabled(false);
 
-                                        EntityOperation.queue(getContext(), message, EntityOperation.DELETE);
-                                        EntityOperation.process(getContext());
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            final Drawable icon = item.getIcon();
+                            item.setIcon(Helper.toDimmed(icon));
+
+                            Bundle args = new Bundle();
+                            args.putLong("id", id);
+
+                            new SimpleLoader() {
+                                @Override
+                                public Object onLoad(Bundle args) {
+                                    long id = args.getLong("id");
+                                    DB db = DB.getInstance(getContext());
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message.uid == null)
+                                            db.message().deleteMessage(id);
+                                        else {
+                                            message.ui_hide = true;
+                                            db.message().updateMessage(message);
+                                            EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                        }
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
                                     }
+
+                                    EntityOperation.process(getContext());
+
+                                    return null;
                                 }
-                            });
+
+                                @Override
+                                public void onLoaded(Bundle args, Result result) {
+                                    item.setEnabled(true);
+                                    item.setIcon(icon);
+
+                                    if (result.ex != null)
+                                        Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null).show();
         } else {
-            executor.submit(new Runnable() {
+            final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_trash);
+            item.setEnabled(false);
+
+            final Drawable icon = item.getIcon();
+            item.setIcon(Helper.toDimmed(icon));
+
+            Bundle args = new Bundle();
+            args.putLong("id", id);
+
+            new SimpleLoader() {
                 @Override
-                public void run() {
+                public Object onLoad(Bundle args) {
+                    long id = args.getLong("id");
+                    DB db = DB.getInstance(getContext());
                     try {
-                        DB db = DB.getInstance(getContext());
+                        db.beginTransaction();
+
                         EntityMessage message = db.message().getMessage(id);
-                        message.ui_hide = true;
+                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+
+                        boolean move = (message.uid != null);
+                        if (move)
+                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id, message.uid);
+
+                        message.folder = trash.id;
+                        message.uid = null;
                         db.message().updateMessage(message);
 
-                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                        EntityOperation.queue(getContext(), message, EntityOperation.MOVE, trash.id);
-                        EntityOperation.process(getContext());
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        if (!move)
+                            EntityOperation.queue(db, message, EntityOperation.ADD);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
+
+                    EntityOperation.process(getContext());
+
+                    return null;
                 }
-            });
+
+                @Override
+                public void onLoaded(Bundle args, Result result) {
+                    item.setEnabled(true);
+                    item.setIcon(icon);
+
+                    if (result.ex != null)
+                        Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                }
+            }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
         }
     }
 
-    private void onActionMove(final long id) {
+    private void onActionMove(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
         LoaderManager.getInstance(this)
                 .restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
     }
 
-    private void onActionArchive(final long id) {
-        executor.submit(new Runnable() {
+    private void onActionArchive(long id) {
+        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_archive);
+        item.setEnabled(false);
+
+        final Drawable icon = item.getIcon();
+        item.setIcon(Helper.toDimmed(icon));
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleLoader() {
             @Override
-            public void run() {
+            public Object onLoad(Bundle args) {
+                long id = args.getLong("id");
+                DB db = DB.getInstance(getContext());
                 try {
-                    DB db = DB.getInstance(getContext());
+                    db.beginTransaction();
+
                     EntityMessage message = db.message().getMessage(id);
-                    message.ui_hide = true;
+                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+
+                    boolean move = (message.uid != null);
+                    if (move)
+                        EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id, message.uid);
+
+                    message.folder = archive.id;
+                    message.uid = null;
                     db.message().updateMessage(message);
 
-                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                    EntityOperation.queue(getContext(), message, EntityOperation.MOVE, archive.id);
-                    EntityOperation.process(getContext());
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    if (!move)
+                        EntityOperation.queue(db, message, EntityOperation.ADD);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
+
+                EntityOperation.process(getContext());
+
+                return null;
             }
-        });
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+
+                if (result.ex != null)
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_ARCHIVE, args);
     }
 
     private void onActionReply(long id) {
@@ -603,7 +777,7 @@ public class FragmentMessage extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
             LoaderManager.getInstance(FragmentMessage.this).destroyLoader(loader.getId());
 
-            View anchor = top_navigation.findViewById(R.id.action_thread);
+            View anchor = bottom_navigation.findViewById(R.id.action_move);
             PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
             int order = 0;
             for (EntityFolder folder : folders)
@@ -612,24 +786,56 @@ public class FragmentMessage extends FragmentEx {
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    final long folder = item.getItemId();
-                    executor.submit(new Runnable() {
+                public boolean onMenuItemClick(final MenuItem target) {
+                    final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_move);
+                    item.setEnabled(false);
+
+                    final Drawable icon = item.getIcon();
+                    item.setIcon(Helper.toDimmed(icon));
+
+                    args.putLong("target", target.getItemId());
+
+                    new SimpleLoader() {
                         @Override
-                        public void run() {
+                        public Object onLoad(Bundle args) {
+                            long id = args.getLong("id");
+                            long target = args.getLong("target");
+                            DB db = DB.getInstance(getContext());
                             try {
-                                DB db = DB.getInstance(getContext());
-                                EntityMessage message = db.message().getMessage(args.getLong("id"));
-                                message.ui_hide = true;
+                                db.beginTransaction();
+
+                                EntityMessage message = db.message().getMessage(id);
+
+                                boolean move = (message.uid != null);
+                                if (move)
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, target, message.uid);
+
+                                message.folder = target;
+                                message.uid = null;
                                 db.message().updateMessage(message);
 
-                                EntityOperation.queue(getContext(), message, EntityOperation.MOVE, folder);
-                                EntityOperation.process(getContext());
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                if (!move)
+                                    EntityOperation.queue(db, message, EntityOperation.ADD);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
                             }
+
+                            EntityOperation.process(getContext());
+
+                            return null;
                         }
-                    });
+
+                        @Override
+                        public void onLoaded(Bundle args, Result result) {
+                            item.setEnabled(true);
+                            item.setIcon(icon);
+
+                            if (result.ex != null)
+                                Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_MOVE, args);
 
                     return true;
                 }

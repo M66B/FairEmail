@@ -21,6 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,6 +31,8 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import androidx.annotation.NonNull;
 
 public class Helper {
     static final String TAG = BuildConfig.APPLICATION_ID;
@@ -38,6 +43,16 @@ public class Helper {
         int color = a.getColor(0, 0xFF0000);
         a.recycle();
         return color;
+    }
+
+    static Drawable toDimmed(@NonNull Drawable drawable) {
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0);
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+        Drawable mutated = drawable.mutate();
+        mutated.setColorFilter(filter);
+        mutated.setAlpha(128);
+        return mutated;
     }
 
     static String localizeFolderName(Context context, String name) {

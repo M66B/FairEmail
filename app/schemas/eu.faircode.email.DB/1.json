@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 7,
-    "identityHash": "74b765c4ee277861c68851c33a596610",
+    "version": 1,
+    "identityHash": "ff81778e939ac6480ab8ec93435db96a",
     "entities": [
       {
         "tableName": "identity",
@@ -634,13 +634,19 @@
       },
       {
         "tableName": "operation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "folder",
+            "columnName": "folder",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "message",
@@ -679,6 +685,17 @@
         ],
         "foreignKeys": [
           {
+            "table": "folder",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "folder"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
             "table": "message",
             "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
@@ -694,7 +711,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"74b765c4ee277861c68851c33a596610\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ff81778e939ac6480ab8ec93435db96a\")"
     ]
   }
 }

@@ -80,6 +80,11 @@ public interface DaoMessage {
     @Query("SELECT * FROM message WHERE folder = :folder AND uid = :uid")
     EntityMessage getMessage(long folder, long uid);
 
+    @Query("SELECT * FROM message" +
+            " JOIN folder on folder.id = message.folder" +
+            " WHERE thread = :thread AND folder.type= '" + EntityFolder.ARCHIVE + "'")
+    EntityMessage getArchivedMessage(String thread);
+
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide AND NOT m.ui_seen) AS unseen" +
@@ -99,7 +104,7 @@ public interface DaoMessage {
     void updateMessage(EntityMessage message);
 
     @Query("DELETE FROM message WHERE id = :id")
-    void deleteMessage(long id);
+    int deleteMessage(long id);
 
     @Query("DELETE FROM message WHERE folder = :folder AND uid = :uid")
     int deleteMessage(long folder, long uid);
