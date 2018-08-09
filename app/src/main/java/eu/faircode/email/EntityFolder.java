@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -102,6 +104,21 @@ public class EntityFolder {
     public Boolean synchronize;
     @NonNull
     public Integer after; // days
+
+    static EntityFolder getDrafts(Context context, DB db, long account) {
+        EntityFolder drafts = db.folder().getFolderByType(account, EntityFolder.TYPE_DRAFTS);
+        if (drafts == null)
+            drafts = db.folder().getLocalDrafts();
+        if (drafts == null) {
+            drafts = new EntityFolder();
+            drafts.name = context.getString(R.string.title_folder_local_drafts);
+            drafts.type = EntityFolder.TYPE_DRAFTS;
+            drafts.synchronize = false;
+            drafts.after = 0;
+            drafts.id = db.folder().insertFolder(drafts);
+        }
+        return drafts;
+    }
 
     @Override
     public boolean equals(Object obj) {

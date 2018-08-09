@@ -517,17 +517,7 @@ public class FragmentCompose extends FragmentEx {
                 if (ident == null)
                     throw new IllegalArgumentException(getContext().getString(R.string.title_from_missing));
 
-                EntityFolder drafts = db.folder().getFolderByType(ident.account, EntityFolder.TYPE_DRAFTS);
-                if (drafts == null)
-                    drafts = db.folder().getLocalDrafts();
-                if (drafts == null) {
-                    drafts = new EntityFolder();
-                    drafts.name = getContext().getString(R.string.title_folder_local_drafts);
-                    drafts.type = EntityFolder.TYPE_DRAFTS;
-                    drafts.synchronize = false;
-                    drafts.after = 0;
-                    db.folder().insertFolder(drafts);
-                }
+                EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, ident.account);
 
                 long rid = args.getLong("rid", -1);
                 String thread = args.getString("thread");

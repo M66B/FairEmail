@@ -408,11 +408,7 @@ public class FragmentMessage extends FragmentEx {
                 try {
                     DB db = DB.getInstance(getContext());
                     EntityMessage draft = db.message().getMessage(id);
-                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.TYPE_DRAFTS);
-                    if (drafts == null)
-                        drafts = db.folder().getLocalDrafts();
-                    if (drafts == null)
-                        return;
+                    EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, draft.account);
                     draft.id = null;
                     draft.folder = drafts.id;
                     draft.id = db.message().insertMessage(draft);
