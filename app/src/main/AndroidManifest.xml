@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- uses-permission android:name="android.permission.READ_CONTACTS" /-->
+    <!-- uses-permission android:name="android.permission.READ_CONTACTS" / -->
 
     <application
         android:name=".ApplicationEx"
@@ -26,19 +26,24 @@
             android:value="false" />
 
         <activity
-            android:name=".ActivitySetup"
-            android:launchMode="singleTop"
-            android:parentActivityName=".ActivityView" />
-
-        <activity
-            android:name=".ActivityView"
-            android:launchMode="singleTop">
+            android:name=".ActivityMain"
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ActivitySetup"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ActivityMain" />
+
+        <activity
+            android:name=".ActivityView"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivityCompose"

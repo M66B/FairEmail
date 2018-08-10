@@ -39,7 +39,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 

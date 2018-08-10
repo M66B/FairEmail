@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -55,6 +56,8 @@ public class FragmentSetup extends FragmentEx {
     private Button btnPermissions;
     private TextView tvPermissionsDone;
 
+    private Button btnMessages;
+
     private CheckBox cbDarkTheme;
     private CheckBox cbDebug;
 
@@ -83,6 +86,8 @@ public class FragmentSetup extends FragmentEx {
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
 
+        btnMessages = view.findViewById(R.id.btnMessages);
+
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
         cbDebug = view.findViewById(R.id.cbDebug);
 
@@ -110,6 +115,14 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onClick(View view) {
                 requestPermissions(permissions, 1);
+            }
+        });
+
+        btnMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ActivityView.class));
+                getFragmentManager().popBackStack();
             }
         });
 
@@ -145,6 +158,7 @@ public class FragmentSetup extends FragmentEx {
         tvAccountDone.setVisibility(View.INVISIBLE);
         tvIdentityDone.setVisibility(View.INVISIBLE);
         tvPermissionsDone.setVisibility(View.INVISIBLE);
+        btnMessages.setEnabled(false);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -182,6 +196,7 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 tvAccountDone.setVisibility(accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                btnMessages.setEnabled(accounts.size() > 0);
             }
         });
 

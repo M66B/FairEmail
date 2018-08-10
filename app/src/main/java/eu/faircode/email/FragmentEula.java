@@ -35,6 +35,8 @@ public class FragmentEula extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setSubtitle(R.string.title_eula);
+
         View view = inflater.inflate(R.layout.fragment_eula, container, false);
 
         Button btnAgree = view.findViewById(R.id.btnOk);

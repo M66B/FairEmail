@@ -23,11 +23,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -56,7 +54,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
+public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     private boolean newIntent = false;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -66,14 +64,15 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final int LOADER_ACCOUNT_PUT = 2;
     static final int LOADER_IDENTITY_PUT = 3;
     static final int LOADER_FOLDER_PUT = 4;
-    static final int LOADER_MESSAGE_SEEN = 5;
-    static final int LOADER_MESSAGE_EDIT = 6;
-    static final int LOADER_MESSAGE_SPAM = 7;
-    static final int LOADER_MESSAGE_TRASH = 8;
-    static final int LOADER_MESSAGE_MOVE = 9;
-    static final int LOADER_MESSAGE_ARCHIVE = 10;
-    static final int LOADER_SEEN_UNTIL = 11;
-    static final int LOADER_DEBUG_INFO = 12;
+    static final int LOADER_MESSAGE_VIEW = 5;
+    static final int LOADER_MESSAGE_SEEN = 6;
+    static final int LOADER_MESSAGE_EDIT = 7;
+    static final int LOADER_MESSAGE_SPAM = 8;
+    static final int LOADER_MESSAGE_TRASH = 9;
+    static final int LOADER_MESSAGE_MOVE = 10;
+    static final int LOADER_MESSAGE_ARCHIVE = 11;
+    static final int LOADER_SEEN_UNTIL = 12;
+    static final int LOADER_DEBUG_INFO = 13;
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
@@ -132,7 +131,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
         });
 
-        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         DB.getInstance(this).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
@@ -162,8 +160,17 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
         });
 
-        if (getSupportFragmentManager().getFragments().size() == 0)
-            init();
+        if (getSupportFragmentManager().getFragments().size() == 0) {
+            Bundle args = new Bundle();
+            args.putLong("folder", -1);
+
+            FragmentMessages fragment = new FragmentMessages();
+            fragment.setArguments(args);
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
+            fragmentTransaction.commit();
+        }
 
         checkIntent(getIntent());
     }
@@ -173,14 +180,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         Log.i(Helper.TAG, "View post create");
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
-        syncState();
     }
 
-    private void syncState() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean eula = prefs.getBoolean("eula", false);
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        drawerToggle.setDrawerIndicatorEnabled(count == 1 && eula);
+    @Override
+    protected void onNewIntent(Intent intent) {
+        newIntent = true;
+        checkIntent(intent);
+        super.onNewIntent(intent);
     }
 
     @Override
@@ -210,27 +216,17 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
-        newIntent = true;
-        checkIntent(intent);
-        super.onNewIntent(intent);
-    }
-
-    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         Log.i(Helper.TAG, "View configuration changed");
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
-        syncState();
     }
 
     @Override
     protected void onDestroy() {
         Log.i(Helper.TAG, "View destroyed");
-        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroy();
     }
-
 
     @Override
     public void onBackPressed() {
@@ -245,14 +241,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
             finish();
-        syncState();
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        super.onSharedPreferenceChanged(prefs, key);
-        if ("eula".equals(key))
-            init();
+        else
+            drawerToggle.setDrawerIndicatorEnabled(count == 1);
     }
 
     @Override
@@ -297,39 +287,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
                 }
             }.load(this, LOADER_SEEN_UNTIL, args);
-        }
-    }
-
-    private void init() {
-        invalidateOptionsMenu();
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("eula", false)) {
-            getSupportFragmentManager().popBackStack(); // eula
-
-            Bundle args = new Bundle();
-            args.putLong("folder", -1);
-
-            FragmentMessages fragment = new FragmentMessages();
-            fragment.setArguments(args);
-
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");
-            fragmentTransaction.commit();
-
-            DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
-                @Override
-                public void onChanged(@Nullable List<EntityAccount> accounts) {
-                    if (accounts.size() == 0)
-                        startActivity(new Intent(ActivityView.this, ActivitySetup.class));
-                    else
-                        ServiceSynchronize.start(ActivityView.this);
-                }
-            });
-        } else {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentEula()).addToBackStack("eula");
-            fragmentTransaction.commit();
         }
     }
 
@@ -432,6 +389,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
                 fragmentTransaction.commit();
+
             } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
 
                 new SimpleLoader() {
@@ -476,7 +434,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         } else
                             Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
                     }
-                }.load(ActivityView.this, 0000, intent.getExtras());
+                }.load(ActivityView.this, LOADER_MESSAGE_VIEW, intent.getExtras());
 
             } else if (ACTION_EDIT_FOLDER.equals(intent.getAction())) {
                 FragmentFolder fragment = new FragmentFolder();

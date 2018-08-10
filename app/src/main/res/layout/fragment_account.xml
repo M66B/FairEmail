@@ -219,9 +219,10 @@
 
         <Spinner
             android:id="@+id/spDrafts"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvDrafts"
             app:layout_constraintTop_toBottomOf="@id/btnCheck" />
 
@@ -238,8 +239,9 @@
 
         <Spinner
             android:id="@+id/spSent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvSent"
             app:layout_constraintTop_toBottomOf="@id/spDrafts" />
 
@@ -256,8 +258,9 @@
 
         <Spinner
             android:id="@+id/spAll"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvAll"
             app:layout_constraintTop_toBottomOf="@id/spSent" />
 
@@ -274,8 +277,9 @@
 
         <Spinner
             android:id="@+id/spTrash"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvTrash"
             app:layout_constraintTop_toBottomOf="@id/spAll" />
 
@@ -292,8 +296,9 @@
 
         <Spinner
             android:id="@+id/spJunk"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvJunk"
             app:layout_constraintTop_toBottomOf="@id/spTrash" />
 

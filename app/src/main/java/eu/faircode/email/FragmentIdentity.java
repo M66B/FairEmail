@@ -277,11 +277,12 @@ public class FragmentIdentity extends FragmentEx {
                 btnSave.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
 
+                etName.requestFocus();
+
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
                     @Override
                     public void onChanged(List<EntityAccount> accounts) {
-
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
                         unselected.name = "";

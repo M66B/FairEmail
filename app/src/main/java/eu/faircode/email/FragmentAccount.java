@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -139,6 +141,7 @@ public class FragmentAccount extends FragmentEx {
                     etName.setText(provider.name);
                     etHost.setText(provider.imap_host);
                     etPort.setText(Integer.toString(provider.imap_port));
+                    etUser.requestFocus();
                 }
             }
 
@@ -474,6 +477,12 @@ public class FragmentAccount extends FragmentEx {
 
                 grpFolders.setVisibility(View.VISIBLE);
                 btnSave.setVisibility(View.VISIBLE);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
+                    }
+                });
             } else {
                 Log.w(Helper.TAG, data.ex + "\n" + Log.getStackTraceString(data.ex));
                 Toast.makeText(getContext(), Helper.formatThrowable(data.ex), Toast.LENGTH_LONG).show();
