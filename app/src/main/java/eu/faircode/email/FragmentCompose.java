@@ -296,6 +296,7 @@ public class FragmentCompose extends FragmentEx {
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
         Bundle args = new Bundle();
+        args.putString("action", action);
         args.putLong("id", id);
         args.putLong("iid", identity == null ? -1 : identity.id);
         args.putString("thread", FragmentCompose.this.thread);
@@ -305,7 +306,6 @@ public class FragmentCompose extends FragmentEx {
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
         args.putString("body", etBody.getText().toString());
-        args.putString("action", action);
 
         LoaderManager.getInstance(this)
                 .restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
@@ -502,8 +502,8 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public Throwable loadInBackground() {
             try {
-                long id = args.getLong("id");
                 String action = args.getString("action");
+                long id = args.getLong("id");
                 Log.i(Helper.TAG, "Put load id=" + id + " action=" + action);
 
                 DB db = DB.getInstance(getContext());
@@ -560,21 +560,7 @@ public class FragmentCompose extends FragmentEx {
                 try {
                     db.beginTransaction();
 
-
-                    if ("save".equals(action)) {
-                        // Delete previous draft
-                        draft.ui_hide = true;
-                        db.message().updateMessage(draft);
-                        EntityOperation.queue(db, draft, EntityOperation.DELETE);
-
-                        // Create new draft
-                        draft.id = null;
-                        draft.uid = null;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
-                        EntityOperation.queue(db, draft, EntityOperation.ADD);
-
-                    } else if ("trash".equals(action)) {
+                    if ("trash".equals(action)) {
                         EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TRASH);
 
                         boolean move = (draft.uid != null);
@@ -587,6 +573,19 @@ public class FragmentCompose extends FragmentEx {
 
                         if (!move)
                             EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                    } else if ("save".equals(action)) {
+                        // Delete previous draft
+                        draft.ui_hide = true;
+                        db.message().updateMessage(draft);
+                        EntityOperation.queue(db, draft, EntityOperation.DELETE);
+
+                        // Create new draft
+                        draft.id = null;
+                        draft.uid = null;
+                        draft.ui_hide = false;
+                        draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                     } else if ("send".equals(action)) {
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
