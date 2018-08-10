@@ -37,16 +37,19 @@
 
         <activity
             android:name=".ActivitySetup"
+            android:exported="false"
             android:launchMode="singleTop"
             android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivityView"
+            android:exported="false"
             android:launchMode="singleTop"
             android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivityCompose"
+            android:exported="false"
             android:parentActivityName=".ActivityView" />
 
         <service android:name=".ServiceSynchronize" />
