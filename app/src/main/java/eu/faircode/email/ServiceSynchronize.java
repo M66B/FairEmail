@@ -705,10 +705,10 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityMessage message = db.message().getMessage(op.message);
                     try {
                         if (EntityOperation.SEEN.equals(op.name))
-                            doSeen(ifolder, jargs, message);
+                            doSeen(folder, ifolder, jargs, message);
 
                         else if (EntityOperation.ADD.equals(op.name))
-                            doAdd(ifolder, message);
+                            doAdd(folder, ifolder, message);
 
                         else if (EntityOperation.MOVE.equals(op.name))
                             doMove(folder, istore, ifolder, db, jargs, message);
@@ -720,7 +720,7 @@ public class ServiceSynchronize extends LifecycleService {
                             doSend(db, message);
 
                         else if (EntityOperation.ATTACHMENT.equals(op.name))
-                            doAttachment(ifolder, db, op, jargs, message);
+                            doAttachment(folder, ifolder, db, op, jargs, message);
 
                         else
                             throw new MessagingException("Unknown operation name=" + op.name);
@@ -762,9 +762,11 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doSeen(IMAPFolder ifolder, JSONArray jargs, EntityMessage message) throws MessagingException, JSONException {
-        if (message.uid == null)
+    private void doSeen(EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, EntityMessage message) throws MessagingException, JSONException {
+        if (message.uid == null) {
+            Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id + " uid=" + message.uid);
             return;
+        }
 
         // Mark message (un)seen
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -774,7 +776,7 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
     }
 
-    private void doAdd(IMAPFolder ifolder, EntityMessage message) throws MessagingException {
+    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message) throws MessagingException {
         // Append message
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
@@ -793,7 +795,6 @@ public class ServiceSynchronize extends LifecycleService {
         Message imessage = ifolder.getMessageByUID(uid);
         if (imessage == null)
             throw new MessageRemovedException();
-
 
         // Get folder
         Folder itarget = istore.getFolder(target.name);
@@ -841,12 +842,16 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, DB db, EntityMessage message) throws MessagingException {
         // Delete message
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
+        if (message.uid == null)
+            Log.w(Helper.TAG, folder.name + " local op delete id=" + message.id + " uid=" + message.uid);
+        else {
+            Message imessage = ifolder.getMessageByUID(message.uid);
+            if (imessage == null)
+                throw new MessageRemovedException();
 
-        imessage.setFlag(Flags.Flag.DELETED, true);
-        ifolder.expunge();
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            ifolder.expunge();
+        }
 
         db.message().deleteMessage(message.id);
     }
@@ -900,6 +905,8 @@ public class ServiceSynchronize extends LifecycleService {
                         " to " + TextUtils.join(", ", to));
 
                 // Update state
+                if (message.thread == null)
+                    message.thread = imessage.getMessageID();
                 message.sent = new Date().getTime();
                 message.seen = true;
                 message.ui_seen = true;
@@ -918,7 +925,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doAttachment(IMAPFolder ifolder, DB db, EntityOperation op, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
+    private void doAttachment(EntityFolder folder, IMAPFolder ifolder, DB db, EntityOperation op, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
         int sequence = jargs.getInt(0);
 
         EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
@@ -946,7 +953,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (attachment.size != null) {
                     attachment.progress = os.size() * 100 / attachment.size;
                     db.attachment().updateAttachment(attachment);
-                    Log.i(Helper.TAG, "Progress %=" + attachment.progress);
+                    Log.i(Helper.TAG, folder.name + " progress %=" + attachment.progress);
                 }
             }
 
@@ -954,7 +961,7 @@ public class ServiceSynchronize extends LifecycleService {
             attachment.progress = null;
             attachment.content = os.toByteArray();
             db.attachment().updateAttachment(attachment);
-            Log.i(Helper.TAG, "Downloaded bytes=" + attachment.content.length);
+            Log.i(Helper.TAG, folder.name + " downloaded bytes=" + attachment.content.length);
         } catch (Throwable ex) {
             // Reset progress on failure
             attachment.progress = null;
@@ -1125,33 +1132,44 @@ public class ServiceSynchronize extends LifecycleService {
             MessageHelper helper = new MessageHelper(imessage);
             boolean seen = helper.getSeen();
 
+            EntityMessage message = null;
             DB db = DB.getInstance(this);
 
-            EntityMessage message = null;
-            long id = MimeMessageEx.getId(imessage);
-            if (id >= 0) {
-                message = db.message().getMessage(id);
-                Log.i(Helper.TAG, "By id=" + id + " uid=" + (message == null ? "n/a" : message.uid));
-            }
-            if (message != null)
-                if (message.folder == folder.id) {
-                    if (message.uid == null) {
-                        // Append (move)
-                        message.uid = uid;
-                        if (!seen)
-                            imessage.setFlag(Flags.Flag.SEEN, true);
-                        // Will be updated because message.seen <> seen
+            // Find by id
+            long id = -1;
+            boolean update = false;
+            // Messages in archive have id of original
+            // Messages in inbox have id of message sent to self
+            if (!EntityFolder.ARCHIVE.equals(folder.type) &&
+                    !EntityFolder.INBOX.equals(folder.type)) {
+                id = MimeMessageEx.getId(imessage);
+                if (id >= 0) {
+                    message = db.message().getMessage(id);
+                    if (message == null)
+                        Log.w(Helper.TAG, "By id=" + id + " uid=" + (message == null ? "n/a" : message.uid));
+                    else {
+                        if (EntityFolder.SENT.equals(folder.type)) {
+                            message.folder = folder.id; // outbox to sent
+                            message.uid = null;
+                            update = true;
+                        }
+
+                        if (message.uid == null) {
+                            // Append (move)
+                            message.uid = uid;
+                            if (!seen) {
+                                seen = true;
+                                update = true;
+                                imessage.setFlag(Flags.Flag.SEEN, true);
+                            }
+                        }
                     }
-                } else {
-                    if (EntityFolder.ARCHIVE.equals(folder.type))
-                        message = null;
-                    else // Outbox to sent
-                        message.folder = folder.id;
                 }
-            if (message == null) {
-                message = db.message().getMessage(folder.id, uid);
-                Log.i(Helper.TAG, "By uid=" + uid + " id=" + (message == null ? "n/a" : message.id));
             }
+
+            // Find by uid
+            if (message == null)
+                message = db.message().getMessage(folder.id, uid);
 
             if (message == null) {
                 FetchProfile fp1 = new FetchProfile();
@@ -1196,7 +1214,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 return 1;
-            } else if (message.seen != seen) {
+            } else if (update || message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
                 db.message().updateMessage(message);

@@ -563,13 +563,9 @@ public class FragmentCompose extends FragmentEx {
 
                     if ("save".equals(action)) {
                         // Delete previous draft
-                        if (draft.uid == null)
-                            db.message().deleteMessage(draft.id);
-                        else {
-                            draft.ui_hide = true;
-                            db.message().updateMessage(draft);
-                            EntityOperation.queue(db, draft, EntityOperation.DELETE);
-                        }
+                        draft.ui_hide = true;
+                        db.message().updateMessage(draft);
+                        EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                         // Create new draft
                         draft.id = null;
@@ -597,13 +593,9 @@ public class FragmentCompose extends FragmentEx {
                             throw new IllegalArgumentException(getContext().getString(R.string.title_to_missing));
 
                         // Delete draft (cannot move to outbox)
-                        if (draft.uid == null)
-                            db.message().deleteMessage(draft.id);
-                        else {
-                            draft.ui_hide = true;
-                            db.message().updateMessage(draft);
-                            EntityOperation.queue(db, draft, EntityOperation.DELETE);
-                        }
+                        draft.ui_hide = true;
+                        db.message().updateMessage(draft);
+                        EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                         // Copy message to outbox
                         draft.id = null;
@@ -614,7 +606,6 @@ public class FragmentCompose extends FragmentEx {
 
                         EntityOperation.queue(db, draft, EntityOperation.SEND);
                     }
-
 
                     db.setTransactionSuccessful();
                 } finally {

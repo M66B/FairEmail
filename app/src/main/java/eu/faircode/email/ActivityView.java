@@ -439,7 +439,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         DB db = DB.getInstance(ActivityView.this);
                         EntityMessage message = db.message().getMessage(id);
                         EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (!EntityFolder.OUTBOX.equals(folder.type)) {
+                        if (!EntityFolder.OUTBOX.equals(folder.type) &&
+                                !EntityFolder.ARCHIVE.equals(folder.type)) {
                             if (!message.seen && !message.ui_seen) {
                                 try {
                                     db.beginTransaction();

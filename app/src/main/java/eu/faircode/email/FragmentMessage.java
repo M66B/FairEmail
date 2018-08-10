@@ -30,7 +30,6 @@ import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
-import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
@@ -327,15 +326,15 @@ public class FragmentMessage extends FragmentEx {
                             bottom_navigation.setTag(inTrash || !hasTrash);
 
                             top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
+                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox && !inArchive);
                             top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
                             top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
                             top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
                             top_navigation.setVisibility(View.VISIBLE);
 
-                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!inOutbox && !inJunk && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && hasTrash);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && (!inInbox || hasUser));
+                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!inOutbox && !inArchive && !inJunk && hasJunk);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && !inArchive && hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && !inArchive && (!inInbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!inOutbox && !inArchive && hasArchive);
                             bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                             bottom_navigation.setVisibility(View.VISIBLE);
@@ -570,13 +569,9 @@ public class FragmentMessage extends FragmentEx {
                                         db.beginTransaction();
 
                                         EntityMessage message = db.message().getMessage(id);
-                                        if (message.uid == null)
-                                            db.message().deleteMessage(id);
-                                        else {
-                                            message.ui_hide = true;
-                                            db.message().updateMessage(message);
-                                            EntityOperation.queue(db, message, EntityOperation.DELETE);
-                                        }
+                                        message.ui_hide = true;
+                                        db.message().updateMessage(message);
+                                        EntityOperation.queue(db, message, EntityOperation.DELETE);
 
                                         db.setTransactionSuccessful();
                                     } finally {
