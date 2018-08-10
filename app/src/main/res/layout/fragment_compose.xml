@@ -114,13 +114,37 @@
         app:layout_constraintTop_toBottomOf="@+id/etBcc" />
 
     <View
+        android:id="@+id/vSeparatorAttachments"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSubject" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAttachment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+
+    <View
         android:id="@+id/vSeparator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+        app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -171,10 +195,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpCc"
+        android:id="@+id/grpAddresses"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="etCc,ivCcAdd,etBcc,ivBccAdd" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpAttachments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpReady"

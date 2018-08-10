@@ -223,7 +223,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAddress"
+        android:id="@+id/grpAddresses"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAddress,tvToTitle,tvTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />

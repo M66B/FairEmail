@@ -82,7 +82,7 @@ public class FragmentMessage extends FragmentEx {
     private TextView tvBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpAddress;
+    private Group grpAddresses;
     private Group grpAttachments;
     private Group grpReady;
 
@@ -114,7 +114,7 @@ public class FragmentMessage extends FragmentEx {
         tvBody = view.findViewById(R.id.tvBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpAddress = view.findViewById(R.id.grpAddress);
+        grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpReady = view.findViewById(R.id.grpReady);
 
@@ -216,7 +216,7 @@ public class FragmentMessage extends FragmentEx {
         });
 
         // Initialize
-        grpAddress.setVisibility(View.GONE);
+        grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         top_navigation.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -350,24 +350,24 @@ public class FragmentMessage extends FragmentEx {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_message, menu);
+        inflater.inflate(R.menu.menu_view, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_address:
-                onMenuAddress();
+            case R.id.menu_addresses:
+                onMenuAddresses();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuAddress() {
+    private void onMenuAddresses() {
         if (grpReady.getVisibility() == View.VISIBLE)
-            grpAddress.setVisibility(grpAddress.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+            grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     private void onActionThread(long id) {

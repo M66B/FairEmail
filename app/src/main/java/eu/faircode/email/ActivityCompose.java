@@ -28,10 +28,12 @@ import androidx.fragment.app.FragmentTransaction;
 public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     static final int LOADER_COMPOSE_GET = 1;
     static final int LOADER_COMPOSE_PUT = 2;
+    static final int LOADER_COMPOSE_ATTACHMENT = 3;
 
     static final int REQUEST_CONTACT_TO = 1;
     static final int REQUEST_CONTACT_CC = 2;
     static final int REQUEST_CONTACT_BCC = 3;
+    static final int REQUEST_ATTACHMENT = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

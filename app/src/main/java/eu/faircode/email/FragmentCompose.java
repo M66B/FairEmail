@@ -24,9 +24,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
+import android.provider.OpenableColumns;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -36,6 +38,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -47,6 +50,9 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -67,6 +73,7 @@ import androidx.lifecycle.Observer;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -84,10 +91,12 @@ public class FragmentCompose extends FragmentEx {
     private AutoCompleteTextView etBcc;
     private ImageView ivBccAdd;
     private EditText etSubject;
+    private RecyclerView rvAttachment;
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpCc;
+    private Group grpAddresses;
+    private Group grpAttachments;
     private Group grpReady;
 
     @Override
@@ -112,10 +121,12 @@ public class FragmentCompose extends FragmentEx {
         etBcc = view.findViewById(R.id.etBcc);
         ivBccAdd = view.findViewById(R.id.ivBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
+        rvAttachment = view.findViewById(R.id.rvAttachment);
         etBody = view.findViewById(R.id.etBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpCc = view.findViewById(R.id.grpCc);
+        grpAddresses = view.findViewById(R.id.grpAddresses);
+        grpAttachments = view.findViewById(R.id.grpAttachments);
         grpReady = view.findViewById(R.id.grpReady);
 
         // Wire controls
@@ -183,7 +194,8 @@ public class FragmentCompose extends FragmentEx {
         // Initialize
         spFrom.setVisibility(View.GONE);
         ivIdentityAdd.setVisibility(View.GONE);
-        grpCc.setVisibility(View.GONE);
+        grpAddresses.setVisibility(View.GONE);
+        grpAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
@@ -276,69 +288,135 @@ public class FragmentCompose extends FragmentEx {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_message, menu);
+        inflater.inflate(R.menu.menu_compose, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_address:
-                onMenuCc();
+            case R.id.menu_attachment:
+                onMenuAttachment();
+                return true;
+            case R.id.menu_addresses:
+                onMenuAddresses();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuCc() {
-        grpCc.setVisibility(grpCc.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+    private void onMenuAttachment() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        startActivityForResult(intent, ActivityCompose.REQUEST_ATTACHMENT);
+    }
+
+    private void onMenuAddresses() {
+        grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            Cursor cursor = null;
-            try {
-                cursor = getContext().getContentResolver().query(data.getData(),
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Email.ADDRESS,
-                                ContactsContract.Contacts.DISPLAY_NAME
-                        },
-                        null, null, null);
-                if (cursor != null && cursor.moveToFirst()) {
-                    int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
-                    int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                    String email = cursor.getString(colEmail);
-                    String name = cursor.getString(colName);
+            if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
+                if (data != null) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", data.getData());
+                    new SimpleLoader() {
+                        @Override
+                        public Object onLoad(Bundle args) throws IOException {
+                            Uri uri = args.getParcelable("uri");
+                            Cursor cursor = null;
+                            try {
+                                cursor = getActivity().getContentResolver().query(uri, null, null, null, null, null);
+                                if (cursor != null && cursor.moveToFirst()) {
+                                    EntityAttachment attachment = new EntityAttachment();
+                                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
 
-                    String text = null;
-                    if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                        text = etTo.getText().toString();
-                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                        text = etCc.getText().toString();
-                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                        text = etBcc.getText().toString();
+                                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                                    if (extension != null)
+                                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                                    if (extension == null)
+                                        attachment.type = "application/octet-stream";
 
-                    InternetAddress address = new InternetAddress(email, name);
-                    StringBuilder sb = new StringBuilder(text);
-                    if (sb.length() > 0)
-                        sb.append("; ");
-                    sb.append(address.toString());
+                                    InputStream is = null;
+                                    try {
+                                        is = getContext().getContentResolver().openInputStream(uri);
+                                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-                    if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                        etTo.setText(sb.toString());
-                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                        etCc.setText(sb.toString());
-                    else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                        etBcc.setText(sb.toString());
+                                        int len;
+                                        byte[] buffer = new byte[8192];
+                                        while ((len = is.read(buffer)) > 0)
+                                            bos.write(buffer, 0, len);
+
+                                        attachment.size = bos.size();
+                                        attachment.content = bos.toByteArray();
+                                    } finally {
+                                        if (is != null)
+                                            is.close();
+                                    }
+
+                                    return attachment;
+                                }
+                            } finally {
+                                if (cursor != null)
+                                    cursor.close();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        public void onLoaded(Bundle args, Result result) {
+                            EntityAttachment attachment = (EntityAttachment) result.data;
+                        }
+                    }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
                 }
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
-            } finally {
-                if (cursor != null)
-                    cursor.close();
+            } else {
+                Cursor cursor = null;
+                try {
+                    cursor = getContext().getContentResolver().query(data.getData(),
+                            new String[]{
+                                    ContactsContract.CommonDataKinds.Email.ADDRESS,
+                                    ContactsContract.Contacts.DISPLAY_NAME
+                            },
+                            null, null, null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
+                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                        String email = cursor.getString(colEmail);
+                        String name = cursor.getString(colName);
+
+                        String text = null;
+                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                            text = etTo.getText().toString();
+                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                            text = etCc.getText().toString();
+                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                            text = etBcc.getText().toString();
+
+                        InternetAddress address = new InternetAddress(email, name);
+                        StringBuilder sb = new StringBuilder(text);
+                        if (sb.length() > 0)
+                            sb.append("; ");
+                        sb.append(address.toString());
+
+                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                            etTo.setText(sb.toString());
+                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                            etCc.setText(sb.toString());
+                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                            etBcc.setText(sb.toString());
+                    }
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
             }
         }
     }
@@ -465,7 +543,7 @@ public class FragmentCompose extends FragmentEx {
             String action = result.getString("action");
 
             pbWait.setVisibility(View.GONE);
-            grpCc.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
+            grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
             FragmentCompose.this.thread = thread;
