@@ -131,7 +131,8 @@ public class ServiceSynchronize extends LifecycleService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
-        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        // Removed because of Android VPN service
+        // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), networkCallback);
 
         DB.getInstance(this).account().liveStats().observe(this, new Observer<TupleAccountStats>() {
