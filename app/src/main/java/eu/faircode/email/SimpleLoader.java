@@ -26,7 +26,7 @@ public abstract class SimpleLoader {
         manager.restartLoader(id, args, callbacks).forceLoad();
     }
 
-    public Object onLoad(Bundle args) {
+    public Object onLoad(Bundle args) throws Throwable {
         return null;
     }
 

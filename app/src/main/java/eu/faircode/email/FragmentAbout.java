@@ -21,13 +21,14 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,45 +50,55 @@ public class FragmentAbout extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
-        Button btnDebugInfo = view.findViewById(R.id.btnDebugInfo);
+        final Button btnDebugInfo = view.findViewById(R.id.btnDebugInfo);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
 
         btnDebugInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                executor.submit(new Runnable() {
+                btnDebugInfo.setEnabled(false);
+                new SimpleLoader() {
                     @Override
-                    public void run() {
-                        try {
-                            DB db = DB.getInstance(getContext());
-                            EntityFolder drafts = db.folder().getPrimaryDrafts();
-                            if (drafts != null) {
-                                StringBuilder info = Helper.getDebugInfo();
-                                info.insert(0, getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+                    public Object onLoad(Bundle args) throws UnsupportedEncodingException {
+                        DB db = DB.getInstance(getContext());
 
-                                Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+                        EntityFolder drafts = db.folder().getPrimaryDrafts();
+                        if (drafts == null)
+                            throw new IllegalArgumentException(getString(R.string.title_no_drafts));
 
-                                EntityMessage draft = new EntityMessage();
-                                draft.account = drafts.account;
-                                draft.folder = drafts.id;
-                                draft.to = new Address[]{to};
-                                draft.subject = BuildConfig.APPLICATION_ID + " debug info";
-                                draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-                                draft.received = new Date().getTime();
-                                draft.seen = false;
-                                draft.ui_seen = false;
-                                draft.ui_hide = false;
-                                draft.id = db.message().insertMessage(draft);
+                        StringBuilder info = Helper.getDebugInfo();
+                        info.insert(0, getString(R.string.title_debug_info_remark) + "\n\n\n\n");
 
-                                startActivity(new Intent(getContext(), ActivityCompose.class)
-                                        .putExtra("id", draft.id));
-                            }
-                        } catch (Throwable ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
+                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+
+                        EntityMessage draft = new EntityMessage();
+                        draft.account = drafts.account;
+                        draft.folder = drafts.id;
+                        draft.to = new Address[]{to};
+                        draft.subject = BuildConfig.APPLICATION_ID + " debug info";
+                        draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                        draft.received = new Date().getTime();
+                        draft.seen = false;
+                        draft.ui_seen = false;
+                        draft.ui_hide = false;
+                        draft.id = db.message().insertMessage(draft);
+
+                        return draft.id;
                     }
-                });
+
+                    @Override
+                    public void onLoaded(Bundle args, Result result) {
+                        btnDebugInfo.setEnabled(true);
+
+                        if (result.ex == null) {
+                            long id = (Long) result.data;
+                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("id", id));
+                        } else
+                            Toast.makeText(getContext(), executor.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentAbout.this, ActivityView.LOADER_DEBUG_INFO, new Bundle());
             }
         });
 
