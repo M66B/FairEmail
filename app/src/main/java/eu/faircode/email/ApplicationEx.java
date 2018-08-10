@@ -40,7 +40,8 @@ public class ApplicationEx extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                Log.w(Helper.TAG, "Handling crash");
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
                 DB db = null;
                 try {
                     db = DB.getBlockingInstance(ApplicationEx.this);
