@@ -62,6 +62,7 @@ import androidx.loader.content.Loader;
 public class FragmentIdentity extends FragmentEx {
     private List<Provider> providers;
 
+    private ViewGroup view;
     private EditText etName;
     private EditText etEmail;
     private EditText etReplyTo;
@@ -75,9 +76,9 @@ public class FragmentIdentity extends FragmentEx {
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private Button btnSave;
-    private ProgressBar pbCheck;
+    private ProgressBar pbSave;
     private ImageButton ibDelete;
-    // TODO: loading spinner
+    private ProgressBar pbWait;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -86,7 +87,7 @@ public class FragmentIdentity extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_identity);
 
-        View view = inflater.inflate(R.layout.fragment_identity, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_identity, container, false);
 
         // Get arguments
         Bundle args = getArguments();
@@ -110,8 +111,9 @@ public class FragmentIdentity extends FragmentEx {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         btnSave = view.findViewById(R.id.btnSave);
-        pbCheck = view.findViewById(R.id.pbCheck);
+        pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
+        pbWait = view.findViewById(R.id.pbWait);
 
         // Wire controls
 
@@ -182,8 +184,9 @@ public class FragmentIdentity extends FragmentEx {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Helper.setViewsEnabled(view, false);
                 btnSave.setEnabled(false);
-                pbCheck.setVisibility(View.VISIBLE);
+                pbSave.setVisibility(View.VISIBLE);
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
@@ -234,10 +237,11 @@ public class FragmentIdentity extends FragmentEx {
         });
 
         // Initialize
-        etName.requestFocus();
+        Helper.setViewsEnabled(view, false);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
-        pbCheck.setVisibility(View.GONE);
-        ibDelete.setVisibility(id < 0 ? View.GONE : View.VISIBLE);
+        btnSave.setEnabled(false);
+        pbSave.setVisibility(View.GONE);
+        ibDelete.setVisibility(View.GONE);
 
         return view;
     }
@@ -267,6 +271,11 @@ public class FragmentIdentity extends FragmentEx {
                 cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                 cbPrimary.setChecked(identity == null ? true : identity.primary);
                 cbPrimary.setEnabled(identity == null ? true : identity.synchronize);
+                ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
+
+                Helper.setViewsEnabled(view, true);
+                btnSave.setEnabled(true);
+                pbWait.setVisibility(View.GONE);
 
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
@@ -403,8 +412,9 @@ public class FragmentIdentity extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             LoaderManager.getInstance(FragmentIdentity.this).destroyLoader(loader.getId());
 
+            Helper.setViewsEnabled(view, true);
             btnSave.setEnabled(true);
-            pbCheck.setVisibility(View.GONE);
+            pbSave.setVisibility(View.GONE);
 
             if (ex == null)
                 getFragmentManager().popBackStack();

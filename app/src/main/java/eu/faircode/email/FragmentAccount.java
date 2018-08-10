@@ -68,6 +68,7 @@ import androidx.loader.content.Loader;
 public class FragmentAccount extends FragmentEx {
     private List<Provider> providers;
 
+    private ViewGroup view;
     private EditText etName;
     private Spinner spProfile;
     private EditText etHost;
@@ -86,8 +87,8 @@ public class FragmentAccount extends FragmentEx {
     private Button btnSave;
     private ProgressBar pbSave;
     private ImageButton ibDelete;
+    private ProgressBar pbWait;
     private Group grpFolders;
-    // TODO: loading spinner
 
     private ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -96,7 +97,7 @@ public class FragmentAccount extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_account);
 
-        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_account, container, false);
 
         // Get arguments
         Bundle args = getArguments();
@@ -125,6 +126,7 @@ public class FragmentAccount extends FragmentEx {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
+        pbWait = view.findViewById(R.id.pbWait);
         grpFolders = view.findViewById(R.id.grpFolders);
 
         // Wire controls
@@ -159,8 +161,11 @@ public class FragmentAccount extends FragmentEx {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Helper.setViewsEnabled(view, false);
                 btnCheck.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
+                btnSave.setVisibility(View.GONE);
+                grpFolders.setVisibility(View.GONE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -180,6 +185,8 @@ public class FragmentAccount extends FragmentEx {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Helper.setViewsEnabled(view, false);
+                btnCheck.setEnabled(false);
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
@@ -251,12 +258,14 @@ public class FragmentAccount extends FragmentEx {
         });
 
         // Initialize
+        Helper.setViewsEnabled(view, false);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        btnCheck.setEnabled(false);
         pbCheck.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         grpFolders.setVisibility(View.GONE);
-        ibDelete.setVisibility(id < 0 ? View.GONE : View.VISIBLE);
+        ibDelete.setVisibility(View.GONE);
 
         return view;
     }
@@ -283,6 +292,11 @@ public class FragmentAccount extends FragmentEx {
                 cbSynchronize.setChecked(account == null ? true : account.synchronize);
                 cbPrimary.setChecked(account == null ? true : account.primary);
                 cbPrimary.setEnabled(account == null ? true : account.synchronize);
+                ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
+
+                Helper.setViewsEnabled(view, true);
+                btnCheck.setEnabled(true);
+                pbWait.setVisibility(View.GONE);
             }
         });
     }
@@ -408,6 +422,7 @@ public class FragmentAccount extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<CheckData> loader, CheckData data) {
             LoaderManager.getInstance(FragmentAccount.this).destroyLoader(loader.getId());
 
+            Helper.setViewsEnabled(view, true);
             btnCheck.setEnabled(true);
             pbCheck.setVisibility(View.GONE);
 
@@ -462,6 +477,8 @@ public class FragmentAccount extends FragmentEx {
             } else {
                 Log.w(Helper.TAG, data.ex + "\n" + Log.getStackTraceString(data.ex));
                 Toast.makeText(getContext(), Helper.formatThrowable(data.ex), Toast.LENGTH_LONG).show();
+                grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
             }
         }
 
@@ -626,8 +643,10 @@ public class FragmentAccount extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             LoaderManager.getInstance(FragmentAccount.this).destroyLoader(loader.getId());
 
+            Helper.setViewsEnabled(view, true);
+            btnCheck.setEnabled(true);
             btnSave.setEnabled(true);
-            btnCheck.setVisibility(View.GONE);
+            pbSave.setVisibility(View.GONE);
 
             if (ex == null)
                 getFragmentManager().popBackStack();

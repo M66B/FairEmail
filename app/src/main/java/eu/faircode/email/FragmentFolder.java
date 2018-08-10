@@ -34,26 +34,25 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
 public class FragmentFolder extends FragmentEx {
+    private ViewGroup view;
     private CheckBox cbSynchronize;
     private EditText etAfter;
     private Button btnSave;
     private ProgressBar pbSave;
     private ProgressBar pbWait;
-    private Group grpReady;
 
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_folder);
 
-        View view = inflater.inflate(R.layout.fragment_folder, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_folder, container, false);
 
         // Get arguments
         Bundle args = getArguments();
@@ -65,11 +64,11 @@ public class FragmentFolder extends FragmentEx {
         pbSave = view.findViewById(R.id.pbSave);
         btnSave = view.findViewById(R.id.btnSave);
         pbWait = view.findViewById(R.id.pbWait);
-        grpReady = view.findViewById(R.id.grpReady);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Helper.setViewsEnabled(view, false);
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
@@ -84,10 +83,10 @@ public class FragmentFolder extends FragmentEx {
         });
 
         // Initialize
+        Helper.setViewsEnabled(view, false);
+        btnSave.setEnabled(false);
         pbSave.setVisibility(View.GONE);
-        grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-
 
         return view;
     }
@@ -110,7 +109,8 @@ public class FragmentFolder extends FragmentEx {
                 }
 
                 pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
+                Helper.setViewsEnabled(view, true);
+                btnSave.setEnabled(true);
             }
         });
     }
@@ -167,6 +167,7 @@ public class FragmentFolder extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             LoaderManager.getInstance(FragmentFolder.this).destroyLoader(loader.getId());
 
+            Helper.setViewsEnabled(view, true);
             btnSave.setEnabled(true);
             pbSave.setVisibility(View.GONE);
 

@@ -27,6 +27,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,6 +58,16 @@ public class Helper {
         mutated.setColorFilter(filter);
         mutated.setAlpha(128);
         return mutated;
+    }
+
+    static void setViewsEnabled(ViewGroup view, boolean enabled) {
+        for (int i = 0; i < view.getChildCount(); i++) {
+            View child = view.getChildAt(i);
+            if (child instanceof Spinner || child instanceof EditText || child instanceof CheckBox)
+                child.setEnabled(enabled);
+            else if (child instanceof ViewGroup)
+                setViewsEnabled((ViewGroup) child, enabled);
+        }
     }
 
     static String localizeFolderName(Context context, String name) {

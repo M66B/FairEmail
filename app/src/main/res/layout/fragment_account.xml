@@ -198,6 +198,14 @@
             app:layout_constraintStart_toEndOf="@id/btnCheck"
             app:layout_constraintTop_toTopOf="@id/btnCheck" />
 
+        <ImageButton
+            android:id="@+id/ibDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@id/btnCheck"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <TextView
             android:id="@+id/tvDrafts"
             android:layout_width="wrap_content"
@@ -311,19 +319,16 @@
             app:layout_constraintStart_toEndOf="@id/btnSave"
             app:layout_constraintTop_toTopOf="@id/btnSave" />
 
-        <ImageButton
-            android:id="@+id/ibDelete"
+        <ProgressBar
+            android:id="@+id/pbWait"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="@id/btnSave"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpReady"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="spProvider,etName,etHost,etPort,etUser,tilPassword,cbPrimary,cbSynchronize,btnCheck" />
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"
