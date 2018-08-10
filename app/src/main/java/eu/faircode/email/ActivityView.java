@@ -62,16 +62,17 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
-    static final int LOADER_ACCOUNT_PUT = 1;
-    static final int LOADER_IDENTITY_PUT = 2;
-    static final int LOADER_FOLDER_PUT = 3;
-    static final int LOADER_MESSAGE_SEEN = 4;
-    static final int LOADER_MESSAGE_EDIT = 5;
-    static final int LOADER_MESSAGE_SPAM = 6;
-    static final int LOADER_MESSAGE_TRASH = 7;
-    static final int LOADER_MESSAGE_MOVE = 8;
-    static final int LOADER_MESSAGE_ARCHIVE = 9;
-    static final int LOADER_SEEN_UNTIL = 10;
+    static final int LOADER_ACCOUNT_CHECK = 1;
+    static final int LOADER_ACCOUNT_PUT = 2;
+    static final int LOADER_IDENTITY_PUT = 3;
+    static final int LOADER_FOLDER_PUT = 4;
+    static final int LOADER_MESSAGE_SEEN = 5;
+    static final int LOADER_MESSAGE_EDIT = 6;
+    static final int LOADER_MESSAGE_SPAM = 7;
+    static final int LOADER_MESSAGE_TRASH = 8;
+    static final int LOADER_MESSAGE_MOVE = 9;
+    static final int LOADER_MESSAGE_ARCHIVE = 10;
+    static final int LOADER_SEEN_UNTIL = 11;
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;

@@ -19,8 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
-
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,7 +43,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"type"})
         }
 )
-public class EntityFolder {
+public class EntityFolder implements Serializable {
     static final String TABLE_NAME = "folder";
 
     static final String INBOX = "Inbox";
@@ -105,21 +104,6 @@ public class EntityFolder {
     @NonNull
     public Integer after; // days
 
-    static EntityFolder getDrafts(Context context, DB db, long account) {
-        EntityFolder drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
-        if (drafts == null)
-            drafts = db.folder().getLocalDrafts();
-        if (drafts == null) {
-            drafts = new EntityFolder();
-            drafts.name = context.getString(R.string.title_folder_local_drafts);
-            drafts.type = EntityFolder.DRAFTS;
-            drafts.synchronize = false;
-            drafts.after = 0;
-            drafts.id = db.folder().insertFolder(drafts);
-        }
-        return drafts;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {
@@ -131,5 +115,10 @@ public class EntityFolder {
                     this.after.equals(other.after));
         } else
             return false;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

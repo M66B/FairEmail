@@ -80,7 +80,7 @@ public interface DaoMessage {
     @Query("SELECT * FROM message WHERE folder = :folder AND uid = :uid")
     EntityMessage getMessage(long folder, long uid);
 
-    @Query("SELECT * FROM message" +
+    @Query("SELECT message.* FROM message" +
             " JOIN folder on folder.id = message.folder" +
             " WHERE thread = :thread AND folder.type= '" + EntityFolder.ARCHIVE + "'")
     EntityMessage getArchivedMessage(String thread);

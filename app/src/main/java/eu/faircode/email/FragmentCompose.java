@@ -517,7 +517,7 @@ public class FragmentCompose extends FragmentEx {
                 if (ident == null)
                     throw new IllegalArgumentException(getContext().getString(R.string.title_from_missing));
 
-                EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, ident.account);
+                EntityFolder drafts = db.folder().getFolderByType(ident.account, EntityFolder.DRAFTS);
 
                 long rid = args.getLong("rid", -1);
                 String thread = args.getString("thread");
@@ -623,12 +623,9 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private LoaderManager.LoaderCallbacks putLoaderCallbacks = new LoaderManager.LoaderCallbacks<Throwable>() {
-        private Bundle args;
-
         @NonNull
         @Override
         public Loader<Throwable> onCreateLoader(int id, Bundle args) {
-            this.args = args;
             PutLoader loader = new PutLoader(getContext());
             loader.setArgs(args);
             return loader;
@@ -638,6 +635,7 @@ public class FragmentCompose extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             LoaderManager.getInstance(FragmentCompose.this).destroyLoader(loader.getId());
 
+            Bundle args = ((PutLoader) loader).args;
             String action = args.getString("action");
             Log.i(Helper.TAG, "Put finished action=" + action + " ex=" + ex);
 

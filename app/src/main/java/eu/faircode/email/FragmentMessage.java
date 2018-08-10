@@ -444,7 +444,7 @@ public class FragmentMessage extends FragmentEx {
                 long id = args.getLong("id");
                 DB db = DB.getInstance(getContext());
                 EntityMessage draft = db.message().getMessage(id);
-                EntityFolder drafts = EntityFolder.getDrafts(getContext(), db, draft.account);
+                EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
                 draft.id = null;
                 draft.folder = drafts.id;
                 draft.uid = null;
@@ -757,19 +757,16 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private LoaderManager.LoaderCallbacks moveLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<EntityFolder>>() {
-        Bundle args;
-
         @NonNull
         @Override
         public Loader<List<EntityFolder>> onCreateLoader(int id, Bundle args) {
-            this.args = args;
             MoveLoader loader = new MoveLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
 
         @Override
-        public void onLoadFinished(@NonNull Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
+        public void onLoadFinished(@NonNull final Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
             LoaderManager.getInstance(FragmentMessage.this).destroyLoader(loader.getId());
 
             View anchor = bottom_navigation.findViewById(R.id.action_move);
@@ -788,6 +785,7 @@ public class FragmentMessage extends FragmentEx {
                     final Drawable icon = item.getIcon();
                     item.setIcon(Helper.toDimmed(icon));
 
+                    Bundle args = ((MoveLoader) loader).args;
                     args.putLong("target", target.getItemId());
 
                     new SimpleLoader() {

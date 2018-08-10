@@ -986,19 +986,20 @@ public class ServiceSynchronize extends LifecycleService {
 
             for (Folder ifolder : ifolders) {
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                boolean candidate = true;
+                boolean selectable = true;
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr)) { // TODO: is this attribute correct?
-                        candidate = false;
+                        selectable = false;
                         break;
                     }
                     if (attr.startsWith("\\"))
                         if (EntityFolder.SYSTEM_FOLDER_ATTR.contains(attr.substring(1))) {
-                            candidate = false;
+                            selectable = false;
                             break;
                         }
                 }
-                if (candidate) {
+
+                if (selectable) {
                     Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join(",", attrs));
                     EntityFolder folder = dao.getFolderByName(account.id, ifolder.getFullName());
                     if (folder == null) {

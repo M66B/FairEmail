@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ff81778e939ac6480ab8ec93435db96a",
+    "identityHash": "959322c3e61ed9307a830e355bb2b8ab",
     "entities": [
       {
         "tableName": "identity",
@@ -681,6 +681,14 @@
               "message"
             ],
             "createSql": "CREATE  INDEX `index_operation_message` ON `${TABLE_NAME}` (`message`)"
+          },
+          {
+            "name": "index_operation_message",
+            "unique": false,
+            "columnNames": [
+              "message"
+            ],
+            "createSql": "CREATE  INDEX `index_operation_message` ON `${TABLE_NAME}` (`message`)"
           }
         ],
         "foreignKeys": [
@@ -711,7 +719,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ff81778e939ac6480ab8ec93435db96a\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"959322c3e61ed9307a830e355bb2b8ab\")"
     ]
   }
 }

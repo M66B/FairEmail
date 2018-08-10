@@ -71,8 +71,11 @@ public interface DaoFolder {
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
 
-    @Query("SELECT * FROM folder WHERE account IS NULL AND type = '" + EntityFolder.DRAFTS + "'")
-    EntityFolder getLocalDrafts();
+    // For debug/crash info
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
+    EntityFolder getPrimaryDrafts();
 
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
@@ -85,4 +88,10 @@ public interface DaoFolder {
 
     @Query("DELETE FROM folder WHERE account= :account AND name = :name")
     void deleteFolder(Long account, String name);
+
+    @Query("DELETE FROM folder" +
+            " WHERE account= :account" +
+            " AND type <> '" + EntityFolder.INBOX + "'" +
+            " AND type <> '" + EntityFolder.USER + "'")
+    int deleteSystemFolders(Long account);
 }

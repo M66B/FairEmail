@@ -176,6 +176,121 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
+        <!-- check -->
+
+        <Button
+            android:id="@+id/btnCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_check"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
+        <ProgressBar
+            android:id="@+id/pbCheck"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="@id/btnCheck"
+            app:layout_constraintStart_toEndOf="@id/btnCheck"
+            app:layout_constraintTop_toTopOf="@id/btnCheck" />
+
+        <TextView
+            android:id="@+id/tvDrafts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/title_folder_drafts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spDrafts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spDrafts" />
+
+        <Spinner
+            android:id="@+id/spDrafts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@id/tvDrafts"
+            app:layout_constraintTop_toBottomOf="@id/btnCheck" />
+
+        <TextView
+            android:id="@+id/tvSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/title_folder_sent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spSent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spSent" />
+
+        <Spinner
+            android:id="@+id/spSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvSent"
+            app:layout_constraintTop_toBottomOf="@id/spDrafts" />
+
+        <TextView
+            android:id="@+id/tvAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/title_folder_all"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spAll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spAll" />
+
+        <Spinner
+            android:id="@+id/spAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvAll"
+            app:layout_constraintTop_toBottomOf="@id/spSent" />
+
+        <TextView
+            android:id="@+id/tvTrash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/title_folder_trash"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spTrash"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spTrash" />
+
+        <Spinner
+            android:id="@+id/spTrash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvTrash"
+            app:layout_constraintTop_toBottomOf="@id/spAll" />
+
+        <TextView
+            android:id="@+id/tvJunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="100dp"
+            android:text="@string/title_folder_junk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spJunk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spJunk" />
+
+        <Spinner
+            android:id="@+id/spJunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvJunk"
+            app:layout_constraintTop_toBottomOf="@id/spTrash" />
+
+        <!-- save -->
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -183,10 +298,10 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/spJunk" />
 
         <ProgressBar
-            android:id="@+id/pbCheck"
+            android:id="@+id/pbSave"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -208,6 +323,12 @@
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="spProvider,etName,etHost,etPort,etUser,tilPassword,cbPrimary,cbSynchronize,btnSave" />
+            app:constraint_referenced_ids="spProvider,etName,etHost,etPort,etUser,tilPassword,cbPrimary,cbSynchronize,btnCheck" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpFolders"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvDrafts,spDrafts,tvSent,spSent,tvAll,spAll,tvTrash,spTrash,tvJunk,spJunk" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

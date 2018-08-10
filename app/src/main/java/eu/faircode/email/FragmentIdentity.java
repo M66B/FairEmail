@@ -366,13 +366,21 @@ public class FragmentIdentity extends FragmentEx {
                     }
                 }
 
-                if (identity.primary)
-                    db.identity().resetPrimary();
+                try {
+                    db.beginTransaction();
 
-                if (update)
-                    db.identity().updateIdentity(identity);
-                else
-                    identity.id = db.identity().insertIdentity(identity);
+                    if (identity.primary)
+                        db.identity().resetPrimary();
+
+                    if (update)
+                        db.identity().updateIdentity(identity);
+                    else
+                        identity.id = db.identity().insertIdentity(identity);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 return null;
             } catch (Throwable ex) {

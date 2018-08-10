@@ -44,7 +44,7 @@ public class ApplicationEx extends Application {
                 DB db = null;
                 try {
                     db = DB.getBlockingInstance(ApplicationEx.this);
-                    EntityFolder drafts = EntityFolder.getDrafts(ApplicationEx.this, db, -1);
+                    EntityFolder drafts = db.folder().getPrimaryDrafts();
                     if (drafts != null) {
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
 
