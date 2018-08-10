@@ -96,7 +96,6 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ServiceSynchronize extends LifecycleService {
-    private ServiceState state = new ServiceState();
     private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
@@ -108,11 +107,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     static final String ACTION_PROCESS_FOLDER = BuildConfig.APPLICATION_ID + ".PROCESS_FOLDER";
     static final String ACTION_PROCESS_OUTBOX = BuildConfig.APPLICATION_ID + ".PROCESS_OUTBOX";
-
-    private class ServiceState {
-        boolean running = false;
-        List<Thread> threads = new ArrayList<>(); // accounts
-    }
 
     public ServiceSynchronize() {
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
@@ -301,7 +295,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void monitorAccount(final EntityAccount account) {
+    private void monitorAccount(final EntityAccount account, final ServiceState state) {
         Log.i(Helper.TAG, account.name + " start ");
 
         while (state.running) {
@@ -377,7 +371,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 mapFolder.put(folder.id, ifolder);
                                             }
 
-                                            monitorFolder(account, folder, fstore, ifolder);
+                                            monitorFolder(account, folder, fstore, ifolder, state);
                                         } catch (FolderNotFoundException ex) {
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         } catch (Throwable ex) {
@@ -567,7 +561,10 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, account.name + " stopped");
     }
 
-    private void monitorFolder(final EntityAccount account, final EntityFolder folder, final IMAPStore istore, final IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
+    private void monitorFolder(
+            final EntityAccount account, final EntityFolder folder,
+            final IMAPStore istore, final IMAPFolder ifolder,
+            ServiceState state) throws MessagingException, JSONException, IOException {
         // Listen for new and deleted messages
         ifolder.addMessageCountListener(new MessageCountAdapter() {
             @Override
@@ -1245,7 +1242,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        private Thread mainThread;
+        final ServiceState state = new ServiceState();
         private EntityFolder outbox = null;
 
         @Override
@@ -1253,54 +1250,48 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Available " + network);
 
             synchronized (state) {
-                if (!state.running) {
-                    state.threads.clear();
-                    state.running = true;
-
-                    mainThread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            DB db = DB.getInstance(ServiceSynchronize.this);
-                            try {
-                                List<EntityAccount> accounts = db.account().getAccounts(true);
-                                if (accounts.size() == 0) {
-                                    Log.i(Helper.TAG, "No accounts, halt");
-                                    stopSelf();
-                                } else
-                                    for (final EntityAccount account : accounts) {
-                                        Log.i(Helper.TAG, account.host + "/" + account.user + " run");
-                                        Thread thread = new Thread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                try {
-                                                    monitorAccount(account);
-                                                } catch (Throwable ex) {
-                                                    // Fallsafe
-                                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                                }
-                                            }
-                                        }, "sync.account." + account.id);
-                                        state.threads.add(thread);
-                                        thread.start();
-                                    }
-                            } catch (Throwable ex) {
-                                // Failsafe
-                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            }
-
-                            outbox = db.folder().getOutbox();
-                            if (outbox != null) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                                lbm.registerReceiver(receiverOutbox, new IntentFilter(ACTION_PROCESS_OUTBOX));
-                                Log.i(Helper.TAG, outbox.name + " listen operations");
-                                lbm.sendBroadcast(new Intent(ACTION_PROCESS_OUTBOX));
-                            }
-
-                        }
-                    }, "sync.main");
-                    mainThread.start();
-                }
+                state.running = true;
             }
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    DB db = DB.getInstance(ServiceSynchronize.this);
+                    try {
+                        List<EntityAccount> accounts = db.account().getAccounts(true);
+                        if (accounts.size() == 0) {
+                            Log.i(Helper.TAG, "No accounts, halt");
+                            stopSelf();
+                        } else
+                            for (final EntityAccount account : accounts) {
+                                Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            monitorAccount(account, state);
+                                        } catch (Throwable ex) {
+                                            // Fallsafe
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        }
+                                    }
+                                }, "sync.account." + account.id).start();
+                            }
+                    } catch (Throwable ex) {
+                        // Failsafe
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+
+                    outbox = db.folder().getOutbox();
+                    if (outbox != null) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
+                        lbm.registerReceiver(receiverOutbox, new IntentFilter(ACTION_PROCESS_OUTBOX));
+                        Log.i(Helper.TAG, outbox.name + " listen operations");
+                        lbm.sendBroadcast(new Intent(ACTION_PROCESS_OUTBOX));
+                    }
+
+                }
+            }, "sync.main").start();
         }
 
         @Override
@@ -1308,10 +1299,8 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Lost " + network);
 
             synchronized (state) {
-                if (state.running) {
-                    state.running = false;
-                    state.notifyAll();
-                }
+                state.running = false;
+                state.notifyAll();
             }
 
             if (outbox != null) {
@@ -1330,9 +1319,7 @@ public class ServiceSynchronize extends LifecycleService {
                     public void run() {
                         try {
                             Log.i(Helper.TAG, outbox.name + " start operations");
-                            synchronized (outbox) {
-                                processOperations(outbox, null, null);
-                            }
+                            processOperations(outbox, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);
@@ -1381,5 +1368,9 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Restart because of '" + reason + "'");
         context.stopService(new Intent(context, ServiceSynchronize.class));
         start(context);
+    }
+
+    private class ServiceState {
+        boolean running = false;
     }
 }
