@@ -38,6 +38,9 @@ public interface DaoAttachment {
     @Query("SELECT * FROM attachment WHERE message = :message AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);
 
+    @Query("SELECT COUNT(attachment.id) FROM attachment WHERE message = :message")
+    int getAttachmentCount(long message);
+
     @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
     void setProgress(long id, int progress);
 

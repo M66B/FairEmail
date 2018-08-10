@@ -73,6 +73,7 @@ import androidx.lifecycle.Observer;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static android.app.Activity.RESULT_OK;
@@ -95,6 +96,8 @@ public class FragmentCompose extends FragmentEx {
     private Group grpAttachments;
     private Group grpReady;
     private MenuItem menuAttachment = null;
+
+    private AdapterAttachment adapter;
 
     @Override
     @Nullable
@@ -230,6 +233,13 @@ public class FragmentCompose extends FragmentEx {
             });
         }
 
+        rvAttachment.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvAttachment.setLayoutManager(llm);
+
+        adapter = new AdapterAttachment(getContext());
+        rvAttachment.setAdapter(adapter);
+
         return view;
     }
 
@@ -319,104 +329,136 @@ public class FragmentCompose extends FragmentEx {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
-                if (data != null) {
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", data.getData());
-                    new SimpleLoader() {
-                        @Override
-                        public Object onLoad(Bundle args) throws IOException {
-                            Uri uri = args.getParcelable("uri");
-                            Cursor cursor = null;
-                            try {
-                                cursor = getActivity().getContentResolver().query(uri, null, null, null, null, null);
-                                if (cursor != null && cursor.moveToFirst()) {
-                                    EntityAttachment attachment = new EntityAttachment();
-                                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                if (data != null)
+                    handleAddAttachment(data);
+            } else
+                handlePickContact(requestCode, data);
+        }
+    }
 
-                                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
-                                    if (extension != null)
-                                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-                                    if (extension == null)
-                                        attachment.type = "application/octet-stream";
+    private void handlePickContact(int requestCode, Intent data) {
+        Cursor cursor = null;
+        try {
+            cursor = getContext().getContentResolver().query(data.getData(),
+                    new String[]{
+                            ContactsContract.CommonDataKinds.Email.ADDRESS,
+                            ContactsContract.Contacts.DISPLAY_NAME
+                    },
+                    null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
+                int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                String email = cursor.getString(colEmail);
+                String name = cursor.getString(colName);
 
-                                    InputStream is = null;
-                                    try {
-                                        is = getContext().getContentResolver().openInputStream(uri);
-                                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                String text = null;
+                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                    text = etTo.getText().toString();
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                    text = etCc.getText().toString();
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                    text = etBcc.getText().toString();
 
-                                        int len;
-                                        byte[] buffer = new byte[8192];
-                                        while ((len = is.read(buffer)) > 0)
-                                            bos.write(buffer, 0, len);
+                InternetAddress address = new InternetAddress(email, name);
+                StringBuilder sb = new StringBuilder(text);
+                if (sb.length() > 0)
+                    sb.append("; ");
+                sb.append(address.toString());
 
-                                        attachment.size = bos.size();
-                                        attachment.content = bos.toByteArray();
-                                    } finally {
-                                        if (is != null)
-                                            is.close();
-                                    }
+                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                    etTo.setText(sb.toString());
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                    etCc.setText(sb.toString());
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                    etBcc.setText(sb.toString());
+            }
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+    }
 
-                                    return attachment;
-                                }
-                            } finally {
-                                if (cursor != null)
-                                    cursor.close();
-                            }
+    private void handleAddAttachment(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", getArguments().getLong("id"));
+        args.putParcelable("uri", data.getData());
 
-                            return null;
-                        }
-
-                        @Override
-                        public void onLoaded(Bundle args, Result result) {
-                            EntityAttachment attachment = (EntityAttachment) result.data;
-                        }
-                    }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
-                }
-            } else {
+        new SimpleLoader() {
+            @Override
+            public Object onLoad(Bundle args) throws IOException {
                 Cursor cursor = null;
                 try {
-                    cursor = getContext().getContentResolver().query(data.getData(),
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.Email.ADDRESS,
-                                    ContactsContract.Contacts.DISPLAY_NAME
-                            },
-                            null, null, null);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
-                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                        String email = cursor.getString(colEmail);
-                        String name = cursor.getString(colName);
+                    Uri uri = args.getParcelable("uri");
+                    cursor = getActivity().getContentResolver().query(uri, null, null, null, null, null);
+                    if (cursor == null || !cursor.moveToFirst())
+                        return null;
 
-                        String text = null;
-                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                            text = etTo.getText().toString();
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                            text = etCc.getText().toString();
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                            text = etBcc.getText().toString();
+                    DB db = DB.getInstance(getContext());
 
-                        InternetAddress address = new InternetAddress(email, name);
-                        StringBuilder sb = new StringBuilder(text);
-                        if (sb.length() > 0)
-                            sb.append("; ");
-                        sb.append(address.toString());
+                    long id = args.getLong("id");
+                    EntityMessage draft = db.message().getMessage(id);
 
-                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                            etTo.setText(sb.toString());
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                            etCc.setText(sb.toString());
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                            etBcc.setText(sb.toString());
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = draft.id;
+                    attachment.sequence = db.attachment().getAttachmentCount(draft.id);
+                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                    if (extension != null)
+                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                    if (extension == null)
+                        attachment.type = "application/octet-stream";
+
+                    String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+
+                    attachment.size = (size == null ? null : Integer.parseInt(size));
+                    attachment.progress = 0;
+
+                    db.attachment().insertAttachment(attachment);
+
+                    InputStream is = null;
+                    try {
+                        is = getContext().getContentResolver().openInputStream(uri);
+                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+                        int len;
+                        byte[] buffer = new byte[8192];
+                        while ((len = is.read(buffer)) > 0) {
+                            os.write(buffer, 0, len);
+
+                            // Update progress
+                            if (attachment.size != null) {
+                                attachment.progress = os.size() * 100 / attachment.size;
+                                db.attachment().updateAttachment(attachment);
+                            }
+                        }
+
+                        attachment.size = os.size();
+                        attachment.progress = null;
+                        attachment.content = os.toByteArray();
+                        db.attachment().updateAttachment(attachment);
+                    } finally {
+                        if (is != null)
+                            is.close();
                     }
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+
+
+                    return null;
                 } finally {
                     if (cursor != null)
                         cursor.close();
                 }
             }
-        }
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                if (result.ex != null)
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
     }
 
     private void onAction(int action) {
@@ -554,10 +596,10 @@ public class FragmentCompose extends FragmentEx {
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
-            ArrayAdapter adapter = (ArrayAdapter) spFrom.getAdapter();
-            if (adapter != null) {
-                for (int pos = 0; pos < adapter.getCount(); pos++) {
-                    EntityIdentity identity = (EntityIdentity) adapter.getItem(pos);
+            ArrayAdapter aa = (ArrayAdapter) spFrom.getAdapter();
+            if (aa != null) {
+                for (int pos = 0; pos < aa.getCount(); pos++) {
+                    EntityIdentity identity = (EntityIdentity) aa.getItem(pos);
                     if (msg.identity == null
                             ? msg.from != null && msg.from.length > 0 && ((InternetAddress) msg.from[0]).getAddress().equals(identity.email)
                             : msg.identity.equals(identity.id)) {
@@ -571,7 +613,20 @@ public class FragmentCompose extends FragmentEx {
             etCc.setText(msg.cc == null ? null : TextUtils.join(", ", msg.cc));
             etBcc.setText(msg.bcc == null ? null : TextUtils.join(", ", msg.bcc));
             etSubject.setText(msg.subject);
-            etBody.setText(Html.fromHtml(msg.body));
+
+            DB db = DB.getInstance(getContext());
+            db.attachment().liveAttachments(msg.id).removeObservers(getViewLifecycleOwner());
+            db.attachment().liveAttachments(msg.id).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleAttachment>>() {
+                        @Override
+                        public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                            adapter.set(attachments);
+                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        }
+                    });
+
+
+            etBody.setText(TextUtils.isEmpty(msg.body) ? null : Html.fromHtml(msg.body));
 
             if ("edit".equals(action))
                 etTo.requestFocus();
