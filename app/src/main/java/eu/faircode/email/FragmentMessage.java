@@ -460,6 +460,7 @@ public class FragmentMessage extends FragmentEx {
                 if (result.ex == null)
                     getContext().startActivity(
                             new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("action", "edit")
                                     .putExtra("id", (long) result.data));
                 else
                     Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
@@ -469,14 +470,14 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionForward(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id", id)
-                .putExtra("action", "forward"));
+                .putExtra("action", "forward")
+                .putExtra("reference", id));
     }
 
     private void onActionReplyAll(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id", id)
-                .putExtra("action", "reply_all"));
+                .putExtra("action", "reply_all")
+                .putExtra("reference", id));
     }
 
     private void onActionSpam(final long id) {
@@ -711,8 +712,8 @@ public class FragmentMessage extends FragmentEx {
 
     private void onActionReply(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("id", id)
-                .putExtra("action", "reply"));
+                .putExtra("action", "reply")
+                .putExtra("reference", id));
     }
 
     private static class MoveLoader extends AsyncTaskLoader<List<EntityFolder>> {

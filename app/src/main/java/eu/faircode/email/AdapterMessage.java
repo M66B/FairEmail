@@ -45,7 +45,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     enum ViewType {FOLDER, THREAD}
 
     public class ViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
+            implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvFrom;
         TextView tvTime;
@@ -68,10 +68,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void wire() {
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            itemView.setOnLongClickListener(null);
         }
 
         private void clear() {
@@ -126,11 +128,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            final TupleMessageEx message = getItem(pos);
+            TupleMessageEx message = getItem(pos);
 
             if (EntityFolder.DRAFTS.equals(message.folderType))
                 context.startActivity(
                         new Intent(context, ActivityCompose.class)
+                                .putExtra("action", "edit")
                                 .putExtra("id", message.id));
             else {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
@@ -138,6 +141,21 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         new Intent(ActivityView.ACTION_VIEW_MESSAGE)
                                 .putExtra("id", message.id));
             }
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            TupleMessageEx message = getItem(pos);
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
+                            .putExtra("id", message.id));
+
+            return true;
         }
     }
 

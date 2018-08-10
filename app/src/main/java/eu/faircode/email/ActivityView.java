@@ -64,15 +64,16 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final int LOADER_ACCOUNT_PUT = 2;
     static final int LOADER_IDENTITY_PUT = 3;
     static final int LOADER_FOLDER_PUT = 4;
-    static final int LOADER_MESSAGE_VIEW = 5;
-    static final int LOADER_MESSAGE_SEEN = 6;
-    static final int LOADER_MESSAGE_EDIT = 7;
-    static final int LOADER_MESSAGE_SPAM = 8;
-    static final int LOADER_MESSAGE_TRASH = 9;
-    static final int LOADER_MESSAGE_MOVE = 10;
-    static final int LOADER_MESSAGE_ARCHIVE = 11;
-    static final int LOADER_SEEN_UNTIL = 12;
-    static final int LOADER_DEBUG_INFO = 13;
+    static final int LOADER_MESSAGE_ACCOUNT = 5;
+    static final int LOADER_MESSAGE_VIEW = 6;
+    static final int LOADER_MESSAGE_SEEN = 7;
+    static final int LOADER_MESSAGE_EDIT = 8;
+    static final int LOADER_MESSAGE_SPAM = 9;
+    static final int LOADER_MESSAGE_TRASH = 10;
+    static final int LOADER_MESSAGE_MOVE = 11;
+    static final int LOADER_MESSAGE_ARCHIVE = 12;
+    static final int LOADER_SEEN_UNTIL = 13;
+    static final int LOADER_DEBUG_INFO = 14;
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
