@@ -24,7 +24,7 @@
         app:layout_constraintStart_toEndOf="@id/spFrom"
         app:layout_constraintTop_toTopOf="@id/spFrom" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/etTo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toEndOf="@id/etTo"
         app:layout_constraintTop_toTopOf="@+id/etTo" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/etCc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toEndOf="@id/etCc"
         app:layout_constraintTop_toTopOf="@+id/etCc" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/etBcc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

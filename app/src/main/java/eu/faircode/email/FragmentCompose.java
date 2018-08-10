@@ -19,8 +19,10 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,7 +37,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -56,6 +60,8 @@ import javax.mail.internet.InternetAddress;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.loader.app.LoaderManager;
@@ -71,11 +77,11 @@ public class FragmentCompose extends FragmentEx {
 
     private Spinner spFrom;
     private ImageView ivIdentityAdd;
-    private EditText etTo;
+    private AutoCompleteTextView etTo;
     private ImageView ivToAdd;
-    private EditText etCc;
+    private AutoCompleteTextView etCc;
     private ImageView ivCcAdd;
-    private EditText etBcc;
+    private AutoCompleteTextView etBcc;
     private ImageView ivBccAdd;
     private EditText etSubject;
     private EditText etBody;
@@ -181,6 +187,54 @@ public class FragmentCompose extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
+
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED) {
+            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                    getContext(),
+                    android.R.layout.simple_list_item_2,
+                    null,
+                    new String[]{
+                            ContactsContract.Contacts.DISPLAY_NAME,
+                            ContactsContract.CommonDataKinds.Email.DATA
+                    },
+                    new int[]{
+                            android.R.id.text1,
+                            android.R.id.text2
+                    },
+                    0);
+
+            etTo.setAdapter(adapter);
+            etCc.setAdapter(adapter);
+            etBcc.setAdapter(adapter);
+
+            adapter.setFilterQueryProvider(new FilterQueryProvider() {
+                public Cursor runQuery(CharSequence typed) {
+                    return getContext().getContentResolver().query(
+                            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                            new String[]{
+                                    ContactsContract.RawContacts._ID,
+                                    ContactsContract.Contacts.DISPLAY_NAME,
+                                    ContactsContract.CommonDataKinds.Email.DATA
+                            },
+                            ContactsContract.CommonDataKinds.Email.DATA + " <> ''" +
+                                    " AND (" + ContactsContract.Contacts.DISPLAY_NAME + " LIKE '%" + typed + "%'" +
+                                    " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE '%" + typed + "%')",
+                            null,
+                            "CASE WHEN " + ContactsContract.Contacts.DISPLAY_NAME + " NOT LIKE '%@%' THEN 0 ELSE 1 END" +
+                                    ", " + ContactsContract.Contacts.DISPLAY_NAME +
+                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
+                }
+            });
+
+            adapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
+                public CharSequence convertToString(Cursor cursor) {
+                    int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                    int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA);
+                    return cursor.getString(colName) + "<" + cursor.getString(colEmail) + ">";
+                }
+            });
+        }
 
         return view;
     }

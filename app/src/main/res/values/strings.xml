@@ -51,6 +51,7 @@
     <string name="title_setup_permissions_remark">To read contacts (optional)</string>
     <string name="title_setup_messages">View messages</string>
     <string name="title_setup_done">Done</string>
+    <string name="title_setup_granted">Granted</string>
     <string name="title_setup_dark_theme">Dark theme</string>
     <string name="title_setup_debug">Debug</string>
 

@@ -108,7 +108,6 @@
             android:layout_marginTop="24dp"
             android:text="@string/title_setup_permissions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIdentityDone" />
@@ -119,7 +118,6 @@
             android:layout_height="wrap_content"
             android:text="@string/title_setup_permissions_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnPermissions" />
@@ -128,9 +126,8 @@
             android:id="@+id/tvPermissionsDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_setup_done"
+            android:text="@string/title_setup_granted"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissions" />

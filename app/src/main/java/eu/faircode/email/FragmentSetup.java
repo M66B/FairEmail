@@ -114,6 +114,7 @@ public class FragmentSetup extends FragmentEx {
         btnPermissions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnPermissions.setEnabled(false);
                 requestPermissions(permissions, 1);
             }
         });
