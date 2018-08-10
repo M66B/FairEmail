@@ -73,15 +73,12 @@ import androidx.lifecycle.Observer;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentEx {
-    private boolean once = false;
-    private String thread = null;
-    private long rid = -1;
-
     private Spinner spFrom;
     private ImageView ivIdentityAdd;
     private AutoCompleteTextView etTo;
@@ -98,6 +95,9 @@ public class FragmentCompose extends FragmentEx {
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpReady;
+    private MenuItem menuAttachment = null;
+
+    private AdapterAttachment adapter;
 
     @Override
     @Nullable
@@ -105,11 +105,6 @@ public class FragmentCompose extends FragmentEx {
         setSubtitle(R.string.title_compose);
 
         View view = inflater.inflate(R.layout.fragment_compose, container, false);
-
-        // Get arguments
-        Bundle args = getArguments();
-        String action = (args == null ? null : args.getString("action"));
-        final long id = (TextUtils.isEmpty(action) ? (args == null ? -1 : args.getLong("id", -1)) : -1);
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
@@ -173,17 +168,7 @@ public class FragmentCompose extends FragmentEx {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_trash:
-                        actionPut(id, "trash");
-                        return true;
-                    case R.id.action_save:
-                        actionPut(id, "save");
-                        return true;
-                    case R.id.action_send:
-                        actionPut(id, "send");
-                        return true;
-                }
+                onAction(item.getItemId());
 
                 return false;
             }
@@ -248,6 +233,13 @@ public class FragmentCompose extends FragmentEx {
             });
         }
 
+        rvAttachment.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rvAttachment.setLayoutManager(llm);
+
+        adapter = new AdapterAttachment(getContext());
+        rvAttachment.setAdapter(adapter);
+
         return view;
     }
 
@@ -258,6 +250,7 @@ public class FragmentCompose extends FragmentEx {
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable final List<EntityIdentity> identities) {
+                // Sort identities
                 Collections.sort(identities, new Comparator<EntityIdentity>() {
                     @Override
                     public int compare(EntityIdentity i1, EntityIdentity i2) {
@@ -265,6 +258,7 @@ public class FragmentCompose extends FragmentEx {
                     }
                 });
 
+                // Show identities
                 ArrayAdapter<EntityIdentity> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, identities);
                 adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                 spFrom.setAdapter(adapter);
@@ -279,9 +273,16 @@ public class FragmentCompose extends FragmentEx {
                 spFrom.setVisibility(View.VISIBLE);
                 ivIdentityAdd.setVisibility(View.VISIBLE);
 
-                // Get might select another identity
-                LoaderManager.getInstance(FragmentCompose.this)
-                        .restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
+                // Get draft
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Get might select another identity
+                        LoaderManager.getInstance(FragmentCompose.this)
+                                .restartLoader(ActivityCompose.LOADER_COMPOSE_GET, getArguments(), getLoaderCallbacks).forceLoad();
+
+                    }
+                });
             }
         });
     }
@@ -290,6 +291,13 @@ public class FragmentCompose extends FragmentEx {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menuAttachment = menu.findItem(R.id.menu_attachment);
+        menuAttachment.setEnabled(false);
     }
 
     @Override
@@ -321,118 +329,148 @@ public class FragmentCompose extends FragmentEx {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
-                if (data != null) {
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", data.getData());
-                    new SimpleLoader() {
-                        @Override
-                        public Object onLoad(Bundle args) throws IOException {
-                            Uri uri = args.getParcelable("uri");
-                            Cursor cursor = null;
-                            try {
-                                cursor = getActivity().getContentResolver().query(uri, null, null, null, null, null);
-                                if (cursor != null && cursor.moveToFirst()) {
-                                    EntityAttachment attachment = new EntityAttachment();
-                                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                if (data != null)
+                    handleAddAttachment(data);
+            } else
+                handlePickContact(requestCode, data);
+        }
+    }
 
-                                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
-                                    if (extension != null)
-                                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-                                    if (extension == null)
-                                        attachment.type = "application/octet-stream";
+    private void handlePickContact(int requestCode, Intent data) {
+        Cursor cursor = null;
+        try {
+            cursor = getContext().getContentResolver().query(data.getData(),
+                    new String[]{
+                            ContactsContract.CommonDataKinds.Email.ADDRESS,
+                            ContactsContract.Contacts.DISPLAY_NAME
+                    },
+                    null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
+                int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                String email = cursor.getString(colEmail);
+                String name = cursor.getString(colName);
 
-                                    InputStream is = null;
-                                    try {
-                                        is = getContext().getContentResolver().openInputStream(uri);
-                                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                String text = null;
+                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                    text = etTo.getText().toString();
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                    text = etCc.getText().toString();
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                    text = etBcc.getText().toString();
 
-                                        int len;
-                                        byte[] buffer = new byte[8192];
-                                        while ((len = is.read(buffer)) > 0)
-                                            bos.write(buffer, 0, len);
+                InternetAddress address = new InternetAddress(email, name);
+                StringBuilder sb = new StringBuilder(text);
+                if (sb.length() > 0)
+                    sb.append("; ");
+                sb.append(address.toString());
 
-                                        attachment.size = bos.size();
-                                        attachment.content = bos.toByteArray();
-                                    } finally {
-                                        if (is != null)
-                                            is.close();
-                                    }
+                if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
+                    etTo.setText(sb.toString());
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
+                    etCc.setText(sb.toString());
+                else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
+                    etBcc.setText(sb.toString());
+            }
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+    }
 
-                                    return attachment;
-                                }
-                            } finally {
-                                if (cursor != null)
-                                    cursor.close();
-                            }
+    private void handleAddAttachment(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", getArguments().getLong("id"));
+        args.putParcelable("uri", data.getData());
 
-                            return null;
-                        }
-
-                        @Override
-                        public void onLoaded(Bundle args, Result result) {
-                            EntityAttachment attachment = (EntityAttachment) result.data;
-                        }
-                    }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
-                }
-            } else {
+        new SimpleLoader() {
+            @Override
+            public Object onLoad(Bundle args) throws IOException {
                 Cursor cursor = null;
                 try {
-                    cursor = getContext().getContentResolver().query(data.getData(),
-                            new String[]{
-                                    ContactsContract.CommonDataKinds.Email.ADDRESS,
-                                    ContactsContract.Contacts.DISPLAY_NAME
-                            },
-                            null, null, null);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
-                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                        String email = cursor.getString(colEmail);
-                        String name = cursor.getString(colName);
+                    Uri uri = args.getParcelable("uri");
+                    cursor = getActivity().getContentResolver().query(uri, null, null, null, null, null);
+                    if (cursor == null || !cursor.moveToFirst())
+                        return null;
 
-                        String text = null;
-                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                            text = etTo.getText().toString();
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                            text = etCc.getText().toString();
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                            text = etBcc.getText().toString();
+                    DB db = DB.getInstance(getContext());
 
-                        InternetAddress address = new InternetAddress(email, name);
-                        StringBuilder sb = new StringBuilder(text);
-                        if (sb.length() > 0)
-                            sb.append("; ");
-                        sb.append(address.toString());
+                    long id = args.getLong("id");
+                    EntityMessage draft = db.message().getMessage(id);
 
-                        if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
-                            etTo.setText(sb.toString());
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_CC)
-                            etCc.setText(sb.toString());
-                        else if (requestCode == ActivityCompose.REQUEST_CONTACT_BCC)
-                            etBcc.setText(sb.toString());
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = draft.id;
+                    attachment.sequence = db.attachment().getAttachmentCount(draft.id);
+                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                    if (extension != null)
+                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                    if (extension == null)
+                        attachment.type = "application/octet-stream";
+
+                    String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+
+                    attachment.size = (size == null ? null : Integer.parseInt(size));
+                    attachment.progress = 0;
+
+                    db.attachment().insertAttachment(attachment);
+
+                    InputStream is = null;
+                    try {
+                        is = getContext().getContentResolver().openInputStream(uri);
+                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+                        int len;
+                        byte[] buffer = new byte[8192];
+                        while ((len = is.read(buffer)) > 0) {
+                            os.write(buffer, 0, len);
+
+                            // Update progress
+                            if (attachment.size != null) {
+                                attachment.progress = os.size() * 100 / attachment.size;
+                                db.attachment().updateAttachment(attachment);
+                            }
+                        }
+
+                        attachment.size = os.size();
+                        attachment.progress = null;
+                        attachment.content = os.toByteArray();
+                        db.attachment().updateAttachment(attachment);
+                    } finally {
+                        if (is != null)
+                            is.close();
                     }
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+
+
+                    return null;
                 } finally {
                     if (cursor != null)
                         cursor.close();
                 }
             }
-        }
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                if (result.ex != null)
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
     }
 
-    private void actionPut(long id, String action) {
-        Log.i(Helper.TAG, "Put id=" + id + " action=" + action);
+    private void onAction(int action) {
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
+        long id = getArguments().getLong("id", -1);
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
         Bundle args = new Bundle();
-        args.putString("action", action);
         args.putLong("id", id);
-        args.putLong("iid", identity == null ? -1 : identity.id);
-        args.putString("thread", FragmentCompose.this.thread);
-        args.putLong("rid", FragmentCompose.this.rid);
+        args.putInt("action", action);
+        args.putLong("identity", identity == null ? -1 : identity.id);
         args.putString("to", etTo.getText().toString());
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
@@ -443,7 +481,7 @@ public class FragmentCompose extends FragmentEx {
                 .restartLoader(ActivityCompose.LOADER_COMPOSE_PUT, args, putLoaderCallbacks).forceLoad();
     }
 
-    private static class GetLoader extends AsyncTaskLoader<Bundle> {
+    private static class GetLoader extends AsyncTaskLoader<EntityMessage> {
         private Bundle args;
 
         GetLoader(Context context) {
@@ -456,167 +494,152 @@ public class FragmentCompose extends FragmentEx {
 
         @Nullable
         @Override
-        public Bundle loadInBackground() {
-            Bundle result = new Bundle();
+        public EntityMessage loadInBackground() {
+            EntityMessage draft = null;
             try {
                 String action = args.getString("action");
                 long id = args.getLong("id", -1);
+                long account = args.getLong("account", -1);
+                long reference = args.getLong("reference", -1);
+                Log.i(Helper.TAG, "Get action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
 
-                result.putString("action", action);
+                DB db = DB.getInstance(getContext());
 
-                EntityMessage msg = DB.getInstance(getContext()).message().getMessage(id);
-                if (msg != null) {
-                    if (msg.identity != null)
-                        result.putLong("iid", msg.identity);
-                    if (msg.replying != null)
-                        result.putLong("rid", msg.replying);
-                    result.putSerializable("cc", msg.cc);
-                    result.putSerializable("bcc", msg.bcc);
-                    result.putString("thread", msg.thread);
-                    result.putString("subject", msg.subject);
-                    result.putString("body", msg.body);
-                }
+                draft = db.message().getMessage(id);
+                if (draft == null) {
+                    EntityMessage ref = DB.getInstance(getContext()).message().getMessage(reference);
+                    if (ref != null)
+                        account = ref.account;
 
-                if (TextUtils.isEmpty(action)) {
-                    if (msg != null) {
-                        result.putSerializable("from", msg.from);
-                        result.putSerializable("to", msg.to);
+                    EntityFolder drafts;
+                    drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
+                    if (drafts == null)
+                        drafts = db.folder().getPrimaryDrafts();
+
+                    draft = new EntityMessage();
+                    draft.account = account;
+                    draft.folder = drafts.id;
+
+                    if (ref != null) {
+                        draft.thread = ref.thread;
+
+                        if ("reply".equals(action)) {
+                            draft.replying = ref.id;
+                            draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                            draft.from = ref.to;
+
+                        } else if ("reply_all".equals(action)) {
+                            draft.replying = ref.id;
+                            List<Address> addresses = new ArrayList<>();
+                            if (draft.reply != null && ref.reply.length > 0)
+                                addresses.addAll(Arrays.asList(ref.reply));
+                            else if (draft.from != null)
+                                addresses.addAll(Arrays.asList(ref.from));
+                            if (draft.cc != null)
+                                addresses.addAll(Arrays.asList(ref.cc));
+                            draft.to = addresses.toArray(new Address[0]);
+                            draft.from = ref.to;
+
+                        } else if ("forward".equals(action)) {
+                            //msg.replying = ref.id;
+                            draft.from = ref.to;
+                        }
+
+                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                            draft.subject = getContext().getString(R.string.title_subject_reply, ref.subject);
+                            draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                                    Html.escapeHtml(new Date().toString()),
+                                    Html.escapeHtml(TextUtils.join(", ", draft.to)),
+                                    HtmlHelper.sanitize(getContext(), ref.body, true));
+                        } else if ("forward".equals(action)) {
+                            draft.subject = getContext().getString(R.string.title_subject_forward, ref.subject);
+                            draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                                    Html.escapeHtml(new Date().toString()),
+                                    Html.escapeHtml(TextUtils.join(", ", ref.from)),
+                                    HtmlHelper.sanitize(getContext(), ref.body, true));
+                        }
                     }
-                } else if ("reply".equals(action)) {
-                    Address[] to = null;
-                    if (msg != null)
-                        to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
-                    result.putLong("rid", msg.id);
-                    result.putSerializable("from", msg.to);
-                    result.putSerializable("to", to);
-                } else if ("reply_all".equals(action)) {
-                    Address[] to = null;
-                    if (msg != null) {
-                        List<Address> addresses = new ArrayList<>();
-                        if (msg.reply != null)
-                            addresses.addAll(Arrays.asList(msg.reply));
-                        else if (msg.from != null)
-                            addresses.addAll(Arrays.asList(msg.from));
-                        if (msg.cc != null)
-                            addresses.addAll(Arrays.asList(msg.cc));
-                        to = addresses.toArray(new Address[0]);
-                    }
-                    result.putLong("rid", msg.id);
-                    result.putSerializable("from", msg.to);
-                    result.putSerializable("to", to);
-                } else if ("forward".equals(action)) {
-                    Address[] to = null;
-                    if (msg != null)
-                        to = (msg.reply == null || msg.reply.length == 0 ? msg.from : msg.reply);
-                    result.putSerializable("from", msg.to);
-                    result.putSerializable("to", to);
+
+                    draft.received = new Date().getTime();
+                    draft.seen = false;
+                    draft.ui_seen = false;
+                    draft.ui_hide = false;
+
+                    draft.id = DB.getInstance(getContext()).message().insertMessage(draft);
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
-            return result;
+
+            return draft;
         }
     }
 
-    private LoaderManager.LoaderCallbacks getLoaderCallbacks = new LoaderManager.LoaderCallbacks<Bundle>() {
+    private LoaderManager.LoaderCallbacks getLoaderCallbacks = new LoaderManager.LoaderCallbacks<EntityMessage>() {
         @NonNull
         @Override
-        public Loader<Bundle> onCreateLoader(int id, @Nullable Bundle args) {
+        public Loader<EntityMessage> onCreateLoader(int id, @Nullable Bundle args) {
             GetLoader loader = new GetLoader(getContext());
             loader.setArgs(args);
             return loader;
         }
 
         @Override
-        public void onLoadFinished(@NonNull Loader<Bundle> loader, Bundle result) {
+        public void onLoadFinished(@NonNull Loader<EntityMessage> loader, EntityMessage msg) {
             LoaderManager.getInstance(FragmentCompose.this).destroyLoader(loader.getId());
 
-            long iid = result.getLong("iid", -1);
-            long rid = result.getLong("rid", -1);
-            String thread = result.getString("thread");
-            Address[] from = (Address[]) result.getSerializable("from");
-            Address[] to = (Address[]) result.getSerializable("to");
-            Address[] cc = (Address[]) result.getSerializable("cc");
-            Address[] bcc = (Address[]) result.getSerializable("bcc");
-            String subject = result.getString("subject");
-            String body = result.getString("body");
-            String action = result.getString("action");
+            getArguments().putLong("id", msg.id);
+            String action = getArguments().getString("action");
 
+            menuAttachment.setEnabled(true);
             pbWait.setVisibility(View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpReady.setVisibility(View.VISIBLE);
 
-            FragmentCompose.this.thread = thread;
-            FragmentCompose.this.rid = rid;
-
-            ArrayAdapter adapter = (ArrayAdapter) spFrom.getAdapter();
-            if (adapter != null) {
-                for (int pos = 0; pos < adapter.getCount(); pos++) {
-                    EntityIdentity identity = (EntityIdentity) adapter.getItem(pos);
-                    if (iid < 0
-                            ? from != null && from.length > 0 && ((InternetAddress) from[0]).getAddress().equals(identity.email)
-                            : iid == identity.id) {
+            ArrayAdapter aa = (ArrayAdapter) spFrom.getAdapter();
+            if (aa != null) {
+                for (int pos = 0; pos < aa.getCount(); pos++) {
+                    EntityIdentity identity = (EntityIdentity) aa.getItem(pos);
+                    if (msg.identity == null
+                            ? msg.from != null && msg.from.length > 0 && ((InternetAddress) msg.from[0]).getAddress().equals(identity.email)
+                            : msg.identity.equals(identity.id)) {
                         spFrom.setSelection(pos);
                         break;
                     }
                 }
             }
 
-            if (!once) {
-                // Prevent changed fields from being overwritten
-                once = true;
+            etTo.setText(msg.to == null ? null : TextUtils.join(", ", msg.to));
+            etCc.setText(msg.cc == null ? null : TextUtils.join(", ", msg.cc));
+            etBcc.setText(msg.bcc == null ? null : TextUtils.join(", ", msg.bcc));
+            etSubject.setText(msg.subject);
 
-                Handler handler = new Handler();
-
-                etCc.setText(cc == null ? null : TextUtils.join(", ", cc));
-                etBcc.setText(bcc == null ? null : TextUtils.join(", ", bcc));
-
-                if (action == null) {
-                    etTo.setText(to == null ? null : TextUtils.join(", ", to));
-                    etSubject.setText(subject);
-                    if (body != null)
-                        etBody.setText(Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false)));
-                    handler.post(new Runnable() {
+            DB db = DB.getInstance(getContext());
+            db.attachment().liveAttachments(msg.id).removeObservers(getViewLifecycleOwner());
+            db.attachment().liveAttachments(msg.id).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleAttachment>>() {
                         @Override
-                        public void run() {
-                            etTo.requestFocus();
+                        public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                            adapter.set(attachments);
+                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                         }
                     });
-                } else if ("reply".equals(action) || "reply_all".equals(action)) {
-                    etTo.setText(to == null ? null : TextUtils.join(", ", to));
-                    String text = String.format("<br><br>%s %s:<br><br>%s",
-                            Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(to == null ? "" : TextUtils.join(", ", to)),
-                            HtmlHelper.sanitize(getContext(), body, true));
-                    etSubject.setText(getContext().getString(R.string.title_subject_reply, subject));
-                    etBody.setText(Html.fromHtml(text));
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            etBody.requestFocus();
-                        }
-                    });
-                } else if ("forward".equals(action)) {
-                    String text = String.format("<br><br>%s %s:<br><br>%s",
-                            Html.escapeHtml(new Date().toString()),
-                            Html.escapeHtml(to == null ? "" : TextUtils.join(", ", to)),
-                            HtmlHelper.sanitize(getContext(), body, true));
-                    etSubject.setText(getContext().getString(R.string.title_subject_forward, subject));
-                    etBody.setText(Html.fromHtml(text));
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            etTo.requestFocus();
-                        }
-                    });
-                }
-            }
+
+
+            etBody.setText(TextUtils.isEmpty(msg.body) ? null : Html.fromHtml(msg.body));
+
+            if ("edit".equals(action))
+                etTo.requestFocus();
+            else if ("reply".equals(action) || "reply_all".equals(action))
+                etBody.requestFocus();
+            else if ("forward".equals(action))
+                etTo.requestFocus();
 
             bottom_navigation.getMenu().setGroupEnabled(0, true);
         }
 
         @Override
-        public void onLoaderReset(@NonNull Loader<Bundle> loader) {
+        public void onLoaderReset(@NonNull Loader<EntityMessage> loader) {
         }
     };
 
@@ -634,45 +657,29 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public Throwable loadInBackground() {
             try {
-                String action = args.getString("action");
-                long id = args.getLong("id");
-                Log.i(Helper.TAG, "Put load id=" + id + " action=" + action);
-
-                DB db = DB.getInstance(getContext());
-                DaoMessage message = db.message();
-                DaoIdentity identity = db.identity();
-                DaoFolder folder = db.folder();
-
                 // Get data
-                EntityMessage draft = message.getMessage(id);
-                EntityIdentity ident = identity.getIdentity(args.getLong("iid"));
-                if (ident == null)
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_from_missing));
-
-                EntityFolder drafts = db.folder().getFolderByType(ident.account, EntityFolder.DRAFTS);
-
-                long rid = args.getLong("rid", -1);
-                String thread = args.getString("thread");
+                long id = args.getLong("id");
+                int action = args.getInt("action");
+                long iid = args.getLong("identity");
                 String to = args.getString("to");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
-                String body = args.getString("body");
                 String subject = args.getString("subject");
+                String body = args.getString("body");
 
-                Address afrom[] = (ident == null ? null : new Address[]{new InternetAddress(ident.email, ident.name)});
+                // Get draft & selected identity
+                DB db = DB.getInstance(getContext());
+                EntityMessage draft = db.message().getMessage(id);
+                EntityIdentity identity = db.identity().getIdentity(iid);
+
+                // Convert data
+                Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
                 Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                 Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                 Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
 
-                // Build draft
-                boolean update = (draft != null);
-                if (draft == null)
-                    draft = new EntityMessage();
-                draft.account = drafts.account;
-                draft.folder = drafts.id;
-                draft.identity = (ident == null ? null : ident.id);
-                draft.replying = (rid < 0 ? null : rid);
-                draft.thread = thread;
+                // Update draft
+                draft.identity = (identity == null ? null : identity.id);
                 draft.from = afrom;
                 draft.to = ato;
                 draft.cc = acc;
@@ -680,20 +687,15 @@ public class FragmentCompose extends FragmentEx {
                 draft.subject = subject;
                 draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 draft.received = new Date().getTime();
-                draft.seen = false;
-                draft.ui_seen = false;
-                draft.ui_hide = false;
 
-                // Store draft
-                if (!update)
-                    draft.id = message.insertMessage(draft);
+                db.message().updateMessage(draft);
 
                 // Check data
                 try {
                     db.beginTransaction();
 
-                    if ("trash".equals(action)) {
-                        EntityFolder trash = db.folder().getFolderByType(ident.account, EntityFolder.TRASH);
+                    if (action == R.id.action_trash) {
+                        EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
 
                         boolean move = (draft.uid != null);
                         if (move)
@@ -706,7 +708,7 @@ public class FragmentCompose extends FragmentEx {
                         if (!move)
                             EntityOperation.queue(db, draft, EntityOperation.ADD);
 
-                    } else if ("save".equals(action)) {
+                    } else if (action == R.id.action_save) {
                         // Delete previous draft
                         draft.ui_hide = true;
                         db.message().updateMessage(draft);
@@ -719,7 +721,11 @@ public class FragmentCompose extends FragmentEx {
                         draft.id = db.message().insertMessage(draft);
                         EntityOperation.queue(db, draft, EntityOperation.ADD);
 
-                    } else if ("send".equals(action)) {
+                    } else if (action == R.id.action_send) {
+                        // Check data
+                        if (draft.identity == null)
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_from_missing));
+
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_to_missing));
 
@@ -730,7 +736,7 @@ public class FragmentCompose extends FragmentEx {
 
                         // Copy message to outbox
                         draft.id = null;
-                        draft.folder = folder.getOutbox().id;
+                        draft.folder = db.folder().getOutbox().id;
                         draft.uid = null;
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
@@ -766,19 +772,18 @@ public class FragmentCompose extends FragmentEx {
         public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
             LoaderManager.getInstance(FragmentCompose.this).destroyLoader(loader.getId());
 
-            Bundle args = ((PutLoader) loader).args;
-            String action = args.getString("action");
-            Log.i(Helper.TAG, "Put finished action=" + action + " ex=" + ex);
-
             bottom_navigation.getMenu().setGroupEnabled(0, true);
 
             if (ex == null) {
-                if ("trash".equals(action)) {
+                Bundle args = ((PutLoader) loader).args;
+                int action = args.getInt("action");
+
+                if (action == R.id.action_trash) {
                     getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
-                } else if ("save".equals(action))
+                } else if (action == R.id.action_save)
                     Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
-                else if ("send".equals(action)) {
+                else if (action == R.id.action_send) {
                     getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
                 }

@@ -102,4 +102,13 @@
             port="465"
             starttls="false" />
     </provider-->
+    <provider name="gmx.com">
+        <imap
+            host="imap.gmx.com"
+            port="993" />
+        <smtp
+            host="mail.gmx.com"
+            port="587"
+            starttls="false" />
+    </provider>
 </providers>

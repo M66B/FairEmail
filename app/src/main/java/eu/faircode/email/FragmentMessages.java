@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -83,7 +84,10 @@ public class FragmentMessages extends FragmentEx {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), ActivityCompose.class));
+                startActivity(new Intent(getContext(), ActivityCompose.class)
+                        .putExtra("action", "new")
+                        .putExtra("account", (Long) fab.getTag())
+                );
             }
         });
 
@@ -91,6 +95,7 @@ public class FragmentMessages extends FragmentEx {
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.GONE);
 
         return view;
     }
@@ -126,7 +131,6 @@ public class FragmentMessages extends FragmentEx {
             messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), PAGE_SIZE).build();
         }
 
-        Log.i(Helper.TAG, "Observing messages");
         messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
@@ -145,5 +149,32 @@ public class FragmentMessages extends FragmentEx {
                 }
             }
         });
+
+        new SimpleLoader() {
+            @Override
+            public Object onLoad(Bundle args) throws Throwable {
+                long folder = (args == null ? -1 : args.getLong("folder", -1));
+                long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
+
+                DB db = DB.getInstance(getContext());
+
+                if (thread < 0)
+                    if (folder < 0)
+                        return db.folder().getPrimaryDrafts().account;
+                    else
+                        return db.folder().getFolder(folder).account;
+                else
+                    return db.message().getMessage(thread).account;
+            }
+
+            @Override
+            public void onLoaded(Bundle args, Result result) {
+                if (result.ex == null) {
+                    fab.setTag(result.data);
+                    fab.setVisibility(View.VISIBLE);
+                } else
+                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, ActivityView.LOADER_MESSAGE_ACCOUNT, getArguments());
     }
 }

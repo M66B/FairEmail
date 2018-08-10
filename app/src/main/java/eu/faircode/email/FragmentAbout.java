@@ -94,6 +94,7 @@ public class FragmentAbout extends FragmentEx {
                         if (result.ex == null) {
                             long id = (Long) result.data;
                             startActivity(new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("action", "edit")
                                     .putExtra("id", id));
                         } else
                             Toast.makeText(getContext(), executor.toString(), Toast.LENGTH_LONG).show();
