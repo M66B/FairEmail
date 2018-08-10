@@ -92,4 +92,14 @@
             port="465"
             starttls="false" />
     </provider>
+    <!-- no IMAP IDLE -->
+    <!--provider name="lavabit.com">
+        <imap
+            host="imap.lavabit.com"
+            port="993" />
+        <smtp
+            host="smtp.lavabit.com"
+            port="465"
+            starttls="false" />
+    </provider-->
 </providers>
