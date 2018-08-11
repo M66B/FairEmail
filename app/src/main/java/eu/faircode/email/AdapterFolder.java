@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,14 +49,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener, View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView tvName;
         TextView tvMessages;
         TextView tvType;
         TextView tvAfter;
         ImageView ivSync;
+        ImageButton ibEdit;
         TextView tvError;
 
         ViewHolder(View itemView) {
@@ -67,18 +68,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
+            ibEdit = itemView.findViewById(R.id.ibEdit);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire(boolean properties) {
             itemView.setOnClickListener(this);
             if (properties)
-                itemView.setOnLongClickListener(this);
+                ibEdit.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleFolderEx folder) {
@@ -112,30 +113,22 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
+
             TupleFolderEx folder = filtered.get(pos);
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                            .putExtra("folder", folder.id));
-        }
-
-        @Override
-        public boolean onLongClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return false;
-            TupleFolderEx folder = filtered.get(pos);
-
-            if (!EntityFolder.OUTBOX.equals(folder.type)) {
+            if (view.getId() == R.id.ibEdit) {
+                if (!EntityFolder.OUTBOX.equals(folder.type)) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                    .putExtra("id", folder.id));
+                }
+            } else {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                .putExtra("id", folder.id));
-                return true;
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("folder", folder.id));
             }
-
-            return false;
         }
     }
 

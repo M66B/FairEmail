@@ -145,8 +145,6 @@
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_queued">Sending message</string>
 
-    <string name="title_item_edit_hint">Long press item to edit properties</string>
-
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
 </resources>

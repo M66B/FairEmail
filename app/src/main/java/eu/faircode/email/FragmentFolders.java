@@ -24,7 +24,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -107,9 +106,5 @@ public class FragmentFolders extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
-
-        // Show hint
-        // TODO: find better solution
-        Toast.makeText(getContext(), R.string.title_item_edit_hint, Toast.LENGTH_SHORT).show();
     }
 }
