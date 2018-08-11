@@ -20,13 +20,11 @@ package eu.faircode.email;
 */
 
 import android.app.Application;
-import android.os.Build;
 import android.util.Log;
 
-import java.util.Date;
-
-import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
@@ -40,53 +38,25 @@ public class ApplicationEx extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
 
-                DB db = null;
+                File file = new File(getCacheDir(), "crash.log");
+                Log.w(Helper.TAG, "Writing exception to " + file);
+
+                FileWriter out = null;
                 try {
-                    db = DB.getBlockingInstance(ApplicationEx.this);
-                    EntityFolder drafts = db.folder().getPrimaryDrafts();
-                    if (drafts != null) {
-                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
-
-                        // Get version info
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
-                        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
-                        sb.append("\r\n");
-
-                        // Get device info
-                        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
-                        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
-                        sb.append(String.format("Model: %s\r\n", Build.MODEL));
-                        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-                        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
-                        sb.append(String.format("Host: %s\r\n", Build.HOST));
-                        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
-                        sb.append(String.format("Id: %s\r\n", Build.ID));
-                        sb.append("\r\n");
-
-                        sb.append(ex.toString()).append("\r\n").append(Log.getStackTraceString(ex));
-
-                        EntityMessage draft = new EntityMessage();
-                        draft.account = drafts.account;
-                        draft.folder = drafts.id;
-                        draft.to = new Address[]{to};
-                        draft.subject = BuildConfig.APPLICATION_ID + " crash info";
-                        draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-                        draft.received = new Date().getTime();
-                        draft.seen = false;
-                        draft.ui_seen = false;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
-
-                        Log.w(Helper.TAG, "Crash info stored as draft");
-                    }
-                } catch (Throwable e1) {
-                    Log.e(Helper.TAG, e1 + "\n" + Log.getStackTraceString(e1));
+                    out = new FileWriter(file);
+                    out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
+                } catch (IOException e) {
+                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(ex));
                 } finally {
-                    if (db != null)
-                        db.close();
+                    if (out != null) {
+                        try {
+                            out.close();
+                        } catch (IOException e) {
+                            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(ex));
+                        }
+                    }
                 }
 
                 if (prev != null)
