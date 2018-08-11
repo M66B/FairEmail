@@ -99,12 +99,8 @@ public class EntityOperation {
         operation.id = db.operation().insertOperation(operation);
 
         Intent intent = new Intent();
-        if (SEND.equals(name))
-            intent.setAction(ServiceSynchronize.ACTION_PROCESS_OUTBOX);
-        else {
-            intent.setType("account/" + message.account);
-            intent.setAction(ServiceSynchronize.ACTION_PROCESS_FOLDER);
-        }
+        intent.setType("account/" + (message.account == null ? "outbox" : message.account));
+        intent.setAction(ServiceSynchronize.ACTION_PROCESS_OPERATIONS);
         intent.putExtra("folder", message.folder);
 
         synchronized (queue) {

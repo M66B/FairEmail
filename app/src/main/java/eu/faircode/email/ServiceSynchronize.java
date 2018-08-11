@@ -105,8 +105,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int FETCH_BATCH_SIZE = 10;
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
-    static final String ACTION_PROCESS_FOLDER = BuildConfig.APPLICATION_ID + ".PROCESS_FOLDER";
-    static final String ACTION_PROCESS_OUTBOX = BuildConfig.APPLICATION_ID + ".PROCESS_OUTBOX";
+    static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
 
     public ServiceSynchronize() {
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
@@ -407,7 +406,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }, "sync.folder." + folder.id).start();
                             }
 
-                            IntentFilter f = new IntentFilter(ACTION_PROCESS_FOLDER);
+                            IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
                             f.addDataType("account/" + account.id);
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                             lbm.registerReceiver(processReceiver, f);
@@ -415,7 +414,7 @@ public class ServiceSynchronize extends LifecycleService {
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id))
                                 if (!EntityFolder.OUTBOX.equals(folder.type))
-                                    lbm.sendBroadcast(new Intent(ACTION_PROCESS_FOLDER)
+                                    lbm.sendBroadcast(new Intent(ACTION_PROCESS_OPERATIONS)
                                             .setType("account/" + account.id)
                                             .putExtra("folder", folder.id));
 
@@ -1314,11 +1313,17 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                     outbox = db.folder().getOutbox();
-                    if (outbox != null) {
+                    if (outbox != null) try {
+                        IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
+                        f.addDataType("account/outbox");
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                        lbm.registerReceiver(receiverOutbox, new IntentFilter(ACTION_PROCESS_OUTBOX));
-                        Log.i(Helper.TAG, outbox.name + " listen operations");
-                        lbm.sendBroadcast(new Intent(ACTION_PROCESS_OUTBOX));
+                        lbm.registerReceiver(outboxReceiver, f);
+
+                        lbm.sendBroadcast(new Intent(ACTION_PROCESS_OPERATIONS)
+                                .setType("account/outbox")
+                                .putExtra("folder", outbox.id));
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
 
                 }
@@ -1336,12 +1341,12 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (outbox != null) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                lbm.unregisterReceiver(receiverOutbox);
+                lbm.unregisterReceiver(outboxReceiver);
                 Log.i(Helper.TAG, outbox.name + " unlisten operations");
             }
         }
 
-        BroadcastReceiver receiverOutbox = new BroadcastReceiver() {
+        BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Log.i(Helper.TAG, outbox.name + " run operations");
