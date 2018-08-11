@@ -413,9 +413,9 @@ public class FragmentCompose extends FragmentEx {
         args.putLong("id", id);
         args.putParcelable("uri", data.getData());
 
-        new SimpleLoader<Object>() {
+        new SimpleLoader<Void>() {
             @Override
-            public Object onLoad(Bundle args) throws IOException {
+            public Void onLoad(Bundle args) throws IOException {
                 Cursor cursor = null;
                 try {
                     Uri uri = args.getParcelable("uri");

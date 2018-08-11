@@ -33,10 +33,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,12 +55,8 @@ public class FragmentSetup extends FragmentEx {
     private Button btnPermissions;
     private TextView tvPermissionsDone;
 
-    private Button btnMessages;
-
     private CheckBox cbDarkTheme;
     private CheckBox cbDebug;
-
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -85,8 +80,6 @@ public class FragmentSetup extends FragmentEx {
 
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
-
-        btnMessages = view.findViewById(R.id.btnMessages);
 
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
         cbDebug = view.findViewById(R.id.cbDebug);
@@ -116,14 +109,6 @@ public class FragmentSetup extends FragmentEx {
             public void onClick(View view) {
                 btnPermissions.setEnabled(false);
                 requestPermissions(permissions, 1);
-            }
-        });
-
-        btnMessages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), ActivityView.class));
-                getFragmentManager().popBackStack();
             }
         });
 
@@ -159,7 +144,6 @@ public class FragmentSetup extends FragmentEx {
         tvAccountDone.setVisibility(View.INVISIBLE);
         tvIdentityDone.setVisibility(View.INVISIBLE);
         tvPermissionsDone.setVisibility(View.INVISIBLE);
-        btnMessages.setEnabled(false);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -168,9 +152,9 @@ public class FragmentSetup extends FragmentEx {
         onRequestPermissionsResult(0, permissions, grantResults);
 
         // Create outbox
-        executor.submit(new Runnable() {
+        new SimpleLoader<Void>() {
             @Override
-            public void run() {
+            public Void onLoad(Bundle args) throws Throwable {
                 DB db = DB.getInstance(getContext());
                 EntityFolder outbox = db.folder().getOutbox();
                 if (outbox == null) {
@@ -181,8 +165,14 @@ public class FragmentSetup extends FragmentEx {
                     outbox.after = 0;
                     outbox.id = db.folder().insertFolder(outbox);
                 }
+                return null;
             }
-        });
+
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, ActivitySetup.LOADER_CREATE_OUTBOX, new Bundle());
 
         return view;
     }
@@ -197,7 +187,6 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 tvAccountDone.setVisibility(accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
-                btnMessages.setEnabled(accounts.size() > 0);
             }
         });
 
@@ -207,6 +196,13 @@ public class FragmentSetup extends FragmentEx {
                 tvIdentityDone.setVisibility(identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        if (tvAccountDone.getVisibility() == View.VISIBLE)
+            startActivity(new Intent(getContext(), ActivityView.class).putExtra("setup", true));
+        super.onDestroy();
     }
 
     @Override

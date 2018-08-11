@@ -31,6 +31,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+    static final int LOADER_CREATE_OUTBOX = 1;
+
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
 

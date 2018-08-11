@@ -260,7 +260,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onNewIntent(Intent intent) {
-        getSupportFragmentManager().popBackStack("unified", 0);
+        if (intent.getBooleanExtra("setup", false))
+            intent.getExtras().remove("setup");
+        else
+            getSupportFragmentManager().popBackStack("unified", 0);
         checkIntent(intent);
         super.onNewIntent(intent);
     }
@@ -336,9 +339,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             Bundle args = new Bundle();
             args.putLong("time", new Date().getTime());
 
-            new SimpleLoader<Object>() {
+            new SimpleLoader<Void>() {
                 @Override
-                public Object onLoad(Bundle args) {
+                public Void onLoad(Bundle args) {
                     long time = args.getLong("time");
                     DaoAccount dao = DB.getInstance(getContext()).account();
                     for (EntityAccount account : dao.getAccounts(true)) {
@@ -458,9 +461,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
             } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
 
-                new SimpleLoader<Object>() {
+                new SimpleLoader<Void>() {
                     @Override
-                    public Object onLoad(Bundle args) {
+                    public Void onLoad(Bundle args) {
                         long id = args.getLong("id");
                         DB db = DB.getInstance(ActivityView.this);
                         EntityMessage message = db.message().getMessage(id);
@@ -490,7 +493,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     }
 
                     @Override
-                    public void onLoaded(Bundle args, Object result) {
+                    public void onLoaded(Bundle args, Void result) {
                         FragmentMessage fragment = new FragmentMessage();
                         fragment.setArguments(args);
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

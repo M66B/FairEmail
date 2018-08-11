@@ -402,9 +402,9 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader<Object>() {
+        new SimpleLoader<Void>() {
             @Override
-            public Object onLoad(Bundle args) {
+            public Void onLoad(Bundle args) {
                 long id = args.getLong("id");
                 DB db = DB.getInstance(getContext());
                 try {
@@ -428,7 +428,7 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Object data) {
+            public void onLoaded(Bundle args, Void data) {
                 item.setEnabled(true);
                 item.setIcon(icon);
             }
@@ -513,9 +513,9 @@ public class FragmentMessage extends FragmentEx {
                         Bundle args = new Bundle();
                         args.putLong("id", id);
 
-                        new SimpleLoader<Object>() {
+                        new SimpleLoader<Void>() {
                             @Override
-                            public Object onLoad(Bundle args) {
+                            public Void onLoad(Bundle args) {
                                 long id = args.getLong("id");
                                 DB db = DB.getInstance(getContext());
                                 try {
@@ -539,7 +539,7 @@ public class FragmentMessage extends FragmentEx {
                             }
 
                             @Override
-                            public void onLoaded(Bundle args, Object result) {
+                            public void onLoaded(Bundle args, Void result) {
                                 item.setEnabled(true);
                                 item.setIcon(icon);
                             }
@@ -575,9 +575,9 @@ public class FragmentMessage extends FragmentEx {
                             Bundle args = new Bundle();
                             args.putLong("id", id);
 
-                            new SimpleLoader<Object>() {
+                            new SimpleLoader<Void>() {
                                 @Override
-                                public Object onLoad(Bundle args) {
+                                public Void onLoad(Bundle args) {
                                     long id = args.getLong("id");
                                     DB db = DB.getInstance(getContext());
                                     try {
@@ -599,7 +599,7 @@ public class FragmentMessage extends FragmentEx {
                                 }
 
                                 @Override
-                                public void onLoaded(Bundle args, Object result) {
+                                public void onLoaded(Bundle args, Void result) {
                                     item.setEnabled(true);
                                     item.setIcon(icon);
                                 }
@@ -624,9 +624,9 @@ public class FragmentMessage extends FragmentEx {
             Bundle args = new Bundle();
             args.putLong("id", id);
 
-            new SimpleLoader<Object>() {
+            new SimpleLoader<Void>() {
                 @Override
-                public Object onLoad(Bundle args) {
+                public Void onLoad(Bundle args) {
                     long id = args.getLong("id");
                     DB db = DB.getInstance(getContext());
                     try {
@@ -650,7 +650,7 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 @Override
-                public void onLoaded(Bundle args, Object result) {
+                public void onLoaded(Bundle args, Void result) {
                     item.setEnabled(true);
                     item.setIcon(icon);
                 }
@@ -682,9 +682,9 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader<Object>() {
+        new SimpleLoader<Void>() {
             @Override
-            public Object onLoad(Bundle args) {
+            public Void onLoad(Bundle args) {
                 long id = args.getLong("id");
                 DB db = DB.getInstance(getContext());
                 try {
@@ -708,7 +708,7 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Object result) {
+            public void onLoaded(Bundle args, Void result) {
                 item.setEnabled(true);
                 item.setIcon(icon);
             }
@@ -801,9 +801,9 @@ public class FragmentMessage extends FragmentEx {
                     Bundle args = ((MoveLoader) loader).args;
                     args.putLong("target", target.getItemId());
 
-                    new SimpleLoader<Object>() {
+                    new SimpleLoader<Void>() {
                         @Override
-                        public Object onLoad(Bundle args) {
+                        public Void onLoad(Bundle args) {
                             long id = args.getLong("id");
                             long target = args.getLong("target");
                             DB db = DB.getInstance(getContext());
@@ -827,7 +827,7 @@ public class FragmentMessage extends FragmentEx {
                         }
 
                         @Override
-                        public void onLoaded(Bundle args, Object result) {
+                        public void onLoaded(Bundle args, Void result) {
                             item.setEnabled(true);
                             item.setIcon(icon);
                         }
