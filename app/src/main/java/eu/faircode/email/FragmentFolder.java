@@ -175,7 +175,7 @@ public class FragmentFolder extends FragmentEx {
                 getFragmentManager().popBackStack();
             else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }
 

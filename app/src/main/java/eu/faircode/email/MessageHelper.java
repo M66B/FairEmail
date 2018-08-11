@@ -102,6 +102,8 @@ public class MessageHelper {
         if (message.subject != null)
             imessage.setSubject(message.subject);
 
+        // TODO: plain message?
+
         if (attachments.size() == 0) {
             if (message.body != null)
                 imessage.setText(message.body, Charset.defaultCharset().name(), "html");

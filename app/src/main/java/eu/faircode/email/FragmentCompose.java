@@ -49,6 +49,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -79,6 +80,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentEx {
+    private ViewGroup view;
     private Spinner spFrom;
     private ImageView ivIdentityAdd;
     private AutoCompleteTextView etTo;
@@ -106,7 +108,7 @@ public class FragmentCompose extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_compose);
 
-        View view = inflater.inflate(R.layout.fragment_compose, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
@@ -376,7 +378,7 @@ public class FragmentCompose extends FragmentEx {
             }
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
         } finally {
             if (cursor != null)
                 cursor.close();
@@ -794,14 +796,17 @@ public class FragmentCompose extends FragmentEx {
                     getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
                 } else if (action == R.id.action_save)
-                    Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                    Snackbar.make(view, R.string.title_draft_saved, Snackbar.LENGTH_LONG).show();
                 else if (action == R.id.action_send) {
                     getFragmentManager().popBackStack();
                     Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
                 }
             } else {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }
 
