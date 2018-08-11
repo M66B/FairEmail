@@ -27,6 +27,7 @@
 
         <activity
             android:name=".ActivityMain"
+            android:launchMode="singleInstance"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +39,7 @@
         <activity
             android:name=".ActivitySetup"
             android:exported="false"
-            android:launchMode="singleTop"
+            android:launchMode="singleInstance"
             android:parentActivityName=".ActivityMain" />
 
         <activity
@@ -50,6 +51,7 @@
         <activity
             android:name=".ActivityCompose"
             android:exported="false"
+            android:launchMode="standard"
             android:parentActivityName=".ActivityView" />
 
         <service android:name=".ServiceSynchronize" />
