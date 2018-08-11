@@ -56,6 +56,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TextView tvType;
         TextView tvAfter;
         ImageView ivSync;
+        TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -66,6 +67,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
+            tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire(boolean properties) {
@@ -100,6 +102,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
 
             ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            tvError.setText(folder.error);
+            tvError.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

@@ -65,6 +65,19 @@
         app:layout_constraintStart_toEndOf="@id/tvHost"
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="error"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+
     <View
         android:id="@+id/vSeparator"
         android:layout_width="match_parent"
@@ -72,5 +85,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHost" />
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 </androidx.constraintlayout.widget.ConstraintLayout>

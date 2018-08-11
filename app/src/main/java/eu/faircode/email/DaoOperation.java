@@ -25,6 +25,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface DaoOperation {
@@ -36,6 +37,9 @@ public interface DaoOperation {
 
     @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
+
+    @Update
+    void updateOperation(EntityOperation operation);
 
     @Query("DELETE FROM operation WHERE id = :id")
     void deleteOperation(long id);

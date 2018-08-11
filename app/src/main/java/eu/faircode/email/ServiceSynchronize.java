@@ -344,23 +344,26 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Listen for connection changes
                 istore.addConnectionListener(new ConnectionAdapter() {
-                    List<Thread> folderThreads = new ArrayList<>();
                     Map<Long, IMAPFolder> mapFolder = new HashMap<>();
 
                     @Override
                     public void opened(ConnectionEvent e) {
                         Log.i(Helper.TAG, account.name + " opened");
-                        try {
-                            DB db = DB.getInstance(ServiceSynchronize.this);
 
+                        DB db = DB.getInstance(ServiceSynchronize.this);
+                        account.error = null;
+                        db.account().updateAccount(account);
+
+                        try {
                             synchronizeFolders(account, fstore);
 
                             for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
                                 Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
-                                Thread thread = new Thread(new Runnable() {
+                                new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         IMAPFolder ifolder = null;
+                                        DB db = DB.getInstance(ServiceSynchronize.this);
                                         try {
                                             Log.i(Helper.TAG, folder.name + " start");
 
@@ -371,19 +374,25 @@ public class ServiceSynchronize extends LifecycleService {
                                                 mapFolder.put(folder.id, ifolder);
                                             }
 
+                                            folder.error = null;
+                                            db.folder().updateFolder(folder);
+
                                             monitorFolder(account, folder, fstore, ifolder, state);
-                                        } catch (FolderNotFoundException ex) {
-                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
 
+                                            folder.error = Helper.formatThrowable(ex);
+                                            db.folder().updateFolder(folder);
+
                                             // Cascade up
-                                            try {
-                                                fstore.close();
-                                            } catch (MessagingException e1) {
-                                                Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                            }
+                                            if (!(ex instanceof FolderNotFoundException))
+                                                try {
+                                                    fstore.close();
+                                                } catch (MessagingException e1) {
+                                                    Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                                                }
                                         } finally {
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
@@ -395,15 +404,14 @@ public class ServiceSynchronize extends LifecycleService {
                                             Log.i(Helper.TAG, folder.name + " stop");
                                         }
                                     }
-                                }, "sync.folder." + folder.id);
-                                folderThreads.add(thread);
-                                thread.start();
+                                }, "sync.folder." + folder.id).start();
                             }
 
                             IntentFilter f = new IntentFilter(ACTION_PROCESS_FOLDER);
                             f.addDataType("account/" + account.id);
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                             lbm.registerReceiver(processReceiver, f);
+
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id))
                                 if (!EntityFolder.OUTBOX.equals(folder.type))
@@ -414,6 +422,9 @@ public class ServiceSynchronize extends LifecycleService {
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(account.name, null, ex);
+
+                            account.error = Helper.formatThrowable(ex);
+                            db.account().updateAccount(account);
 
                             // Cascade up
                             try {
@@ -490,8 +501,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
 
                                         processOperations(folder, fstore, ifolder);
-                                    } catch (FolderNotFoundException ex) {
-                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
@@ -538,7 +547,11 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, account.name + " not running anymore");
 
             } catch (Throwable ex) {
-                Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                reportError(account.name, null, ex);
+
+                account.error = Helper.formatThrowable(ex);
+                DB.getInstance(this).account().updateAccount(account);
             } finally {
                 if (istore != null) {
                     try {
@@ -633,6 +646,9 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     reportError(account.name, folder.name, ex);
 
+                    folder.error = Helper.formatThrowable(ex);
+                    DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
+
                     // Cascade up
                     try {
                         istore.close();
@@ -664,6 +680,9 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
+
+                        folder.error = Helper.formatThrowable(ex);
+                        DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
 
                         // Cascade up
                         try {
@@ -699,9 +718,10 @@ public class ServiceSynchronize extends LifecycleService {
                             " msg=" + op.message +
                             " args=" + op.args);
 
-                    JSONArray jargs = new JSONArray(op.args);
-                    EntityMessage message = db.message().getMessage(op.message);
                     try {
+                        JSONArray jargs = new JSONArray(op.args);
+                        EntityMessage message = db.message().getMessage(op.message);
+
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, jargs, message);
 
@@ -727,32 +747,28 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
+                    } catch (Throwable ex) {
+                        op.error = Helper.formatThrowable(ex);
+                        db.operation().updateOperation(op);
 
-                    } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        if (ex instanceof MessageRemovedException ||
+                                ex instanceof FolderNotFoundException ||
+                                ex instanceof SMTPSendFailedException) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
-                        // There is no use in repeating
-                        db.operation().deleteOperation(op.id);
-                    } catch (FolderNotFoundException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            // There is no use in repeating
+                            db.operation().deleteOperation(op.id);
+                            continue;
+                        } else if (ex instanceof MessagingException) {
+                            // Socket timeout is a recoverable condition (send message)
+                            if (ex.getCause() instanceof SocketTimeoutException) {
+                                Log.w(Helper.TAG, "Recoverable " + ex);
+                                // No need to inform user
+                                return;
+                            }
+                        }
 
-                        // There is no use in repeating
-                        db.operation().deleteOperation(op.id);
-                    } catch (SMTPSendFailedException ex) {
-                        // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-
-                        // There is probably no use in repeating
-                        db.operation().deleteOperation(op.id);
                         throw ex;
-                    } catch (MessagingException ex) {
-                        // Socket timeout is a recoverable condition (send message)
-                        if (ex.getCause() instanceof SocketTimeoutException) {
-                            Log.w(Helper.TAG, "Recoverable " + ex);
-                            // No need to inform user
-                            return;
-                        } else
-                            throw ex;
                     }
                 } finally {
                     Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
@@ -894,10 +910,17 @@ public class ServiceSynchronize extends LifecycleService {
             itransport.connect(ident.host, ident.port, ident.user, ident.password);
 
             // Send message
-            Address[] to = imessage.getAllRecipients();
-            itransport.sendMessage(imessage, to);
-            Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                    " to " + TextUtils.join(", ", to));
+            try {
+                Address[] to = imessage.getAllRecipients();
+                itransport.sendMessage(imessage, to);
+                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+                        " to " + TextUtils.join(", ", to));
+            } catch (SMTPSendFailedException ex) {
+                // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
+                message.error = Helper.formatThrowable(ex);
+                db.message().updateMessage(message);
+                throw ex;
+            }
 
             try {
                 db.beginTransaction();

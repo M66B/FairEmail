@@ -59,7 +59,9 @@ public class EntityOperation {
     public Long message;
     @NonNull
     public String name;
+    @NonNull
     public String args;
+    public String error;
 
     public static final String SEEN = "seen";
     public static final String ADD = "add";
@@ -122,5 +124,18 @@ public class EntityOperation {
                 lbm.sendBroadcast(intent);
             queue.clear();
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof EntityOperation) {
+            EntityOperation other = (EntityOperation) obj;
+            return (this.folder.equals(other.folder) &&
+                    this.message.equals(other.message) &&
+                    this.name.equals(other.name) &&
+                    this.args.equals(other.args) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+        } else
+            return false;
     }
 }

@@ -52,6 +52,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         ImageView ivAttachments;
         TextView tvSubject;
         TextView tvCount;
+        TextView tvError;
         ProgressBar pbLoading;
 
         ViewHolder(View itemView) {
@@ -63,6 +64,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvCount = itemView.findViewById(R.id.tvCount);
+            tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
         }
 
@@ -98,6 +100,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 
+            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 
             String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
@@ -109,7 +112,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvCount.setVisibility(View.VISIBLE);
             }
 
-            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            tvError.setText(message.error);
+            tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
 
             int typeface = (message.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvFrom.setTypeface(null, typeface);

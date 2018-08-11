@@ -54,6 +54,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ImageView ivSync;
         TextView tvHost;
         TextView tvUser;
+        TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync = itemView.findViewById(R.id.ivSync);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvUser = itemView.findViewById(R.id.tvUser);
+            tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire() {
@@ -80,6 +82,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvUser.setText(account.user);
+            tvError.setText(account.error);
+            tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

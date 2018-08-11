@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "959322c3e61ed9307a830e355bb2b8ab",
+    "identityHash": "9fd2cb9e7b45bf1dbddced278a737dfa",
     "entities": [
       {
         "tableName": "identity",
@@ -113,7 +113,7 @@
       },
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `seen_until` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `seen_until` INTEGER, `error` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -168,6 +168,12 @@
             "columnName": "seen_until",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -181,7 +187,7 @@
       },
       {
         "tableName": "folder",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `synchronize` INTEGER NOT NULL, `after` INTEGER NOT NULL, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `synchronize` INTEGER NOT NULL, `after` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -218,6 +224,12 @@
             "columnName": "after",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -277,7 +289,7 @@
       },
       {
         "tableName": "message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `body` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `body` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -410,6 +422,12 @@
             "columnName": "ui_hide",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -634,7 +652,7 @@
       },
       {
         "tableName": "operation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT NOT NULL, `error` TEXT, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -664,6 +682,12 @@
             "fieldPath": "args",
             "columnName": "args",
             "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -675,12 +699,12 @@
         },
         "indices": [
           {
-            "name": "index_operation_message",
+            "name": "index_operation_folder",
             "unique": false,
             "columnNames": [
-              "message"
+              "folder"
             ],
-            "createSql": "CREATE  INDEX `index_operation_message` ON `${TABLE_NAME}` (`message`)"
+            "createSql": "CREATE  INDEX `index_operation_folder` ON `${TABLE_NAME}` (`folder`)"
           },
           {
             "name": "index_operation_message",
@@ -719,7 +743,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"959322c3e61ed9307a830e355bb2b8ab\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9fd2cb9e7b45bf1dbddced278a737dfa\")"
     ]
   }
 }

@@ -46,6 +46,19 @@ import static androidx.room.ForeignKey.CASCADE;
 public class EntityFolder implements Serializable {
     static final String TABLE_NAME = "folder";
 
+    @PrimaryKey(autoGenerate = true)
+    public Long id;
+    public Long account; // Outbox = null
+    @NonNull
+    public String name;
+    @NonNull
+    public String type;
+    @NonNull
+    public Boolean synchronize;
+    @NonNull
+    public Integer after; // days
+    public String error;
+
     static final String INBOX = "Inbox";
     static final String OUTBOX = "Outbox";
     static final String ARCHIVE = "All";
@@ -92,18 +105,6 @@ public class EntityFolder implements Serializable {
             SENT
     );
 
-    @PrimaryKey(autoGenerate = true)
-    public Long id;
-    public Long account; // Outbox = null
-    @NonNull
-    public String name;
-    @NonNull
-    public String type;
-    @NonNull
-    public Boolean synchronize;
-    @NonNull
-    public Integer after; // days
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {
@@ -112,7 +113,8 @@ public class EntityFolder implements Serializable {
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
-                    this.after.equals(other.after));
+                    this.after.equals(other.after) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
     }

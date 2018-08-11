@@ -47,6 +47,7 @@ public class EntityAccount {
     @NonNull
     public Boolean synchronize;
     public Long seen_until;
+    public String error;
 
     @Override
     public boolean equals(Object obj) {
@@ -58,7 +59,8 @@ public class EntityAccount {
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
-                    this.synchronize.equals(other.synchronize));
+                    this.synchronize.equals(other.synchronize) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
     }

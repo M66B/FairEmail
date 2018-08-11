@@ -82,6 +82,7 @@ public class EntityMessage {
     public Boolean ui_seen;
     @NonNull
     public Boolean ui_hide;
+    public String error;
 
     @Override
     public boolean equals(Object obj) {
@@ -107,7 +108,8 @@ public class EntityMessage {
                     this.received.equals(other.received) &&
                     this.seen.equals(other.seen) &&
                     this.ui_seen.equals(other.ui_seen) &&
-                    this.ui_hide.equals(other.ui_hide));
+                    this.ui_hide.equals(other.ui_hide) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;
     }
