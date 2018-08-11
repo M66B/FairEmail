@@ -99,6 +99,6 @@
         <smtp
             host="mail.gmx.com"
             port="587"
-            starttls="false" />
+            starttls="true" />
     </provider>
 </providers>
