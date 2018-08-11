@@ -710,7 +710,9 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " start process");
 
             DB db = DB.getInstance(this);
-            for (EntityOperation op : db.operation().getOperations(folder.id))
+            List<EntityOperation> ops = db.operation().getOperations(folder.id);
+            Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
+            for (EntityOperation op : ops)
                 try {
                     Log.i(Helper.TAG, folder.name +
                             " start op=" + op.id + "/" + op.name +
@@ -749,6 +751,11 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         op.error = Helper.formatThrowable(ex);
                         db.operation().updateOperation(op);
+
+                        if (BuildConfig.DEBUG && ex instanceof NullPointerException) {
+                            db.operation().deleteOperation(op.id);
+                            throw ex;
+                        }
 
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
@@ -800,20 +807,27 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doMove(EntityFolder source, IMAPStore istore, IMAPFolder ifolder, DB db, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+        if (BuildConfig.DEBUG && message.uid == null) {
+            Log.w(Helper.TAG, "Move local message id=" + message.id);
+            db.message().deleteMessage(message.id);
+            return;
+        }
+
         long id = jargs.getLong(0);
-        long uid = jargs.getLong(1);
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
 
         // Get message
-        Message imessage = ifolder.getMessageByUID(uid);
+        Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
 
         // Get folder
         Folder itarget = istore.getFolder(target.name);
+        ifolder.moveMessages(new Message[]{imessage}, itarget);
 
+/*
         // Append/delete because message ID header needs to be added and not all providers support MOVE
         long oid = message.id;
         try {
@@ -857,12 +871,13 @@ public class ServiceSynchronize extends LifecycleService {
         ifolder.expunge();
 
         db.message().deleteMessage(oid);
+*/
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, DB db, EntityMessage message) throws MessagingException {
         // Delete message
         if (message.uid == null)
-            Log.w(Helper.TAG, folder.name + " local op delete id=" + message.id + " uid=" + message.uid);
+            Log.w(Helper.TAG, folder.name + " Delete local message id=" + message.id);
         else {
             Message imessage = ifolder.getMessageByUID(message.uid);
             if (imessage == null)
@@ -1132,7 +1147,7 @@ public class ServiceSynchronize extends LifecycleService {
                     db.endTransaction();
                 }
             }
-            Log.i(Helper.TAG, folder.name + " added=" + added + " updated=" + updated + " unchanged=" + unchanged);
+            Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.i(Helper.TAG, folder.name + " end sync");
         }
@@ -1161,44 +1176,37 @@ public class ServiceSynchronize extends LifecycleService {
             MessageHelper helper = new MessageHelper(imessage);
             boolean seen = helper.getSeen();
 
-            EntityMessage message = null;
             DB db = DB.getInstance(this);
+            EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
-            // Find by id
-            long id = -1;
-            boolean update = false;
-            // Messages in archive have id of original
-            // Messages in inbox have id of message sent to self
-            if (!EntityFolder.ARCHIVE.equals(folder.type) &&
-                    !EntityFolder.INBOX.equals(folder.type)) {
-                id = MimeMessageEx.getId(imessage);
-                if (id >= 0) {
-                    message = db.message().getMessage(id);
-                    if (message == null)
-                        Log.w(Helper.TAG, "By id=" + id + " uid=" + (message == null ? "n/a" : message.uid));
-                    else {
-                        if (EntityFolder.SENT.equals(folder.type)) {
-                            message.folder = folder.id; // outbox to sent
-                            message.uid = null;
+            // Find by Message-ID
+            // - messages in archive have same id as original
+            // - messages in inbox have same id as message sent to self
+            if (message == null &&
+                    !EntityFolder.ARCHIVE.equals(folder.type)) {
+                String msgid = imessage.getMessageID();
+                message = db.message().getMessageByMsgId(folder.account, msgid);
+                if (message != null) {
+                    Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
+                    message.uid = uid;
+                    if (EntityFolder.SENT.equals(folder.type)) {
+                        Log.i(Helper.TAG, folder.name + " move from outbox");
+                        message.folder = folder.id; // outbox to sent
+                    }
+                    db.message().updateMessage(message);
+/*
+                    if (message.uid == null) {
+                        // Append (move)
+                        message.uid = uid;
+                        if (!seen) {
+                            seen = true;
                             update = true;
-                        }
-
-                        if (message.uid == null) {
-                            // Append (move)
-                            message.uid = uid;
-                            if (!seen) {
-                                seen = true;
-                                update = true;
-                                imessage.setFlag(Flags.Flag.SEEN, true);
-                            }
+                            imessage.setFlag(Flags.Flag.SEEN, true);
                         }
                     }
+*/
                 }
             }
-
-            // Find by uid
-            if (message == null)
-                message = db.message().getMessage(folder.id, uid);
 
             if (message == null) {
                 FetchProfile fp1 = new FetchProfile();
@@ -1230,7 +1238,10 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_hide = false;
 
                 message.id = db.message().insertMessage(message);
-                Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+                Log.v(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+                if (TextUtils.isEmpty(message.msgid))
+                    Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 0;
                 for (EntityAttachment attachment : helper.getAttachments()) {
@@ -1243,11 +1254,11 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 return 1;
-            } else if (update || message.seen != seen) {
+            } else if (message.seen != seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
                 db.message().updateMessage(message);
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
+                Log.v(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
                 return -1;
             } else {
                 Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);

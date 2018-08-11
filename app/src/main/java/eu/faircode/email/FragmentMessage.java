@@ -522,18 +522,11 @@ public class FragmentMessage extends FragmentEx {
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(id);
-                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-
-                                    boolean move = (message.uid != null);
-                                    if (move)
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id, message.uid);
-
-                                    message.folder = spam.id;
-                                    message.uid = null;
+                                    message.ui_hide = true;
                                     db.message().updateMessage(message);
 
-                                    if (!move)
-                                        EntityOperation.queue(db, message, EntityOperation.ADD);
+                                    EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -640,18 +633,11 @@ public class FragmentMessage extends FragmentEx {
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(id);
-                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-
-                        boolean move = (message.uid != null);
-                        if (move)
-                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id, message.uid);
-
-                        message.folder = trash.id;
-                        message.uid = null;
+                        message.ui_hide = true;
                         db.message().updateMessage(message);
 
-                        if (!move)
-                            EntityOperation.queue(db, message, EntityOperation.ADD);
+                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                        EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -705,18 +691,11 @@ public class FragmentMessage extends FragmentEx {
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-
-                    boolean move = (message.uid != null);
-                    if (move)
-                        EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id, message.uid);
-
-                    message.folder = archive.id;
-                    message.uid = null;
+                    message.ui_hide = true;
                     db.message().updateMessage(message);
 
-                    if (!move)
-                        EntityOperation.queue(db, message, EntityOperation.ADD);
+                    EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                    EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -832,17 +811,10 @@ public class FragmentMessage extends FragmentEx {
                                 db.beginTransaction();
 
                                 EntityMessage message = db.message().getMessage(id);
-
-                                boolean move = (message.uid != null);
-                                if (move)
-                                    EntityOperation.queue(db, message, EntityOperation.MOVE, target, message.uid);
-
-                                message.folder = target;
-                                message.uid = null;
+                                message.ui_hide = true;
                                 db.message().updateMessage(message);
 
-                                if (!move)
-                                    EntityOperation.queue(db, message, EntityOperation.ADD);
+                                EntityOperation.queue(db, message, EntityOperation.MOVE, target);
 
                                 db.setTransactionSuccessful();
                             } finally {

@@ -78,12 +78,14 @@ public interface DaoMessage {
     EntityMessage getMessage(long id);
 
     @Query("SELECT * FROM message WHERE folder = :folder AND uid = :uid")
-    EntityMessage getMessage(long folder, long uid);
+    EntityMessage getMessageByUid(long folder, long uid);
 
     @Query("SELECT message.* FROM message" +
-            " JOIN folder on folder.id = message.folder" +
-            " WHERE thread = :thread AND folder.type= '" + EntityFolder.ARCHIVE + "'")
-    EntityMessage getArchivedMessage(String thread);
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE message.account = :account" +
+            " AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
+            " AND msgid = :msgid")
+    EntityMessage getMessageByMsgId(long account, String msgid);
 
     @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m.id) FROM message m WHERE m.account = message.account AND m.thread = message.thread AND NOT m.ui_hide) AS count" +

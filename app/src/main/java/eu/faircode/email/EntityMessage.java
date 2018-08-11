@@ -45,6 +45,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"identity"}),
                 @Index(value = {"replying"}),
                 @Index(value = {"folder", "uid"}, unique = true),
+                @Index(value = {"msgid"}, unique = true),
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),
@@ -83,6 +84,17 @@ public class EntityMessage {
     @NonNull
     public Boolean ui_hide;
     public String error;
+
+    String generateMessageId() {
+        StringBuffer sb = new StringBuffer();
+        sb.append('<')
+                .append(id).append('.')
+                .append(BuildConfig.APPLICATION_ID).append('.')
+                .append(System.currentTimeMillis()).append('.')
+                .append("anonymous@localhost")
+                .append('>');
+        return sb.toString();
+    }
 
     @Override
     public boolean equals(Object obj) {

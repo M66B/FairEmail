@@ -85,7 +85,7 @@ public class MessageHelper {
     }
 
     static MimeMessageEx from(EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
-        MimeMessageEx imessage = new MimeMessageEx(isession, message.id);
+        MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
         if (message.from != null && message.from.length > 0)
             imessage.setFrom(message.from[0]);
@@ -104,17 +104,17 @@ public class MessageHelper {
 
         // TODO: plain message?
 
-        if (attachments.size() == 0) {
-            if (message.body != null)
-                imessage.setText(message.body, Charset.defaultCharset().name(), "html");
-        } else {
+        if (message.body == null)
+            throw new IllegalArgumentException("null message");
+
+        if (attachments.size() == 0)
+            imessage.setText(message.body, Charset.defaultCharset().name(), "html");
+        else {
             Multipart multipart = new MimeMultipart();
 
-            if (message.body != null) {
-                BodyPart bpMessage = new MimeBodyPart();
-                bpMessage.setContent(message.body, "text/html; charset=" + Charset.defaultCharset().name());
-                multipart.addBodyPart(bpMessage);
-            }
+            BodyPart bpMessage = new MimeBodyPart();
+            bpMessage.setContent(message.body, "text/html; charset=" + Charset.defaultCharset().name());
+            multipart.addBodyPart(bpMessage);
 
             for (EntityAttachment attachment : attachments) {
                 BodyPart bpAttachment = new MimeBodyPart();
