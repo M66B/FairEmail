@@ -129,6 +129,8 @@ public class FragmentFolder extends FragmentEx {
         @Override
         public Throwable loadInBackground() {
             try {
+                ServiceSynchronize.stop(getContext(), "folder");
+
                 long id = args.getLong("id");
                 boolean synchronize = args.getBoolean("synchronize");
                 String after = args.getString("after");
@@ -144,12 +146,12 @@ public class FragmentFolder extends FragmentEx {
                 if (!folder.synchronize)
                     db.message().deleteMessages(folder.id);
 
-                ServiceSynchronize.restart(getContext(), "folder");
-
                 return null;
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 return ex;
+            } finally {
+                ServiceSynchronize.restart(getContext(), "folder");
             }
         }
     }

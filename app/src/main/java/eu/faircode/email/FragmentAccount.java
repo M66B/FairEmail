@@ -510,6 +510,8 @@ public class FragmentAccount extends FragmentEx {
         @Override
         public Throwable loadInBackground() {
             try {
+                ServiceSynchronize.stop(getContext(), "folder");
+
                 String name = args.getString("name");
                 String host = args.getString("host");
                 String port = args.getString("port");
@@ -629,12 +631,12 @@ public class FragmentAccount extends FragmentEx {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.restart(getContext(), "account");
-
                 return null;
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 return ex;
+            } finally {
+                ServiceSynchronize.restart(getContext(), "account");
             }
         }
     }

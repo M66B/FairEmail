@@ -318,6 +318,8 @@ public class FragmentIdentity extends FragmentEx {
         @Override
         public Throwable loadInBackground() {
             try {
+                ServiceSynchronize.stop(getContext(), "account");
+
                 long id = args.getLong("id");
                 String name = args.getString("name");
                 String email = args.getString("email");
@@ -396,6 +398,8 @@ public class FragmentIdentity extends FragmentEx {
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 return ex;
+            } finally {
+                ServiceSynchronize.restart(getContext(), "account");
             }
         }
     }
