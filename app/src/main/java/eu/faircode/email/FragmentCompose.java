@@ -396,7 +396,7 @@ public class FragmentCompose extends FragmentEx {
                 InternetAddress address = new InternetAddress(email, name);
                 StringBuilder sb = new StringBuilder(text);
                 if (sb.length() > 0)
-                    sb.append("; ");
+                    sb.append(", ");
                 sb.append(address.toString());
 
                 if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
@@ -542,7 +542,6 @@ public class FragmentCompose extends FragmentEx {
                     draft = new EntityMessage();
                     draft.account = account;
                     draft.folder = drafts.id;
-                    draft.msgid = draft.generateMessageId();
 
                     if (ref != null) {
                         draft.thread = ref.thread;
