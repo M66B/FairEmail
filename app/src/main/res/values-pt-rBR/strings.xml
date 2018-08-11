@@ -21,6 +21,7 @@
   <string name="menu_setup">Configurar</string>
   <string name="menu_faq">FAQ</string>
   <string name="menu_about">Sobre</string>
+  <string name="title_eula">End-user license agreement</string>
   <string name="title_agree">Eu concordo</string>
   <string name="title_disagree">Eu discordo</string>
   <string name="title_version">Versão %1$s</string>
@@ -35,8 +36,9 @@
   <string name="title_setup_identity">Gerenciar identidades</string>
   <string name="title_setup_identity_remark">Para enviar e-mail</string>
   <string name="title_setup_permissions">Garantir permissões</string>
-  <string name="title_setup_permissions_remark">Para ler os contatos (opcional)</string>
+  <string name="title_setup_permissions_remark">To autocomplete addresses (optional)</string>
   <string name="title_setup_done">Feito</string>
+  <string name="title_setup_granted">Granted</string>
   <string name="title_setup_dark_theme">Tema escuro</string>
   <string name="title_setup_debug">Depurar</string>
   <string name="title_name">Seu nome</string>
@@ -59,6 +61,7 @@
   <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
   <string name="title_primary_account">Primária (usada para armazenar rascunhos)</string>
   <string name="title_primary_identity">Primária (identidade padrão)</string>
+  <string name="title_check">Check</string>
   <string name="title_no_name">Name missing</string>
   <string name="title_no_email">Email address missing</string>
   <string name="title_no_account">Account missing</string>
@@ -66,6 +69,7 @@
   <string name="title_no_port">Número da porta faltante</string>
   <string name="title_no_user">Nome do usuário faltante</string>
   <string name="title_no_password">Senha faltante</string>
+  <string name="title_no_drafts">Drafts folder missing</string>
   <string name="title_no_idle">IDLE não suportado</string>
   <string name="title_account_delete">Delete this account permanently?</string>
   <string name="title_identity_delete">Delete this identity permanently?</string>
@@ -80,7 +84,6 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Enviado</string>
   <string name="title_folder_user">Usuário</string>
-  <string name="title_folder_local_drafts">Local drafts</string>
   <string name="title_folder_thread">Tópico da mensagem</string>
   <string name="title_no_messages">Sem mensagens</string>
   <string name="title_link">link</string>
@@ -110,12 +113,14 @@
   <string name="title_body_hint">Sua mensagem</string>
   <string name="title_save">Salvar</string>
   <string name="title_send">Enviar</string>
+  <string name="title_show_addresses">Show CC/BCC</string>
+  <string name="title_add_attachment">Add attachment</string>
   <string name="title_from_missing">Remetente faltante</string>
   <string name="title_to_missing">Destinatário faltante</string>
+  <string name="title_attachments_missing">Attachments still loading</string>
   <string name="title_draft_trashed">Rascunho excluído</string>
   <string name="title_draft_saved">Rascunho salvo</string>
   <string name="title_queued">Sending message</string>
-  <string name="title_item_edit_hint">Pressione e segure o item para editar suas propriedades</string>
   <string name="title_debug_info">Informações de depuração</string>
   <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
 </resources>
