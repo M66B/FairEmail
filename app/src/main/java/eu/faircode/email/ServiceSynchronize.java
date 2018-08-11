@@ -724,21 +724,22 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityMessage message = db.message().getMessage(op.message);
 
                         if (EntityOperation.SEEN.equals(op.name))
-                            doSeen(folder, ifolder, jargs, message);
+                            doSeen(folder, ifolder, message, jargs);
 
                         else if (EntityOperation.ADD.equals(op.name))
                             doAdd(folder, ifolder, message, db);
+
                         else if (EntityOperation.MOVE.equals(op.name))
-                            doMove(folder, isession, istore, ifolder, db, jargs, message);
+                            doMove(folder, isession, istore, ifolder, message, jargs, db);
 
                         else if (EntityOperation.DELETE.equals(op.name))
-                            doDelete(folder, ifolder, db, message);
+                            doDelete(folder, ifolder, message, db);
 
                         else if (EntityOperation.SEND.equals(op.name))
                             doSend(db, message);
 
                         else if (EntityOperation.ATTACHMENT.equals(op.name))
-                            doAttachment(folder, ifolder, db, op, jargs, message);
+                            doAttachment(folder, op, ifolder, message, jargs, db);
 
                         else
                             throw new MessagingException("Unknown operation name=" + op.name);
@@ -781,7 +782,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doSeen(EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, EntityMessage message) throws MessagingException, JSONException {
+    private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs) throws MessagingException, JSONException {
         // Mark message (un)seen
 
         if (message.uid == null) {
@@ -809,7 +810,7 @@ public class ServiceSynchronize extends LifecycleService {
         ifolder.appendMessages(new Message[]{imessage});
     }
 
-    private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, DB db, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+    private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException {
         // Move message
 
         if (BuildConfig.DEBUG && message.uid == null) {
@@ -847,7 +848,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doDelete(EntityFolder folder, IMAPFolder ifolder, DB db, EntityMessage message) throws MessagingException {
+    private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
         // Delete message
         if (message.uid == null)
             Log.w(Helper.TAG, folder.name + " Delete local message id=" + message.id);
@@ -941,7 +942,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doAttachment(EntityFolder folder, IMAPFolder ifolder, DB db, EntityOperation op, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
+    private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
         // Download attachment
         int sequence = jargs.getInt(0);
 
