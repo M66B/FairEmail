@@ -316,6 +316,12 @@ public class FragmentCompose extends FragmentEx {
     }
 
     @Override
+    public void onPause() {
+        onAction(R.id.action_save);
+        super.onPause();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
         super.onCreateOptionsMenu(menu, inflater);
@@ -789,7 +795,7 @@ public class FragmentCompose extends FragmentEx {
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
             } else if (action == R.id.action_save)
-                Snackbar.make(view, R.string.title_draft_saved, Snackbar.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
             else if (action == R.id.action_send) {
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
