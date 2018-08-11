@@ -26,7 +26,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,31 +50,31 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
+        ImageView ivEdit;
         TextView tvName;
         TextView tvMessages;
         TextView tvType;
         TextView tvAfter;
         ImageView ivSync;
-        ImageButton ibEdit;
         TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView;
+            ivEdit = itemView.findViewById(R.id.ivEdit);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
-            ibEdit = itemView.findViewById(R.id.ibEdit);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire(boolean properties) {
             itemView.setOnClickListener(this);
             if (properties)
-                ibEdit.setOnClickListener(this);
+                ivEdit.setOnClickListener(this);
         }
 
         private void unwire() {
@@ -116,7 +115,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             TupleFolderEx folder = filtered.get(pos);
 
-            if (view.getId() == R.id.ibEdit) {
+            if (view.getId() == R.id.ivEdit) {
                 if (!EntityFolder.OUTBOX.equals(folder.type)) {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
