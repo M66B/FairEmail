@@ -70,14 +70,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
     private boolean debug;
-    private TextView tvTime;
     private TextView tvFrom;
+    private TextView tvTime;
+    private TextView tvSubject;
+    private TextView tvCount;
     private TextView tvTo;
     private TextView tvCc;
     private TextView tvBcc;
     private RecyclerView rvAttachment;
-    private TextView tvSubject;
-    private TextView tvCount;
+    private TextView tvError;
     private BottomNavigationView top_navigation;
     private TextView tvBody;
     private BottomNavigationView bottom_navigation;
@@ -103,13 +104,14 @@ public class FragmentMessage extends FragmentEx {
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
+        tvTime = view.findViewById(R.id.tvTime);
+        tvSubject = view.findViewById(R.id.tvSubject);
+        tvCount = view.findViewById(R.id.tvCount);
         tvTo = view.findViewById(R.id.tvTo);
         tvCc = view.findViewById(R.id.tvCc);
         tvBcc = view.findViewById(R.id.tvBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
-        tvTime = view.findViewById(R.id.tvTime);
-        tvSubject = view.findViewById(R.id.tvSubject);
-        tvCount = view.findViewById(R.id.tvCount);
+        tvError = view.findViewById(R.id.tvError);
         top_navigation = view.findViewById(R.id.top_navigation);
         tvBody = view.findViewById(R.id.tvBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -257,13 +259,15 @@ public class FragmentMessage extends FragmentEx {
                     String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
 
                     tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
+                    tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
+                    tvSubject.setText(message.subject);
+
+                    tvCount.setText(extra + Integer.toString(message.count));
+                    tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
+
                     tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
                     tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
                     tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
-                    tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
-                    tvSubject.setText(message.subject);
-                    tvCount.setText(extra + Integer.toString(message.count));
-                    tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
 
                     int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
                     tvFrom.setTypeface(null, typeface);
@@ -285,6 +289,12 @@ public class FragmentMessage extends FragmentEx {
                                     grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                                 }
                             });
+
+                    if (debug)
+                        message.error += (message.ui_hide ? " HIDDEN " : " ") + message.msgid + "/" + message.uid + "/" + message.id;
+
+                    tvError.setText(message.error);
+                    tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen

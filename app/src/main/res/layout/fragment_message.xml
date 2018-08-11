@@ -161,6 +161,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="error"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
@@ -172,7 +185,7 @@
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvAttachment"
+        app:layout_constraintTop_toBottomOf="@id/tvError"
         app:menu="@menu/action_view_top" />
 
     <ScrollView
