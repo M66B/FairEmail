@@ -87,6 +87,8 @@ public class MessageHelper {
     static MimeMessageEx from(EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
+        imessage.setFlag(Flags.Flag.SEEN, message.seen);
+
         if (message.from != null && message.from.length > 0)
             imessage.setFrom(message.from[0]);
 

@@ -305,7 +305,7 @@ public class ServiceSynchronize extends LifecycleService {
                 props.setProperty("mail.mime.address.strict", "false");
                 props.setProperty("mail.mime.decodetext.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
-                Session isession = Session.getInstance(props, null);
+                final Session isession = Session.getInstance(props, null);
                 // isession.setDebug(true);
                 // adb -t 1 logcat | grep "eu.faircode.email\|System.out"
 
@@ -499,7 +499,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             ifolder.open(Folder.READ_WRITE);
                                         }
 
-                                        processOperations(folder, fstore, ifolder);
+                                        processOperations(folder, isession, fstore, ifolder);
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
@@ -705,7 +705,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void processOperations(EntityFolder folder, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
+    private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         try {
             Log.i(Helper.TAG, folder.name + " start process");
 
@@ -726,13 +726,10 @@ public class ServiceSynchronize extends LifecycleService {
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, jargs, message);
 
-                        else if (EntityOperation.ADD.equals(op.name)) {
-                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                            for (EntityAttachment attachment : attachments)
-                                attachment.content = db.attachment().getContent(attachment.id);
-                            doAdd(folder, ifolder, message, attachments);
-                        } else if (EntityOperation.MOVE.equals(op.name))
-                            doMove(folder, istore, ifolder, db, jargs, message);
+                        else if (EntityOperation.ADD.equals(op.name))
+                            doAdd(folder, ifolder, message, db);
+                        else if (EntityOperation.MOVE.equals(op.name))
+                            doMove(folder, isession, istore, ifolder, db, jargs, message);
 
                         else if (EntityOperation.DELETE.equals(op.name))
                             doDelete(folder, ifolder, db, message);
@@ -785,12 +782,13 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, EntityMessage message) throws MessagingException, JSONException {
+        // Mark message (un)seen
+
         if (message.uid == null) {
             Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id + " uid=" + message.uid);
             return;
         }
 
-        // Mark message (un)seen
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
@@ -798,15 +796,22 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
     }
 
-    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, List<EntityAttachment> attachments) throws MessagingException {
+    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
         // Append message
+
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : attachments)
+            attachment.content = db.attachment().getContent(attachment.id);
+
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(message, attachments, isession);
         ifolder.appendMessages(new Message[]{imessage});
     }
 
-    private void doMove(EntityFolder source, IMAPStore istore, IMAPFolder ifolder, DB db, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+    private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, DB db, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+        // Move message
+
         if (BuildConfig.DEBUG && message.uid == null) {
             Log.w(Helper.TAG, "Move local message id=" + message.id);
             db.message().deleteMessage(message.id);
@@ -823,55 +828,23 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        // Get folder
-        Folder itarget = istore.getFolder(target.name);
-        ifolder.moveMessages(new Message[]{imessage}, itarget);
+        if (istore.hasCapability("MOVE")) {
+            Folder itarget = istore.getFolder(target.name);
+            ifolder.moveMessages(new Message[]{imessage}, itarget);
+        } else {
+            Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
 
-/*
-        // Append/delete because message ID header needs to be added and not all providers support MOVE
-        long oid = message.id;
-        try {
-            db.beginTransaction();
-
-            // Hide original (to be deleted)
-            message.ui_hide = true;
-            db.message().updateMessage(message);
-
-            // Copy message (to be appended)
-            if (!EntityFolder.ARCHIVE.equals(target.type)) {
-                message.id = null;
-                message.ui_hide = false;
-                message.id = db.message().insertMessage(message);
-
-                // New archived message will be created
-                EntityMessage archived = db.message().getArchivedMessage(message.thread);
-                if (archived != null)
-                    db.message().deleteMessage(archived.id);
-            }
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-
-        // Append copy
-        if (!EntityFolder.ARCHIVE.equals(target.type)) {
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
             for (EntityAttachment attachment : attachments)
                 attachment.content = db.attachment().getContent(attachment.id);
 
-            Properties props = MessageHelper.getSessionProperties();
-            Session isession = Session.getInstance(props, null);
-            MimeMessage icopy = MessageHelper.from(message, attachments, isession);
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            ifolder.expunge();
+
+            MimeMessageEx icopy = MessageHelper.from(message, attachments, isession);
+            Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
-
-        // Delete original
-        imessage.setFlag(Flags.Flag.DELETED, true);
-        ifolder.expunge();
-
-        db.message().deleteMessage(oid);
-*/
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, DB db, EntityMessage message) throws MessagingException {
@@ -969,6 +942,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doAttachment(EntityFolder folder, IMAPFolder ifolder, DB db, EntityOperation op, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
+        // Download attachment
         int sequence = jargs.getInt(0);
 
         EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
@@ -1192,17 +1166,6 @@ public class ServiceSynchronize extends LifecycleService {
                     message.folder = folder.id;
                     message.uid = uid;
                     db.message().updateMessage(message);
-/*
-                    if (message.uid == null) {
-                        // Append (move)
-                        message.uid = uid;
-                        if (!seen) {
-                            seen = true;
-                            update = true;
-                            imessage.setFlag(Flags.Flag.SEEN, true);
-                        }
-                    }
-*/
                 }
             }
 
@@ -1368,7 +1331,7 @@ public class ServiceSynchronize extends LifecycleService {
                     public void run() {
                         try {
                             Log.i(Helper.TAG, outbox.name + " start operations");
-                            processOperations(outbox, null, null);
+                            processOperations(outbox, null, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);
