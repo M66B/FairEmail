@@ -739,6 +739,10 @@ public class FragmentMessage extends FragmentEx {
             this.args = args;
         }
 
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
         @Override
         public List<EntityFolder> loadInBackground() {
             DB db = DB.getInstance(getContext());

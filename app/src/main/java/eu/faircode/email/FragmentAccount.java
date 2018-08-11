@@ -319,6 +319,10 @@ public class FragmentAccount extends FragmentEx {
             this.args = args;
         }
 
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
         @Override
         public CheckData loadInBackground() {
             CheckData result = new CheckData();
@@ -505,6 +509,10 @@ public class FragmentAccount extends FragmentEx {
 
         void setArgs(Bundle args) {
             this.args = args;
+        }
+
+        protected void onStartLoading() {
+            forceLoad();
         }
 
         @Override

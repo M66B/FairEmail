@@ -78,6 +78,10 @@ public abstract class SimpleLoader<T> {
             this.loader = x;
         }
 
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
         @Override
         public Result loadInBackground() {
             Result result = new Result();

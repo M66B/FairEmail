@@ -313,6 +313,10 @@ public class FragmentIdentity extends FragmentEx {
             this.args = args;
         }
 
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
         @Override
         public Throwable loadInBackground() {
             try {
