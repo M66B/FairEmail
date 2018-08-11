@@ -734,10 +734,16 @@ public class FragmentCompose extends FragmentEx {
                 } else if (action == R.id.action_save) {
                     String msgid = draft.msgid;
 
+                    // Save attachments
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+                    for (EntityAttachment attachment : attachments)
+                        attachment.content = db.attachment().getContent(attachment.id);
+
                     // Delete previous draft
                     draft.msgid = null;
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);
+
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                     // Create new draft
@@ -746,6 +752,13 @@ public class FragmentCompose extends FragmentEx {
                     draft.msgid = msgid;
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
+
+                    // Restore attachments
+                    for (EntityAttachment attachment : attachments) {
+                        attachment.message = draft.id;
+                        db.attachment().insertAttachment(attachment);
+                    }
+
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                 } else if (action == R.id.action_send) {
