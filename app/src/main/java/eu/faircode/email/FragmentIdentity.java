@@ -45,8 +45,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -79,8 +77,6 @@ public class FragmentIdentity extends FragmentEx {
     private ProgressBar pbSave;
     private ImageButton ibDelete;
     private ProgressBar pbWait;
-
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     @Override
     @Nullable
@@ -220,16 +216,18 @@ public class FragmentIdentity extends FragmentEx {
                             public void onClick(DialogInterface dialog, int which) {
                                 getFragmentManager().popBackStack();
                                 // TODO: spinner
-                                executor.submit(new Runnable() {
+                                new SimpleLoader<Void>() {
                                     @Override
-                                    public void run() {
-                                        try {
-                                            DB.getInstance(getContext()).identity().deleteIdentity(id);
-                                        } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                        }
+                                    public Void onLoad(Bundle args) throws Throwable {
+                                        DB.getInstance(getContext()).identity().deleteIdentity(id);
+                                        return null;
                                     }
-                                });
+
+                                    @Override
+                                    public void onException(Bundle args, Throwable ex) {
+                                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                    }
+                                }.load(FragmentIdentity.this, ActivitySetup.LOADER_DELETE_IDENTITY, new Bundle());
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null).show();

@@ -51,8 +51,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Folder;
 import javax.mail.MessagingException;
@@ -91,8 +89,6 @@ public class FragmentAccount extends FragmentEx {
     private ImageButton ibDelete;
     private ProgressBar pbWait;
     private Group grpFolders;
-
-    private ExecutorService executor = Executors.newCachedThreadPool();
 
     @Override
     @Nullable
@@ -240,20 +236,23 @@ public class FragmentAccount extends FragmentEx {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 getFragmentManager().popBackStack();
+
                                 // TODO: spinner
-                                executor.submit(new Runnable() {
+                                new SimpleLoader<Void>() {
                                     @Override
-                                    public void run() {
-                                        try {
-                                            // To prevent foreign key constraints from triggering
-                                            ServiceSynchronize.stop(getContext(), "delete account");
-                                            DB.getInstance(getContext()).account().deleteAccount(id);
-                                            ServiceSynchronize.start(getContext());
-                                        } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                        }
+                                    public Void onLoad(Bundle args) {
+                                        // To prevent foreign key constraints from triggering
+                                        ServiceSynchronize.stop(getContext(), "delete account");
+                                        DB.getInstance(getContext()).account().deleteAccount(id);
+                                        ServiceSynchronize.start(getContext());
+                                        return null;
                                     }
-                                });
+
+                                    @Override
+                                    public void onException(Bundle args, Throwable ex) {
+                                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                    }
+                                }.load(FragmentAccount.this, ActivitySetup.LOADER_DELETE_ACCOUNT, new Bundle());
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null).show();
@@ -436,8 +435,9 @@ public class FragmentAccount extends FragmentEx {
                 Collections.sort(data.folders, new Comparator<EntityFolder>() {
                     @Override
                     public int compare(EntityFolder f1, EntityFolder f2) {
-                        int s = ((Integer) EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type))
-                                .compareTo(EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                        int s = Integer.compare(
+                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
                         if (s != 0)
                             return s;
                         int c = -f1.synchronize.compareTo(f2.synchronize);
