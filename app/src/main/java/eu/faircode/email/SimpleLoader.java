@@ -66,6 +66,7 @@ public abstract class SimpleLoader<T> {
     }
 
     private static class CommonLoader extends AsyncTaskLoader<Result> {
+        boolean loading = false;
         Bundle args;
         SimpleLoader loader;
 
@@ -79,11 +80,13 @@ public abstract class SimpleLoader<T> {
         }
 
         protected void onStartLoading() {
-            forceLoad();
+            if (!loading)
+                forceLoad();
         }
 
         @Override
         public Result loadInBackground() {
+            loading = true;
             Result result = new Result();
             try {
                 result.data = loader.onLoad(args);
