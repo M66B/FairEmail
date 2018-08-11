@@ -152,19 +152,25 @@ public class FragmentMessages extends FragmentEx {
 
         new SimpleLoader<Long>() {
             @Override
-            public Long onLoad(Bundle args) throws Throwable {
+            public Long onLoad(Bundle args) {
                 long folder = (args == null ? -1 : args.getLong("folder", -1));
                 long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
                 DB db = DB.getInstance(getContext());
 
+                Long account;
                 if (thread < 0)
                     if (folder < 0)
                         return db.folder().getPrimaryDrafts().account;
                     else
-                        return db.folder().getFolder(folder).account;
+                        account = db.folder().getFolder(folder).account;
                 else
-                    return db.message().getMessage(thread).account;
+                    account = db.message().getMessage(thread).account;
+
+                if (account == null) // outbox
+                    account = db.folder().getPrimaryDrafts().account;
+
+                return account;
             }
 
             @Override
