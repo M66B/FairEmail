@@ -25,7 +25,6 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -93,17 +92,45 @@ public class FragmentCompose extends FragmentEx {
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpReady;
-    private MenuItem menuAttachment = null;
 
     private AdapterAttachment adapter;
 
+    private String action = null;
     private long id = -1; // draft id
+    private long account = -1;
+    private long reference = -1;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        Log.i(Helper.TAG, "Saving state");
+        outState.putString("action", action);
+        outState.putLong("id", id);
+        outState.putLong("account", account);
+        outState.putLong("reference", reference);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Get arguments
+        if (savedInstanceState == null) {
+            if (action == null) {
+                action = getArguments().getString("action");
+                id = getArguments().getLong("id", -1);
+                account = getArguments().getLong("account", -1);
+                reference = getArguments().getLong("reference", -1);
+            }
+        } else {
+            Log.i(Helper.TAG, "Restoring state");
+            action = savedInstanceState.getString("action");
+            id = savedInstanceState.getLong("id", -1);
+            account = savedInstanceState.getLong("account", -1);
+            reference = savedInstanceState.getLong("reference", -1);
+        }
+
         setSubtitle(R.string.title_compose);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
@@ -252,6 +279,8 @@ public class FragmentCompose extends FragmentEx {
         DB.getInstance(getContext()).identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable final List<EntityIdentity> identities) {
+                Log.i(Helper.TAG, "Set identities=" + identities.size());
+
                 // Sort identities
                 Collections.sort(identities, new Comparator<EntityIdentity>() {
                     @Override
@@ -275,14 +304,13 @@ public class FragmentCompose extends FragmentEx {
                 spFrom.setVisibility(View.VISIBLE);
                 ivIdentityAdd.setVisibility(View.VISIBLE);
 
-                // Get draft
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Get might select another identity
-                        getLoader.load(FragmentCompose.this, ActivityCompose.LOADER_COMPOSE_GET, getArguments());
-                    }
-                });
+                // Get draft, might select another identity
+                Bundle args = new Bundle();
+                args.putString("action", action);
+                args.putLong("id", id);
+                args.putLong("account", account);
+                args.putLong("reference", reference);
+                getLoader.load(FragmentCompose.this, ActivityCompose.LOADER_COMPOSE_GET, args);
             }
         });
     }
@@ -296,8 +324,7 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menuAttachment = menu.findItem(R.id.menu_attachment);
-        menuAttachment.setEnabled(false);
+        menu.findItem(R.id.menu_attachment).setEnabled(id >= 0);
     }
 
     @Override
@@ -484,7 +511,7 @@ public class FragmentCompose extends FragmentEx {
             long id = args.getLong("id", -1);
             long account = args.getLong("account", -1);
             long reference = args.getLong("reference", -1);
-            Log.i(Helper.TAG, "Get action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
+            Log.i(Helper.TAG, "Get load action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
 
             DB db = DB.getInstance(getContext());
 
@@ -578,9 +605,12 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public void onLoaded(Bundle args, EntityMessage draft) {
             id = draft.id;
-            String action = getArguments().getString("action");
+            if ("new".equals(args.getString("action")))
+                action = "edit";
 
-            menuAttachment.setEnabled(true);
+            Log.i(Helper.TAG, "Get loaded action=" + action + " id=" + id);
+
+            getActivity().invalidateOptionsMenu();
             pbWait.setVisibility(View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpReady.setVisibility(View.VISIBLE);
@@ -645,6 +675,7 @@ public class FragmentCompose extends FragmentEx {
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
             String body = args.getString("body");
+            Log.i(Helper.TAG, "Put load action=" + action + " id=" + id);
 
             // Get draft & selected identity
             DB db = DB.getInstance(getContext());
@@ -749,9 +780,10 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public void onLoaded(Bundle args, EntityMessage draft) {
             id = draft.id;
-            bottom_navigation.getMenu().setGroupEnabled(0, true);
-
             int action = args.getInt("action");
+            Log.i(Helper.TAG, "Get loaded action=" + action + " id=" + id);
+
+            bottom_navigation.getMenu().setGroupEnabled(0, true);
 
             if (action == R.id.action_trash) {
                 getFragmentManager().popBackStack();
