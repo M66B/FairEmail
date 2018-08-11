@@ -60,6 +60,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.Address;
+import javax.mail.MessageRemovedException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -687,6 +688,11 @@ public class FragmentCompose extends FragmentEx {
             DB db = DB.getInstance(getContext());
             EntityMessage draft = db.message().getMessage(id);
             EntityIdentity identity = db.identity().getIdentity(iid);
+
+            // Draft deleted by server
+            // TODO: better handling of remote deleted message
+            if (draft == null)
+                throw new MessageRemovedException();
 
             // Convert data
             Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
