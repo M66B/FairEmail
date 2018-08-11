@@ -99,7 +99,7 @@ public class EntityOperation {
         operation.id = db.operation().insertOperation(operation);
 
         Intent intent = new Intent();
-        intent.setType("account/" + (message.account == null ? "outbox" : message.account));
+        intent.setType("account/" + (SEND.equals(name) ? "outbox" : message.account));
         intent.setAction(ServiceSynchronize.ACTION_PROCESS_OPERATIONS);
         intent.putExtra("folder", message.folder);
 
