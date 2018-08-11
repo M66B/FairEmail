@@ -27,11 +27,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Flags;
@@ -42,7 +45,10 @@ import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
 
 public class MessageHelper {
     private MimeMessage imessage;
@@ -78,7 +84,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(EntityMessage message, Session isession) throws MessagingException {
+    static MimeMessageEx from(EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.id);
 
         if (message.from != null && message.from.length > 0)
@@ -96,16 +102,38 @@ public class MessageHelper {
         if (message.subject != null)
             imessage.setSubject(message.subject);
 
-        if (message.body != null)
-            imessage.setText(message.body, null, "html");
+        if (attachments.size() == 0) {
+            if (message.body != null)
+                imessage.setText(message.body, Charset.defaultCharset().name(), "html");
+        } else {
+            Multipart multipart = new MimeMultipart();
+
+            if (message.body != null) {
+                BodyPart bpMessage = new MimeBodyPart();
+                bpMessage.setContent(message.body, "text/html; charset=" + Charset.defaultCharset().name());
+                multipart.addBodyPart(bpMessage);
+            }
+
+            for (EntityAttachment attachment : attachments) {
+                BodyPart bpAttachment = new MimeBodyPart();
+                bpAttachment.setFileName(attachment.name);
+
+                DataSource dataSource = new ByteArrayDataSource(attachment.content, attachment.type);
+                bpAttachment.setDataHandler(new DataHandler(dataSource));
+
+                multipart.addBodyPart(bpAttachment);
+            }
+
+            imessage.setContent(multipart);
+        }
 
         imessage.setSentDate(new Date());
 
         return imessage;
     }
 
-    static MimeMessageEx from(EntityMessage message, EntityMessage reply, Session isession) throws MessagingException {
-        MimeMessageEx imessage = from(message, isession);
+    static MimeMessageEx from(EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException {
+        MimeMessageEx imessage = from(message, attachments, isession);
         imessage.addHeader("In-Reply-To", reply.msgid);
         imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
         return imessage;

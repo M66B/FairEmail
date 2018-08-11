@@ -30,16 +30,32 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoAttachment {
-    @Query("SELECT id,message,sequence,name,type,size,progress" +
+    @Query("SELECT id, message, sequence, name, type, size, progress" +
             ", (NOT content IS NULL) as content" +
-            " FROM attachment WHERE message = :message")
+            " FROM attachment" +
+            " WHERE message = :message" +
+            " ORDER BY sequence")
     LiveData<List<TupleAttachment>> liveAttachments(long message);
 
-    @Query("SELECT * FROM attachment WHERE message = :message AND sequence = :sequence")
+    @Query("SELECT * FROM attachment" +
+            " WHERE message = :message" +
+            " AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);
 
-    @Query("SELECT COUNT(attachment.id) FROM attachment WHERE message = :message")
+    @Query("SELECT COUNT(attachment.id)" +
+            " FROM attachment" +
+            " WHERE message = :message")
     int getAttachmentCount(long message);
+
+    @Query("SELECT SUM(CASE WHEN content IS NULL THEN 1 ELSE 0 END)" +
+            " FROM attachment" +
+            " WHERE message = :message")
+    int getAttachmentCountWithoutContent(long message);
+
+    @Query("SELECT id, message, sequence, name, type, size, progress, NULL AS content FROM attachment" +
+            " WHERE message = :message" +
+            " ORDER BY sequence")
+    List<EntityAttachment> getAttachments(long message);
 
     @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
     void setProgress(long id, int progress);

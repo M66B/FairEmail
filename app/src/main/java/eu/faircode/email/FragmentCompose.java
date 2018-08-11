@@ -99,6 +99,8 @@ public class FragmentCompose extends FragmentEx {
 
     private AdapterAttachment adapter;
 
+    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -417,7 +419,7 @@ public class FragmentCompose extends FragmentEx {
                     attachment.size = (size == null ? null : Integer.parseInt(size));
                     attachment.progress = 0;
 
-                    db.attachment().insertAttachment(attachment);
+                    attachment.id = db.attachment().insertAttachment(attachment);
 
                     InputStream is = null;
                     try {
@@ -425,7 +427,7 @@ public class FragmentCompose extends FragmentEx {
                         ByteArrayOutputStream os = new ByteArrayOutputStream();
 
                         int len;
-                        byte[] buffer = new byte[8192];
+                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                         while ((len = is.read(buffer)) > 0) {
                             os.write(buffer, 0, len);
 
@@ -444,7 +446,6 @@ public class FragmentCompose extends FragmentEx {
                         if (is != null)
                             is.close();
                     }
-
 
                     return null;
                 } finally {
@@ -728,6 +729,13 @@ public class FragmentCompose extends FragmentEx {
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_to_missing));
 
+                        if (db.attachment().getAttachmentCountWithoutContent(draft.id) > 0)
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_attachments_missing));
+
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+                        for (EntityAttachment attachment : attachments)
+                            attachment.content = db.attachment().getContent(attachment.id);
+
                         // Delete draft (cannot move to outbox)
                         draft.ui_hide = true;
                         db.message().updateMessage(draft);
@@ -739,6 +747,11 @@ public class FragmentCompose extends FragmentEx {
                         draft.uid = null;
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
+
+                        for (EntityAttachment attachment : attachments) {
+                            attachment.message = draft.id;
+                            db.attachment().insertAttachment(attachment);
+                        }
 
                         EntityOperation.queue(db, draft, EntityOperation.SEND);
                     }

@@ -103,7 +103,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private static final long NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int FETCH_BATCH_SIZE = 10;
-    private static final int DOWNLOAD_BUFFER_SIZE = 8192; // bytes
+    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final String ACTION_PROCESS_FOLDER = BuildConfig.APPLICATION_ID + ".PROCESS_FOLDER";
     static final String ACTION_PROCESS_OUTBOX = BuildConfig.APPLICATION_ID + ".PROCESS_OUTBOX";
@@ -705,10 +705,12 @@ public class ServiceSynchronize extends LifecycleService {
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, jargs, message);
 
-                        else if (EntityOperation.ADD.equals(op.name))
-                            doAdd(folder, ifolder, message);
-
-                        else if (EntityOperation.MOVE.equals(op.name))
+                        else if (EntityOperation.ADD.equals(op.name)) {
+                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                            for (EntityAttachment attachment : attachments)
+                                attachment.content = db.attachment().getContent(attachment.id);
+                            doAdd(folder, ifolder, message, attachments);
+                        } else if (EntityOperation.MOVE.equals(op.name))
                             doMove(folder, istore, ifolder, db, jargs, message);
 
                         else if (EntityOperation.DELETE.equals(op.name))
@@ -774,11 +776,11 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
     }
 
-    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message) throws MessagingException {
+    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, List<EntityAttachment> attachments) throws MessagingException {
         // Append message
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
-        MimeMessage imessage = MessageHelper.from(message, isession);
+        MimeMessage imessage = MessageHelper.from(message, attachments, isession);
         ifolder.appendMessages(new Message[]{imessage});
     }
 
@@ -825,9 +827,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Append copy
         if (!EntityFolder.ARCHIVE.equals(target.type)) {
+            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+            for (EntityAttachment attachment : attachments)
+                attachment.content = db.attachment().getContent(attachment.id);
+
             Properties props = MessageHelper.getSessionProperties();
             Session isession = Session.getInstance(props, null);
-            MimeMessage icopy = MessageHelper.from(message, isession);
+            MimeMessage icopy = MessageHelper.from(message, attachments, isession);
             itarget.appendMessages(new Message[]{icopy});
         }
 
@@ -856,51 +862,54 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSend(DB db, EntityMessage message) throws MessagingException {
         // Send message
-        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
         EntityIdentity ident = db.identity().getIdentity(message.identity);
+        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : attachments)
+            attachment.content = db.attachment().getContent(attachment.id);
 
         if (!ident.synchronize) {
             // Message will remain in outbox
             return;
         }
 
+        // Create session
+        Properties props = MessageHelper.getSessionProperties();
+        Session isession = Session.getInstance(props, null);
+
+        // Create message
+        MimeMessage imessage;
+        if (reply == null)
+            imessage = MessageHelper.from(message, attachments, isession);
+        else
+            imessage = MessageHelper.from(message, reply, attachments, isession);
+        if (ident.replyto != null)
+            imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
+
+        // Create transport
+        // TODO: cache transport?
+        Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
         try {
-            db.beginTransaction();
+            // Connect transport
+            itransport.connect(ident.host, ident.port, ident.user, ident.password);
 
-            // Move message to sent
-            EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
-            if (sent == null)
-                ; // Leave message in outbox
-            else {
-                message.folder = sent.id;
-                message.uid = null;
-            }
+            // Send message
+            Address[] to = imessage.getAllRecipients();
+            itransport.sendMessage(imessage, to);
+            Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+                    " to " + TextUtils.join(", ", to));
 
-            // Create session
-            Properties props = MessageHelper.getSessionProperties();
-            Session isession = Session.getInstance(props, null);
-
-            // Create message
-            MimeMessage imessage;
-            if (reply == null)
-                imessage = MessageHelper.from(message, isession);
-            else
-                imessage = MessageHelper.from(message, reply, isession);
-            if (ident.replyto != null)
-                imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
-
-            // Create transport
-            // TODO: cache transport?
-            Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
             try {
-                // Connect transport
-                itransport.connect(ident.host, ident.port, ident.user, ident.password);
+                db.beginTransaction();
 
-                // Send message
-                Address[] to = imessage.getAllRecipients();
-                itransport.sendMessage(imessage, to);
-                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                        " to " + TextUtils.join(", ", to));
+                // Move message to sent
+                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
+                if (sent == null)
+                    ; // Leave message in outbox
+                else {
+                    message.folder = sent.id;
+                    message.uid = null;
+                }
 
                 // Update state
                 if (message.thread == null)
@@ -913,13 +922,12 @@ public class ServiceSynchronize extends LifecycleService {
                 if (sent != null)
                     EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
 
+                db.setTransactionSuccessful();
             } finally {
-                itransport.close();
+                db.endTransaction();
             }
-
-            db.setTransactionSuccessful();
         } finally {
-            db.endTransaction();
+            itransport.close();
         }
     }
 
@@ -943,7 +951,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Download attachment
             InputStream is = a.part.getInputStream();
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] buffer = new byte[DOWNLOAD_BUFFER_SIZE];
+            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
             for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                 os.write(buffer, 0, len);
 
