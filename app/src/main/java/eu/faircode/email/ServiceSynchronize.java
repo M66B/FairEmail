@@ -722,6 +722,8 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         JSONArray jargs = new JSONArray(op.args);
                         EntityMessage message = db.message().getMessage(op.message);
+                        if (message == null)
+                            throw new MessageRemovedException();
 
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, message, jargs);
