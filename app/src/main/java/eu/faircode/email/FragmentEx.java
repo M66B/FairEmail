@@ -1,5 +1,8 @@
 package eu.faircode.email;
 
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -20,9 +23,28 @@ public class FragmentEx extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.i(Helper.TAG, "Create " + this.getClass().getName());
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        Log.i(Helper.TAG, "Activity " + this.getClass().getName());
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
     public void onResume() {
+        Log.i(Helper.TAG, "Resume " + this.getClass().getName());
         super.onResume();
         updateSubtitle();
+    }
+
+    @Override
+    public void onPause() {
+        Log.i(Helper.TAG, "Pause " + this.getClass().getName());
+        super.onPause();
     }
 
     @Override
@@ -33,6 +55,18 @@ public class FragmentEx extends Fragment {
         View focused = getActivity().getCurrentFocus();
         if (focused != null)
             im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.i(Helper.TAG, "Config " + this.getClass().getName());
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(Helper.TAG, "Destroy " + this.getClass().getName());
+        super.onDestroy();
     }
 
     private void updateSubtitle() {

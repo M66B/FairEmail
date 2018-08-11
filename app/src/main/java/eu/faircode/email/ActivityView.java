@@ -92,7 +92,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "View create");
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_view);
@@ -256,7 +255,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "View post create");
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
@@ -270,7 +268,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onResume() {
-        Log.i(Helper.TAG, "View resume");
         super.onResume();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
@@ -288,7 +285,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onPause() {
-        Log.i(Helper.TAG, "View pause");
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
@@ -296,14 +292,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i(Helper.TAG, "View configuration changed");
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(Helper.TAG, "View destroyed");
         super.onDestroy();
     }
 

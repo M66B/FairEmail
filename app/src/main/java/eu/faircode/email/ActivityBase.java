@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -35,6 +36,24 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         setTheme("light".equals(theme) ? R.style.AppThemeLight : R.style.AppThemeDark);
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        Log.i(Helper.TAG, "Resume " + this.getClass().getName());
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i(Helper.TAG, "Pause " + this.getClass().getName());
+        super.onPause();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.i(Helper.TAG, "Config " + this.getClass().getName());
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
