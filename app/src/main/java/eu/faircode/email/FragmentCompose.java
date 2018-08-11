@@ -386,7 +386,7 @@ public class FragmentCompose extends FragmentEx {
         args.putLong("id", getArguments().getLong("id"));
         args.putParcelable("uri", data.getData());
 
-        new SimpleLoader() {
+        new SimpleLoader<Object>() {
             @Override
             public Object onLoad(Bundle args) throws IOException {
                 Cursor cursor = null;
@@ -454,9 +454,8 @@ public class FragmentCompose extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
-                if (result.ex != null)
-                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            public void onException(Bundle args, Throwable ex) {
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, ActivityCompose.LOADER_COMPOSE_ATTACHMENT, args);
     }

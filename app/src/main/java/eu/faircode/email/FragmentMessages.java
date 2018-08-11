@@ -150,9 +150,9 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        new SimpleLoader() {
+        new SimpleLoader<Long>() {
             @Override
-            public Object onLoad(Bundle args) throws Throwable {
+            public Long onLoad(Bundle args) throws Throwable {
                 long folder = (args == null ? -1 : args.getLong("folder", -1));
                 long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
@@ -168,12 +168,14 @@ public class FragmentMessages extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
-                if (result.ex == null) {
-                    fab.setTag(result.data);
-                    fab.setVisibility(View.VISIBLE);
-                } else
-                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            public void onLoaded(Bundle args, Long account) {
+                fab.setTag(account);
+                fab.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, ActivityView.LOADER_MESSAGE_ACCOUNT, getArguments());
     }

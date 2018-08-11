@@ -392,7 +392,7 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader() {
+        new SimpleLoader<Object>() {
             @Override
             public Object onLoad(Bundle args) {
                 long id = args.getLong("id");
@@ -418,12 +418,16 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
+            public void onLoaded(Bundle args, Object data) {
                 item.setEnabled(true);
                 item.setIcon(icon);
+            }
 
-                if (result.ex != null)
-                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, ActivityView.LOADER_MESSAGE_SEEN, args);
     }
@@ -438,9 +442,9 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader() {
+        new SimpleLoader<Long>() {
             @Override
-            public Object onLoad(Bundle args) {
+            public Long onLoad(Bundle args) {
                 long id = args.getLong("id");
                 DB db = DB.getInstance(getContext());
                 EntityMessage draft = db.message().getMessage(id);
@@ -453,17 +457,20 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
+            public void onLoaded(Bundle args, Long id) {
                 item.setEnabled(true);
                 item.setIcon(icon);
+                getContext().startActivity(
+                        new Intent(getContext(), ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
+            }
 
-                if (result.ex == null)
-                    getContext().startActivity(
-                            new Intent(getContext(), ActivityCompose.class)
-                                    .putExtra("action", "edit")
-                                    .putExtra("id", (long) result.data));
-                else
-                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, ActivityView.LOADER_MESSAGE_EDIT, args);
     }
@@ -496,7 +503,7 @@ public class FragmentMessage extends FragmentEx {
                         Bundle args = new Bundle();
                         args.putLong("id", id);
 
-                        new SimpleLoader() {
+                        new SimpleLoader<Object>() {
                             @Override
                             public Object onLoad(Bundle args) {
                                 long id = args.getLong("id");
@@ -529,12 +536,16 @@ public class FragmentMessage extends FragmentEx {
                             }
 
                             @Override
-                            public void onLoaded(Bundle args, Result result) {
+                            public void onLoaded(Bundle args, Object result) {
                                 item.setEnabled(true);
                                 item.setIcon(icon);
+                            }
 
-                                if (result.ex != null)
-                                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                            @Override
+                            public void onException(Bundle args, Throwable ex) {
+                                item.setEnabled(true);
+                                item.setIcon(icon);
+                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                             }
                         }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_SPAM, args);
                     }
@@ -561,7 +572,7 @@ public class FragmentMessage extends FragmentEx {
                             Bundle args = new Bundle();
                             args.putLong("id", id);
 
-                            new SimpleLoader() {
+                            new SimpleLoader<Object>() {
                                 @Override
                                 public Object onLoad(Bundle args) {
                                     long id = args.getLong("id");
@@ -585,12 +596,16 @@ public class FragmentMessage extends FragmentEx {
                                 }
 
                                 @Override
-                                public void onLoaded(Bundle args, Result result) {
+                                public void onLoaded(Bundle args, Object result) {
                                     item.setEnabled(true);
                                     item.setIcon(icon);
+                                }
 
-                                    if (result.ex != null)
-                                        Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                                @Override
+                                public void onException(Bundle args, Throwable ex) {
+                                    item.setEnabled(true);
+                                    item.setIcon(icon);
+                                    Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                 }
                             }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
                         }
@@ -606,7 +621,7 @@ public class FragmentMessage extends FragmentEx {
             Bundle args = new Bundle();
             args.putLong("id", id);
 
-            new SimpleLoader() {
+            new SimpleLoader<Object>() {
                 @Override
                 public Object onLoad(Bundle args) {
                     long id = args.getLong("id");
@@ -639,12 +654,16 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 @Override
-                public void onLoaded(Bundle args, Result result) {
+                public void onLoaded(Bundle args, Object result) {
                     item.setEnabled(true);
                     item.setIcon(icon);
+                }
 
-                    if (result.ex != null)
-                        Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                @Override
+                public void onException(Bundle args, Throwable ex) {
+                    item.setEnabled(true);
+                    item.setIcon(icon);
+                    Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                 }
             }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
         }
@@ -667,7 +686,7 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader() {
+        new SimpleLoader<Object>() {
             @Override
             public Object onLoad(Bundle args) {
                 long id = args.getLong("id");
@@ -700,12 +719,16 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
+            public void onLoaded(Bundle args, Object result) {
                 item.setEnabled(true);
                 item.setIcon(icon);
+            }
 
-                if (result.ex != null)
-                    Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                item.setEnabled(true);
+                item.setIcon(icon);
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_ARCHIVE, args);
     }
@@ -789,7 +812,7 @@ public class FragmentMessage extends FragmentEx {
                     Bundle args = ((MoveLoader) loader).args;
                     args.putLong("target", target.getItemId());
 
-                    new SimpleLoader() {
+                    new SimpleLoader<Object>() {
                         @Override
                         public Object onLoad(Bundle args) {
                             long id = args.getLong("id");
@@ -822,12 +845,16 @@ public class FragmentMessage extends FragmentEx {
                         }
 
                         @Override
-                        public void onLoaded(Bundle args, Result result) {
+                        public void onLoaded(Bundle args, Object result) {
                             item.setEnabled(true);
                             item.setIcon(icon);
+                        }
 
-                            if (result.ex != null)
-                                Toast.makeText(getContext(), result.ex.toString(), Toast.LENGTH_LONG).show();
+                        @Override
+                        public void onException(Bundle args, Throwable ex) {
+                            item.setEnabled(true);
+                            item.setIcon(icon);
+                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                         }
                     }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_MOVE, args);
 

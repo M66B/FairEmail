@@ -10,7 +10,7 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
-public abstract class SimpleLoader {
+public abstract class SimpleLoader<T> {
     private Context context;
     private LoaderManager manager;
 
@@ -26,11 +26,14 @@ public abstract class SimpleLoader {
         manager.restartLoader(id, args, callbacks).forceLoad();
     }
 
-    public Object onLoad(Bundle args) throws Throwable {
+    public T onLoad(Bundle args) throws Throwable {
         return null;
     }
 
-    public void onLoaded(Bundle args, Result result) {
+    public void onLoaded(Bundle args, T data) {
+    }
+
+    public void onException(Bundle args, Throwable ex) {
     }
 
     private static class CommonLoader extends AsyncTaskLoader<Result> {
@@ -72,7 +75,10 @@ public abstract class SimpleLoader {
             manager.destroyLoader(loader.getId());
 
             CommonLoader common = (CommonLoader) loader;
-            onLoaded(common.args, data);
+            if (data.ex == null)
+                onLoaded(common.args, (T) data.data);
+            else
+                onException(common.args, data.ex);
 
             common.args = null;
             common.loader = null;
@@ -85,7 +91,7 @@ public abstract class SimpleLoader {
         }
     };
 
-    public static class Result {
+    private static class Result {
         Throwable ex;
         Object data;
     }

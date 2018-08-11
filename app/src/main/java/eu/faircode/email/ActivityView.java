@@ -181,9 +181,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             fragmentTransaction.commit();
         }
 
-        new SimpleLoader() {
+        new SimpleLoader<Long>() {
             @Override
-            public Object onLoad(Bundle args) throws Throwable {
+            public Long onLoad(Bundle args) throws Throwable {
                 File file = new File(getCacheDir(), "crash.log");
                 if (file.exists()) {
                     DB db = DB.getInstance(ActivityView.this);
@@ -241,12 +241,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
 
             @Override
-            public void onLoaded(Bundle args, Result result) {
-                if (result.ex == null && result.data != null)
+            public void onLoaded(Bundle args, Long id) {
+                if (id != null)
                     startActivity(
                             new Intent(ActivityView.this, ActivityCompose.class)
                                     .putExtra("action", "edit")
-                                    .putExtra("id", (Long) result.data));
+                                    .putExtra("id", id));
 
             }
         }.load(this, LOADER_EXCEPTION, new Bundle());
@@ -348,7 +348,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             Bundle args = new Bundle();
             args.putLong("time", new Date().getTime());
 
-            new SimpleLoader() {
+            new SimpleLoader<Object>() {
                 @Override
                 public Object onLoad(Bundle args) {
                     long time = args.getLong("time");
@@ -361,9 +361,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 }
 
                 @Override
-                public void onLoaded(Bundle args, Result result) {
-                    if (result.ex != null)
-                        Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
+                public void onException(Bundle args, Throwable ex) {
+                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
                 }
             }.load(this, LOADER_SEEN_UNTIL, args);
         }
@@ -471,7 +470,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
             } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
 
-                new SimpleLoader() {
+                new SimpleLoader<Object>() {
                     @Override
                     public Object onLoad(Bundle args) {
                         long id = args.getLong("id");
@@ -503,15 +502,17 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     }
 
                     @Override
-                    public void onLoaded(Bundle args, Result result) {
-                        if (result.ex == null) {
-                            FragmentMessage fragment = new FragmentMessage();
-                            fragment.setArguments(args);
-                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
-                            fragmentTransaction.commit();
-                        } else
-                            Toast.makeText(ActivityView.this, result.ex.toString(), Toast.LENGTH_LONG).show();
+                    public void onLoaded(Bundle args, Object result) {
+                        FragmentMessage fragment = new FragmentMessage();
+                        fragment.setArguments(args);
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
+                        fragmentTransaction.commit();
+                    }
+
+                    @Override
+                    public void onException(Bundle args, Throwable ex) {
+                        Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
                     }
                 }.load(ActivityView.this, LOADER_MESSAGE_VIEW, intent.getExtras());
 

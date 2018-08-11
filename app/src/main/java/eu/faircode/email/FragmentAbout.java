@@ -30,8 +30,6 @@ import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -40,8 +38,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentAbout extends FragmentEx {
-    private ExecutorService executor = Executors.newCachedThreadPool();
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,9 +54,9 @@ public class FragmentAbout extends FragmentEx {
             @Override
             public void onClick(View view) {
                 btnDebugInfo.setEnabled(false);
-                new SimpleLoader() {
+                new SimpleLoader<Long>() {
                     @Override
-                    public Object onLoad(Bundle args) throws UnsupportedEncodingException {
+                    public Long onLoad(Bundle args) throws UnsupportedEncodingException {
                         DB db = DB.getInstance(getContext());
 
                         EntityFolder drafts = db.folder().getPrimaryDrafts();
@@ -88,16 +84,17 @@ public class FragmentAbout extends FragmentEx {
                     }
 
                     @Override
-                    public void onLoaded(Bundle args, Result result) {
+                    public void onLoaded(Bundle args, Long id) {
                         btnDebugInfo.setEnabled(true);
+                        startActivity(new Intent(getContext(), ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
+                    }
 
-                        if (result.ex == null) {
-                            long id = (Long) result.data;
-                            startActivity(new Intent(getContext(), ActivityCompose.class)
-                                    .putExtra("action", "edit")
-                                    .putExtra("id", id));
-                        } else
-                            Toast.makeText(getContext(), executor.toString(), Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onException(Bundle args, Throwable ex) {
+                        btnDebugInfo.setEnabled(true);
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                     }
                 }.load(FragmentAbout.this, ActivityView.LOADER_DEBUG_INFO, new Bundle());
             }
