@@ -62,7 +62,6 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
-    private boolean newIntent = false;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
@@ -261,7 +260,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onNewIntent(Intent intent) {
-        newIntent = true;
+        getSupportFragmentManager().popBackStack("unified", 0);
         checkIntent(intent);
         super.onNewIntent(intent);
     }
@@ -276,11 +275,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
         lbm.registerReceiver(receiver, iff);
-
-        if (newIntent) {
-            newIntent = false;
-            getSupportFragmentManager().popBackStack("unified", 0);
-        }
     }
 
     @Override
