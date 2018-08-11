@@ -96,6 +96,7 @@ public class FragmentCompose extends FragmentEx {
 
     private AdapterAttachment adapter;
 
+    private boolean attaching = false;
     private String action = null;
     private long id = -1; // draft id
     private long account = -1;
@@ -318,7 +319,8 @@ public class FragmentCompose extends FragmentEx {
 
     @Override
     public void onPause() {
-        onAction(R.id.action_save);
+        if (!attaching)
+            onAction(R.id.action_save);
         super.onPause();
     }
 
@@ -349,6 +351,7 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onMenuAttachment() {
+        attaching = true;
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
@@ -484,6 +487,11 @@ public class FragmentCompose extends FragmentEx {
                     if (cursor != null)
                         cursor.close();
                 }
+            }
+
+            @Override
+            public void onLoaded(Bundle args, Void data) {
+                attaching = false;
             }
 
             @Override
