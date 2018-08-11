@@ -1180,19 +1180,17 @@ public class ServiceSynchronize extends LifecycleService {
             EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
             // Find by Message-ID
-            // - messages in archive have same id as original
             // - messages in inbox have same id as message sent to self
+            // - messages in archive have same id as original
             if (message == null &&
+                    !EntityFolder.SENT.equals(folder.type) &&
                     !EntityFolder.ARCHIVE.equals(folder.type)) {
-                String msgid = imessage.getMessageID();
-                message = db.message().getMessageByMsgId(folder.account, msgid);
+                String msgid = imessage.getMessageID(); // Will fetch headers
+                message = db.message().getMessageByMsgId(msgid);
                 if (message != null) {
                     Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
+                    message.folder = folder.id;
                     message.uid = uid;
-                    if (EntityFolder.SENT.equals(folder.type)) {
-                        Log.i(Helper.TAG, folder.name + " move from outbox");
-                        message.folder = folder.id; // outbox to sent
-                    }
                     db.message().updateMessage(message);
 /*
                     if (message.uid == null) {
@@ -1220,7 +1218,14 @@ public class ServiceSynchronize extends LifecycleService {
                 message.account = folder.account;
                 message.folder = folder.id;
                 message.uid = uid;
-                message.msgid = helper.getMessageID();
+
+                if (!EntityFolder.SENT.equals(folder.type) &&
+                        !EntityFolder.ARCHIVE.equals(folder.type)) {
+                    message.msgid = helper.getMessageID();
+                    if (TextUtils.isEmpty(message.msgid))
+                        Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+                }
+
                 message.references = TextUtils.join(" ", helper.getReferences());
                 message.inreplyto = helper.getInReplyTo();
                 message.thread = helper.getThreadId(uid);
@@ -1239,9 +1244,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                 message.id = db.message().insertMessage(message);
                 Log.v(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
-
-                if (TextUtils.isEmpty(message.msgid))
-                    Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 0;
                 for (EntityAttachment attachment : helper.getAttachments()) {
