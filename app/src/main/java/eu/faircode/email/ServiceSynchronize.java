@@ -175,7 +175,7 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Service start");
         super.onStartCommand(intent, flags, startId);
 
-        if ("unseen".equals(intent.getAction())) {
+        if (intent != null && "unseen".equals(intent.getAction())) {
             final long now = new Date().getTime();
             executor.submit(new Runnable() {
                 @Override
