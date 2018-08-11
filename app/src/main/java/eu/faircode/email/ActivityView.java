@@ -184,9 +184,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         new SimpleLoader<Long>() {
             @Override
             public Long onLoad(Bundle args) throws Throwable {
-                File file = new File(getCacheDir(), "crash.log");
+                File file = new File(getContext().getCacheDir(), "crash.log");
                 if (file.exists()) {
-                    DB db = DB.getInstance(ActivityView.this);
+                    DB db = DB.getInstance(getContext());
                     EntityFolder drafts = db.folder().getPrimaryDrafts();
                     if (drafts != null) {
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
@@ -352,7 +352,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 public Object onLoad(Bundle args) {
                     long time = args.getLong("time");
-                    DaoAccount dao = DB.getInstance(ActivityView.this).account();
+                    DaoAccount dao = DB.getInstance(getContext()).account();
                     for (EntityAccount account : dao.getAccounts(true)) {
                         account.seen_until = time;
                         dao.updateAccount(account);
