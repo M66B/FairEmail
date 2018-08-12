@@ -278,7 +278,7 @@ public class FragmentIdentity extends FragmentEx {
 
                             return null;
                         } finally {
-                            ServiceSynchronize.restart(getContext(), "account");
+                            ServiceSynchronize.restart(getContext(), "identity");
                         }
                     }
 

@@ -145,8 +145,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         Collections.sort(folders, new Comparator<TupleFolderEx>() {
             @Override
             public int compare(TupleFolderEx f1, TupleFolderEx f2) {
-                int s = ((Integer) EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type))
-                        .compareTo(EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                int s = Integer.compare(
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
                 if (s != 0)
                     return s;
                 int c = -f1.synchronize.compareTo(f2.synchronize);

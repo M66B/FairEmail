@@ -155,7 +155,7 @@ public class FragmentSetup extends FragmentEx {
         // Create outbox
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onLoad(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();

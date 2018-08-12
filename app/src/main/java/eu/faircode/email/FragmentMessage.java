@@ -337,7 +337,7 @@ public class FragmentMessage extends FragmentEx {
                             top_navigation.setVisibility(View.VISIBLE);
 
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!inOutbox && !inArchive && !inJunk && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && !inArchive && hasTrash);
+                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && hasTrash);
                             bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && (!inInbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!inOutbox && !inArchive && hasArchive);
                             bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);

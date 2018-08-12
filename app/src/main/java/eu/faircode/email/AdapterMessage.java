@@ -203,7 +203,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
     }
 
-    public static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
+    private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<TupleMessageEx>() {
                 @Override
                 public boolean areItemsTheSame(

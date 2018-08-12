@@ -185,8 +185,10 @@ public class FragmentMessages extends FragmentEx {
 
             @Override
             protected void onLoaded(Bundle args, Long account) {
-                fab.setTag(account);
-                fab.setVisibility(View.VISIBLE);
+                if (account != null) {
+                    fab.setTag(account);
+                    fab.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override

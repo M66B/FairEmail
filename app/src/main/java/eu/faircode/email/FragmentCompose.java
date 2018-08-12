@@ -317,12 +317,14 @@ public class FragmentCompose extends FragmentEx {
     private void handlePickContact(int requestCode, Intent data) {
         Cursor cursor = null;
         try {
-            cursor = getContext().getContentResolver().query(data.getData(),
-                    new String[]{
-                            ContactsContract.CommonDataKinds.Email.ADDRESS,
-                            ContactsContract.Contacts.DISPLAY_NAME
-                    },
-                    null, null, null);
+            Uri uri = data.getData();
+            if (uri != null)
+                cursor = getContext().getContentResolver().query(uri,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Email.ADDRESS,
+                                ContactsContract.Contacts.DISPLAY_NAME
+                        },
+                        null, null, null);
             if (cursor != null && cursor.moveToFirst()) {
                 int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                 int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
@@ -370,7 +372,8 @@ public class FragmentCompose extends FragmentEx {
                 Cursor cursor = null;
                 try {
                     Uri uri = args.getParcelable("uri");
-                    cursor = context.getContentResolver().query(uri, null, null, null, null, null);
+                    if (uri != null)
+                        cursor = context.getContentResolver().query(uri, null, null, null, null, null);
                     if (cursor == null || !cursor.moveToFirst())
                         return null;
 
@@ -479,11 +482,13 @@ public class FragmentCompose extends FragmentEx {
 
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
 
+            EntityMessage draft;
+
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
 
-                EntityMessage draft = db.message().getMessage(id);
+                draft = db.message().getMessage(id);
                 if (draft == null) {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Message to edit not found");
