@@ -38,7 +38,9 @@ import androidx.lifecycle.OnLifecycleEvent;
 //
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
-    private boolean alive = true;
+    private boolean paused = false;
+    private Bundle args = null;
+    private Result stored = null;
 
     public void load(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);
@@ -56,9 +58,25 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         run(fragment.getContext(), fragment.getViewLifecycleOwner(), args);
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public void onResume() {
+        paused = false;
+        if (stored != null) {
+            deliver(args, stored);
+            stored = null;
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    public void onPause() {
+        paused = true;
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroyed() {
-        alive = false;
+        paused = true;
+        args = null;
+        stored = null;
     }
 
     private void run(final Context context, LifecycleOwner owner, final Bundle args) {
@@ -79,14 +97,21 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
             @Override
             protected void onPostExecute(Result result) {
-                if (alive) {
-                    if (result.ex == null)
-                        onLoaded(args, (T) result.data);
-                    else
-                        onException(args, result.ex);
-                }
+                deliver(args, result);
             }
         }.execute(args);
+    }
+
+    private void deliver(Bundle args, Result result) {
+        if (paused) {
+            this.args = args;
+            this.stored = result;
+        } else {
+            if (result.ex == null)
+                onLoaded(args, (T) result.data);
+            else
+                onException(args, result.ex);
+        }
     }
 
     protected T onLoad(Context context, Bundle args) throws Throwable {
