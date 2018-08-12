@@ -97,6 +97,7 @@ public class FragmentCompose extends FragmentEx {
 
     private AdapterAttachment adapter;
 
+    private boolean autosave = true;
     private EntityMessage draft = null;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
@@ -256,12 +257,20 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("account", getArguments().getLong("account", -1));
             args.putLong("reference", getArguments().getLong("reference", -1));
             draftLoader.load(FragmentCompose.this, args);
+        } else {
+            Bundle args = new Bundle();
+            args.putString("action", "edit");
+            args.putLong("id", draft.id);
+            args.putLong("account", draft.account);
+            args.putLong("reference", -1);
+            draftLoader.load(FragmentCompose.this, args);
         }
     }
 
     @Override
     public void onPause() {
-        onAction(R.id.action_save);
+        if (autosave)
+            onAction(R.id.action_save);
         super.onPause();
     }
 
@@ -385,9 +394,10 @@ public class FragmentCompose extends FragmentEx {
                         db.beginTransaction();
 
                         EntityMessage draft = db.message().getMessageByMsgId(msgid);
+                        Log.i(Helper.TAG, "Attaching to id=" + draft.id);
 
                         attachment.message = draft.id;
-                        attachment.sequence = db.attachment().getAttachmentCount(draft.id);
+                        attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
                         attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
 
                         String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
@@ -402,6 +412,7 @@ public class FragmentCompose extends FragmentEx {
                         attachment.progress = 0;
 
                         attachment.id = db.attachment().insertAttachment(attachment);
+                        Log.i(Helper.TAG, "Created attachment seq=" + attachment.sequence + " name=" + attachment.name);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -593,6 +604,19 @@ public class FragmentCompose extends FragmentEx {
                     // New working copy
                     FragmentCompose.this.draft = draft;
 
+                    DB db = DB.getInstance(getContext());
+
+                    db.attachment().liveAttachments(draft.id).removeObservers(getViewLifecycleOwner());
+                    db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
+                            new Observer<List<TupleAttachment>>() {
+                                @Override
+                                public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                                    if (attachments != null)
+                                        adapter.set(attachments);
+                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                                }
+                            });
+
                     // Set controls only once
                     if (observed)
                         return;
@@ -633,8 +657,6 @@ public class FragmentCompose extends FragmentEx {
                         etTo.requestFocus();
 
                     bottom_navigation.getMenu().setGroupEnabled(0, true);
-
-                    DB db = DB.getInstance(getContext());
 
                     db.identity().liveIdentities(true).removeObservers(getViewLifecycleOwner());
                     db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
@@ -695,18 +717,6 @@ public class FragmentCompose extends FragmentEx {
 
                         }
                     });
-
-                    db.attachment().liveAttachments(draft.id).removeObservers(getViewLifecycleOwner());
-                    db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
-                            new Observer<List<TupleAttachment>>() {
-                                @Override
-                                public void onChanged(@Nullable List<TupleAttachment> attachments) {
-                                    if (attachments != null)
-                                        adapter.set(attachments);
-                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                                }
-                            });
-
                 }
             });
         }
@@ -730,12 +740,14 @@ public class FragmentCompose extends FragmentEx {
             String subject = args.getString("subject");
             String body = args.getString("body");
 
+            EntityMessage draft;
+
             // Get draft & selected identity
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
 
-                EntityMessage draft = db.message().getMessageByMsgId(id);
+                draft = db.message().getMessageByMsgId(id);
                 EntityIdentity identity = db.identity().getIdentity(iid);
 
                 // Draft deleted by server
@@ -799,6 +811,7 @@ public class FragmentCompose extends FragmentEx {
 
                         // Restore attachments
                         for (EntityAttachment attachment : attachments) {
+                            attachment.id = null;
                             attachment.message = draft.id;
                             db.attachment().insertAttachment(attachment);
                         }
@@ -841,6 +854,7 @@ public class FragmentCompose extends FragmentEx {
 
                     // Restore attachments
                     for (EntityAttachment attachment : attachments) {
+                        attachment.id = null;
                         attachment.message = draft.id;
                         db.attachment().insertAttachment(attachment);
                     }
@@ -869,11 +883,13 @@ public class FragmentCompose extends FragmentEx {
             bottom_navigation.getMenu().setGroupEnabled(0, true);
 
             if (action == R.id.action_trash) {
+                autosave = false;
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
             } else if (action == R.id.action_save)
                 Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
             else if (action == R.id.action_send) {
+                autosave = false;
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
             }
