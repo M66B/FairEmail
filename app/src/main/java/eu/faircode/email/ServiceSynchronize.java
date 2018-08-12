@@ -118,7 +118,7 @@ public class ServiceSynchronize extends LifecycleService {
     public void onCreate() {
         Log.i(Helper.TAG, "Service create");
         super.onCreate();
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0).build());
+        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -136,7 +136,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (stats != null) {
                     NotificationManager nm = getSystemService(NotificationManager.class);
                     nm.notify(NOTIFICATION_SYNCHRONIZE,
-                            getNotificationService(stats.accounts, stats.operations).build());
+                            getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
 
                     if (stats.unseen > 0) {
                         if (stats.unseen > prev_unseen) {
@@ -192,7 +192,7 @@ public class ServiceSynchronize extends LifecycleService {
         return START_STICKY;
     }
 
-    private Notification.Builder getNotificationService(int accounts, int operations) {
+    private Notification.Builder getNotificationService(int accounts, int operations, int unsent) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -217,7 +217,11 @@ public class ServiceSynchronize extends LifecycleService {
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
         if (operations > 0)
-            builder.setContentText(getResources().getQuantityString(R.plurals.title_notification_operations, operations, operations));
+            builder.setStyle(new Notification.BigTextStyle().setSummaryText(
+                    getResources().getQuantityString(R.plurals.title_notification_operations, operations, operations)));
+
+        if (unsent > 0)
+            builder.setContentText(getResources().getQuantityString(R.plurals.title_notification_unsent, unsent, unsent));
 
         return builder;
     }
@@ -922,7 +926,7 @@ public class ServiceSynchronize extends LifecycleService {
                 // Update state
                 if (message.thread == null)
                     message.thread = imessage.getMessageID();
-                message.sent = new Date().getTime();
+                message.sent = imessage.getSentDate().getTime();
                 message.seen = true;
                 message.ui_seen = true;
                 db.message().updateMessage(message);
