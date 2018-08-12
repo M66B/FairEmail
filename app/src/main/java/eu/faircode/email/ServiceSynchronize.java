@@ -1153,84 +1153,97 @@ public class ServiceSynchronize extends LifecycleService {
             boolean seen = helper.getSeen();
 
             DB db = DB.getInstance(this);
-            EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+            try {
+                db.beginTransaction();
 
-            // Find by Message-ID
-            // - messages in inbox have same id as message sent to self
-            // - messages in archive have same id as original
-            if (message == null &&
-                    !EntityFolder.SENT.equals(folder.type) &&
-                    !EntityFolder.ARCHIVE.equals(folder.type)) {
-                String msgid = imessage.getMessageID(); // Will fetch headers
-                message = db.message().getMessageByMsgId(msgid);
-                if (message != null) {
-                    Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
-                    message.folder = folder.id;
-                    message.uid = uid;
-                    db.message().updateMessage(message);
-                }
-            }
+                // Find message by uid (fast, no headers required)
+                EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
-            if (message == null) {
-                FetchProfile fp1 = new FetchProfile();
-                fp1.add(FetchProfile.Item.ENVELOPE);
-                fp1.add(FetchProfile.Item.CONTENT_INFO);
-                fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
-                fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
-                ifolder.fetch(new Message[]{imessage}, fp1);
-
-                message = new EntityMessage();
-                message.account = folder.account;
-                message.folder = folder.id;
-                message.uid = uid;
-
-                if (!EntityFolder.SENT.equals(folder.type) &&
+                // Find message by Message-ID (slow, headers required)
+                // - messages in inbox have same id as message sent to self
+                // - messages in archive have same id as original
+                if (message == null &&
+                        !EntityFolder.SENT.equals(folder.type) &&
                         !EntityFolder.ARCHIVE.equals(folder.type)) {
-                    message.msgid = helper.getMessageID();
-                    if (TextUtils.isEmpty(message.msgid))
-                        Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+                    // Will fetch headers within database transaction
+                    String msgid = imessage.getMessageID();
+                    message = db.message().getMessageByMsgId(msgid);
+                    if (message != null) {
+                        Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
+                        message.folder = folder.id;
+                        message.uid = uid;
+                        db.message().updateMessage(message);
+                    }
                 }
 
-                message.references = TextUtils.join(" ", helper.getReferences());
-                message.inreplyto = helper.getInReplyTo();
-                message.thread = helper.getThreadId(uid);
-                message.from = helper.getFrom();
-                message.to = helper.getTo();
-                message.cc = helper.getCc();
-                message.bcc = helper.getBcc();
-                message.reply = helper.getReply();
-                message.subject = imessage.getSubject();
-                message.body = helper.getHtml();
-                message.received = imessage.getReceivedDate().getTime();
-                message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
-                message.seen = seen;
-                message.ui_seen = seen;
-                message.ui_hide = false;
-
-                message.id = db.message().insertMessage(message);
-                Log.v(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
-
-                int sequence = 0;
-                for (EntityAttachment attachment : helper.getAttachments()) {
-                    sequence++;
-                    Log.i(Helper.TAG, "attachment seq=" + sequence +
-                            " name=" + attachment.name + " type=" + attachment.type);
-                    attachment.message = message.id;
-                    attachment.sequence = sequence;
-                    attachment.id = db.attachment().insertAttachment(attachment);
+                if (message != null) {
+                    if (message.seen != seen) {
+                        message.seen = seen;
+                        message.ui_seen = seen;
+                        db.message().updateMessage(message);
+                        Log.v(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
+                        return -1;
+                    } else {
+                        Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
+                        return 0;
+                    }
                 }
 
-                return 1;
-            } else if (message.seen != seen) {
-                message.seen = seen;
-                message.ui_seen = seen;
-                db.message().updateMessage(message);
-                Log.v(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
-                return -1;
-            } else {
-                Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
-                return 0;
+                db.setTransactionSuccessful();
+
+            } finally {
+                db.endTransaction();
             }
+
+            FetchProfile fp1 = new FetchProfile();
+            fp1.add(FetchProfile.Item.ENVELOPE);
+            fp1.add(FetchProfile.Item.CONTENT_INFO);
+            fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
+            fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            ifolder.fetch(new Message[]{imessage}, fp1);
+
+            EntityMessage message = new EntityMessage();
+            message.account = folder.account;
+            message.folder = folder.id;
+            message.uid = uid;
+
+            if (!EntityFolder.SENT.equals(folder.type) &&
+                    !EntityFolder.ARCHIVE.equals(folder.type)) {
+                message.msgid = helper.getMessageID();
+                if (TextUtils.isEmpty(message.msgid))
+                    Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+            }
+
+            message.references = TextUtils.join(" ", helper.getReferences());
+            message.inreplyto = helper.getInReplyTo();
+            message.thread = helper.getThreadId(uid);
+            message.from = helper.getFrom();
+            message.to = helper.getTo();
+            message.cc = helper.getCc();
+            message.bcc = helper.getBcc();
+            message.reply = helper.getReply();
+            message.subject = imessage.getSubject();
+            message.body = helper.getHtml();
+            message.received = imessage.getReceivedDate().getTime();
+            message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+            message.seen = seen;
+            message.ui_seen = seen;
+            message.ui_hide = false;
+
+            message.id = db.message().insertMessage(message);
+            Log.v(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+            int sequence = 0;
+            for (EntityAttachment attachment : helper.getAttachments()) {
+                sequence++;
+                Log.i(Helper.TAG, "attachment seq=" + sequence +
+                        " name=" + attachment.name + " type=" + attachment.type);
+                attachment.message = message.id;
+                attachment.sequence = sequence;
+                attachment.id = db.attachment().insertAttachment(attachment);
+            }
+
+            return 1;
 
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync uid=" + uid);
