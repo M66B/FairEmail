@@ -21,24 +21,24 @@ package eu.faircode.email;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 @Dao
 public interface DaoOperation {
+    @Query("SELECT * FROM operation WHERE message = :message ORDER BY id")
+    LiveData<List<EntityOperation>> getOperationsByMessage(long message);
+
     @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
-    List<EntityOperation> getOperations(long folder);
+    List<EntityOperation> getOperationsByFolder(long folder);
 
     @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
 
     @Insert
     long insertOperation(EntityOperation operation);
-
-    @Update
-    void updateOperation(EntityOperation operation);
 
     @Query("DELETE FROM operation WHERE id = :id")
     void deleteOperation(long id);

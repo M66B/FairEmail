@@ -39,6 +39,10 @@ import androidx.lifecycle.OnLifecycleEvent;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean alive = true;
 
+    public void load(Context context, LifecycleOwner owner, Bundle args) {
+        run(context, owner, args);
+    }
+
     public void load(AppCompatActivity activity, Bundle args) {
         run(activity, activity, args);
     }

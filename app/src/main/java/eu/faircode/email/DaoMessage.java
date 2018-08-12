@@ -98,6 +98,7 @@ public interface DaoMessage {
     @Query("SELECT uid FROM message WHERE folder = :folder AND received >= :received AND NOT uid IS NULL")
     List<Long> getUids(long folder, long received);
 
+    // in case of duplicate message IDs
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertMessage(EntityMessage message);
 

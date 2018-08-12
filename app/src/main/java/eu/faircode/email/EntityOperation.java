@@ -26,6 +26,7 @@ import android.util.Log;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,8 @@ public class EntityOperation {
     public String name;
     @NonNull
     public String args;
-    public String error;
+    @NonNull
+    public Long created;
 
     public static final String SEEN = "seen";
     public static final String ADD = "add";
@@ -96,6 +98,7 @@ public class EntityOperation {
         operation.message = message.id;
         operation.name = name;
         operation.args = jsonArray.toString();
+        operation.created = new Date().getTime();
         operation.id = db.operation().insertOperation(operation);
 
         Intent intent = new Intent();
@@ -129,8 +132,7 @@ public class EntityOperation {
             return (this.folder.equals(other.folder) &&
                     this.message.equals(other.message) &&
                     this.name.equals(other.name) &&
-                    this.args.equals(other.args) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    this.args.equals(other.args));
         } else
             return false;
     }

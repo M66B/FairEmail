@@ -66,7 +66,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
-    private boolean debug;
     private TextView tvFrom;
     private TextView tvTime;
     private TextView tvSubject;
@@ -86,6 +85,7 @@ public class FragmentMessage extends FragmentEx {
 
     private AdapterAttachment adapter;
 
+    private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     @Override
@@ -93,11 +93,10 @@ public class FragmentMessage extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
-        this.debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
-
         // Get arguments
         Bundle args = getArguments();
         final long id = (args == null ? -1 : args.getLong("id"));
+        debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
@@ -226,7 +225,7 @@ public class FragmentMessage extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttachment.setLayoutManager(llm);
 
-        adapter = new AdapterAttachment(getContext());
+        adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner());
         rvAttachment.setAdapter(adapter);
 
         return view;
@@ -246,21 +245,19 @@ public class FragmentMessage extends FragmentEx {
         db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
-                if (message == null || message.ui_hide) {
+                if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
                     // Message gone (moved, deleted)
                     if (FragmentMessage.this.isVisible())
                         getFragmentManager().popBackStack();
                 } else {
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
-                    String extra = (debug ? (message.ui_hide ? "HIDDEN " : "") + message.uid + "/" + message.id + " " : "");
-
                     tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvSubject.setText(message.subject);
 
-                    tvCount.setText(extra + Integer.toString(message.count));
-                    tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
+                    tvCount.setText(Integer.toString(message.count));
+                    tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
 
                     tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
                     tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
@@ -286,9 +283,6 @@ public class FragmentMessage extends FragmentEx {
                                     grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                                 }
                             });
-
-                    if (debug)
-                        message.error += (message.ui_hide ? " HIDDEN " : " ") + message.msgid + "/" + message.uid + "/" + message.id;
 
                     tvError.setText(message.error);
                     tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
@@ -629,12 +623,16 @@ public class FragmentMessage extends FragmentEx {
                     try {
                         db.beginTransaction();
 
-                        EntityMessage message = db.message().getMessage(id);
-                        message.ui_hide = true;
-                        db.message().updateMessage(message);
+                        if (debug && BuildConfig.DEBUG)
+                            db.message().deleteMessage(id);
+                        else {
+                            EntityMessage message = db.message().getMessage(id);
+                            message.ui_hide = true;
+                            db.message().updateMessage(message);
 
-                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                        EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
+                            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
+                        }
 
                         db.setTransactionSuccessful();
                     } finally {

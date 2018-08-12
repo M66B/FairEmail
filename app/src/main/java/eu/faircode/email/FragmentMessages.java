@@ -76,7 +76,9 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
-        adapter = new AdapterMessage(getContext(),
+        adapter = new AdapterMessage(
+                getContext(),
+                getViewLifecycleOwner(),
                 thread < 0
                         ? AdapterMessage.ViewType.FOLDER
                         : AdapterMessage.ViewType.THREAD);

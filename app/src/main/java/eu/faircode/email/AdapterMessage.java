@@ -31,7 +31,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
@@ -39,8 +46,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMessage.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
     private ViewType viewType;
+
     private boolean debug;
+    private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     enum ViewType {FOLDER, THREAD}
 
@@ -87,7 +97,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbLoading.setVisibility(View.VISIBLE);
         }
 
-        private void bindTo(TupleMessageEx message) {
+        private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
@@ -111,8 +121,25 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvCount.setVisibility(View.VISIBLE);
             }
 
-            if (debug)
-                message.error += (message.ui_hide ? " HIDDEN " : " ") + message.msgid + "/" + message.uid + "/" + message.id;
+            if (debug) {
+                DB db = DB.getInstance(context);
+                db.operation().getOperationsByMessage(message.id).removeObservers(owner);
+                db.operation().getOperationsByMessage(message.id).observe(owner, new Observer<List<EntityOperation>>() {
+                    @Override
+                    public void onChanged(List<EntityOperation> operations) {
+                        String text = message.error +
+                                "\n" + message.id + " " + df.format(new Date(message.received)) +
+                                "\n" + (message.ui_hide ? "HIDDEN " : " ") + message.uid + "/" + message.id +
+                                "\n" + message.msgid;
+                        for (EntityOperation op : operations)
+                            text += "\n" + op.name + " " + df.format(new Date(op.created));
+
+                        tvError.setText(text);
+                        tvError.setVisibility(View.VISIBLE);
+
+                    }
+                });
+            }
 
             tvError.setText(message.error);
             tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
@@ -165,9 +192,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
     }
 
-    AdapterMessage(Context context, ViewType viewType) {
+    AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType) {
         super(DIFF_CALLBACK);
         this.context = context;
+        this.owner = owner;
         this.viewType = viewType;
         this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
     }

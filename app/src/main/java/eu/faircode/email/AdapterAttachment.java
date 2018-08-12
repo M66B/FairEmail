@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,18 +41,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
-    private ExecutorService executor = Executors.newCachedThreadPool();
+    private LifecycleOwner owner;
 
     private List<TupleAttachment> all = new ArrayList<>();
     private List<TupleAttachment> filtered = new ArrayList<>();
@@ -140,58 +140,84 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         return;
                     }
 
+                    Bundle args = new Bundle();
+                    args.putLong("id", attachment.id);
+                    args.putSerializable("file", file);
+                    args.putSerializable("dir", dir);
+
                     // View
-                    executor.submit(new Runnable() {
+                    new SimpleTask<Void>() {
                         @Override
-                        public void run() {
-                            try {
-                                // Create file
-                                if (!file.exists()) {
-                                    dir.mkdir();
-                                    file.createNewFile();
+                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            File file = (File) args.getSerializable("file");
+                            File dir = (File) args.getSerializable("dir");
 
-                                    // Get attachment content
-                                    byte[] content = DB.getInstance(context).attachment().getContent(attachment.id);
+                            // Create file
+                            if (!file.exists()) {
+                                dir.mkdir();
+                                file.createNewFile();
 
-                                    // Write attachment content to file
-                                    FileOutputStream fos = null;
-                                    try {
-                                        fos = new FileOutputStream(file);
-                                        fos.write(content);
-                                    } finally {
-                                        if (fos != null)
-                                            fos.close();
-                                    }
+                                // Get attachment content
+                                byte[] content = DB.getInstance(context).attachment().getContent(id);
+
+                                // Write attachment content to file
+                                FileOutputStream fos = null;
+                                try {
+                                    fos = new FileOutputStream(file);
+                                    fos.write(content);
+                                } finally {
+                                    if (fos != null)
+                                        fos.close();
                                 }
-
-                                // Start viewer
-                                context.startActivity(intent);
-                            } catch (Throwable ex) {
-                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                             }
+
+                            return null;
                         }
-                    });
+
+                        @Override
+                        protected void onLoaded(Bundle args, Void data) {
+                            context.startActivity(intent);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }.load(context, owner, args);
                 } else {
-                    if (attachment.progress == null)
-                        // Download
-                        executor.submit(new Runnable() {
+                    if (attachment.progress == null) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", attachment.id);
+                        args.putLong("message", attachment.message);
+                        args.putInt("sequence", attachment.sequence);
+
+                        new SimpleTask<Void>() {
                             @Override
-                            public void run() {
+                            protected Void onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                long message = args.getLong("message");
+                                long sequence = args.getInt("sequence");
+
                                 // No need for a transaction
                                 DB db = DB.getInstance(context);
-                                db.attachment().setProgress(attachment.id, 0);
+                                db.attachment().setProgress(id, 0);
 
-                                EntityMessage message = db.message().getMessage(attachment.message);
-                                EntityOperation.queue(db, message, EntityOperation.ATTACHMENT, attachment.sequence);
+                                EntityMessage msg = db.message().getMessage(message);
+                                EntityOperation.queue(db, msg, EntityOperation.ATTACHMENT, sequence);
                                 EntityOperation.process(context);
+
+                                return null;
                             }
-                        });
+                        }.load(context, owner, args);
+                    }
                 }
         }
     }
 
-    AdapterAttachment(Context context) {
+    AdapterAttachment(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         setHasStableIds(true);
     }
 

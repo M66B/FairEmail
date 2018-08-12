@@ -710,7 +710,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " start process");
 
             DB db = DB.getInstance(this);
-            List<EntityOperation> ops = db.operation().getOperations(folder.id);
+            List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
             Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
             for (EntityOperation op : ops)
                 try {
@@ -719,11 +719,12 @@ public class ServiceSynchronize extends LifecycleService {
                             " msg=" + op.message +
                             " args=" + op.args);
 
+                    EntityMessage message = db.message().getMessage(op.message);
+                    if (message == null)
+                        throw new MessageRemovedException();
+
                     try {
                         JSONArray jargs = new JSONArray(op.args);
-                        EntityMessage message = db.message().getMessage(op.message);
-                        if (message == null)
-                            throw new MessageRemovedException();
 
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, message, jargs);
@@ -735,7 +736,7 @@ public class ServiceSynchronize extends LifecycleService {
                             doMove(folder, isession, istore, ifolder, message, jargs, db);
 
                         else if (EntityOperation.DELETE.equals(op.name))
-                            doDelete(folder, ifolder, message, db);
+                            doDelete(folder, ifolder, message, jargs, db);
 
                         else if (EntityOperation.SEND.equals(op.name))
                             doSend(db, message);
@@ -749,8 +750,8 @@ public class ServiceSynchronize extends LifecycleService {
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
-                        op.error = Helper.formatThrowable(ex);
-                        db.operation().updateOperation(op);
+                        message.error = Helper.formatThrowable(ex);
+                        db.message().updateMessage(message);
 
                         if (BuildConfig.DEBUG && ex instanceof NullPointerException) {
                             db.operation().deleteOperation(op.id);
@@ -786,9 +787,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs) throws MessagingException, JSONException {
         // Mark message (un)seen
-
         if (message.uid == null) {
-            Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id + " uid=" + message.uid);
+            Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id);
             return;
         }
 
@@ -814,12 +814,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException {
         // Move message
-
-        if (BuildConfig.DEBUG && message.uid == null) {
-            Log.w(Helper.TAG, "Move local message id=" + message.id);
-            db.message().deleteMessage(message.id);
-            return;
-        }
+        if (message.uid == null)
+            throw new IllegalArgumentException("MOVE local id=" + message.id);
 
         long id = jargs.getLong(0);
         EntityFolder target = db.folder().getFolder(id);
@@ -850,18 +846,17 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
+    private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Delete message
         if (message.uid == null)
-            Log.w(Helper.TAG, folder.name + " Delete local message id=" + message.id);
-        else {
-            Message imessage = ifolder.getMessageByUID(message.uid);
-            if (imessage == null)
-                throw new MessageRemovedException();
+            throw new IllegalArgumentException("DELETE local id=" + message.id);
 
-            imessage.setFlag(Flags.Flag.DELETED, true);
-            ifolder.expunge();
-        }
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        imessage.setFlag(Flags.Flag.DELETED, true);
+        ifolder.expunge();
 
         db.message().deleteMessage(message.id);
     }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7814b856d44afe54b8912106df1e673b",
+    "identityHash": "262ca4c3e0dbf6673b00b8b19fc219de",
     "entities": [
       {
         "tableName": "identity",
@@ -660,7 +660,7 @@
       },
       {
         "tableName": "operation",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT NOT NULL, `error` TEXT, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `folder` INTEGER NOT NULL, `message` INTEGER NOT NULL, `name` TEXT NOT NULL, `args` TEXT NOT NULL, `created` INTEGER NOT NULL, FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -693,10 +693,10 @@
             "notNull": true
           },
           {
-            "fieldPath": "error",
-            "columnName": "error",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -751,7 +751,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7814b856d44afe54b8912106df1e673b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"262ca4c3e0dbf6673b00b8b19fc219de\")"
     ]
   }
 }
