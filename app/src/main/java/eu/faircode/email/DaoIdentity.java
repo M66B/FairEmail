@@ -24,7 +24,6 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -43,7 +42,7 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     LiveData<EntityIdentity> liveIdentity(long id);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     long insertIdentity(EntityIdentity identity);
 
     @Update

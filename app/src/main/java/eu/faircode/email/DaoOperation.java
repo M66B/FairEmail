@@ -23,27 +23,23 @@ import java.util.List;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
 @Dao
 public interface DaoOperation {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insertOperation(EntityOperation operation);
-
     @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
     List<EntityOperation> getOperations(long folder);
 
     @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
 
+    @Insert
+    long insertOperation(EntityOperation operation);
+
     @Update
     void updateOperation(EntityOperation operation);
 
     @Query("DELETE FROM operation WHERE id = :id")
     void deleteOperation(long id);
-
-    @Query("DELETE FROM operation WHERE message = :id AND name = :name")
-    int deleteOperations(long id, String name);
 }

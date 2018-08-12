@@ -24,7 +24,6 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -63,7 +62,7 @@ public interface DaoAttachment {
     @Query("SELECT content FROM attachment WHERE id = :id")
     byte[] getContent(long id);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     long insertAttachment(EntityAttachment attachment);
 
     @Update

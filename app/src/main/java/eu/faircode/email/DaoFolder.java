@@ -24,7 +24,6 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -80,7 +79,7 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     long insertFolder(EntityFolder folder);
 
     @Update
