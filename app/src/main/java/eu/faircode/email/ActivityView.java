@@ -168,54 +168,62 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             protected Long onLoad(Context context, Bundle args) throws Throwable {
                 File file = new File(context.getCacheDir(), "crash.log");
                 if (file.exists()) {
+                    Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+
+                    // Get version info
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+                    sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+                    sb.append("\r\n");
+
+                    // Get device info
+                    sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+                    sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+                    sb.append(String.format("Model: %s\r\n", Build.MODEL));
+                    sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+                    sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+                    sb.append(String.format("Host: %s\r\n", Build.HOST));
+                    sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+                    sb.append(String.format("Id: %s\r\n", Build.ID));
+                    sb.append("\r\n");
+
+                    BufferedReader in = null;
+                    try {
+                        String line;
+                        in = new BufferedReader(new FileReader(file));
+                        while ((line = in.readLine()) != null)
+                            sb.append(line);
+                    } finally {
+                        if (in != null)
+                            in.close();
+                    }
+
+                    file.delete();
+
                     DB db = DB.getInstance(context);
-                    EntityFolder drafts = db.folder().getPrimaryDrafts();
-                    if (drafts != null) {
-                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+                    try {
+                        db.beginTransaction();
 
-                        // Get version info
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
-                        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
-                        sb.append("\r\n");
+                        EntityFolder drafts = db.folder().getPrimaryDrafts();
+                        if (drafts != null) {
+                            EntityMessage draft = new EntityMessage();
+                            draft.account = drafts.account;
+                            draft.folder = drafts.id;
+                            draft.to = new Address[]{to};
+                            draft.subject = context.getString(R.string.app_name) + " crash log";
+                            draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                            draft.received = new Date().getTime();
+                            draft.seen = false;
+                            draft.ui_seen = false;
+                            draft.ui_hide = false;
+                            draft.id = db.message().insertMessage(draft);
 
-                        // Get device info
-                        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
-                        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
-                        sb.append(String.format("Model: %s\r\n", Build.MODEL));
-                        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-                        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
-                        sb.append(String.format("Host: %s\r\n", Build.HOST));
-                        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
-                        sb.append(String.format("Id: %s\r\n", Build.ID));
-                        sb.append("\r\n");
-
-                        BufferedReader in = null;
-                        try {
-                            String line;
-                            in = new BufferedReader(new FileReader(file));
-                            while ((line = in.readLine()) != null)
-                                sb.append(line);
-                        } finally {
-                            if (in != null)
-                                in.close();
+                            return draft.id;
                         }
 
-                        EntityMessage draft = new EntityMessage();
-                        draft.account = drafts.account;
-                        draft.folder = drafts.id;
-                        draft.to = new Address[]{to};
-                        draft.subject = context.getString(R.string.app_name) + " crash log";
-                        draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-                        draft.received = new Date().getTime();
-                        draft.seen = false;
-                        draft.ui_seen = false;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
-
-                        file.delete();
-
-                        return draft.id;
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
                 }
 
@@ -327,11 +335,21 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected Void onLoad(Context context, Bundle args) {
                     long time = args.getLong("time");
-                    DaoAccount dao = DB.getInstance(context).account();
-                    for (EntityAccount account : dao.getAccounts(true)) {
-                        account.seen_until = time;
-                        dao.updateAccount(account);
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        for (EntityAccount account : db.account().getAccounts(true)) {
+                            account.seen_until = time;
+                            db.account().updateAccount(account);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
+
                     return null;
                 }
 
@@ -449,29 +467,30 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
-                        DB db = DB.getInstance(context);
-                        EntityMessage message = db.message().getMessage(id);
-                        EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (!EntityFolder.OUTBOX.equals(folder.type) &&
-                                !EntityFolder.ARCHIVE.equals(folder.type)) {
-                            if (!message.seen && !message.ui_seen) {
-                                try {
-                                    db.beginTransaction();
 
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage message = db.message().getMessage(id);
+                            EntityFolder folder = db.folder().getFolder(message.folder);
+                            if (!EntityFolder.OUTBOX.equals(folder.type) &&
+                                    !EntityFolder.ARCHIVE.equals(folder.type)) {
+                                if (!message.seen && !message.ui_seen) {
                                     message.ui_seen = !message.ui_seen;
                                     db.message().updateMessage(message);
 
                                     if (message.uid != null)
                                         EntityOperation.queue(db, message, EntityOperation.SEEN, message.ui_seen);
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
                                 }
-
-                                EntityOperation.process(context);
                             }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
                         }
+
+                        EntityOperation.process(context);
 
                         return null;
                     }

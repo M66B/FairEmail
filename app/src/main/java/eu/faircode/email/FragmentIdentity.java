@@ -42,7 +42,6 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Session;
@@ -212,6 +211,7 @@ public class FragmentIdentity extends FragmentEx {
                             String port = args.getString("port");
                             String user = args.getString("user");
                             String password = args.getString("password");
+                            boolean synchronize = args.getBoolean("synchronize");
 
                             if (TextUtils.isEmpty(name))
                                 throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
@@ -231,37 +231,37 @@ public class FragmentIdentity extends FragmentEx {
                             if (TextUtils.isEmpty(replyto))
                                 replyto = null;
 
-                            DB db = DB.getInstance(getContext());
-                            EntityIdentity identity = db.identity().getIdentity(id);
-                            boolean update = (identity != null);
-                            if (identity == null)
-                                identity = new EntityIdentity();
-                            identity.name = name;
-                            identity.email = email;
-                            identity.replyto = replyto;
-                            identity.account = account;
-                            identity.host = Objects.requireNonNull(host);
-                            identity.port = Integer.parseInt(port);
-                            identity.starttls = starttls;
-                            identity.user = user;
-                            identity.password = password;
-                            identity.synchronize = args.getBoolean("synchronize");
-                            identity.primary = (identity.synchronize && args.getBoolean("primary"));
-
                             // Check SMTP server
-                            if (identity.synchronize) {
+                            if (synchronize) {
                                 Properties props = MessageHelper.getSessionProperties();
                                 Session isession = Session.getInstance(props, null);
-                                Transport itransport = isession.getTransport(identity.starttls ? "smtp" : "smtps");
+                                Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
                                 try {
-                                    itransport.connect(identity.host, identity.port, identity.user, identity.password);
+                                    itransport.connect(host, Integer.parseInt(port), user, password);
                                 } finally {
                                     itransport.close();
                                 }
                             }
 
+                            DB db = DB.getInstance(getContext());
                             try {
                                 db.beginTransaction();
+
+                                EntityIdentity identity = db.identity().getIdentity(id);
+                                boolean update = (identity != null);
+                                if (identity == null)
+                                    identity = new EntityIdentity();
+                                identity.name = name;
+                                identity.email = email;
+                                identity.replyto = replyto;
+                                identity.account = account;
+                                identity.host = host;
+                                identity.port = Integer.parseInt(port);
+                                identity.starttls = starttls;
+                                identity.user = user;
+                                identity.password = password;
+                                identity.synchronize = synchronize;
+                                identity.primary = (identity.synchronize && args.getBoolean("primary"));
 
                                 if (identity.primary)
                                     db.identity().resetPrimary();

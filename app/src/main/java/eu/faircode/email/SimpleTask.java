@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
 
 //
@@ -41,6 +42,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     public void load(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);
+    }
+
+    public void load(LifecycleService service, Bundle args) {
+        run(service, service, args);
     }
 
     public void load(AppCompatActivity activity, Bundle args) {

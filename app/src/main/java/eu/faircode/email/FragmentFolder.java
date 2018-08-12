@@ -85,14 +85,21 @@ public class FragmentFolder extends FragmentEx {
                             int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
 
                             DB db = DB.getInstance(getContext());
-                            DaoFolder dao = db.folder();
-                            EntityFolder folder = dao.getFolder(id);
-                            folder.synchronize = synchronize;
-                            folder.after = days;
-                            dao.updateFolder(folder);
+                            try {
+                                db.beginTransaction();
 
-                            if (!folder.synchronize)
-                                db.message().deleteMessages(folder.id);
+                                EntityFolder folder = db.folder().getFolder(id);
+                                folder.synchronize = synchronize;
+                                folder.after = days;
+                                db.folder().updateFolder(folder);
+
+                                if (!folder.synchronize)
+                                    db.message().deleteMessages(folder.id);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
 
                             return null;
                         } finally {

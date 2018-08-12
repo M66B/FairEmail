@@ -34,6 +34,7 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
@@ -175,18 +176,36 @@ public class ServiceSynchronize extends LifecycleService {
         super.onStartCommand(intent, flags, startId);
 
         if (intent != null && "unseen".equals(intent.getAction())) {
-            final long now = new Date().getTime();
-            executor.submit(new Runnable() {
+            Bundle args = new Bundle();
+            args.putLong("time", new Date().getTime());
+
+            new SimpleTask<Void>() {
                 @Override
-                public void run() {
-                    DaoAccount dao = DB.getInstance(ServiceSynchronize.this).account();
-                    for (EntityAccount account : dao.getAccounts(true)) {
-                        account.seen_until = now;
-                        dao.updateAccount(account);
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    long time = args.getLong("time");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        for (EntityAccount account : db.account().getAccounts(true)) {
+                            account.seen_until = time;
+                            db.account().updateAccount(account);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
+
+                    return null;
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, Void data) {
                     Log.i(Helper.TAG, "Updated seen until");
                 }
-            });
+            }.load(ServiceSynchronize.this, args);
         }
 
         return START_STICKY;
@@ -362,11 +381,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                             for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
                                 Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
+
+                                // Monitor folders
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         IMAPFolder ifolder = null;
-                                        DB db = DB.getInstance(ServiceSynchronize.this);
                                         try {
                                             Log.i(Helper.TAG, folder.name + " start");
 
@@ -378,7 +398,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
 
                                             folder.error = null;
-                                            db.folder().updateFolder(folder);
+                                            DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
 
                                             monitorFolder(account, folder, fstore, ifolder, state);
 
@@ -387,7 +407,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             reportError(account.name, folder.name, ex);
 
                                             folder.error = Helper.formatThrowable(ex);
-                                            db.folder().updateFolder(folder);
+                                            DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
 
                                             // Cascade up
                                             if (!(ex instanceof FolderNotFoundException))
@@ -410,11 +430,13 @@ public class ServiceSynchronize extends LifecycleService {
                                 }, "sync.folder." + folder.id).start();
                             }
 
+                            // Listen for folder operations
                             IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
                             f.addDataType("account/" + account.id);
                             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                             lbm.registerReceiver(processReceiver, f);
 
+                            // Run folder operations
                             Log.i(Helper.TAG, "listen process folder");
                             for (final EntityFolder folder : db.folder().getFolders(account.id))
                                 if (!EntityFolder.OUTBOX.equals(folder.type))
@@ -610,9 +632,11 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, folder.name + " messages removed");
                     for (Message imessage : e.getMessages())
                         try {
-                            DB db = DB.getInstance(ServiceSynchronize.this);
                             long uid = ifolder.getUID(imessage);
+
+                            DB db = DB.getInstance(ServiceSynchronize.this);
                             int count = db.message().deleteMessage(folder.id, uid);
+
                             Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
                         } catch (MessageRemovedException ex) {
                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -993,10 +1017,10 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             Log.i(Helper.TAG, "Start sync folders");
 
-            DaoFolder dao = DB.getInstance(this).folder();
+            DB db = DB.getInstance(this);
 
             List<String> names = new ArrayList<>();
-            for (EntityFolder folder : dao.getUserFolders(account.id))
+            for (EntityFolder folder : db.folder().getUserFolders(account.id))
                 names.add(folder.name);
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
@@ -1020,7 +1044,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (selectable) {
                     Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join(",", attrs));
-                    EntityFolder folder = dao.getFolderByName(account.id, ifolder.getFullName());
+                    EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
@@ -1028,7 +1052,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.type = EntityFolder.USER;
                         folder.synchronize = false;
                         folder.after = EntityFolder.DEFAULT_USER_SYNC;
-                        dao.insertFolder(folder);
+                        db.folder().insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
                     } else
                         names.remove(folder.name);
@@ -1037,7 +1061,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             Log.i(Helper.TAG, "Delete local folder=" + names.size());
             for (String name : names)
-                dao.deleteFolder(account.id, name);
+                db.folder().deleteFolder(account.id, name);
         } finally {
             Log.i(Helper.TAG, "End sync folder");
         }
@@ -1048,7 +1072,6 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
             DB db = DB.getInstance(this);
-            DaoMessage dao = db.message();
 
             // Get reference times
             Calendar cal = Calendar.getInstance();
@@ -1062,11 +1085,11 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " ago=" + new Date(ago));
 
             // Delete old local messages
-            int old = dao.deleteMessagesBefore(folder.id, ago);
+            int old = db.message().deleteMessagesBefore(folder.id, ago);
             Log.i(Helper.TAG, folder.name + " local old=" + old);
 
             // Get list of local uids
-            List<Long> uids = dao.getUids(folder.id, ago);
+            List<Long> uids = db.message().getUids(folder.id, ago);
             Log.i(Helper.TAG, folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
@@ -1093,7 +1116,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Delete local messages not at remote
             Log.i(Helper.TAG, folder.name + " delete=" + uids.size());
             for (Long uid : uids) {
-                int count = dao.deleteMessage(folder.id, uid);
+                int count = db.message().deleteMessage(folder.id, uid);
                 Log.i(Helper.TAG, folder.name + " delete local uid=" + uid + " count=" + count);
             }
 
@@ -1102,27 +1125,19 @@ public class ServiceSynchronize extends LifecycleService {
             int updated = 0;
             int unchanged = 0;
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
-            for (int batch = 0; batch < imessages.length; batch += FETCH_BATCH_SIZE) {
-                Log.i(Helper.TAG, folder.name + " fetch @" + batch);
+            for (Message imessage : imessages)
                 try {
-                    db.beginTransaction();
-                    for (int i = 0; i < FETCH_BATCH_SIZE && batch + i < imessages.length; i++)
-                        try {
-                            int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[batch + i]);
-                            if (status > 0)
-                                added++;
-                            else if (status < 0)
-                                updated++;
-                            else
-                                unchanged++;
-                        } catch (MessageRemovedException ex) {
-                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
+                    int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
+                    if (status > 0)
+                        added++;
+                    else if (status < 0)
+                        updated++;
+                    else
+                        unchanged++;
+                } catch (MessageRemovedException ex) {
+                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
-            }
+
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.i(Helper.TAG, folder.name + " end sync");
@@ -1292,7 +1307,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         try {
                                             monitorAccount(account, state);
                                         } catch (Throwable ex) {
-                                            // Fallsafe
+                                            // Fall-safe
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                         }
                                     }

@@ -192,7 +192,6 @@ public class FragmentAccount extends FragmentEx {
                             throw new Throwable(getContext().getString(R.string.title_no_password));
 
                         // Check IMAP server / get folders
-                        DB db = DB.getInstance(getContext());
                         List<EntityFolder> folders = new ArrayList<>();
                         Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
                         IMAPStore istore = null;
@@ -234,6 +233,7 @@ public class FragmentAccount extends FragmentEx {
                                     }
 
                                     // Create entry
+                                    DB db = DB.getInstance(getContext());
                                     EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
                                     if (folder == null) {
                                         folder = new EntityFolder();
@@ -416,25 +416,24 @@ public class FragmentAccount extends FragmentEx {
                                 name = host + "/" + user;
 
                             DB db = DB.getInstance(getContext());
-
-                            EntityAccount account = db.account().getAccount(args.getLong("id"));
-                            boolean update = (account != null);
-                            if (account == null)
-                                account = new EntityAccount();
-                            account.name = name;
-                            account.host = host;
-                            account.port = Integer.parseInt(port);
-                            account.user = user;
-                            account.password = password;
-                            account.synchronize = synchronize;
-                            account.primary = (account.synchronize && args.getBoolean("primary"));
-
-                            // On disabling synchronization mark message seen until now
-                            if (!account.synchronize && account.synchronize != synchronize)
-                                account.seen_until = new Date().getTime();
-
                             try {
                                 db.beginTransaction();
+
+                                EntityAccount account = db.account().getAccount(args.getLong("id"));
+                                boolean update = (account != null);
+                                if (account == null)
+                                    account = new EntityAccount();
+                                account.name = name;
+                                account.host = host;
+                                account.port = Integer.parseInt(port);
+                                account.user = user;
+                                account.password = password;
+                                account.synchronize = synchronize;
+                                account.primary = (account.synchronize && args.getBoolean("primary"));
+
+                                // On disabling synchronization mark message seen until now
+                                if (!account.synchronize && account.synchronize != synchronize)
+                                    account.seen_until = new Date().getTime();
 
                                 if (account.primary)
                                     db.account().resetPrimary();
@@ -584,10 +583,8 @@ public class FragmentAccount extends FragmentEx {
         Bundle args = getArguments();
         long id = (args == null ? -1 : args.getLong("id", -1));
 
-        final DB db = DB.getInstance(getContext());
-
         // Observe
-        db.account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+        DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
                 etName.setText(account == null ? null : account.name);

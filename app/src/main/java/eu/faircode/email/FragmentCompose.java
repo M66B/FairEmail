@@ -374,28 +374,36 @@ public class FragmentCompose extends FragmentEx {
                     if (cursor == null || !cursor.moveToFirst())
                         return null;
 
-                    DB db = DB.getInstance(context);
-
                     String msgid = args.getString("msgid");
-                    EntityMessage draft = db.message().getMessageByMsgId(msgid);
-
                     EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = draft.id;
-                    attachment.sequence = db.attachment().getAttachmentCount(draft.id);
-                    attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
 
-                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
-                    if (extension != null)
-                        attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-                    if (extension == null)
-                        attachment.type = "application/octet-stream";
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
 
-                    String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+                        EntityMessage draft = db.message().getMessageByMsgId(msgid);
 
-                    attachment.size = (size == null ? null : Integer.parseInt(size));
-                    attachment.progress = 0;
+                        attachment.message = draft.id;
+                        attachment.sequence = db.attachment().getAttachmentCount(draft.id);
+                        attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
 
-                    attachment.id = db.attachment().insertAttachment(attachment);
+                        String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                        if (extension != null)
+                            attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                        if (extension == null)
+                            attachment.type = "application/octet-stream";
+
+                        String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+
+                        attachment.size = (size == null ? null : Integer.parseInt(size));
+                        attachment.progress = 0;
+
+                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
 
                     InputStream is = null;
                     try {
@@ -472,91 +480,91 @@ public class FragmentCompose extends FragmentEx {
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
 
             DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
 
-            EntityMessage draft = db.message().getMessage(id);
-            if (draft == null) {
-                if ("edit".equals(action))
-                    throw new IllegalStateException("Message to edit not found");
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft == null) {
+                    if ("edit".equals(action))
+                        throw new IllegalStateException("Message to edit not found");
+                } else
+                    return draft;
 
-                try {
-                    db.beginTransaction();
+                EntityMessage ref = db.message().getMessage(reference);
+                if (ref != null)
+                    account = ref.account;
 
-                    EntityMessage ref = db.message().getMessage(reference);
-                    if (ref != null)
-                        account = ref.account;
+                EntityFolder drafts;
+                drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
+                if (drafts == null)
+                    drafts = db.folder().getPrimaryDrafts();
 
-                    EntityFolder drafts;
-                    drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
-                    if (drafts == null)
-                        drafts = db.folder().getPrimaryDrafts();
+                draft = new EntityMessage();
+                draft.account = account;
+                draft.folder = drafts.id;
+                draft.msgid = draft.generateMessageId();
 
-                    draft = new EntityMessage();
-                    draft.account = account;
-                    draft.folder = drafts.id;
-                    draft.msgid = draft.generateMessageId();
+                if (ref != null) {
+                    draft.thread = ref.thread;
 
-                    if (ref != null) {
-                        draft.thread = ref.thread;
+                    if ("reply".equals(action)) {
+                        draft.replying = ref.id;
+                        draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                        draft.from = ref.to;
 
-                        if ("reply".equals(action)) {
-                            draft.replying = ref.id;
-                            draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                            draft.from = ref.to;
+                    } else if ("reply_all".equals(action)) {
+                        draft.replying = ref.id;
+                        List<Address> addresses = new ArrayList<>();
+                        if (draft.reply != null && ref.reply.length > 0)
+                            addresses.addAll(Arrays.asList(ref.reply));
+                        else if (draft.from != null)
+                            addresses.addAll(Arrays.asList(ref.from));
+                        if (draft.cc != null)
+                            addresses.addAll(Arrays.asList(ref.cc));
+                        draft.to = addresses.toArray(new Address[0]);
+                        draft.from = ref.to;
 
-                        } else if ("reply_all".equals(action)) {
-                            draft.replying = ref.id;
-                            List<Address> addresses = new ArrayList<>();
-                            if (draft.reply != null && ref.reply.length > 0)
-                                addresses.addAll(Arrays.asList(ref.reply));
-                            else if (draft.from != null)
-                                addresses.addAll(Arrays.asList(ref.from));
-                            if (draft.cc != null)
-                                addresses.addAll(Arrays.asList(ref.cc));
-                            draft.to = addresses.toArray(new Address[0]);
-                            draft.from = ref.to;
-
-                        } else if ("forward".equals(action)) {
-                            //msg.replying = ref.id;
-                            draft.from = ref.to;
-                        }
-
-                        if ("reply".equals(action) || "reply_all".equals(action)) {
-                            draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                            draft.body = String.format("<br><br>%s %s:<br><br>%s",
-                                    Html.escapeHtml(new Date().toString()),
-                                    Html.escapeHtml(TextUtils.join(", ", draft.to)),
-                                    HtmlHelper.sanitize(context, ref.body, true));
-                        } else if ("forward".equals(action)) {
-                            draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
-                            draft.body = String.format("<br><br>%s %s:<br><br>%s",
-                                    Html.escapeHtml(new Date().toString()),
-                                    Html.escapeHtml(TextUtils.join(", ", ref.from)),
-                                    HtmlHelper.sanitize(context, ref.body, true));
-                        }
+                    } else if ("forward".equals(action)) {
+                        //msg.replying = ref.id;
+                        draft.from = ref.to;
                     }
 
-                    if ("new".equals(action))
-                        draft.body = "";
-
-                    draft.received = new Date().getTime();
-                    draft.seen = false;
-                    draft.ui_seen = false;
-                    draft.ui_hide = false;
-
-                    draft.id = db.message().insertMessage(draft);
-                    draft.msgid = draft.generateMessageId();
-                    db.message().updateMessage(draft);
-                    args.putLong("id", draft.id);
-
-                    EntityOperation.queue(db, draft, EntityOperation.ADD);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
+                    if ("reply".equals(action) || "reply_all".equals(action)) {
+                        draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
+                        draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                                Html.escapeHtml(new Date().toString()),
+                                Html.escapeHtml(TextUtils.join(", ", draft.to)),
+                                HtmlHelper.sanitize(context, ref.body, true));
+                    } else if ("forward".equals(action)) {
+                        draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
+                        draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                                Html.escapeHtml(new Date().toString()),
+                                Html.escapeHtml(TextUtils.join(", ", ref.from)),
+                                HtmlHelper.sanitize(context, ref.body, true));
+                    }
                 }
 
-                EntityOperation.process(context);
+                if ("new".equals(action))
+                    draft.body = "";
+
+                draft.received = new Date().getTime();
+                draft.seen = false;
+                draft.ui_seen = false;
+                draft.ui_hide = false;
+
+                draft.id = db.message().insertMessage(draft);
+                draft.msgid = draft.generateMessageId();
+                db.message().updateMessage(draft);
+                args.putLong("id", draft.id);
+
+                EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
+
+            EntityOperation.process(context);
 
             return draft;
         }
@@ -566,9 +574,7 @@ public class FragmentCompose extends FragmentEx {
             FragmentCompose.this.draft = draft;
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " msgid=" + draft.msgid);
 
-            DB db = DB.getInstance(getContext());
-
-            db.message().liveMessageByMsgId(draft.msgid).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
+            DB.getInstance(getContext()).message().liveMessageByMsgId(draft.msgid).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 boolean observed = false;
 
                 @Override
@@ -623,7 +629,7 @@ public class FragmentCompose extends FragmentEx {
 
                     bottom_navigation.getMenu().setGroupEnabled(0, true);
 
-                    final DB db = DB.getInstance(getContext());
+                    DB db = DB.getInstance(getContext());
 
                     db.identity().liveIdentities(true).removeObservers(getViewLifecycleOwner());
                     db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
@@ -717,38 +723,38 @@ public class FragmentCompose extends FragmentEx {
 
             // Get draft & selected identity
             DB db = DB.getInstance(context);
-            EntityMessage draft = db.message().getMessageByMsgId(id);
-            EntityIdentity identity = db.identity().getIdentity(iid);
-
-            // Draft deleted by server
-            // TODO: better handling of remote deleted message
-            if (draft == null)
-                throw new MessageRemovedException();
-
-            Log.i(Helper.TAG, "Load action msgid=" + draft.msgid + " action=" + action);
-
-            // Convert data
-            Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
-            Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-            Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-            Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
-
-            // Update draft
-            draft.identity = (identity == null ? null : identity.id);
-            draft.from = afrom;
-            draft.to = ato;
-            draft.cc = acc;
-            draft.bcc = abcc;
-            draft.subject = subject;
-            draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
-            draft.received = new Date().getTime();
-
-            db.message().updateMessage(draft);
-
-            // Check data
             try {
                 db.beginTransaction();
 
+                EntityMessage draft = db.message().getMessageByMsgId(id);
+                EntityIdentity identity = db.identity().getIdentity(iid);
+
+                // Draft deleted by server
+                // TODO: better handling of remote deleted message
+                if (draft == null)
+                    throw new MessageRemovedException();
+
+                Log.i(Helper.TAG, "Load action id=" + draft.id + " msgid=" + draft.msgid + " action=" + action);
+
+                // Convert data
+                Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
+                Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+
+                // Update draft
+                draft.identity = (identity == null ? null : identity.id);
+                draft.from = afrom;
+                draft.to = ato;
+                draft.cc = acc;
+                draft.bcc = abcc;
+                draft.subject = subject;
+                draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                draft.received = new Date().getTime();
+
+                db.message().updateMessage(draft);
+
+                // Execute action
                 if (action == R.id.action_trash) {
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);

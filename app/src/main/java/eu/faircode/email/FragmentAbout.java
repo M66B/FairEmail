@@ -58,30 +58,37 @@ public class FragmentAbout extends FragmentEx {
                 new SimpleTask<Long>() {
                     @Override
                     protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
-                        DB db = DB.getInstance(context);
-
-                        EntityFolder drafts = db.folder().getPrimaryDrafts();
-                        if (drafts == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
-
                         StringBuilder info = Helper.getDebugInfo();
                         info.insert(0, context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
 
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
 
-                        EntityMessage draft = new EntityMessage();
-                        draft.account = drafts.account;
-                        draft.folder = drafts.id;
-                        draft.to = new Address[]{to};
-                        draft.subject = BuildConfig.APPLICATION_ID + " debug info";
-                        draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-                        draft.received = new Date().getTime();
-                        draft.seen = false;
-                        draft.ui_seen = false;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
 
-                        return draft.id;
+                            EntityFolder drafts = db.folder().getPrimaryDrafts();
+                            if (drafts == null)
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+
+                            EntityMessage draft = new EntityMessage();
+                            draft.account = drafts.account;
+                            draft.folder = drafts.id;
+                            draft.to = new Address[]{to};
+                            draft.subject = BuildConfig.APPLICATION_ID + " debug info";
+                            draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                            draft.received = new Date().getTime();
+                            draft.seen = false;
+                            draft.ui_seen = false;
+                            draft.ui_hide = false;
+                            draft.id = db.message().insertMessage(draft);
+
+                            db.setTransactionSuccessful();
+
+                            return draft.id;
+                        } finally {
+                            db.endTransaction();
+                        }
                     }
 
                     @Override

@@ -433,7 +433,7 @@ public class FragmentMessage extends FragmentEx {
         }.load(this, args);
     }
 
-    private void onActionEdit(long id) {
+    private void onActionEdit(final long id) {
         final MenuItem item = top_navigation.getMenu().findItem(R.id.action_edit);
         item.setEnabled(false);
 
@@ -443,22 +443,32 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleTask<Long>() {
+        new SimpleTask<Void>() {
             @Override
-            protected Long onLoad(Context context, Bundle args) {
+            protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
+
                 DB db = DB.getInstance(context);
-                EntityMessage draft = db.message().getMessage(id);
-                EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
-                draft.id = null;
-                draft.folder = drafts.id;
-                draft.uid = null;
-                draft.id = db.message().insertMessage(draft);
-                return id;
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage draft = db.message().getMessage(id);
+                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
+                    draft.id = null;
+                    draft.folder = drafts.id;
+                    draft.uid = null;
+                    draft.id = db.message().insertMessage(draft);
+
+                    db.setTransactionSuccessful();
+
+                    return null;
+                } finally {
+                    db.endTransaction();
+                }
             }
 
             @Override
-            protected void onLoaded(Bundle args, Long id) {
+            protected void onLoaded(Bundle args, Void data) {
                 item.setEnabled(true);
                 item.setIcon(icon);
                 getContext().startActivity(
@@ -508,6 +518,7 @@ public class FragmentMessage extends FragmentEx {
                             @Override
                             protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
+
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
@@ -570,6 +581,7 @@ public class FragmentMessage extends FragmentEx {
                                 @Override
                                 protected Void onLoad(Context context, Bundle args) {
                                     long id = args.getLong("id");
+
                                     DB db = DB.getInstance(context);
                                     try {
                                         db.beginTransaction();
@@ -667,15 +679,26 @@ public class FragmentMessage extends FragmentEx {
         new SimpleTask<List<EntityFolder>>() {
             @Override
             protected List<EntityFolder> onLoad(Context context, Bundle args) {
-                DB db = DB.getInstance(getContext());
-                EntityMessage message = db.message().getMessage(args.getLong("id"));
-                List<EntityFolder> folders = db.folder().getUserFolders(message.account);
+                EntityMessage message;
+                List<EntityFolder> folders;
 
-                for (int i = 0; i < folders.size(); i++)
-                    if (folders.get(i).id.equals(message.folder)) {
-                        folders.remove(i);
-                        break;
-                    }
+                DB db = DB.getInstance(getContext());
+                try {
+                    db.beginTransaction();
+
+                    message = db.message().getMessage(args.getLong("id"));
+                    folders = db.folder().getUserFolders(message.account);
+
+                    for (int i = 0; i < folders.size(); i++)
+                        if (folders.get(i).id.equals(message.folder)) {
+                            folders.remove(i);
+                            break;
+                        }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 final Collator collator = Collator.getInstance(Locale.getDefault());
                 collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -720,6 +743,7 @@ public class FragmentMessage extends FragmentEx {
                             protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
                                 long target = args.getLong("target");
+
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
@@ -777,6 +801,7 @@ public class FragmentMessage extends FragmentEx {
             @Override
             protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();

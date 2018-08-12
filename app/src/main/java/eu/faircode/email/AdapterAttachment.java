@@ -199,12 +199,20 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 long message = args.getLong("message");
                                 long sequence = args.getInt("sequence");
 
-                                // No need for a transaction
                                 DB db = DB.getInstance(context);
-                                db.attachment().setProgress(id, 0);
+                                try {
+                                    db.beginTransaction();
 
-                                EntityMessage msg = db.message().getMessage(message);
-                                EntityOperation.queue(db, msg, EntityOperation.ATTACHMENT, sequence);
+                                    db.attachment().setProgress(id, 0);
+
+                                    EntityMessage msg = db.message().getMessage(message);
+                                    EntityOperation.queue(db, msg, EntityOperation.ATTACHMENT, sequence);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
                                 EntityOperation.process(context);
 
                                 return null;

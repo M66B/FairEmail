@@ -157,15 +157,24 @@ public class FragmentSetup extends FragmentEx {
             @Override
             protected Void onLoad(Context context, Bundle args) throws Throwable {
                 DB db = DB.getInstance(context);
-                EntityFolder outbox = db.folder().getOutbox();
-                if (outbox == null) {
-                    outbox = new EntityFolder();
-                    outbox.name = "OUTBOX";
-                    outbox.type = EntityFolder.OUTBOX;
-                    outbox.synchronize = false;
-                    outbox.after = 0;
-                    outbox.id = db.folder().insertFolder(outbox);
+                try {
+                    db.beginTransaction();
+
+                    EntityFolder outbox = db.folder().getOutbox();
+                    if (outbox == null) {
+                        outbox = new EntityFolder();
+                        outbox.name = "OUTBOX";
+                        outbox.type = EntityFolder.OUTBOX;
+                        outbox.synchronize = false;
+                        outbox.after = 0;
+                        outbox.id = db.folder().insertFolder(outbox);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
+
                 return null;
             }
 
