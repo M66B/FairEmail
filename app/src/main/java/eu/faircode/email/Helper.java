@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import java.io.BufferedReader;
@@ -63,7 +64,10 @@ public class Helper {
     static void setViewsEnabled(ViewGroup view, boolean enabled) {
         for (int i = 0; i < view.getChildCount(); i++) {
             View child = view.getChildAt(i);
-            if (child instanceof Spinner || child instanceof EditText || child instanceof CheckBox)
+            if (child instanceof Spinner ||
+                    child instanceof EditText ||
+                    child instanceof CheckBox ||
+                    child instanceof ImageButton)
                 child.setEnabled(enabled);
             else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);

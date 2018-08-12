@@ -302,15 +302,16 @@ public class FragmentIdentity extends FragmentEx {
 
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder
                         .setMessage(R.string.title_identity_delete)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO: spinner
-                                getFragmentManager().popBackStack();
+                                Helper.setViewsEnabled(view, false);
+                                btnSave.setEnabled(false);
+                                pbWait.setVisibility(View.VISIBLE);
 
                                 Bundle args = new Bundle();
                                 args.putLong("id", id);
@@ -324,8 +325,14 @@ public class FragmentIdentity extends FragmentEx {
                                     }
 
                                     @Override
+                                    protected void onLoaded(Bundle args, Void data) {
+                                        getFragmentManager().popBackStack();
+                                    }
+
+                                    @Override
                                     protected void onException(Bundle args, Throwable ex) {
                                         Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                        // TODO: recover from error
                                     }
                                 }.load(FragmentIdentity.this, args);
                             }
