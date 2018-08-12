@@ -60,6 +60,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -279,8 +280,9 @@ public class FragmentMessage extends FragmentEx {
                             new Observer<List<TupleAttachment>>() {
                                 @Override
                                 public void onChanged(@Nullable List<TupleAttachment> attachments) {
-                                    adapter.set(attachments);
-                                    grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                                    if (attachments != null)
+                                        adapter.set(attachments);
+                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
                                 }
                             });
 
@@ -313,21 +315,22 @@ public class FragmentMessage extends FragmentEx {
                             boolean hasJunk = false;
                             boolean hasArchive = false;
                             boolean hasUser = false;
-                            for (EntityFolder folder : folders) {
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    hasTrash = true;
-                                else if (EntityFolder.JUNK.equals(folder.type))
-                                    hasJunk = true;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    hasArchive = true;
-                                else if (EntityFolder.USER.equals(folder.type))
-                                    hasUser = true;
-                            }
+                            if (folders != null)
+                                for (EntityFolder folder : folders) {
+                                    if (EntityFolder.TRASH.equals(folder.type))
+                                        hasTrash = true;
+                                    else if (EntityFolder.JUNK.equals(folder.type))
+                                        hasJunk = true;
+                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                        hasArchive = true;
+                                    else if (EntityFolder.USER.equals(folder.type))
+                                        hasUser = true;
+                                }
 
                             bottom_navigation.setTag(inTrash || !hasTrash);
 
                             top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox && !inArchive);
+                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
                             top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
                             top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
                             top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
@@ -335,7 +338,7 @@ public class FragmentMessage extends FragmentEx {
 
                             bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(!inOutbox && !inArchive && !inJunk && hasJunk);
                             bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(!inOutbox && !inArchive && hasTrash);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && !inArchive && (!inInbox || hasUser));
+                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(!inOutbox && (!inInbox || hasUser));
                             bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(!inOutbox && !inArchive && hasArchive);
                             bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                             bottom_navigation.setVisibility(View.VISIBLE);
@@ -372,6 +375,8 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onActionThread(long id) {
+        getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         Bundle args = new Bundle();
         args.putLong("thread", id); // message ID
 
@@ -402,11 +407,12 @@ public class FragmentMessage extends FragmentEx {
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    message.ui_seen = !message.ui_seen;
-                    db.message().updateMessage(message);
+                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                        tmessage.ui_seen = !message.ui_seen;
+                        db.message().updateMessage(tmessage);
 
-                    if (message.uid != null)
-                        EntityOperation.queue(db, message, EntityOperation.SEEN, message.ui_seen);
+                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
@@ -459,12 +465,17 @@ public class FragmentMessage extends FragmentEx {
                     draft.uid = null;
                     draft.id = db.message().insertMessage(draft);
 
+                    EntityOperation.queue(db, draft, EntityOperation.ADD);
+
                     db.setTransactionSuccessful();
 
-                    return null;
                 } finally {
                     db.endTransaction();
                 }
+
+                EntityOperation.process(context);
+
+                return null;
             }
 
             @Override
@@ -749,8 +760,11 @@ public class FragmentMessage extends FragmentEx {
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(id);
-                                    message.ui_hide = true;
-                                    db.message().updateMessage(message);
+                                    EntityFolder folder = db.folder().getFolder(message.folder);
+                                    if (!EntityFolder.ARCHIVE.equals(folder.type)) {
+                                        message.ui_hide = true;
+                                        db.message().updateMessage(message);
+                                    }
 
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, target);
 

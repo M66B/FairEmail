@@ -198,50 +198,50 @@ public class FragmentIdentity extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
-                        try {
-                            ServiceSynchronize.stop(getContext(), "account");
+                        long id = args.getLong("id");
+                        String name = args.getString("name");
+                        String email = args.getString("email");
+                        String replyto = args.getString("replyto");
+                        long account = args.getLong("account");
+                        String host = args.getString("host");
+                        boolean starttls = args.getBoolean("starttls");
+                        String port = args.getString("port");
+                        String user = args.getString("user");
+                        String password = args.getString("password");
+                        boolean synchronize = args.getBoolean("synchronize");
 
-                            long id = args.getLong("id");
-                            String name = args.getString("name");
-                            String email = args.getString("email");
-                            String replyto = args.getString("replyto");
-                            long account = args.getLong("account");
-                            String host = args.getString("host");
-                            boolean starttls = args.getBoolean("starttls");
-                            String port = args.getString("port");
-                            String user = args.getString("user");
-                            String password = args.getString("password");
-                            boolean synchronize = args.getBoolean("synchronize");
+                        if (TextUtils.isEmpty(name))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
+                        if (TextUtils.isEmpty(email))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
+                        if (account < 0)
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
+                        if (TextUtils.isEmpty(host))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
+                        if (TextUtils.isEmpty(port))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
+                        if (TextUtils.isEmpty(user))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
+                        if (TextUtils.isEmpty(password))
+                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
-                            if (TextUtils.isEmpty(name))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
-                            if (TextUtils.isEmpty(email))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
-                            if (account < 0)
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
-                            if (TextUtils.isEmpty(host))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
-                            if (TextUtils.isEmpty(port))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
-                            if (TextUtils.isEmpty(user))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
-                            if (TextUtils.isEmpty(password))
-                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
+                        if (TextUtils.isEmpty(replyto))
+                            replyto = null;
 
-                            if (TextUtils.isEmpty(replyto))
-                                replyto = null;
-
-                            // Check SMTP server
-                            if (synchronize) {
-                                Properties props = MessageHelper.getSessionProperties();
-                                Session isession = Session.getInstance(props, null);
-                                Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
-                                try {
-                                    itransport.connect(host, Integer.parseInt(port), user, password);
-                                } finally {
-                                    itransport.close();
-                                }
+                        // Check SMTP server
+                        if (synchronize) {
+                            Properties props = MessageHelper.getSessionProperties();
+                            Session isession = Session.getInstance(props, null);
+                            Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
+                            try {
+                                itransport.connect(host, Integer.parseInt(port), user, password);
+                            } finally {
+                                itransport.close();
                             }
+                        }
+
+                        try {
+                            ServiceSynchronize.stop(getContext(), "identity");
 
                             DB db = DB.getInstance(getContext());
                             try {
@@ -388,6 +388,9 @@ public class FragmentIdentity extends FragmentEx {
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
                     @Override
                     public void onChanged(List<EntityAccount> accounts) {
+                        if (accounts == null)
+                            return;
+
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
                         unselected.name = "";

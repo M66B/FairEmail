@@ -635,6 +635,9 @@ public class FragmentCompose extends FragmentEx {
                     db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
                         @Override
                         public void onChanged(@Nullable final List<EntityIdentity> identities) {
+                            if (identities == null)
+                                return;
+
                             Log.i(Helper.TAG, "Set identities=" + identities.size());
 
                             // Sort identities
@@ -693,8 +696,9 @@ public class FragmentCompose extends FragmentEx {
                             new Observer<List<TupleAttachment>>() {
                                 @Override
                                 public void onChanged(@Nullable List<TupleAttachment> attachments) {
-                                    adapter.set(attachments);
-                                    grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                                    if (attachments != null)
+                                        adapter.set(attachments);
+                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
                                 }
                             });
 

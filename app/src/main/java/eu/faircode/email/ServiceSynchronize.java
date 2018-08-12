@@ -134,21 +134,22 @@ public class ServiceSynchronize extends LifecycleService {
 
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
-                if (stats != null) {
-                    NotificationManager nm = getSystemService(NotificationManager.class);
-                    nm.notify(NOTIFICATION_SYNCHRONIZE,
-                            getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
+                if (stats == null)
+                    return;
 
-                    if (stats.unseen > 0) {
-                        if (stats.unseen > prev_unseen) {
-                            nm.cancel(NOTIFICATION_UNSEEN);
-                            nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(stats.unseen).build());
-                        }
-                    } else
+                NotificationManager nm = getSystemService(NotificationManager.class);
+                nm.notify(NOTIFICATION_SYNCHRONIZE,
+                        getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
+
+                if (stats.unseen > 0) {
+                    if (stats.unseen > prev_unseen) {
                         nm.cancel(NOTIFICATION_UNSEEN);
+                        nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(stats.unseen).build());
+                    }
+                } else
+                    nm.cancel(NOTIFICATION_UNSEEN);
 
-                    prev_unseen = stats.unseen;
-                }
+                prev_unseen = stats.unseen;
             }
         });
     }
@@ -762,7 +763,7 @@ public class ServiceSynchronize extends LifecycleService {
                             JSONArray jargs = new JSONArray(op.args);
 
                             if (EntityOperation.SEEN.equals(op.name))
-                                doSeen(folder, ifolder, message, jargs);
+                                doSeen(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.ADD.equals(op.name))
                                 doAdd(folder, ifolder, message, db);
@@ -821,18 +822,22 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs) throws MessagingException, JSONException {
+    private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
         if (message.uid == null) {
             Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id);
             return;
         }
 
+        boolean seen = jargs.getBoolean(0);
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
 
-        imessage.setFlag(Flags.Flag.SEEN, jargs.getBoolean(0));
+        imessage.setFlag(Flags.Flag.SEEN, seen);
+
+        message.seen = seen;
+        db.message().updateMessage(message);
     }
 
     private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
@@ -873,8 +878,10 @@ public class ServiceSynchronize extends LifecycleService {
             for (EntityAttachment attachment : attachments)
                 attachment.content = db.attachment().getContent(attachment.id);
 
-            imessage.setFlag(Flags.Flag.DELETED, true);
-            ifolder.expunge();
+            if (!EntityFolder.ARCHIVE.equals(folder.type)) {
+                imessage.setFlag(Flags.Flag.DELETED, true);
+                ifolder.expunge();
+            }
 
             MimeMessageEx icopy = MessageHelper.from(message, attachments, isession);
             Folder itarget = istore.getFolder(target.name);
@@ -1177,6 +1184,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             DB db = DB.getInstance(this);
             try {
+                int result = 0;
                 db.beginTransaction();
 
                 // Find message by uid (fast, no headers required)
@@ -1192,10 +1200,14 @@ public class ServiceSynchronize extends LifecycleService {
                     String msgid = imessage.getMessageID();
                     message = db.message().getMessageByMsgId(msgid);
                     if (message != null) {
-                        Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
-                        message.folder = folder.id;
-                        message.uid = uid;
-                        db.message().updateMessage(message);
+                        if (message.folder == folder.id || EntityFolder.OUTBOX.equals(folder.type)) {
+                            Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
+                            message.folder = folder.id;
+                            message.uid = uid;
+                            db.message().updateMessage(message);
+                            result = -1;
+                        } else
+                            message = null;
                     }
                 }
 
@@ -1204,15 +1216,16 @@ public class ServiceSynchronize extends LifecycleService {
                         message.seen = seen;
                         message.ui_seen = seen;
                         db.message().updateMessage(message);
-                        Log.v(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid);
-                        return -1;
-                    } else {
+                        Log.v(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
+                        result = -1;
+                    } else
                         Log.v(Helper.TAG, folder.name + " unchanged id=" + message.id + " uid=" + message.uid);
-                        return 0;
-                    }
                 }
 
                 db.setTransactionSuccessful();
+
+                if (message != null)
+                    return result;
 
             } finally {
                 db.endTransaction();

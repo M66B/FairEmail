@@ -45,7 +45,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"identity"}),
                 @Index(value = {"replying"}),
                 @Index(value = {"folder", "uid"}, unique = true),
-                @Index(value = {"msgid"}, unique = true),
+                @Index(value = {"msgid", "folder"}, unique = true),
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),

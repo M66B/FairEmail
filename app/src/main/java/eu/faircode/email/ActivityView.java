@@ -129,18 +129,20 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this, R.layout.item_drawer);
 
-                final Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+                if (accounts != null) {
+                    final Collator collator = Collator.getInstance(Locale.getDefault());
+                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-                Collections.sort(accounts, new Comparator<EntityAccount>() {
-                    @Override
-                    public int compare(EntityAccount a1, EntityAccount a2) {
-                        return collator.compare(a1.name, a2.name);
-                    }
-                });
+                    Collections.sort(accounts, new Comparator<EntityAccount>() {
+                        @Override
+                        public int compare(EntityAccount a1, EntityAccount a2) {
+                            return collator.compare(a1.name, a2.name);
+                        }
+                    });
 
-                for (EntityAccount account : accounts)
-                    drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
+                    for (EntityAccount account : accounts)
+                        drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
+                }
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
@@ -474,16 +476,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (!EntityFolder.OUTBOX.equals(folder.type) &&
-                                    !EntityFolder.ARCHIVE.equals(folder.type)) {
-                                if (!message.seen && !message.ui_seen) {
-                                    message.ui_seen = !message.ui_seen;
-                                    db.message().updateMessage(message);
+                            if (!EntityFolder.OUTBOX.equals(folder.type))
+                                for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                                    tmessage.ui_seen = true;
+                                    db.message().updateMessage(tmessage);
 
-                                    if (message.uid != null)
-                                        EntityOperation.queue(db, message, EntityOperation.SEEN, message.ui_seen);
+                                    EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
                                 }
-                            }
 
                             db.setTransactionSuccessful();
                         } finally {

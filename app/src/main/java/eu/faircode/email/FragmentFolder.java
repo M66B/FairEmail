@@ -145,10 +145,13 @@ public class FragmentFolder extends FragmentEx {
         DB.getInstance(getContext()).folder().liveFolder(id).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
             @Override
             public void onChanged(@Nullable EntityFolder folder) {
-                if (folder != null) {
-                    cbSynchronize.setChecked(folder.synchronize);
-                    etAfter.setText(Integer.toString(folder.after));
+                if (folder == null) {
+                    getFragmentManager().popBackStack();
+                    return;
                 }
+
+                cbSynchronize.setChecked(folder.synchronize);
+                etAfter.setText(Integer.toString(folder.after));
 
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);

@@ -93,7 +93,8 @@ public class FragmentAccounts extends FragmentEx {
         DB.getInstance(getContext()).account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                adapter.set(accounts);
+                if (accounts != null)
+                    adapter.set(accounts);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

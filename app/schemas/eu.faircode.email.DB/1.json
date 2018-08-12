@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "262ca4c3e0dbf6673b00b8b19fc219de",
+    "identityHash": "984985d3928b4abdec0802b65e820b2b",
     "entities": [
       {
         "tableName": "identity",
@@ -479,12 +479,13 @@
             "createSql": "CREATE UNIQUE INDEX `index_message_folder_uid` ON `${TABLE_NAME}` (`folder`, `uid`)"
           },
           {
-            "name": "index_message_msgid",
+            "name": "index_message_msgid_folder",
             "unique": true,
             "columnNames": [
-              "msgid"
+              "msgid",
+              "folder"
             ],
-            "createSql": "CREATE UNIQUE INDEX `index_message_msgid` ON `${TABLE_NAME}` (`msgid`)"
+            "createSql": "CREATE UNIQUE INDEX `index_message_msgid_folder` ON `${TABLE_NAME}` (`msgid`, `folder`)"
           },
           {
             "name": "index_message_thread",
@@ -751,7 +752,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"262ca4c3e0dbf6673b00b8b19fc219de\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"984985d3928b4abdec0802b65e820b2b\")"
     ]
   }
 }

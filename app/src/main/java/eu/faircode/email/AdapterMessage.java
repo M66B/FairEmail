@@ -129,10 +129,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     public void onChanged(List<EntityOperation> operations) {
                         String text = message.error +
                                 "\n" + message.id + " " + df.format(new Date(message.received)) +
-                                "\n" + (message.ui_hide ? "HIDDEN " : " ") + message.uid + "/" + message.id +
+                                "\n" + (message.ui_hide ? "HIDDEN " : "") +
+                                "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
+                                " " + message.uid + "/" + message.id +
                                 "\n" + message.msgid;
-                        for (EntityOperation op : operations)
-                            text += "\n" + op.name + " " + df.format(new Date(op.created));
+                        if (operations != null)
+                            for (EntityOperation op : operations)
+                                text += "\n" + op.name + " " + df.format(new Date(op.created));
 
                         tvError.setText(text);
                         tvError.setVisibility(View.VISIBLE);

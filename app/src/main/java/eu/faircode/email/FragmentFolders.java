@@ -92,7 +92,7 @@ public class FragmentFolders extends FragmentEx {
         db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
-                setSubtitle(account.name);
+                setSubtitle(account == null ? null : account.name);
             }
         });
 
@@ -100,6 +100,11 @@ public class FragmentFolders extends FragmentEx {
         db.folder().liveFolders(account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                if (folders == null) {
+                    getFragmentManager().popBackStack();
+                    return;
+                }
+
                 adapter.set(folders);
 
                 pbWait.setVisibility(View.GONE);

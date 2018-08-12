@@ -137,6 +137,11 @@ public class FragmentMessages extends FragmentEx {
         messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                if (messages == null) {
+                    getFragmentManager().popBackStack();
+                    return;
+                }
+
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
 
@@ -161,17 +166,19 @@ public class FragmentMessages extends FragmentEx {
 
                 DB db = DB.getInstance(context);
 
-                Long account;
-                if (thread < 0)
-                    if (folder < 0)
-                        return db.folder().getPrimaryDrafts().account;
-                    else
+                Long account = null;
+                if (thread < 0) {
+                    if (folder >= 0)
                         account = db.folder().getFolder(folder).account;
-                else
+                } else
                     account = db.message().getMessage(thread).account;
 
-                if (account == null) // outbox
-                    account = db.folder().getPrimaryDrafts().account;
+                if (account == null) {
+                    // outbox
+                    EntityFolder primary = db.folder().getPrimaryDrafts();
+                    if (primary != null)
+                        account = primary.account;
+                }
 
                 return account;
             }

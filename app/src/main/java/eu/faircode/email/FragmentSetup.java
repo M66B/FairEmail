@@ -196,14 +196,14 @@ public class FragmentSetup extends FragmentEx {
         db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                tvAccountDone.setVisibility(accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                tvAccountDone.setVisibility(accounts != null && accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
 
         db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
-                tvIdentityDone.setVisibility(identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                tvIdentityDone.setVisibility(identities != null && identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
     }

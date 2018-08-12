@@ -321,6 +321,9 @@ public class FragmentAccount extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
+                        Helper.setViewsEnabled(view, true);
+                        btnCheck.setEnabled(true);
+                        pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
                         Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
@@ -372,48 +375,48 @@ public class FragmentAccount extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        String name = args.getString("name");
+                        String host = args.getString("host");
+                        String port = args.getString("port");
+                        String user = args.getString("user");
+                        String password = args.getString("password");
+                        boolean synchronize = args.getBoolean("synchronize");
+                        EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
+                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
+                        EntityFolder all = (EntityFolder) args.getSerializable("all");
+                        EntityFolder trash = (EntityFolder) args.getSerializable("trash");
+                        EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+
+                        if (TextUtils.isEmpty(host))
+                            throw new Throwable(getContext().getString(R.string.title_no_host));
+                        if (TextUtils.isEmpty(port))
+                            throw new Throwable(getContext().getString(R.string.title_no_port));
+                        if (TextUtils.isEmpty(user))
+                            throw new Throwable(getContext().getString(R.string.title_no_user));
+                        if (TextUtils.isEmpty(password))
+                            throw new Throwable(getContext().getString(R.string.title_no_password));
+                        if (drafts == null)
+                            throw new Throwable(getContext().getString(R.string.title_no_drafts));
+
+                        // Check IMAP server
+                        Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                        IMAPStore istore = null;
                         try {
-                            ServiceSynchronize.stop(getContext(), "folder");
+                            istore = (IMAPStore) isession.getStore("imaps");
+                            istore.connect(host, Integer.parseInt(port), user, password);
 
-                            String name = args.getString("name");
-                            String host = args.getString("host");
-                            String port = args.getString("port");
-                            String user = args.getString("user");
-                            String password = args.getString("password");
-                            boolean synchronize = args.getBoolean("synchronize");
-                            EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
-                            EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-                            EntityFolder all = (EntityFolder) args.getSerializable("all");
-                            EntityFolder trash = (EntityFolder) args.getSerializable("trash");
-                            EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+                            if (!istore.hasCapability("IDLE"))
+                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
+                        } finally {
+                            if (istore != null)
+                                istore.close();
+                        }
 
-                            if (TextUtils.isEmpty(host))
-                                throw new Throwable(getContext().getString(R.string.title_no_host));
-                            if (TextUtils.isEmpty(port))
-                                throw new Throwable(getContext().getString(R.string.title_no_port));
-                            if (TextUtils.isEmpty(user))
-                                throw new Throwable(getContext().getString(R.string.title_no_user));
-                            if (TextUtils.isEmpty(password))
-                                throw new Throwable(getContext().getString(R.string.title_no_password));
-                            if (drafts == null)
-                                throw new Throwable(getContext().getString(R.string.title_no_drafts));
+                        if (TextUtils.isEmpty(name))
+                            name = host + "/" + user;
 
-                            // Check IMAP server
-                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
-                            IMAPStore istore = null;
-                            try {
-                                istore = (IMAPStore) isession.getStore("imaps");
-                                istore.connect(host, Integer.parseInt(port), user, password);
-
-                                if (!istore.hasCapability("IDLE"))
-                                    throw new MessagingException(getContext().getString(R.string.title_no_idle));
-                            } finally {
-                                if (istore != null)
-                                    istore.close();
-                            }
-
-                            if (TextUtils.isEmpty(name))
-                                name = host + "/" + user;
+                        try {
+                            ServiceSynchronize.stop(getContext(), "account");
 
                             DB db = DB.getInstance(getContext());
                             try {
