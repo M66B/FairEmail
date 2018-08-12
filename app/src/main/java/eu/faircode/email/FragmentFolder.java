@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +34,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
@@ -77,8 +73,47 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("after", etAfter.getText().toString());
 
-                LoaderManager.getInstance(FragmentFolder.this)
-                        .restartLoader(ActivityView.LOADER_FOLDER_PUT, args, putLoaderCallbacks).forceLoad();
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        try {
+                            ServiceSynchronize.stop(getContext(), "folder");
+
+                            long id = args.getLong("id");
+                            boolean synchronize = args.getBoolean("synchronize");
+                            String after = args.getString("after");
+                            int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
+
+                            DB db = DB.getInstance(getContext());
+                            DaoFolder dao = db.folder();
+                            EntityFolder folder = dao.getFolder(id);
+                            folder.synchronize = synchronize;
+                            folder.after = days;
+                            dao.updateFolder(folder);
+
+                            if (!folder.synchronize)
+                                db.message().deleteMessages(folder.id);
+
+                            return null;
+                        } finally {
+                            ServiceSynchronize.restart(getContext(), "folder");
+                        }
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        getFragmentManager().popBackStack();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.setViewsEnabled(view, true);
+                        btnSave.setEnabled(true);
+                        pbSave.setVisibility(View.GONE);
+
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentFolder.this, args);
             }
         });
 
@@ -114,79 +149,4 @@ public class FragmentFolder extends FragmentEx {
             }
         });
     }
-
-    private static class PutLoader extends AsyncTaskLoader<Throwable> {
-        private Bundle args;
-
-        PutLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        protected void onStartLoading() {
-            forceLoad();
-        }
-
-        @Override
-        public Throwable loadInBackground() {
-            try {
-                ServiceSynchronize.stop(getContext(), "folder");
-
-                long id = args.getLong("id");
-                boolean synchronize = args.getBoolean("synchronize");
-                String after = args.getString("after");
-                int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
-
-                DB db = DB.getInstance(getContext());
-                DaoFolder dao = db.folder();
-                EntityFolder folder = dao.getFolder(id);
-                folder.synchronize = synchronize;
-                folder.after = days;
-                dao.updateFolder(folder);
-
-                if (!folder.synchronize)
-                    db.message().deleteMessages(folder.id);
-
-                return null;
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return ex;
-            } finally {
-                ServiceSynchronize.restart(getContext(), "folder");
-            }
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks putLoaderCallbacks = new LoaderManager.LoaderCallbacks<Throwable>() {
-        @NonNull
-        @Override
-        public Loader<Throwable> onCreateLoader(int id, Bundle args) {
-            PutLoader loader = new PutLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            LoaderManager.getInstance(FragmentFolder.this).destroyLoader(loader.getId());
-
-            Helper.setViewsEnabled(view, true);
-            btnSave.setEnabled(true);
-            pbSave.setVisibility(View.GONE);
-
-            if (ex == null)
-                getFragmentManager().popBackStack();
-            else {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Throwable> loader) {
-        }
-    };
 }

@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -150,13 +151,13 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        new SimpleLoader<Long>() {
+        new SimpleTask<Long>() {
             @Override
-            public Long onLoad(Bundle args) {
+            protected Long onLoad(Context context, Bundle args) {
                 long folder = (args == null ? -1 : args.getLong("folder", -1));
                 long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
 
                 Long account;
                 if (thread < 0)
@@ -174,15 +175,15 @@ public class FragmentMessages extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Long account) {
+            protected void onLoaded(Bundle args, Long account) {
                 fab.setTag(account);
                 fab.setVisibility(View.VISIBLE);
             }
 
             @Override
-            public void onException(Bundle args, Throwable ex) {
+            protected void onException(Bundle args, Throwable ex) {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
-        }.load(this, ActivityView.LOADER_MESSAGE_ACCOUNT, getArguments());
+        }.load(this, getArguments());
     }
 }

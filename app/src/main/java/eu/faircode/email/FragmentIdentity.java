@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +52,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 
 public class FragmentIdentity extends FragmentEx {
     private List<Provider> providers;
@@ -200,8 +196,107 @@ public class FragmentIdentity extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
-                LoaderManager.getInstance(FragmentIdentity.this)
-                        .restartLoader(ActivityView.LOADER_IDENTITY_PUT, args, putLoaderCallbacks).forceLoad();
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        try {
+                            ServiceSynchronize.stop(getContext(), "account");
+
+                            long id = args.getLong("id");
+                            String name = args.getString("name");
+                            String email = args.getString("email");
+                            String replyto = args.getString("replyto");
+                            long account = args.getLong("account");
+                            String host = args.getString("host");
+                            boolean starttls = args.getBoolean("starttls");
+                            String port = args.getString("port");
+                            String user = args.getString("user");
+                            String password = args.getString("password");
+
+                            if (TextUtils.isEmpty(name))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
+                            if (TextUtils.isEmpty(email))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
+                            if (account < 0)
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
+                            if (TextUtils.isEmpty(host))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
+                            if (TextUtils.isEmpty(port))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
+                            if (TextUtils.isEmpty(user))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
+                            if (TextUtils.isEmpty(password))
+                                throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
+
+                            if (TextUtils.isEmpty(replyto))
+                                replyto = null;
+
+                            DB db = DB.getInstance(getContext());
+                            EntityIdentity identity = db.identity().getIdentity(id);
+                            boolean update = (identity != null);
+                            if (identity == null)
+                                identity = new EntityIdentity();
+                            identity.name = name;
+                            identity.email = email;
+                            identity.replyto = replyto;
+                            identity.account = account;
+                            identity.host = Objects.requireNonNull(host);
+                            identity.port = Integer.parseInt(port);
+                            identity.starttls = starttls;
+                            identity.user = user;
+                            identity.password = password;
+                            identity.synchronize = args.getBoolean("synchronize");
+                            identity.primary = (identity.synchronize && args.getBoolean("primary"));
+
+                            // Check SMTP server
+                            if (identity.synchronize) {
+                                Properties props = MessageHelper.getSessionProperties();
+                                Session isession = Session.getInstance(props, null);
+                                Transport itransport = isession.getTransport(identity.starttls ? "smtp" : "smtps");
+                                try {
+                                    itransport.connect(identity.host, identity.port, identity.user, identity.password);
+                                } finally {
+                                    itransport.close();
+                                }
+                            }
+
+                            try {
+                                db.beginTransaction();
+
+                                if (identity.primary)
+                                    db.identity().resetPrimary();
+
+                                if (update)
+                                    db.identity().updateIdentity(identity);
+                                else
+                                    identity.id = db.identity().insertIdentity(identity);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        } finally {
+                            ServiceSynchronize.restart(getContext(), "account");
+                        }
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        getFragmentManager().popBackStack();
+                    }
+
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.setViewsEnabled(view, true);
+                        btnSave.setEnabled(true);
+                        pbSave.setVisibility(View.GONE);
+
+                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentIdentity.this, args);
             }
         });
 
@@ -214,20 +309,25 @@ public class FragmentIdentity extends FragmentEx {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                getFragmentManager().popBackStack();
                                 // TODO: spinner
-                                new SimpleLoader<Void>() {
+                                getFragmentManager().popBackStack();
+
+                                Bundle args = new Bundle();
+                                args.putLong("id", id);
+
+                                new SimpleTask<Void>() {
                                     @Override
-                                    public Void onLoad(Bundle args) throws Throwable {
-                                        DB.getInstance(getContext()).identity().deleteIdentity(id);
+                                    protected Void onLoad(Context context, Bundle args) {
+                                        long id = args.getLong("id");
+                                        DB.getInstance(context).identity().deleteIdentity(id);
                                         return null;
                                     }
 
                                     @Override
-                                    public void onException(Bundle args, Throwable ex) {
+                                    protected void onException(Bundle args, Throwable ex) {
                                         Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                     }
-                                }.load(FragmentIdentity.this, ActivitySetup.LOADER_DELETE_IDENTITY, new Bundle());
+                                }.load(FragmentIdentity.this, args);
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null).show();
@@ -301,138 +401,4 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
     }
-
-    private static class PutLoader extends AsyncTaskLoader<Throwable> {
-        private Bundle args;
-
-        PutLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        protected void onStartLoading() {
-            forceLoad();
-        }
-
-        @Override
-        public Throwable loadInBackground() {
-            try {
-                ServiceSynchronize.stop(getContext(), "account");
-
-                long id = args.getLong("id");
-                String name = args.getString("name");
-                String email = args.getString("email");
-                String replyto = args.getString("replyto");
-                long account = args.getLong("account");
-                String host = args.getString("host");
-                boolean starttls = args.getBoolean("starttls");
-                String port = args.getString("port");
-                String user = args.getString("user");
-                String password = args.getString("password");
-
-                if (TextUtils.isEmpty(name))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
-                if (TextUtils.isEmpty(email))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
-                if (account < 0)
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
-                if (TextUtils.isEmpty(host))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
-                if (TextUtils.isEmpty(port))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
-                if (TextUtils.isEmpty(user))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
-                if (TextUtils.isEmpty(password))
-                    throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
-
-                if (TextUtils.isEmpty(replyto))
-                    replyto = null;
-
-                DB db = DB.getInstance(getContext());
-                EntityIdentity identity = db.identity().getIdentity(id);
-                boolean update = (identity != null);
-                if (identity == null)
-                    identity = new EntityIdentity();
-                identity.name = name;
-                identity.email = email;
-                identity.replyto = replyto;
-                identity.account = account;
-                identity.host = Objects.requireNonNull(host);
-                identity.port = Integer.parseInt(port);
-                identity.starttls = starttls;
-                identity.user = user;
-                identity.password = password;
-                identity.synchronize = args.getBoolean("synchronize");
-                identity.primary = (identity.synchronize && args.getBoolean("primary"));
-
-                // Check SMTP server
-                if (identity.synchronize) {
-                    Properties props = MessageHelper.getSessionProperties();
-                    Session isession = Session.getInstance(props, null);
-                    Transport itransport = isession.getTransport(identity.starttls ? "smtp" : "smtps");
-                    try {
-                        itransport.connect(identity.host, identity.port, identity.user, identity.password);
-                    } finally {
-                        itransport.close();
-                    }
-                }
-
-                try {
-                    db.beginTransaction();
-
-                    if (identity.primary)
-                        db.identity().resetPrimary();
-
-                    if (update)
-                        db.identity().updateIdentity(identity);
-                    else
-                        identity.id = db.identity().insertIdentity(identity);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                return null;
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return ex;
-            } finally {
-                ServiceSynchronize.restart(getContext(), "account");
-            }
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks putLoaderCallbacks = new LoaderManager.LoaderCallbacks<Throwable>() {
-        @NonNull
-        @Override
-        public Loader<Throwable> onCreateLoader(int id, Bundle args) {
-            PutLoader loader = new PutLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            LoaderManager.getInstance(FragmentIdentity.this).destroyLoader(loader.getId());
-
-            Helper.setViewsEnabled(view, true);
-            btnSave.setEnabled(true);
-            pbSave.setVisibility(View.GONE);
-
-            if (ex == null)
-                getFragmentManager().popBackStack();
-            else {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Throwable> loader) {
-        }
-    };
 }

@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -54,17 +55,17 @@ public class FragmentAbout extends FragmentEx {
             @Override
             public void onClick(View view) {
                 btnDebugInfo.setEnabled(false);
-                new SimpleLoader<Long>() {
+                new SimpleTask<Long>() {
                     @Override
-                    public Long onLoad(Bundle args) throws UnsupportedEncodingException {
-                        DB db = DB.getInstance(getContext());
+                    protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
+                        DB db = DB.getInstance(context);
 
                         EntityFolder drafts = db.folder().getPrimaryDrafts();
                         if (drafts == null)
-                            throw new IllegalArgumentException(getString(R.string.title_no_drafts));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
                         StringBuilder info = Helper.getDebugInfo();
-                        info.insert(0, getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+                        info.insert(0, context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
 
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
 
@@ -84,7 +85,7 @@ public class FragmentAbout extends FragmentEx {
                     }
 
                     @Override
-                    public void onLoaded(Bundle args, Long id) {
+                    protected void onLoaded(Bundle args, Long id) {
                         btnDebugInfo.setEnabled(true);
                         startActivity(new Intent(getContext(), ActivityCompose.class)
                                 .putExtra("action", "edit")
@@ -92,11 +93,11 @@ public class FragmentAbout extends FragmentEx {
                     }
 
                     @Override
-                    public void onException(Bundle args, Throwable ex) {
+                    protected void onException(Bundle args, Throwable ex) {
                         btnDebugInfo.setEnabled(true);
                         Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                     }
-                }.load(FragmentAbout.this, ActivityView.LOADER_DEBUG_INFO, new Bundle());
+                }.load(FragmentAbout.this, new Bundle());
             }
         });
 

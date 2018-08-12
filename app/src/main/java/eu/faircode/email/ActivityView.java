@@ -66,22 +66,6 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
-    static final int LOADER_EXCEPTION = 1;
-    static final int LOADER_ACCOUNT_CHECK = 2;
-    static final int LOADER_ACCOUNT_PUT = 3;
-    static final int LOADER_IDENTITY_PUT = 4;
-    static final int LOADER_FOLDER_PUT = 5;
-    static final int LOADER_MESSAGE_ACCOUNT = 6;
-    static final int LOADER_MESSAGE_VIEW = 7;
-    static final int LOADER_MESSAGE_SEEN = 8;
-    static final int LOADER_MESSAGE_EDIT = 9;
-    static final int LOADER_MESSAGE_SPAM = 10;
-    static final int LOADER_MESSAGE_TRASH = 11;
-    static final int LOADER_MESSAGE_MOVE = 12;
-    static final int LOADER_MESSAGE_ARCHIVE = 13;
-    static final int LOADER_SEEN_UNTIL = 14;
-    static final int LOADER_DEBUG_INFO = 15;
-
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
 
@@ -179,12 +163,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             fragmentTransaction.commit();
         }
 
-        new SimpleLoader<Long>() {
+        new SimpleTask<Long>() {
             @Override
-            public Long onLoad(Bundle args) throws Throwable {
-                File file = new File(getContext().getCacheDir(), "crash.log");
+            protected Long onLoad(Context context, Bundle args) throws Throwable {
+                File file = new File(context.getCacheDir(), "crash.log");
                 if (file.exists()) {
-                    DB db = DB.getInstance(getContext());
+                    DB db = DB.getInstance(context);
                     EntityFolder drafts = db.folder().getPrimaryDrafts();
                     if (drafts != null) {
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
@@ -221,7 +205,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         draft.account = drafts.account;
                         draft.folder = drafts.id;
                         draft.to = new Address[]{to};
-                        draft.subject = getString(R.string.app_name) + " crash log";
+                        draft.subject = context.getString(R.string.app_name) + " crash log";
                         draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
                         draft.received = new Date().getTime();
                         draft.seen = false;
@@ -239,7 +223,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
 
             @Override
-            public void onLoaded(Bundle args, Long id) {
+            protected void onLoaded(Bundle args, Long id) {
                 if (id != null)
                     startActivity(
                             new Intent(ActivityView.this, ActivityCompose.class)
@@ -247,7 +231,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                                     .putExtra("id", id));
 
             }
-        }.load(this, LOADER_EXCEPTION, new Bundle());
+        }.load(this, new Bundle());
 
         checkIntent(getIntent());
     }
@@ -339,11 +323,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             Bundle args = new Bundle();
             args.putLong("time", new Date().getTime());
 
-            new SimpleLoader<Void>() {
+            new SimpleTask<Void>() {
                 @Override
-                public Void onLoad(Bundle args) {
+                protected Void onLoad(Context context, Bundle args) {
                     long time = args.getLong("time");
-                    DaoAccount dao = DB.getInstance(getContext()).account();
+                    DaoAccount dao = DB.getInstance(context).account();
                     for (EntityAccount account : dao.getAccounts(true)) {
                         account.seen_until = time;
                         dao.updateAccount(account);
@@ -352,10 +336,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 }
 
                 @Override
-                public void onException(Bundle args, Throwable ex) {
+                protected void onException(Bundle args, Throwable ex) {
                     Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
                 }
-            }.load(this, LOADER_SEEN_UNTIL, args);
+            }.load(this, args);
         }
     }
 
@@ -461,11 +445,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
             } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
 
-                new SimpleLoader<Void>() {
+                new SimpleTask<Void>() {
                     @Override
-                    public Void onLoad(Bundle args) {
+                    protected Void onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
-                        DB db = DB.getInstance(ActivityView.this);
+                        DB db = DB.getInstance(context);
                         EntityMessage message = db.message().getMessage(id);
                         EntityFolder folder = db.folder().getFolder(message.folder);
                         if (!EntityFolder.OUTBOX.equals(folder.type) &&
@@ -485,7 +469,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                                     db.endTransaction();
                                 }
 
-                                EntityOperation.process(ActivityView.this);
+                                EntityOperation.process(context);
                             }
                         }
 
@@ -493,7 +477,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     }
 
                     @Override
-                    public void onLoaded(Bundle args, Void result) {
+                    protected void onLoaded(Bundle args, Void result) {
                         FragmentMessage fragment = new FragmentMessage();
                         fragment.setArguments(args);
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -502,10 +486,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     }
 
                     @Override
-                    public void onException(Bundle args, Throwable ex) {
+                    protected void onException(Bundle args, Throwable ex) {
                         Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
                     }
-                }.load(ActivityView.this, LOADER_MESSAGE_VIEW, intent.getExtras());
+                }.load(ActivityView.this, intent.getExtras());
 
             } else if (ACTION_EDIT_FOLDER.equals(intent.getAction())) {
                 FragmentFolder fragment = new FragmentFolder();

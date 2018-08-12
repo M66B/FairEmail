@@ -61,9 +61,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 
 public class FragmentAccount extends FragmentEx {
     private List<Provider> providers;
@@ -176,8 +173,159 @@ public class FragmentAccount extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
-                LoaderManager.getInstance(FragmentAccount.this)
-                        .restartLoader(ActivityView.LOADER_ACCOUNT_CHECK, args, checkLoaderCallbacks).forceLoad();
+                new SimpleTask<List<EntityFolder>>() {
+                    @Override
+                    protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+                        String host = args.getString("host");
+                        String port = args.getString("port");
+                        String user = args.getString("user");
+                        String password = args.getString("password");
+
+                        if (TextUtils.isEmpty(host))
+                            throw new Throwable(getContext().getString(R.string.title_no_host));
+                        if (TextUtils.isEmpty(port))
+                            throw new Throwable(getContext().getString(R.string.title_no_port));
+                        if (TextUtils.isEmpty(user))
+                            throw new Throwable(getContext().getString(R.string.title_no_user));
+                        if (TextUtils.isEmpty(password))
+                            throw new Throwable(getContext().getString(R.string.title_no_password));
+
+                        // Check IMAP server / get folders
+                        DB db = DB.getInstance(getContext());
+                        List<EntityFolder> folders = new ArrayList<>();
+                        Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                        IMAPStore istore = null;
+                        try {
+                            istore = (IMAPStore) isession.getStore("imaps");
+                            istore.connect(host, Integer.parseInt(port), user, password);
+
+                            if (!istore.hasCapability("IDLE"))
+                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
+
+                            for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                                String type = null;
+
+                                // First check folder attributes
+                                boolean selectable = true;
+                                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                                for (String attr : attrs) {
+                                    if ("\\Noselect".equals(attr))
+                                        selectable = false;
+                                    if (attr.startsWith("\\")) {
+                                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                                        if (index >= 0) {
+                                            type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (selectable) {
+                                    // Next check folder full name
+                                    if (type == null) {
+                                        String fullname = ifolder.getFullName();
+                                        for (String attr : EntityFolder.SYSTEM_FOLDER_ATTR)
+                                            if (attr.equals(fullname)) {
+                                                int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
+                                                type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                                                break;
+                                            }
+                                    }
+
+                                    // Create entry
+                                    EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
+                                    if (folder == null) {
+                                        folder = new EntityFolder();
+                                        folder.name = ifolder.getFullName();
+                                        folder.type = (type == null ? EntityFolder.USER : type);
+                                        folder.synchronize = (type != null && EntityFolder.SYSTEM_FOLDER_SYNC.contains(type));
+                                        folder.after = (type == null ? EntityFolder.DEFAULT_USER_SYNC : EntityFolder.DEFAULT_SYSTEM_SYNC);
+                                    }
+                                    folders.add(folder);
+
+                                    Log.i(Helper.TAG, folder.name + " id=" + folder.id +
+                                            " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
+                                }
+                            }
+
+                        } finally {
+                            if (istore != null)
+                                istore.close();
+                        }
+
+                        return folders;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, List<EntityFolder> folders) {
+                        Helper.setViewsEnabled(view, true);
+                        btnCheck.setEnabled(true);
+                        pbCheck.setVisibility(View.GONE);
+
+                        final Collator collator = Collator.getInstance(Locale.getDefault());
+                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                        Collections.sort(folders, new Comparator<EntityFolder>() {
+                            @Override
+                            public int compare(EntityFolder f1, EntityFolder f2) {
+                                int s = Integer.compare(
+                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                                if (s != 0)
+                                    return s;
+                                int c = -f1.synchronize.compareTo(f2.synchronize);
+                                if (c != 0)
+                                    return c;
+                                return collator.compare(
+                                        f1.name == null ? "" : f1.name,
+                                        f2.name == null ? "" : f2.name);
+                            }
+                        });
+
+                        EntityFolder none = new EntityFolder();
+                        none.name = "";
+                        folders.add(0, none);
+
+                        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
+                        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
+                        spDrafts.setAdapter(adapter);
+                        spSent.setAdapter(adapter);
+                        spAll.setAdapter(adapter);
+                        spTrash.setAdapter(adapter);
+                        spJunk.setAdapter(adapter);
+
+                        for (int pos = 0; pos < folders.size(); pos++) {
+                            if (EntityFolder.DRAFTS.equals(folders.get(pos).type))
+                                spDrafts.setSelection(pos);
+                            else if (EntityFolder.SENT.equals(folders.get(pos).type))
+                                spSent.setSelection(pos);
+                            else if (EntityFolder.ARCHIVE.equals(folders.get(pos).type))
+                                spAll.setSelection(pos);
+                            else if (EntityFolder.TRASH.equals(folders.get(pos).type))
+                                spTrash.setSelection(pos);
+                            else if (EntityFolder.JUNK.equals(folders.get(pos).type))
+                                spJunk.setSelection(pos);
+                        }
+
+                        grpFolders.setVisibility(View.VISIBLE);
+                        btnSave.setVisibility(View.VISIBLE);
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
+                            }
+                        });
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        grpFolders.setVisibility(View.GONE);
+                        btnSave.setVisibility(View.GONE);
+                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentAccount.this, args);
             }
         });
 
@@ -221,8 +369,152 @@ public class FragmentAccount extends FragmentEx {
                 args.putSerializable("trash", trash);
                 args.putSerializable("junk", junk);
 
-                LoaderManager.getInstance(FragmentAccount.this)
-                        .restartLoader(ActivityView.LOADER_ACCOUNT_PUT, args, putLoaderCallbacks).forceLoad();
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        try {
+                            ServiceSynchronize.stop(getContext(), "folder");
+
+                            String name = args.getString("name");
+                            String host = args.getString("host");
+                            String port = args.getString("port");
+                            String user = args.getString("user");
+                            String password = args.getString("password");
+                            boolean synchronize = args.getBoolean("synchronize");
+                            EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
+                            EntityFolder sent = (EntityFolder) args.getSerializable("sent");
+                            EntityFolder all = (EntityFolder) args.getSerializable("all");
+                            EntityFolder trash = (EntityFolder) args.getSerializable("trash");
+                            EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+
+                            if (TextUtils.isEmpty(host))
+                                throw new Throwable(getContext().getString(R.string.title_no_host));
+                            if (TextUtils.isEmpty(port))
+                                throw new Throwable(getContext().getString(R.string.title_no_port));
+                            if (TextUtils.isEmpty(user))
+                                throw new Throwable(getContext().getString(R.string.title_no_user));
+                            if (TextUtils.isEmpty(password))
+                                throw new Throwable(getContext().getString(R.string.title_no_password));
+                            if (drafts == null)
+                                throw new Throwable(getContext().getString(R.string.title_no_drafts));
+
+                            // Check IMAP server
+                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                            IMAPStore istore = null;
+                            try {
+                                istore = (IMAPStore) isession.getStore("imaps");
+                                istore.connect(host, Integer.parseInt(port), user, password);
+
+                                if (!istore.hasCapability("IDLE"))
+                                    throw new MessagingException(getContext().getString(R.string.title_no_idle));
+                            } finally {
+                                if (istore != null)
+                                    istore.close();
+                            }
+
+                            if (TextUtils.isEmpty(name))
+                                name = host + "/" + user;
+
+                            DB db = DB.getInstance(getContext());
+
+                            EntityAccount account = db.account().getAccount(args.getLong("id"));
+                            boolean update = (account != null);
+                            if (account == null)
+                                account = new EntityAccount();
+                            account.name = name;
+                            account.host = host;
+                            account.port = Integer.parseInt(port);
+                            account.user = user;
+                            account.password = password;
+                            account.synchronize = synchronize;
+                            account.primary = (account.synchronize && args.getBoolean("primary"));
+
+                            // On disabling synchronization mark message seen until now
+                            if (!account.synchronize && account.synchronize != synchronize)
+                                account.seen_until = new Date().getTime();
+
+                            try {
+                                db.beginTransaction();
+
+                                if (account.primary)
+                                    db.account().resetPrimary();
+
+                                if (update)
+                                    db.account().updateAccount(account);
+                                else
+                                    account.id = db.account().insertAccount(account);
+
+                                List<EntityFolder> folders = new ArrayList<>();
+
+                                EntityFolder inbox = new EntityFolder();
+                                inbox.name = "INBOX";
+                                inbox.type = EntityFolder.INBOX;
+                                inbox.synchronize = true;
+                                inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
+
+                                folders.add(inbox);
+
+                                drafts.type = EntityFolder.DRAFTS;
+                                folders.add(drafts);
+
+                                if (sent != null) {
+                                    sent.type = EntityFolder.SENT;
+                                    folders.add(sent);
+                                }
+                                if (all != null) {
+                                    all.type = EntityFolder.ARCHIVE;
+                                    folders.add(all);
+                                }
+                                if (trash != null) {
+                                    trash.type = EntityFolder.TRASH;
+                                    folders.add(trash);
+                                }
+                                if (junk != null) {
+                                    junk.type = EntityFolder.JUNK;
+                                    folders.add(junk);
+                                }
+
+                                int count = db.folder().deleteSystemFolders(account.id);
+                                Log.w(Helper.TAG, "Deleted system folders count=" + count);
+
+                                for (EntityFolder folder : folders) {
+                                    EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                                    if (existing == null) {
+                                        folder.account = account.id;
+                                        Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
+                                        folder.id = db.folder().insertFolder(folder);
+                                    } else {
+                                        existing.type = folder.type;
+                                        db.folder().updateFolder(existing);
+                                    }
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        } finally {
+                            ServiceSynchronize.restart(getContext(), "account");
+                        }
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        getFragmentManager().popBackStack();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.setViewsEnabled(view, true);
+                        btnCheck.setEnabled(true);
+                        btnSave.setEnabled(true);
+                        pbSave.setVisibility(View.GONE);
+
+                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentAccount.this, args);
             }
         });
 
@@ -235,24 +527,28 @@ public class FragmentAccount extends FragmentEx {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                // TODO: spinner
                                 getFragmentManager().popBackStack();
 
-                                // TODO: spinner
-                                new SimpleLoader<Void>() {
+                                Bundle args = new Bundle();
+                                args.putLong("id", id);
+
+                                new SimpleTask<Void>() {
                                     @Override
-                                    public Void onLoad(Bundle args) {
+                                    protected Void onLoad(Context context, Bundle args) {
                                         // To prevent foreign key constraints from triggering
-                                        ServiceSynchronize.stop(getContext(), "delete account");
-                                        DB.getInstance(getContext()).account().deleteAccount(id);
-                                        ServiceSynchronize.start(getContext());
+                                        long id = args.getLong("id");
+                                        ServiceSynchronize.stop(context, "delete account");
+                                        DB.getInstance(context).account().deleteAccount(id);
+                                        ServiceSynchronize.start(context);
                                         return null;
                                     }
 
                                     @Override
-                                    public void onException(Bundle args, Throwable ex) {
+                                    protected void onException(Bundle args, Throwable ex) {
                                         Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                     }
-                                }.load(FragmentAccount.this, ActivitySetup.LOADER_DELETE_ACCOUNT, new Bundle());
+                                }.load(FragmentAccount.this, args);
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null).show();
@@ -302,381 +598,4 @@ public class FragmentAccount extends FragmentEx {
             }
         });
     }
-
-    private static class CheckData {
-        Throwable ex;
-        List<EntityFolder> folders;
-    }
-
-    private static class CheckLoader extends AsyncTaskLoader<CheckData> {
-        private Bundle args;
-
-        CheckLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        protected void onStartLoading() {
-            forceLoad();
-        }
-
-        @Override
-        public CheckData loadInBackground() {
-            CheckData result = new CheckData();
-            try {
-                long id = args.getLong("id");
-                String host = args.getString("host");
-                String port = args.getString("port");
-                String user = args.getString("user");
-                String password = args.getString("password");
-
-                if (TextUtils.isEmpty(host))
-                    throw new Throwable(getContext().getString(R.string.title_no_host));
-                if (TextUtils.isEmpty(port))
-                    throw new Throwable(getContext().getString(R.string.title_no_port));
-                if (TextUtils.isEmpty(user))
-                    throw new Throwable(getContext().getString(R.string.title_no_user));
-                if (TextUtils.isEmpty(password))
-                    throw new Throwable(getContext().getString(R.string.title_no_password));
-
-                // Check IMAP server / get folders
-                DB db = DB.getInstance(getContext());
-                List<EntityFolder> folders = new ArrayList<>();
-                Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
-                IMAPStore istore = null;
-                try {
-                    istore = (IMAPStore) isession.getStore("imaps");
-                    istore.connect(host, Integer.parseInt(port), user, password);
-
-                    if (!istore.hasCapability("IDLE"))
-                        throw new MessagingException(getContext().getString(R.string.title_no_idle));
-
-                    for (Folder ifolder : istore.getDefaultFolder().list("*")) {
-                        String type = null;
-
-                        // First check folder attributes
-                        boolean selectable = true;
-                        String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                        for (String attr : attrs) {
-                            if ("\\Noselect".equals(attr))
-                                selectable = false;
-                            if (attr.startsWith("\\")) {
-                                int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
-                                if (index >= 0) {
-                                    type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (selectable) {
-                            // Next check folder full name
-                            if (type == null) {
-                                String fullname = ifolder.getFullName();
-                                for (String attr : EntityFolder.SYSTEM_FOLDER_ATTR)
-                                    if (attr.equals(fullname)) {
-                                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
-                                        type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                        break;
-                                    }
-                            }
-
-                            // Create entry
-                            EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
-                            if (folder == null) {
-                                folder = new EntityFolder();
-                                folder.name = ifolder.getFullName();
-                                folder.type = (type == null ? EntityFolder.USER : type);
-                                folder.synchronize = (type != null && EntityFolder.SYSTEM_FOLDER_SYNC.contains(type));
-                                folder.after = (type == null ? EntityFolder.DEFAULT_USER_SYNC : EntityFolder.DEFAULT_SYSTEM_SYNC);
-                            }
-                            folders.add(folder);
-
-                            Log.i(Helper.TAG, folder.name + " id=" + folder.id +
-                                    " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
-                        }
-                    }
-
-                } finally {
-                    if (istore != null)
-                        istore.close();
-                }
-
-                result.folders = folders;
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                result.ex = ex;
-            }
-
-            return result;
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks checkLoaderCallbacks = new LoaderManager.LoaderCallbacks<CheckData>() {
-        @NonNull
-        @Override
-        public Loader<CheckData> onCreateLoader(int id, Bundle args) {
-            CheckLoader loader = new CheckLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<CheckData> loader, CheckData data) {
-            LoaderManager.getInstance(FragmentAccount.this).destroyLoader(loader.getId());
-
-            Helper.setViewsEnabled(view, true);
-            btnCheck.setEnabled(true);
-            pbCheck.setVisibility(View.GONE);
-
-            if (data.ex == null) {
-                final Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                Collections.sort(data.folders, new Comparator<EntityFolder>() {
-                    @Override
-                    public int compare(EntityFolder f1, EntityFolder f2) {
-                        int s = Integer.compare(
-                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                        if (s != 0)
-                            return s;
-                        int c = -f1.synchronize.compareTo(f2.synchronize);
-                        if (c != 0)
-                            return c;
-                        return collator.compare(
-                                f1.name == null ? "" : f1.name,
-                                f2.name == null ? "" : f2.name);
-                    }
-                });
-
-                EntityFolder none = new EntityFolder();
-                none.name = "";
-                data.folders.add(0, none);
-
-                ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, data.folders);
-                adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-                spDrafts.setAdapter(adapter);
-                spSent.setAdapter(adapter);
-                spAll.setAdapter(adapter);
-                spTrash.setAdapter(adapter);
-                spJunk.setAdapter(adapter);
-
-                for (int pos = 0; pos < data.folders.size(); pos++) {
-                    if (EntityFolder.DRAFTS.equals(data.folders.get(pos).type))
-                        spDrafts.setSelection(pos);
-                    else if (EntityFolder.SENT.equals(data.folders.get(pos).type))
-                        spSent.setSelection(pos);
-                    else if (EntityFolder.ARCHIVE.equals(data.folders.get(pos).type))
-                        spAll.setSelection(pos);
-                    else if (EntityFolder.TRASH.equals(data.folders.get(pos).type))
-                        spTrash.setSelection(pos);
-                    else if (EntityFolder.JUNK.equals(data.folders.get(pos).type))
-                        spJunk.setSelection(pos);
-                }
-
-                grpFolders.setVisibility(View.VISIBLE);
-                btnSave.setVisibility(View.VISIBLE);
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        ((ScrollView) view).smoothScrollTo(0, btnSave.getBottom());
-                    }
-                });
-            } else {
-                Log.w(Helper.TAG, data.ex + "\n" + Log.getStackTraceString(data.ex));
-                Toast.makeText(getContext(), Helper.formatThrowable(data.ex), Toast.LENGTH_LONG).show();
-                grpFolders.setVisibility(View.GONE);
-                btnSave.setVisibility(View.GONE);
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<CheckData> loader) {
-        }
-    };
-
-    private static class PutLoader extends AsyncTaskLoader<Throwable> {
-        private Bundle args;
-
-        PutLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        protected void onStartLoading() {
-            forceLoad();
-        }
-
-        @Override
-        public Throwable loadInBackground() {
-            try {
-                ServiceSynchronize.stop(getContext(), "folder");
-
-                String name = args.getString("name");
-                String host = args.getString("host");
-                String port = args.getString("port");
-                String user = args.getString("user");
-                String password = args.getString("password");
-                boolean synchronize = args.getBoolean("synchronize");
-                EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
-                EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-                EntityFolder all = (EntityFolder) args.getSerializable("all");
-                EntityFolder trash = (EntityFolder) args.getSerializable("trash");
-                EntityFolder junk = (EntityFolder) args.getSerializable("junk");
-
-                if (TextUtils.isEmpty(host))
-                    throw new Throwable(getContext().getString(R.string.title_no_host));
-                if (TextUtils.isEmpty(port))
-                    throw new Throwable(getContext().getString(R.string.title_no_port));
-                if (TextUtils.isEmpty(user))
-                    throw new Throwable(getContext().getString(R.string.title_no_user));
-                if (TextUtils.isEmpty(password))
-                    throw new Throwable(getContext().getString(R.string.title_no_password));
-                if (drafts == null)
-                    throw new Throwable(getContext().getString(R.string.title_no_drafts));
-
-                // Check IMAP server
-                Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
-                IMAPStore istore = null;
-                try {
-                    istore = (IMAPStore) isession.getStore("imaps");
-                    istore.connect(host, Integer.parseInt(port), user, password);
-
-                    if (!istore.hasCapability("IDLE"))
-                        throw new MessagingException(getContext().getString(R.string.title_no_idle));
-                } finally {
-                    if (istore != null)
-                        istore.close();
-                }
-
-                if (TextUtils.isEmpty(name))
-                    name = host + "/" + user;
-
-                DB db = DB.getInstance(getContext());
-
-                EntityAccount account = db.account().getAccount(args.getLong("id"));
-                boolean update = (account != null);
-                if (account == null)
-                    account = new EntityAccount();
-                account.name = name;
-                account.host = host;
-                account.port = Integer.parseInt(port);
-                account.user = user;
-                account.password = password;
-                account.synchronize = synchronize;
-                account.primary = (account.synchronize && args.getBoolean("primary"));
-
-                // On disabling synchronization mark message seen until now
-                if (!account.synchronize && account.synchronize != synchronize)
-                    account.seen_until = new Date().getTime();
-
-                try {
-                    db.beginTransaction();
-
-                    if (account.primary)
-                        db.account().resetPrimary();
-
-                    if (update)
-                        db.account().updateAccount(account);
-                    else
-                        account.id = db.account().insertAccount(account);
-
-                    List<EntityFolder> folders = new ArrayList<>();
-
-                    EntityFolder inbox = new EntityFolder();
-                    inbox.name = "INBOX";
-                    inbox.type = EntityFolder.INBOX;
-                    inbox.synchronize = true;
-                    inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
-
-                    folders.add(inbox);
-                    if (drafts != null) {
-                        drafts.type = EntityFolder.DRAFTS;
-                        folders.add(drafts);
-                    }
-                    if (sent != null) {
-                        sent.type = EntityFolder.SENT;
-                        folders.add(sent);
-                    }
-                    if (all != null) {
-                        all.type = EntityFolder.ARCHIVE;
-                        folders.add(all);
-                    }
-                    if (trash != null) {
-                        trash.type = EntityFolder.TRASH;
-                        folders.add(trash);
-                    }
-                    if (junk != null) {
-                        junk.type = EntityFolder.JUNK;
-                        folders.add(junk);
-                    }
-
-                    int count = db.folder().deleteSystemFolders(account.id);
-                    Log.w(Helper.TAG, "Deleted system folders count=" + count);
-
-                    for (EntityFolder folder : folders) {
-                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                        if (existing == null) {
-                            folder.account = account.id;
-                            Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
-                            folder.id = db.folder().insertFolder(folder);
-                        } else {
-                            existing.type = folder.type;
-                            db.folder().updateFolder(existing);
-                        }
-                    }
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                return null;
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return ex;
-            } finally {
-                ServiceSynchronize.restart(getContext(), "account");
-            }
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks putLoaderCallbacks = new LoaderManager.LoaderCallbacks<Throwable>() {
-        @NonNull
-        @Override
-        public Loader<Throwable> onCreateLoader(int id, Bundle args) {
-            PutLoader loader = new PutLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Throwable> loader, Throwable ex) {
-            LoaderManager.getInstance(FragmentAccount.this).destroyLoader(loader.getId());
-
-            Helper.setViewsEnabled(view, true);
-            btnCheck.setEnabled(true);
-            btnSave.setEnabled(true);
-            pbSave.setVisibility(View.GONE);
-
-            if (ex == null)
-                getFragmentManager().popBackStack();
-            else {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Throwable> loader) {
-        }
-    };
 }

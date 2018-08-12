@@ -62,9 +62,6 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.AsyncTaskLoader;
-import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -402,11 +399,11 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader<Void>() {
+        new SimpleTask<Void>() {
             @Override
-            public Void onLoad(Bundle args) {
+            protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
@@ -422,13 +419,13 @@ public class FragmentMessage extends FragmentEx {
                     db.endTransaction();
                 }
 
-                EntityOperation.process(getContext());
+                EntityOperation.process(context);
 
                 return null;
             }
 
             @Override
-            public void onLoaded(Bundle args, Void data) {
+            protected void onLoaded(Bundle args, Void data) {
                 item.setEnabled(true);
                 item.setIcon(icon);
             }
@@ -439,7 +436,7 @@ public class FragmentMessage extends FragmentEx {
                 item.setIcon(icon);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
-        }.load(this, ActivityView.LOADER_MESSAGE_SEEN, args);
+        }.load(this, args);
     }
 
     private void onActionEdit(long id) {
@@ -452,11 +449,11 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader<Long>() {
+        new SimpleTask<Long>() {
             @Override
-            public Long onLoad(Bundle args) {
+            protected Long onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
                 EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
                 draft.id = null;
@@ -467,7 +464,7 @@ public class FragmentMessage extends FragmentEx {
             }
 
             @Override
-            public void onLoaded(Bundle args, Long id) {
+            protected void onLoaded(Bundle args, Long id) {
                 item.setEnabled(true);
                 item.setIcon(icon);
                 getContext().startActivity(
@@ -482,7 +479,7 @@ public class FragmentMessage extends FragmentEx {
                 item.setIcon(icon);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
-        }.load(this, ActivityView.LOADER_MESSAGE_EDIT, args);
+        }.load(this, args);
     }
 
     private void onActionForward(long id) {
@@ -513,11 +510,11 @@ public class FragmentMessage extends FragmentEx {
                         Bundle args = new Bundle();
                         args.putLong("id", id);
 
-                        new SimpleLoader<Void>() {
+                        new SimpleTask<Void>() {
                             @Override
-                            public Void onLoad(Bundle args) {
+                            protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
-                                DB db = DB.getInstance(getContext());
+                                DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
 
@@ -533,24 +530,24 @@ public class FragmentMessage extends FragmentEx {
                                     db.endTransaction();
                                 }
 
-                                EntityOperation.process(getContext());
+                                EntityOperation.process(context);
 
                                 return null;
                             }
 
                             @Override
-                            public void onLoaded(Bundle args, Void result) {
+                            protected void onLoaded(Bundle args, Void result) {
                                 item.setEnabled(true);
                                 item.setIcon(icon);
                             }
 
                             @Override
-                            public void onException(Bundle args, Throwable ex) {
+                            protected void onException(Bundle args, Throwable ex) {
                                 item.setEnabled(true);
                                 item.setIcon(icon);
                                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                             }
-                        }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_SPAM, args);
+                        }.load(FragmentMessage.this, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null).show();
@@ -575,11 +572,11 @@ public class FragmentMessage extends FragmentEx {
                             Bundle args = new Bundle();
                             args.putLong("id", id);
 
-                            new SimpleLoader<Void>() {
+                            new SimpleTask<Void>() {
                                 @Override
-                                public Void onLoad(Bundle args) {
+                                protected Void onLoad(Context context, Bundle args) {
                                     long id = args.getLong("id");
-                                    DB db = DB.getInstance(getContext());
+                                    DB db = DB.getInstance(context);
                                     try {
                                         db.beginTransaction();
 
@@ -593,24 +590,24 @@ public class FragmentMessage extends FragmentEx {
                                         db.endTransaction();
                                     }
 
-                                    EntityOperation.process(getContext());
+                                    EntityOperation.process(context);
 
                                     return null;
                                 }
 
                                 @Override
-                                public void onLoaded(Bundle args, Void result) {
+                                protected void onLoaded(Bundle args, Void result) {
                                     item.setEnabled(true);
                                     item.setIcon(icon);
                                 }
 
                                 @Override
-                                public void onException(Bundle args, Throwable ex) {
+                                protected void onException(Bundle args, Throwable ex) {
                                     item.setEnabled(true);
                                     item.setIcon(icon);
                                     Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                 }
-                            }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
+                            }.load(FragmentMessage.this, args);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null).show();
@@ -624,11 +621,11 @@ public class FragmentMessage extends FragmentEx {
             Bundle args = new Bundle();
             args.putLong("id", id);
 
-            new SimpleLoader<Void>() {
+            new SimpleTask<Void>() {
                 @Override
-                public Void onLoad(Bundle args) {
+                protected Void onLoad(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    DB db = DB.getInstance(getContext());
+                    DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
@@ -644,32 +641,128 @@ public class FragmentMessage extends FragmentEx {
                         db.endTransaction();
                     }
 
-                    EntityOperation.process(getContext());
+                    EntityOperation.process(context);
 
                     return null;
                 }
 
                 @Override
-                public void onLoaded(Bundle args, Void result) {
+                protected void onLoaded(Bundle args, Void result) {
                     item.setEnabled(true);
                     item.setIcon(icon);
                 }
 
                 @Override
-                public void onException(Bundle args, Throwable ex) {
+                protected void onException(Bundle args, Throwable ex) {
                     item.setEnabled(true);
                     item.setIcon(icon);
                     Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                 }
-            }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_TRASH, args);
+            }.load(FragmentMessage.this, args);
         }
     }
 
     private void onActionMove(long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        LoaderManager.getInstance(this)
-                .restartLoader(ActivityView.LOADER_MESSAGE_MOVE, args, moveLoaderCallbacks).forceLoad();
+
+        new SimpleTask<List<EntityFolder>>() {
+            @Override
+            protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                DB db = DB.getInstance(getContext());
+                EntityMessage message = db.message().getMessage(args.getLong("id"));
+                List<EntityFolder> folders = db.folder().getUserFolders(message.account);
+
+                for (int i = 0; i < folders.size(); i++)
+                    if (folders.get(i).id.equals(message.folder)) {
+                        folders.remove(i);
+                        break;
+                    }
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(folders, new Comparator<EntityFolder>() {
+                    @Override
+                    public int compare(EntityFolder f1, EntityFolder f2) {
+                        return collator.compare(f1.name, f2.name);
+                    }
+                });
+
+                EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                if (!message.folder.equals(inbox.id))
+                    folders.add(0, inbox);
+
+                return folders;
+            }
+
+            @Override
+            protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
+                View anchor = bottom_navigation.findViewById(R.id.action_move);
+                PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
+
+                int order = 0;
+                for (EntityFolder folder : folders)
+                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++,
+                            Helper.localizeFolderName(getContext(), folder.name));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(final MenuItem target) {
+                        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_move);
+                        item.setEnabled(false);
+
+                        final Drawable icon = item.getIcon();
+                        item.setIcon(Helper.toDimmed(icon));
+
+                        args.putLong("target", target.getItemId());
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                long target = args.getLong("target");
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    message.ui_hide = true;
+                                    db.message().updateMessage(message);
+
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, target);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                EntityOperation.process(context);
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Void result) {
+                                item.setEnabled(true);
+                                item.setIcon(icon);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                item.setEnabled(true);
+                                item.setIcon(icon);
+                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        }.load(FragmentMessage.this, args);
+
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        }.load(FragmentMessage.this, args);
     }
 
     private void onActionArchive(long id) {
@@ -682,11 +775,11 @@ public class FragmentMessage extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        new SimpleLoader<Void>() {
+        new SimpleTask<Void>() {
             @Override
-            public Void onLoad(Bundle args) {
+            protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
@@ -702,24 +795,24 @@ public class FragmentMessage extends FragmentEx {
                     db.endTransaction();
                 }
 
-                EntityOperation.process(getContext());
+                EntityOperation.process(context);
 
                 return null;
             }
 
             @Override
-            public void onLoaded(Bundle args, Void result) {
+            protected void onLoaded(Bundle args, Void result) {
                 item.setEnabled(true);
                 item.setIcon(icon);
             }
 
             @Override
-            public void onException(Bundle args, Throwable ex) {
+            protected void onException(Bundle args, Throwable ex) {
                 item.setEnabled(true);
                 item.setIcon(icon);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
-        }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_ARCHIVE, args);
+        }.load(FragmentMessage.this, args);
     }
 
     private void onActionReply(long id) {
@@ -727,132 +820,4 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("action", "reply")
                 .putExtra("reference", id));
     }
-
-    private static class MoveLoader extends AsyncTaskLoader<List<EntityFolder>> {
-        private Bundle args;
-
-        MoveLoader(Context context) {
-            super(context);
-        }
-
-        void setArgs(Bundle args) {
-            this.args = args;
-        }
-
-        protected void onStartLoading() {
-            forceLoad();
-        }
-
-        @Override
-        public List<EntityFolder> loadInBackground() {
-            DB db = DB.getInstance(getContext());
-            EntityMessage message = db.message().getMessage(args.getLong("id"));
-            List<EntityFolder> folders = db.folder().getUserFolders(message.account);
-
-            for (int i = 0; i < folders.size(); i++)
-                if (folders.get(i).id.equals(message.folder)) {
-                    folders.remove(i);
-                    break;
-                }
-
-            final Collator collator = Collator.getInstance(Locale.getDefault());
-            collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-            Collections.sort(folders, new Comparator<EntityFolder>() {
-                @Override
-                public int compare(EntityFolder f1, EntityFolder f2) {
-                    return collator.compare(f1.name, f2.name);
-                }
-            });
-
-            EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-            if (!message.folder.equals(inbox.id))
-                folders.add(0, inbox);
-
-            return folders;
-        }
-    }
-
-    private LoaderManager.LoaderCallbacks moveLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<EntityFolder>>() {
-        @NonNull
-        @Override
-        public Loader<List<EntityFolder>> onCreateLoader(int id, Bundle args) {
-            MoveLoader loader = new MoveLoader(getContext());
-            loader.setArgs(args);
-            return loader;
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull final Loader<List<EntityFolder>> loader, List<EntityFolder> folders) {
-            LoaderManager.getInstance(FragmentMessage.this).destroyLoader(loader.getId());
-
-            View anchor = bottom_navigation.findViewById(R.id.action_move);
-            PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
-            int order = 0;
-            for (EntityFolder folder : folders)
-                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++,
-                        Helper.localizeFolderName(getContext(), folder.name));
-
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(final MenuItem target) {
-                    final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_move);
-                    item.setEnabled(false);
-
-                    final Drawable icon = item.getIcon();
-                    item.setIcon(Helper.toDimmed(icon));
-
-                    Bundle args = ((MoveLoader) loader).args;
-                    args.putLong("target", target.getItemId());
-
-                    new SimpleLoader<Void>() {
-                        @Override
-                        public Void onLoad(Bundle args) {
-                            long id = args.getLong("id");
-                            long target = args.getLong("target");
-                            DB db = DB.getInstance(getContext());
-                            try {
-                                db.beginTransaction();
-
-                                EntityMessage message = db.message().getMessage(id);
-                                message.ui_hide = true;
-                                db.message().updateMessage(message);
-
-                                EntityOperation.queue(db, message, EntityOperation.MOVE, target);
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            EntityOperation.process(getContext());
-
-                            return null;
-                        }
-
-                        @Override
-                        public void onLoaded(Bundle args, Void result) {
-                            item.setEnabled(true);
-                            item.setIcon(icon);
-                        }
-
-                        @Override
-                        public void onException(Bundle args, Throwable ex) {
-                            item.setEnabled(true);
-                            item.setIcon(icon);
-                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }.load(FragmentMessage.this, ActivityView.LOADER_MESSAGE_MOVE, args);
-
-                    return true;
-                }
-            });
-
-            popupMenu.show();
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<List<EntityFolder>> loader) {
-        }
-    };
 }

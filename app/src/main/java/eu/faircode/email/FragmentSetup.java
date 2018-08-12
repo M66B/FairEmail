@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -152,10 +153,10 @@ public class FragmentSetup extends FragmentEx {
         onRequestPermissionsResult(0, permissions, grantResults);
 
         // Create outbox
-        new SimpleLoader<Void>() {
+        new SimpleTask<Void>() {
             @Override
-            public Void onLoad(Bundle args) throws Throwable {
-                DB db = DB.getInstance(getContext());
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
                 EntityFolder outbox = db.folder().getOutbox();
                 if (outbox == null) {
                     outbox = new EntityFolder();
@@ -169,10 +170,10 @@ public class FragmentSetup extends FragmentEx {
             }
 
             @Override
-            public void onException(Bundle args, Throwable ex) {
+            protected void onException(Bundle args, Throwable ex) {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
-        }.load(this, ActivitySetup.LOADER_CREATE_OUTBOX, new Bundle());
+        }.load(this, new Bundle());
 
         return view;
     }
