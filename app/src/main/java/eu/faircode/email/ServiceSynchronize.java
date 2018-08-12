@@ -970,8 +970,8 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                if (sent != null)
-                    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                //if (sent != null)
+                //    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
 
                 db.setTransactionSuccessful();
             } finally {
@@ -1193,14 +1193,15 @@ public class ServiceSynchronize extends LifecycleService {
                 // Find message by Message-ID (slow, headers required)
                 // - messages in inbox have same id as message sent to self
                 // - messages in archive have same id as original
-                if (message == null &&
-                        !EntityFolder.SENT.equals(folder.type) &&
-                        !EntityFolder.ARCHIVE.equals(folder.type)) {
+                if (message == null) {
                     // Will fetch headers within database transaction
                     String msgid = imessage.getMessageID();
                     message = db.message().getMessageByMsgId(msgid);
                     if (message != null) {
-                        if (message.folder == folder.id || EntityFolder.OUTBOX.equals(folder.type)) {
+                        EntityFolder mfolder = db.folder().getFolder(message.folder);
+                        Log.i(Helper.TAG, folder.name + " found as id=" + message.id +
+                                " folder=" + mfolder.type + ":" + message.folder + "/" + folder.type + ":" + folder.id);
+                        if (message.folder.equals(folder.id) || EntityFolder.OUTBOX.equals(mfolder.type)) {
                             Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
                             message.folder = folder.id;
                             message.uid = uid;
@@ -1243,8 +1244,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.folder = folder.id;
             message.uid = uid;
 
-            if (!EntityFolder.SENT.equals(folder.type) &&
-                    !EntityFolder.ARCHIVE.equals(folder.type)) {
+            if (!EntityFolder.ARCHIVE.equals(folder.type)) {
                 message.msgid = helper.getMessageID();
                 if (TextUtils.isEmpty(message.msgid))
                     Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
