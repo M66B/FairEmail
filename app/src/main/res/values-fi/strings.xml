@@ -17,6 +17,10 @@
     <item quantity="one">%1$d new message</item>
     <item quantity="other">%1$d new messages</item>
   </plurals>
+  <plurals name="title_notification_unsent">
+    <item quantity="one">%1$d unsent message</item>
+    <item quantity="other">%1$d unsent messages</item>
+  </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
   <string name="menu_faq">FAQ</string>
