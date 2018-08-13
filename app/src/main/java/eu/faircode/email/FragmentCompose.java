@@ -191,7 +191,7 @@ public class FragmentCompose extends FragmentEx {
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         Helper.setViewsEnabled(view, false);
-        bottom_navigation.getMenu().setGroupEnabled(0, false);
+        getActivity().invalidateOptionsMenu();
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -295,6 +295,7 @@ public class FragmentCompose extends FragmentEx {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
+        menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
     }
 
@@ -496,7 +497,7 @@ public class FragmentCompose extends FragmentEx {
 
     private void onAction(int action) {
         Helper.setViewsEnabled(view, false);
-        bottom_navigation.getMenu().setGroupEnabled(0, false);
+        getActivity().invalidateOptionsMenu();
 
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
@@ -640,7 +641,7 @@ public class FragmentCompose extends FragmentEx {
                 etTo.requestFocus();
 
             Helper.setViewsEnabled(view, true);
-            bottom_navigation.getMenu().setGroupEnabled(0, true);
+            getActivity().invalidateOptionsMenu();
 
             DB db = DB.getInstance(getContext());
 
@@ -845,7 +846,7 @@ public class FragmentCompose extends FragmentEx {
             Log.i(Helper.TAG, "Loaded action id=" + draft.id + " action=" + action);
 
             Helper.setViewsEnabled(view, true);
-            bottom_navigation.getMenu().setGroupEnabled(0, true);
+            getActivity().invalidateOptionsMenu();
 
             if (action == R.id.action_trash) {
                 autosave = false;
@@ -865,7 +866,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected void onException(Bundle args, Throwable ex) {
             Helper.setViewsEnabled(view, true);
-            bottom_navigation.getMenu().setGroupEnabled(0, true);
+            getActivity().invalidateOptionsMenu();
 
             if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();

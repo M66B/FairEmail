@@ -21,24 +21,23 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import androidx.annotation.NonNull;
 
 public class Helper {
     static final String TAG = BuildConfig.APPLICATION_ID;
@@ -51,25 +50,19 @@ public class Helper {
         return color;
     }
 
-    static Drawable toDimmed(@NonNull Drawable drawable) {
-        ColorMatrix matrix = new ColorMatrix();
-        matrix.setSaturation(0);
-        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
-        Drawable mutated = drawable.mutate();
-        mutated.setColorFilter(filter);
-        mutated.setAlpha(128);
-        return mutated;
-    }
-
     static void setViewsEnabled(ViewGroup view, boolean enabled) {
         for (int i = 0; i < view.getChildCount(); i++) {
             View child = view.getChildAt(i);
             if (child instanceof Spinner ||
                     child instanceof EditText ||
                     child instanceof CheckBox ||
+                    child instanceof ImageView ||
                     child instanceof ImageButton)
                 child.setEnabled(enabled);
-            else if (child instanceof ViewGroup)
+            if (child instanceof BottomNavigationView) {
+                Menu menu = ((BottomNavigationView) child).getMenu();
+                menu.setGroupEnabled(0, enabled);
+            } else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);
         }
     }

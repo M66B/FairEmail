@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -67,6 +66,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
+    private ViewGroup view;
     private TextView tvFrom;
     private TextView tvTime;
     private TextView tvSubject;
@@ -92,7 +92,7 @@ public class FragmentMessage extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_message, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_message, container, false);
 
         // Get arguments
         Bundle args = getArguments();
@@ -390,11 +390,7 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onActionSeen(long id) {
-        final MenuItem item = top_navigation.getMenu().findItem(R.id.action_seen);
-        item.setEnabled(false);
-
-        final Drawable icon = item.getIcon();
-        item.setIcon(Helper.toDimmed(icon));
+        Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -427,25 +423,19 @@ public class FragmentMessage extends FragmentEx {
 
             @Override
             protected void onLoaded(Bundle args, Void data) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
             }
 
             @Override
             public void onException(Bundle args, Throwable ex) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, args);
     }
 
     private void onActionEdit(final long id) {
-        final MenuItem item = top_navigation.getMenu().findItem(R.id.action_edit);
-        item.setEnabled(false);
-
-        final Drawable icon = item.getIcon();
-        item.setIcon(Helper.toDimmed(icon));
+        Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -480,8 +470,7 @@ public class FragmentMessage extends FragmentEx {
 
             @Override
             protected void onLoaded(Bundle args, Void data) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
                 getContext().startActivity(
                         new Intent(getContext(), ActivityCompose.class)
                                 .putExtra("action", "edit")
@@ -490,8 +479,7 @@ public class FragmentMessage extends FragmentEx {
 
             @Override
             public void onException(Bundle args, Throwable ex) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, args);
@@ -516,11 +504,7 @@ public class FragmentMessage extends FragmentEx {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_spam);
-                        item.setEnabled(false);
-
-                        final Drawable icon = item.getIcon();
-                        item.setIcon(Helper.toDimmed(icon));
+                        Helper.setViewsEnabled(view, false);
 
                         Bundle args = new Bundle();
                         args.putLong("id", id);
@@ -553,14 +537,12 @@ public class FragmentMessage extends FragmentEx {
 
                             @Override
                             protected void onLoaded(Bundle args, Void result) {
-                                item.setEnabled(true);
-                                item.setIcon(icon);
+                                Helper.setViewsEnabled(view, true);
                             }
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                item.setEnabled(true);
-                                item.setIcon(icon);
+                                Helper.setViewsEnabled(view, true);
                                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                             }
                         }.load(FragmentMessage.this, args);
@@ -579,11 +561,7 @@ public class FragmentMessage extends FragmentEx {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_trash);
-                            item.setEnabled(false);
-
-                            final Drawable icon = item.getIcon();
-                            item.setIcon(Helper.toDimmed(icon));
+                            Helper.setViewsEnabled(view, false);
 
                             Bundle args = new Bundle();
                             args.putLong("id", id);
@@ -614,14 +592,12 @@ public class FragmentMessage extends FragmentEx {
 
                                 @Override
                                 protected void onLoaded(Bundle args, Void result) {
-                                    item.setEnabled(true);
-                                    item.setIcon(icon);
+                                    Helper.setViewsEnabled(view, true);
                                 }
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    item.setEnabled(true);
-                                    item.setIcon(icon);
+                                    Helper.setViewsEnabled(view, true);
                                     Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                 }
                             }.load(FragmentMessage.this, args);
@@ -629,11 +605,7 @@ public class FragmentMessage extends FragmentEx {
                     })
                     .setNegativeButton(android.R.string.cancel, null).show();
         } else {
-            final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_trash);
-            item.setEnabled(false);
-
-            final Drawable icon = item.getIcon();
-            item.setIcon(Helper.toDimmed(icon));
+            Helper.setViewsEnabled(view, false);
 
             Bundle args = new Bundle();
             args.putLong("id", id);
@@ -669,14 +641,12 @@ public class FragmentMessage extends FragmentEx {
 
                 @Override
                 protected void onLoaded(Bundle args, Void result) {
-                    item.setEnabled(true);
-                    item.setIcon(icon);
+                    Helper.setViewsEnabled(view, true);
                 }
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    item.setEnabled(true);
-                    item.setIcon(icon);
+                    Helper.setViewsEnabled(view, true);
                     Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                 }
             }.load(FragmentMessage.this, args);
@@ -741,11 +711,7 @@ public class FragmentMessage extends FragmentEx {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(final MenuItem target) {
-                        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_move);
-                        item.setEnabled(false);
-
-                        final Drawable icon = item.getIcon();
-                        item.setIcon(Helper.toDimmed(icon));
+                        Helper.setViewsEnabled(view, false);
 
                         args.putLong("target", target.getItemId());
 
@@ -780,14 +746,12 @@ public class FragmentMessage extends FragmentEx {
 
                             @Override
                             protected void onLoaded(Bundle args, Void result) {
-                                item.setEnabled(true);
-                                item.setIcon(icon);
+                                Helper.setViewsEnabled(view, true);
                             }
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                item.setEnabled(true);
-                                item.setIcon(icon);
+                                Helper.setViewsEnabled(view, true);
                                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                             }
                         }.load(FragmentMessage.this, args);
@@ -802,11 +766,7 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onActionArchive(long id) {
-        final MenuItem item = bottom_navigation.getMenu().findItem(R.id.action_archive);
-        item.setEnabled(false);
-
-        final Drawable icon = item.getIcon();
-        item.setIcon(Helper.toDimmed(icon));
+        Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -839,14 +799,12 @@ public class FragmentMessage extends FragmentEx {
 
             @Override
             protected void onLoaded(Bundle args, Void result) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                item.setEnabled(true);
-                item.setIcon(icon);
+                Helper.setViewsEnabled(view, true);
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(FragmentMessage.this, args);
