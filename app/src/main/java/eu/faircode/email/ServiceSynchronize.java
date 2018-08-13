@@ -108,6 +108,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
     private static final int NOTIFICATION_UNSEEN = 2;
 
+    private static final int CONNECT_BACKOFF_START = 2; // seconds
+    private static final int CONNECT_BACKOFF_MAX = 128; // seconds
     private static final long NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
@@ -322,12 +324,12 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
-        boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
-        Log.i(Helper.TAG, account.name + " start ");
+        Log.i(Helper.TAG, account.name + " start");
 
         final DB db = DB.getInstance(ServiceSynchronize.this);
         db.account().setAccountState(account.id, "connecting");
 
+        int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
             IMAPStore istore = null;
             try {
@@ -337,6 +339,7 @@ public class ServiceSynchronize extends LifecycleService {
                 props.setProperty("mail.mime.decodetext.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
 
+                boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
                 final Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "eu.faircode.email\|System.out"
@@ -407,6 +410,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             monitorFolder(account, folder, fstore, ifolder, state);
 
+                                        } catch (IllegalStateException ex) {
+                                            // This operation is not allowed on a closed folder
+                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
@@ -414,12 +421,11 @@ public class ServiceSynchronize extends LifecycleService {
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                             // Cascade up
-                                            if (!(ex instanceof FolderNotFoundException))
-                                                try {
-                                                    fstore.close();
-                                                } catch (MessagingException e1) {
-                                                    Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                                }
+                                            try {
+                                                fstore.close();
+                                            } catch (MessagingException e1) {
+                                                Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                                            }
                                         } finally {
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
@@ -489,6 +495,8 @@ public class ServiceSynchronize extends LifecycleService {
                     public void closed(ConnectionEvent e) {
                         Log.e(Helper.TAG, account.name + " closed");
 
+                        db.account().setAccountState(account.id, null);
+
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.unregisterReceiver(processReceiver);
 
@@ -557,6 +565,7 @@ public class ServiceSynchronize extends LifecycleService {
                 // Initiate connection
                 Log.i(Helper.TAG, account.name + " connect");
                 istore.connect(account.host, account.port, account.user, account.password);
+                backoff = CONNECT_BACKOFF_START;
 
                 // Keep alive
                 boolean connected = false;
@@ -596,7 +605,11 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (state.running) {
                 try {
-                    Thread.sleep(10 * 1000L); // TODO: logarithmic back off
+                    Log.i(Helper.TAG, "Backoff seconds=" + backoff);
+                    Thread.sleep(backoff * 1000L);
+
+                    if (backoff < CONNECT_BACKOFF_MAX)
+                        backoff *= 2;
                 } catch (InterruptedException ex) {
                     Log.w(Helper.TAG, account.name + " " + ex.toString());
                 }
@@ -766,9 +779,9 @@ public class ServiceSynchronize extends LifecycleService {
                             throw new MessageRemovedException();
 
                         if (message.uid == null &&
-                                EntityOperation.SEEN.equals(op.name) ||
-                                EntityOperation.DELETE.equals(op.name) ||
-                                EntityOperation.MOVE.equals(op.name))
+                                (EntityOperation.SEEN.equals(op.name) ||
+                                        EntityOperation.DELETE.equals(op.name) ||
+                                        EntityOperation.MOVE.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid");
 
                         try {
