@@ -18,7 +18,8 @@
             port="587"
             starttls="true" />
     </provider>
-    <provider name="mailbox.org">
+    <!-- login not accepted -->
+    <!--provider name="mailbox.org">
         <imap
             host="imap.mailbox.org"
             port="993" />
@@ -26,7 +27,7 @@
             host="smtp.mailbox.org"
             port="465"
             starttls="false" />
-    </provider>
+    </provider-->
     <!-- no IMAP IDLE -->
     <!--provider name="Yahoo!">
         <imap
