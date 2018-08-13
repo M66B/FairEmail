@@ -31,10 +31,15 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder WHERE account = :account")
     List<EntityFolder> getFolders(long account);
 
-    @Query("SELECT * FROM folder WHERE account = :account AND synchronize = :synchronize")
+    @Query("SELECT * FROM folder" +
+            " WHERE account = :account" +
+            " AND synchronize = :synchronize" +
+            " ORDER BY CASE WHEN folder.type = '" + EntityFolder.USER + "' THEN 1 ELSE 0 END")
     List<EntityFolder> getFolders(long account, boolean synchronize);
 
-    @Query("SELECT * FROM folder WHERE account = :account AND type = '" + EntityFolder.USER + "'")
+    @Query("SELECT * FROM folder" +
+            " WHERE account = :account" +
+            " AND type = '" + EntityFolder.USER + "'")
     List<EntityFolder> getUserFolders(long account);
 
     @Query("SELECT folder.*, account.name AS accountName" +
