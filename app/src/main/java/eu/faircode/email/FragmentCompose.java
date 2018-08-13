@@ -403,7 +403,7 @@ public class FragmentCompose extends FragmentEx {
                         String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
                         if (extension != null)
                             attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-                        if (extension == null)
+                        if (attachment.type == null)
                             attachment.type = "application/octet-stream";
 
                         String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
