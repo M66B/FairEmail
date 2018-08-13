@@ -29,47 +29,35 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoAttachment {
-    @Query("SELECT attachment.id, attachment.message, sequence, name, type, size, progress" +
-            ", (NOT content IS NULL) as content" +
-            " FROM attachment" +
+    @Query("SELECT * FROM attachment" +
             " WHERE message = :id" +
             " ORDER BY sequence")
-    LiveData<List<TupleAttachment>> liveAttachments(long id);
+    LiveData<List<EntityAttachment>> liveAttachments(long id);
 
-    @Query("SELECT attachment.id, attachment.message, sequence, name, type, size, progress" +
-            ", (NOT content IS NULL) as content" +
-            " FROM attachment" +
+    @Query("SELECT attachment.* FROM attachment" +
             " JOIN message ON message.id = attachment.message" +
             " WHERE folder = :folder" +
             " AND msgid = :msgid" +
             " ORDER BY sequence")
-    LiveData<List<TupleAttachment>> liveAttachments(long folder, String msgid);
-
-    @Query("SELECT * FROM attachment" +
-            " WHERE message = :message" +
-            " AND sequence = :sequence")
-    EntityAttachment getAttachment(long message, int sequence);
+    LiveData<List<EntityAttachment>> liveAttachments(long folder, String msgid);
 
     @Query("SELECT COUNT(attachment.id)" +
             " FROM attachment" +
             " WHERE message = :message")
     int getAttachmentCount(long message);
 
-    @Query("SELECT SUM(CASE WHEN content IS NULL THEN 1 ELSE 0 END)" +
-            " FROM attachment" +
-            " WHERE message = :message")
-    int getAttachmentCountWithoutContent(long message);
-
-    @Query("SELECT id, message, sequence, name, type, size, progress, NULL AS content FROM attachment" +
+    @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
             " ORDER BY sequence")
     List<EntityAttachment> getAttachments(long message);
 
+    @Query("SELECT * FROM attachment" +
+            " WHERE message = :message" +
+            " AND sequence = :sequence")
+    EntityAttachment getAttachment(long message, int sequence);
+
     @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
     void setProgress(long id, int progress);
-
-    @Query("SELECT content FROM attachment WHERE id = :id")
-    byte[] getContent(long id);
 
     @Insert
     long insertAttachment(EntityAttachment attachment);

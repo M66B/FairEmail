@@ -19,12 +19,14 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -34,7 +36,8 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.activation.FileTypeMap;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Flags;
@@ -48,7 +51,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import javax.mail.util.ByteArrayDataSource;
 
 public class MessageHelper {
     private MimeMessage imessage;
@@ -84,7 +86,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
+    static MimeMessageEx from(Context context, EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
@@ -118,15 +120,29 @@ public class MessageHelper {
             bpMessage.setContent(message.body, "text/html; charset=" + Charset.defaultCharset().name());
             multipart.addBodyPart(bpMessage);
 
-            for (EntityAttachment attachment : attachments) {
-                BodyPart bpAttachment = new MimeBodyPart();
-                bpAttachment.setFileName(attachment.name);
+            for (final EntityAttachment attachment : attachments)
+                if (attachment.filename != null) {
+                    BodyPart bpAttachment = new MimeBodyPart();
+                    bpAttachment.setFileName(attachment.name);
 
-                DataSource dataSource = new ByteArrayDataSource(attachment.content, attachment.type);
-                bpAttachment.setDataHandler(new DataHandler(dataSource));
+                    File dir = new File(context.getFilesDir(), "attachments");
+                    File file = new File(dir, attachment.filename);
+                    FileDataSource dataSource = new FileDataSource(file);
+                    dataSource.setFileTypeMap(new FileTypeMap() {
+                        @Override
+                        public String getContentType(File file) {
+                            return attachment.type;
+                        }
 
-                multipart.addBodyPart(bpAttachment);
-            }
+                        @Override
+                        public String getContentType(String filename) {
+                            return attachment.type;
+                        }
+                    });
+                    bpAttachment.setDataHandler(new DataHandler(dataSource));
+
+                    multipart.addBodyPart(bpAttachment);
+                }
 
             imessage.setContent(multipart);
         }
@@ -136,8 +152,8 @@ public class MessageHelper {
         return imessage;
     }
 
-    static MimeMessageEx from(EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException {
-        MimeMessageEx imessage = from(message, attachments, isession);
+    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException {
+        MimeMessageEx imessage = from(context, message, attachments, isession);
         imessage.addHeader("In-Reply-To", reply.msgid);
         imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
         return imessage;

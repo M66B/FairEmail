@@ -25,7 +25,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +36,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -52,15 +51,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
+    private boolean debug;
 
-    private List<TupleAttachment> all = new ArrayList<>();
-    private List<TupleAttachment> filtered = new ArrayList<>();
+    private List<EntityAttachment> all = new ArrayList<>();
+    private List<EntityAttachment> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView tvName;
         TextView tvSize;
         ImageView ivStatus;
+        TextView tvType;
+        TextView tvFile;
         ProgressBar progressbar;
 
         ViewHolder(View itemView) {
@@ -70,6 +72,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
+            tvType = itemView.findViewById(R.id.tvType);
+            tvFile = itemView.findViewById(R.id.tvFile);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
 
@@ -81,28 +85,33 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             itemView.setOnClickListener(null);
         }
 
-        private void bindTo(TupleAttachment attachment) {
+        private void bindTo(EntityAttachment attachment) {
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size, false));
             tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
 
-            if (attachment.progress != null)
-                progressbar.setProgress(attachment.progress);
-            progressbar.setVisibility(
-                    attachment.progress == null || attachment.content ? View.GONE : View.VISIBLE);
-
-            if (attachment.content) {
-                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
-                ivStatus.setVisibility(View.VISIBLE);
-            } else {
+            if (attachment.filename == null) {
                 if (attachment.progress == null) {
                     ivStatus.setImageResource(R.drawable.baseline_get_app_24);
                     ivStatus.setVisibility(View.VISIBLE);
                 } else
                     ivStatus.setVisibility(View.GONE);
+            } else {
+                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+                ivStatus.setVisibility(View.VISIBLE);
             }
+
+            if (attachment.progress != null)
+                progressbar.setProgress(attachment.progress);
+            progressbar.setVisibility(
+                    attachment.progress == null || attachment.filename != null ? View.GONE : View.VISIBLE);
+
+            tvType.setText(attachment.type);
+            tvFile.setText(attachment.filename);
+            tvType.setVisibility(debug ? View.VISIBLE : View.GONE);
+            tvFile.setVisibility(debug ? View.VISIBLE : View.GONE);
         }
 
         @Override
@@ -110,82 +119,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            final TupleAttachment attachment = filtered.get(pos);
+            final EntityAttachment attachment = filtered.get(pos);
             if (attachment != null)
-                if (attachment.content) {
-                    // Build file name
-                    final File dir = new File(context.getCacheDir(), "attachments");
-                    final File file = new File(dir, TextUtils.isEmpty(attachment.name)
-                            ? "attachment_" + attachment.id
-                            : attachment.name.toLowerCase().replaceAll("[^a-zA-Z0-9-.]", "_"));
-
-                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
-
-                    // Build intent
-                    final Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(uri);
-                    //intent.setType(attachment.type);
-                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
-
-                    // Set permissions
-                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : targets)
-                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                    // Check if viewer available
-                    if (targets.size() == 0) {
-                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    Bundle args = new Bundle();
-                    args.putLong("id", attachment.id);
-                    args.putSerializable("file", file);
-                    args.putSerializable("dir", dir);
-
-                    // View
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onLoad(Context context, Bundle args) throws Throwable {
-                            long id = args.getLong("id");
-                            File file = (File) args.getSerializable("file");
-                            File dir = (File) args.getSerializable("dir");
-
-                            // Create file
-                            if (!file.exists()) {
-                                dir.mkdir();
-                                file.createNewFile();
-
-                                // Get attachment content
-                                byte[] content = DB.getInstance(context).attachment().getContent(id);
-
-                                // Write attachment content to file
-                                FileOutputStream fos = null;
-                                try {
-                                    fos = new FileOutputStream(file);
-                                    fos.write(content);
-                                } finally {
-                                    if (fos != null)
-                                        fos.close();
-                                }
-                            }
-
-                            return null;
-                        }
-
-                        @Override
-                        protected void onLoaded(Bundle args, Void data) {
-                            context.startActivity(intent);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }.load(context, owner, args);
-                } else {
+                if (attachment.filename == null) {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
                         args.putLong("id", attachment.id);
@@ -219,6 +155,33 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             }
                         }.load(context, owner, args);
                     }
+                } else {
+                    // Build file name
+                    File dir = new File(context.getFilesDir(), "attachments");
+                    File file = new File(dir, attachment.filename);
+
+                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
+
+                    // Build intent
+                    final Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(uri);
+                    intent.setType(attachment.type);
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+
+                    // Set permissions
+                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                    for (ResolveInfo resolveInfo : targets)
+                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                    // Check if viewer available
+                    if (targets.size() == 0) {
+                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    context.startActivity(intent);
                 }
         }
     }
@@ -226,15 +189,16 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     AdapterAttachment(Context context, LifecycleOwner owner) {
         this.context = context;
         this.owner = owner;
+        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<TupleAttachment> attachments) {
+    public void set(@NonNull List<EntityAttachment> attachments) {
         Log.i(Helper.TAG, "Set attachments=" + attachments.size());
 
-        Collections.sort(attachments, new Comparator<TupleAttachment>() {
+        Collections.sort(attachments, new Comparator<EntityAttachment>() {
             @Override
-            public int compare(TupleAttachment a1, TupleAttachment a2) {
+            public int compare(EntityAttachment a1, EntityAttachment a2) {
                 return a1.sequence.compareTo(a2.sequence);
             }
         });
@@ -272,10 +236,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<TupleAttachment> prev;
-        private List<TupleAttachment> next;
+        private List<EntityAttachment> prev;
+        private List<EntityAttachment> next;
 
-        MessageDiffCallback(List<TupleAttachment> prev, List<TupleAttachment> next) {
+        MessageDiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -292,15 +256,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleAttachment a1 = prev.get(oldItemPosition);
-            TupleAttachment a2 = next.get(newItemPosition);
+            EntityAttachment a1 = prev.get(oldItemPosition);
+            EntityAttachment a2 = next.get(newItemPosition);
             return a1.id.equals(a2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleAttachment a1 = prev.get(oldItemPosition);
-            TupleAttachment a2 = next.get(newItemPosition);
+            EntityAttachment a1 = prev.get(oldItemPosition);
+            EntityAttachment a2 = next.get(newItemPosition);
             return a1.equals(a2);
         }
     }
@@ -325,7 +289,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        TupleAttachment attachment = filtered.get(position);
+        EntityAttachment attachment = filtered.get(position);
         holder.bindTo(attachment);
 
         holder.wire();

@@ -50,9 +50,12 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -412,37 +415,58 @@ public class FragmentCompose extends FragmentEx {
                         attachment.progress = 0;
 
                         attachment.id = db.attachment().insertAttachment(attachment);
-                        Log.i(Helper.TAG, "Created attachment seq=" + attachment.sequence + " name=" + attachment.name);
+                        Log.i(Helper.TAG, "Created attachment seq=" + attachment.sequence +
+                                " name=" + attachment.name + " type=" + attachment.type);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
 
-                    InputStream is = null;
                     try {
-                        is = context.getContentResolver().openInputStream(uri);
-                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+                        File dir = new File(context.getFilesDir(), "attachments");
+                        dir.mkdir();
+                        File file = new File(dir, Long.toString(attachment.id));
 
-                        int len;
-                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                        while ((len = is.read(buffer)) > 0) {
-                            os.write(buffer, 0, len);
+                        InputStream is = null;
+                        OutputStream os = null;
+                        try {
+                            is = context.getContentResolver().openInputStream(uri);
+                            os = new BufferedOutputStream(new FileOutputStream(file));
 
-                            // Update progress
-                            if (attachment.size != null) {
-                                attachment.progress = os.size() * 100 / attachment.size;
-                                db.attachment().updateAttachment(attachment);
+                            int size = 0;
+                            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                                size += len;
+                                os.write(buffer, 0, len);
+
+                                // Update progress
+                                if (attachment.size != null) {
+                                    attachment.progress = size * 100 / attachment.size;
+                                    db.attachment().updateAttachment(attachment);
+                                }
+                            }
+
+                            attachment.size = size;
+                            attachment.progress = null;
+                            attachment.filename = file.getName();
+                        } finally {
+                            try {
+                                if (is != null)
+                                    is.close();
+                            } finally {
+                                if (os != null)
+                                    os.close();
                             }
                         }
 
-                        attachment.size = os.size();
-                        attachment.progress = null;
-                        attachment.content = os.toByteArray();
                         db.attachment().updateAttachment(attachment);
-                    } finally {
-                        if (is != null)
-                            is.close();
+                    } catch (Throwable ex) {
+                        // Reset progress on failure
+                        attachment.progress = null;
+                        attachment.filename = null;
+                        db.attachment().updateAttachment(attachment);
+                        throw ex;
                     }
 
                     return null;
@@ -594,9 +618,9 @@ public class FragmentCompose extends FragmentEx {
             DB db = DB.getInstance(getContext());
 
             db.attachment().liveAttachments(draft.folder, draft.msgid).observe(getViewLifecycleOwner(),
-                    new Observer<List<TupleAttachment>>() {
+                    new Observer<List<EntityAttachment>>() {
                         @Override
-                        public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments != null)
                                 adapter.set(attachments);
                             grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
@@ -794,8 +818,6 @@ public class FragmentCompose extends FragmentEx {
 
                         // Save attachments
                         List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
-                        for (EntityAttachment attachment : attachments)
-                            attachment.content = db.attachment().getContent(attachment.id);
 
                         // Delete previous draft
                         draft.msgid = null;
@@ -829,16 +851,14 @@ public class FragmentCompose extends FragmentEx {
                     if (draft.to == null && draft.cc == null && draft.bcc == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
-                    if (db.attachment().getAttachmentCountWithoutContent(draft.id) > 0)
-                        throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-
                     // Save message ID
                     String msgid = draft.msgid;
 
                     // Save attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
-                        attachment.content = db.attachment().getContent(attachment.id);
+                        if (attachment.filename == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                     // Delete draft (cannot move to outbox)
                     draft.msgid = null;

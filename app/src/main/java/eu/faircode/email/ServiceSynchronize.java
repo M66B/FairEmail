@@ -49,9 +49,12 @@ import com.sun.mail.smtp.SMTPSendFailedException;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -844,12 +847,10 @@ public class ServiceSynchronize extends LifecycleService {
         // Append message
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        for (EntityAttachment attachment : attachments)
-            attachment.content = db.attachment().getContent(attachment.id);
 
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
-        MimeMessage imessage = MessageHelper.from(message, attachments, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, attachments, isession);
         ifolder.appendMessages(new Message[]{imessage});
     }
 
@@ -875,15 +876,13 @@ public class ServiceSynchronize extends LifecycleService {
             Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
 
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-            for (EntityAttachment attachment : attachments)
-                attachment.content = db.attachment().getContent(attachment.id);
 
             if (!EntityFolder.ARCHIVE.equals(folder.type)) {
                 imessage.setFlag(Flags.Flag.DELETED, true);
                 ifolder.expunge();
             }
 
-            MimeMessageEx icopy = MessageHelper.from(message, attachments, isession);
+            MimeMessageEx icopy = MessageHelper.from(this, message, attachments, isession);
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
@@ -909,8 +908,6 @@ public class ServiceSynchronize extends LifecycleService {
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        for (EntityAttachment attachment : attachments)
-            attachment.content = db.attachment().getContent(attachment.id);
 
         if (!ident.synchronize) {
             // Message will remain in outbox
@@ -924,9 +921,9 @@ public class ServiceSynchronize extends LifecycleService {
         // Create message
         MimeMessage imessage;
         if (reply == null)
-            imessage = MessageHelper.from(message, attachments, isession);
+            imessage = MessageHelper.from(this, message, attachments, isession);
         else
-            imessage = MessageHelper.from(message, reply, attachments, isession);
+            imessage = MessageHelper.from(this, message, reply, attachments, isession);
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
 
@@ -1000,29 +997,51 @@ public class ServiceSynchronize extends LifecycleService {
             MessageHelper helper = new MessageHelper((MimeMessage) imessage);
             EntityAttachment a = helper.getAttachments().get(sequence - 1);
 
-            // Download attachment
-            InputStream is = a.part.getInputStream();
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                os.write(buffer, 0, len);
+            // Build filename
+            File dir = new File(getFilesDir(), "attachments");
+            dir.mkdir();
+            File file = new File(dir, Long.toString(attachment.id));
 
-                // Update progress
-                if (attachment.size != null) {
-                    attachment.progress = os.size() * 100 / attachment.size;
-                    db.attachment().updateAttachment(attachment);
-                    Log.i(Helper.TAG, folder.name + " progress %=" + attachment.progress);
+            // Download attachment
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = a.part.getInputStream();
+                os = new BufferedOutputStream(new FileOutputStream(file));
+
+                int size = 0;
+                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                    size += len;
+                    os.write(buffer, 0, len);
+
+                    // Update progress
+                    if (attachment.size != null) {
+                        attachment.progress = size * 100 / attachment.size;
+                        db.attachment().updateAttachment(attachment);
+                        Log.i(Helper.TAG, folder.name + " progress %=" + attachment.progress);
+                    }
+                }
+
+                // Store attachment data
+                attachment.size = size;
+                attachment.progress = null;
+                attachment.filename = file.getName();
+            } finally {
+                try {
+                    if (is != null)
+                        is.close();
+                } finally {
+                    if (os != null)
+                        os.close();
                 }
             }
-
-            // Store attachment data
-            attachment.progress = null;
-            attachment.content = os.toByteArray();
             db.attachment().updateAttachment(attachment);
-            Log.i(Helper.TAG, folder.name + " downloaded bytes=" + attachment.content.length);
+            Log.i(Helper.TAG, folder.name + " downloaded bytes=" + attachment.size);
         } catch (Throwable ex) {
             // Reset progress on failure
             attachment.progress = null;
+            attachment.filename = null;
             db.attachment().updateAttachment(attachment);
             throw ex;
         }

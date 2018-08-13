@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "984985d3928b4abdec0802b65e820b2b",
+    "identityHash": "0b5e9888b548ea410934b7082b08a3b6",
     "entities": [
       {
         "tableName": "identity",
@@ -569,7 +569,7 @@
       },
       {
         "tableName": "attachment",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `sequence` INTEGER NOT NULL, `name` TEXT, `type` TEXT NOT NULL, `size` INTEGER, `progress` INTEGER, `content` BLOB, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `sequence` INTEGER NOT NULL, `name` TEXT, `type` TEXT NOT NULL, `size` INTEGER, `progress` INTEGER, `filename` TEXT, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -614,9 +614,9 @@
             "notNull": false
           },
           {
-            "fieldPath": "content",
-            "columnName": "content",
-            "affinity": "BLOB",
+            "fieldPath": "filename",
+            "columnName": "filename",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -752,7 +752,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"984985d3928b4abdec0802b65e820b2b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0b5e9888b548ea410934b7082b08a3b6\")"
     ]
   }
 }

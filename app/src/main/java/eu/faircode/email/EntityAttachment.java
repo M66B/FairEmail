@@ -54,7 +54,7 @@ public class EntityAttachment {
     public String type;
     public Integer size;
     public Integer progress;
-    public byte[] content;
+    public String filename;
 
     @Ignore
     BodyPart part;
@@ -69,7 +69,7 @@ public class EntityAttachment {
                     this.type.equals(other.type) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
                     (this.progress == null ? other.progress == null : this.progress.equals(other.progress)) &&
-                    (this.content == null ? other.content == null : other.content != null));
+                    (this.filename == null ? other.filename == null : this.filename.equals(other.filename)));
         } else
             return false;
     }

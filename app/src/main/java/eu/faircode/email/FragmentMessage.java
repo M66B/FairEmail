@@ -342,9 +342,9 @@ public class FragmentMessage extends FragmentEx {
 
         // Observe attachments
         db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
-                new Observer<List<TupleAttachment>>() {
+                new Observer<List<EntityAttachment>>() {
                     @Override
-                    public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
                         if (attachments != null)
                             adapter.set(attachments);
                         grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
