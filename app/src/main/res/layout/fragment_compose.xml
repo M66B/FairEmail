@@ -106,7 +106,7 @@
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:hint="@string/title_subject"
-        android:inputType="textEmailSubject"
+        android:inputType="textEmailSubject|textCapSentences"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
