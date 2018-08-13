@@ -321,6 +321,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
+        final List<Thread> threads = new ArrayList<>();
         Log.i(Helper.TAG, account.name + " start");
 
         final DB db = DB.getInstance(ServiceSynchronize.this);
@@ -387,7 +388,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
 
                                 // Monitor folders
-                                new Thread(new Runnable() {
+                                Thread t = new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         IMAPFolder ifolder = null;
@@ -443,7 +444,9 @@ public class ServiceSynchronize extends LifecycleService {
                                             Log.i(Helper.TAG, folder.name + " stopped");
                                         }
                                     }
-                                }, "sync.folder." + folder.id).start();
+                                }, "sync.folder." + folder.id);
+                                t.start();
+                                threads.add(t);
                             }
 
                             // Listen for folder operations
@@ -574,9 +577,11 @@ public class ServiceSynchronize extends LifecycleService {
                 boolean connected = false;
                 do {
                     try {
+                        Log.i(Helper.TAG, account.name + " wait");
                         synchronized (state) {
                             state.wait();
                         }
+                        Log.i(Helper.TAG, account.name + " waited");
                     } catch (InterruptedException ex) {
                         Log.w(Helper.TAG, account.name + " " + ex.toString());
                     }
@@ -597,6 +602,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
+                Log.i(Helper.TAG, account.name + " closing");
                 if (istore != null) {
                     try {
                         istore.close();
@@ -604,6 +610,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     }
                 }
+                Log.i(Helper.TAG, account.name + " closed");
             }
 
             if (state.running) {
@@ -620,6 +627,17 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         db.account().setAccountState(account.id, null);
+
+        for (Thread t : threads) {
+            try {
+                Log.i(Helper.TAG, "Joining " + t.getName());
+                t.join();
+                Log.i(Helper.TAG, "Joined " + t.getName());
+            } catch (InterruptedException ex) {
+                Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+            }
+        }
+        threads.clear();
 
         Log.i(Helper.TAG, account.name + " stopped");
     }
@@ -1336,7 +1354,8 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        final ServiceState state = new ServiceState();
+        ServiceState state = new ServiceState();
+        private Thread main;
         private EntityFolder outbox = null;
 
         @Override
@@ -1347,7 +1366,9 @@ public class ServiceSynchronize extends LifecycleService {
                 state.running = true;
             }
 
-            new Thread(new Runnable() {
+            main = new Thread(new Runnable() {
+                private List<Thread> threads = new ArrayList<>();
+
                 @Override
                 public void run() {
                     DB db = DB.getInstance(ServiceSynchronize.this);
@@ -1360,7 +1381,7 @@ public class ServiceSynchronize extends LifecycleService {
                             for (final EntityAccount account : accounts) {
                                 Log.i(Helper.TAG, account.host + "/" + account.user + " run");
 
-                                new Thread(new Runnable() {
+                                Thread t = new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         try {
@@ -1370,7 +1391,9 @@ public class ServiceSynchronize extends LifecycleService {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                         }
                                     }
-                                }, "sync.account." + account.id).start();
+                                }, "sync.account." + account.id);
+                                t.start();
+                                threads.add(t);
                             }
                     } catch (Throwable ex) {
                         // Failsafe
@@ -1391,8 +1414,18 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
 
+                    for (Thread t : threads)
+                        try {
+                            Log.i(Helper.TAG, "Joining " + t.getName());
+                            t.join();
+                            Log.i(Helper.TAG, "Joined " + t.getName());
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    threads.clear();
                 }
-            }, "sync.main").start();
+            }, "sync.main");
+            main.start();
         }
 
         @Override
@@ -1409,6 +1442,15 @@ public class ServiceSynchronize extends LifecycleService {
                 lbm.unregisterReceiver(outboxReceiver);
                 Log.i(Helper.TAG, outbox.name + " unlisten operations");
             }
+
+            try {
+                Log.i(Helper.TAG, "Joining " + main.getName());
+                main.join();
+                Log.i(Helper.TAG, "Joined " + main.getName());
+            } catch (InterruptedException ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
+            main = null;
         }
 
         BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
