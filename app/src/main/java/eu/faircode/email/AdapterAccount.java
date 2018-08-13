@@ -54,6 +54,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ImageView ivSync;
         TextView tvHost;
         TextView tvUser;
+        ImageView ivState;
         TextView tvError;
 
         ViewHolder(View itemView) {
@@ -65,6 +66,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync = itemView.findViewById(R.id.ivSync);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvUser = itemView.findViewById(R.id.tvUser);
+            ivState = itemView.findViewById(R.id.ivState);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -82,6 +84,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvUser.setText(account.user);
+            if ("connected".equals(account.state))
+                ivState.setImageResource(R.drawable.baseline_cloud_24);
+            else if ("connecting".equals(account.state))
+                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+            else
+                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+            ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
+
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
         }

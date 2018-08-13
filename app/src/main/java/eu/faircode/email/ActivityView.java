@@ -358,10 +358,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     try {
                         db.beginTransaction();
 
-                        for (EntityAccount account : db.account().getAccounts(true)) {
-                            account.seen_until = time;
-                            db.account().updateAccount(account);
-                        }
+                        for (EntityAccount account : db.account().getAccounts(true))
+                            db.account().setAccountSeenUntil(account.id, time);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -500,8 +498,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                             EntityFolder folder = db.folder().getFolder(message.folder);
                             if (!EntityFolder.OUTBOX.equals(folder.type))
                                 for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
-                                    tmessage.ui_seen = true;
-                                    db.message().updateMessage(tmessage);
+                                    db.message().setMessageUiSeen(tmessage.id, true);
 
                                     EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
                                 }

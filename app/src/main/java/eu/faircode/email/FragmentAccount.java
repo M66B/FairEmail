@@ -488,10 +488,8 @@ public class FragmentAccount extends FragmentEx {
                                         folder.account = account.id;
                                         Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
                                         folder.id = db.folder().insertFolder(folder);
-                                    } else {
-                                        existing.type = folder.type;
-                                        db.folder().updateFolder(existing);
-                                    }
+                                    } else
+                                        db.folder().setFolderType(existing.id, folder.type);
                                 }
 
                                 db.setTransactionSuccessful();

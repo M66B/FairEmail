@@ -7,12 +7,11 @@
 
     <ImageView
         android:id="@+id/ivEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_edit_24"
         app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
-        app:layout_constraintEnd_toStartOf="@+id/tvName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivMessages" />
 
@@ -26,10 +25,10 @@
         android:singleLine="true"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
+        app:layout_constraintBottom_toBottomOf="@+id/ivEdit"
         app:layout_constraintEnd_toStartOf="@+id/tvAfter"
         app:layout_constraintStart_toEndOf="@id/ivEdit"
-        app:layout_constraintTop_toTopOf="@+id/ivMessages" />
+        app:layout_constraintTop_toTopOf="@+id/ivEdit" />
 
     <TextView
         android:id="@+id/tvMessages"
@@ -38,9 +37,9 @@
         android:layout_marginEnd="6dp"
         android:text="123"
         android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintBottom_toBottomOf="@+id/ivMessages"
+        app:layout_constraintBottom_toBottomOf="@+id/ivEdit"
         app:layout_constraintEnd_toStartOf="@+id/ivMessages"
-        app:layout_constraintTop_toTopOf="@+id/ivMessages" />
+        app:layout_constraintTop_toTopOf="@+id/ivEdit" />
 
     <ImageView
         android:id="@+id/ivMessages"
@@ -49,7 +48,17 @@
         android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_mail_outline_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/ivEdit" />
+
+    <ImageView
+        android:id="@+id/ivState"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_cloud_off_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEdit" />
 
     <TextView
         android:id="@+id/tvType"
@@ -58,9 +67,9 @@
         android:layout_marginStart="6dp"
         android:text="type"
         android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSync"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivSync" />
+        app:layout_constraintBottom_toBottomOf="@id/ivState"
+        app:layout_constraintStart_toEndOf="@+id/ivState"
+        app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
         android:id="@+id/tvAfter"
@@ -69,9 +78,9 @@
         android:layout_marginEnd="6dp"
         android:text="30"
         android:textAppearance="@android:style/TextAppearance.Small"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSync"
+        app:layout_constraintBottom_toBottomOf="@id/ivState"
         app:layout_constraintEnd_toStartOf="@+id/ivSync"
-        app:layout_constraintTop_toTopOf="@+id/ivSync" />
+        app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <ImageView
         android:id="@+id/ivSync"
@@ -80,7 +89,7 @@
         android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_sync_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivMessages" />
+        app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
         android:id="@+id/tvError"
@@ -93,7 +102,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+        app:layout_constraintTop_toBottomOf="@id/ivState" />
 
     <View
         android:id="@+id/vSeparator"

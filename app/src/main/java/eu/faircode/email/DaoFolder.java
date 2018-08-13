@@ -25,7 +25,6 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 @Dao
 public interface DaoFolder {
@@ -82,8 +81,17 @@ public interface DaoFolder {
     @Insert
     long insertFolder(EntityFolder folder);
 
-    @Update
-    void updateFolder(EntityFolder folder);
+    @Query("UPDATE folder SET state = :state WHERE id = :id")
+    int setFolderState(long id, String state);
+
+    @Query("UPDATE folder SET error = :error WHERE id = :id")
+    int setFolderError(long id, String error);
+
+    @Query("UPDATE folder SET type = :type WHERE id = :id")
+    int setFolderType(long id, String type);
+
+    @Query("UPDATE folder SET synchronize = :synchronize, after = :after WHERE id = :id")
+    int setFolderProperties(long id, boolean synchronize, int after);
 
     @Query("DELETE FROM folder WHERE account= :account AND name = :name")
     void deleteFolder(Long account, String name);

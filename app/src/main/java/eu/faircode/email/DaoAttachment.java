@@ -50,7 +50,7 @@ public interface DaoAttachment {
     EntityAttachment getAttachment(long message, int sequence);
 
     @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
-    void setProgress(long id, int progress);
+    void setProgress(long id, Integer progress);
 
     @Insert
     long insertAttachment(EntityAttachment attachment);

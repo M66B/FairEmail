@@ -10,6 +10,7 @@ Frequently Asked Questions
 * Full network access (INTERNET): to send and receive email
 * View network connections (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * Run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* Optional: read your contacts (READ_CONTACTS): to autocomplete addresses
 
 <a name="FAQ2"></a>
 **(2) Why is there a permanent notification shown?**
@@ -24,12 +25,12 @@ Most, if not all, other email apps don't show a notification with the "side effe
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* Mark message as seen/unseen in remote folder
-* Add message to remote folder
-* Move message to another remote folder
-* Delete message from remote folder
-* Send message
-* Download attachment
+* SEEN: mark message as seen/unseen in remote folder
+* ADD: add message to remote folder
+* MOVE: move message to another remote folder
+* DELETE: delete message from remote folder
+* SEND: send message
+* ATTACHMENT download attachment
 
 <a name="FAQ4"></a>
 **(4) What is a valid security certificate?**

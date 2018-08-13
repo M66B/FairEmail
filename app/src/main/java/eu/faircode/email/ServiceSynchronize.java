@@ -194,10 +194,8 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         db.beginTransaction();
 
-                        for (EntityAccount account : db.account().getAccounts(true)) {
-                            account.seen_until = time;
-                            db.account().updateAccount(account);
-                        }
+                        for (EntityAccount account : db.account().getAccounts(true))
+                            db.account().setAccountSeenUntil(account.id, time);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -327,6 +325,9 @@ public class ServiceSynchronize extends LifecycleService {
         boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
         Log.i(Helper.TAG, account.name + " start ");
 
+        final DB db = DB.getInstance(ServiceSynchronize.this);
+        db.account().setAccountState(account.id, "connecting");
+
         while (state.running) {
             IMAPStore istore = null;
             try {
@@ -335,6 +336,7 @@ public class ServiceSynchronize extends LifecycleService {
                 props.setProperty("mail.mime.address.strict", "false");
                 props.setProperty("mail.mime.decodetext.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
+
                 final Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "eu.faircode.email\|System.out"
@@ -347,11 +349,6 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void notification(StoreEvent e) {
                         Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
-
-                        // Check connection
-                        synchronized (state) {
-                            state.notifyAll();
-                        }
                     }
                 });
                 istore.addFolderListener(new FolderAdapter() {
@@ -379,9 +376,8 @@ public class ServiceSynchronize extends LifecycleService {
                     public void opened(ConnectionEvent e) {
                         Log.i(Helper.TAG, account.name + " opened");
 
-                        DB db = DB.getInstance(ServiceSynchronize.this);
-                        account.error = null;
-                        db.account().updateAccount(account);
+                        db.account().setAccountState(account.id, "connected");
+                        db.account().setAccountError(account.id, null);
 
                         try {
                             synchronizeFolders(account, fstore);
@@ -397,15 +393,17 @@ public class ServiceSynchronize extends LifecycleService {
                                         try {
                                             Log.i(Helper.TAG, folder.name + " start");
 
+                                            db.folder().setFolderState(folder.id, "connecting");
+
                                             ifolder = (IMAPFolder) fstore.getFolder(folder.name);
                                             ifolder.open(Folder.READ_WRITE);
+
+                                            db.folder().setFolderState(folder.id, "connected");
+                                            db.folder().setFolderError(folder.id, null);
 
                                             synchronized (mapFolder) {
                                                 mapFolder.put(folder.id, ifolder);
                                             }
-
-                                            folder.error = null;
-                                            DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
 
                                             monitorFolder(account, folder, fstore, ifolder, state);
 
@@ -413,8 +411,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
 
-                                            folder.error = Helper.formatThrowable(ex);
-                                            DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                             // Cascade up
                                             if (!(ex instanceof FolderNotFoundException))
@@ -431,7 +428,10 @@ public class ServiceSynchronize extends LifecycleService {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 }
                                             }
-                                            Log.i(Helper.TAG, folder.name + " stop");
+
+                                            db.folder().setFolderState(folder.id, null);
+
+                                            Log.i(Helper.TAG, folder.name + " stopped");
                                         }
                                     }
                                 }, "sync.folder." + folder.id).start();
@@ -455,8 +455,7 @@ public class ServiceSynchronize extends LifecycleService {
                             Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(account.name, null, ex);
 
-                            account.error = Helper.formatThrowable(ex);
-                            db.account().updateAccount(account);
+                            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
 
                             // Cascade up
                             try {
@@ -470,6 +469,8 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void disconnected(ConnectionEvent e) {
                         Log.e(Helper.TAG, account.name + " disconnected");
+
+                        db.account().setAccountState(account.id, null);
 
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.unregisterReceiver(processReceiver);
@@ -582,8 +583,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 reportError(account.name, null, ex);
 
-                account.error = Helper.formatThrowable(ex);
-                DB.getInstance(this).account().updateAccount(account);
+                db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 if (istore != null) {
                     try {
@@ -602,6 +602,8 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
         }
+
+        db.account().setAccountState(account.id, null);
 
         Log.i(Helper.TAG, account.name + " stopped");
     }
@@ -685,8 +687,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        folder.error = Helper.formatThrowable(ex);
-                        DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
+                        DB.getInstance(ServiceSynchronize.this).folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                         // Cascade up
                         try {
@@ -721,8 +722,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        folder.error = Helper.formatThrowable(ex);
-                        DB.getInstance(ServiceSynchronize.this).folder().updateFolder(folder);
+                        DB.getInstance(ServiceSynchronize.this).folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                         // Cascade up
                         try {
@@ -798,8 +798,7 @@ public class ServiceSynchronize extends LifecycleService {
                             // Operation succeeded
                             db.operation().deleteOperation(op.id);
                         } catch (Throwable ex) {
-                            message.error = Helper.formatThrowable(ex);
-                            db.message().updateMessage(message);
+                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                             if (BuildConfig.DEBUG && ex instanceof NullPointerException) {
                                 db.operation().deleteOperation(op.id);
@@ -843,8 +842,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         imessage.setFlag(Flags.Flag.SEEN, seen);
 
-        message.seen = seen;
-        db.message().updateMessage(message);
+        db.message().setMessageSeen(message.id, seen);
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
@@ -863,8 +861,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
-        message.uid = uid[0].uid;
-        db.message().updateMessage(message);
+        db.message().setMessageUid(message.id, uid[0].uid);
         Log.i(Helper.TAG, "Appended uid=" + message.uid);
     }
 
@@ -950,8 +947,7 @@ public class ServiceSynchronize extends LifecycleService {
                         " to " + TextUtils.join(", ", to));
             } catch (SMTPSendFailedException ex) {
                 // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
-                message.error = Helper.formatThrowable(ex);
-                db.message().updateMessage(message);
+                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
                 throw ex;
             }
 
@@ -1024,17 +1020,15 @@ public class ServiceSynchronize extends LifecycleService {
                     os.write(buffer, 0, len);
 
                     // Update progress
-                    if (attachment.size != null) {
-                        attachment.progress = size * 100 / attachment.size;
-                        db.attachment().updateAttachment(attachment);
-                        Log.i(Helper.TAG, folder.name + " progress %=" + attachment.progress);
-                    }
+                    if (attachment.size != null)
+                        db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
                 }
 
                 // Store attachment data
                 attachment.size = size;
                 attachment.progress = null;
                 attachment.filename = file.getName();
+                db.attachment().updateAttachment(attachment);
             } finally {
                 try {
                     if (is != null)
@@ -1044,7 +1038,6 @@ public class ServiceSynchronize extends LifecycleService {
                         os.close();
                 }
             }
-            db.attachment().updateAttachment(attachment);
             Log.i(Helper.TAG, folder.name + " downloaded bytes=" + attachment.size);
         } catch (Throwable ex) {
             // Reset progress on failure
@@ -1350,6 +1343,7 @@ public class ServiceSynchronize extends LifecycleService {
                         } else
                             for (final EntityAccount account : accounts) {
                                 Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {

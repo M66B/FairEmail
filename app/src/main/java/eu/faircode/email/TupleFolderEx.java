@@ -29,7 +29,7 @@ public class TupleFolderEx extends EntityFolder {
         if (obj instanceof TupleFolderEx) {
             TupleFolderEx other = (TupleFolderEx) obj;
             return (super.equals(obj) &&
-                    this.accountName == null ? other.accountName == null : accountName.equals(other.accountName) &&
+                    (this.accountName == null ? other.accountName == null : accountName.equals(other.accountName)) &&
                     this.messages == other.messages &&
                     this.unseen == other.unseen);
         } else

@@ -88,11 +88,9 @@ public class FragmentFolder extends FragmentEx {
                             try {
                                 db.beginTransaction();
 
-                                EntityFolder folder = db.folder().getFolder(id);
-                                folder.synchronize = synchronize;
-                                folder.after = days;
-                                db.folder().updateFolder(folder);
+                                db.folder().setFolderProperties(id, synchronize, days);
 
+                                EntityFolder folder = db.folder().getFolder(id);
                                 if (!folder.synchronize)
                                     db.message().deleteMessages(folder.id);
 

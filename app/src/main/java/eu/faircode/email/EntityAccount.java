@@ -47,6 +47,7 @@ public class EntityAccount {
     @NonNull
     public Boolean synchronize;
     public Long seen_until;
+    public String state;
     public String error;
 
     @Override
@@ -60,6 +61,7 @@ public class EntityAccount {
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
                     this.synchronize.equals(other.synchronize) &&
+                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;

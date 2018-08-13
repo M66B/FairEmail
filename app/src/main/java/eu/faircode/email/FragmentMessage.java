@@ -405,8 +405,7 @@ public class FragmentMessage extends FragmentEx {
 
                     EntityMessage message = db.message().getMessage(id);
                     for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
-                        tmessage.ui_seen = !message.ui_seen;
-                        db.message().updateMessage(tmessage);
+                        db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
 
                         EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
                     }
@@ -518,10 +517,9 @@ public class FragmentMessage extends FragmentEx {
                                 try {
                                     db.beginTransaction();
 
-                                    EntityMessage message = db.message().getMessage(id);
-                                    message.ui_hide = true;
-                                    db.message().updateMessage(message);
+                                    db.message().setMessageUiHide(id, true);
 
+                                    EntityMessage message = db.message().getMessage(id);
                                     EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
 
@@ -575,9 +573,9 @@ public class FragmentMessage extends FragmentEx {
                                     try {
                                         db.beginTransaction();
 
+                                        db.message().setMessageUiHide(id, true);
+
                                         EntityMessage message = db.message().getMessage(id);
-                                        message.ui_hide = true;
-                                        db.message().updateMessage(message);
                                         EntityOperation.queue(db, message, EntityOperation.DELETE);
 
                                         db.setTransactionSuccessful();
@@ -621,10 +619,9 @@ public class FragmentMessage extends FragmentEx {
                         if (debug && BuildConfig.DEBUG)
                             db.message().deleteMessage(id);
                         else {
-                            EntityMessage message = db.message().getMessage(id);
-                            message.ui_hide = true;
-                            db.message().updateMessage(message);
+                            db.message().setMessageUiHide(id, true);
 
+                            EntityMessage message = db.message().getMessage(id);
                             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                             EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
                         }
@@ -727,10 +724,8 @@ public class FragmentMessage extends FragmentEx {
 
                                     EntityMessage message = db.message().getMessage(id);
                                     EntityFolder folder = db.folder().getFolder(message.folder);
-                                    if (!EntityFolder.ARCHIVE.equals(folder.type)) {
-                                        message.ui_hide = true;
-                                        db.message().updateMessage(message);
-                                    }
+                                    if (!EntityFolder.ARCHIVE.equals(folder.type))
+                                        db.message().setMessageUiHide(message.id, true);
 
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, target);
 
@@ -780,10 +775,9 @@ public class FragmentMessage extends FragmentEx {
                 try {
                     db.beginTransaction();
 
-                    EntityMessage message = db.message().getMessage(id);
-                    message.ui_hide = true;
-                    db.message().updateMessage(message);
+                    db.message().setMessageUiHide(id, true);
 
+                    EntityMessage message = db.message().getMessage(id);
                     EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                     EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
 

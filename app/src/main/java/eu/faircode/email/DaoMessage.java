@@ -112,6 +112,21 @@ public interface DaoMessage {
     @Update
     void updateMessage(EntityMessage message);
 
+    @Query("UPDATE message SET uid = :uid WHERE id = :id")
+    int setMessageUid(long id, Long uid);
+
+    @Query("UPDATE message SET seen = :seen WHERE id = :id")
+    int setMessageSeen(long id, boolean seen);
+
+    @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id")
+    int setMessageUiSeen(long id, boolean ui_seen);
+
+    @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
+    int setMessageUiHide(long id, boolean ui_hide);
+
+    @Query("UPDATE message SET error = :error WHERE id = :id")
+    int setMessageError(long id, String error);
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 

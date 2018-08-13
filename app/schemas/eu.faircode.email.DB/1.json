@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0b5e9888b548ea410934b7082b08a3b6",
+    "identityHash": "fc698ded287d449f2781e8efa338554d",
     "entities": [
       {
         "tableName": "identity",
@@ -113,7 +113,7 @@
       },
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `seen_until` INTEGER, `error` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `seen_until` INTEGER, `state` TEXT, `error` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -170,6 +170,12 @@
             "notNull": false
           },
           {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "error",
             "columnName": "error",
             "affinity": "TEXT",
@@ -187,7 +193,7 @@
       },
       {
         "tableName": "folder",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `synchronize` INTEGER NOT NULL, `after` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `synchronize` INTEGER NOT NULL, `after` INTEGER NOT NULL, `state` TEXT, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -224,6 +230,12 @@
             "columnName": "after",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "error",
@@ -752,7 +764,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0b5e9888b548ea410934b7082b08a3b6\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fc698ded287d449f2781e8efa338554d\")"
     ]
   }
 }

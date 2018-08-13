@@ -453,15 +453,14 @@ public class FragmentCompose extends FragmentEx {
                                 os.write(buffer, 0, len);
 
                                 // Update progress
-                                if (attachment.size != null) {
-                                    attachment.progress = size * 100 / attachment.size;
-                                    db.attachment().updateAttachment(attachment);
-                                }
+                                if (attachment.size != null)
+                                    db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
                             }
 
                             attachment.size = size;
                             attachment.progress = null;
                             attachment.filename = file.getName();
+                            db.attachment().updateAttachment(attachment);
                         } finally {
                             try {
                                 if (is != null)
@@ -471,8 +470,6 @@ public class FragmentCompose extends FragmentEx {
                                     os.close();
                             }
                         }
-
-                        db.attachment().updateAttachment(attachment);
                     } catch (Throwable ex) {
                         // Reset progress on failure
                         attachment.progress = null;

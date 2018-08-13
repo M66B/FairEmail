@@ -57,6 +57,7 @@ public class EntityFolder implements Serializable {
     public Boolean synchronize;
     @NonNull
     public Integer after; // days
+    public String state;
     public String error;
 
     static final String INBOX = "Inbox";
@@ -114,6 +115,7 @@ public class EntityFolder implements Serializable {
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.after.equals(other.after) &&
+                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
