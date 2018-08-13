@@ -63,6 +63,8 @@ public class FragmentAbout extends FragmentEx {
 
                         Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
 
+                        EntityMessage draft;
+
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
@@ -71,9 +73,10 @@ public class FragmentAbout extends FragmentEx {
                             if (drafts == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
-                            EntityMessage draft = new EntityMessage();
+                            draft = new EntityMessage();
                             draft.account = drafts.account;
                             draft.folder = drafts.id;
+                            draft.msgid = draft.generateMessageId();
                             draft.to = new Address[]{to};
                             draft.subject = BuildConfig.APPLICATION_ID + " debug info";
                             draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
@@ -83,12 +86,16 @@ public class FragmentAbout extends FragmentEx {
                             draft.ui_hide = false;
                             draft.id = db.message().insertMessage(draft);
 
-                            db.setTransactionSuccessful();
+                            EntityOperation.queue(db, draft, EntityOperation.ADD);
 
-                            return draft.id;
+                            db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
                         }
+
+                        EntityOperation.process(context);
+
+                        return draft.id;
                     }
 
                     @Override

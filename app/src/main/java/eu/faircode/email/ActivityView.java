@@ -202,15 +202,18 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
                     file.delete();
 
+                    EntityMessage draft = null;
+
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
                         EntityFolder drafts = db.folder().getPrimaryDrafts();
                         if (drafts != null) {
-                            EntityMessage draft = new EntityMessage();
+                            draft = new EntityMessage();
                             draft.account = drafts.account;
                             draft.folder = drafts.id;
+                            draft.msgid = draft.generateMessageId();
                             draft.to = new Address[]{to};
                             draft.subject = context.getString(R.string.app_name) + " crash log";
                             draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
@@ -219,14 +222,18 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                             draft.ui_seen = false;
                             draft.ui_hide = false;
                             draft.id = db.message().insertMessage(draft);
-
-                            return draft.id;
                         }
+
+                        EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
+
+                    EntityOperation.process(context);
+
+                    return (draft == null ? null : draft.id);
                 }
 
                 return null;

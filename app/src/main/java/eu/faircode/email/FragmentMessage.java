@@ -468,7 +468,6 @@ public class FragmentMessage extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                     db.setTransactionSuccessful();
-
                 } finally {
                     db.endTransaction();
                 }
