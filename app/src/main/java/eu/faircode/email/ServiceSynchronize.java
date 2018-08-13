@@ -141,9 +141,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
-                if (stats == null)
-                    return;
-
                 NotificationManager nm = getSystemService(NotificationManager.class);
                 nm.notify(NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
@@ -189,7 +186,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                protected Void onLoad(Context context, Bundle args) {
                     long time = args.getLong("time");
 
                     DB db = DB.getInstance(context);
@@ -352,6 +349,7 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void notification(StoreEvent e) {
                         Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
+                        db.account().setAccountError(account.id, e.getMessage());
                     }
                 });
                 istore.addFolderListener(new FolderAdapter() {
@@ -410,7 +408,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             monitorFolder(account, folder, fstore, ifolder, state);
 
+                                        } catch (FolderClosedException ex) {
+                                            // Happens when no connectivity
+                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+
                                         } catch (IllegalStateException ex) {
+                                            // Happens when syncing message
                                             // This operation is not allowed on a closed folder
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
 

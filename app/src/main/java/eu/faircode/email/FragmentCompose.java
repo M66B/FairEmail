@@ -703,8 +703,11 @@ public class FragmentCompose extends FragmentEx {
                     new Observer<List<EntityAttachment>>() {
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                            adapter.set(attachments == null ? new ArrayList<EntityAttachment>() : attachments);
-                            grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                            if (attachments == null)
+                                attachments = new ArrayList<>();
+
+                            adapter.set(attachments);
+                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                         }
                     });
 

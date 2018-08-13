@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -75,8 +76,10 @@ public class FragmentOperations extends FragmentEx {
         DB.getInstance(getContext()).operation().liveOperations().observe(getViewLifecycleOwner(), new Observer<List<EntityOperation>>() {
             @Override
             public void onChanged(@Nullable List<EntityOperation> operations) {
-                if (operations != null)
-                    adapter.set(operations);
+                if (operations == null)
+                    operations = new ArrayList<>();
+
+                adapter.set(operations);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

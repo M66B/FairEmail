@@ -44,6 +44,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.text.Collator;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -131,22 +132,23 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         DB.getInstance(this).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
                 ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this, R.layout.item_drawer);
 
-                if (accounts != null) {
-                    final Collator collator = Collator.getInstance(Locale.getDefault());
-                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-                    Collections.sort(accounts, new Comparator<EntityAccount>() {
-                        @Override
-                        public int compare(EntityAccount a1, EntityAccount a2) {
-                            return collator.compare(a1.name, a2.name);
-                        }
-                    });
+                Collections.sort(accounts, new Comparator<EntityAccount>() {
+                    @Override
+                    public int compare(EntityAccount a1, EntityAccount a2) {
+                        return collator.compare(a1.name, a2.name);
+                    }
+                });
 
-                    for (EntityAccount account : accounts)
-                        drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
-                }
+                for (EntityAccount account : accounts)
+                    drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
 

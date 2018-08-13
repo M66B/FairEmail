@@ -41,6 +41,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -389,7 +390,7 @@ public class FragmentIdentity extends FragmentEx {
                     @Override
                     public void onChanged(List<EntityAccount> accounts) {
                         if (accounts == null)
-                            return;
+                            accounts = new ArrayList<>();
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;

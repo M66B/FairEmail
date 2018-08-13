@@ -27,6 +27,7 @@ import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -93,8 +94,10 @@ public class FragmentAccounts extends FragmentEx {
         DB.getInstance(getContext()).account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                if (accounts != null)
-                    adapter.set(accounts);
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
+                adapter.set(accounts);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

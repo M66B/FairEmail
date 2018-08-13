@@ -27,6 +27,7 @@ import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -93,8 +94,7 @@ public class FragmentIdentities extends FragmentEx {
         DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
-                if (identities != null)
-                    adapter.set(identities);
+                adapter.set(identities == null ? new ArrayList<TupleIdentityEx>() : identities);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

@@ -47,6 +47,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -291,7 +292,10 @@ public class FragmentMessage extends FragmentEx {
                     db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                     db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                         @Override
-                        public void onChanged(@Nullable final List<TupleFolderEx> folders) {
+                        public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                            if (folders == null)
+                                folders = new ArrayList<>();
+
                             boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
                             boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
                             boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
@@ -345,9 +349,11 @@ public class FragmentMessage extends FragmentEx {
                 new Observer<List<EntityAttachment>>() {
                     @Override
                     public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                        if (attachments != null)
-                            adapter.set(attachments);
-                        grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        if (attachments == null)
+                            attachments = new ArrayList<>();
+
+                        adapter.set(attachments);
+                        grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                     }
                 });
 
