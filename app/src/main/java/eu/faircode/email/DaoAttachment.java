@@ -34,13 +34,6 @@ public interface DaoAttachment {
             " ORDER BY sequence")
     LiveData<List<EntityAttachment>> liveAttachments(long id);
 
-    @Query("SELECT attachment.* FROM attachment" +
-            " JOIN message ON message.id = attachment.message" +
-            " WHERE folder = :folder" +
-            " AND msgid = :msgid" +
-            " ORDER BY sequence")
-    LiveData<List<EntityAttachment>> liveAttachments(long folder, String msgid);
-
     @Query("SELECT COUNT(attachment.id)" +
             " FROM attachment" +
             " WHERE message = :message")

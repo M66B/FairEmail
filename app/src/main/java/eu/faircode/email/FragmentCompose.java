@@ -94,14 +94,15 @@ public class FragmentCompose extends FragmentEx {
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
+    private Group grpFrom;
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpReady;
 
     private AdapterAttachment adapter;
 
+    private long working = -1;
     private boolean autosave = true;
-    private EntityMessage draft = null;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
@@ -126,6 +127,7 @@ public class FragmentCompose extends FragmentEx {
         etBody = view.findViewById(R.id.etBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
+        grpFrom = view.findViewById(R.id.grpFrom);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpReady = view.findViewById(R.id.grpReady);
@@ -183,12 +185,12 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
-        spFrom.setVisibility(View.GONE);
-        ivIdentityAdd.setVisibility(View.GONE);
+        grpFrom.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        Helper.setViewsEnabled(view, false);
         bottom_navigation.getMenu().setGroupEnabled(0, false);
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
@@ -250,23 +252,29 @@ public class FragmentCompose extends FragmentEx {
     }
 
     @Override
+    public void onDestroyView() {
+        adapter = null;
+        super.onDestroyView();
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (draft == null) {
+        if (working < 0) {
             Bundle args = new Bundle();
             args.putString("action", getArguments().getString("action"));
             args.putLong("id", getArguments().getLong("id", -1));
             args.putLong("account", getArguments().getLong("account", -1));
             args.putLong("reference", getArguments().getLong("reference", -1));
-            draftLoader.load(FragmentCompose.this, args);
+            draftLoader.load(this, args);
         } else {
             Bundle args = new Bundle();
             args.putString("action", "edit");
-            args.putLong("id", draft.id);
-            args.putLong("account", draft.account);
+            args.putLong("id", working);
+            args.putLong("account", -1);
             args.putLong("reference", -1);
-            draftLoader.load(FragmentCompose.this, args);
+            draftLoader.load(this, args);
         }
     }
 
@@ -286,8 +294,8 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_attachment).setVisible(draft != null);
-        menu.findItem(R.id.menu_addresses).setVisible(draft != null);
+        menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
+        menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
     }
 
     @Override
@@ -374,8 +382,12 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void handleAddAttachment(Intent data) {
+        Uri uri = data.getData();
+        if (uri == null)
+            return;
+
         Bundle args = new Bundle();
-        args.putString("msgid", draft.msgid);
+        args.putLong("id", working);
         args.putParcelable("uri", data.getData());
 
         new SimpleTask<Void>() {
@@ -384,19 +396,18 @@ public class FragmentCompose extends FragmentEx {
                 Cursor cursor = null;
                 try {
                     Uri uri = args.getParcelable("uri");
-                    if (uri != null)
-                        cursor = context.getContentResolver().query(uri, null, null, null, null, null);
+                    cursor = context.getContentResolver().query(uri, null, null, null, null, null);
                     if (cursor == null || !cursor.moveToFirst())
                         return null;
 
-                    String msgid = args.getString("msgid");
+                    Long id = args.getLong("id");
                     EntityAttachment attachment = new EntityAttachment();
 
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        EntityMessage draft = db.message().getMessageByMsgId(msgid);
+                        EntityMessage draft = db.message().getMessage(id);
                         Log.i(Helper.TAG, "Attaching to id=" + draft.id);
 
                         attachment.message = draft.id;
@@ -477,10 +488,6 @@ public class FragmentCompose extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, Void data) {
-            }
-
-            @Override
             protected void onException(Bundle args, Throwable ex) {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
@@ -494,7 +501,7 @@ public class FragmentCompose extends FragmentEx {
         EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
 
         Bundle args = new Bundle();
-        args.putString("msgid", draft.msgid);
+        args.putLong("id", working);
         args.putInt("action", action);
         args.putLong("identity", identity == null ? -1 : identity.id);
         args.putString("to", etTo.getText().toString());
@@ -503,7 +510,7 @@ public class FragmentCompose extends FragmentEx {
         args.putString("subject", etSubject.getText().toString());
         args.putString("body", etBody.getText().toString());
 
-        Log.i(Helper.TAG, "Run load id=" + draft.id + " msgid=" + draft.msgid);
+        Log.i(Helper.TAG, "Run load id=" + working);
         actionLoader.load(this, args);
     }
 
@@ -524,7 +531,7 @@ public class FragmentCompose extends FragmentEx {
                 db.beginTransaction();
 
                 draft = db.message().getMessage(id);
-                if (draft == null) {
+                if (draft == null || draft.ui_hide) {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Message to edit not found");
                 } else
@@ -538,11 +545,13 @@ public class FragmentCompose extends FragmentEx {
                 drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
                 if (drafts == null)
                     drafts = db.folder().getPrimaryDrafts();
+                if (drafts == null)
+                    throw new IllegalArgumentException("no drafts folder");
 
                 draft = new EntityMessage();
                 draft.account = account;
                 draft.folder = drafts.id;
-                draft.msgid = draft.generateMessageId();
+                draft.msgid = draft.generateMessageId(); // for multiple appends
 
                 if (ref != null) {
                     draft.thread = ref.thread;
@@ -593,9 +602,6 @@ public class FragmentCompose extends FragmentEx {
                 draft.ui_hide = false;
 
                 draft.id = db.message().insertMessage(draft);
-                draft.msgid = draft.generateMessageId();
-                db.message().updateMessage(draft);
-                args.putLong("id", draft.id);
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
@@ -609,140 +615,109 @@ public class FragmentCompose extends FragmentEx {
             return draft;
         }
 
-
         @Override
-        protected void onLoaded(Bundle args, EntityMessage draft) {
-            FragmentCompose.this.draft = draft;
-            Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " msgid=" + draft.msgid);
+        protected void onLoaded(Bundle args, final EntityMessage draft) {
+            working = draft.id;
+
+            String action = getArguments().getString("action");
+            Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
+
+            getActivity().invalidateOptionsMenu();
+            pbWait.setVisibility(View.GONE);
+            grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
+            grpReady.setVisibility(View.VISIBLE);
+
+            etTo.setText(draft.to == null ? null : TextUtils.join(", ", draft.to));
+            etCc.setText(draft.cc == null ? null : TextUtils.join(", ", draft.cc));
+            etBcc.setText(draft.bcc == null ? null : TextUtils.join(", ", draft.bcc));
+            etSubject.setText(draft.subject);
+
+            etBody.setText(TextUtils.isEmpty(draft.body) ? null : Html.fromHtml(draft.body));
+
+            if ("reply".equals(action) || "reply_all".equals(action))
+                etBody.requestFocus();
+            else if ("forward".equals(action))
+                etTo.requestFocus();
+
+            Helper.setViewsEnabled(view, true);
+            bottom_navigation.getMenu().setGroupEnabled(0, true);
 
             DB db = DB.getInstance(getContext());
 
-            db.attachment().liveAttachments(draft.folder, draft.msgid).observe(getViewLifecycleOwner(),
-                    new Observer<List<EntityAttachment>>() {
+            db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+                @Override
+                public void onChanged(@Nullable List<EntityIdentity> identities) {
+                    if (identities == null)
+                        identities = new ArrayList<>();
+
+                    Log.i(Helper.TAG, "Set identities=" + identities.size());
+
+                    // Sort identities
+                    Collections.sort(identities, new Comparator<EntityIdentity>() {
                         @Override
-                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                            if (attachments != null)
-                                adapter.set(attachments);
-                            grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        public int compare(EntityIdentity i1, EntityIdentity i2) {
+                            return i1.name.compareTo(i2.name);
                         }
                     });
 
-            db.message().liveMessageByMsgId(draft.folder, draft.msgid).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
-                boolean observed = false;
+                    // Show identities
+                    ArrayAdapter<EntityIdentity> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, identities);
+                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    spFrom.setAdapter(adapter);
 
-                @Override
-                public void onChanged(final EntityMessage draft) {
-                    // Message was deleted
-                    if (draft == null) {
-                        getFragmentManager().popBackStack();
-                        return;
-                    }
+                    boolean found = false;
 
-                    // New working copy
-                    FragmentCompose.this.draft = draft;
-
-                    DB db = DB.getInstance(getContext());
-
-                    // Set controls only once
-                    if (observed)
-                        return;
-                    observed = true;
-
-                    String action = getArguments().getString("action");
-
-                    getActivity().invalidateOptionsMenu();
-                    pbWait.setVisibility(View.GONE);
-                    grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-                    grpReady.setVisibility(View.VISIBLE);
-
-                    ArrayAdapter aa = (ArrayAdapter) spFrom.getAdapter();
-                    if (aa != null) {
-                        for (int pos = 0; pos < aa.getCount(); pos++) {
-                            EntityIdentity identity = (EntityIdentity) aa.getItem(pos);
-                            if (draft.identity == null
-                                    ? draft.from != null && draft.from.length > 0 && ((InternetAddress) draft.from[0]).getAddress().equals(identity.email)
-                                    : draft.identity.equals(identity.id)) {
+                    // Select earlier selected identity
+                    if (draft.identity != null)
+                        for (int pos = 0; pos < identities.size(); pos++) {
+                            if (identities.get(pos).id.equals(draft.identity)) {
                                 spFrom.setSelection(pos);
+                                found = true;
+                                break;
+                            }
+                        }
+
+                    // Select identity matching from address
+                    if (!found && draft.from != null && draft.from.length > 0) {
+                        String from = ((InternetAddress) draft.from[0]).getAddress();
+                        for (int pos = 0; pos < identities.size(); pos++) {
+                            if (identities.get(pos).email.equals(from)) {
+                                spFrom.setSelection(pos);
+                                found = true;
                                 break;
                             }
                         }
                     }
 
-                    etTo.setText(draft.to == null ? null : TextUtils.join(", ", draft.to));
-                    etCc.setText(draft.cc == null ? null : TextUtils.join(", ", draft.cc));
-                    etBcc.setText(draft.bcc == null ? null : TextUtils.join(", ", draft.bcc));
-                    etSubject.setText(draft.subject);
-
-                    etBody.setText(TextUtils.isEmpty(draft.body) ? null : Html.fromHtml(draft.body));
-
-                    if ("edit".equals(action))
-                        etTo.requestFocus();
-                    else if ("reply".equals(action) || "reply_all".equals(action))
-                        etBody.requestFocus();
-                    else if ("forward".equals(action))
-                        etTo.requestFocus();
-
-                    bottom_navigation.getMenu().setGroupEnabled(0, true);
-
-                    db.identity().liveIdentities(true).removeObservers(getViewLifecycleOwner());
-                    db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
-                        @Override
-                        public void onChanged(@Nullable final List<EntityIdentity> identities) {
-                            if (identities == null)
-                                return;
-
-                            Log.i(Helper.TAG, "Set identities=" + identities.size());
-
-                            // Sort identities
-                            Collections.sort(identities, new Comparator<EntityIdentity>() {
-                                @Override
-                                public int compare(EntityIdentity i1, EntityIdentity i2) {
-                                    return i1.name.compareTo(i2.name);
-                                }
-                            });
-
-                            // Show identities
-                            ArrayAdapter<EntityIdentity> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, identities);
-                            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                            spFrom.setAdapter(adapter);
-
-                            boolean found = false;
-
-                            // Select earlier selected identity
-                            if (draft.identity != null)
-                                for (int pos = 0; pos < identities.size(); pos++) {
-                                    if (identities.get(pos).id.equals(draft.identity)) {
-                                        spFrom.setSelection(pos);
-                                        found = true;
-                                        break;
-                                    }
-                                }
-
-                            // Select identity matching from address
-                            if (!found && draft.from != null && draft.from.length > 0) {
-                                String from = ((InternetAddress) draft.from[0]).getAddress();
-                                for (int pos = 0; pos < identities.size(); pos++) {
-                                    if (identities.get(pos).email.equals(from)) {
-                                        spFrom.setSelection(pos);
-                                        found = true;
-                                        break;
-                                    }
-                                }
+                    // Select primary identity
+                    if (!found)
+                        for (int pos = 0; pos < identities.size(); pos++)
+                            if (identities.get(pos).primary) {
+                                spFrom.setSelection(pos);
+                                break;
                             }
 
-                            // Select primary identity
-                            if (!found)
-                                for (int pos = 0; pos < identities.size(); pos++)
-                                    if (identities.get(pos).primary) {
-                                        spFrom.setSelection(pos);
-                                        break;
-                                    }
+                    grpFrom.setVisibility(View.VISIBLE);
+                }
+            });
 
-                            spFrom.setVisibility(View.VISIBLE);
-                            ivIdentityAdd.setVisibility(View.VISIBLE);
-
+            db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
+                    new Observer<List<EntityAttachment>>() {
+                        @Override
+                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                            adapter.set(attachments == null ? new ArrayList<EntityAttachment>() : attachments);
+                            grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
                         }
                     });
+
+            db.message().liveMessage(draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
+                @Override
+                public void onChanged(final EntityMessage draft) {
+                    // Draft was deleted
+                    if (draft == null || draft.ui_hide) {
+                        getFragmentManager().popBackStack();
+                        return;
+                    }
                 }
             });
         }
@@ -757,7 +732,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected EntityMessage onLoad(Context context, Bundle args) throws Throwable {
             // Get data
-            String id = args.getString("msgid");
+            long id = args.getLong("id");
             int action = args.getInt("action");
             long iid = args.getLong("identity");
             String to = args.getString("to");
@@ -773,15 +748,14 @@ public class FragmentCompose extends FragmentEx {
             try {
                 db.beginTransaction();
 
-                draft = db.message().getMessageByMsgId(id);
+                draft = db.message().getMessage(id);
                 EntityIdentity identity = db.identity().getIdentity(iid);
 
                 // Draft deleted by server
-                // TODO: better handling of remote deleted message
                 if (draft == null)
-                    throw new MessageRemovedException();
+                    throw new MessageRemovedException("Draft for action was deleted");
 
-                Log.i(Helper.TAG, "Load action id=" + draft.id + " msgid=" + draft.msgid + " action=" + action);
+                Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
 
                 // Convert data
                 Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
@@ -799,8 +773,6 @@ public class FragmentCompose extends FragmentEx {
                 draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 draft.received = new Date().getTime();
 
-                db.message().updateMessage(draft);
-
                 // Execute action
                 if (action == R.id.action_trash) {
                     draft.ui_hide = true;
@@ -810,40 +782,13 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
 
                 } else if (action == R.id.action_save) {
-                    if (draft.uid == null)
-                        db.message().updateMessage(draft);
-                    else {
-                        // Save message ID
-                        String msgid = draft.msgid;
+                    db.message().updateMessage(draft);
 
-                        // Save attachments
-                        List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
-
-                        // Delete previous draft
-                        draft.msgid = null;
-                        draft.ui_hide = true;
-                        db.message().updateMessage(draft);
-
-                        EntityOperation.queue(db, draft, EntityOperation.DELETE);
-
-                        // Create new draft
-                        draft.id = null;
-                        draft.uid = null;
-                        draft.msgid = msgid;
-                        draft.ui_hide = false;
-                        draft.id = db.message().insertMessage(draft);
-
-                        // Restore attachments
-                        for (EntityAttachment attachment : attachments) {
-                            attachment.id = null;
-                            attachment.message = draft.id;
-                            db.attachment().insertAttachment(attachment);
-                        }
-
-                        EntityOperation.queue(db, draft, EntityOperation.ADD);
-                    }
+                    EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                 } else if (action == R.id.action_send) {
+                    db.message().updateMessage(draft);
+
                     // Check data
                     if (draft.identity == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
@@ -896,10 +841,8 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onLoaded(Bundle args, EntityMessage draft) {
-            FragmentCompose.this.draft = draft;
-
             int action = args.getInt("action");
-            Log.i(Helper.TAG, "Loaded action id=" + draft.id + " msgid=" + draft.msgid + " action=" + action);
+            Log.i(Helper.TAG, "Loaded action id=" + draft.id + " action=" + action);
 
             Helper.setViewsEnabled(view, true);
             bottom_navigation.getMenu().setGroupEnabled(0, true);
@@ -908,8 +851,10 @@ public class FragmentCompose extends FragmentEx {
                 autosave = false;
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
+
             } else if (action == R.id.action_save)
                 Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+
             else if (action == R.id.action_send) {
                 autosave = false;
                 getFragmentManager().popBackStack();
@@ -919,6 +864,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
+            Helper.setViewsEnabled(view, true);
             bottom_navigation.getMenu().setGroupEnabled(0, true);
 
             if (ex instanceof IllegalArgumentException)

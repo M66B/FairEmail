@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Random;
+
 import javax.mail.Address;
 
 import androidx.annotation.NonNull;
@@ -85,13 +87,12 @@ public class EntityMessage {
     public Boolean ui_hide;
     public String error;
 
-    String generateMessageId() {
+    static String generateMessageId() {
         StringBuffer sb = new StringBuffer();
         sb.append('<')
-                .append(id).append('.')
-                .append(BuildConfig.APPLICATION_ID).append('.')
+                .append(Math.abs(new Random().nextInt())).append('.')
                 .append(System.currentTimeMillis()).append('.')
-                .append("anonymous@localhost")
+                .append(BuildConfig.APPLICATION_ID).append("@localhost")
                 .append('>');
         return sb.toString();
     }

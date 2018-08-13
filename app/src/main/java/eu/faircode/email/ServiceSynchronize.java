@@ -769,7 +769,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 doSeen(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.ADD.equals(op.name))
-                                doAdd(folder, ifolder, message, db);
+                                doAdd(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.MOVE.equals(op.name))
                                 doMove(folder, isession, istore, ifolder, message, jargs, db);
@@ -843,15 +843,23 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().updateMessage(message);
     }
 
-    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
+    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Append message
-
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, attachments, isession);
         ifolder.appendMessages(new Message[]{imessage});
+
+        if (message.uid != null) {
+            Message iprev = ifolder.getMessageByUID(message.uid);
+            if (iprev != null) {
+                Log.i(Helper.TAG, "Deleting existing id=" + message.id);
+                iprev.setFlag(Flags.Flag.DELETED, true);
+                ifolder.expunge();
+            }
+        }
     }
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException {

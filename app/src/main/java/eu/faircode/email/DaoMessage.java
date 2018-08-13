@@ -103,11 +103,6 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
-    @Query("SELECT * FROM message" +
-            " WHERE folder = :folder" +
-            " AND msgid = :msgid")
-    LiveData<EntityMessage> liveMessageByMsgId(long folder, String msgid);
-
     @Query("SELECT uid FROM message WHERE folder = :folder AND received >= :received AND NOT uid IS NULL")
     List<Long> getUids(long folder, long received);
 
