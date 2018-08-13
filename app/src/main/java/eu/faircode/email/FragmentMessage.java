@@ -275,17 +275,6 @@ public class FragmentMessage extends FragmentEx {
                     tvFrom.setTextColor(colorUnseen);
                     tvTime.setTextColor(colorUnseen);
 
-                    db.attachment().liveAttachments(id).removeObservers(getViewLifecycleOwner());
-                    db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
-                            new Observer<List<TupleAttachment>>() {
-                                @Override
-                                public void onChanged(@Nullable List<TupleAttachment> attachments) {
-                                    if (attachments != null)
-                                        adapter.set(attachments);
-                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                                }
-                            });
-
                     tvError.setText(message.error);
                     tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
 
@@ -350,6 +339,18 @@ public class FragmentMessage extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+
+        // Observe attachments
+        db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
+                new Observer<List<TupleAttachment>>() {
+                    @Override
+                    public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                        if (attachments != null)
+                            adapter.set(attachments);
+                        grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                    }
+                });
+
     }
 
     @Override

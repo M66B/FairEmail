@@ -29,12 +29,21 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoAttachment {
-    @Query("SELECT id, message, sequence, name, type, size, progress" +
+    @Query("SELECT attachment.id, attachment.message, sequence, name, type, size, progress" +
             ", (NOT content IS NULL) as content" +
             " FROM attachment" +
-            " WHERE message = :message" +
+            " WHERE message = :id" +
             " ORDER BY sequence")
-    LiveData<List<TupleAttachment>> liveAttachments(long message);
+    LiveData<List<TupleAttachment>> liveAttachments(long id);
+
+    @Query("SELECT attachment.id, attachment.message, sequence, name, type, size, progress" +
+            ", (NOT content IS NULL) as content" +
+            " FROM attachment" +
+            " JOIN message ON message.id = attachment.message" +
+            " WHERE folder = :folder" +
+            " AND msgid = :msgid" +
+            " ORDER BY sequence")
+    LiveData<List<TupleAttachment>> liveAttachments(long folder, String msgid);
 
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +

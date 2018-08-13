@@ -585,12 +585,25 @@ public class FragmentCompose extends FragmentEx {
             return draft;
         }
 
+
         @Override
         protected void onLoaded(Bundle args, EntityMessage draft) {
             FragmentCompose.this.draft = draft;
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " msgid=" + draft.msgid);
 
-            DB.getInstance(getContext()).message().liveMessageByMsgId(draft.msgid).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
+            DB db = DB.getInstance(getContext());
+
+            db.attachment().liveAttachments(draft.folder, draft.msgid).observe(getViewLifecycleOwner(),
+                    new Observer<List<TupleAttachment>>() {
+                        @Override
+                        public void onChanged(@Nullable List<TupleAttachment> attachments) {
+                            if (attachments != null)
+                                adapter.set(attachments);
+                            grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        }
+                    });
+
+            db.message().liveMessageByMsgId(draft.folder, draft.msgid).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 boolean observed = false;
 
                 @Override
@@ -605,17 +618,6 @@ public class FragmentCompose extends FragmentEx {
                     FragmentCompose.this.draft = draft;
 
                     DB db = DB.getInstance(getContext());
-
-                    db.attachment().liveAttachments(draft.id).removeObservers(getViewLifecycleOwner());
-                    db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
-                            new Observer<List<TupleAttachment>>() {
-                                @Override
-                                public void onChanged(@Nullable List<TupleAttachment> attachments) {
-                                    if (attachments != null)
-                                        adapter.set(attachments);
-                                    grpAttachments.setVisibility(attachments != null && attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                                }
-                            });
 
                     // Set controls only once
                     if (observed)

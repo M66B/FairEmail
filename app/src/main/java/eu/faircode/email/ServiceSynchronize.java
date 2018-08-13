@@ -1185,6 +1185,7 @@ public class ServiceSynchronize extends LifecycleService {
             DB db = DB.getInstance(this);
             try {
                 int result = 0;
+
                 db.beginTransaction();
 
                 // Find message by uid (fast, no headers required)
