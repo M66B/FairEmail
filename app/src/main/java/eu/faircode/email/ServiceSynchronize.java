@@ -36,10 +36,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.sun.mail.iap.ProtocolException;
+import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -322,6 +324,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
+        boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
         Log.i(Helper.TAG, account.name + " start ");
 
         while (state.running) {
@@ -333,7 +336,7 @@ public class ServiceSynchronize extends LifecycleService {
                 props.setProperty("mail.mime.decodetext.strict", "false");
                 //props.put("mail.imaps.minidletime", "5000");
                 final Session isession = Session.getInstance(props, null);
-                // isession.setDebug(true);
+                isession.setDebug(debug);
                 // adb -t 1 logcat | grep "eu.faircode.email\|System.out"
 
                 istore = (IMAPStore) isession.getStore("imaps");
@@ -762,6 +765,12 @@ public class ServiceSynchronize extends LifecycleService {
                         if (message == null)
                             throw new MessageRemovedException();
 
+                        if (message.uid == null &&
+                                EntityOperation.SEEN.equals(op.name) ||
+                                EntityOperation.DELETE.equals(op.name) ||
+                                EntityOperation.MOVE.equals(op.name))
+                            throw new IllegalArgumentException(op.name + " without uid");
+
                         try {
                             JSONArray jargs = new JSONArray(op.args);
 
@@ -769,7 +778,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 doSeen(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.ADD.equals(op.name))
-                                doAdd(folder, ifolder, message, jargs, db);
+                                doAdd(folder, isession, ifolder, message, jargs, db);
 
                             else if (EntityOperation.MOVE.equals(op.name))
                                 doMove(folder, isession, istore, ifolder, message, jargs, db);
@@ -827,11 +836,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
-        if (message.uid == null) {
-            Log.w(Helper.TAG, folder.name + " local op seen id=" + message.id);
-            return;
-        }
-
         boolean seen = jargs.getBoolean(0);
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
@@ -843,14 +847,12 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().updateMessage(message);
     }
 
-    private void doAdd(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+    private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Append message
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
-        Properties props = MessageHelper.getSessionProperties();
-        Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, attachments, isession);
-        ifolder.appendMessages(new Message[]{imessage});
+        AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
 
         if (message.uid != null) {
             Message iprev = ifolder.getMessageByUID(message.uid);
@@ -860,13 +862,14 @@ public class ServiceSynchronize extends LifecycleService {
                 ifolder.expunge();
             }
         }
+
+        message.uid = uid[0].uid;
+        db.message().updateMessage(message);
+        Log.i(Helper.TAG, "Appended uid=" + message.uid);
     }
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException {
         // Move message
-        if (message.uid == null)
-            throw new IllegalArgumentException("MOVE local id=" + message.id);
-
         long id = jargs.getLong(0);
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
@@ -898,9 +901,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Delete message
-        if (message.uid == null)
-            throw new IllegalArgumentException("DELETE local id=" + message.id);
-
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();

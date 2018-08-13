@@ -202,6 +202,9 @@ public class FragmentAccount extends FragmentEx {
                             if (!istore.hasCapability("IDLE"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_idle));
 
+                            if (!istore.hasCapability("UIDPLUS"))
+                                throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
+
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                                 String type = null;
 
