@@ -27,6 +27,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -110,6 +111,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
+                    case R.string.menu_operations:
+                        onMenuOperations();
+                        break;
                     case R.string.menu_faq:
                         onMenuFAQ();
                         break;
@@ -145,8 +149,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 }
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+
+                if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_list_24, R.string.menu_operations));
+
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+
                 drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_help_24, R.string.menu_about));
 
                 drawerList.setAdapter(drawerArray);
@@ -392,6 +401,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
+    private void onMenuOperations() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentOperations()).addToBackStack("operations");
+        fragmentTransaction.commit();
     }
 
     private void onMenuFAQ() {
