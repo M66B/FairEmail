@@ -540,13 +540,18 @@ public class FragmentCompose extends FragmentEx {
                 if (ref != null) {
                     account = ref.account;
 
-                    // Reply to sender
-                    EntityFolder rfolder = db.folder().getFolder(ref.folder);
-                    if (EntityFolder.SENT.equals(rfolder.type)) {
-                        Address[] tmp = ref.to;
-                        ref.to = ref.from;
-                        ref.reply = null;
-                        ref.from = tmp;
+                    // Reply to sender, not to known self
+                    if (ref.from != null && ref.from.length == 1) {
+                        // All identities, synchronized or not
+                        List<EntityIdentity> identities = db.identity().getIdentities();
+                        for (EntityIdentity identity : identities)
+                            if (((InternetAddress) ref.from[0]).getAddress().equals(identity.email)) {
+                                Address[] tmp = ref.to;
+                                ref.to = ref.from;
+                                ref.reply = null;
+                                ref.from = tmp;
+                                break;
+                            }
                     }
                 }
 

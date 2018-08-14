@@ -36,6 +36,9 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE synchronize = :synchronize")
     LiveData<List<EntityIdentity>> liveIdentities(boolean synchronize);
 
+    @Query("SELECT * FROM identity")
+    List<EntityIdentity> getIdentities();
+
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
