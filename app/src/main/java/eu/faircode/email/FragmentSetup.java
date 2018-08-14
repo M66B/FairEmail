@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -206,13 +205,6 @@ public class FragmentSetup extends FragmentEx {
                 tvIdentityDone.setVisibility(identities != null && identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
-    }
-
-    @Override
-    public void onDestroy() {
-        if (tvAccountDone.getVisibility() == View.VISIBLE)
-            startActivity(new Intent(getContext(), ActivityView.class).putExtra("setup", true));
-        super.onDestroy();
     }
 
     @Override

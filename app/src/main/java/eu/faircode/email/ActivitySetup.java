@@ -26,11 +26,16 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+    boolean hasAccount;
+
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
 
@@ -48,6 +53,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             fragmentTransaction.replace(R.id.content_frame, new FragmentSetup()).addToBackStack("setup");
             fragmentTransaction.commit();
         }
+
+        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+            @Override
+            public void onChanged(List<EntityAccount> accounts) {
+                hasAccount = (accounts != null && accounts.size() > 0);
+            }
+        });
     }
 
     @Override
@@ -79,8 +91,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     @Override
     public void onBackStackChanged() {
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            if (hasAccount)
+                startActivity(new Intent(this, ActivityView.class).putExtra("setup", true));
             finish();
+        }
     }
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
