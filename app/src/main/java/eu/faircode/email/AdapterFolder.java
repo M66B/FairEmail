@@ -84,6 +84,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(TupleFolderEx folder) {
+            ivEdit.setVisibility(EntityFolder.OUTBOX.equals(folder.type) ? View.INVISIBLE : View.VISIBLE);
+
             String name = Helper.localizeFolderName(context, folder.name);
             if (folder.unseen > 0)
                 tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
