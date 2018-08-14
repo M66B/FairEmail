@@ -46,3 +46,5 @@ which is a waste of battery power and internet bandwidth and will delay notifica
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
+
+If you have a feature request or found a bug, you can report it [as an issue](https://github.com/M66B/open-source-email/issues).
