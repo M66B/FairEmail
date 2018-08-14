@@ -50,7 +50,6 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
-import com.sun.mail.smtp.SMTPSendFailedException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,6 +82,7 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.UIDFolder;
@@ -318,11 +318,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void reportError(String account, String folder, Throwable ex) {
         String action = account + "/" + folder;
-        if (!(ex instanceof IllegalStateException) && // This operation is not allowed on a closed folder
-                !(ex instanceof FolderClosedException)) {
-            NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.notify(action, 1, getNotificationError(action, ex).build());
-        }
+        NotificationManager nm = getSystemService(NotificationManager.class);
+        nm.notify(action, 1, getNotificationError(action, ex).build());
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
@@ -852,20 +849,15 @@ public class ServiceSynchronize extends LifecycleService {
                             db.operation().deleteOperation(op.id);
                         } catch (Throwable ex) {
                             // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
-                            if (ex instanceof SMTPSendFailedException)
+                            if (ex instanceof SendFailedException)
                                 reportError(null, folder.name, ex);
 
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
-                            if (BuildConfig.DEBUG && ex instanceof NullPointerException) {
-                                db.operation().deleteOperation(op.id);
-                                throw ex;
-                            }
-
                             if (ex instanceof MessageRemovedException ||
                                     ex instanceof FolderNotFoundException ||
-                                    ex instanceof SMTPSendFailedException) {
-                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    ex instanceof SendFailedException) {
+                                Log.w(Helper.TAG, "Unrecoverable " + ex + "\n" + Log.getStackTraceString(ex));
 
                                 // There is no use in repeating
                                 db.operation().deleteOperation(op.id);
@@ -873,7 +865,7 @@ public class ServiceSynchronize extends LifecycleService {
                             } else if (ex instanceof MessagingException) {
                                 // Socket timeout is a recoverable condition (send message)
                                 if (ex.getCause() instanceof SocketTimeoutException) {
-                                    Log.w(Helper.TAG, "Recoverable " + ex);
+                                    Log.w(Helper.TAG, "Recoverable " + ex + "\n" + Log.getStackTraceString(ex));
                                     // No need to inform user
                                     return;
                                 }

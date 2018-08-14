@@ -135,7 +135,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 "\n" + message.msgid;
                         if (operations != null)
                             for (EntityOperation op : operations)
-                                text += "\n" + op.name + " " + df.format(new Date(op.created));
+                                text += "\n" + op.id + ":" + op.name + " " + df.format(new Date(op.created));
 
                         tvError.setText(text);
                         tvError.setVisibility(View.VISIBLE);
