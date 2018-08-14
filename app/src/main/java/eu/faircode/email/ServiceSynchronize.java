@@ -72,6 +72,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -1557,31 +1558,25 @@ public class ServiceSynchronize extends LifecycleService {
     public static void stopSynchronous(Context context, String reason) {
         Log.i(Helper.TAG, "Stop because of '" + reason + "'");
 
-        final Object lock = new Object();
+        final Semaphore semaphore = new Semaphore(0, true);
         ServiceConnection connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder binder) {
                 Log.i(Helper.TAG, "Service connected");
                 ((LocalBinder) binder).getService().quit();
-                synchronized (lock) {
-                    lock.notify();
-                }
+                semaphore.release();
             }
 
             @Override
             public void onServiceDisconnected(ComponentName componentName) {
                 Log.i(Helper.TAG, "Service disconnected");
-                synchronized (lock) {
-                    lock.notify();
-                }
+                semaphore.release();
             }
 
             @Override
             public void onBindingDied(ComponentName name) {
                 Log.i(Helper.TAG, "Service died");
-                synchronized (lock) {
-                    lock.notify();
-                }
+                semaphore.release();
             }
         };
 
@@ -1592,9 +1587,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (exists) {
             Log.i(Helper.TAG, "Service stopping");
             try {
-                synchronized (lock) {
-                    lock.wait();
-                }
+                semaphore.acquire();
             } catch (InterruptedException ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
