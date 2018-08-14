@@ -247,7 +247,7 @@ public class FragmentCompose extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttachment.setLayoutManager(llm);
 
-        adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), false);
         rvAttachment.setAdapter(adapter);
 
         return view;

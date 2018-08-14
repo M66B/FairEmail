@@ -51,6 +51,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
+    private boolean readonly;
     private boolean debug;
 
     private List<EntityAttachment> all = new ArrayList<>();
@@ -58,6 +59,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
+        ImageView ivDelete;
         TextView tvName;
         TextView tvSize;
         ImageView ivStatus;
@@ -69,6 +71,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             super(itemView);
 
             this.itemView = itemView;
+            ivDelete = itemView.findViewById(R.id.ivDelete);
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
@@ -79,10 +82,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
         private void wire() {
             itemView.setOnClickListener(this);
+            ivDelete.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            ivDelete.setOnClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
@@ -103,6 +108,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 ivStatus.setVisibility(View.VISIBLE);
             }
 
+            ivDelete.setVisibility(readonly ? View.INVISIBLE : View.VISIBLE);
+
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
             progressbar.setVisibility(
@@ -120,7 +127,24 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (pos == RecyclerView.NO_POSITION)
                 return;
             final EntityAttachment attachment = filtered.get(pos);
-            if (attachment != null)
+
+            if (view.getId() == R.id.ivDelete) {
+                Bundle args = new Bundle();
+                args.putLong("id", attachment.id);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        DB.getInstance(context).attachment().deleteAttachment(attachment.id);
+                        File dir = new File(context.getFilesDir(), "attachments");
+                        File file = new File(dir, attachment.filename);
+                        file.delete();
+
+                        return null;
+                    }
+                }.load(context, owner, args);
+
+            } else {
                 if (attachment.filename == null) {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
@@ -183,12 +207,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                     context.startActivity(intent);
                 }
+            }
         }
     }
 
-    AdapterAttachment(Context context, LifecycleOwner owner) {
+    AdapterAttachment(Context context, LifecycleOwner owner, boolean readonly) {
         this.context = context;
         this.owner = owner;
+        this.readonly = readonly;
         this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
         setHasStableIds(true);
     }

@@ -227,7 +227,7 @@ public class FragmentMessage extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttachment.setLayoutManager(llm);
 
-        adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), true);
         rvAttachment.setAdapter(adapter);
 
         return view;

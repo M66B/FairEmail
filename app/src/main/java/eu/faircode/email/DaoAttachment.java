@@ -57,4 +57,7 @@ public interface DaoAttachment {
 
     @Update
     void updateAttachment(EntityAttachment attachment);
+
+    @Query("DELETE FROM attachment WHERE id = :id")
+    int deleteAttachment(long id);
 }
