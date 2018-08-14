@@ -34,7 +34,9 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
@@ -50,6 +52,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private ViewType viewType;
 
     private boolean debug;
+    private Map<Long, Boolean> selected = new HashMap<>();
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     enum ViewType {FOLDER, THREAD}
@@ -99,6 +102,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
+
+            itemView.setActivated(selected.containsKey(message.id) && selected.get(message.id));
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
@@ -186,10 +191,16 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 return false;
 
             TupleMessageEx message = getItem(pos);
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                            .putExtra("id", message.id));
+
+            if (!selected.containsKey(message.id))
+                selected.put(message.id, false);
+            selected.put(message.id, !selected.get(message.id));
+            notifyItemChanged(pos);
+
+            //LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            //lbm.sendBroadcast(
+            //        new Intent(ActivityView.ACTION_VIEW_MESSAGE)
+            //                .putExtra("id", message.id));
 
             return true;
         }
