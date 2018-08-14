@@ -79,7 +79,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvName.setText(identity.name);
             ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
             tvAccount.setText(identity.accountName);
-            tvEmail.setText(String.format("%s@%s:%d", identity.email, identity.host, identity.port));
+            tvEmail.setText(String.format("%s/%s:%d", identity.email, identity.host, identity.port));
         }
 
         @Override
