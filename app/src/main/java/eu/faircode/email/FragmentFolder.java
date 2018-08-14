@@ -89,6 +89,8 @@ public class FragmentFolder extends FragmentEx {
                                 db.beginTransaction();
 
                                 db.folder().setFolderProperties(id, synchronize, days);
+                                if (!synchronize)
+                                    db.folder().setFolderError(id, null);
 
                                 EntityFolder folder = db.folder().getFolder(id);
                                 if (!folder.synchronize)

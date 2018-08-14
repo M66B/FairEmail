@@ -448,6 +448,9 @@ public class FragmentAccount extends FragmentEx {
                                 else
                                     account.id = db.account().insertAccount(account);
 
+                                if (!synchronize)
+                                    db.account().setAccountError(account.id, null);
+
                                 List<EntityFolder> folders = new ArrayList<>();
 
                                 EntityFolder inbox = new EntityFolder();
