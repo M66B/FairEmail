@@ -6,10 +6,11 @@
 
     <Spinner
         android:id="@+id/spFrom"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +22,7 @@
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_person_add_24"
         app:layout_constraintBottom_toBottomOf="@id/spFrom"
-        app:layout_constraintStart_toEndOf="@id/spFrom"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/spFrom" />
 
     <AutoCompleteTextView

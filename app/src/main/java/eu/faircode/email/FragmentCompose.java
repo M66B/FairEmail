@@ -45,6 +45,7 @@ import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -659,7 +660,7 @@ public class FragmentCompose extends FragmentEx {
                     });
 
                     // Show identities
-                    ArrayAdapter<EntityIdentity> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, identities);
+                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
                     adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                     spFrom.setAdapter(adapter);
 
@@ -874,4 +875,42 @@ public class FragmentCompose extends FragmentEx {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
         }
     };
+
+    public class IdentityAdapter extends ArrayAdapter<EntityIdentity> {
+        private Context context;
+        private List<EntityIdentity> identities;
+
+        public IdentityAdapter(@NonNull Context context, List<EntityIdentity> identities) {
+            super(context, 0, identities);
+            this.context = context;
+            this.identities = identities;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            return getLayout(position, convertView, parent);
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return getLayout(position, convertView, parent);
+        }
+
+        public View getLayout(int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == convertView)
+                view = LayoutInflater.from(context).inflate(R.layout.spinner_item2, parent, false);
+
+            EntityIdentity identity = identities.get(position);
+
+            TextView name = view.findViewById(android.R.id.text1);
+            name.setText(identity.name);
+
+            TextView email = view.findViewById(android.R.id.text2);
+            email.setText(identity.email);
+
+            return view;
+        }
+    }
 }
