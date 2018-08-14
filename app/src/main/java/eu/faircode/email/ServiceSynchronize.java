@@ -839,7 +839,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 doDelete(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.SEND.equals(op.name))
-                                doSend(db, message);
+                                doSend(isession, message, db);
 
                             else if (EntityOperation.ATTACHMENT.equals(op.name))
                                 doAttachment(folder, op, ifolder, message, jargs, db);
@@ -850,6 +850,10 @@ public class ServiceSynchronize extends LifecycleService {
                             // Operation succeeded
                             db.operation().deleteOperation(op.id);
                         } catch (Throwable ex) {
+                            // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
+                            if (ex instanceof SMTPSendFailedException)
+                                reportError(null, folder.name, ex);
+
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                             if (BuildConfig.DEBUG && ex instanceof NullPointerException) {
@@ -960,7 +964,7 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().deleteMessage(message.id);
     }
 
-    private void doSend(DB db, EntityMessage message) throws MessagingException {
+    private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException {
         // Send message
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
@@ -970,10 +974,6 @@ public class ServiceSynchronize extends LifecycleService {
             // Message will remain in outbox
             return;
         }
-
-        // Create session
-        Properties props = MessageHelper.getSessionProperties();
-        Session isession = Session.getInstance(props, null);
 
         // Create message
         MimeMessage imessage;
@@ -992,16 +992,10 @@ public class ServiceSynchronize extends LifecycleService {
             itransport.connect(ident.host, ident.port, ident.user, ident.password);
 
             // Send message
-            try {
-                Address[] to = imessage.getAllRecipients();
-                itransport.sendMessage(imessage, to);
-                Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
-                        " to " + TextUtils.join(", ", to));
-            } catch (SMTPSendFailedException ex) {
-                // TODO: response codes: https://www.ietf.org/rfc/rfc821.txt
-                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-                throw ex;
-            }
+            Address[] to = imessage.getAllRecipients();
+            itransport.sendMessage(imessage, to);
+            Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+                    " to " + TextUtils.join(", ", to));
 
             try {
                 db.beginTransaction();
@@ -1488,13 +1482,18 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Log.i(Helper.TAG, outbox.name + " run operations");
+
+                // Create session
+                Properties props = MessageHelper.getSessionProperties();
+                final Session isession = Session.getInstance(props, null);
+
                 try {
                     executor.submit(new Runnable() {
                         @Override
                         public void run() {
                             try {
                                 Log.i(Helper.TAG, outbox.name + " start operations");
-                                processOperations(outbox, null, null, null);
+                                processOperations(outbox, isession, null, null);
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 reportError(null, outbox.name, ex);
