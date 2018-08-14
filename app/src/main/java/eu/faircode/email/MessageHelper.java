@@ -211,7 +211,11 @@ public class MessageHelper {
     }
 
     Address[] getReply() throws MessagingException {
-        return imessage.getReplyTo();
+        String[] headers = imessage.getHeader("Reply-To");
+        if (headers != null && headers.length > 0)
+            return imessage.getReplyTo();
+        else
+            return null;
     }
 
     static String getFormattedAddresses(Address[] addresses, boolean full) {
