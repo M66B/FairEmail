@@ -27,8 +27,9 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
-  <string name="menu_operations">Operations</string>
-  <string name="menu_faq">Întrebări frecvente</string>
+  <string name="menu_operations">Pending operations</string>
+  <string name="menu_privacy">Privacy policy</string>
+  <string name="menu_faq">Frequently asked questions</string>
   <string name="menu_about">Despre</string>
   <string name="title_eula">End-user license agreement</string>
   <string name="title_agree">Sunt de acord</string>
@@ -68,7 +69,7 @@
   <string name="title_password">Parolă</string>
   <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
-  <string name="title_primary_account">Primar (utilizat pentru a stoca ciornele)</string>
+  <string name="title_primary_account">Primary (default account)</string>
   <string name="title_primary_identity">Primară (identitatea implicită)</string>
   <string name="title_check">Check</string>
   <string name="title_no_name">Lipsește numele</string>
@@ -94,6 +95,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Trimise</string>
   <string name="title_folder_user">Utilizator</string>
+  <string name="title_folder_primary">Folders primary account</string>
   <string name="title_folder_thread">Discuție cu mesaje</string>
   <string name="title_no_messages">Nici un mesaj</string>
   <string name="title_link">legătură</string>

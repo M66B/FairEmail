@@ -23,8 +23,9 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
-  <string name="menu_operations">Operations</string>
-  <string name="menu_faq">FAQ</string>
+  <string name="menu_operations">Pending operations</string>
+  <string name="menu_privacy">Privacy policy</string>
+  <string name="menu_faq">Frequently asked questions</string>
   <string name="menu_about">Über</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
   <string name="title_agree">Ich stimme zu</string>
@@ -64,7 +65,7 @@
   <string name="title_password">Passwort</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
-  <string name="title_primary_account">Primär (verwendet, um Entwürfe zu speichern)</string>
+  <string name="title_primary_account">Primary (default account)</string>
   <string name="title_primary_identity">Primär (Standard Identität)</string>
   <string name="title_check">Prüfen</string>
   <string name="title_no_name">Name fehlt</string>
@@ -90,6 +91,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Gesendet</string>
   <string name="title_folder_user">Benutzer</string>
+  <string name="title_folder_primary">Folders primary account</string>
   <string name="title_folder_thread">Nachrichtenthread</string>
   <string name="title_no_messages">Keine E-Mails</string>
   <string name="title_link">Link</string>

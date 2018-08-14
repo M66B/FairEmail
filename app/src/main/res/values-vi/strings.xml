@@ -19,8 +19,9 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
-  <string name="menu_operations">Operations</string>
-  <string name="menu_faq">FAQ</string>
+  <string name="menu_operations">Pending operations</string>
+  <string name="menu_privacy">Privacy policy</string>
+  <string name="menu_faq">Frequently asked questions</string>
   <string name="menu_about">About</string>
   <string name="title_eula">End-user license agreement</string>
   <string name="title_agree">I agree</string>
@@ -60,7 +61,7 @@
   <string name="title_password">Password</string>
   <string name="title_synchronize_account">Synchronize (receive messages)</string>
   <string name="title_synchronize_identity">Synchronize (send messages)</string>
-  <string name="title_primary_account">Primary (used to store drafts)</string>
+  <string name="title_primary_account">Primary (default account)</string>
   <string name="title_primary_identity">Primary (default identity)</string>
   <string name="title_check">Check</string>
   <string name="title_no_name">Name missing</string>
@@ -86,6 +87,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Sent</string>
   <string name="title_folder_user">User</string>
+  <string name="title_folder_primary">Folders primary account</string>
   <string name="title_folder_thread">Message thread</string>
   <string name="title_no_messages">No messages</string>
   <string name="title_link">link</string>
