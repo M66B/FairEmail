@@ -70,9 +70,10 @@ public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
     private TextView tvFrom;
     private TextView tvTime;
+    private TextView tvTo;
     private TextView tvSubject;
     private TextView tvCount;
-    private TextView tvTo;
+    private TextView tvReplyTo;
     private TextView tvCc;
     private TextView tvBcc;
     private RecyclerView rvAttachment;
@@ -103,9 +104,10 @@ public class FragmentMessage extends FragmentEx {
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
         tvTime = view.findViewById(R.id.tvTime);
+        tvTo = view.findViewById(R.id.tvTo);
         tvSubject = view.findViewById(R.id.tvSubject);
         tvCount = view.findViewById(R.id.tvCount);
-        tvTo = view.findViewById(R.id.tvTo);
+        tvReplyTo = view.findViewById(R.id.tvReplyTo);
         tvCc = view.findViewById(R.id.tvCc);
         tvBcc = view.findViewById(R.id.tvBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
@@ -218,6 +220,7 @@ public class FragmentMessage extends FragmentEx {
         // Initialize
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        tvError.setVisibility(View.GONE);
         top_navigation.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -256,12 +259,13 @@ public class FragmentMessage extends FragmentEx {
 
                     tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
+                    tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
                     tvSubject.setText(message.subject);
 
                     tvCount.setText(Integer.toString(message.count));
                     tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
 
-                    tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
+                    tvReplyTo.setText(message.reply == null ? null : MessageHelper.getFormattedAddresses(message.reply, true));
                     tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
                     tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
 

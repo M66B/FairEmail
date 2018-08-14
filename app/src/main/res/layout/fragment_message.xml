@@ -34,17 +34,42 @@
         app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
     <TextView
+        android:id="@+id/tvToTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:text="@string/title_to"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:text="To"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvToTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+    <TextView
         android:id="@+id/tvSubject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:text="Subject"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toStartOf="@+id/tvCount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+        app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
     <TextView
         android:id="@+id/tvCount"
@@ -67,28 +92,26 @@
         app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
     <TextView
-        android:id="@+id/tvToTitle"
+        android:id="@+id/tvReplyToTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:text="@string/title_to"
+        android:text="@string/title_reply_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
 
     <TextView
-        android:id="@+id/tvTo"
+        android:id="@+id/tvReplyTo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:text="To"
+        android:text="Reply to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvToTitle"
+        app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
 
     <TextView
@@ -99,7 +122,7 @@
         android:text="@string/title_cc"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTo" />
+        app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
     <TextView
         android:id="@+id/tvCc"
@@ -112,7 +135,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvCcTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvTo" />
+        app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
     <TextView
         android:id="@+id/tvBccTitle"
@@ -239,7 +262,7 @@
         android:id="@+id/grpAddresses"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAddress,tvToTitle,tvTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />
+        app:constraint_referenced_ids="vSeparatorAddress,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAttachments"
@@ -251,5 +274,5 @@
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvFrom,tvTime,tvSubject,tvCount,tvError,scroll" />
+        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject,tvCount,scroll" />
 </androidx.constraintlayout.widget.ConstraintLayout>

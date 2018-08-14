@@ -51,9 +51,9 @@
   <string name="title_setup_granted">Granted</string>
   <string name="title_setup_dark_theme">Dark theme</string>
   <string name="title_setup_debug">Debug</string>
-  <string name="title_name">Your name</string>
-  <string name="title_email">Your email address</string>
-  <string name="title_reply_to">Reply to address</string>
+  <string name="title_identity_name">Your name</string>
+  <string name="title_identity_email">Your email address</string>
+  <string name="title_identity_reply_to">Reply to address</string>
   <string name="title_optional">Optional</string>
   <string name="title_account_linked">Linked account</string>
   <string name="title_account_name">Account name</string>
@@ -119,6 +119,7 @@
   <string name="title_compose">Compose</string>
   <string name="title_from">From:</string>
   <string name="title_to">To:</string>
+  <string name="title_reply_to">Reply to:</string>
   <string name="title_cc">CC:</string>
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Subject:</string>
