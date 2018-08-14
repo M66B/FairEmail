@@ -112,12 +112,12 @@ public class EntityMessage {
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&
                     (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
-                    (this.thread == null ? other.thread == null : thread.equals(other.thread)) &&
-                    (this.from == null ? other.from == null : this.from.equals(other.from)) &&
-                    (this.to == null ? other.to == null : this.to.equals(other.to)) &&
-                    (this.cc == null ? other.cc == null : this.cc.equals(other.cc)) &&
-                    (this.bcc == null ? other.bcc == null : this.bcc.equals(other.bcc)) &&
-                    (this.reply == null ? other.reply == null : this.reply.equals(other.reply)) &&
+                    (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
+                    equal(this.from, other.from) &&
+                    equal(this.to, other.to) &&
+                    equal(this.cc, other.cc) &&
+                    equal(this.bcc, other.bcc) &&
+                    equal(this.reply, other.reply) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.body == null ? other.body == null : this.body.equals(other.body)) &&
                     (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
@@ -128,5 +128,22 @@ public class EntityMessage {
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;
+    }
+
+    private static boolean equal(Address[] a1, Address[] a2) {
+        if (a1 == null && a2 == null)
+            return true;
+
+        if (a1 == null || a2 == null)
+            return false;
+
+        if (a1.length != a2.length)
+            return false;
+
+        for (int i = 0; i < a1.length; i++)
+            if (!a1[i].toString().equals(a2[i].toString()))
+                return false;
+
+        return true;
     }
 }
