@@ -1470,6 +1470,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             try {
+                main.interrupt(); // backoff
                 Log.i(Helper.TAG, "Joining " + main.getName());
                 main.join();
                 Log.i(Helper.TAG, "Joined " + main.getName());
