@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -36,6 +39,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.paging.LivePagedListBuilder;
@@ -50,6 +54,7 @@ public class FragmentMessages extends FragmentEx {
     private Group grpReady;
     private FloatingActionButton fab;
 
+    private long primary = -1;
     private AdapterMessage adapter;
 
     private static final int PAGE_SIZE = 100;
@@ -62,6 +67,8 @@ public class FragmentMessages extends FragmentEx {
         // Get arguments
         Bundle args = getArguments();
         long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
+
+        setHasOptionsMenu(true);
 
         // Get controls
         rvMessage = view.findViewById(R.id.rvFolder);
@@ -112,8 +119,17 @@ public class FragmentMessages extends FragmentEx {
         long folder = (args == null ? -1 : args.getLong("folder", -1));
         long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
-        // Observe folder/messages
         DB db = DB.getInstance(getContext());
+
+        db.account().livePrimaryAccount().observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+            @Override
+            public void onChanged(EntityAccount account) {
+                primary = (account == null ? -1 : account.id);
+                getActivity().invalidateOptionsMenu();
+            }
+        });
+
+        // Observe folder/messages
         LiveData<PagedList<TupleMessageEx>> messages;
         boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
         if (thread < 0)
@@ -196,5 +212,42 @@ public class FragmentMessages extends FragmentEx {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, getArguments());
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_list, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_folders:
+                onMenuFolders();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuFolders() {
+        getFragmentManager().popBackStack("unified", 0);
+
+        Bundle args = new Bundle();
+        args.putLong("account", primary);
+
+        FragmentFolders fragment = new FragmentFolders();
+        fragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
+        fragmentTransaction.commit();
     }
 }
