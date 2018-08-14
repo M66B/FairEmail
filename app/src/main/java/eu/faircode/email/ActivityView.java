@@ -115,6 +115,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_operations:
                         onMenuOperations();
                         break;
+                    case R.string.menu_privacy:
+                        onMenuPrivacy();
+                        break;
                     case R.string.menu_faq:
                         onMenuFAQ();
                         break;
@@ -154,6 +157,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
                 if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
                     drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_list_24, R.string.menu_operations));
+
+                if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_question_answer_24, R.string.menu_faq));
@@ -379,6 +385,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         }
     }
 
+    private Intent getIntentPrivacy() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://email.faircode.eu/privacy/"));
+        return intent;
+    }
+
     private Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
@@ -407,6 +419,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentOperations()).addToBackStack("operations");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuPrivacy() {
+        startActivity(getIntentPrivacy());
     }
 
     private void onMenuFAQ() {
