@@ -397,6 +397,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Thread t = new Thread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        boolean connected = false;
                                         IMAPFolder ifolder = null;
                                         try {
                                             Log.i(Helper.TAG, folder.name + " start");
@@ -406,6 +407,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             ifolder = (IMAPFolder) fstore.getFolder(folder.name);
                                             ifolder.open(Folder.READ_WRITE);
 
+                                            connected = true;
                                             db.folder().setFolderState(folder.id, "connected");
                                             db.folder().setFolderError(folder.id, null);
 
@@ -423,19 +425,23 @@ public class ServiceSynchronize extends LifecycleService {
                                             // Happens when syncing message
                                             // This operation is not allowed on a closed folder
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-
                                         } catch (Throwable ex) {
+                                            // MessagingException
+                                            // - message: connection failure
+                                            // - event: Too many simultaneous connections. (Failure)
+
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
 
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                             // Cascade up
-                                            try {
-                                                fstore.close();
-                                            } catch (MessagingException e1) {
-                                                Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                            }
+                                            if (connected)
+                                                try {
+                                                    fstore.close();
+                                                } catch (MessagingException e1) {
+                                                    Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                                                }
                                         } finally {
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
