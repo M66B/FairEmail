@@ -8,7 +8,6 @@
         android:id="@+id/spFrom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
         app:layout_constraintStart_toStartOf="parent"

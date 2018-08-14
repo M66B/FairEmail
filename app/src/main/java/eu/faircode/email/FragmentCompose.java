@@ -95,7 +95,7 @@ public class FragmentCompose extends FragmentEx {
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpFrom;
+    //private Group grpFrom;
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpReady;
@@ -128,7 +128,7 @@ public class FragmentCompose extends FragmentEx {
         etBody = view.findViewById(R.id.etBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpFrom = view.findViewById(R.id.grpFrom);
+        //grpFrom = view.findViewById(R.id.grpFrom);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpReady = view.findViewById(R.id.grpReady);
@@ -186,7 +186,8 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
-        grpFrom.setVisibility(View.GONE);
+        spFrom.setEnabled(false);
+        //grpFrom.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -643,6 +644,7 @@ public class FragmentCompose extends FragmentEx {
 
             DB db = DB.getInstance(getContext());
 
+            db.identity().liveIdentities(true).removeObservers(getViewLifecycleOwner());
             db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityIdentity> identities) {
@@ -696,7 +698,8 @@ public class FragmentCompose extends FragmentEx {
                                 break;
                             }
 
-                    grpFrom.setVisibility(View.VISIBLE);
+                    spFrom.setEnabled(true);
+                    //grpFrom.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -784,6 +787,11 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
 
                 } else if (action == R.id.action_save) {
+                    if (ato == null && acc == null && abcc == null &&
+                            TextUtils.isEmpty(subject) && TextUtils.isEmpty(body) &&
+                            db.attachment().getAttachmentCount(draft.id) == 0)
+                        return null;
+
                     db.message().updateMessage(draft);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
@@ -844,7 +852,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected void onLoaded(Bundle args, EntityMessage draft) {
             int action = args.getInt("action");
-            Log.i(Helper.TAG, "Loaded action id=" + draft.id + " action=" + action);
+            Log.i(Helper.TAG, "Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
 
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
@@ -854,10 +862,11 @@ public class FragmentCompose extends FragmentEx {
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
 
-            } else if (action == R.id.action_save)
-                Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+            } else if (action == R.id.action_save) {
+                if (draft != null)
+                    Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
 
-            else if (action == R.id.action_send) {
+            } else if (action == R.id.action_send) {
                 autosave = false;
                 getFragmentManager().popBackStack();
                 Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
