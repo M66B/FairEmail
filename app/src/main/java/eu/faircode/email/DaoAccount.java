@@ -54,7 +54,7 @@ public interface DaoAccount {
             "     JOIN account ON account.id = message.account" +
             "     JOIN folder ON folder.id = message.folder" +
             "     WHERE NOT message.ui_seen AND NOT message.ui_hide" +
-            "     AND (account.seen_until IS NULL OR message.received > account.seen_until)" +
+            "     AND (account.seen_until IS NULL OR message.stored > account.seen_until)" +
             "     AND folder.type = '" + EntityFolder.INBOX + "') AS unseen" +
             ", (SELECT COUNT(message.id) FROM message" +
             "     JOIN folder ON folder.id = message.folder" +

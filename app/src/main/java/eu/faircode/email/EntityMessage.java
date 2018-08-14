@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import java.util.Date;
 import java.util.Random;
 
 import javax.mail.Address;
@@ -79,6 +80,8 @@ public class EntityMessage {
     public Long sent; // compose = null
     @NonNull
     public Long received; // compose = stored
+    @NonNull
+    public Long stored = new Date().getTime();
     @NonNull
     public Boolean seen;
     @NonNull

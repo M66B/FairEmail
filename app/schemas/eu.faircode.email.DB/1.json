@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fc698ded287d449f2781e8efa338554d",
+    "identityHash": "6213f410bff60ef85d8608f09052327d",
     "entities": [
       {
         "tableName": "identity",
@@ -301,7 +301,7 @@
       },
       {
         "tableName": "message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `body` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `body` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -414,6 +414,12 @@
           {
             "fieldPath": "received",
             "columnName": "received",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stored",
+            "columnName": "stored",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -764,7 +770,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fc698ded287d449f2781e8efa338554d\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6213f410bff60ef85d8608f09052327d\")"
     ]
   }
 }
