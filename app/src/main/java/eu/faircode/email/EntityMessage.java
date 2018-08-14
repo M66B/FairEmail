@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.text.TextUtils;
-
 import java.util.Date;
 import java.util.Random;
 

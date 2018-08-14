@@ -538,8 +538,18 @@ public class FragmentCompose extends FragmentEx {
                     return draft;
 
                 EntityMessage ref = db.message().getMessage(reference);
-                if (ref != null)
+                if (ref != null) {
                     account = ref.account;
+
+                    // Reply to sender
+                    EntityFolder rfolder = db.folder().getFolder(ref.folder);
+                    if (EntityFolder.SENT.equals(rfolder.type)) {
+                        Address[] tmp = ref.to;
+                        ref.to = ref.from;
+                        ref.reply = null;
+                        ref.from = tmp;
+                    }
+                }
 
                 EntityFolder drafts;
                 drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
