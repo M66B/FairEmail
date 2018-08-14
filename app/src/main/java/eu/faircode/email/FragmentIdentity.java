@@ -128,7 +128,18 @@ public class FragmentIdentity extends FragmentEx {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
-                if (account.id >= 0 && TextUtils.isEmpty(tilPassword.getEditText().getText().toString())) {
+
+                for (int pos = 1; pos < providers.size(); pos++)
+                    if (providers.get(pos).imap_host.equals(account.host) &&
+                            providers.get(pos).imap_port == account.port) {
+                        spProfile.setSelection(pos);
+                        break;
+                    }
+
+                if (position > 0 && TextUtils.isEmpty(etUser.getText()))
+                    etUser.setText(account.user);
+
+                if (position > 0 && TextUtils.isEmpty(tilPassword.getEditText().getText())) {
                     tilPassword.getEditText().setText(account.password);
                     tilPassword.setPasswordVisibilityToggleEnabled(false);
                 }
@@ -242,8 +253,6 @@ public class FragmentIdentity extends FragmentEx {
                         }
 
                         try {
-                            ServiceSynchronize.stop(getContext(), "identity");
-
                             DB db = DB.getInstance(getContext());
                             try {
                                 db.beginTransaction();
