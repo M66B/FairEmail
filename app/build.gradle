@@ -45,7 +45,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def support_version = "1.0.0-alpha1"
+    def support_version = "1.0.0-rc01"
     def androidx_version = "2.0.0-alpha1"
     def javamail_version = "1.6.0"
     def jsoup_version = "1.11.3"
