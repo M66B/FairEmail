@@ -422,7 +422,7 @@ public class FragmentAccount extends FragmentEx {
                             name = host + "/" + user;
 
                         try {
-                            ServiceSynchronize.stopSynchroneous(getContext(), "save account");
+                            ServiceSynchronize.stopSynchronous(getContext(), "save account");
 
                             DB db = DB.getInstance(getContext());
                             try {
@@ -541,7 +541,7 @@ public class FragmentAccount extends FragmentEx {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
                                         try {
-                                            ServiceSynchronize.stopSynchroneous(getContext(), "delete account");
+                                            ServiceSynchronize.stopSynchronous(getContext(), "delete account");
 
                                             long id = args.getLong("id");
                                             DB.getInstance(context).account().deleteAccount(id);

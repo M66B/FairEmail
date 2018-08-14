@@ -84,7 +84,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(TupleFolderEx folder) {
-            ivEdit.setVisibility(EntityFolder.OUTBOX.equals(folder.type) ? View.INVISIBLE : View.VISIBLE);
+            boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
+            ivEdit.setVisibility(outbox ? View.INVISIBLE : View.VISIBLE);
 
             String name = Helper.localizeFolderName(context, folder.name);
             if (folder.unseen > 0)
@@ -113,7 +114,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-            ivState.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
+            ivState.setVisibility(folder.synchronize || outbox ? View.VISIBLE : View.INVISIBLE);
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);

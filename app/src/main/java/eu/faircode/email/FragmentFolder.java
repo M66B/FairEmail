@@ -77,7 +77,7 @@ public class FragmentFolder extends FragmentEx {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
                         try {
-                            ServiceSynchronize.stopSynchroneous(getContext(), "save folder");
+                            ServiceSynchronize.stopSynchronous(getContext(), "save folder");
 
                             long id = args.getLong("id");
                             boolean synchronize = args.getBoolean("synchronize");

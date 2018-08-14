@@ -71,6 +71,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -107,7 +108,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ServiceSynchronize extends LifecycleService {
     private final Object lock = new Object();
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
     private static final int NOTIFICATION_UNSEEN = 2;
@@ -326,6 +326,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
         final List<Thread> threads = new ArrayList<>();
+        final ExecutorService executor = Executors.newSingleThreadExecutor();
+
         Log.i(Helper.TAG, account.name + " start");
 
         final DB db = DB.getInstance(ServiceSynchronize.this);
@@ -520,7 +522,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     }
 
-                    BroadcastReceiver processReceiver = new BroadcastReceiver() {
+                    private BroadcastReceiver processReceiver = new BroadcastReceiver() {
                         @Override
                         public void onReceive(Context context, Intent intent) {
                             final long fid = intent.getLongExtra("folder", -1);
@@ -533,41 +535,45 @@ public class ServiceSynchronize extends LifecycleService {
                             final IMAPFolder ffolder = ifolder;
 
                             Log.i(Helper.TAG, "run operations folder=" + fid + " offline=" + shouldClose);
-                            executor.submit(new Runnable() {
-                                @Override
-                                public void run() {
-                                    DB db = DB.getInstance(ServiceSynchronize.this);
-                                    EntityFolder folder = db.folder().getFolder(fid);
-                                    IMAPFolder ifolder = ffolder;
-                                    try {
-                                        Log.i(Helper.TAG, folder.name + " start operations");
+                            try {
+                                executor.submit(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        DB db = DB.getInstance(ServiceSynchronize.this);
+                                        EntityFolder folder = db.folder().getFolder(fid);
+                                        IMAPFolder ifolder = ffolder;
+                                        try {
+                                            Log.i(Helper.TAG, folder.name + " start operations");
 
-                                        if (ifolder == null) {
-                                            // Prevent unnecessary folder connections
-                                            if (db.operation().getOperationCount(fid) == 0)
-                                                return;
+                                            if (ifolder == null) {
+                                                // Prevent unnecessary folder connections
+                                                if (db.operation().getOperationCount(fid) == 0)
+                                                    return;
 
-                                            ifolder = (IMAPFolder) fstore.getFolder(folder.name);
-                                            ifolder.open(Folder.READ_WRITE);
-                                        }
-
-                                        processOperations(folder, isession, fstore, ifolder);
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
-                                    } finally {
-                                        if (shouldClose)
-                                            if (ifolder != null && ifolder.isOpen()) {
-                                                try {
-                                                    ifolder.close(false);
-                                                } catch (MessagingException ex) {
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                }
+                                                ifolder = (IMAPFolder) fstore.getFolder(folder.name);
+                                                ifolder.open(Folder.READ_WRITE);
                                             }
-                                        Log.i(Helper.TAG, folder.name + " stop operations");
+
+                                            processOperations(folder, isession, fstore, ifolder);
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            reportError(account.name, folder.name, ex);
+                                        } finally {
+                                            if (shouldClose)
+                                                if (ifolder != null && ifolder.isOpen()) {
+                                                    try {
+                                                        ifolder.close(false);
+                                                    } catch (MessagingException ex) {
+                                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    }
+                                                }
+                                            Log.i(Helper.TAG, folder.name + " stop operations");
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            } catch (RejectedExecutionException ex) {
+                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
                         }
                     };
                 });
@@ -642,6 +648,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
         threads.clear();
+        executor.shutdown();
 
         Log.i(Helper.TAG, account.name + " stopped");
     }
@@ -1361,6 +1368,7 @@ public class ServiceSynchronize extends LifecycleService {
         ServiceState state = new ServiceState();
         private Thread main;
         private EntityFolder outbox = null;
+        private ExecutorService executor = Executors.newSingleThreadExecutor();
 
         @Override
         public void onAvailable(Network network) {
@@ -1376,57 +1384,71 @@ public class ServiceSynchronize extends LifecycleService {
                 @Override
                 public void run() {
                     DB db = DB.getInstance(ServiceSynchronize.this);
+
                     try {
+                        outbox = db.folder().getOutbox();
+                        if (outbox == null) {
+                            Log.i(Helper.TAG, "No outbox, halt");
+                            stopSelf();
+                            return;
+                        }
+
                         List<EntityAccount> accounts = db.account().getAccounts(true);
                         if (accounts.size() == 0) {
                             Log.i(Helper.TAG, "No accounts, halt");
                             stopSelf();
-                        } else
-                            for (final EntityAccount account : accounts) {
-                                Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+                            return;
+                        }
 
-                                Thread t = new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            monitorAccount(account, state);
-                                        } catch (Throwable ex) {
-                                            // Fall-safe
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                        }
-                                    }
-                                }, "sync.account." + account.id);
-                                t.start();
-                                threads.add(t);
-                            }
-                    } catch (Throwable ex) {
-                        // Failsafe
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-
-                    outbox = db.folder().getOutbox();
-                    if (outbox != null) try {
+                        // Start monitoring outbox
                         IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
                         f.addDataType("account/outbox");
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.registerReceiver(outboxReceiver, f);
+                        db.folder().setFolderState(outbox.id, "connected");
 
                         lbm.sendBroadcast(new Intent(ACTION_PROCESS_OPERATIONS)
                                 .setType("account/outbox")
                                 .putExtra("folder", outbox.id));
+
+                        // Start monitoring accounts
+                        for (final EntityAccount account : accounts) {
+                            Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+                            Thread t = new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        monitorAccount(account, state);
+                                    } catch (Throwable ex) {
+                                        // Fall-safe
+                                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    }
+                                }
+                            }, "sync.account." + account.id);
+                            t.start();
+                            threads.add(t);
+                        }
+
+                        // Stop monitoring accounts
+                        for (Thread t : threads)
+                            try {
+                                Log.i(Helper.TAG, "Joining " + t.getName());
+                                t.join();
+                                Log.i(Helper.TAG, "Joined " + t.getName());
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        threads.clear();
+                        executor.shutdown();
+
+                        // Stop monitoring outbox
+                        lbm.unregisterReceiver(outboxReceiver);
+                        Log.i(Helper.TAG, outbox.name + " unlisten operations");
+                        db.folder().setFolderState(outbox.id, null);
                     } catch (Throwable ex) {
+                        // Fail-safe
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
-
-                    for (Thread t : threads)
-                        try {
-                            Log.i(Helper.TAG, "Joining " + t.getName());
-                            t.join();
-                            Log.i(Helper.TAG, "Joined " + t.getName());
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    threads.clear();
                 }
             }, "sync.main");
             main.start();
@@ -1441,12 +1463,6 @@ public class ServiceSynchronize extends LifecycleService {
                 state.notifyAll();
             }
 
-            if (outbox != null) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                lbm.unregisterReceiver(outboxReceiver);
-                Log.i(Helper.TAG, outbox.name + " unlisten operations");
-            }
-
             try {
                 Log.i(Helper.TAG, "Joining " + main.getName());
                 main.join();
@@ -1454,27 +1470,32 @@ public class ServiceSynchronize extends LifecycleService {
             } catch (InterruptedException ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
+
             main = null;
         }
 
-        BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
+        private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Log.i(Helper.TAG, outbox.name + " run operations");
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Log.i(Helper.TAG, outbox.name + " start operations");
-                            processOperations(outbox, null, null, null);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            reportError(null, outbox.name, ex);
-                        } finally {
-                            Log.i(Helper.TAG, outbox.name + " end operations");
+                try {
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Log.i(Helper.TAG, outbox.name + " start operations");
+                                processOperations(outbox, null, null, null);
+                            } catch (Throwable ex) {
+                                Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                reportError(null, outbox.name, ex);
+                            } finally {
+                                Log.i(Helper.TAG, outbox.name + " end operations");
+                            }
                         }
-                    }
-                });
+                    });
+                } catch (RejectedExecutionException ex) {
+                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
             }
         };
     };
@@ -1524,7 +1545,7 @@ public class ServiceSynchronize extends LifecycleService {
         stopSelf();
     }
 
-    public static void stopSynchroneous(Context context, String reason) {
+    public static void stopSynchronous(Context context, String reason) {
         Log.i(Helper.TAG, "Stop because of '" + reason + "'");
 
         final Object lock = new Object();

@@ -253,7 +253,7 @@ public class FragmentIdentity extends FragmentEx {
                         }
 
                         try {
-                            ServiceSynchronize.stopSynchroneous(getContext(), "save identity");
+                            ServiceSynchronize.stopSynchronous(getContext(), "save identity");
 
                             DB db = DB.getInstance(getContext());
                             try {
@@ -332,7 +332,7 @@ public class FragmentIdentity extends FragmentEx {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
                                         try {
-                                            ServiceSynchronize.stopSynchroneous(getContext(), "delete identity");
+                                            ServiceSynchronize.stopSynchronous(getContext(), "delete identity");
 
                                             long id = args.getLong("id");
                                             DB.getInstance(context).identity().deleteIdentity(id);
