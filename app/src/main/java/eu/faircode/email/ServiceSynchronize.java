@@ -429,6 +429,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             // MessagingException
                                             // - message: connection failure
                                             // - event: Too many simultaneous connections. (Failure)
+                                            // TODO: retry?
 
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
@@ -1463,6 +1464,8 @@ public class ServiceSynchronize extends LifecycleService {
         @Override
         public void onLost(Network network) {
             Log.i(Helper.TAG, "Lost " + network);
+
+            // TODO: run in thread
 
             synchronized (state) {
                 state.running = false;
