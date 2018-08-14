@@ -502,7 +502,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                                 for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
                                     db.message().setMessageUiSeen(tmessage.id, true);
 
-                                    EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
+                                    EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
                                 }
 
                             db.setTransactionSuccessful();

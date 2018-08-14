@@ -1286,7 +1286,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 if (message != null) {
-                    if (message.seen != seen) {
+                    if (message.seen != seen || message.seen != message.ui_seen) {
                         message.seen = seen;
                         message.ui_seen = seen;
                         db.message().updateMessage(message);

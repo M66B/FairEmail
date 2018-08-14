@@ -413,7 +413,7 @@ public class FragmentMessage extends FragmentEx {
                     for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
                         db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
 
-                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, tmessage.ui_seen);
+                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
                     }
 
                     db.setTransactionSuccessful();
