@@ -23,9 +23,9 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 /*
-    This file is part of Safe email.
+    This file is part of FairEmail.
 
-    Safe email is free software: you can redistribute it and/or modify
+    FairEmail is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
@@ -71,7 +71,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
 
-    private static final String DB_NAME = "email.2.db";
+    private static final String DB_NAME = "fairemail.db";
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null)

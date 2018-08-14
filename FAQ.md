@@ -1,5 +1,5 @@
-Safe email
-==========
+FairEmail
+=========
 
 Frequently Asked Questions
 --------------------------

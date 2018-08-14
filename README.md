@@ -1,5 +1,5 @@
-Safe email
-==========
+FairEmail
+=========
 
 Simple, secure and efficient email app
 
@@ -67,7 +67,7 @@ See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a l
 Support
 -------
 
-* For support on Safe email, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
+* For support on FairEmail, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 
 Contributing
 ------------
@@ -79,12 +79,12 @@ are preferred in the form of [pull requests](https://help.github.com/articles/cr
 
 *Translations*
 
-* You can translate the in-app texts of Safe email [here](https://crowdin.com/project/open-source-email)
+* You can translate the in-app texts of FairEmail [here](https://crowdin.com/project/open-source-email)
 * If your language is not listed, please send a message through [this contact form](https://contact.faircode.eu/)
 
 *Source code*
 
-Building Safe email from source code is straightforward with [Android Studio](http://developer.android.com/sdk/).
+Building FairEmail from source code is straightforward with [Android Studio](http://developer.android.com/sdk/).
 It is expected that you can solve build problems yourself, so there is no support on building.
 
 Source code contributions are preferred in the form of [pull requests](https://help.github.com/articles/creating-a-pull-request/).
@@ -95,7 +95,7 @@ Please note that you agree to the license below by contributing, including the c
 Attribution
 -----------
 
-Safe email uses:
+FairEmail uses:
 
 * [JavaMail](https://javaee.github.io/javamail/). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
@@ -109,15 +109,15 @@ License
 
 Copyright (c) 2018 Marcel Bokhorst. All rights reserved
 
-Safe email is free software: you can redistribute it and/or modify
+FairEmail is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Safe email is distributed in the hope that it will be useful,
+FairEmail is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Safe email. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
+along with FairEmail. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
