@@ -329,8 +329,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if (count == 0)
             finish();
-        else
+        else {
+            if (drawerLayout.isDrawerOpen(drawerList))
+                drawerLayout.closeDrawer(drawerList);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
+        }
     }
 
     @Override
