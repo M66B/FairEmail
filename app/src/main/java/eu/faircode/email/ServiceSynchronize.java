@@ -24,17 +24,21 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -177,7 +181,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(Helper.TAG, "Service start");
+        Log.i(Helper.TAG, "Service start intent=" + intent);
         super.onStartCommand(intent, flags, startId);
 
         if (intent != null && "unseen".equals(intent.getAction())) {
@@ -1502,15 +1506,73 @@ public class ServiceSynchronize extends LifecycleService {
         ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
     }
 
-    public static void stop(Context context, String reason) {
-        Log.i(Helper.TAG, "Stop because of '" + reason + "'");
-        context.stopService(new Intent(context, ServiceSynchronize.class));
+    private IBinder binder = new LocalBinder();
+
+    private class LocalBinder extends Binder {
+        ServiceSynchronize getService() {
+            return ServiceSynchronize.this;
+        }
     }
 
-    public static void restart(Context context, String reason) {
-        Log.i(Helper.TAG, "Restart because of '" + reason + "'");
-        context.stopService(new Intent(context, ServiceSynchronize.class));
-        start(context);
+    @Override
+    public IBinder onBind(Intent intent) {
+        return binder;
+    }
+
+    public void quit() {
+        Log.i(Helper.TAG, "Service quit");
+        stopSelf();
+    }
+
+    public static void stopSynchroneous(Context context, String reason) {
+        Log.i(Helper.TAG, "Stop because of '" + reason + "'");
+
+        final Object lock = new Object();
+        ServiceConnection connection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName componentName, IBinder binder) {
+                Log.i(Helper.TAG, "Service connected");
+                ((LocalBinder) binder).getService().quit();
+                synchronized (lock) {
+                    lock.notify();
+                }
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName componentName) {
+                Log.i(Helper.TAG, "Service disconnected");
+                synchronized (lock) {
+                    lock.notify();
+                }
+            }
+
+            @Override
+            public void onBindingDied(ComponentName name) {
+                Log.i(Helper.TAG, "Service died");
+                synchronized (lock) {
+                    lock.notify();
+                }
+            }
+        };
+
+        Intent intent = new Intent(context, ServiceSynchronize.class);
+        boolean exists = context.getApplicationContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        Log.i(Helper.TAG, "Service exists=" + exists);
+
+        if (exists) {
+            Log.i(Helper.TAG, "Service stopping");
+            try {
+                synchronized (lock) {
+                    lock.wait();
+                }
+            } catch (InterruptedException ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
+
+            context.getApplicationContext().unbindService(connection);
+        }
+
+        Log.i(Helper.TAG, "Service stopped");
     }
 
     private class ServiceState {

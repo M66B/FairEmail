@@ -77,6 +77,8 @@ public class FragmentFolder extends FragmentEx {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
                         try {
+                            ServiceSynchronize.stopSynchroneous(getContext(), "save folder");
+
                             long id = args.getLong("id");
                             boolean synchronize = args.getBoolean("synchronize");
                             String after = args.getString("after");
@@ -99,7 +101,7 @@ public class FragmentFolder extends FragmentEx {
 
                             return null;
                         } finally {
-                            ServiceSynchronize.restart(getContext(), "folder");
+                            ServiceSynchronize.start(getContext());
                         }
                     }
 

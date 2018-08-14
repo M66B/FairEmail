@@ -422,6 +422,8 @@ public class FragmentAccount extends FragmentEx {
                             name = host + "/" + user;
 
                         try {
+                            ServiceSynchronize.stopSynchroneous(getContext(), "save account");
+
                             DB db = DB.getInstance(getContext());
                             try {
                                 db.beginTransaction();
@@ -496,7 +498,7 @@ public class FragmentAccount extends FragmentEx {
 
                             return null;
                         } finally {
-                            ServiceSynchronize.restart(getContext(), "account");
+                            ServiceSynchronize.start(getContext());
                         }
                     }
 
@@ -538,12 +540,15 @@ public class FragmentAccount extends FragmentEx {
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
-                                        // To prevent foreign key constraints from triggering
-                                        long id = args.getLong("id");
-                                        ServiceSynchronize.stop(context, "delete account");
-                                        DB.getInstance(context).account().deleteAccount(id);
-                                        ServiceSynchronize.start(context);
-                                        return null;
+                                        try {
+                                            ServiceSynchronize.stopSynchroneous(getContext(), "delete account");
+
+                                            long id = args.getLong("id");
+                                            DB.getInstance(context).account().deleteAccount(id);
+                                            return null;
+                                        } finally {
+                                            ServiceSynchronize.start(getContext());
+                                        }
                                     }
 
                                     @Override

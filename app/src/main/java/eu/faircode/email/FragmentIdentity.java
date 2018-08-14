@@ -253,6 +253,8 @@ public class FragmentIdentity extends FragmentEx {
                         }
 
                         try {
+                            ServiceSynchronize.stopSynchroneous(getContext(), "save identity");
+
                             DB db = DB.getInstance(getContext());
                             try {
                                 db.beginTransaction();
@@ -288,7 +290,7 @@ public class FragmentIdentity extends FragmentEx {
 
                             return null;
                         } finally {
-                            ServiceSynchronize.restart(getContext(), "identity");
+                            ServiceSynchronize.start(getContext());
                         }
                     }
 
@@ -329,9 +331,15 @@ public class FragmentIdentity extends FragmentEx {
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
-                                        long id = args.getLong("id");
-                                        DB.getInstance(context).identity().deleteIdentity(id);
-                                        return null;
+                                        try {
+                                            ServiceSynchronize.stopSynchroneous(getContext(), "delete identity");
+
+                                            long id = args.getLong("id");
+                                            DB.getInstance(context).identity().deleteIdentity(id);
+                                            return null;
+                                        } finally {
+                                            ServiceSynchronize.start(getContext());
+                                        }
                                     }
 
                                     @Override
