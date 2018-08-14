@@ -68,6 +68,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
+    private boolean newIntent = false;
+
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
 
@@ -281,7 +283,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         if (intent.getBooleanExtra("setup", false))
             intent.getExtras().remove("setup");
         else
-            getSupportFragmentManager().popBackStack("unified", 0);
+            newIntent = true;
         checkIntent(intent);
         super.onNewIntent(intent);
     }
@@ -296,6 +298,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
         lbm.registerReceiver(receiver, iff);
+
+        if (newIntent) {
+            newIntent = false;
+            getSupportFragmentManager().popBackStack("unified", 0);
+        }
     }
 
     @Override
