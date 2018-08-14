@@ -600,8 +600,8 @@ public class FragmentAccount extends FragmentEx {
                 cbPrimary.setEnabled(account == null ? true : account.synchronize);
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
 
-                btnCheck.setVisibility(account.synchronize ? View.VISIBLE : View.GONE);
-                btnSave.setVisibility(account.synchronize ? View.GONE : View.VISIBLE);
+                btnCheck.setVisibility(account == null || account.synchronize ? View.VISIBLE : View.GONE);
+                btnSave.setVisibility(account == null || account.synchronize ? View.GONE : View.VISIBLE);
 
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
