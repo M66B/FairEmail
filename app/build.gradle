@@ -45,6 +45,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    def support_version = "1.0.0-alpha1"
     def androidx_version = "2.0.0-alpha1"
     def javamail_version = "1.6.0"
     def jsoup_version = "1.11.3"
@@ -52,13 +53,13 @@ dependencies {
     // https://developer.android.com/topic/libraries/support-library/revisions.html
     // https://developer.android.com/topic/libraries/support-library/packages
     // https://developer.android.com/topic/libraries/support-library/refactor
-    implementation "androidx.appcompat:appcompat:1.0.0-alpha1"
-    implementation "androidx.constraintlayout:constraintlayout:1.1.0"
-    implementation "androidx.recyclerview:recyclerview:1.0.0-alpha1"
-    implementation "com.google.android.material:material:1.0.0-alpha1"
-    implementation "androidx.browser:browser:1.0.0-alpha1"
+    implementation "androidx.appcompat:appcompat:$support_version"
+    implementation "androidx.recyclerview:recyclerview:$support_version"
+    implementation "com.google.android.material:material:$support_version"
+    implementation "androidx.browser:browser:$support_version"
 
     // https://developer.android.com/topic/libraries/architecture/adding-components.html
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$androidx_version"
     implementation "androidx.room:room-runtime:$androidx_version"
     implementation "androidx.paging:paging-runtime:$androidx_version"
