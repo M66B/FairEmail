@@ -109,6 +109,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ServiceSynchronize extends LifecycleService {
     private final Object lock = new Object();
+    private ServiceManager serviceManager = new ServiceManager();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
     private static final int NOTIFICATION_UNSEEN = 2;
@@ -139,7 +140,7 @@ public class ServiceSynchronize extends LifecycleService {
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         // Removed because of Android VPN service
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        cm.registerNetworkCallback(builder.build(), networkCallback);
+        cm.registerNetworkCallback(builder.build(), serviceManager);
 
         DB.getInstance(this).account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             private int prev_unseen = -1;
@@ -168,9 +169,9 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Service destroy");
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        cm.unregisterNetworkCallback(networkCallback);
+        cm.unregisterNetworkCallback(serviceManager);
 
-        networkCallback.onLost(cm.getActiveNetwork());
+        serviceManager.stop();
 
         stopForeground(true);
 
@@ -329,11 +330,11 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, account.name + " start");
 
         final DB db = DB.getInstance(ServiceSynchronize.this);
-        db.account().setAccountState(account.id, "connecting");
 
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
             IMAPStore istore = null;
+            final Semaphore semaphore = new Semaphore(0, true);
             try {
                 Properties props = MessageHelper.getSessionProperties();
                 props.setProperty("mail.imaps.peek", "true");
@@ -506,6 +507,8 @@ public class ServiceSynchronize extends LifecycleService {
                         synchronized (state) {
                             state.notifyAll();
                         }
+
+                        semaphore.release();
                     }
 
                     @Override
@@ -525,6 +528,8 @@ public class ServiceSynchronize extends LifecycleService {
                         synchronized (state) {
                             state.notifyAll();
                         }
+
+                        semaphore.release();
                     }
 
                     private BroadcastReceiver processReceiver = new BroadcastReceiver() {
@@ -585,6 +590,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Initiate connection
                 Log.i(Helper.TAG, account.name + " connect");
+                db.account().setAccountState(account.id, "connecting");
                 istore.connect(account.host, account.port, account.user, account.password);
                 backoff = CONNECT_BACKOFF_START;
 
@@ -598,7 +604,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                         Log.i(Helper.TAG, account.name + " waited");
                     } catch (InterruptedException ex) {
-                        Log.w(Helper.TAG, account.name + " " + ex.toString());
+                        Log.w(Helper.TAG, account.name + " wait " + ex.toString());
                     }
                     if (state.running) {
                         Log.i(Helper.TAG, account.name + " NOOP");
@@ -625,7 +631,16 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     }
                 }
-                Log.i(Helper.TAG, account.name + " closed");
+                Log.i(Helper.TAG, account.name + " waiting for close");
+                boolean acquired = false;
+                while (!acquired)
+                    try {
+                        semaphore.acquire();
+                        acquired = true;
+                    } catch (InterruptedException ex) {
+                        Log.e(Helper.TAG, account.name + " acquire " + ex.getMessage());
+                    }
+                Log.i(Helper.TAG, account.name + " reported closed");
             }
 
             if (state.running) {
@@ -636,7 +651,7 @@ public class ServiceSynchronize extends LifecycleService {
                     if (backoff < CONNECT_BACKOFF_MAX)
                         backoff *= 2;
                 } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, account.name + " " + ex.toString());
+                    Log.w(Helper.TAG, account.name + " backoff " + ex.getMessage());
                 }
             }
         }
@@ -644,13 +659,16 @@ public class ServiceSynchronize extends LifecycleService {
         db.account().setAccountState(account.id, null);
 
         for (Thread t : threads) {
-            try {
-                Log.i(Helper.TAG, "Joining " + t.getName());
-                t.join();
-                Log.i(Helper.TAG, "Joined " + t.getName());
-            } catch (InterruptedException ex) {
-                Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-            }
+            boolean joined = false;
+            while (!joined)
+                try {
+                    Log.i(Helper.TAG, "Joining " + t.getName());
+                    t.join();
+                    joined = true;
+                    Log.i(Helper.TAG, "Joined " + t.getName());
+                } catch (InterruptedException ex) {
+                    Log.w(Helper.TAG, t.getName() + " join " + ex.toString());
+                }
         }
         threads.clear();
         executor.shutdown();
@@ -762,7 +780,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 Thread.sleep(NOOP_INTERVAL);
                             } catch (InterruptedException ex) {
-                                Log.w(Helper.TAG, folder.name + " " + ex.toString());
+                                Log.w(Helper.TAG, folder.name + " noop " + ex.getMessage());
                             }
                             open = ifolder.isOpen();
                             if (open)
@@ -1358,7 +1376,7 @@ public class ServiceSynchronize extends LifecycleService {
         });
     }
 
-    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+    private class ServiceManager extends ConnectivityManager.NetworkCallback {
         ServiceState state = new ServiceState();
         private Thread main;
         private EntityFolder outbox = null;
@@ -1424,14 +1442,18 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
                         // Stop monitoring accounts
-                        for (Thread t : threads)
-                            try {
-                                Log.i(Helper.TAG, "Joining " + t.getName());
-                                t.join();
-                                Log.i(Helper.TAG, "Joined " + t.getName());
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                        for (Thread t : threads) {
+                            boolean joined = false;
+                            while (!joined)
+                                try {
+                                    Log.i(Helper.TAG, "Joining " + t.getName());
+                                    t.join();
+                                    joined = true;
+                                    Log.i(Helper.TAG, "Joined " + t.getName());
+                                } catch (InterruptedException ex) {
+                                    Log.w(Helper.TAG, t.getName() + " join " + ex.toString());
+                                }
+                        }
                         threads.clear();
                         executor.shutdown();
 
@@ -1452,23 +1474,37 @@ public class ServiceSynchronize extends LifecycleService {
         public void onLost(Network network) {
             Log.i(Helper.TAG, "Lost " + network);
 
-            // TODO: run in thread
+            if (main != null)
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        stop();
+                    }
+                }).start();
+        }
 
-            synchronized (state) {
-                state.running = false;
-                state.notifyAll();
+        public void stop() {
+            if (main != null) {
+                synchronized (state) {
+                    state.running = false;
+                    state.notifyAll();
+                }
+
+                main.interrupt(); // stop backoff
+
+                boolean joined = false;
+                while (!joined)
+                    try {
+                        Log.i(Helper.TAG, "Joining " + main.getName());
+                        main.join();
+                        joined = true;
+                        Log.i(Helper.TAG, "Joined " + main.getName());
+                    } catch (InterruptedException ex) {
+                        Log.e(Helper.TAG, main.getName() + " join " + ex.toString());
+                    }
+
+                main = null;
             }
-
-            try {
-                main.interrupt(); // backoff
-                Log.i(Helper.TAG, "Joining " + main.getName());
-                main.join();
-                Log.i(Helper.TAG, "Joined " + main.getName());
-            } catch (InterruptedException ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            }
-
-            main = null;
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
@@ -1500,7 +1536,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
         };
-    };
+    }
 
     public static void start(Context context) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -1544,6 +1580,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     public void quit() {
         Log.i(Helper.TAG, "Service quit");
+        serviceManager.stop();
+        Log.i(Helper.TAG, "Service quited");
         stopSelf();
     }
 
@@ -1578,11 +1616,14 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (exists) {
             Log.i(Helper.TAG, "Service stopping");
-            try {
-                semaphore.acquire();
-            } catch (InterruptedException ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            }
+            boolean acquired = false;
+            while (!acquired)
+                try {
+                    semaphore.acquire();
+                    acquired = true;
+                } catch (InterruptedException ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
 
             context.getApplicationContext().unbindService(connection);
         }
