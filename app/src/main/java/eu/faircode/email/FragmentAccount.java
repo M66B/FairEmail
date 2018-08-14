@@ -48,7 +48,6 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -151,6 +150,8 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 cbPrimary.setEnabled(checked);
+                btnCheck.setVisibility(checked ? View.VISIBLE : View.GONE);
+                btnSave.setVisibility(checked ? View.GONE : View.VISIBLE);
             }
         });
 
@@ -349,15 +350,15 @@ public class FragmentAccount extends FragmentEx {
                 EntityFolder trash = (EntityFolder) spTrash.getSelectedItem();
                 EntityFolder junk = (EntityFolder) spJunk.getSelectedItem();
 
-                if (drafts.type == null)
+                if (drafts != null && drafts.type == null)
                     drafts = null;
-                if (sent.type == null)
+                if (sent != null && sent.type == null)
                     sent = null;
-                if (all.type == null)
+                if (all != null && all.type == null)
                     all = null;
-                if (trash.type == null)
+                if (trash != null && trash.type == null)
                     trash = null;
-                if (junk.type == null)
+                if (junk != null && junk.type == null)
                     junk = null;
 
                 Bundle args = new Bundle();
@@ -398,29 +399,29 @@ public class FragmentAccount extends FragmentEx {
                             throw new Throwable(getContext().getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
-                        if (drafts == null)
+                        if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
 
                         // Check IMAP server
-                        Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
-                        IMAPStore istore = null;
-                        try {
-                            istore = (IMAPStore) isession.getStore("imaps");
-                            istore.connect(host, Integer.parseInt(port), user, password);
+                        if (synchronize) {
+                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                            IMAPStore istore = null;
+                            try {
+                                istore = (IMAPStore) isession.getStore("imaps");
+                                istore.connect(host, Integer.parseInt(port), user, password);
 
-                            if (!istore.hasCapability("IDLE"))
-                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
-                        } finally {
-                            if (istore != null)
-                                istore.close();
+                                if (!istore.hasCapability("IDLE"))
+                                    throw new MessagingException(getContext().getString(R.string.title_no_idle));
+                            } finally {
+                                if (istore != null)
+                                    istore.close();
+                            }
                         }
 
                         if (TextUtils.isEmpty(name))
                             name = host + "/" + user;
 
                         try {
-                            ServiceSynchronize.stop(getContext(), "account");
-
                             DB db = DB.getInstance(getContext());
                             try {
                                 db.beginTransaction();
@@ -436,10 +437,6 @@ public class FragmentAccount extends FragmentEx {
                                 account.password = password;
                                 account.synchronize = synchronize;
                                 account.primary = (account.synchronize && args.getBoolean("primary"));
-
-                                // On disabling synchronization mark message seen until now
-                                if (!account.synchronize && account.synchronize != synchronize)
-                                    account.seen_until = new Date().getTime();
 
                                 if (account.primary)
                                     db.account().resetPrimary();
@@ -459,8 +456,10 @@ public class FragmentAccount extends FragmentEx {
 
                                 folders.add(inbox);
 
-                                drafts.type = EntityFolder.DRAFTS;
-                                folders.add(drafts);
+                                if (drafts != null) {
+                                    drafts.type = EntityFolder.DRAFTS;
+                                    folders.add(drafts);
+                                }
 
                                 if (sent != null) {
                                     sent.type = EntityFolder.SENT;
@@ -479,10 +478,8 @@ public class FragmentAccount extends FragmentEx {
                                     folders.add(junk);
                                 }
 
-                                int count = db.folder().deleteSystemFolders(account.id);
-                                Log.w(Helper.TAG, "Deleted system folders count=" + count);
-
                                 for (EntityFolder folder : folders) {
+                                    db.folder().setFolderUser(folder.type);
                                     EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                     if (existing == null) {
                                         folder.account = account.id;
@@ -591,6 +588,8 @@ public class FragmentAccount extends FragmentEx {
         DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
+                Helper.setViewsEnabled(view, true);
+
                 etName.setText(account == null ? null : account.name);
                 etHost.setText(account == null ? null : account.host);
                 etPort.setText(account == null ? null : Long.toString(account.port));
@@ -601,7 +600,9 @@ public class FragmentAccount extends FragmentEx {
                 cbPrimary.setEnabled(account == null ? true : account.synchronize);
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
 
-                Helper.setViewsEnabled(view, true);
+                btnCheck.setVisibility(account.synchronize ? View.VISIBLE : View.GONE);
+                btnSave.setVisibility(account.synchronize ? View.GONE : View.VISIBLE);
+
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
             }

@@ -202,9 +202,10 @@
             android:id="@+id/ibDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="@id/btnCheck"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <TextView
             android:id="@+id/tvDrafts"
