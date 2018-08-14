@@ -27,6 +27,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
+  <string name="menu_operations">Operations</string>
   <string name="menu_faq">Întrebări frecvente</string>
   <string name="menu_about">Despre</string>
   <string name="title_eula">End-user license agreement</string>
@@ -79,6 +80,7 @@
   <string name="title_no_password">Lipsește parola</string>
   <string name="title_no_drafts">Drafts folder missing</string>
   <string name="title_no_idle">IDLE nu este suportat</string>
+  <string name="title_no_uidplus">UIDPLUS not supported</string>
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>

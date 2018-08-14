@@ -23,6 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
+  <string name="menu_operations">Operations</string>
   <string name="menu_faq">FAQ</string>
   <string name="menu_about">Über</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
@@ -75,6 +76,7 @@
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
   <string name="title_no_idle">IDLE wird nicht unterstützt</string>
+  <string name="title_no_uidplus">UIDPLUS not supported</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>

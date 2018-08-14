@@ -27,6 +27,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
+  <string name="menu_operations">Operations</string>
   <string name="menu_faq">FAQ</string>
   <string name="menu_about">About</string>
   <string name="title_eula">End-user license agreement</string>
@@ -79,6 +80,7 @@
   <string name="title_no_password">Password missing</string>
   <string name="title_no_drafts">Drafts folder missing</string>
   <string name="title_no_idle">IDLE not supported</string>
+  <string name="title_no_uidplus">UIDPLUS not supported</string>
   <string name="title_account_delete">Delete this account permanently?</string>
   <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_synchronize_folder">Synchronize (receive messages)</string>
