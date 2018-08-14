@@ -58,7 +58,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -566,22 +565,12 @@ public class FragmentCompose extends FragmentEx {
                 if (ref != null) {
                     draft.thread = ref.thread;
 
-                    if ("reply".equals(action)) {
+                    if ("reply".equals(action) || "reply_all".equals(action)) {
                         draft.replying = ref.id;
                         draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                         draft.from = ref.to;
-
-                    } else if ("reply_all".equals(action)) {
-                        draft.replying = ref.id;
-                        List<Address> addresses = new ArrayList<>();
-                        if (draft.reply != null && ref.reply.length > 0)
-                            addresses.addAll(Arrays.asList(ref.reply));
-                        else if (draft.from != null)
-                            addresses.addAll(Arrays.asList(ref.from));
-                        if (draft.cc != null)
-                            addresses.addAll(Arrays.asList(ref.cc));
-                        draft.to = addresses.toArray(new Address[0]);
-                        draft.from = ref.to;
+                        if ("reply_all".equals(action))
+                            draft.cc = ref.cc;
 
                     } else if ("forward".equals(action)) {
                         //msg.replying = ref.id;
