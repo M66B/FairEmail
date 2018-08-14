@@ -58,6 +58,7 @@ public interface DaoAccount {
             "     AND folder.type = '" + EntityFolder.INBOX + "') AS unseen" +
             ", (SELECT COUNT(message.id) FROM message" +
             "     JOIN folder ON folder.id = message.folder" +
+            "     JOIN operation ON operation.message = message.id AND operation.name = '" + EntityOperation.SEND + "'" +
             "     WHERE NOT message.ui_seen" +
             "     AND folder.type = '" + EntityFolder.OUTBOX + "') AS unsent")
     LiveData<TupleAccountStats> liveStats();
