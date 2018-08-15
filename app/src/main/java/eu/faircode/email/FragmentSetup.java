@@ -141,9 +141,9 @@ public class FragmentSetup extends FragmentEx {
 
         pbAccount.setVisibility(View.GONE);
         pbIdentity.setVisibility(View.GONE);
-        tvAccountDone.setVisibility(View.INVISIBLE);
-        tvIdentityDone.setVisibility(View.INVISIBLE);
-        tvPermissionsDone.setVisibility(View.INVISIBLE);
+        tvAccountDone.setText(R.string.title_setup_to_do);
+        tvIdentityDone.setText(R.string.title_setup_to_do);
+        tvPermissionsDone.setText(R.string.title_setup_to_do);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -195,14 +195,14 @@ public class FragmentSetup extends FragmentEx {
         db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                tvAccountDone.setVisibility(accounts != null && accounts.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                tvAccountDone.setText(accounts != null && accounts.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
             }
         });
 
         db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
-                tvIdentityDone.setVisibility(identities != null && identities.size() > 0 ? View.VISIBLE : View.INVISIBLE);
+                tvIdentityDone.setText(identities != null && identities.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
             }
         });
     }
@@ -217,6 +217,6 @@ public class FragmentSetup extends FragmentEx {
             }
 
         btnPermissions.setEnabled(!has);
-        tvPermissionsDone.setVisibility(has ? View.VISIBLE : View.INVISIBLE);
+        tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
     }
 }
