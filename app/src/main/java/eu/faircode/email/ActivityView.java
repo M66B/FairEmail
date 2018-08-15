@@ -521,8 +521,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
-                            if (!EntityFolder.OUTBOX.equals(folder.type))
-                                for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                            for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
+                                if (message.uid != null) { // Skip drafts and outbox
                                     db.message().setMessageUiSeen(tmessage.id, true);
 
                                     EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
