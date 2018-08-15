@@ -484,7 +484,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     @Override
                     public void disconnected(ConnectionEvent e) {
-                        Log.e(Helper.TAG, account.name + " disconnected");
+                        Log.e(Helper.TAG, account.name + " disconnected event");
 
                         db.account().setAccountState(account.id, null);
 
@@ -503,7 +503,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     @Override
                     public void closed(ConnectionEvent e) {
-                        Log.e(Helper.TAG, account.name + " closed");
+                        Log.e(Helper.TAG, account.name + " closed event");
 
                         db.account().setAccountState(account.id, null);
 
@@ -612,13 +612,11 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 Log.i(Helper.TAG, account.name + " closing");
-                if (istore != null) {
-                    try {
-                        // This can take 20 seconds
-                        istore.close();
-                    } catch (MessagingException ex) {
-                        Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    }
+                try {
+                    // This can take 20 seconds
+                    istore.close();
+                } catch (MessagingException ex) {
+                    Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
                 Log.i(Helper.TAG, account.name + " closed");
             }
