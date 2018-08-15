@@ -128,7 +128,7 @@
             android:id="@+id/tvPermissionsDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_setup_granted"
+            android:text="@string/title_setup_to_do"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
