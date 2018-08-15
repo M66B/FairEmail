@@ -89,6 +89,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
             else if ("connecting".equals(account.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+            else if ("closing".equals(account.state))
+                ivState.setImageResource(R.drawable.baseline_close_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
