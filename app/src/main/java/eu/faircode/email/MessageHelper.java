@@ -63,10 +63,11 @@ public class MessageHelper {
         props.put("mail.imaps.ssl.checkserveridentity", "true");
         props.put("mail.imaps.ssl.trust", "*");
         props.put("mail.imaps.starttls.enable", "false");
-        props.put("mail.imaps.timeout", "20000");
-        props.put("mail.imaps.connectiontimeout", "20000");
 
-        // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
+        props.put("mail.imaps.connectiontimeout", "20000");
+        props.put("mail.imaps.timeout", "20000");
+        props.put("mail.imaps.writetimeout", "20000"); // one thread overhead
+
         props.put("mail.smtps.ssl.checkserveridentity", "true");
         props.put("mail.smtps.ssl.trust", "*");
         props.put("mail.smtps.starttls.enable", "false");

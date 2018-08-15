@@ -52,7 +52,6 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -189,11 +188,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             protected Long onLoad(Context context, Bundle args) throws Throwable {
                 File file = new File(context.getCacheDir(), "crash.log");
                 if (file.exists()) {
-                    Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
-
                     // Get version info
                     StringBuilder sb = new StringBuilder();
-                    sb.append(String.format("%s: %s/%d\r\n", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE));
+                    sb.append(String.format("%s: %s\r\n", context.getString(R.string.app_name), BuildConfig.VERSION_NAME));
                     sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
                     sb.append("\r\n");
 
@@ -213,7 +210,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         String line;
                         in = new BufferedReader(new FileReader(file));
                         while ((line = in.readLine()) != null)
-                            sb.append(line);
+                            sb.append(line).append("\r\n");
                     } finally {
                         if (in != null)
                             in.close();
@@ -232,8 +229,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                             draft = new EntityMessage();
                             draft.account = drafts.account;
                             draft.folder = drafts.id;
-                            draft.msgid = draft.generateMessageId();
-                            draft.to = new Address[]{to};
+                            draft.msgid = EntityMessage.generateMessageId();
+                            draft.to = new Address[]{Helper.myAddress()};
                             draft.subject = context.getString(R.string.app_name) + " crash log";
                             draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
                             draft.received = new Date().getTime();

@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.app.Notification;
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -33,6 +32,7 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Binder;
@@ -318,9 +318,11 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void reportError(String account, String folder, Throwable ex) {
-        String action = account + "/" + folder;
-        NotificationManager nm = getSystemService(NotificationManager.class);
-        nm.notify(action, 1, getNotificationError(action, ex).build());
+        if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException)) {
+            String action = account + "/" + folder;
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            nm.notify(action, 1, getNotificationError(action, ex).build());
+        }
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) {
@@ -334,7 +336,6 @@ public class ServiceSynchronize extends LifecycleService {
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
             IMAPStore istore = null;
-            final Semaphore semaphore = new Semaphore(0, true);
             try {
                 Properties props = MessageHelper.getSessionProperties();
                 props.setProperty("mail.imaps.peek", "true");
@@ -416,14 +417,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             monitorFolder(account, folder, fstore, ifolder, state);
 
-                                        } catch (FolderClosedException ex) {
-                                            // Happens when no connectivity
-                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-
-                                        } catch (IllegalStateException ex) {
-                                            // Happens when syncing message
-                                            // This operation is not allowed on a closed folder
-                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         } catch (Throwable ex) {
                                             // MessagingException
                                             // - message: connection failure
@@ -435,13 +428,20 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
+                                            // FolderClosedException: can happen when no connectivity
+
+                                            // IllegalStateException:
+                                            // - "This operation is not allowed on a closed folder"
+                                            // - can happen when syncing message
+
                                             // Cascade up
-                                            if (connected)
-                                                try {
-                                                    fstore.close();
-                                                } catch (MessagingException e1) {
-                                                    Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                                }
+                                            if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException))
+                                                if (connected)
+                                                    try {
+                                                        fstore.close();
+                                                    } catch (MessagingException e1) {
+                                                        Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                                                    }
                                         } finally {
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
@@ -507,8 +507,6 @@ public class ServiceSynchronize extends LifecycleService {
                         synchronized (state) {
                             state.notifyAll();
                         }
-
-                        semaphore.release();
                     }
 
                     @Override
@@ -528,8 +526,6 @@ public class ServiceSynchronize extends LifecycleService {
                         synchronized (state) {
                             state.notifyAll();
                         }
-
-                        semaphore.release();
                     }
 
                     private BroadcastReceiver processReceiver = new BroadcastReceiver() {
@@ -544,7 +540,7 @@ public class ServiceSynchronize extends LifecycleService {
                             final boolean shouldClose = (ifolder == null);
                             final IMAPFolder ffolder = ifolder;
 
-                            Log.i(Helper.TAG, "run operations folder=" + fid + " offline=" + shouldClose);
+                            Log.v(Helper.TAG, "run operations folder=" + fid + " offline=" + shouldClose);
                             try {
                                 executor.submit(new Runnable() {
                                     @Override
@@ -553,7 +549,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         EntityFolder folder = db.folder().getFolder(fid);
                                         IMAPFolder ifolder = ffolder;
                                         try {
-                                            Log.i(Helper.TAG, folder.name + " start operations");
+                                            Log.v(Helper.TAG, folder.name + " start operations");
 
                                             if (ifolder == null) {
                                                 // Prevent unnecessary folder connections
@@ -577,7 +573,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     }
                                                 }
-                                            Log.i(Helper.TAG, folder.name + " stop operations");
+                                            Log.v(Helper.TAG, folder.name + " stop operations");
                                         }
                                     }
                                 });
@@ -626,21 +622,13 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, account.name + " closing");
                 if (istore != null) {
                     try {
+                        // This can take 20 seconds
                         istore.close();
                     } catch (MessagingException ex) {
                         Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     }
                 }
-                Log.i(Helper.TAG, account.name + " waiting for close");
-                boolean acquired = false;
-                while (!acquired)
-                    try {
-                        semaphore.acquire();
-                        acquired = true;
-                    } catch (InterruptedException ex) {
-                        Log.e(Helper.TAG, account.name + " acquire " + ex.getMessage());
-                    }
-                Log.i(Helper.TAG, account.name + " reported closed");
+                Log.i(Helper.TAG, account.name + " closed");
             }
 
             if (state.running) {
@@ -658,18 +646,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         db.account().setAccountState(account.id, null);
 
-        for (Thread t : threads) {
-            boolean joined = false;
-            while (!joined)
-                try {
-                    Log.i(Helper.TAG, "Joining " + t.getName());
-                    t.join();
-                    joined = true;
-                    Log.i(Helper.TAG, "Joined " + t.getName());
-                } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, t.getName() + " join " + ex.toString());
-                }
-        }
+        for (Thread t : threads)
+            join(t);
         threads.clear();
         executor.shutdown();
 
@@ -1107,7 +1085,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore) throws MessagingException {
         try {
-            Log.i(Helper.TAG, "Start sync folders");
+            Log.v(Helper.TAG, "Start sync folders");
 
             DB db = DB.getInstance(this);
 
@@ -1155,13 +1133,13 @@ public class ServiceSynchronize extends LifecycleService {
             for (String name : names)
                 db.folder().deleteFolder(account.id, name);
         } finally {
-            Log.i(Helper.TAG, "End sync folder");
+            Log.v(Helper.TAG, "End sync folder");
         }
     }
 
     private void synchronizeMessages(EntityFolder folder, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         try {
-            Log.i(Helper.TAG, folder.name + " start sync after=" + folder.after);
+            Log.v(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
             DB db = DB.getInstance(this);
 
@@ -1232,7 +1210,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
-            Log.i(Helper.TAG, folder.name + " end sync");
+            Log.v(Helper.TAG, folder.name + " end sync");
         }
     }
 
@@ -1377,15 +1355,53 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private class ServiceManager extends ConnectivityManager.NetworkCallback {
-        ServiceState state = new ServiceState();
+        private ServiceState state = new ServiceState();
+        private boolean connected = false;
         private Thread main;
         private EntityFolder outbox = null;
+        private ExecutorService lifecycle = Executors.newSingleThreadExecutor();
         private ExecutorService executor = Executors.newSingleThreadExecutor();
 
         @Override
         public void onAvailable(Network network) {
-            Log.i(Helper.TAG, "Available " + network);
+            Log.i(Helper.TAG, "Network available " + network);
 
+            if (!connected) {
+                Log.i(Helper.TAG, "Network not connected");
+                connected = true;
+                lifecycle.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        start();
+                    }
+                });
+            }
+        }
+
+        @Override
+        public void onLost(Network network) {
+            Log.i(Helper.TAG, "Network lost " + network);
+
+            if (connected) {
+                Log.i(Helper.TAG, "Network connected");
+                ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+                NetworkInfo ni = cm.getActiveNetworkInfo();
+                if (ni != null)
+                    Log.i(Helper.TAG, "Network active=" + ni);
+                if (ni == null || !ni.isConnected()) {
+                    Log.i(Helper.TAG, "Network disconnected=" + ni);
+                    connected = false;
+                    lifecycle.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            stop();
+                        }
+                    });
+                }
+            }
+        }
+
+        public void start() {
             synchronized (state) {
                 state.running = true;
             }
@@ -1442,18 +1458,8 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
                         // Stop monitoring accounts
-                        for (Thread t : threads) {
-                            boolean joined = false;
-                            while (!joined)
-                                try {
-                                    Log.i(Helper.TAG, "Joining " + t.getName());
-                                    t.join();
-                                    joined = true;
-                                    Log.i(Helper.TAG, "Joined " + t.getName());
-                                } catch (InterruptedException ex) {
-                                    Log.w(Helper.TAG, t.getName() + " join " + ex.toString());
-                                }
-                        }
+                        for (Thread t : threads)
+                            join(t);
                         threads.clear();
                         executor.shutdown();
 
@@ -1470,19 +1476,6 @@ public class ServiceSynchronize extends LifecycleService {
             main.start();
         }
 
-        @Override
-        public void onLost(Network network) {
-            Log.i(Helper.TAG, "Lost " + network);
-
-            if (main != null)
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        stop();
-                    }
-                }).start();
-        }
-
         public void stop() {
             if (main != null) {
                 synchronized (state) {
@@ -1491,17 +1484,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 main.interrupt(); // stop backoff
-
-                boolean joined = false;
-                while (!joined)
-                    try {
-                        Log.i(Helper.TAG, "Joining " + main.getName());
-                        main.join();
-                        joined = true;
-                        Log.i(Helper.TAG, "Joined " + main.getName());
-                    } catch (InterruptedException ex) {
-                        Log.e(Helper.TAG, main.getName() + " join " + ex.toString());
-                    }
+                join(main);
 
                 main = null;
             }
@@ -1510,7 +1493,7 @@ public class ServiceSynchronize extends LifecycleService {
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.i(Helper.TAG, outbox.name + " run operations");
+                Log.v(Helper.TAG, outbox.name + " run operations");
 
                 // Create session
                 Properties props = MessageHelper.getSessionProperties();
@@ -1521,13 +1504,13 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void run() {
                             try {
-                                Log.i(Helper.TAG, outbox.name + " start operations");
+                                Log.v(Helper.TAG, outbox.name + " start operations");
                                 processOperations(outbox, isession, null, null);
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 reportError(null, outbox.name, ex);
                             } finally {
-                                Log.i(Helper.TAG, outbox.name + " end operations");
+                                Log.v(Helper.TAG, outbox.name + " end operations");
                             }
                         }
                     });
@@ -1538,31 +1521,28 @@ public class ServiceSynchronize extends LifecycleService {
         };
     }
 
-    public static void start(Context context) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationManager nm = context.getSystemService(NotificationManager.class);
+    private static void join(Thread thread) {
+        boolean joined = false;
+        while (!joined)
+            try {
+                Log.i(Helper.TAG, "Joining " + thread.getName());
+                thread.join();
+                joined = true;
+                Log.i(Helper.TAG, "Joined " + thread.getName());
+            } catch (InterruptedException ex) {
+                Log.e(Helper.TAG, thread.getName() + " join " + ex.toString());
+            }
+    }
 
-            NotificationChannel service = new NotificationChannel(
-                    "service",
-                    context.getString(R.string.channel_service),
-                    NotificationManager.IMPORTANCE_MIN);
-            service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
-            nm.createNotificationChannel(service);
-
-            NotificationChannel notification = new NotificationChannel(
-                    "notification",
-                    context.getString(R.string.channel_notification),
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            nm.createNotificationChannel(notification);
-
-            NotificationChannel error = new NotificationChannel(
-                    "error",
-                    context.getString(R.string.channel_error),
-                    NotificationManager.IMPORTANCE_HIGH);
-            nm.createNotificationChannel(error);
-        }
-
-        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+    private static void acquire(Semaphore semaphore, String name) {
+        boolean acquired = false;
+        while (!acquired)
+            try {
+                semaphore.acquire();
+                acquired = true;
+            } catch (InterruptedException ex) {
+                Log.e(Helper.TAG, name + " acquire " + ex.toString());
+            }
     }
 
     private IBinder binder = new LocalBinder();
@@ -1583,6 +1563,10 @@ public class ServiceSynchronize extends LifecycleService {
         serviceManager.stop();
         Log.i(Helper.TAG, "Service quited");
         stopSelf();
+    }
+
+    public static void start(Context context) {
+        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
     }
 
     public static void stopSynchronous(Context context, String reason) {
@@ -1616,15 +1600,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (exists) {
             Log.i(Helper.TAG, "Service stopping");
-            boolean acquired = false;
-            while (!acquired)
-                try {
-                    semaphore.acquire();
-                    acquired = true;
-                } catch (InterruptedException ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-
+            acquire(semaphore, "service");
             context.getApplicationContext().unbindService(connection);
         }
 

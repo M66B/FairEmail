@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,10 +58,27 @@ public class FragmentAbout extends FragmentEx {
                 new SimpleTask<Long>() {
                     @Override
                     protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
-                        StringBuilder info = Helper.getDebugInfo();
-                        info.insert(0, context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+                        StringBuilder sb = new StringBuilder();
 
-                        Address to = new InternetAddress("marcel+email@faircode.eu", "FairCode");
+                        sb.append(context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+
+                        // Get version info
+                        sb.append(String.format("%s: %s\r\n", context.getString(R.string.app_name), BuildConfig.VERSION_NAME));
+                        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+                        sb.append("\r\n");
+
+                        // Get device info
+                        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+                        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+                        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+                        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+                        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+                        sb.append(String.format("Host: %s\r\n", Build.HOST));
+                        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+                        sb.append(String.format("Id: %s\r\n", Build.ID));
+                        sb.append("\r\n");
+
+                        sb.append(Helper.getLogcat());
 
                         EntityMessage draft;
 
@@ -76,10 +93,10 @@ public class FragmentAbout extends FragmentEx {
                             draft = new EntityMessage();
                             draft.account = drafts.account;
                             draft.folder = drafts.id;
-                            draft.msgid = draft.generateMessageId();
-                            draft.to = new Address[]{to};
-                            draft.subject = BuildConfig.APPLICATION_ID + " debug info";
-                            draft.body = "<pre>" + info.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+                            draft.msgid = EntityMessage.generateMessageId();
+                            draft.to = new Address[]{Helper.myAddress()};
+                            draft.subject = context.getString(R.string.app_name) + " debug info";
+                            draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
                             draft.received = new Date().getTime();
                             draft.seen = false;
                             draft.ui_seen = false;

@@ -20,6 +20,9 @@ package eu.faircode.email;
 */
 
 import android.app.Application;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.util.Log;
 
 import java.io.File;
@@ -63,5 +66,28 @@ public class ApplicationEx extends Application {
                     prev.uncaughtException(thread, ex);
             }
         });
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationManager nm = getSystemService(NotificationManager.class);
+
+            NotificationChannel service = new NotificationChannel(
+                    "service",
+                    getString(R.string.channel_service),
+                    NotificationManager.IMPORTANCE_MIN);
+            service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            nm.createNotificationChannel(service);
+
+            NotificationChannel notification = new NotificationChannel(
+                    "notification",
+                    getString(R.string.channel_notification),
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            nm.createNotificationChannel(notification);
+
+            NotificationChannel error = new NotificationChannel(
+                    "error",
+                    getString(R.string.channel_error),
+                    NotificationManager.IMPORTANCE_HIGH);
+            nm.createNotificationChannel(error);
+        }
     }
 }

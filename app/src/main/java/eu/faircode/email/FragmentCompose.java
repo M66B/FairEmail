@@ -565,7 +565,7 @@ public class FragmentCompose extends FragmentEx {
                 draft = new EntityMessage();
                 draft.account = account;
                 draft.folder = drafts.id;
-                draft.msgid = draft.generateMessageId(); // for multiple appends
+                draft.msgid = EntityMessage.generateMessageId(); // for multiple appends
 
                 if (ref != null) {
                     draft.thread = ref.thread;
