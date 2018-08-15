@@ -54,13 +54,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 
 public class FragmentIdentity extends FragmentEx {
-    private List<Provider> providers;
-
     private ViewGroup view;
     private EditText etName;
     private EditText etEmail;
     private EditText etReplyTo;
-    private Spinner spProfile;
+    private Spinner spProvider;
     private Spinner spAccount;
     private EditText etHost;
     private CheckBox cbStartTls;
@@ -85,15 +83,11 @@ public class FragmentIdentity extends FragmentEx {
         Bundle args = getArguments();
         final long id = (args == null ? -1 : args.getLong("id", -1));
 
-        // Get providers
-        providers = Provider.loadProfiles(getContext());
-        providers.add(0, new Provider(getString(R.string.title_custom)));
-
         // Get controls
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
-        spProfile = view.findViewById(R.id.spProvider);
+        spProvider = view.findViewById(R.id.spProvider);
         spAccount = view.findViewById(R.id.spAccount);
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
@@ -127,14 +121,20 @@ public class FragmentIdentity extends FragmentEx {
         spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Integer tag = (Integer) adapterView.getTag();
+                if (tag != null && tag.equals(position))
+                    return;
+                adapterView.setTag(position);
+
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
 
-                for (int pos = 1; pos < providers.size(); pos++)
-                    if (providers.get(pos).imap_host.equals(account.host) &&
-                            providers.get(pos).imap_port == account.port) {
-                        spProfile.setSelection(pos);
+                for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
+                    Provider provider = (Provider) spProvider.getItemAtPosition(pos);
+                    if (provider.imap_host.equals(account.host) && provider.imap_port == account.port) {
+                        spProvider.setSelection(pos);
                         break;
                     }
+                }
 
                 if (position > 0 && TextUtils.isEmpty(etUser.getText()))
                     etUser.setText(account.user);
@@ -150,10 +150,15 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
-        spProfile.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Provider provider = providers.get(position);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Integer tag = (Integer) adapterView.getTag();
+                if (tag != null && tag.equals(position))
+                    return;
+                adapterView.setTag(position);
+
+                Provider provider = (Provider) adapterView.getSelectedItem();
                 if (provider.smtp_port != 0) {
                     etHost.setText(provider.smtp_host);
                     etPort.setText(Integer.toString(provider.smtp_port));
@@ -165,10 +170,6 @@ public class FragmentIdentity extends FragmentEx {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-
-        ArrayAdapter<Provider> adapterProfile = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
-        adapterProfile.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spProfile.setAdapter(adapterProfile);
 
         cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -370,7 +371,15 @@ public class FragmentIdentity extends FragmentEx {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("account", spAccount.getSelectedItemPosition());
+        outState.putInt("provider", spProvider.getSelectedItemPosition());
+        outState.putString("password", tilPassword.getEditText().getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // Get arguments
@@ -383,24 +392,28 @@ public class FragmentIdentity extends FragmentEx {
         db.identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
             @Override
             public void onChanged(@Nullable final EntityIdentity identity) {
-                etName.setText(identity == null ? null : identity.name);
-                etEmail.setText(identity == null ? null : identity.email);
-                etReplyTo.setText(identity == null ? null : identity.replyto);
-                etHost.setText(identity == null ? null : identity.host);
-                cbStartTls.setChecked(identity == null ? false : identity.starttls);
-                etPort.setText(identity == null ? null : Long.toString(identity.port));
-                etUser.setText(identity == null ? null : identity.user);
-                tilPassword.getEditText().setText(identity == null ? null : identity.password);
-                cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
-                cbPrimary.setChecked(identity == null ? true : identity.primary);
-                cbPrimary.setEnabled(identity == null ? true : identity.synchronize);
+                if (savedInstanceState == null) {
+                    etName.setText(identity == null ? null : identity.name);
+                    etEmail.setText(identity == null ? null : identity.email);
+                    etReplyTo.setText(identity == null ? null : identity.replyto);
+                    etHost.setText(identity == null ? null : identity.host);
+                    cbStartTls.setChecked(identity == null ? false : identity.starttls);
+                    etPort.setText(identity == null ? null : Long.toString(identity.port));
+                    etUser.setText(identity == null ? null : identity.user);
+                    tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                    cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
+                    cbPrimary.setChecked(identity == null ? true : identity.primary);
+
+                    etName.requestFocus();
+                } else
+                    tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+
+                cbPrimary.setEnabled(cbSynchronize.isChecked());
                 ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
 
                 Helper.setViewsEnabled(view, true);
                 btnSave.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
-
-                etName.requestFocus();
 
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
@@ -415,15 +428,33 @@ public class FragmentIdentity extends FragmentEx {
                         unselected.primary = false;
                         accounts.add(0, unselected);
 
-                        ArrayAdapter<EntityAccount> adapterAccount = new ArrayAdapter<>(getContext(), R.layout.spinner_item, accounts);
-                        adapterAccount.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                        spAccount.setAdapter(adapterAccount);
+                        ArrayAdapter<EntityAccount> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item, accounts);
+                        aa.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                        spAccount.setAdapter(aa);
 
-                        for (int pos = 0; pos < accounts.size(); pos++)
-                            if (accounts.get(pos).id == (identity == null ? -1 : identity.account)) {
-                                spAccount.setSelection(pos);
-                                break;
-                            }
+                        // Get providers
+                        List<Provider> providers = Provider.loadProfiles(getContext());
+                        providers.add(0, new Provider(getString(R.string.title_custom)));
+
+                        ArrayAdapter<Provider> adapterProfile = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
+                        adapterProfile.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                        spProvider.setAdapter(adapterProfile);
+
+                        if (savedInstanceState == null) {
+                            for (int pos = 0; pos < accounts.size(); pos++)
+                                if (accounts.get(pos).id == (identity == null ? -1 : identity.account)) {
+                                    spAccount.setSelection(pos);
+                                    break;
+                                }
+                        } else {
+                            int provider = savedInstanceState.getInt("provider");
+                            spProvider.setTag(provider);
+                            spProvider.setSelection(provider);
+
+                            int account = savedInstanceState.getInt("account");
+                            spAccount.setTag(account);
+                            spAccount.setSelection(account);
+                        }
                     }
                 });
             }

@@ -259,10 +259,17 @@ public class FragmentCompose extends FragmentEx {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        if (autosave)
+            onAction(R.id.action_save);
+        outState.putLong("working", working);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if (working < 0) {
+        if (savedInstanceState == null) {
             Bundle args = new Bundle();
             args.putString("action", getArguments().getString("action"));
             args.putLong("id", getArguments().getLong("id", -1));
@@ -272,7 +279,7 @@ public class FragmentCompose extends FragmentEx {
         } else {
             Bundle args = new Bundle();
             args.putString("action", "edit");
-            args.putLong("id", working);
+            args.putLong("id", savedInstanceState.getLong("working"));
             args.putLong("account", -1);
             args.putLong("reference", -1);
             draftLoader.load(this, args);

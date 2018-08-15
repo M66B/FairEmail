@@ -62,11 +62,9 @@ import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 
 public class FragmentAccount extends FragmentEx {
-    private List<Provider> providers;
-
     private ViewGroup view;
     private EditText etName;
-    private Spinner spProfile;
+    private Spinner spProvider;
     private EditText etHost;
     private EditText etPort;
     private EditText etUser;
@@ -97,12 +95,8 @@ public class FragmentAccount extends FragmentEx {
         Bundle args = getArguments();
         final long id = (args == null ? -1 : args.getLong("id", -1));
 
-        // Get providers
-        providers = Provider.loadProfiles(getContext());
-        providers.add(0, new Provider(getString(R.string.title_custom)));
-
         // Get controls
-        spProfile = view.findViewById(R.id.spProvider);
+        spProvider = view.findViewById(R.id.spProvider);
         etName = view.findViewById(R.id.etName);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
@@ -125,10 +119,15 @@ public class FragmentAccount extends FragmentEx {
 
         // Wire controls
 
-        spProfile.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Provider provider = providers.get(position);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Integer tag = (Integer) adapterView.getTag();
+                if (tag != null && tag.equals(position))
+                    return;
+                adapterView.setTag(position);
+
+                Provider provider = (Provider) adapterView.getSelectedItem();
                 if (provider.imap_port != 0) {
                     etName.setText(provider.name);
                     etHost.setText(provider.imap_host);
@@ -141,10 +140,6 @@ public class FragmentAccount extends FragmentEx {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-
-        ArrayAdapter<Provider> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spProfile.setAdapter(adapter);
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -370,11 +365,11 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
-                args.putSerializable("drafts", drafts);
-                args.putSerializable("sent", sent);
-                args.putSerializable("all", all);
-                args.putSerializable("trash", trash);
-                args.putSerializable("junk", junk);
+                args.putParcelable("drafts", drafts);
+                args.putParcelable("sent", sent);
+                args.putParcelable("all", all);
+                args.putParcelable("trash", trash);
+                args.putParcelable("junk", junk);
 
                 new SimpleTask<Void>() {
                     @Override
@@ -385,11 +380,11 @@ public class FragmentAccount extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         boolean synchronize = args.getBoolean("synchronize");
-                        EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
-                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
-                        EntityFolder all = (EntityFolder) args.getSerializable("all");
-                        EntityFolder trash = (EntityFolder) args.getSerializable("trash");
-                        EntityFolder junk = (EntityFolder) args.getSerializable("junk");
+                        EntityFolder drafts = args.getParcelable("drafts");
+                        EntityFolder sent = args.getParcelable("sent");
+                        EntityFolder all = args.getParcelable("all");
+                        EntityFolder trash = args.getParcelable("trash");
+                        EntityFolder junk = args.getParcelable("junk");
 
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
@@ -484,7 +479,7 @@ public class FragmentAccount extends FragmentEx {
                                 }
 
                                 for (EntityFolder folder : folders) {
-                                    db.folder().setFolderUser(folder.type);
+                                    db.folder().setFolderUser(folder.account, folder.type);
                                     EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                     if (existing == null) {
                                         folder.account = account.id;
@@ -585,7 +580,31 @@ public class FragmentAccount extends FragmentEx {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("provider", spProvider.getSelectedItemPosition());
+        outState.putString("password", tilPassword.getEditText().getText().toString());
+
+        boolean checked = (btnSave.getVisibility() == View.VISIBLE);
+        outState.putBoolean("checked", checked);
+
+        if (checked) {
+            ArrayList<EntityFolder> folders = new ArrayList<>();
+            for (int i = 0; i < spDrafts.getAdapter().getCount(); i++)
+                folders.add((EntityFolder) spDrafts.getAdapter().getItem(i));
+
+            outState.putParcelableArrayList("folders", folders);
+            outState.putInt("drafts", spDrafts.getSelectedItemPosition());
+            outState.putInt("sent", spSent.getSelectedItemPosition());
+            outState.putInt("all", spAll.getSelectedItemPosition());
+            outState.putInt("trash", spTrash.getSelectedItemPosition());
+            outState.putInt("junk", spJunk.getSelectedItemPosition());
+        }
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // Get arguments
@@ -596,23 +615,64 @@ public class FragmentAccount extends FragmentEx {
         DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
+                // Get providers
+                List<Provider> providers = Provider.loadProfiles(getContext());
+                providers.add(0, new Provider(getString(R.string.title_custom)));
+
+                ArrayAdapter<Provider> padapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
+                padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                spProvider.setAdapter(padapter);
+
+                if (savedInstanceState == null) {
+                    etName.setText(account == null ? null : account.name);
+                    etHost.setText(account == null ? null : account.host);
+                    etPort.setText(account == null ? null : Long.toString(account.port));
+                    etUser.setText(account == null ? null : account.user);
+                    tilPassword.getEditText().setText(account == null ? null : account.password);
+                    cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                    cbPrimary.setChecked(account == null ? true : account.primary);
+                    cbPrimary.setEnabled(account == null ? true : account.synchronize);
+                } else {
+                    int provider = savedInstanceState.getInt("provider");
+                    spProvider.setTag(provider);
+                    spProvider.setSelection(provider);
+
+                    tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+                }
+
                 Helper.setViewsEnabled(view, true);
 
-                etName.setText(account == null ? null : account.name);
-                etHost.setText(account == null ? null : account.host);
-                etPort.setText(account == null ? null : Long.toString(account.port));
-                etUser.setText(account == null ? null : account.user);
-                tilPassword.getEditText().setText(account == null ? null : account.password);
-                cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                cbPrimary.setChecked(account == null ? true : account.primary);
-                cbPrimary.setEnabled(account == null ? true : account.synchronize);
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
 
-                btnCheck.setVisibility(account == null || account.synchronize ? View.VISIBLE : View.GONE);
-                btnSave.setVisibility(account == null || account.synchronize ? View.GONE : View.VISIBLE);
+                btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
+                btnSave.setVisibility(cbSynchronize.isChecked() ? View.GONE : View.VISIBLE);
 
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
+
+                if (savedInstanceState != null) {
+                    boolean checked = savedInstanceState.getBoolean("checked");
+                    if (checked) {
+                        List<EntityFolder> folders = savedInstanceState.getParcelableArrayList("folders");
+
+                        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
+                        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
+                        spDrafts.setAdapter(adapter);
+                        spSent.setAdapter(adapter);
+                        spAll.setAdapter(adapter);
+                        spTrash.setAdapter(adapter);
+                        spJunk.setAdapter(adapter);
+
+                        spDrafts.setSelection(savedInstanceState.getInt("drafts"));
+                        spSent.setSelection(savedInstanceState.getInt("sent"));
+                        spAll.setSelection(savedInstanceState.getInt("all"));
+                        spTrash.setSelection(savedInstanceState.getInt("trash"));
+                        spJunk.setSelection(savedInstanceState.getInt("junk"));
+                        grpFolders.setVisibility(View.VISIBLE);
+                        btnSave.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
     }

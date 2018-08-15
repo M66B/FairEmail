@@ -19,7 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,7 +45,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"type"})
         }
 )
-public class EntityFolder implements Serializable {
+public class EntityFolder implements Parcelable {
     static final String TABLE_NAME = "folder";
 
     @PrimaryKey(autoGenerate = true)
@@ -106,6 +108,9 @@ public class EntityFolder implements Serializable {
             SENT
     );
 
+    public EntityFolder() {
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {
@@ -125,4 +130,72 @@ public class EntityFolder implements Serializable {
     public String toString() {
         return name;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(id);
+        }
+        if (account == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(account);
+        }
+        parcel.writeString(name);
+        parcel.writeString(type);
+        parcel.writeByte((byte) (synchronize == null ? 0 : synchronize ? 1 : 2));
+        if (after == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(after);
+        }
+        parcel.writeString(state);
+        parcel.writeString(error);
+    }
+
+    protected EntityFolder(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        if (in.readByte() == 0) {
+            account = null;
+        } else {
+            account = in.readLong();
+        }
+        name = in.readString();
+        type = in.readString();
+        byte tmpSynchronize = in.readByte();
+        synchronize = tmpSynchronize == 0 ? null : tmpSynchronize == 1;
+        if (in.readByte() == 0) {
+            after = null;
+        } else {
+            after = in.readInt();
+        }
+        state = in.readString();
+        error = in.readString();
+    }
+
+    public static final Creator<EntityFolder> CREATOR = new Creator<EntityFolder>() {
+        @Override
+        public EntityFolder createFromParcel(Parcel in) {
+            return new EntityFolder(in);
+        }
+
+        @Override
+        public EntityFolder[] newArray(int size) {
+            return new EntityFolder[size];
+        }
+    };
 }

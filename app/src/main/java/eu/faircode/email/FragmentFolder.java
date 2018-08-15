@@ -134,7 +134,12 @@ public class FragmentFolder extends FragmentEx {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // Get arguments
@@ -150,8 +155,10 @@ public class FragmentFolder extends FragmentEx {
                     return;
                 }
 
-                cbSynchronize.setChecked(folder.synchronize);
-                etAfter.setText(Integer.toString(folder.after));
+                if (savedInstanceState == null) {
+                    cbSynchronize.setChecked(folder.synchronize);
+                    etAfter.setText(Integer.toString(folder.after));
+                }
 
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
