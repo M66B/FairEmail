@@ -64,25 +64,31 @@ public class MessageHelper {
         props.put("mail.imaps.ssl.trust", "*");
         props.put("mail.imaps.starttls.enable", "false");
 
+        // TODO: make timeouts configurable?
         props.put("mail.imaps.connectiontimeout", "20000");
         props.put("mail.imaps.timeout", "20000");
         props.put("mail.imaps.writetimeout", "20000"); // one thread overhead
 
+        // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");
         props.put("mail.smtps.ssl.trust", "*");
         props.put("mail.smtps.starttls.enable", "false");
         props.put("mail.smtps.starttls.required", "false");
         props.put("mail.smtps.auth", "true");
-        props.put("mail.smtps.timeout", "20000");
+
         props.put("mail.smtps.connectiontimeout", "20000");
+        props.put("mail.smtps.writetimeout", "20000"); // one thread overhead
+        props.put("mail.smtps.timeout", "20000");
 
         props.put("mail.smtp.ssl.checkserveridentity", "true");
         props.put("mail.smtp.ssl.trust", "*");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.starttls.required", "true");
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.timeout", "20000");
+
         props.put("mail.smtp.connectiontimeout", "20000");
+        props.put("mail.smtp.writetimeout", "20000"); // one thread overhead
+        props.put("mail.smtp.timeout", "20000");
 
         return props;
     }
