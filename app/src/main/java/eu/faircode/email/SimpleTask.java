@@ -20,8 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean paused = false;
     private Bundle args = null;
     private Result stored = null;
+
+    static HandlerThread handlerThread;
+    static Handler handler;
+
+    static {
+        handlerThread = new HandlerThread("SimpleTask");
+        handlerThread.start();
+        handler = new Handler(handlerThread.getLooper());
+    }
 
     public void load(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);
@@ -82,24 +92,28 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void run(final Context context, LifecycleOwner owner, final Bundle args) {
         owner.getLifecycle().addObserver(this);
 
-        new AsyncTask<Object, Object, Result>() {
+        // Run in background thread
+        handler.post(new Runnable() {
             @Override
-            protected Result doInBackground(Object... params) {
-                Result result = new Result();
+            public void run() {
+                final Result result = new Result();
+
                 try {
                     result.data = onLoad(context, args);
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     result.ex = ex;
                 }
-                return result;
-            }
 
-            @Override
-            protected void onPostExecute(Result result) {
-                deliver(args, result);
+                // Run on main thread
+                new Handler(context.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        deliver(args, result);
+                    }
+                });
             }
-        }.execute(args);
+        });
     }
 
     private void deliver(Bundle args, Result result) {
