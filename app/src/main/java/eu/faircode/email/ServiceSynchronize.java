@@ -318,6 +318,12 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void reportError(String account, String folder, Throwable ex) {
+        // FolderClosedException: can happen when no connectivity
+
+        // IllegalStateException:
+        // - "This operation is not allowed on a closed folder"
+        // - can happen when syncing message
+
         if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException)) {
             String action = account + "/" + folder;
             NotificationManager nm = getSystemService(NotificationManager.class);
@@ -397,7 +403,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 Thread t = new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        boolean connected = false;
                                         IMAPFolder ifolder = null;
                                         try {
                                             Log.i(Helper.TAG, folder.name + " start");
@@ -407,7 +412,6 @@ public class ServiceSynchronize extends LifecycleService {
                                             ifolder = (IMAPFolder) fstore.getFolder(folder.name);
                                             ifolder.open(Folder.READ_WRITE);
 
-                                            connected = true;
                                             db.folder().setFolderState(folder.id, "connected");
                                             db.folder().setFolderError(folder.id, null);
 
@@ -428,20 +432,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                            // FolderClosedException: can happen when no connectivity
-
-                                            // IllegalStateException:
-                                            // - "This operation is not allowed on a closed folder"
-                                            // - can happen when syncing message
-
-                                            // Cascade up
-                                            if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException))
-                                                if (connected)
-                                                    try {
-                                                        fstore.close();
-                                                    } catch (MessagingException e1) {
-                                                        Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
-                                                    }
+                                            // Check connection
+                                            synchronized (state) {
+                                                state.notifyAll();
+                                            }
                                         } finally {
                                             if (ifolder != null && ifolder.isOpen()) {
                                                 try {
@@ -481,11 +475,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                             db.account().setAccountError(account.id, Helper.formatThrowable(ex));
 
-                            // Cascade up
-                            try {
-                                fstore.close();
-                            } catch (MessagingException e1) {
-                                Log.w(Helper.TAG, account.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                            // Check connection
+                            synchronized (state) {
+                                state.notifyAll();
                             }
                         }
                     }
@@ -657,7 +649,10 @@ public class ServiceSynchronize extends LifecycleService {
     private void monitorFolder(
             final EntityAccount account, final EntityFolder folder,
             final IMAPStore istore, final IMAPFolder ifolder,
-            ServiceState state) throws MessagingException, JSONException, IOException {
+            final ServiceState state) throws MessagingException, JSONException, IOException {
+
+        final DB db = DB.getInstance(ServiceSynchronize.this);
+
         // Listen for new and deleted messages
         ifolder.addMessageCountListener(new MessageCountAdapter() {
             @Override
@@ -666,18 +661,21 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         Log.i(Helper.TAG, folder.name + " messages added");
                         for (Message imessage : e.getMessages())
-                            synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
-                    } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            try {
+                                synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
+                            } catch (MessageRemovedException ex) {
+                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+
+                            }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        // Cascade up
-                        try {
-                            istore.close();
-                        } catch (MessagingException e1) {
-                            Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
+                        // Check connection
+                        synchronized (state) {
+                            state.notifyAll();
                         }
                     }
                 }
@@ -703,11 +701,11 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        // Cascade up
-                        try {
-                            istore.close();
-                        } catch (MessagingException e1) {
-                            Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
+                        // Check connection
+                        synchronized (state) {
+                            state.notifyAll();
                         }
                     }
                 }
@@ -725,21 +723,21 @@ public class ServiceSynchronize extends LifecycleService {
             public void messageChanged(MessageChangedEvent e) {
                 synchronized (lock) {
                     try {
-                        Log.i(Helper.TAG, folder.name + " message changed");
-                        synchronizeMessage(folder, ifolder, (IMAPMessage) e.getMessage());
-                    } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        try {
+                            Log.i(Helper.TAG, folder.name + " message changed");
+                            synchronizeMessage(folder, ifolder, (IMAPMessage) e.getMessage());
+                        } catch (MessageRemovedException ex) {
+                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        DB.getInstance(ServiceSynchronize.this).folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                        // Cascade up
-                        try {
-                            istore.close();
-                        } catch (MessagingException e1) {
-                            Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                        // Check connection
+                        synchronized (state) {
+                            state.notifyAll();
                         }
                     }
                 }
@@ -768,13 +766,11 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         reportError(account.name, folder.name, ex);
 
-                        DB.getInstance(ServiceSynchronize.this).folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                        // Cascade up
-                        try {
-                            istore.close();
-                        } catch (MessagingException e1) {
-                            Log.w(Helper.TAG, folder.name + " " + e1 + "\n" + Log.getStackTraceString(e1));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                    } finally {
+                        // Check connection
+                        synchronized (state) {
+                            state.notifyAll();
                         }
                     }
                 }
