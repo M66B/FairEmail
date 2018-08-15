@@ -596,6 +596,8 @@ public class FragmentAccount extends FragmentEx {
 
         // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+            boolean once = false;
+
             @Override
             public void onChanged(@Nullable EntityAccount account) {
                 // Get providers
@@ -607,13 +609,17 @@ public class FragmentAccount extends FragmentEx {
                 spProvider.setAdapter(padapter);
 
                 if (savedInstanceState == null) {
-                    etName.setText(account == null ? null : account.name);
-                    etHost.setText(account == null ? null : account.host);
-                    etPort.setText(account == null ? null : Long.toString(account.port));
-                    etUser.setText(account == null ? null : account.user);
-                    tilPassword.getEditText().setText(account == null ? null : account.password);
-                    cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                    cbPrimary.setChecked(account == null ? true : account.primary);
+                    if (!once) {
+                        once = true;
+
+                        etName.setText(account == null ? null : account.name);
+                        etHost.setText(account == null ? null : account.host);
+                        etPort.setText(account == null ? null : Long.toString(account.port));
+                        etUser.setText(account == null ? null : account.user);
+                        tilPassword.getEditText().setText(account == null ? null : account.password);
+                        cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                        cbPrimary.setChecked(account == null ? true : account.primary);
+                    }
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);

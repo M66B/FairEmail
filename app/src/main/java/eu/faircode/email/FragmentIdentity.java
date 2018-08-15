@@ -393,21 +393,27 @@ public class FragmentIdentity extends FragmentEx {
 
         // Observe identity
         db.identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
+            boolean once = false;
+
             @Override
             public void onChanged(@Nullable final EntityIdentity identity) {
                 if (savedInstanceState == null) {
-                    etName.setText(identity == null ? null : identity.name);
-                    etEmail.setText(identity == null ? null : identity.email);
-                    etReplyTo.setText(identity == null ? null : identity.replyto);
-                    etHost.setText(identity == null ? null : identity.host);
-                    cbStartTls.setChecked(identity == null ? false : identity.starttls);
-                    etPort.setText(identity == null ? null : Long.toString(identity.port));
-                    etUser.setText(identity == null ? null : identity.user);
-                    tilPassword.getEditText().setText(identity == null ? null : identity.password);
-                    cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
-                    cbPrimary.setChecked(identity == null ? true : identity.primary);
+                    if (!once) {
+                        once = true;
 
-                    etName.requestFocus();
+                        etName.setText(identity == null ? null : identity.name);
+                        etEmail.setText(identity == null ? null : identity.email);
+                        etReplyTo.setText(identity == null ? null : identity.replyto);
+                        etHost.setText(identity == null ? null : identity.host);
+                        cbStartTls.setChecked(identity == null ? false : identity.starttls);
+                        etPort.setText(identity == null ? null : Long.toString(identity.port));
+                        etUser.setText(identity == null ? null : identity.user);
+                        tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                        cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
+                        cbPrimary.setChecked(identity == null ? true : identity.primary);
+
+                        etName.requestFocus();
+                    }
                 } else
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
 
