@@ -39,6 +39,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="user"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ivSync"
+        app:layout_constraintStart_toEndOf="@+id/ivPrimary"
+        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+
     <ImageView
         android:id="@+id/ivState"
         android:layout_width="24dp"
@@ -47,34 +59,21 @@
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_cloud_off_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivSync" />
+        app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
     <TextView
         android:id="@+id/tvHost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="host"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@id/ivState"
-        app:layout_constraintEnd_toStartOf="@+id/tvUser"
-        app:layout_constraintStart_toEndOf="@id/ivState"
-        app:layout_constraintTop_toTopOf="@id/ivState" />
-
-    <TextView
-        android:id="@+id/tvUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:text="user"
-        android:textAlignment="textEnd"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="@id/ivState"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvHost"
+        app:layout_constraintStart_toEndOf="@id/ivState"
         app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
@@ -88,7 +87,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivState" />
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
     <View
         android:id="@+id/vSeparator"

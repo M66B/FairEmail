@@ -52,8 +52,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         ImageView ivPrimary;
         TextView tvName;
         ImageView ivSync;
+        TextView tvUser;
+        TextView tvHost;
         TextView tvAccount;
-        TextView tvEmail;
+        TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -62,8 +64,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
+            tvUser = itemView.findViewById(R.id.tvUser);
+            tvHost = itemView.findViewById(R.id.tvHost);
             tvAccount = itemView.findViewById(R.id.tvAccount);
-            tvEmail = itemView.findViewById(R.id.tvEmail);
+            tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire() {
@@ -75,11 +79,13 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         }
 
         private void bindTo(TupleIdentityEx identity) {
-            ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
+            ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(identity.name);
             ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
+            tvUser.setText(identity.email);
+            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);
-            tvEmail.setText(String.format("%s/%s:%d", identity.email, identity.host, identity.port));
+            tvError.setVisibility(View.GONE);
         }
 
         @Override

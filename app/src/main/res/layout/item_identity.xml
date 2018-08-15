@@ -39,30 +39,55 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvAccount"
+        android:id="@+id/tvUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="user"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ivSync"
+        app:layout_constraintStart_toEndOf="@+id/ivPrimary"
+        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+
+    <TextView
+        android:id="@+id/tvHost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="account"
+        android:text="host"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/tvEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+        app:layout_constraintEnd_toStartOf="@+id/tvAccount"
+        app:layout_constraintStart_toEndOf="@+id/ivPrimary"
+        app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
     <TextView
-        android:id="@+id/tvEmail"
+        android:id="@+id/tvAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
-        android:text="user@host"
+        android:text="account"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvAccount"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+        app:layout_constraintStart_toEndOf="@id/tvHost"
+        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:text="error"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
     <View
         android:id="@+id/vSeparator"
@@ -72,5 +97,5 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,8 +52,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ImageView ivPrimary;
         TextView tvName;
         ImageView ivSync;
-        TextView tvHost;
         TextView tvUser;
+        TextView tvHost;
         ImageView ivState;
         TextView tvError;
 
@@ -64,8 +64,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
-            tvHost = itemView.findViewById(R.id.tvHost);
             tvUser = itemView.findViewById(R.id.tvUser);
+            tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
             tvError = itemView.findViewById(R.id.tvError);
         }
@@ -79,11 +79,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void bindTo(EntityAccount account) {
-            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
+            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);
             ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvUser.setText(account.user);
+            tvHost.setText(String.format("%s:%d", account.host, account.port));
+
             if ("connected".equals(account.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
             else if ("connecting".equals(account.state))
