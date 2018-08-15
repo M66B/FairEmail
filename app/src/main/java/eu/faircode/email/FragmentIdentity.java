@@ -276,6 +276,9 @@ public class FragmentIdentity extends FragmentEx {
                                 identity.synchronize = synchronize;
                                 identity.primary = (identity.synchronize && args.getBoolean("primary"));
 
+                                if (!identity.synchronize)
+                                    identity.error = null;
+
                                 if (identity.primary)
                                     db.identity().resetPrimary();
 

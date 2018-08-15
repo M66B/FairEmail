@@ -435,6 +435,9 @@ public class FragmentAccount extends FragmentEx {
                                 account.synchronize = synchronize;
                                 account.primary = (account.synchronize && args.getBoolean("primary"));
 
+                                if (!synchronize)
+                                    account.error = null;
+
                                 if (account.primary)
                                     db.account().resetPrimary();
 
@@ -442,9 +445,6 @@ public class FragmentAccount extends FragmentEx {
                                     db.account().updateAccount(account);
                                 else
                                     account.id = db.account().insertAccount(account);
-
-                                if (!synchronize)
-                                    db.account().setAccountError(account.id, null);
 
                                 List<EntityFolder> folders = new ArrayList<>();
 
@@ -479,7 +479,7 @@ public class FragmentAccount extends FragmentEx {
                                 }
 
                                 for (EntityFolder folder : folders) {
-                                    db.folder().setFolderUser(folder.account, folder.type);
+                                    db.folder().setFolderUser(account.id, folder.type);
                                     EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                     if (existing == null) {
                                         folder.account = account.id;

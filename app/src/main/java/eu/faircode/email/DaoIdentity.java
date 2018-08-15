@@ -51,6 +51,12 @@ public interface DaoIdentity {
     @Update
     void updateIdentity(EntityIdentity identity);
 
+    @Query("UPDATE identity SET state = :state WHERE id = :id")
+    int setIdentityState(long id, String state);
+
+    @Query("UPDATE identity SET error = :error WHERE id = :id")
+    int setIdentityError(long id, String error);
+
     @Query("UPDATE identity SET `primary` = 0")
     void resetPrimary();
 

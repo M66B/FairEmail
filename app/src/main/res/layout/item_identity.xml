@@ -50,6 +50,16 @@
         app:layout_constraintStart_toEndOf="@+id/ivPrimary"
         app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
+    <ImageView
+        android:id="@+id/ivState"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_cloud_off_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+
     <TextView
         android:id="@+id/tvHost"
         android:layout_width="0dp"
@@ -59,9 +69,10 @@
         android:maxLines="1"
         android:text="host"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@id/ivState"
         app:layout_constraintEnd_toStartOf="@+id/tvAccount"
         app:layout_constraintStart_toEndOf="@+id/ivPrimary"
-        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+        app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
         android:id="@+id/tvAccount"
@@ -72,9 +83,10 @@
         android:text="account"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@id/ivState"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvHost"
-        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+        app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
         android:id="@+id/tvError"

@@ -62,6 +62,8 @@ public class EntityIdentity {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
+    public String state;
+    public String error;
 
     @Override
     public boolean equals(Object obj) {
@@ -77,7 +79,9 @@ public class EntityIdentity {
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
-                    this.synchronize.equals(other.synchronize));
+                    this.synchronize.equals(other.synchronize) &&
+                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
     }

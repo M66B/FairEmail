@@ -61,6 +61,7 @@ public class EntityAccount {
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
                     this.synchronize.equals(other.synchronize) &&
+                    (this.seen_until == null ? other.seen_until == null : this.seen_until.equals(other.seen_until)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

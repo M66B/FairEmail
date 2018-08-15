@@ -54,6 +54,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         ImageView ivSync;
         TextView tvUser;
         TextView tvHost;
+        ImageView ivState;
         TextView tvAccount;
         TextView tvError;
 
@@ -66,6 +67,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivSync = itemView.findViewById(R.id.ivSync);
             tvUser = itemView.findViewById(R.id.tvUser);
             tvHost = itemView.findViewById(R.id.tvHost);
+            ivState = itemView.findViewById(R.id.ivState);
             tvAccount = itemView.findViewById(R.id.tvAccount);
             tvError = itemView.findViewById(R.id.tvError);
         }
@@ -85,7 +87,17 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvUser.setText(identity.email);
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);
-            tvError.setVisibility(View.GONE);
+
+            if ("connected".equals(identity.state))
+                ivState.setImageResource(R.drawable.baseline_cloud_24);
+            else if ("connecting".equals(identity.state))
+                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+            else
+                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+            ivState.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
+
+            tvError.setText(identity.error);
+            tvError.setVisibility(identity.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

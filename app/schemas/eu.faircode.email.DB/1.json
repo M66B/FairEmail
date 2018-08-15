@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6213f410bff60ef85d8608f09052327d",
+    "identityHash": "23016f9b3ae09175ada077c837687ab6",
     "entities": [
       {
         "tableName": "identity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `email` TEXT NOT NULL, `replyto` TEXT, `account` INTEGER NOT NULL, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `starttls` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `email` TEXT NOT NULL, `replyto` TEXT, `account` INTEGER NOT NULL, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `starttls` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `state` TEXT, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -79,6 +79,18 @@
             "columnName": "synchronize",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "error",
+            "columnName": "error",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -770,7 +782,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6213f410bff60ef85d8608f09052327d\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"23016f9b3ae09175ada077c837687ab6\")"
     ]
   }
 }

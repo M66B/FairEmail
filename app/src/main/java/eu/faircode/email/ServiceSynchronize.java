@@ -978,7 +978,10 @@ public class ServiceSynchronize extends LifecycleService {
         Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
         try {
             // Connect transport
+            db.identity().setIdentityState(ident.id, "connecting");
             itransport.connect(ident.host, ident.port, ident.user, ident.password);
+            db.identity().setIdentityState(ident.id, "connected");
+            db.identity().setIdentityError(ident.id, null);
 
             // Send message
             Address[] to = imessage.getAllRecipients();
@@ -1013,8 +1016,15 @@ public class ServiceSynchronize extends LifecycleService {
             } finally {
                 db.endTransaction();
             }
+        } catch (MessagingException ex) {
+            db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
+            throw ex;
         } finally {
-            itransport.close();
+            try {
+                itransport.close();
+            } finally {
+                db.identity().setIdentityState(ident.id, null);
+            }
         }
     }
 
