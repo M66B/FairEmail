@@ -411,10 +411,11 @@ public class FragmentIdentity extends FragmentEx {
                 } else
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
 
+                Helper.setViewsEnabled(view, true);
+
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
                 ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
 
-                Helper.setViewsEnabled(view, true);
                 btnSave.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
 

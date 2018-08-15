@@ -583,23 +583,6 @@ public class FragmentAccount extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
-
-        boolean checked = (btnSave.getVisibility() == View.VISIBLE);
-        outState.putBoolean("checked", checked);
-
-        if (checked) {
-            ArrayList<EntityFolder> folders = new ArrayList<>();
-            for (int i = 0; i < spDrafts.getAdapter().getCount(); i++)
-                folders.add((EntityFolder) spDrafts.getAdapter().getItem(i));
-
-            outState.putParcelableArrayList("folders", folders);
-            outState.putInt("drafts", spDrafts.getSelectedItemPosition());
-            outState.putInt("sent", spSent.getSelectedItemPosition());
-            outState.putInt("all", spAll.getSelectedItemPosition());
-            outState.putInt("trash", spTrash.getSelectedItemPosition());
-            outState.putInt("junk", spJunk.getSelectedItemPosition());
-        }
-
         super.onSaveInstanceState(outState);
     }
 
@@ -631,7 +614,6 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
-                    cbPrimary.setEnabled(account == null ? true : account.synchronize);
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
@@ -642,6 +624,7 @@ public class FragmentAccount extends FragmentEx {
 
                 Helper.setViewsEnabled(view, true);
 
+                cbPrimary.setEnabled(cbSynchronize.isChecked());
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
 
                 btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
@@ -649,30 +632,6 @@ public class FragmentAccount extends FragmentEx {
 
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
-
-                if (savedInstanceState != null) {
-                    boolean checked = savedInstanceState.getBoolean("checked");
-                    if (checked) {
-                        List<EntityFolder> folders = savedInstanceState.getParcelableArrayList("folders");
-
-                        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
-                        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-                        spDrafts.setAdapter(adapter);
-                        spSent.setAdapter(adapter);
-                        spAll.setAdapter(adapter);
-                        spTrash.setAdapter(adapter);
-                        spJunk.setAdapter(adapter);
-
-                        spDrafts.setSelection(savedInstanceState.getInt("drafts"));
-                        spSent.setSelection(savedInstanceState.getInt("sent"));
-                        spAll.setSelection(savedInstanceState.getInt("all"));
-                        spTrash.setSelection(savedInstanceState.getInt("trash"));
-                        spJunk.setSelection(savedInstanceState.getInt("junk"));
-                        grpFolders.setVisibility(View.VISIBLE);
-                        btnSave.setVisibility(View.VISIBLE);
-                    }
-                }
             }
         });
     }
