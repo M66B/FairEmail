@@ -954,10 +954,8 @@ public class ServiceSynchronize extends LifecycleService {
                 EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                 if (sent == null)
                     ; // Leave message in outbox
-                else {
+                else
                     message.folder = sent.id;
-                    message.uid = null;
-                }
 
                 // Update state
                 if (message.thread == null)
@@ -1223,7 +1221,7 @@ public class ServiceSynchronize extends LifecycleService {
                 // - messages in archive have same id as original
                 if (message == null) {
                     // Will fetch headers within database transaction
-                    String msgid = imessage.getMessageID();
+                    String msgid = helper.getMessageID();
                     message = db.message().getMessageByMsgId(msgid);
                     if (message != null) {
                         EntityFolder mfolder = db.folder().getFolder(message.folder);
