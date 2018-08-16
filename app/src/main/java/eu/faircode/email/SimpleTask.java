@@ -36,15 +36,17 @@ import androidx.lifecycle.OnLifecycleEvent;
 //
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
 // Make sure to not access any member in any outer scope from onLoad
+// Results will not be delivered to destroyed fragments
 //
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
+    private LifecycleOwner owner;
     private boolean paused = false;
     private Bundle args = null;
     private Result stored = null;
 
-    static HandlerThread handlerThread;
-    static Handler handler;
+    private static HandlerThread handlerThread;
+    private static Handler handler;
 
     static {
         handlerThread = new HandlerThread("SimpleTask");
@@ -64,14 +66,26 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         run(activity, activity, args);
     }
 
-    public void load(Fragment fragment, Bundle args) {
+    public void load(final Fragment fragment, Bundle args) {
         run(fragment.getContext(), fragment.getViewLifecycleOwner(), args);
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public void onStart() {
+        Log.i(Helper.TAG, "Start task " + this);
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onStop() {
+        Log.i(Helper.TAG, "Resume tak " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
+        Log.i(Helper.TAG, "Resume task " + this);
         paused = false;
         if (stored != null) {
+            Log.i(Helper.TAG, "Deferred delivery task " + this);
             deliver(args, stored);
             stored = null;
         }
@@ -79,17 +93,27 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
+        Log.i(Helper.TAG, "Pause task " + this);
         paused = true;
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public void onCreated() {
+        Log.i(Helper.TAG, "Created task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroyed() {
+        Log.i(Helper.TAG, "Destroy task " + this);
+        owner.getLifecycle().removeObserver(this);
+        owner = null;
         paused = true;
         args = null;
         stored = null;
     }
 
     private void run(final Context context, LifecycleOwner owner, final Bundle args) {
+        this.owner = owner;
         owner.getLifecycle().addObserver(this);
 
         // Run in background thread
@@ -118,13 +142,21 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private void deliver(Bundle args, Result result) {
         if (paused) {
+            Log.i(Helper.TAG, "Deferring delivery task " + this);
             this.args = args;
             this.stored = result;
         } else {
-            if (result.ex == null)
-                onLoaded(args, (T) result.data);
-            else
-                onException(args, result.ex);
+            Log.i(Helper.TAG, "Delivery task " + this);
+            try {
+                if (result.ex == null)
+                    onLoaded(args, (T) result.data);
+                else
+                    onException(args, result.ex);
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            } finally {
+                onDestroyed();
+            }
         }
     }
 
