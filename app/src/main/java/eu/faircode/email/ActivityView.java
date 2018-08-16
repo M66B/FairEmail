@@ -133,7 +133,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+        DB.getInstance(this).account().liveAccounts().observe(this, new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 if (accounts == null)
