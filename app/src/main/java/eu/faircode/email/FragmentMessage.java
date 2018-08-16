@@ -43,6 +43,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.Collator;
 import java.text.DateFormat;
@@ -80,12 +81,15 @@ public class FragmentMessage extends FragmentEx {
     private TextView tvError;
     private BottomNavigationView top_navigation;
     private TextView tvBody;
+    private FloatingActionButton fab;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
+    private Group grpReady;
+    private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
-    private Group grpReady;
 
+    private boolean free = false;
     private AdapterAttachment adapter;
 
     private boolean debug;
@@ -114,11 +118,13 @@ public class FragmentMessage extends FragmentEx {
         tvError = view.findViewById(R.id.tvError);
         top_navigation = view.findViewById(R.id.top_navigation);
         tvBody = view.findViewById(R.id.tvBody);
+        fab = view.findViewById(R.id.fab);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
+        grpReady = view.findViewById(R.id.grpReady);
+        grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
-        grpReady = view.findViewById(R.id.grpReady);
 
         setHasOptionsMenu(true);
 
@@ -190,6 +196,24 @@ public class FragmentMessage extends FragmentEx {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                free = (top_navigation.getVisibility() != View.GONE);
+                getActivity().invalidateOptionsMenu();
+                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                if (free) {
+                    fab.setImageResource(R.drawable.baseline_fullscreen_exit_24);
+                    grpAddresses.setVisibility(View.GONE);
+                    grpAttachments.setVisibility(View.GONE);
+                } else {
+                    fab.setImageResource(R.drawable.baseline_fullscreen_24);
+                    if (rvAttachment.getAdapter().getItemCount() > 0)
+                        grpAttachments.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -357,7 +381,8 @@ public class FragmentMessage extends FragmentEx {
                             attachments = new ArrayList<>();
 
                         adapter.set(attachments);
-                        grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        if (!free)
+                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                     }
                 });
 
@@ -367,6 +392,12 @@ public class FragmentMessage extends FragmentEx {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_view, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.menu_addresses).setVisible(!free);
     }
 
     @Override

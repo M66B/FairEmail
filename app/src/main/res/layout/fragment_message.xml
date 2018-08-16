@@ -233,6 +233,18 @@
             android:textIsSelectable="true" />
     </ScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_fullscreen_24"
+        android:tint="@color/colorActionForeground"
+        app:backgroundTint="?attr/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/scroll"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -259,6 +271,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpReady"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject,tvCount,scroll,fab" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject,tvCount,top_navigation" />
+
+    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAddresses"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -269,10 +293,4 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpReady"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject,tvCount,scroll" />
 </androidx.constraintlayout.widget.ConstraintLayout>
