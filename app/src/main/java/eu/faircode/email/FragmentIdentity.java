@@ -398,30 +398,31 @@ public class FragmentIdentity extends FragmentEx {
             @Override
             public void onChanged(@Nullable final EntityIdentity identity) {
                 if (savedInstanceState == null) {
-                    if (!once) {
-                        once = true;
+                    if (once)
+                        return;
+                    once = true;
 
-                        etName.setText(identity == null ? null : identity.name);
-                        etEmail.setText(identity == null ? null : identity.email);
-                        etReplyTo.setText(identity == null ? null : identity.replyto);
-                        etHost.setText(identity == null ? null : identity.host);
-                        cbStartTls.setChecked(identity == null ? false : identity.starttls);
-                        etPort.setText(identity == null ? null : Long.toString(identity.port));
-                        etUser.setText(identity == null ? null : identity.user);
-                        tilPassword.getEditText().setText(identity == null ? null : identity.password);
-                        cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
-                        cbPrimary.setChecked(identity == null ? true : identity.primary);
+                    etName.setText(identity == null ? null : identity.name);
+                    etEmail.setText(identity == null ? null : identity.email);
+                    etReplyTo.setText(identity == null ? null : identity.replyto);
+                    etHost.setText(identity == null ? null : identity.host);
+                    cbStartTls.setChecked(identity == null ? false : identity.starttls);
+                    etPort.setText(identity == null ? null : Long.toString(identity.port));
+                    etUser.setText(identity == null ? null : identity.user);
+                    tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                    cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
+                    cbPrimary.setChecked(identity == null ? true : identity.primary);
 
-                        etName.requestFocus();
-                    }
+                    etName.requestFocus();
                 } else
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
 
                 Helper.setViewsEnabled(view, true);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-                ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
 
+                // Consider previous save/delete as cancelled
+                ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
                 btnSave.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
 

@@ -609,33 +609,33 @@ public class FragmentAccount extends FragmentEx {
                 spProvider.setAdapter(padapter);
 
                 if (savedInstanceState == null) {
-                    if (!once) {
-                        once = true;
+                    if (once)
+                        return;
+                    once = true;
 
-                        etName.setText(account == null ? null : account.name);
-                        etHost.setText(account == null ? null : account.host);
-                        etPort.setText(account == null ? null : Long.toString(account.port));
-                        etUser.setText(account == null ? null : account.user);
-                        tilPassword.getEditText().setText(account == null ? null : account.password);
-                        cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                        cbPrimary.setChecked(account == null ? true : account.primary);
-                    }
+                    etName.setText(account == null ? null : account.name);
+                    etHost.setText(account == null ? null : account.host);
+                    etPort.setText(account == null ? null : Long.toString(account.port));
+                    etUser.setText(account == null ? null : account.user);
+                    tilPassword.getEditText().setText(account == null ? null : account.password);
+                    cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                    cbPrimary.setChecked(account == null ? true : account.primary);
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
-
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                 }
 
                 Helper.setViewsEnabled(view, true);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-                ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
 
                 btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
                 btnSave.setVisibility(cbSynchronize.isChecked() ? View.GONE : View.VISIBLE);
 
+                // Consider previous check/save/delete as cancelled
+                ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
             }

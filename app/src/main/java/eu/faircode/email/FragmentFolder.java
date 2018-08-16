@@ -134,11 +134,6 @@ public class FragmentFolder extends FragmentEx {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -158,14 +153,15 @@ public class FragmentFolder extends FragmentEx {
                 }
 
                 if (savedInstanceState == null) {
-                    if (!once) {
-                        once = true;
+                    if (once)
+                        return;
+                    once = true;
 
-                        cbSynchronize.setChecked(folder.synchronize);
-                        etAfter.setText(Integer.toString(folder.after));
-                    }
+                    cbSynchronize.setChecked(folder.synchronize);
+                    etAfter.setText(Integer.toString(folder.after));
                 }
 
+                // Consider previous save as cancelled
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 btnSave.setEnabled(true);
