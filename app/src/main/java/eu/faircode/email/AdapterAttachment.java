@@ -185,19 +185,24 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     File file = new File(dir, attachment.filename);
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, "eu.faircode.email", file);
+                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    Log.i(Helper.TAG, "uri=" + uri);
 
                     // Build intent
                     final Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(uri);
-                    intent.setType(attachment.type);
+                    intent.setDataAndType(uri, attachment.type);
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+                    Log.i(Helper.TAG, "Intent=" + intent);
+
+                    //context.startActivity(Intent.createChooser(intent, attachment.name));
 
                     // Set permissions
                     List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : targets)
+                    for (ResolveInfo resolveInfo : targets) {
+                        Log.i(Helper.TAG, "Target=" + resolveInfo);
                         context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    }
 
                     // Check if viewer available
                     if (targets.size() == 0) {
