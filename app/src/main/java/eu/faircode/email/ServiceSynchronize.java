@@ -429,6 +429,8 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 // Synchronize folders
+                for (EntityFolder folder : db.folder().getFolders(account.id))
+                    db.folder().setFolderState(folder.id, null);
                 for (final EntityFolder folder : db.folder().getFolders(account.id, true))
                     try {
                         Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
