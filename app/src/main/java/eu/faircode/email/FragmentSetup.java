@@ -56,7 +56,8 @@ public class FragmentSetup extends FragmentEx {
     private TextView tvPermissionsDone;
 
     private CheckBox cbDarkTheme;
-    private CheckBox cbDebug;
+
+    private Button btnOptions;
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -82,7 +83,7 @@ public class FragmentSetup extends FragmentEx {
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
 
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
-        cbDebug = view.findViewById(R.id.cbDebug);
+        btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
 
@@ -129,11 +130,12 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
-        cbDebug.setChecked(prefs.getBoolean("debug", false));
-        cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        btnOptions.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("debug", checked).apply();
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentOptions()).addToBackStack("options");
+                fragmentTransaction.commit();
             }
         });
 

@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -965,10 +966,12 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                if (sent != null) {
-                    Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
-                    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
-                }
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                if (prefs.getBoolean("store_sent", false))
+                    if (sent != null) {
+                        Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
+                        EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                    }
 
                 db.setTransactionSuccessful();
             } finally {
