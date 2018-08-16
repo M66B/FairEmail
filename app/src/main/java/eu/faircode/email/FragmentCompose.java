@@ -645,9 +645,10 @@ public class FragmentCompose extends FragmentEx {
 
             etBody.setText(TextUtils.isEmpty(draft.body) ? null : Html.fromHtml(draft.body));
 
-            if ("reply".equals(action) || "reply_all".equals(action))
+            if ("reply".equals(action) || "reply_all".equals(action)) {
                 etBody.requestFocus();
-            else if ("forward".equals(action))
+                etBody.setSelection(0);
+            } else if ("forward".equals(action))
                 etTo.requestFocus();
 
             Helper.setViewsEnabled(view, true);
