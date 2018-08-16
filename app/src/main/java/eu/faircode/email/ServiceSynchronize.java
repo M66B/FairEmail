@@ -967,13 +967,17 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                //if (sent != null)
-                //    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                if (sent != null) {
+                    Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
+                    EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                }
 
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
             }
+
+            EntityOperation.process(this);
         } catch (MessagingException ex) {
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
             throw ex;
