@@ -33,7 +33,10 @@ public interface DaoIdentity {
             " JOIN account ON account.id = identity.account")
     LiveData<List<TupleIdentityEx>> liveIdentities();
 
-    @Query("SELECT * FROM identity WHERE synchronize = :synchronize")
+    @Query("SELECT identity.* FROM identity" +
+            " JOIN account ON account.id = identity.account" +
+            " WHERE account.synchronize = :synchronize" +
+            " AND identity.synchronize = :synchronize")
     LiveData<List<EntityIdentity>> liveIdentities(boolean synchronize);
 
     @Query("SELECT * FROM identity")
