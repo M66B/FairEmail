@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,9 +68,15 @@ public class FragmentFolders extends FragmentEx {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = getArguments();
+                long account = (args == null ? -1 : args.getLong("account"));
+
+                startActivity(new Intent(getContext(), ActivityCompose.class)
+                        .putExtra("action", "new")
+                        .putExtra("account", account)
+                );
             }
         });
-        fab.setVisibility(View.GONE);
 
         // Initialize
         grpReady.setVisibility(View.GONE);
