@@ -21,14 +21,12 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -59,8 +57,7 @@ public class Helper {
             if (child instanceof Spinner ||
                     child instanceof EditText ||
                     child instanceof CheckBox ||
-                    child instanceof ImageView ||
-                    child instanceof ImageButton)
+                    child instanceof ImageView /* =ImageButton */)
                 child.setEnabled(enabled);
             if (child instanceof BottomNavigationView) {
                 Menu menu = ((BottomNavigationView) child).getMenu();
@@ -77,13 +74,6 @@ public class Helper {
             return context.getString(R.string.title_folder_outbox);
         else
             return name;
-    }
-
-    static String localizeFolderName(Context context, TupleFolderEx folder) {
-        if (TextUtils.isEmpty(folder.accountName))
-            return localizeFolderName(context, folder.name);
-        else
-            return localizeFolderName(context, folder.name) + "/" + folder.accountName;
     }
 
     static String formatThrowable(Throwable ex) {
