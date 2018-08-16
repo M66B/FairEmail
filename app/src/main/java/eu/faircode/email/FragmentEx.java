@@ -45,32 +45,32 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create " + this.getClass().getName());
+        Log.i(Helper.TAG, "Create " + this);
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create view " + this.getClass().getName());
+        Log.i(Helper.TAG, "Create view " + this);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Activity " + this.getClass().getName());
+        Log.i(Helper.TAG, "Activity " + this);
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onResume() {
-        Log.i(Helper.TAG, "Resume " + this.getClass().getName());
+        Log.i(Helper.TAG, "Resume " + this);
         super.onResume();
         updateSubtitle();
     }
 
     @Override
     public void onPause() {
-        Log.i(Helper.TAG, "Pause " + this.getClass().getName());
+        Log.i(Helper.TAG, "Pause " + this);
         super.onPause();
     }
 
@@ -86,13 +86,13 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i(Helper.TAG, "Config " + this.getClass().getName());
+        Log.i(Helper.TAG, "Config " + this);
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onDestroy() {
-        Log.i(Helper.TAG, "Destroy " + this.getClass().getName());
+        Log.i(Helper.TAG, "Destroy " + this);
         super.onDestroy();
     }
 
