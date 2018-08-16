@@ -62,7 +62,7 @@
     <string name="title_setup_dark_theme">Dark theme</string>
 
     <string name="title_advanced">Advanced options</string>
-    <string name="title_advanced_store_sent">Store sent message</string>
+    <string name="title_advanced_store_sent">Store sent messages</string>
     <string name="title_advanced_debug">Debug</string>
 
     <string name="title_identity_name">Your name</string>
