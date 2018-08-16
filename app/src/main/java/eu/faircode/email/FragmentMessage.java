@@ -495,6 +495,7 @@ public class FragmentMessage extends FragmentEx {
                     draft.id = null;
                     draft.folder = drafts.id;
                     draft.uid = null;
+                    draft.msgid = EntityMessage.generateMessageId();
                     draft.id = db.message().insertMessage(draft);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
