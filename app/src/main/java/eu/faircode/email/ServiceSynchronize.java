@@ -1222,19 +1222,18 @@ public class ServiceSynchronize extends LifecycleService {
                 if (message == null) {
                     // Will fetch headers within database transaction
                     String msgid = helper.getMessageID();
-                    message = db.message().getMessageByMsgId(msgid);
-                    if (message != null) {
-                        EntityFolder mfolder = db.folder().getFolder(message.folder);
-                        Log.i(Helper.TAG, folder.name + " found as id=" + message.id +
-                                " folder=" + mfolder.type + ":" + message.folder + "/" + folder.type + ":" + folder.id);
-                        if (message.folder.equals(folder.id) || EntityFolder.OUTBOX.equals(mfolder.type)) {
-                            Log.i(Helper.TAG, folder.name + " found as id=" + message.id + " uid=" + message.uid + " msgid=" + msgid);
-                            message.folder = folder.id;
-                            message.uid = uid;
-                            db.message().updateMessage(message);
+                    for (EntityMessage dup : db.message().getMessageByMsgId(msgid)) {
+                        EntityFolder dfolder = db.folder().getFolder(dup.folder);
+                        Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
+                                " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
+                        if (dup.folder.equals(folder.id) || EntityFolder.OUTBOX.equals(dfolder.type)) {
+                            Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
+                            dup.folder = folder.id;
+                            dup.uid = uid;
+                            db.message().updateMessage(dup);
+                            message = dup;
                             result = -1;
-                        } else
-                            message = null;
+                        }
                     }
                 }
 

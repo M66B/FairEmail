@@ -85,7 +85,7 @@ public interface DaoMessage {
             " WHERE msgid = :msgid" +
             " AND folder.type <> '" + EntityFolder.INBOX + "'" +
             " AND folder.type <> '" + EntityFolder.ARCHIVE + "'")
-    EntityMessage getMessageByMsgId(String msgid);
+    List<EntityMessage> getMessageByMsgId(String msgid);
 
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
