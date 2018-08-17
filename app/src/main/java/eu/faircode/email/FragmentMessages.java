@@ -57,7 +57,7 @@ public class FragmentMessages extends FragmentEx {
     private long primary = -1;
     private AdapterMessage adapter;
 
-    private static final int PAGE_SIZE = 100;
+    private static final int PAGE_SIZE = 50;
 
     @Override
     @Nullable
