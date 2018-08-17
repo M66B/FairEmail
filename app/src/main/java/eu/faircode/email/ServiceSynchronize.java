@@ -1225,7 +1225,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (message == null) {
                     // Will fetch headers within database transaction
                     String msgid = helper.getMessageID();
-                    for (EntityMessage dup : db.message().getMessageByMsgId(msgid)) {
+                    for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                         EntityFolder dfolder = db.folder().getFolder(dup.folder);
                         Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
                                 " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
