@@ -955,27 +955,23 @@ public class ServiceSynchronize extends LifecycleService {
             try {
                 db.beginTransaction();
 
-                // Move message to sent
-                EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
-                if (sent == null)
-                    ; // Leave message in outbox
-                else
-                    message.folder = sent.id;
-
-                // Update state
-                if (message.thread == null)
-                    message.thread = imessage.getMessageID();
+                // Mark message as sent
+                // - will be moved to sent folder by synchronize message later
                 message.sent = imessage.getSentDate().getTime();
                 message.seen = true;
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
+                // TODO: store sent setting per account
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                if (prefs.getBoolean("store_sent", false))
+                if (prefs.getBoolean("store_sent", false)) {
+                    EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                     if (sent != null) {
+                        // TODO: how to handle thread?
                         Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
                         EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
                     }
+                }
 
                 db.setTransactionSuccessful();
             } finally {
@@ -1231,12 +1227,15 @@ public class ServiceSynchronize extends LifecycleService {
                     String msgid = helper.getMessageID();
                     for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                         EntityFolder dfolder = db.folder().getFolder(dup.folder);
+                        boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
                         Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
                                 " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
-                        if (dup.folder.equals(folder.id) || EntityFolder.OUTBOX.equals(dfolder.type)) {
+                        if (dup.folder.equals(folder.id) || outbox) {
                             Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
                             dup.folder = folder.id;
                             dup.uid = uid;
+                            if (outbox) // only now the uid is known
+                                dup.thread = helper.getThreadId(uid);
                             db.message().updateMessage(dup);
                             message = dup;
                             result = -1;
