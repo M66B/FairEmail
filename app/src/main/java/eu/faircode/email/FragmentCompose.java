@@ -838,8 +838,11 @@ public class FragmentCompose extends FragmentEx {
 
                 // Execute action
                 if (action == R.id.action_trash) {
+                    draft.ui_seen = true;
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);
+
+                    EntityOperation.queue(db, draft, EntityOperation.SEEN, true);
 
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
