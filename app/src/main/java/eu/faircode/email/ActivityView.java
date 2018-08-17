@@ -126,6 +126,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_about:
                         onMenuAbout();
                         break;
+                    case R.string.menu_other:
+                        onMenuOtherApps();
+                        break;
                 }
 
                 drawerLayout.closeDrawer(drawerList);
@@ -167,6 +170,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_help_24, R.string.menu_about));
+
+                if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_get_app_24, R.string.menu_other));
 
                 drawerList.setAdapter(drawerArray);
             }
@@ -406,6 +412,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         return intent;
     }
 
+    private Intent getIntentOtherApps() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
+        return intent;
+    }
+
     private void onMenuFolders(long account) {
         getSupportFragmentManager().popBackStack("unified", 0);
 
@@ -442,6 +454,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuOtherApps() {
+        startActivity(getIntentOtherApps());
     }
 
     private class DrawerItem {
