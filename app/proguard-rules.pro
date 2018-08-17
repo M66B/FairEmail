@@ -24,8 +24,8 @@
 -keep class eu.faircode.email.**
 -keepnames class eu.faircode.email.** { *; }
 
-#Support library
--keep class android.support.v7.app.AppCompatViewInflater{ <init>(...); }
+#AndroidX
+-keep class androidx.appcompat.app.AppCompatViewInflater { <init>(...); }
 
 #JavaMail
 -dontshrink
