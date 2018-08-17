@@ -779,6 +779,8 @@ public class ServiceSynchronize extends LifecycleService {
                             throw new IllegalArgumentException(op.name + " without uid");
 
                         try {
+                            db.message().setMessageError(message.id, null);
+
                             JSONArray jargs = new JSONArray(op.args);
 
                             if (EntityOperation.SEEN.equals(op.name))
