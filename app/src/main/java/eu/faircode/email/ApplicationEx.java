@@ -51,13 +51,13 @@ public class ApplicationEx extends Application {
                     out = new FileWriter(file);
                     out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
                 } catch (IOException e) {
-                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(ex));
+                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
                 } finally {
                     if (out != null) {
                         try {
                             out.close();
                         } catch (IOException e) {
-                            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(ex));
+                            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
                         }
                     }
                 }
