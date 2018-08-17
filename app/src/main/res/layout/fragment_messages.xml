@@ -54,12 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpReady"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="rvFolder" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -69,6 +63,12 @@
         android:src="@drawable/baseline_edit_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@+id/rvFolder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpReady"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="rvFolder" />
 </androidx.constraintlayout.widget.ConstraintLayout>
