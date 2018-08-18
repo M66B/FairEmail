@@ -133,7 +133,7 @@
         android:scrollbars="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_max="150dp"
+        app:layout_constraintHeight_max="90dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
@@ -195,12 +195,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpReady"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="etTo,ivToAdd,etSubject,vSeparator,scroll,bottom_navigation" />
-
-    <androidx.constraintlayout.widget.Group
         android:id="@+id/grpHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -217,4 +211,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpMessage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="scroll,bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

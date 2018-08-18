@@ -96,15 +96,16 @@ public class FragmentCompose extends FragmentEx {
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpReady;
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpMessage;
 
     private AdapterAttachment adapter;
 
     private long working = -1;
     private boolean free = false;
+    private boolean addresses;
     private boolean autosave = true;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
@@ -130,10 +131,10 @@ public class FragmentCompose extends FragmentEx {
         etBody = view.findViewById(R.id.etBody);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpReady = view.findViewById(R.id.grpReady);
         grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
+        grpMessage = view.findViewById(R.id.grpMessage);
 
         // Wire controls
 
@@ -183,6 +184,7 @@ public class FragmentCompose extends FragmentEx {
                 getActivity().invalidateOptionsMenu();
                 grpHeader.setVisibility(hasFocus ? View.GONE : View.VISIBLE);
                 if (hasFocus) {
+                    addresses = (grpAddresses.getVisibility() != View.GONE);
                     grpAddresses.setVisibility(View.GONE);
                     grpAttachments.setVisibility(View.GONE);
                 }
@@ -199,7 +201,8 @@ public class FragmentCompose extends FragmentEx {
                                 free = false;
                                 getActivity().invalidateOptionsMenu();
                                 grpHeader.setVisibility(View.VISIBLE);
-
+                                if (addresses)
+                                    grpAddresses.setVisibility(View.VISIBLE);
                                 if (rvAttachment.getAdapter().getItemCount() > 0)
                                     grpAttachments.setVisibility(View.VISIBLE);
 
@@ -230,14 +233,15 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
-        spFrom.setEnabled(false);
-        //grpFrom.setVisibility(View.GONE);
+        grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
-        grpReady.setVisibility(View.GONE);
+        grpMessage.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        Helper.setViewsEnabled(view, false);
+
         getActivity().invalidateOptionsMenu();
+        spFrom.setEnabled(false);
+        Helper.setViewsEnabled(view, false);
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -347,7 +351,7 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
+        menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
     }
@@ -678,11 +682,6 @@ public class FragmentCompose extends FragmentEx {
             String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
 
-            getActivity().invalidateOptionsMenu();
-            pbWait.setVisibility(View.GONE);
-            grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-            grpReady.setVisibility(View.VISIBLE);
-
             etTo.setText(draft.to == null ? null : TextUtils.join(", ", draft.to));
             etCc.setText(draft.cc == null ? null : TextUtils.join(", ", draft.cc));
             etBcc.setText(draft.bcc == null ? null : TextUtils.join(", ", draft.bcc));
@@ -690,14 +689,19 @@ public class FragmentCompose extends FragmentEx {
 
             etBody.setText(TextUtils.isEmpty(draft.body) ? null : Html.fromHtml(draft.body));
 
+            getActivity().invalidateOptionsMenu();
+            Helper.setViewsEnabled(view, true);
+
+            pbWait.setVisibility(View.GONE);
+            grpHeader.setVisibility(View.VISIBLE);
+            grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
+            grpMessage.setVisibility(View.VISIBLE);
+
             if ("reply".equals(action) || "reply_all".equals(action)) {
                 etBody.requestFocus();
                 etBody.setSelection(0);
             } else if ("forward".equals(action))
                 etTo.requestFocus();
-
-            Helper.setViewsEnabled(view, true);
-            getActivity().invalidateOptionsMenu();
 
             DB db = DB.getInstance(getContext());
 
@@ -756,7 +760,6 @@ public class FragmentCompose extends FragmentEx {
                             }
 
                     spFrom.setEnabled(true);
-                    //grpFrom.setVisibility(View.VISIBLE);
                 }
             });
 

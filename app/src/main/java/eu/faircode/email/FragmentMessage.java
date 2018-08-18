@@ -84,10 +84,10 @@ public class FragmentMessage extends FragmentEx {
     private FloatingActionButton fab;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
-    private Group grpReady;
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpMessage;
 
     private boolean free = false;
     private AdapterAttachment adapter;
@@ -121,10 +121,10 @@ public class FragmentMessage extends FragmentEx {
         fab = view.findViewById(R.id.fab);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
-        grpReady = view.findViewById(R.id.grpReady);
         grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
+        grpMessage = view.findViewById(R.id.grpMessage);
 
         setHasOptionsMenu(true);
 
@@ -200,6 +200,8 @@ public class FragmentMessage extends FragmentEx {
         });
 
         fab.setOnClickListener(new View.OnClickListener() {
+            private boolean addresses;
+
             @Override
             public void onClick(View view) {
                 free = (top_navigation.getVisibility() != View.GONE);
@@ -207,10 +209,13 @@ public class FragmentMessage extends FragmentEx {
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                 if (free) {
                     fab.setImageResource(R.drawable.baseline_fullscreen_exit_24);
+                    addresses = (grpAddresses.getVisibility() != View.GONE);
                     grpAddresses.setVisibility(View.GONE);
                     grpAttachments.setVisibility(View.GONE);
                 } else {
                     fab.setImageResource(R.drawable.baseline_fullscreen_24);
+                    if (addresses)
+                        grpAddresses.setVisibility(View.VISIBLE);
                     if (rvAttachment.getAdapter().getItemCount() > 0)
                         grpAttachments.setVisibility(View.VISIBLE);
                 }
@@ -242,12 +247,12 @@ public class FragmentMessage extends FragmentEx {
         });
 
         // Initialize
+        grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        grpMessage.setVisibility(View.GONE);
+        tvCount.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
-        top_navigation.setVisibility(View.GONE);
-        bottom_navigation.setVisibility(View.GONE);
-        grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         rvAttachment.setHasFixedSize(false);
@@ -287,7 +292,6 @@ public class FragmentMessage extends FragmentEx {
                     tvSubject.setText(message.subject);
 
                     tvCount.setText(Integer.toString(message.count));
-                    tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
 
                     tvReplyTo.setText(message.reply == null ? null : MessageHelper.getFormattedAddresses(message.reply, true));
                     tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
@@ -305,7 +309,6 @@ public class FragmentMessage extends FragmentEx {
                     tvTime.setTextColor(colorUnseen);
 
                     tvError.setText(message.error);
-                    tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
 
                     MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
                     actionSeen.setIcon(message.ui_seen
@@ -368,7 +371,10 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
+                grpHeader.setVisibility(View.VISIBLE);
+                grpMessage.setVisibility(View.VISIBLE);
+                tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
+                tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
             }
         });
 
@@ -412,8 +418,7 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onMenuAddresses() {
-        if (grpReady.getVisibility() == View.VISIBLE)
-            grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
     private void onActionThread(long id) {

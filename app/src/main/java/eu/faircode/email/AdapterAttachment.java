@@ -108,7 +108,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 ivStatus.setVisibility(View.VISIBLE);
             }
 
-            ivDelete.setVisibility(readonly ? View.INVISIBLE : View.VISIBLE);
+            ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
