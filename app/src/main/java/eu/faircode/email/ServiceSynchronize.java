@@ -58,7 +58,6 @@ import org.json.JSONException;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -121,7 +120,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_MAX = 128; // seconds
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final long FOLDER_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
-    private static final int MAX_MESSAGE_BODY_SIZE = 4096;
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -1300,12 +1298,6 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = seen;
                 message.ui_hide = false;
 
-                String large = null;
-                if (message.body != null && message.body.length() > MAX_MESSAGE_BODY_SIZE) {
-                    large = message.body;
-                    message.body = null;
-                }
-
                 message.id = db.message().insertMessage(message);
                 Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
@@ -1317,42 +1309,6 @@ public class ServiceSynchronize extends LifecycleService {
                     attachment.message = message.id;
                     attachment.sequence = sequence;
                     attachment.id = db.attachment().insertAttachment(attachment);
-                }
-
-                if (large != null) {
-                    sequence++;
-
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = message.id;
-                    attachment.sequence = sequence;
-                    attachment.name = "body.html"; // TODO: string resource
-                    attachment.type = "text/html";
-                    attachment.size = large.length();
-                    attachment.id = db.attachment().insertAttachment(attachment);
-
-                    // Build filename
-                    File dir = new File(getFilesDir(), "attachments");
-                    dir.mkdir();
-                    File file = new File(dir, Long.toString(attachment.id));
-
-                    FileWriter out = null;
-                    try {
-                        out = new FileWriter(file);
-                        out.write(large);
-                    } catch (IOException e) {
-                        Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                    } finally {
-                        if (out != null) {
-                            try {
-                                out.close();
-                            } catch (IOException e) {
-                                Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                            }
-                        }
-                    }
-
-                    attachment.filename = file.getName();
-                    db.attachment().updateAttachment(attachment);
                 }
 
                 db.setTransactionSuccessful();
