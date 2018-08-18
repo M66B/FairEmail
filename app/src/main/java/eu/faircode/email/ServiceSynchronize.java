@@ -503,7 +503,7 @@ public class ServiceSynchronize extends LifecycleService {
                         });
 
                         // Fetch e-mail
-                        synchronizeMessages(folder, ifolder);
+                        synchronizeMessages(account, folder, ifolder);
 
                         // Flags (like "seen") at the remote could be changed while synchronizing
 
@@ -1108,7 +1108,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessages(EntityFolder folder, IMAPFolder ifolder) throws MessagingException, IOException {
+    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder) throws MessagingException, IOException {
         try {
             Log.v(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
@@ -1152,6 +1152,11 @@ public class ServiceSynchronize extends LifecycleService {
                     uids.remove(ifolder.getUID(imessage));
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    reportError(account.name, folder.name, ex);
+
+                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
             // Delete local messages not at remote
