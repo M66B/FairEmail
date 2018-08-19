@@ -200,31 +200,39 @@ public class FragmentMessage extends FragmentEx {
         });
 
         fab.setOnClickListener(new View.OnClickListener() {
-            private boolean addresses;
-
             @Override
             public void onClick(View view) {
-                free = (top_navigation.getVisibility() != View.GONE);
+                tvCount.setTag(tvCount.getVisibility());
+                tvError.setTag(tvError.getVisibility());
+                tvCc.setTag(grpAddresses.getVisibility());
+                rvAttachment.setTag(grpAddresses.getVisibility());
+
+                free = true;
                 getActivity().invalidateOptionsMenu();
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                if (free) {
-                    tvCount.setTag(tvCount.getVisibility());
-                    tvError.setTag(tvError.getVisibility());
-                    fab.setImageResource(R.drawable.baseline_fullscreen_exit_24);
-                    addresses = (grpAddresses.getVisibility() != View.GONE);
-                    grpAddresses.setVisibility(View.GONE);
-                    grpAttachments.setVisibility(View.GONE);
-                    tvCount.setVisibility(View.GONE);
-                    tvError.setVisibility(View.GONE);
-                } else {
-                    fab.setImageResource(R.drawable.baseline_fullscreen_24);
-                    if (addresses)
-                        grpAddresses.setVisibility(View.VISIBLE);
-                    if (rvAttachment.getAdapter().getItemCount() > 0)
-                        grpAttachments.setVisibility(View.VISIBLE);
-                    tvCount.setVisibility((int) tvCount.getVisibility());
-                    tvError.setVisibility((int) tvError.getVisibility());
+                grpAddresses.setVisibility(View.GONE);
+                grpAttachments.setVisibility(View.GONE);
+                tvCount.setVisibility(View.GONE);
+                tvError.setVisibility(View.GONE);
+                fab.setVisibility(View.GONE);
+            }
+        });
+
+        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                if (free && isVisible()) {
+                    free = false;
+                    getActivity().invalidateOptionsMenu();
+                    grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                    grpAddresses.setVisibility((int) tvCc.getTag());
+                    rvAttachment.setVisibility((int) rvAttachment.getTag());
+                    tvCount.setVisibility((int) tvCount.getTag());
+                    tvError.setVisibility((int) tvError.getTag());
+                    fab.setVisibility(View.VISIBLE);
+                    return true;
                 }
+                return false;
             }
         });
 
@@ -259,6 +267,7 @@ public class FragmentMessage extends FragmentEx {
         grpMessage.setVisibility(View.GONE);
         tvCount.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
+        fab.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         rvAttachment.setHasFixedSize(false);
@@ -272,7 +281,15 @@ public class FragmentMessage extends FragmentEx {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("free", free);
+        outState.putInt("addresses", grpAddresses.getVisibility());
+        outState.putInt("attachments", rvAttachment.getVisibility());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // Get arguments
@@ -376,11 +393,20 @@ public class FragmentMessage extends FragmentEx {
                     });
                 }
 
+                if (savedInstanceState != null) {
+                    free = savedInstanceState.getBoolean("free");
+                    grpAddresses.setTag(savedInstanceState.getInt("addresses"));
+                    rvAttachment.setTag(savedInstanceState.getInt("attachments"));
+                }
+
                 pbWait.setVisibility(View.GONE);
-                grpHeader.setVisibility(View.VISIBLE);
+                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                if (free)
+                    grpAddresses.setVisibility(View.GONE);
                 grpMessage.setVisibility(View.VISIBLE);
-                tvCount.setVisibility(message.count > 1 ? View.VISIBLE : View.GONE);
-                tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
+                tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+                tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+                fab.setVisibility(free ? View.GONE : View.VISIBLE);
             }
         });
 

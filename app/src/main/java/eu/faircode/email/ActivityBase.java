@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -68,5 +71,23 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Log.i(Helper.TAG, "Preference " + key + "=" + prefs.getAll().get(key));
         if ("theme".equals(key) || "debug".equals(key))
             recreate();
+    }
+
+    private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
+
+    public void addBackPressedListener(IBackPressedListener listener) {
+        backPressedListeners.add(listener);
+    }
+
+    @Override
+    public void onBackPressed() {
+        for (IBackPressedListener listener : backPressedListeners)
+            if (listener.onBackPressed())
+                return;
+        super.onBackPressed();
+    }
+
+    public interface IBackPressedListener {
+        boolean onBackPressed();
     }
 }
