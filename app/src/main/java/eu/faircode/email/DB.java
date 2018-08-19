@@ -71,7 +71,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
 
-    private static final String DB_NAME = "fairemail";
+    private static final String DB_NAME = "email";
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null)

@@ -30,6 +30,7 @@ import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -516,7 +517,7 @@ public class FragmentCompose extends FragmentEx {
 
                             attachment.size = size;
                             attachment.progress = null;
-                            attachment.filename = file.getName();
+                            attachment.available = true;
                             db.attachment().updateAttachment(attachment);
                         } finally {
                             try {
@@ -530,7 +531,6 @@ public class FragmentCompose extends FragmentEx {
                     } catch (Throwable ex) {
                         // Reset progress on failure
                         attachment.progress = null;
-                        attachment.filename = null;
                         db.attachment().updateAttachment(attachment);
                         throw ex;
                     }
@@ -571,7 +571,7 @@ public class FragmentCompose extends FragmentEx {
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
         @Override
-        protected EntityMessage onLoad(Context context, Bundle args) {
+        protected EntityMessage onLoad(Context context, Bundle args) throws IOException {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long account = args.getLong("account", -1);
@@ -618,6 +618,8 @@ public class FragmentCompose extends FragmentEx {
                 if (drafts == null)
                     throw new IllegalArgumentException("no drafts folder");
 
+                String body = "";
+
                 draft = new EntityMessage();
                 draft.account = account;
                 draft.folder = drafts.id;
@@ -640,21 +642,21 @@ public class FragmentCompose extends FragmentEx {
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                        draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                        body = String.format("<br><br>%s %s:<br><br>%s",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(TextUtils.join(", ", draft.to)),
-                                HtmlHelper.sanitize(context, ref.body, true));
+                                HtmlHelper.sanitize(context, ref.read(context), true));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
-                        draft.body = String.format("<br><br>%s %s:<br><br>%s",
+                        body = String.format("<br><br>%s %s:<br><br>%s",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(TextUtils.join(", ", ref.from)),
-                                HtmlHelper.sanitize(context, ref.body, true));
+                                HtmlHelper.sanitize(context, ref.read(context), true));
                     }
                 }
 
                 if ("new".equals(action))
-                    draft.body = "";
+                    body = "";
 
                 draft.received = new Date().getTime();
                 draft.seen = false;
@@ -662,6 +664,7 @@ public class FragmentCompose extends FragmentEx {
                 draft.ui_hide = false;
 
                 draft.id = db.message().insertMessage(draft);
+                draft.write(context, body);
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
@@ -687,7 +690,22 @@ public class FragmentCompose extends FragmentEx {
             etBcc.setText(draft.bcc == null ? null : TextUtils.join(", ", draft.bcc));
             etSubject.setText(draft.subject);
 
-            etBody.setText(TextUtils.isEmpty(draft.body) ? null : Html.fromHtml(draft.body));
+            etBody.setText(null);
+
+            Bundle a = new Bundle();
+            a.putLong("id", draft.id);
+
+            new SimpleTask<Spanned>() {
+                @Override
+                protected Spanned onLoad(Context context, Bundle args) throws Throwable {
+                    return Html.fromHtml(EntityMessage.read(context, args.getLong("id")));
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, Spanned body) {
+                    etBody.setText(body);
+                }
+            }.load(FragmentCompose.this, a);
 
             getActivity().invalidateOptionsMenu();
             Helper.setViewsEnabled(view, true);
@@ -836,14 +854,16 @@ public class FragmentCompose extends FragmentEx {
                 draft.cc = acc;
                 draft.bcc = abcc;
                 draft.subject = subject;
-                draft.body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 draft.received = new Date().getTime();
+
+                body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                 // Execute action
                 if (action == R.id.action_trash) {
                     draft.ui_seen = true;
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);
+                    draft.write(context, body);
 
                     EntityOperation.queue(db, draft, EntityOperation.SEEN, true);
 
@@ -857,11 +877,13 @@ public class FragmentCompose extends FragmentEx {
                         return null;
 
                     db.message().updateMessage(draft);
+                    draft.write(context, body);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
+                    draft.write(context, body);
 
                     // Check data
                     if (draft.identity == null)
@@ -876,7 +898,7 @@ public class FragmentCompose extends FragmentEx {
                     // Save attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.filename == null)
+                        if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                     // Delete draft (cannot move to outbox)

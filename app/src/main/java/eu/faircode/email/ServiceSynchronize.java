@@ -851,7 +851,7 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().setMessageSeen(message.id, seen);
     }
 
-    private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+    private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
@@ -871,7 +871,7 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Appended uid=" + message.uid);
     }
 
-    private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException {
+    private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
         // Move message
         long id = jargs.getLong(0);
         EntityFolder target = db.folder().getFolder(id);
@@ -914,7 +914,7 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().deleteMessage(message.id);
     }
 
-    private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException {
+    private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException, IOException {
         // Send message
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
@@ -1033,7 +1033,7 @@ public class ServiceSynchronize extends LifecycleService {
                 // Store attachment data
                 attachment.size = size;
                 attachment.progress = null;
-                attachment.filename = file.getName();
+                attachment.available = true;
                 db.attachment().updateAttachment(attachment);
             } finally {
                 try {
@@ -1048,7 +1048,6 @@ public class ServiceSynchronize extends LifecycleService {
         } catch (Throwable ex) {
             // Reset progress on failure
             attachment.progress = null;
-            attachment.filename = null;
             db.attachment().updateAttachment(attachment);
             throw ex;
         }
@@ -1296,7 +1295,6 @@ public class ServiceSynchronize extends LifecycleService {
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
                 message.subject = imessage.getSubject();
-                message.body = helper.getHtml();
                 message.received = imessage.getReceivedDate().getTime();
                 message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
                 message.seen = seen;
@@ -1304,6 +1302,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_hide = false;
 
                 message.id = db.message().insertMessage(message);
+                message.write(this, helper.getHtml());
                 Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 0;

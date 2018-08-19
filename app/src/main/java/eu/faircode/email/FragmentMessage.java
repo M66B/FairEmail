@@ -29,6 +29,7 @@ import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
@@ -339,9 +340,23 @@ public class FragmentMessage extends FragmentEx {
                             : R.drawable.baseline_visibility_24);
                     actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
 
-                    tvBody.setText(message.body == null
-                            ? null
-                            : Html.fromHtml(HtmlHelper.sanitize(getContext(), message.body, false)));
+                    tvBody.setText(null);
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+
+                    new SimpleTask<Spanned>() {
+                        @Override
+                        protected Spanned onLoad(Context context, Bundle args) throws Throwable {
+                            String body = EntityMessage.read(context, args.getLong("id"));
+                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Spanned body) {
+                            tvBody.setText(body);
+                        }
+                    }.load(FragmentMessage.this, args);
 
                     db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                     db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {

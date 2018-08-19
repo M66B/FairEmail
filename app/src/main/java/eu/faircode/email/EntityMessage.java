@@ -19,6 +19,15 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Random;
 
@@ -76,7 +85,6 @@ public class EntityMessage {
     public Address[] bcc;
     public Address[] reply;
     public String subject;
-    public String body;
     public Long sent; // compose = null
     @NonNull
     public Long received; // compose = stored
@@ -100,6 +108,52 @@ public class EntityMessage {
         return sb.toString();
     }
 
+    void write(Context context, String body) throws IOException {
+        File dir = new File(context.getFilesDir(), "messages");
+        dir.mkdir();
+        File file = new File(dir, id.toString());
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new FileWriter(file));
+            out.write(body);
+        } finally {
+            if (out != null)
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                }
+        }
+    }
+
+    String read(Context context) throws IOException {
+        return read(context, this.id);
+    }
+
+    static String read(Context context, Long id) throws IOException {
+        File dir = new File(context.getFilesDir(), "messages");
+        File file = new File(dir, id.toString());
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader(file));
+            StringBuilder body = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null) {
+                body.append(line);
+                body.append('\n');
+            }
+            return body.toString();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
+            }
+        }
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
@@ -119,7 +173,6 @@ public class EntityMessage {
                     equal(this.bcc, other.bcc) &&
                     equal(this.reply, other.reply) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
-                    (this.body == null ? other.body == null : this.body.equals(other.body)) &&
                     (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.seen.equals(other.seen) &&

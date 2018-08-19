@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
@@ -80,6 +82,8 @@ public class FragmentAbout extends FragmentEx {
 
                         sb.append(Helper.getLogcat());
 
+                        String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+
                         EntityMessage draft;
 
                         DB db = DB.getInstance(context);
@@ -96,16 +100,19 @@ public class FragmentAbout extends FragmentEx {
                             draft.msgid = EntityMessage.generateMessageId();
                             draft.to = new Address[]{Helper.myAddress()};
                             draft.subject = context.getString(R.string.app_name) + " debug info";
-                            draft.body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
                             draft.received = new Date().getTime();
                             draft.seen = false;
                             draft.ui_seen = false;
                             draft.ui_hide = false;
                             draft.id = db.message().insertMessage(draft);
+                            draft.write(context, body);
 
                             EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                             db.setTransactionSuccessful();
+                        } catch (IOException ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            return null;
                         } finally {
                             db.endTransaction();
                         }
@@ -118,9 +125,10 @@ public class FragmentAbout extends FragmentEx {
                     @Override
                     protected void onLoaded(Bundle args, Long id) {
                         btnDebugInfo.setEnabled(true);
-                        startActivity(new Intent(getContext(), ActivityCompose.class)
-                                .putExtra("action", "edit")
-                                .putExtra("id", id));
+                        if (id != null)
+                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("action", "edit")
+                                    .putExtra("id", id));
                     }
 
                     @Override

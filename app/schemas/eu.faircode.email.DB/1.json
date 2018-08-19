@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "23016f9b3ae09175ada077c837687ab6",
+    "identityHash": "cd3cf378d6f71c13ba8beb38a8bf58cf",
     "entities": [
       {
         "tableName": "identity",
@@ -313,7 +313,7 @@
       },
       {
         "tableName": "message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `body` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `subject` TEXT, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -408,12 +408,6 @@
           {
             "fieldPath": "subject",
             "columnName": "subject",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "body",
-            "columnName": "body",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -599,7 +593,7 @@
       },
       {
         "tableName": "attachment",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `sequence` INTEGER NOT NULL, `name` TEXT, `type` TEXT NOT NULL, `size` INTEGER, `progress` INTEGER, `filename` TEXT, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `message` INTEGER NOT NULL, `sequence` INTEGER NOT NULL, `name` TEXT, `type` TEXT NOT NULL, `size` INTEGER, `progress` INTEGER, `available` INTEGER NOT NULL, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -644,10 +638,10 @@
             "notNull": false
           },
           {
-            "fieldPath": "filename",
-            "columnName": "filename",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "available",
+            "columnName": "available",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -782,7 +776,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"23016f9b3ae09175ada077c837687ab6\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"cd3cf378d6f71c13ba8beb38a8bf58cf\")"
     ]
   }
 }

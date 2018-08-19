@@ -93,7 +93,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException {
+    static MimeMessageEx from(Context context, EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
@@ -115,25 +115,22 @@ public class MessageHelper {
 
         // TODO: plain message?
 
-        if (message.body == null)
-            throw new IllegalArgumentException("null message");
-
         if (attachments.size() == 0)
-            imessage.setText(message.body, Charset.defaultCharset().name(), "html");
+            imessage.setText(message.read(context), Charset.defaultCharset().name(), "html");
         else {
             Multipart multipart = new MimeMultipart();
 
             BodyPart bpMessage = new MimeBodyPart();
-            bpMessage.setContent(message.body, "text/html; charset=" + Charset.defaultCharset().name());
+            bpMessage.setContent(message.read(context), "text/html; charset=" + Charset.defaultCharset().name());
             multipart.addBodyPart(bpMessage);
 
             for (final EntityAttachment attachment : attachments)
-                if (attachment.filename != null) {
+                if (attachment.available) {
                     BodyPart bpAttachment = new MimeBodyPart();
                     bpAttachment.setFileName(attachment.name);
 
                     File dir = new File(context.getFilesDir(), "attachments");
-                    File file = new File(dir, attachment.filename);
+                    File file = new File(dir, attachment.id.toString());
                     FileDataSource dataSource = new FileDataSource(file);
                     dataSource.setFileTypeMap(new FileTypeMap() {
                         @Override
@@ -159,7 +156,7 @@ public class MessageHelper {
         return imessage;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException {
+    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
         MimeMessageEx imessage = from(context, message, attachments, isession);
         imessage.addHeader("In-Reply-To", reply.msgid);
         imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);

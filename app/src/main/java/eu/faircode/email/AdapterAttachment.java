@@ -64,7 +64,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         TextView tvSize;
         ImageView ivStatus;
         TextView tvType;
-        TextView tvFile;
         ProgressBar progressbar;
 
         ViewHolder(View itemView) {
@@ -76,7 +75,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
             tvType = itemView.findViewById(R.id.tvType);
-            tvFile = itemView.findViewById(R.id.tvFile);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
 
@@ -97,15 +95,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 tvSize.setText(Helper.humanReadableByteCount(attachment.size, false));
             tvSize.setVisibility(attachment.size == null ? View.GONE : View.VISIBLE);
 
-            if (attachment.filename == null) {
+            if (attachment.available) {
+                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
+                ivStatus.setVisibility(View.VISIBLE);
+            } else {
                 if (attachment.progress == null) {
                     ivStatus.setImageResource(R.drawable.baseline_get_app_24);
                     ivStatus.setVisibility(View.VISIBLE);
                 } else
                     ivStatus.setVisibility(View.GONE);
-            } else {
-                ivStatus.setImageResource(R.drawable.baseline_visibility_24);
-                ivStatus.setVisibility(View.VISIBLE);
             }
 
             ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
@@ -113,12 +111,10 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
             progressbar.setVisibility(
-                    attachment.progress == null || attachment.filename != null ? View.GONE : View.VISIBLE);
+                    attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
             tvType.setText(attachment.type);
-            tvFile.setText(attachment.filename);
             tvType.setVisibility(debug ? View.VISIBLE : View.GONE);
-            tvFile.setVisibility(debug ? View.VISIBLE : View.GONE);
         }
 
         @Override
@@ -137,7 +133,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     protected Void onLoad(Context context, Bundle args) {
                         DB.getInstance(context).attachment().deleteAttachment(attachment.id);
                         File dir = new File(context.getFilesDir(), "attachments");
-                        File file = new File(dir, attachment.filename);
+                        File file = new File(dir, attachment.id.toString());
                         file.delete();
 
                         return null;
@@ -145,7 +141,39 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 }.load(context, owner, args);
 
             } else {
-                if (attachment.filename == null) {
+                if (attachment.available) {
+                    // Build file name
+                    File dir = new File(context.getFilesDir(), "attachments");
+                    File file = new File(dir, attachment.id.toString());
+
+                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    Log.i(Helper.TAG, "uri=" + uri);
+
+                    // Build intent
+                    final Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(uri, attachment.type);
+                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+                    Log.i(Helper.TAG, "Intent=" + intent);
+
+                    //context.startActivity(Intent.createChooser(intent, attachment.name));
+
+                    // Set permissions
+                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                    for (ResolveInfo resolveInfo : targets) {
+                        Log.i(Helper.TAG, "Target=" + resolveInfo);
+                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    }
+
+                    // Check if viewer available
+                    if (targets.size() == 0) {
+                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    context.startActivity(intent);
+                } else {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
                         args.putLong("id", attachment.id);
@@ -179,38 +207,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             }
                         }.load(context, owner, args);
                     }
-                } else {
-                    // Build file name
-                    File dir = new File(context.getFilesDir(), "attachments");
-                    File file = new File(dir, attachment.filename);
-
-                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                    Log.i(Helper.TAG, "uri=" + uri);
-
-                    // Build intent
-                    final Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(uri, attachment.type);
-                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
-                    Log.i(Helper.TAG, "Intent=" + intent);
-
-                    //context.startActivity(Intent.createChooser(intent, attachment.name));
-
-                    // Set permissions
-                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : targets) {
-                        Log.i(Helper.TAG, "Target=" + resolveInfo);
-                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    }
-
-                    // Check if viewer available
-                    if (targets.size() == 0) {
-                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    context.startActivity(intent);
                 }
             }
         }
