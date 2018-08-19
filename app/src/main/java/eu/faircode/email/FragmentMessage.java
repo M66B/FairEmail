@@ -208,16 +208,22 @@ public class FragmentMessage extends FragmentEx {
                 getActivity().invalidateOptionsMenu();
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                 if (free) {
+                    tvCount.setTag(tvCount.getVisibility());
+                    tvError.setTag(tvError.getVisibility());
                     fab.setImageResource(R.drawable.baseline_fullscreen_exit_24);
                     addresses = (grpAddresses.getVisibility() != View.GONE);
                     grpAddresses.setVisibility(View.GONE);
                     grpAttachments.setVisibility(View.GONE);
+                    tvCount.setVisibility(View.GONE);
+                    tvError.setVisibility(View.GONE);
                 } else {
                     fab.setImageResource(R.drawable.baseline_fullscreen_24);
                     if (addresses)
                         grpAddresses.setVisibility(View.VISIBLE);
                     if (rvAttachment.getAdapter().getItemCount() > 0)
                         grpAttachments.setVisibility(View.VISIBLE);
+                    tvCount.setVisibility((int) tvCount.getVisibility());
+                    tvError.setVisibility((int) tvError.getVisibility());
                 }
             }
         });
