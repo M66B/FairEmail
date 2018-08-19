@@ -33,6 +33,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 //
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
 // Make sure to not access any member in any outer scope from onLoad
@@ -50,6 +52,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     static {
         handlerThread = new HandlerThread("SimpleTask");
+        handlerThread.setPriority(THREAD_PRIORITY_BACKGROUND);
         handlerThread.start();
         handler = new Handler(handlerThread.getLooper());
     }

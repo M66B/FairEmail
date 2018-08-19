@@ -109,6 +109,8 @@ import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class ServiceSynchronize extends LifecycleService {
     private final Object lock = new Object();
     private ServiceManager serviceManager = new ServiceManager();
@@ -1451,6 +1453,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
             }, "sync.main");
+            main.setPriority(THREAD_PRIORITY_BACKGROUND); // will be inherited
             main.start();
         }
 
