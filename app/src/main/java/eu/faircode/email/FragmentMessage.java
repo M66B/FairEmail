@@ -340,8 +340,6 @@ public class FragmentMessage extends FragmentEx {
                             : R.drawable.baseline_visibility_24);
                     actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
 
-                    tvBody.setText(null);
-
                     Bundle args = new Bundle();
                     args.putLong("id", message.id);
 
