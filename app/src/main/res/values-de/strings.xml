@@ -27,6 +27,7 @@
   <string name="menu_privacy">Privacy</string>
   <string name="menu_faq">FAQ</string>
   <string name="menu_about">Über</string>
+  <string name="menu_other">Other apps</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
   <string name="title_agree">Ich stimme zu</string>
   <string name="title_disagree">Ich stimme nicht zu</string>
@@ -47,7 +48,8 @@
   <string name="title_setup_done">Fertig</string>
   <string name="title_setup_dark_theme">Dunkles Thema</string>
   <string name="title_advanced">Advanced options</string>
-  <string name="title_advanced_store_sent">Store sent message</string>
+  <string name="title_advanced_webview">Use WebView</string>
+  <string name="title_advanced_customtabs">Instead of <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_identity_name">Your name</string>
   <string name="title_identity_email">Your email address</string>
@@ -65,6 +67,7 @@
   <string name="title_port">Port-Nummer</string>
   <string name="title_user">Benutzername</string>
   <string name="title_password">Passwort</string>
+  <string name="title_store_sent">Store sent messages (enable if needed only)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primary (default account)</string>
