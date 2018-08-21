@@ -1,7 +1,7 @@
 FairEmail
 =========
 
-Simple, secure and efficient email app
+Open source, privacy friendly email app
 
 This email app might be for you if your current email app:
 
