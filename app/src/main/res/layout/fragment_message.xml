@@ -274,7 +274,7 @@
         android:id="@+id/grpHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject,top_navigation" />
+        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAddresses"
@@ -292,5 +292,5 @@
         android:id="@+id/grpMessage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="scroll,bottom_navigation" />
+        app:constraint_referenced_ids="scroll" />
 </androidx.constraintlayout.widget.ConstraintLayout>

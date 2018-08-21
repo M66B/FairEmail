@@ -214,6 +214,7 @@ public class FragmentMessage extends FragmentEx {
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                 grpAddresses.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
+                top_navigation.setVisibility(View.GONE);
                 tvCount.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
                 fab.setVisibility(View.GONE);
@@ -229,6 +230,7 @@ public class FragmentMessage extends FragmentEx {
                     grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                     grpAddresses.setVisibility((int) tvCc.getTag());
                     rvAttachment.setVisibility((int) rvAttachment.getTag());
+                    top_navigation.setVisibility(View.VISIBLE);
                     tvCount.setVisibility((int) tvCount.getTag());
                     tvError.setVisibility((int) tvError.getTag());
                     fab.setVisibility(View.VISIBLE);
@@ -266,7 +268,9 @@ public class FragmentMessage extends FragmentEx {
         grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        top_navigation.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(View.GONE);
         tvCount.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
         fab.setVisibility(View.GONE);
@@ -354,6 +358,8 @@ public class FragmentMessage extends FragmentEx {
                         @Override
                         protected void onLoaded(Bundle args, Spanned body) {
                             tvBody.setText(body);
+                            grpMessage.setVisibility(View.VISIBLE);
+                            fab.setVisibility(View.VISIBLE);
                         }
                     }.load(FragmentMessage.this, args);
 
@@ -416,10 +422,8 @@ public class FragmentMessage extends FragmentEx {
                     grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                     if (free)
                         grpAddresses.setVisibility(View.GONE);
-                    grpMessage.setVisibility(View.VISIBLE);
                     tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
                     tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
-                    fab.setVisibility(free ? View.GONE : View.VISIBLE);
                 }
             }
         });
