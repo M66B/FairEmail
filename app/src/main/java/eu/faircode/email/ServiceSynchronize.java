@@ -773,14 +773,14 @@ public class ServiceSynchronize extends LifecycleService {
                         if (message == null)
                             throw new MessageRemovedException();
 
-                        if (message.uid == null &&
-                                (EntityOperation.SEEN.equals(op.name) ||
-                                        EntityOperation.DELETE.equals(op.name) ||
-                                        EntityOperation.MOVE.equals(op.name)))
-                            throw new IllegalArgumentException(op.name + " without uid");
-
                         try {
                             db.message().setMessageError(message.id, null);
+
+                            if (message.uid == null &&
+                                    (EntityOperation.SEEN.equals(op.name) ||
+                                            EntityOperation.DELETE.equals(op.name) ||
+                                            EntityOperation.MOVE.equals(op.name)))
+                                throw new IllegalArgumentException(op.name + " without uid");
 
                             JSONArray jargs = new JSONArray(op.args);
 
