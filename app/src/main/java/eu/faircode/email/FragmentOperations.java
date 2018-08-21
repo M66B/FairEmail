@@ -58,7 +58,7 @@ public class FragmentOperations extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvOperation.setLayoutManager(llm);
 
-        adapter = new AdapterOperation(getContext());
+        adapter = new AdapterOperation(getContext(), getViewLifecycleOwner());
         rvOperation.setAdapter(adapter);
 
         // Initialize

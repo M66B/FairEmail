@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -41,13 +43,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
 
     private List<EntityOperation> all = new ArrayList<>();
     private List<EntityOperation> filtered = new ArrayList<>();
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvMessage;
         TextView tvName;
@@ -64,10 +67,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         private void wire() {
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityOperation operation) {
@@ -81,6 +86,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
+
             EntityOperation operation = filtered.get(pos);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
@@ -88,10 +94,34 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     new Intent(ActivityView.ACTION_VIEW_MESSAGE)
                             .putExtra("id", operation.message));
         }
+
+        @Override
+        public boolean onLongClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            EntityOperation operation = filtered.get(pos);
+
+            Bundle args = new Bundle();
+            args.putLong("id", operation.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    DB.getInstance(context).operation().deleteOperation(args.getLong("id"));
+                    EntityOperation.process(context);
+                    return null;
+                }
+            }.load(context, owner, args);
+
+            return true;
+        }
     }
 
-    AdapterOperation(Context context) {
+    AdapterOperation(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         setHasStableIds(true);
     }
 
