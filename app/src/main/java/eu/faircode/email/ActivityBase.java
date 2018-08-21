@@ -69,8 +69,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         Log.i(Helper.TAG, "Preference " + key + "=" + prefs.getAll().get(key));
-        if ("theme".equals(key) || "debug".equals(key))
-            recreate();
+        if ("theme".equals(key) || "debug".equals(key)) {
+            finish();
+            startActivity(getIntent());
+        }
     }
 
     private List<IBackPressedListener> backPressedListeners = new ArrayList<>();

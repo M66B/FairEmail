@@ -291,10 +291,10 @@ public class FragmentMessage extends FragmentEx {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putBoolean("free", free);
         outState.putInt("addresses", grpAddresses.getVisibility());
         outState.putInt("attachments", rvAttachment.getVisibility());
-        super.onSaveInstanceState(outState);
     }
 
     @Override

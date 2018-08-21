@@ -375,10 +375,10 @@ public class FragmentIdentity extends FragmentEx {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putInt("account", spAccount.getSelectedItemPosition());
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
-        super.onSaveInstanceState(outState);
     }
 
     @Override

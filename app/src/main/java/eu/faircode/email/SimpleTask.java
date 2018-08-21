@@ -80,7 +80,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
-        Log.i(Helper.TAG, "Resume tak " + this);
+        Log.i(Helper.TAG, "Stop task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

@@ -587,9 +587,9 @@ public class FragmentAccount extends FragmentEx {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
-        super.onSaveInstanceState(outState);
     }
 
     @Override
