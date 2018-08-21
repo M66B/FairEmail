@@ -64,6 +64,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -305,7 +306,7 @@ public class FragmentMessage extends FragmentEx {
             public void onChanged(@Nullable final TupleMessageEx message) {
                 if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
                     // Message gone (moved, deleted)
-                    if (FragmentMessage.this.isVisible())
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                         getFragmentManager().popBackStack();
                 } else {
                     setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
