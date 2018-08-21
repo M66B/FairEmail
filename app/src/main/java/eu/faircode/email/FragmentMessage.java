@@ -404,22 +404,22 @@ public class FragmentMessage extends FragmentEx {
                             bottom_navigation.setVisibility(View.VISIBLE);
                         }
                     });
-                }
 
-                if (savedInstanceState != null) {
-                    free = savedInstanceState.getBoolean("free");
-                    grpAddresses.setTag(savedInstanceState.getInt("addresses"));
-                    rvAttachment.setTag(savedInstanceState.getInt("attachments"));
-                }
+                    if (savedInstanceState != null) {
+                        free = savedInstanceState.getBoolean("free");
+                        grpAddresses.setTag(savedInstanceState.getInt("addresses"));
+                        rvAttachment.setTag(savedInstanceState.getInt("attachments"));
+                    }
 
-                pbWait.setVisibility(View.GONE);
-                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                if (free)
-                    grpAddresses.setVisibility(View.GONE);
-                grpMessage.setVisibility(View.VISIBLE);
-                tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
-                tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
-                fab.setVisibility(free ? View.GONE : View.VISIBLE);
+                    pbWait.setVisibility(View.GONE);
+                    grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                    if (free)
+                        grpAddresses.setVisibility(View.GONE);
+                    grpMessage.setVisibility(View.VISIBLE);
+                    tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+                    tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+                    fab.setVisibility(free ? View.GONE : View.VISIBLE);
+                }
             }
         });
 
