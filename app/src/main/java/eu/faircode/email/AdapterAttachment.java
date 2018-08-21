@@ -21,9 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.QuickViewConstants;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -147,9 +149,17 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     Log.i(Helper.TAG, "uri=" + uri);
 
                     // Build intent
-                    final Intent intent = new Intent(Intent.ACTION_VIEW);
+                    final Intent intent = new Intent(
+                            Build.VERSION.SDK_INT < Build.VERSION_CODES.N ? Intent.ACTION_VIEW : Intent.ACTION_QUICK_VIEW);
                     intent.setDataAndType(uri, attachment.type);
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                        intent.putExtra(Intent.EXTRA_QUICK_VIEW_FEATURES, new String[]{
+                                QuickViewConstants.FEATURE_VIEW,
+                                QuickViewConstants.FEATURE_DOWNLOAD,
+                                QuickViewConstants.FEATURE_SEND,
+                                QuickViewConstants.FEATURE_PRINT
+                        });
                     Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
                     Log.i(Helper.TAG, "Intent=" + intent);
 
