@@ -143,7 +143,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 if (accounts == null)
                     accounts = new ArrayList<>();
 
-                ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this, R.layout.item_drawer);
+                ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this);
 
                 final Collator collator = Collator.getInstance(Locale.getDefault());
                 collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -156,23 +156,25 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 });
 
                 for (EntityAccount account : accounts)
-                    drawerArray.add(new DrawerItem(-1, R.drawable.baseline_folder_24, account.name, account.id));
+                    drawerArray.add(new DrawerItem(R.layout.item_drawer, -1, R.drawable.baseline_folder_24, account.name, account.id));
 
-                drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
 
                 if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_list_24, R.string.menu_operations));
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
 
                 if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
-                drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_help_24, R.string.menu_about));
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_about));
 
                 if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.drawable.baseline_get_app_24, R.string.menu_other));
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_get_app_24, R.string.menu_other));
 
                 drawerList.setAdapter(drawerArray);
             }
@@ -463,18 +465,25 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private class DrawerItem {
+        private int layout;
         private int id;
         private int icon;
         private String title;
         private Object data;
 
-        DrawerItem(Context context, int icon, int title) {
+        DrawerItem(int layout) {
+            this.layout = layout;
+        }
+
+        DrawerItem(Context context, int layout, int icon, int title) {
+            this.layout = layout;
             this.id = title;
             this.icon = icon;
             this.title = context.getString(title);
         }
 
-        DrawerItem(int id, int icon, String title, Object data) {
+        DrawerItem(int layout, int id, int icon, String title, Object data) {
+            this.layout = layout;
             this.id = id;
             this.icon = icon;
             this.title = title;
@@ -491,28 +500,22 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private static class ArrayAdapterDrawer extends ArrayAdapter<DrawerItem> {
-        private int resource;
-
-        ArrayAdapterDrawer(@NonNull Context context, int resource) {
-            super(context, resource);
-            this.resource = resource;
+        ArrayAdapterDrawer(@NonNull Context context) {
+            super(context, -1);
         }
 
         @NonNull
         public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-            View row;
-            if (null == convertView)
-                row = LayoutInflater.from(getContext()).inflate(this.resource, null);
-            else
-                row = convertView;
-
             DrawerItem item = getItem(position);
+            View row = LayoutInflater.from(getContext()).inflate(item.layout, null);
 
             ImageView iv = row.findViewById(R.id.ivItem);
             TextView tv = row.findViewById(R.id.tvItem);
 
-            iv.setImageResource(item.icon);
-            tv.setText(item.title);
+            if (iv != null)
+                iv.setImageResource(item.icon);
+            if (tv != null)
+                tv.setText(item.title);
 
             return row;
         }
