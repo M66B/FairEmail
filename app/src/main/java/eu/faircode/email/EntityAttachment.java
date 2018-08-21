@@ -19,6 +19,10 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
+import java.io.File;
+
 import javax.mail.BodyPart;
 
 import androidx.annotation.NonNull;
@@ -59,6 +63,12 @@ public class EntityAttachment {
 
     @Ignore
     BodyPart part;
+
+    static File getFile(Context context, Long id) {
+        File dir = new File(context.getFilesDir(), "attachments");
+        dir.mkdir();
+        return new File(dir, Long.toString(id));
+    }
 
     @Override
     public boolean equals(Object obj) {

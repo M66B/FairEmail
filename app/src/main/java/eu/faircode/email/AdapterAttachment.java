@@ -132,10 +132,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
                         DB.getInstance(context).attachment().deleteAttachment(attachment.id);
-                        File dir = new File(context.getFilesDir(), "attachments");
-                        File file = new File(dir, attachment.id.toString());
-                        file.delete();
-
+                        EntityAttachment.getFile(context, attachment.id).delete();
                         return null;
                     }
                 }.load(context, owner, args);
@@ -143,8 +140,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             } else {
                 if (attachment.available) {
                     // Build file name
-                    File dir = new File(context.getFilesDir(), "attachments");
-                    File file = new File(dir, attachment.id.toString());
+                    File file = EntityAttachment.getFile(context, attachment.id);
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
                     Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);

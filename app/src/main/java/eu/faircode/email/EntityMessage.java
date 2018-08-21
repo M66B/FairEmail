@@ -108,10 +108,14 @@ public class EntityMessage {
         return sb.toString();
     }
 
-    void write(Context context, String body) throws IOException {
+    static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "messages");
         dir.mkdir();
-        File file = new File(dir, id.toString());
+        return new File(dir, id.toString());
+    }
+
+    void write(Context context, String body) throws IOException {
+        File file = getFile(context, id);
         BufferedWriter out = null;
         try {
             out = new BufferedWriter(new FileWriter(file));
@@ -131,8 +135,7 @@ public class EntityMessage {
     }
 
     static String read(Context context, Long id) throws IOException {
-        File dir = new File(context.getFilesDir(), "messages");
-        File file = new File(dir, id.toString());
+        File file = getFile(context, id);
         BufferedReader in = null;
         try {
             in = new BufferedReader(new FileReader(file));

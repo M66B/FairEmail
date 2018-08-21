@@ -714,15 +714,11 @@ public class FragmentMessage extends FragmentEx {
                     try {
                         db.beginTransaction();
 
-                        if (debug && BuildConfig.DEBUG)
-                            db.message().deleteMessage(id);
-                        else {
-                            db.message().setMessageUiHide(id, true);
+                        db.message().setMessageUiHide(id, true);
 
-                            EntityMessage message = db.message().getMessage(id);
-                            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-                        }
+                        EntityMessage message = db.message().getMessage(id);
+                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                        EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
 
                         db.setTransactionSuccessful();
                     } finally {

@@ -1010,9 +1010,7 @@ public class ServiceSynchronize extends LifecycleService {
             EntityAttachment a = helper.getAttachments().get(sequence - 1);
 
             // Build filename
-            File dir = new File(getFilesDir(), "attachments");
-            dir.mkdir();
-            File file = new File(dir, Long.toString(attachment.id));
+            File file = EntityAttachment.getFile(this, attachment.id);
 
             // Download attachment
             InputStream is = null;

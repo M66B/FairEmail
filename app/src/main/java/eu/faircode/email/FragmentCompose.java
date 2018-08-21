@@ -495,9 +495,7 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     try {
-                        File dir = new File(context.getFilesDir(), "attachments");
-                        dir.mkdir();
-                        File file = new File(dir, Long.toString(attachment.id));
+                        File file = EntityAttachment.getFile(context, attachment.id);
 
                         InputStream is = null;
                         OutputStream os = null;

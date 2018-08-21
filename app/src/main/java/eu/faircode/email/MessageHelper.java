@@ -129,8 +129,7 @@ public class MessageHelper {
                     BodyPart bpAttachment = new MimeBodyPart();
                     bpAttachment.setFileName(attachment.name);
 
-                    File dir = new File(context.getFilesDir(), "attachments");
-                    File file = new File(dir, attachment.id.toString());
+                    File file = EntityAttachment.getFile(context, attachment.id);
                     FileDataSource dataSource = new FileDataSource(file);
                     dataSource.setFileTypeMap(new FileTypeMap() {
                         @Override
