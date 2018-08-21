@@ -70,7 +70,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
@@ -617,58 +616,54 @@ public class ServiceSynchronize extends LifecycleService {
                         final long fid = intent.getLongExtra("folder", -1);
                         //Log.v(Helper.TAG, "run operations folder=" + fid);
 
-                        try {
-                            executor.submit(new Runnable() {
-                                @Override
-                                public void run() {
-                                    // Get folder
-                                    EntityFolder folder = null;
-                                    IMAPFolder ifolder = null;
-                                    for (EntityFolder f : folders.keySet())
-                                        if (f.id == fid) {
-                                            folder = f;
-                                            ifolder = folders.get(f);
-                                            break;
-                                        }
-
-                                    final boolean shouldClose = (ifolder == null);
-
-                                    try {
-                                        if (folder == null)
-                                            throw new IllegalArgumentException("Unknown folder=" + fid);
-
-                                        if (shouldClose)
-                                            Log.v(Helper.TAG, folder.name + " start operations offline=" + shouldClose);
-
-                                        if (ifolder == null) {
-                                            // Prevent unnecessary folder connections
-                                            if (db.operation().getOperationCount(fid) == 0)
-                                                return;
-
-                                            ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                                            ifolder.open(Folder.READ_WRITE);
-                                        }
-
-                                        processOperations(folder, isession, istore, ifolder);
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
-                                    } finally {
-                                        if (shouldClose)
-                                            if (ifolder != null && ifolder.isOpen()) {
-                                                try {
-                                                    ifolder.close(false);
-                                                } catch (MessagingException ex) {
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                }
-                                            }
-                                        //Log.v(Helper.TAG, folder.name + " stop operations");
+                        executor.submit(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Get folder
+                                EntityFolder folder = null;
+                                IMAPFolder ifolder = null;
+                                for (EntityFolder f : folders.keySet())
+                                    if (f.id == fid) {
+                                        folder = f;
+                                        ifolder = folders.get(f);
+                                        break;
                                     }
+
+                                final boolean shouldClose = (ifolder == null);
+
+                                try {
+                                    if (folder == null)
+                                        throw new IllegalArgumentException("Unknown folder=" + fid);
+
+                                    if (shouldClose)
+                                        Log.v(Helper.TAG, folder.name + " start operations offline=" + shouldClose);
+
+                                    if (ifolder == null) {
+                                        // Prevent unnecessary folder connections
+                                        if (db.operation().getOperationCount(fid) == 0)
+                                            return;
+
+                                        ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                                        ifolder.open(Folder.READ_WRITE);
+                                    }
+
+                                    processOperations(folder, isession, istore, ifolder);
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
+                                } finally {
+                                    if (shouldClose)
+                                        if (ifolder != null && ifolder.isOpen()) {
+                                            try {
+                                                ifolder.close(false);
+                                            } catch (MessagingException ex) {
+                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            }
+                                        }
+                                    //Log.v(Helper.TAG, folder.name + " stop operations");
                                 }
-                            });
-                        } catch (RejectedExecutionException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
+                            }
+                        });
                     }
                 };
 
@@ -1463,7 +1458,6 @@ public class ServiceSynchronize extends LifecycleService {
                         for (Thread t : threads)
                             join(t);
                         threads.clear();
-                        executor.shutdown();
 
                         // Stop monitoring outbox
                         lbm.unregisterReceiver(outboxReceiver);
@@ -1504,24 +1498,20 @@ public class ServiceSynchronize extends LifecycleService {
                 Properties props = MessageHelper.getSessionProperties();
                 final Session isession = Session.getInstance(props, null);
 
-                try {
-                    executor.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Log.v(Helper.TAG, outbox.name + " start operations");
-                                processOperations(outbox, isession, null, null);
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(null, outbox.name, ex);
-                            } finally {
-                                Log.v(Helper.TAG, outbox.name + " end operations");
-                            }
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Log.v(Helper.TAG, outbox.name + " start operations");
+                            processOperations(outbox, isession, null, null);
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            reportError(null, outbox.name, ex);
+                        } finally {
+                            Log.v(Helper.TAG, outbox.name + " end operations");
                         }
-                    });
-                } catch (RejectedExecutionException ex) {
-                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
+                    }
+                });
             }
         };
     }
