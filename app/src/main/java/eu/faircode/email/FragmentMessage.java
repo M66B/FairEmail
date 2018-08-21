@@ -810,11 +810,13 @@ public class FragmentMessage extends FragmentEx {
 
                         args.putLong("target", target.getItemId());
 
-                        new SimpleTask<Void>() {
+                        new SimpleTask<Boolean>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Boolean onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
                                 long target = args.getLong("target");
+
+                                boolean close = false;
 
                                 DB db = DB.getInstance(context);
                                 try {
@@ -822,7 +824,9 @@ public class FragmentMessage extends FragmentEx {
 
                                     EntityMessage message = db.message().getMessage(id);
                                     EntityFolder folder = db.folder().getFolder(message.folder);
-                                    if (!EntityFolder.ARCHIVE.equals(folder.type))
+
+                                    close = EntityFolder.ARCHIVE.equals(folder.type);
+                                    if (!close)
                                         db.message().setMessageUiHide(message.id, true);
 
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, target);
@@ -834,12 +838,14 @@ public class FragmentMessage extends FragmentEx {
 
                                 EntityOperation.process(context);
 
-                                return null;
+                                return close;
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Void result) {
+                            protected void onLoaded(Bundle args, Boolean close) {
                                 Helper.setViewsEnabled(view, true);
+                                if (close) // archived message
+                                    getFragmentManager().popBackStack();
                             }
 
                             @Override
@@ -891,6 +897,7 @@ public class FragmentMessage extends FragmentEx {
 
             @Override
             protected void onLoaded(Bundle args, Void result) {
+                getFragmentManager().popBackStack();
                 Helper.setViewsEnabled(view, true);
             }
 
