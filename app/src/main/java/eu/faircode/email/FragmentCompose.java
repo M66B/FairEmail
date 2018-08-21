@@ -914,6 +914,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.msgid = msgid;
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
+                    draft.write(getContext(), body);
 
                     // Restore attachments
                     for (EntityAttachment attachment : attachments) {
