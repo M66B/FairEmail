@@ -63,7 +63,8 @@
     <string name="title_setup_dark_theme">Dark theme</string>
 
     <string name="title_advanced">Advanced options</string>
-    <string name="title_advanced_store_sent">Store sent messages</string>
+    <string name="title_advanced_webview">Use WebView</string>
+    <string name="title_advanced_customtabs">Instead of <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
     <string name="title_advanced_debug">Debug</string>
 
     <string name="title_identity_name">Your name</string>
@@ -82,6 +83,7 @@
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
+    <string name="title_store_sent">Store sent messages (enable if needed only)</string>
     <string name="title_synchronize_account">Synchronize (receive messages)</string>
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>

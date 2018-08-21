@@ -22,17 +22,20 @@ package eu.faircode.email;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentOptions extends FragmentEx {
-    private CheckBox cbStoreSent;
+    private CheckBox cbWebView;
+    private TextView tvCustomTabs;
     private CheckBox cbDebug;
 
     @Override
@@ -43,18 +46,19 @@ public class FragmentOptions extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         // Get controls
-        cbStoreSent = view.findViewById(R.id.cbStoreSent);
+        cbWebView = view.findViewById(R.id.cbWebView);
+        tvCustomTabs = view.findViewById(R.id.tvCustomTabs);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        cbStoreSent.setChecked(prefs.getBoolean("store_sent", false));
-        cbStoreSent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cbWebView.setChecked(prefs.getBoolean("webview", false));
+        cbWebView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("store_sent", checked).apply();
+                prefs.edit().putBoolean("webview", checked).apply();
             }
         });
 
@@ -65,6 +69,8 @@ public class FragmentOptions extends FragmentEx {
                 prefs.edit().putBoolean("debug", checked).apply();
             }
         });
+
+        tvCustomTabs.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }

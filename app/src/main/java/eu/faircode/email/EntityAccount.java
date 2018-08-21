@@ -46,6 +46,8 @@ public class EntityAccount {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
+    @NonNull
+    public Boolean store_sent;
     public Long seen_until;
     public String state;
     public String error;

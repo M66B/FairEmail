@@ -12,16 +12,26 @@
         android:layout_height="match_parent">
 
         <CheckBox
-            android:id="@+id/cbStoreSent"
+            android:id="@+id/cbWebView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_store_sent"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:text="@string/title_advanced_webview"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCustomTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/title_advanced_customtabs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbWebView" />
 
         <CheckBox
             android:id="@+id/cbDebug"
@@ -30,9 +40,9 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_debug"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbStoreSent" />
+            app:layout_constraintTop_toBottomOf="@id/tvCustomTabs" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

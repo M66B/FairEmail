@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -105,7 +106,9 @@ public class FragmentMessage extends FragmentEx {
         // Get arguments
         Bundle args = getArguments();
         final long id = (args == null ? -1 : args.getLong("id"));
-        debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        debug = prefs.getBoolean("debug", false);
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
@@ -152,14 +155,7 @@ public class FragmentMessage extends FragmentEx {
                 if (link.length != 0) {
                     String url = link[0].getURL();
 
-                    if (true) {
-                        // https://developer.chrome.com/multidevice/android/customtabs
-                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
-
-                        CustomTabsIntent customTabsIntent = builder.build();
-                        customTabsIntent.launchUrl(getContext(), Uri.parse(url));
-                    } else {
+                    if (prefs.getBoolean("webview", false)) {
                         Bundle args = new Bundle();
                         args.putString("link", url);
 
@@ -169,6 +165,13 @@ public class FragmentMessage extends FragmentEx {
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
                         fragmentTransaction.commit();
+                    } else {
+                        // https://developer.chrome.com/multidevice/android/customtabs
+                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
+
+                        CustomTabsIntent customTabsIntent = builder.build();
+                        customTabsIntent.launchUrl(getContext(), Uri.parse(url));
                     }
                 }
                 return true;
@@ -812,7 +815,7 @@ public class FragmentMessage extends FragmentEx {
                                 long id = args.getLong("id");
                                 long target = args.getLong("target");
 
-                                boolean close = false;
+                                boolean close;
 
                                 DB db = DB.getInstance(context);
                                 try {

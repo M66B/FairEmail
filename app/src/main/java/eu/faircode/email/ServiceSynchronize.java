@@ -28,7 +28,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -328,6 +327,8 @@ public class ServiceSynchronize extends LifecycleService {
         // IllegalStateException:
         // - "This operation is not allowed on a closed folder"
         // - can happen when syncing message
+
+        // MailConnectException
 
         if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException)) {
             String action = account + "/" + folder;
@@ -918,6 +919,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException, IOException {
         // Send message
+        EntityAccount account = db.account().getAccount(message.account);
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
@@ -962,12 +964,12 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                // TODO: store sent setting per account
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                if (prefs.getBoolean("store_sent", false)) {
+                if (account.store_sent) {
                     EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                     if (sent != null) {
-                        // TODO: how to handle thread?
+                        message.folder = sent.id;
+                        message.uid = null;
+                        db.message().updateMessage(message);
                         Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
                         EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
                     }
@@ -1184,24 +1186,26 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
             // Cleanup files
-            File messages = new File(getFilesDir(), "messages");
-            for (File file : messages.listFiles())
-                if (file.isFile()) {
-                    long id = Long.parseLong(file.getName());
-                    if (db.message().countMessage(id) == 0) {
-                        Log.i(Helper.TAG, "Cleanup message id=" + id);
-                        file.delete();
+            File[] messages = new File(getFilesDir(), "messages").listFiles();
+            if (messages != null)
+                for (File file : messages)
+                    if (file.isFile()) {
+                        long id = Long.parseLong(file.getName());
+                        if (db.message().countMessage(id) == 0) {
+                            Log.i(Helper.TAG, "Cleanup message id=" + id);
+                            file.delete();
+                        }
                     }
-                }
-            File attachments = new File(getFilesDir(), "attachments");
-            for (File file : attachments.listFiles())
-                if (file.isFile()) {
-                    long id = Long.parseLong(file.getName());
-                    if (db.attachment().countAttachment(id) == 0) {
-                        Log.i(Helper.TAG, "Cleanup attachment id=" + id);
-                        file.delete();
+            File[] attachments = new File(getFilesDir(), "attachments").listFiles();
+            if (attachments != null)
+                for (File file : attachments)
+                    if (file.isFile()) {
+                        long id = Long.parseLong(file.getName());
+                        if (db.attachment().countAttachment(id) == 0) {
+                            Log.i(Helper.TAG, "Cleanup attachment id=" + id);
+                            file.delete();
+                        }
                     }
-                }
 
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
@@ -1256,7 +1260,7 @@ public class ServiceSynchronize extends LifecycleService {
                             Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
                             dup.folder = folder.id;
                             dup.uid = uid;
-                            if (outbox) // only now the uid is known
+                            if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
                                 dup.thread = helper.getThreadId(uid);
                             db.message().updateMessage(dup);
                             message = dup;

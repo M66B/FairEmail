@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "cd3cf378d6f71c13ba8beb38a8bf58cf",
+    "identityHash": "1d725017559c0a36b02ce447ecba45b9",
     "entities": [
       {
         "tableName": "identity",
@@ -125,7 +125,7 @@
       },
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `seen_until` INTEGER, `state` TEXT, `error` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `host` TEXT NOT NULL, `port` INTEGER NOT NULL, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `primary` INTEGER NOT NULL, `synchronize` INTEGER NOT NULL, `store_sent` INTEGER NOT NULL, `seen_until` INTEGER, `state` TEXT, `error` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -172,6 +172,12 @@
           {
             "fieldPath": "synchronize",
             "columnName": "synchronize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "store_sent",
+            "columnName": "store_sent",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -776,7 +782,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"cd3cf378d6f71c13ba8beb38a8bf58cf\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1d725017559c0a36b02ce447ecba45b9\")"
     ]
   }
 }

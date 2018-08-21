@@ -71,6 +71,7 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private CheckBox cbStoreSent;
     private Button btnCheck;
     private ProgressBar pbCheck;
     private Spinner spDrafts;
@@ -104,6 +105,7 @@ public class FragmentAccount extends FragmentEx {
         tilPassword = view.findViewById(R.id.tilPassword);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        cbStoreSent = view.findViewById(R.id.cbStoreSent);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
         spDrafts = view.findViewById(R.id.spDrafts);
@@ -365,6 +367,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
+                args.putBoolean("store_sent", cbStoreSent.isChecked());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
                 args.putParcelable("all", all);
@@ -380,6 +383,8 @@ public class FragmentAccount extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         boolean synchronize = args.getBoolean("synchronize");
+                        boolean primary = args.getBoolean("primary");
+                        boolean store_sent = args.getBoolean("store_sent");
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
                         EntityFolder all = args.getParcelable("all");
@@ -433,7 +438,8 @@ public class FragmentAccount extends FragmentEx {
                                 account.user = user;
                                 account.password = password;
                                 account.synchronize = synchronize;
-                                account.primary = (account.synchronize && args.getBoolean("primary"));
+                                account.primary = (account.synchronize && primary);
+                                account.store_sent = store_sent;
 
                                 if (!synchronize)
                                     account.error = null;
@@ -620,6 +626,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
+                    cbStoreSent.setChecked(account == null ? true : account.store_sent);
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
