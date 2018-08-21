@@ -682,7 +682,7 @@ public class FragmentCompose extends FragmentEx {
         protected void onLoaded(Bundle args, final EntityMessage draft) {
             working = draft.id;
 
-            String action = getArguments().getString("action");
+            final String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
 
             etTo.setText(draft.to == null ? null : MessageHelper.getFormattedAddresses(draft.to, true));
@@ -715,11 +715,16 @@ public class FragmentCompose extends FragmentEx {
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpMessage.setVisibility(View.VISIBLE);
 
-            if ("reply".equals(action) || "reply_all".equals(action)) {
-                etBody.requestFocus();
-                etBody.setSelection(0);
-            } else if ("forward".equals(action))
-                etTo.requestFocus();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if ("reply".equals(action) || "reply_all".equals(action)) {
+                        etBody.requestFocus();
+                        etBody.setSelection(0);
+                    } else
+                        etTo.requestFocus();
+                }
+            }, 0);
 
             DB db = DB.getInstance(getContext());
 
