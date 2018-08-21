@@ -626,7 +626,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
-                    cbStoreSent.setChecked(account == null ? true : account.store_sent);
+                    cbStoreSent.setChecked(account == null ? false : account.store_sent);
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
