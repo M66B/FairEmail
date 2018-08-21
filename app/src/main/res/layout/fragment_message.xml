@@ -202,7 +202,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="3dp"
-        android:background="@color/darkColorSeparator"
+        android:background="?attr/colorSeparator"
         app:itemIconTint="@color/bottomnav_background"
         app:itemTextColor="@color/bottomnav_background"
         app:labelVisibilityMode="unlabeled"

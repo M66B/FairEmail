@@ -315,9 +315,12 @@ public class FragmentMessage extends FragmentEx {
                     // Message gone (moved, deleted)
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                         getFragmentManager().popBackStack();
-                } else {
-                    setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+                    return;
+                }
 
+                setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+
+                if (savedInstanceState == null) {
                     tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
@@ -329,105 +332,105 @@ public class FragmentMessage extends FragmentEx {
                     tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
                     tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
 
-                    int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
-                    tvFrom.setTypeface(null, typeface);
-                    tvTime.setTypeface(null, typeface);
-                    tvSubject.setTypeface(null, typeface);
-                    tvCount.setTypeface(null, typeface);
-
-                    int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
-                            ? android.R.attr.textColorSecondary : R.attr.colorUnread);
-                    tvFrom.setTextColor(colorUnseen);
-                    tvTime.setTextColor(colorUnseen);
-
                     tvError.setText(message.error);
+                } else {
+                    free = savedInstanceState.getBoolean("free");
+                    grpAddresses.setTag(savedInstanceState.getInt("addresses"));
+                    rvAttachment.setTag(savedInstanceState.getInt("attachments"));
+                }
 
-                    MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
-                    actionSeen.setIcon(message.ui_seen
-                            ? R.drawable.baseline_visibility_off_24
-                            : R.drawable.baseline_visibility_24);
-                    actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
 
-                    Bundle args = new Bundle();
-                    args.putLong("id", message.id);
-
-                    new SimpleTask<Spanned>() {
-                        @Override
-                        protected Spanned onLoad(Context context, Bundle args) throws Throwable {
-                            String body = EntityMessage.read(context, args.getLong("id"));
-                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
-                        }
-
-                        @Override
-                        protected void onLoaded(Bundle args, Spanned body) {
-                            tvBody.setText(body);
-                            grpMessage.setVisibility(View.VISIBLE);
-                            fab.setVisibility(View.VISIBLE);
-                        }
-                    }.load(FragmentMessage.this, args);
-
-                    db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
-                    db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                        @Override
-                        public void onChanged(@Nullable List<TupleFolderEx> folders) {
-                            if (folders == null)
-                                folders = new ArrayList<>();
-
-                            boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
-                            boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                            boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                            //boolean inDafts = EntityFolder.DRAFTS.equals(message.folderType);
-                            boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
-                            boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
-                            //boolean inSent = EntityFolder.SENT.equals(message.folderType);
-
-                            boolean hasTrash = false;
-                            boolean hasJunk = false;
-                            boolean hasArchive = false;
-                            boolean hasUser = false;
-                            if (folders != null)
-                                for (EntityFolder folder : folders) {
-                                    if (EntityFolder.TRASH.equals(folder.type))
-                                        hasTrash = true;
-                                    else if (EntityFolder.JUNK.equals(folder.type))
-                                        hasJunk = true;
-                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                        hasArchive = true;
-                                    else if (EntityFolder.USER.equals(folder.type))
-                                        hasUser = true;
-                                }
-
-                            bottom_navigation.setTag(inTrash || !hasTrash);
-
-                            top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                            top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
-                            top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
-                            top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
-                            top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
-                            top_navigation.setVisibility(View.VISIBLE);
-
-                            bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inOutbox && !inArchive && !inJunk && hasJunk);
-                            bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(message.uid != null && !inOutbox && hasTrash);
-                            bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && !inOutbox && (!inInbox || hasUser));
-                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inOutbox && !inArchive && hasArchive);
-                            bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-                            bottom_navigation.setVisibility(View.VISIBLE);
-                        }
-                    });
-
-                    if (savedInstanceState != null) {
-                        free = savedInstanceState.getBoolean("free");
-                        grpAddresses.setTag(savedInstanceState.getInt("addresses"));
-                        rvAttachment.setTag(savedInstanceState.getInt("attachments"));
+                new SimpleTask<Spanned>() {
+                    @Override
+                    protected Spanned onLoad(Context context, Bundle args) throws Throwable {
+                        String body = EntityMessage.read(context, args.getLong("id"));
+                        return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
                     }
 
-                    pbWait.setVisibility(View.GONE);
-                    grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                    if (free)
-                        grpAddresses.setVisibility(View.GONE);
-                    tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
-                    tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
-                }
+                    @Override
+                    protected void onLoaded(Bundle args, Spanned body) {
+                        tvBody.setText(body);
+                        grpMessage.setVisibility(View.VISIBLE);
+                        if (!free)
+                            fab.setVisibility(View.VISIBLE);
+                    }
+                }.load(FragmentMessage.this, args);
+
+                int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
+                tvFrom.setTypeface(null, typeface);
+                tvTime.setTypeface(null, typeface);
+                tvSubject.setTypeface(null, typeface);
+                tvCount.setTypeface(null, typeface);
+
+                int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
+                        ? android.R.attr.textColorSecondary : R.attr.colorUnread);
+                tvFrom.setTextColor(colorUnseen);
+                tvTime.setTextColor(colorUnseen);
+
+                MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
+                actionSeen.setIcon(message.ui_seen
+                        ? R.drawable.baseline_visibility_off_24
+                        : R.drawable.baseline_visibility_24);
+                actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+
+                db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
+                db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                    @Override
+                    public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                        if (folders == null)
+                            folders = new ArrayList<>();
+
+                        boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                        boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                        boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                        //boolean inDafts = EntityFolder.DRAFTS.equals(message.folderType);
+                        boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                        boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+                        //boolean inSent = EntityFolder.SENT.equals(message.folderType);
+
+                        boolean hasTrash = false;
+                        boolean hasJunk = false;
+                        boolean hasArchive = false;
+                        boolean hasUser = false;
+                        if (folders != null)
+                            for (EntityFolder folder : folders) {
+                                if (EntityFolder.TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.JUNK.equals(folder.type))
+                                    hasJunk = true;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
+                                else if (EntityFolder.USER.equals(folder.type))
+                                    hasUser = true;
+                            }
+
+                        bottom_navigation.setTag(inTrash || !hasTrash);
+
+                        top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
+                        top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
+                        top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
+                        top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
+                        top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
+                        if (!free)
+                            top_navigation.setVisibility(View.VISIBLE);
+
+                        bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inOutbox && !inArchive && !inJunk && hasJunk);
+                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(message.uid != null && !inOutbox && hasTrash);
+                        bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && !inOutbox && (!inInbox || hasUser));
+                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inOutbox && !inArchive && hasArchive);
+                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                        bottom_navigation.setVisibility(View.VISIBLE);
+                    }
+                });
+
+                pbWait.setVisibility(View.GONE);
+                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                if (free)
+                    grpAddresses.setVisibility(View.GONE);
+                tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+                tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
             }
         });
 
