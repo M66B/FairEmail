@@ -74,10 +74,20 @@ public interface DaoMessage {
             " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, boolean debug);
 
-    @Query("SELECT * FROM message WHERE id = :id")
+    @Query("SELECT *" +
+            " FROM message" +
+            " WHERE id = :id")
     EntityMessage getMessage(long id);
 
-    @Query("SELECT * FROM message WHERE folder = :folder AND uid = :uid")
+    @Query("SELECT COUNT(id)" +
+            " FROM message" +
+            " WHERE id = :id")
+    int countMessage(long id);
+
+    @Query("SELECT *" +
+            " FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid = :uid")
     EntityMessage getMessageByUid(long folder, long uid);
 
     @Query("SELECT message.* FROM message" +

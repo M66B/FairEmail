@@ -34,10 +34,15 @@ public interface DaoAttachment {
             " ORDER BY sequence")
     LiveData<List<EntityAttachment>> liveAttachments(long id);
 
-    @Query("SELECT COUNT(attachment.id)" +
+    @Query("SELECT COUNT(id)" +
             " FROM attachment" +
             " WHERE message = :message")
     int getAttachmentCount(long message);
+
+    @Query("SELECT COUNT(id)" +
+            " FROM attachment" +
+            " WHERE id = :id")
+    int countAttachment(long id);
 
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +

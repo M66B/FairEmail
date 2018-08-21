@@ -1183,6 +1183,26 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
 
+            // Cleanup files
+            File messages = new File(getFilesDir(), "messages");
+            for (File file : messages.listFiles())
+                if (file.isFile()) {
+                    long id = Long.parseLong(file.getName());
+                    if (db.message().countMessage(id) == 0) {
+                        Log.i(Helper.TAG, "Cleanup message id=" + id);
+                        file.delete();
+                    }
+                }
+            File attachments = new File(getFilesDir(), "attachments");
+            for (File file : attachments.listFiles())
+                if (file.isFile()) {
+                    long id = Long.parseLong(file.getName());
+                    if (db.attachment().countAttachment(id) == 0) {
+                        Log.i(Helper.TAG, "Cleanup attachment id=" + id);
+                        file.delete();
+                    }
+                }
+
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync");
