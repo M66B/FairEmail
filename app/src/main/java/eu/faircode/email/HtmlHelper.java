@@ -52,6 +52,7 @@ public class HtmlHelper implements NodeVisitor {
         String name = node.nodeName();
         if (node instanceof TextNode) {
             String text = ((TextNode) node).text();
+            text = Html.escapeHtml(text);
             Matcher matcher = pattern.matcher(text);
             while (matcher.find()) {
                 String ref = matcher.group();
