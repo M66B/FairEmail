@@ -425,7 +425,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Update folder list
                 try {
-                    synchronizeFolders(account, istore);
+                    synchronizeFolders(account, istore, state);
                 } catch (MessagingException ex) {
                     // Don't show to user
                     throw new IllegalStateException("synchronize folders", ex);
@@ -505,7 +505,7 @@ public class ServiceSynchronize extends LifecycleService {
                         });
 
                         // Fetch e-mail
-                        synchronizeMessages(account, folder, ifolder);
+                        synchronizeMessages(account, folder, ifolder, state);
 
                         // Flags (like "seen") at the remote could be changed while synchronizing
 
@@ -1050,7 +1050,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeFolders(EntityAccount account, IMAPStore istore) throws MessagingException {
+    private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
         try {
             Log.v(Helper.TAG, "Start sync folders");
 
@@ -1065,6 +1065,9 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
+                if (!state.running)
+                    return;
+
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 boolean selectable = true;
                 for (String attr : attrs) {
@@ -1104,7 +1107,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder) throws MessagingException, IOException {
+    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, ServiceState state) throws MessagingException, IOException {
         try {
             Log.v(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
@@ -1143,7 +1146,10 @@ public class ServiceSynchronize extends LifecycleService {
             long fetch = SystemClock.elapsedRealtime();
             Log.i(Helper.TAG, folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
-            for (Message imessage : imessages)
+            for (Message imessage : imessages) {
+                if (!state.running)
+                    return;
+
                 try {
                     uids.remove(ifolder.getUID(imessage));
                 } catch (MessageRemovedException ex) {
@@ -1154,6 +1160,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
+            }
 
             // Delete local messages not at remote
             Log.i(Helper.TAG, folder.name + " delete=" + uids.size());
