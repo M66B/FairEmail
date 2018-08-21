@@ -645,13 +645,13 @@ public class FragmentCompose extends FragmentEx {
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("<br><br>%s %s:<br><br>%s",
                                 Html.escapeHtml(new Date().toString()),
-                                Html.escapeHtml(TextUtils.join(", ", draft.to)),
+                                Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(context, ref.read(context), true));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
                         body = String.format("<br><br>%s %s:<br><br>%s",
                                 Html.escapeHtml(new Date().toString()),
-                                Html.escapeHtml(TextUtils.join(", ", ref.from)),
+                                Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(context, ref.read(context), true));
                     }
                 }
@@ -686,9 +686,9 @@ public class FragmentCompose extends FragmentEx {
             String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
 
-            etTo.setText(draft.to == null ? null : TextUtils.join(", ", draft.to));
-            etCc.setText(draft.cc == null ? null : TextUtils.join(", ", draft.cc));
-            etBcc.setText(draft.bcc == null ? null : TextUtils.join(", ", draft.bcc));
+            etTo.setText(draft.to == null ? null : MessageHelper.getFormattedAddresses(draft.to, true));
+            etCc.setText(draft.cc == null ? null : MessageHelper.getFormattedAddresses(draft.cc, true));
+            etBcc.setText(draft.bcc == null ? null : MessageHelper.getFormattedAddresses(draft.bcc, true));
             etSubject.setText(draft.subject);
 
             etBody.setText(null);
