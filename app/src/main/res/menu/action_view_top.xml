@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/action_seen"
-        android:icon="@drawable/baseline_visibility_off_black_18"
+        android:icon="@drawable/baseline_visibility_off_24"
         android:title="@string/title_seen"
         app:showAsAction="ifRoom" />
 
