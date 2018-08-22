@@ -210,7 +210,7 @@ public class FragmentCompose extends FragmentEx {
                                 new Handler().post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        etSubject.requestFocus();
+                                        etTo.requestFocus();
                                     }
                                 });
 
@@ -703,6 +703,7 @@ public class FragmentCompose extends FragmentEx {
                 @Override
                 protected void onLoaded(Bundle args, Spanned body) {
                     etBody.setText(body);
+                    etBody.setSelection(0);
                 }
             }.load(FragmentCompose.this, a);
 
@@ -713,17 +714,6 @@ public class FragmentCompose extends FragmentEx {
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             grpMessage.setVisibility(View.VISIBLE);
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if ("reply".equals(action) || "reply_all".equals(action)) {
-                        etBody.requestFocus();
-                        etBody.setSelection(0);
-                    } else
-                        etTo.requestFocus();
-                }
-            }, 0);
 
             DB db = DB.getInstance(getContext());
 
