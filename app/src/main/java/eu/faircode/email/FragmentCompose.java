@@ -817,19 +817,26 @@ public class FragmentCompose extends FragmentEx {
             String subject = args.getString("subject");
             String body = args.getString("body");
 
-            EntityMessage draft;
-
             // Get draft & selected identity
             DB db = DB.getInstance(context);
+            EntityMessage draft = db.message().getMessage(id);
+            EntityIdentity identity = db.identity().getIdentity(iid);
+
+            // Draft deleted by server
+            if (draft == null)
+                throw new MessageRemovedException("Draft for action was deleted");
+
+            // Check data
+            if (action == R.id.action_send) {
+                if (draft.identity == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+
+                if (draft.to == null && draft.cc == null && draft.bcc == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
+            }
+
             try {
                 db.beginTransaction();
-
-                draft = db.message().getMessage(id);
-                EntityIdentity identity = db.identity().getIdentity(iid);
-
-                // Draft deleted by server
-                if (draft == null)
-                    throw new MessageRemovedException("Draft for action was deleted");
 
                 Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
 
@@ -876,13 +883,6 @@ public class FragmentCompose extends FragmentEx {
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
                     draft.write(context, body);
-
-                    // Check data
-                    if (draft.identity == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
-
-                    if (draft.to == null && draft.cc == null && draft.bcc == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
                     // Save message ID
                     String msgid = draft.msgid;
