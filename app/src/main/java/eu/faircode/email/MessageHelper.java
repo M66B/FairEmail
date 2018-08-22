@@ -29,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Date;
@@ -248,7 +249,28 @@ public class MessageHelper {
     private String getHtml(Part part) throws MessagingException {
         if (part.isMimeType("text/*"))
             try {
-                String s = part.getContent().toString();
+                String s;
+                try {
+                    s = part.getContent().toString();
+                } catch (UnsupportedEncodingException ex) {
+                    Log.w(Helper.TAG, part.getContentType() + "\n" + ex + "\n" + Log.getStackTraceString(ex));
+                    s = "Unsupported encoding: " + part.getContentType() + "\n\n";
+
+                    InputStream is = part.getInputStream();
+
+                    ByteArrayOutputStream os = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[8192];
+                    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                        os.write(buffer, 0, len);
+                    os.toByteArray();
+
+                    try {
+                        s += new String(os.toByteArray(), "US-ASCII");
+                    } catch (UnsupportedEncodingException uex) {
+                        Log.w(Helper.TAG, uex + "\n" + Log.getStackTraceString(uex));
+                    }
+                }
+
                 if (part.isMimeType("text/plain"))
                     s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 return s;
@@ -316,10 +338,24 @@ public class MessageHelper {
 
         Object content = part.getContent();
         if (content instanceof InputStream || content instanceof String) {
-            if (Part.ATTACHMENT.equalsIgnoreCase(part.getDisposition()) || !TextUtils.isEmpty(part.getFileName())) {
+            String disposition;
+            try {
+                disposition = part.getDisposition();
+            } catch (MessagingException ex) {
+                disposition = null;
+            }
+
+            String filename;
+            try {
+                filename = part.getFileName();
+            } catch (MessagingException ex) {
+                filename = null;
+            }
+
+            if (disposition == null || Part.ATTACHMENT.equalsIgnoreCase(disposition) || !TextUtils.isEmpty(filename)) {
                 ContentType ct = new ContentType(part.getContentType());
                 EntityAttachment attachment = new EntityAttachment();
-                attachment.name = part.getFileName();
+                attachment.name = filename;
                 attachment.type = ct.getBaseType();
                 attachment.size = part.getSize();
                 attachment.part = part;
