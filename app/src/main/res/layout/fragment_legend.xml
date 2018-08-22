@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="18dp">
+
+        <ImageView
+            android:id="@+id/ivCC"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_people_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_cc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivCC"
+            app:layout_constraintStart_toEndOf="@id/ivCC"
+            app:layout_constraintTop_toTopOf="@id/ivCC" />
+
+        <ImageView
+            android:id="@+id/ivAttachment"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_attachment_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCC" />
+
+        <TextView
+            android:id="@+id/tvAttachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_attachment"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivAttachment"
+            app:layout_constraintStart_toEndOf="@id/ivAttachment"
+            app:layout_constraintTop_toTopOf="@id/ivAttachment" />
+
+        <ImageView
+            android:id="@+id/ivSynchronize"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_sync_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+
+        <TextView
+            android:id="@+id/tvSynchronize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_synchronize"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSynchronize"
+            app:layout_constraintStart_toEndOf="@id/ivSynchronize"
+            app:layout_constraintTop_toTopOf="@id/ivSynchronize" />
+
+        <ImageView
+            android:id="@+id/ivPrimary"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_star_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
+
+        <TextView
+            android:id="@+id/tvPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivPrimary"
+            app:layout_constraintStart_toEndOf="@id/ivPrimary"
+            app:layout_constraintTop_toTopOf="@id/ivPrimary" />
+
+        <ImageView
+            android:id="@+id/ivDisconnected"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_cloud_off_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPrimary" />
+
+        <TextView
+            android:id="@+id/tvDisconnected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_disconnected"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivDisconnected"
+            app:layout_constraintStart_toEndOf="@id/ivDisconnected"
+            app:layout_constraintTop_toTopOf="@id/ivDisconnected" />
+
+        <ImageView
+            android:id="@+id/ivConnecting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_cloud_queue_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDisconnected" />
+
+        <TextView
+            android:id="@+id/tvConnecting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_connecting"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivConnecting"
+            app:layout_constraintStart_toEndOf="@id/ivConnecting"
+            app:layout_constraintTop_toTopOf="@id/ivConnecting" />
+
+        <ImageView
+            android:id="@+id/ivConnected"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_cloud_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivConnecting" />
+
+        <TextView
+            android:id="@+id/tvConnected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_connected"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivConnected"
+            app:layout_constraintStart_toEndOf="@id/ivConnected"
+            app:layout_constraintTop_toTopOf="@id/ivConnected" />
+
+        <ImageView
+            android:id="@+id/ivClosing"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivConnected" />
+
+        <TextView
+            android:id="@+id/tvClosing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_closing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivClosing"
+            app:layout_constraintStart_toEndOf="@id/ivClosing"
+            app:layout_constraintTop_toTopOf="@id/ivClosing" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

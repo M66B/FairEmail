@@ -117,11 +117,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_operations:
                         onMenuOperations();
                         break;
-                    case R.string.menu_privacy:
-                        onMenuPrivacy();
+                    case R.string.menu_legend:
+                        onMenuLegend();
                         break;
                     case R.string.menu_faq:
                         onMenuFAQ();
+                        break;
+                    case R.string.menu_privacy:
+                        onMenuPrivacy();
                         break;
                     case R.string.menu_about:
                         onMenuAbout();
@@ -165,13 +168,15 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
 
-                if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
-                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_legend));
 
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
 
-                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_help_24, R.string.menu_about));
+                if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
+
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
 
                 if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_get_app_24, R.string.menu_other));
@@ -446,12 +451,18 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         fragmentTransaction.commit();
     }
 
-    private void onMenuPrivacy() {
-        startActivity(getIntentPrivacy());
+    private void onMenuLegend() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentLegend()).addToBackStack("legend");
+        fragmentTransaction.commit();
     }
 
     private void onMenuFAQ() {
         startActivity(getIntentFAQ());
+    }
+
+    private void onMenuPrivacy() {
+        startActivity(getIntentPrivacy());
     }
 
     private void onMenuAbout() {
