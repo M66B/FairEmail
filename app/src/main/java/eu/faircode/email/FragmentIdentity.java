@@ -253,49 +253,45 @@ public class FragmentIdentity extends FragmentEx {
                             }
                         }
 
+                        DB db = DB.getInstance(getContext());
                         try {
-                            ServiceSynchronize.stopSynchronous(getContext(), "save identity");
+                            db.beginTransaction();
 
-                            DB db = DB.getInstance(getContext());
-                            try {
-                                db.beginTransaction();
+                            EntityIdentity identity = db.identity().getIdentity(id);
+                            boolean update = (identity != null);
+                            if (identity == null)
+                                identity = new EntityIdentity();
+                            identity.name = name;
+                            identity.email = email;
+                            identity.replyto = replyto;
+                            identity.account = account;
+                            identity.host = host;
+                            identity.port = Integer.parseInt(port);
+                            identity.starttls = starttls;
+                            identity.user = user;
+                            identity.password = password;
+                            identity.synchronize = synchronize;
+                            identity.primary = (identity.synchronize && args.getBoolean("primary"));
 
-                                EntityIdentity identity = db.identity().getIdentity(id);
-                                boolean update = (identity != null);
-                                if (identity == null)
-                                    identity = new EntityIdentity();
-                                identity.name = name;
-                                identity.email = email;
-                                identity.replyto = replyto;
-                                identity.account = account;
-                                identity.host = host;
-                                identity.port = Integer.parseInt(port);
-                                identity.starttls = starttls;
-                                identity.user = user;
-                                identity.password = password;
-                                identity.synchronize = synchronize;
-                                identity.primary = (identity.synchronize && args.getBoolean("primary"));
+                            if (!identity.synchronize)
+                                identity.error = null;
 
-                                if (!identity.synchronize)
-                                    identity.error = null;
+                            if (identity.primary)
+                                db.identity().resetPrimary();
 
-                                if (identity.primary)
-                                    db.identity().resetPrimary();
+                            if (update)
+                                db.identity().updateIdentity(identity);
+                            else
+                                identity.id = db.identity().insertIdentity(identity);
 
-                                if (update)
-                                    db.identity().updateIdentity(identity);
-                                else
-                                    identity.id = db.identity().insertIdentity(identity);
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            return null;
+                            db.setTransactionSuccessful();
                         } finally {
-                            ServiceSynchronize.start(getContext());
+                            db.endTransaction();
                         }
+
+                        ServiceSynchronize.reload(getContext(), "save identity");
+
+                        return null;
                     }
 
                     @Override
@@ -335,15 +331,10 @@ public class FragmentIdentity extends FragmentEx {
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
-                                        try {
-                                            ServiceSynchronize.stopSynchronous(getContext(), "delete identity");
-
-                                            long id = args.getLong("id");
-                                            DB.getInstance(context).identity().deleteIdentity(id);
-                                            return null;
-                                        } finally {
-                                            ServiceSynchronize.start(getContext());
-                                        }
+                                        long id = args.getLong("id");
+                                        DB.getInstance(context).identity().deleteIdentity(id);
+                                        ServiceSynchronize.reload(getContext(), "delete identity");
+                                        return null;
                                     }
 
                                     @Override

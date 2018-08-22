@@ -421,89 +421,85 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(name))
                             name = host + "/" + user;
 
+                        DB db = DB.getInstance(getContext());
                         try {
-                            ServiceSynchronize.stopSynchronous(getContext(), "save account");
+                            db.beginTransaction();
 
-                            DB db = DB.getInstance(getContext());
-                            try {
-                                db.beginTransaction();
+                            EntityAccount account = db.account().getAccount(args.getLong("id"));
+                            boolean update = (account != null);
+                            if (account == null)
+                                account = new EntityAccount();
+                            account.name = name;
+                            account.host = host;
+                            account.port = Integer.parseInt(port);
+                            account.user = user;
+                            account.password = password;
+                            account.synchronize = synchronize;
+                            account.primary = (account.synchronize && primary);
+                            account.store_sent = store_sent;
 
-                                EntityAccount account = db.account().getAccount(args.getLong("id"));
-                                boolean update = (account != null);
-                                if (account == null)
-                                    account = new EntityAccount();
-                                account.name = name;
-                                account.host = host;
-                                account.port = Integer.parseInt(port);
-                                account.user = user;
-                                account.password = password;
-                                account.synchronize = synchronize;
-                                account.primary = (account.synchronize && primary);
-                                account.store_sent = store_sent;
+                            if (!synchronize)
+                                account.error = null;
 
-                                if (!synchronize)
-                                    account.error = null;
+                            if (account.primary)
+                                db.account().resetPrimary();
 
-                                if (account.primary)
-                                    db.account().resetPrimary();
+                            if (update)
+                                db.account().updateAccount(account);
+                            else
+                                account.id = db.account().insertAccount(account);
 
-                                if (update)
-                                    db.account().updateAccount(account);
-                                else
-                                    account.id = db.account().insertAccount(account);
+                            List<EntityFolder> folders = new ArrayList<>();
 
-                                List<EntityFolder> folders = new ArrayList<>();
+                            EntityFolder inbox = new EntityFolder();
+                            inbox.name = "INBOX";
+                            inbox.type = EntityFolder.INBOX;
+                            inbox.synchronize = true;
+                            inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
 
-                                EntityFolder inbox = new EntityFolder();
-                                inbox.name = "INBOX";
-                                inbox.type = EntityFolder.INBOX;
-                                inbox.synchronize = true;
-                                inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
+                            folders.add(inbox);
 
-                                folders.add(inbox);
-
-                                if (drafts != null) {
-                                    drafts.type = EntityFolder.DRAFTS;
-                                    folders.add(drafts);
-                                }
-
-                                if (sent != null) {
-                                    sent.type = EntityFolder.SENT;
-                                    folders.add(sent);
-                                }
-                                if (all != null) {
-                                    all.type = EntityFolder.ARCHIVE;
-                                    folders.add(all);
-                                }
-                                if (trash != null) {
-                                    trash.type = EntityFolder.TRASH;
-                                    folders.add(trash);
-                                }
-                                if (junk != null) {
-                                    junk.type = EntityFolder.JUNK;
-                                    folders.add(junk);
-                                }
-
-                                for (EntityFolder folder : folders) {
-                                    db.folder().setFolderUser(account.id, folder.type);
-                                    EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
-                                    if (existing == null) {
-                                        folder.account = account.id;
-                                        Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
-                                        folder.id = db.folder().insertFolder(folder);
-                                    } else
-                                        db.folder().setFolderType(existing.id, folder.type);
-                                }
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
+                            if (drafts != null) {
+                                drafts.type = EntityFolder.DRAFTS;
+                                folders.add(drafts);
                             }
 
-                            return null;
+                            if (sent != null) {
+                                sent.type = EntityFolder.SENT;
+                                folders.add(sent);
+                            }
+                            if (all != null) {
+                                all.type = EntityFolder.ARCHIVE;
+                                folders.add(all);
+                            }
+                            if (trash != null) {
+                                trash.type = EntityFolder.TRASH;
+                                folders.add(trash);
+                            }
+                            if (junk != null) {
+                                junk.type = EntityFolder.JUNK;
+                                folders.add(junk);
+                            }
+
+                            for (EntityFolder folder : folders) {
+                                db.folder().setFolderUser(account.id, folder.type);
+                                EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                                if (existing == null) {
+                                    folder.account = account.id;
+                                    Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
+                                    folder.id = db.folder().insertFolder(folder);
+                                } else
+                                    db.folder().setFolderType(existing.id, folder.type);
+                            }
+
+                            db.setTransactionSuccessful();
                         } finally {
-                            ServiceSynchronize.start(getContext());
+                            db.endTransaction();
                         }
+
+                        ServiceSynchronize.reload(getContext(), "save account");
+
+                        return null;
                     }
 
                     @Override
@@ -544,15 +540,10 @@ public class FragmentAccount extends FragmentEx {
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
-                                        try {
-                                            ServiceSynchronize.stopSynchronous(getContext(), "delete account");
-
-                                            long id = args.getLong("id");
-                                            DB.getInstance(context).account().deleteAccount(id);
-                                            return null;
-                                        } finally {
-                                            ServiceSynchronize.start(getContext());
-                                        }
+                                        long id = args.getLong("id");
+                                        DB.getInstance(context).account().deleteAccount(id);
+                                        ServiceSynchronize.reload(getContext(), "delete account");
+                                        return null;
                                     }
 
                                     @Override

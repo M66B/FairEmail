@@ -23,11 +23,9 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -35,10 +33,8 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
-import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -186,39 +182,43 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(Helper.TAG, "Service start intent=" + intent);
+        Log.i(Helper.TAG, "Service command intent=" + intent);
         super.onStartCommand(intent, flags, startId);
 
-        if (intent != null && "unseen".equals(intent.getAction())) {
-            Bundle args = new Bundle();
-            args.putLong("time", new Date().getTime());
+        if (intent != null)
+            if ("reload".equals(intent.getAction()))
+                serviceManager.restart();
+            else if ("unseen".equals(intent.getAction())) {
+                Bundle args = new Bundle();
+                args.putLong("time", new Date().getTime());
 
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    long time = args.getLong("time");
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        long time = args.getLong("time");
 
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
 
-                        for (EntityAccount account : db.account().getAccounts(true))
-                            db.account().setAccountSeenUntil(account.id, time);
+                            for (EntityAccount account : db.account().getAccounts(true))
+                                db.account().setAccountSeenUntil(account.id, time);
 
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return null;
                     }
 
-                    return null;
-                }
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        Log.i(Helper.TAG, "Updated seen until");
+                    }
+                }.load(ServiceSynchronize.this, args);
 
-                @Override
-                protected void onLoaded(Bundle args, Void data) {
-                    Log.i(Helper.TAG, "Updated seen until");
-                }
-            }.load(ServiceSynchronize.this, args);
-        }
+            }
 
         return START_STICKY;
     }
@@ -1490,6 +1490,23 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
+        private void restart() {
+            lifecycle.submit(new Runnable() {
+                @Override
+                public void run() {
+                    Log.i(Helper.TAG, "Stopping service");
+                    stop(true);
+                }
+            });
+            lifecycle.submit(new Runnable() {
+                @Override
+                public void run() {
+                    Log.i(Helper.TAG, "Starting service");
+                    start();
+                }
+            });
+        }
+
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -1541,66 +1558,15 @@ public class ServiceSynchronize extends LifecycleService {
             }
     }
 
-    private IBinder binder = new LocalBinder();
-
-    private class LocalBinder extends Binder {
-        ServiceSynchronize getService() {
-            return ServiceSynchronize.this;
-        }
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return binder;
-    }
-
-    public void quit() {
-        Log.i(Helper.TAG, "Service quit");
-        serviceManager.stop(false);
-        Log.i(Helper.TAG, "Service quited");
-        stopSelf();
-    }
-
     public static void start(Context context) {
-        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class));
     }
 
-    public static void stopSynchronous(Context context, String reason) {
-        Log.i(Helper.TAG, "Stop because of '" + reason + "'");
-
-        final Semaphore semaphore = new Semaphore(0, true);
-        ServiceConnection connection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName componentName, IBinder binder) {
-                Log.i(Helper.TAG, "Service connected");
-                ((LocalBinder) binder).getService().quit();
-                semaphore.release();
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName componentName) {
-                Log.i(Helper.TAG, "Service disconnected");
-                semaphore.release();
-            }
-
-            @Override
-            public void onBindingDied(ComponentName name) {
-                Log.i(Helper.TAG, "Service died");
-                semaphore.release();
-            }
-        };
-
-        Intent intent = new Intent(context, ServiceSynchronize.class);
-        boolean exists = context.getApplicationContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
-        Log.i(Helper.TAG, "Service exists=" + exists);
-
-        if (exists) {
-            Log.i(Helper.TAG, "Service stopping");
-            acquire(semaphore, "service");
-            context.getApplicationContext().unbindService(connection);
-        }
-
-        Log.i(Helper.TAG, "Service stopped");
+    public static void reload(Context context, String reason) {
+        Log.i(Helper.TAG, "Reload because of '" + reason + "'");
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class).setAction("reload"));
     }
 
     private class ServiceState {

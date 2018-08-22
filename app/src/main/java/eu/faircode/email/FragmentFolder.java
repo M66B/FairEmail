@@ -76,35 +76,31 @@ public class FragmentFolder extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        boolean synchronize = args.getBoolean("synchronize");
+                        String after = args.getString("after");
+                        int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
+
+                        DB db = DB.getInstance(getContext());
                         try {
-                            ServiceSynchronize.stopSynchronous(getContext(), "save folder");
+                            db.beginTransaction();
 
-                            long id = args.getLong("id");
-                            boolean synchronize = args.getBoolean("synchronize");
-                            String after = args.getString("after");
-                            int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
+                            db.folder().setFolderProperties(id, synchronize, days);
+                            if (!synchronize)
+                                db.folder().setFolderError(id, null);
 
-                            DB db = DB.getInstance(getContext());
-                            try {
-                                db.beginTransaction();
+                            EntityFolder folder = db.folder().getFolder(id);
+                            if (!folder.synchronize)
+                                db.message().deleteMessages(folder.id);
 
-                                db.folder().setFolderProperties(id, synchronize, days);
-                                if (!synchronize)
-                                    db.folder().setFolderError(id, null);
-
-                                EntityFolder folder = db.folder().getFolder(id);
-                                if (!folder.synchronize)
-                                    db.message().deleteMessages(folder.id);
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            return null;
+                            db.setTransactionSuccessful();
                         } finally {
-                            ServiceSynchronize.start(getContext());
+                            db.endTransaction();
                         }
+
+                        ServiceSynchronize.reload(getContext(), "save folder");
+
+                        return null;
                     }
 
                     @Override
