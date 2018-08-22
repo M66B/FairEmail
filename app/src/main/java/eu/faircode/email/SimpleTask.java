@@ -52,8 +52,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     static {
         handlerThread = new HandlerThread("SimpleTask");
-        handlerThread.setPriority(THREAD_PRIORITY_BACKGROUND);
         handlerThread.start();
+        handlerThread.setPriority(THREAD_PRIORITY_BACKGROUND);
         handler = new Handler(handlerThread.getLooper());
     }
 
