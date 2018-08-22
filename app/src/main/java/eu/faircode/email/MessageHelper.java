@@ -352,7 +352,7 @@ public class MessageHelper {
                 filename = null;
             }
 
-            if (disposition == null || Part.ATTACHMENT.equalsIgnoreCase(disposition) || !TextUtils.isEmpty(filename)) {
+            if (Part.ATTACHMENT.equalsIgnoreCase(disposition) || !TextUtils.isEmpty(filename)) {
                 ContentType ct = new ContentType(part.getContentType());
                 EntityAttachment attachment = new EntityAttachment();
                 attachment.name = filename;
