@@ -42,10 +42,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -86,11 +86,11 @@ public class FragmentCompose extends FragmentEx {
     private ViewGroup view;
     private Spinner spFrom;
     private ImageView ivIdentityAdd;
-    private AutoCompleteTextView etTo;
+    private MultiAutoCompleteTextView etTo;
     private ImageView ivToAdd;
-    private AutoCompleteTextView etCc;
+    private MultiAutoCompleteTextView etCc;
     private ImageView ivCcAdd;
-    private AutoCompleteTextView etBcc;
+    private MultiAutoCompleteTextView etBcc;
     private ImageView ivBccAdd;
     private EditText etSubject;
     private RecyclerView rvAttachment;
@@ -263,6 +263,10 @@ public class FragmentCompose extends FragmentEx {
             etTo.setAdapter(adapter);
             etCc.setAdapter(adapter);
             etBcc.setAdapter(adapter);
+
+            etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+            etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+            etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
             adapter.setFilterQueryProvider(new FilterQueryProvider() {
                 public Cursor runQuery(CharSequence typed) {

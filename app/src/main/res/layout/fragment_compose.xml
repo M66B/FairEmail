@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/spFrom" />
 
-    <AutoCompleteTextView
+    <MultiAutoCompleteTextView
         android:id="@+id/etTo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toEndOf="@id/etTo"
         app:layout_constraintTop_toTopOf="@+id/etTo" />
 
-    <AutoCompleteTextView
+    <MultiAutoCompleteTextView
         android:id="@+id/etCc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toEndOf="@id/etCc"
         app:layout_constraintTop_toTopOf="@+id/etCc" />
 
-    <AutoCompleteTextView
+    <MultiAutoCompleteTextView
         android:id="@+id/etBcc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
