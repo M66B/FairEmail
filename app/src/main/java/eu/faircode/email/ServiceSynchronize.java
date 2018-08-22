@@ -46,6 +46,7 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -328,9 +329,18 @@ public class ServiceSynchronize extends LifecycleService {
         // - can happen when syncing message
 
         // MailConnectException
+        // - on connectity problems when connecting to stoe
 
-        if (!(ex instanceof FolderClosedException) && !(ex instanceof IllegalStateException)) {
-            String action = account + "/" + folder;
+        if (!(ex instanceof MailConnectException) &&
+                !(ex instanceof FolderClosedException) &&
+                !(ex instanceof IllegalStateException)) {
+            String action;
+            if (TextUtils.isEmpty(account))
+                action = folder;
+            else if (TextUtils.isEmpty(folder))
+                action = account;
+            else
+                action = account + "/" + folder;
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
