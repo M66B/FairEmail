@@ -311,8 +311,6 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (autosave)
-            onAction(R.id.action_save);
         outState.putLong("working", working);
     }
 
