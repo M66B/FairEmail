@@ -28,8 +28,9 @@
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
   <string name="menu_operations">Operaţii</string>
-  <string name="menu_privacy">Confidențialitate</string>
+  <string name="menu_legend">Legend</string>
   <string name="menu_faq">Întrebări frecvente</string>
+  <string name="menu_privacy">Confidențialitate</string>
   <string name="menu_about">Despre</string>
   <string name="menu_other">Alte aplicații</string>
   <string name="title_eula">Licența de utilizare</string>
@@ -139,6 +140,14 @@
   <string name="title_draft_trashed">Ciornă trimisă la gunoi</string>
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
+  <string name="title_legend_cc">CC/BCC</string>
+  <string name="title_legend_attachment">Attachment</string>
+  <string name="title_legend_synchronize">Synchronize</string>
+  <string name="title_legend_primary">Primary</string>
+  <string name="title_legend_disconnected">Disconnected</string>
+  <string name="title_legend_connecting">Connecting</string>
+  <string name="title_legend_connected">Connected</string>
+  <string name="title_legend_closing">Closing</string>
   <string name="title_debug_info">Depanare</string>
   <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
 </resources>

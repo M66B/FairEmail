@@ -24,8 +24,9 @@
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
   <string name="menu_operations">Operations</string>
-  <string name="menu_privacy">Privacy</string>
+  <string name="menu_legend">Legend</string>
   <string name="menu_faq">FAQ</string>
+  <string name="menu_privacy">Privacy</string>
   <string name="menu_about">Über</string>
   <string name="menu_other">Other apps</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
@@ -135,6 +136,14 @@
   <string name="title_draft_trashed">Entwurf gelöscht</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
+  <string name="title_legend_cc">CC/BCC</string>
+  <string name="title_legend_attachment">Attachment</string>
+  <string name="title_legend_synchronize">Synchronize</string>
+  <string name="title_legend_primary">Primary</string>
+  <string name="title_legend_disconnected">Disconnected</string>
+  <string name="title_legend_connecting">Connecting</string>
+  <string name="title_legend_connected">Connected</string>
+  <string name="title_legend_closing">Closing</string>
   <string name="title_debug_info">Debuginformationen</string>
   <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt dieses aufgetreten ist:</string>
 </resources>
