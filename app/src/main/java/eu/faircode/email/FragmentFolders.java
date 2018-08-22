@@ -33,7 +33,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -109,8 +108,7 @@ public class FragmentFolders extends FragmentEx {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 if (folders == null) {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        getFragmentManager().popBackStack();
+                    finish();
                     return;
                 }
 

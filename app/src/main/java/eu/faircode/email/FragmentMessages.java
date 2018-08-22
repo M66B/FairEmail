@@ -40,7 +40,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.paging.LivePagedListBuilder;
@@ -155,8 +154,7 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null) {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        getFragmentManager().popBackStack();
+                    finish();
                     return;
                 }
 

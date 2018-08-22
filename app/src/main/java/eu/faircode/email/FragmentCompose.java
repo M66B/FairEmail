@@ -76,7 +76,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -804,8 +803,7 @@ public class FragmentCompose extends FragmentEx {
                 public void onChanged(final EntityMessage draft) {
                     // Draft was deleted
                     if (draft == null || draft.ui_hide) {
-                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                            getFragmentManager().popBackStack();
+                        finish();
                         return;
                     }
                 }

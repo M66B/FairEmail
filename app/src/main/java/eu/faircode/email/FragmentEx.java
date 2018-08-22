@@ -30,9 +30,11 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 
 public class FragmentEx extends Fragment {
     private String subtitle = " ";
+    private boolean finish = false;
 
     protected void setSubtitle(int resid) {
         setSubtitle(getString(resid));
@@ -41,6 +43,13 @@ public class FragmentEx extends Fragment {
     protected void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
         updateSubtitle();
+    }
+
+    protected void finish() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getFragmentManager().popBackStack();
+        else
+            finish = true;
     }
 
     @Override
@@ -66,6 +75,10 @@ public class FragmentEx extends Fragment {
         Log.i(Helper.TAG, "Resume " + this);
         super.onResume();
         updateSubtitle();
+        if (finish) {
+            getFragmentManager().popBackStack();
+            finish = false;
+        }
     }
 
     @Override

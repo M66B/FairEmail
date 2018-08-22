@@ -33,7 +33,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 
 public class FragmentFolder extends FragmentEx {
@@ -149,8 +148,7 @@ public class FragmentFolder extends FragmentEx {
             @Override
             public void onChanged(@Nullable EntityFolder folder) {
                 if (folder == null) {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        getFragmentManager().popBackStack();
+                    finish();
                     return;
                 }
 
