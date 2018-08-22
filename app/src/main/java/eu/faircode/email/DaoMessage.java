@@ -35,12 +35,13 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
-    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.type = '" + EntityFolder.INBOX + "' THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
+            " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
@@ -48,12 +49,13 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
-    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
+            " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " LEFT JOIN folder f ON f.id = :folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
@@ -62,11 +64,12 @@ public interface DaoMessage {
             " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean debug);
 
-    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
+            " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
             " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
@@ -105,11 +108,12 @@ public interface DaoMessage {
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
     List<EntityMessage> getMessageByThread(long account, String thread);
 
-    @Query("SELECT message.*, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
+            " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);

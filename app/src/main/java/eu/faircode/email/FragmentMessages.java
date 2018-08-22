@@ -66,6 +66,7 @@ public class FragmentMessages extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
+        long folder = (args == null ? -1 : args.getLong("folder", -1));
         long thread = (args == null ? -1 : args.getLong("thread", -1)); // message ID
 
         setHasOptionsMenu(true);
@@ -83,12 +84,16 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
-        adapter = new AdapterMessage(
-                getContext(),
-                getViewLifecycleOwner(),
-                thread < 0
-                        ? AdapterMessage.ViewType.FOLDER
-                        : AdapterMessage.ViewType.THREAD);
+        AdapterMessage.ViewType viewType;
+        if (thread < 0)
+            if (folder < 0)
+                viewType = AdapterMessage.ViewType.UNIFIED;
+            else
+                viewType = AdapterMessage.ViewType.FOLDER;
+        else
+            viewType = AdapterMessage.ViewType.THREAD;
+
+        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType);
         rvMessage.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

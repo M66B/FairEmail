@@ -52,7 +52,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
-    enum ViewType {FOLDER, THREAD}
+    enum ViewType {UNIFIED, FOLDER, THREAD}
 
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
@@ -61,6 +61,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         TextView tvTime;
         ImageView ivAttachments;
         TextView tvSubject;
+        TextView tvFolder;
         TextView tvCount;
         TextView tvError;
         ProgressBar pbLoading;
@@ -73,6 +74,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime = itemView.findViewById(R.id.tvTime);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
+            tvFolder = itemView.findViewById(R.id.tvFolder);
             tvCount = itemView.findViewById(R.id.tvCount);
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
@@ -113,12 +115,18 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 
-            if (viewType == ViewType.FOLDER) {
+            if (viewType == ViewType.UNIFIED) {
+                tvFolder.setText(message.accountName);
+                tvCount.setText(Integer.toString(message.count));
+                tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
+            } else if (viewType == ViewType.FOLDER) {
+                tvFolder.setVisibility(View.GONE);
                 tvCount.setText(Integer.toString(message.count));
                 tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
             } else {
-                tvCount.setText(Helper.localizeFolderName(context, message.folderName));
-                tvCount.setVisibility(View.VISIBLE);
+                tvCount.setVisibility(View.GONE);
+                tvFolder.setText(Helper.localizeFolderName(context, message.folderName));
+                tvFolder.setVisibility(View.VISIBLE);
             }
 
             if (debug) {
