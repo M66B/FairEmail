@@ -52,9 +52,19 @@
 
         <activity
             android:name=".ActivityCompose"
-            android:exported="false"
+            android:exported="true"
             android:launchMode="standard"
-            android:parentActivityName=".ActivityView" />
+            android:parentActivityName=".ActivityView">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SENDTO" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <data android:mimeType="*/*" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".ServiceSynchronize" />
 

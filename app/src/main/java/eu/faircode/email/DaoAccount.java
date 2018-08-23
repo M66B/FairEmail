@@ -42,6 +42,9 @@ public interface DaoAccount {
     EntityAccount getAccount(long id);
 
     @Query("SELECT * FROM account WHERE `primary`")
+    EntityAccount getPrimaryAccount();
+
+    @Query("SELECT * FROM account WHERE `primary`")
     LiveData<EntityAccount> livePrimaryAccount();
 
     @Query("SELECT * FROM account WHERE id = :id")

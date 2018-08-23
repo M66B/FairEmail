@@ -19,8 +19,13 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,8 +47,44 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
+            Bundle args;
+            if (Intent.ACTION_SEND.equals(getIntent().getAction()) ||
+                    Intent.ACTION_SENDTO.equals(getIntent().getAction()) ||
+                    Intent.ACTION_SEND_MULTIPLE.equals(getIntent().getAction())) {
+                args = new Bundle();
+
+                args.putString("action", "new");
+                args.putLong("account", -1);
+
+                if (getIntent().hasExtra(Intent.EXTRA_EMAIL))
+                    args.putString("to", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_EMAIL)));
+
+                if (getIntent().hasExtra(Intent.EXTRA_CC))
+                    args.putString("cc", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_CC)));
+
+                if (getIntent().hasExtra(Intent.EXTRA_BCC))
+                    args.putString("bcc", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_BCC)));
+
+                if (getIntent().hasExtra(Intent.EXTRA_SUBJECT))
+                    args.putString("subject", getIntent().getStringExtra(Intent.EXTRA_SUBJECT));
+
+                if (getIntent().hasExtra(Intent.EXTRA_TEXT))
+                    args.putString("body", getIntent().getStringExtra(Intent.EXTRA_TEXT)); // Intent.EXTRA_HTML_TEXT
+
+                if (getIntent().hasExtra(Intent.EXTRA_STREAM))
+                    if (Intent.ACTION_SEND_MULTIPLE.equals(getIntent().getAction()))
+                        args.putParcelableArrayList("attachments", getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM));
+                    else {
+                        ArrayList<Uri> uris = new ArrayList<>();
+                        uris.add((Uri) getIntent().getParcelableExtra(Intent.EXTRA_STREAM));
+                        args.putParcelableArrayList("attachments", uris);
+                    }
+
+            } else
+                args = getIntent().getExtras();
+
             FragmentCompose fragment = new FragmentCompose();
-            fragment.setArguments(getIntent().getExtras());
+            fragment.setArguments(args);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("compose");

@@ -68,6 +68,7 @@ import java.util.List;
 
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -328,6 +329,12 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("id", getArguments().getLong("id", -1));
             args.putLong("account", getArguments().getLong("account", -1));
             args.putLong("reference", getArguments().getLong("reference", -1));
+            args.putString("to", getArguments().getString("to"));
+            args.putString("cc", getArguments().getString("cc"));
+            args.putString("bcc", getArguments().getString("bcc"));
+            args.putString("subject", getArguments().getString("subject"));
+            args.putString("body", getArguments().getString("body"));
+            args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
             draftLoader.load(this, args);
         } else {
             Bundle args = new Bundle();
@@ -455,92 +462,10 @@ public class FragmentCompose extends FragmentEx {
         new SimpleTask<Void>() {
             @Override
             protected Void onLoad(Context context, Bundle args) throws IOException {
-                Cursor cursor = null;
-                try {
-                    Uri uri = args.getParcelable("uri");
-                    cursor = context.getContentResolver().query(uri, null, null, null, null, null);
-                    if (cursor == null || !cursor.moveToFirst())
-                        return null;
-
-                    Long id = args.getLong("id");
-                    EntityAttachment attachment = new EntityAttachment();
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        EntityMessage draft = db.message().getMessage(id);
-                        Log.i(Helper.TAG, "Attaching to id=" + draft.id);
-
-                        attachment.message = draft.id;
-                        attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
-                        attachment.name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-
-                        String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
-                        if (extension != null)
-                            attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-                        if (attachment.type == null)
-                            attachment.type = "application/octet-stream";
-
-                        String size = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
-
-                        attachment.size = (size == null ? null : Integer.parseInt(size));
-                        attachment.progress = 0;
-
-                        attachment.id = db.attachment().insertAttachment(attachment);
-                        Log.i(Helper.TAG, "Created attachment seq=" + attachment.sequence +
-                                " name=" + attachment.name + " type=" + attachment.type);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    try {
-                        File file = EntityAttachment.getFile(context, attachment.id);
-
-                        InputStream is = null;
-                        OutputStream os = null;
-                        try {
-                            is = context.getContentResolver().openInputStream(uri);
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            int size = 0;
-                            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                                size += len;
-                                os.write(buffer, 0, len);
-
-                                // Update progress
-                                if (attachment.size != null)
-                                    db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
-                            }
-
-                            attachment.size = size;
-                            attachment.progress = null;
-                            attachment.available = true;
-                            db.attachment().updateAttachment(attachment);
-                        } finally {
-                            try {
-                                if (is != null)
-                                    is.close();
-                            } finally {
-                                if (os != null)
-                                    os.close();
-                            }
-                        }
-                    } catch (Throwable ex) {
-                        // Reset progress on failure
-                        attachment.progress = null;
-                        db.attachment().updateAttachment(attachment);
-                        throw ex;
-                    }
-
-                    return null;
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
-                }
+                Long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+                addAttachment(context, id, uri);
+                return null;
             }
 
             @Override
@@ -570,6 +495,95 @@ public class FragmentCompose extends FragmentEx {
         actionLoader.load(this, args);
     }
 
+    private void addAttachment(Context context, long id, Uri uri) throws IOException {
+        EntityAttachment attachment = new EntityAttachment();
+
+        String name = null;
+        String s = null;
+
+        Cursor cursor = null;
+        try {
+            cursor = context.getContentResolver().query(uri, null, null, null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                s = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+            }
+
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+
+        DB db = DB.getInstance(context);
+        try {
+            db.beginTransaction();
+
+            EntityMessage draft = db.message().getMessage(id);
+            Log.i(Helper.TAG, "Attaching to id=" + draft.id);
+
+            attachment.message = draft.id;
+            attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
+            attachment.name = name;
+
+            String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+            if (extension != null)
+                attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+            if (attachment.type == null)
+                attachment.type = "application/octet-stream";
+
+
+            attachment.size = (s == null ? null : Integer.parseInt(s));
+            attachment.progress = 0;
+
+            attachment.id = db.attachment().insertAttachment(attachment);
+            Log.i(Helper.TAG, "Created attachment=" + attachment.name + ":" + attachment.sequence + " type=" + attachment.type);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        try {
+            File file = EntityAttachment.getFile(context, attachment.id);
+
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = context.getContentResolver().openInputStream(uri);
+                os = new BufferedOutputStream(new FileOutputStream(file));
+
+                int size = 0;
+                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                    size += len;
+                    os.write(buffer, 0, len);
+
+                    // Update progress
+                    if (attachment.size != null)
+                        db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
+                }
+
+                attachment.size = size;
+                attachment.progress = null;
+                attachment.available = true;
+                db.attachment().updateAttachment(attachment);
+            } finally {
+                try {
+                    if (is != null)
+                        is.close();
+                } finally {
+                    if (os != null)
+                        os.close();
+                }
+            }
+        } catch (IOException ex) {
+            // Reset progress on failure
+            attachment.progress = null;
+            db.attachment().updateAttachment(attachment);
+            throw ex;
+        }
+    }
+
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
         @Override
         protected EntityMessage onLoad(Context context, Bundle args) throws IOException {
@@ -594,7 +608,14 @@ public class FragmentCompose extends FragmentEx {
                     return draft;
 
                 EntityMessage ref = db.message().getMessage(reference);
-                if (ref != null) {
+                if (ref == null) {
+                    if (account < 0) {
+                        EntityAccount a = db.account().getPrimaryAccount();
+                        if (a == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_account));
+                        account = a.id;
+                    }
+                } else {
                     account = ref.account;
 
                     // Reply to sender, not to known self
@@ -626,7 +647,34 @@ public class FragmentCompose extends FragmentEx {
                 draft.folder = drafts.id;
                 draft.msgid = EntityMessage.generateMessageId(); // for multiple appends
 
-                if (ref != null) {
+                if (ref == null) {
+                    try {
+                        String to = args.getString("to");
+                        draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                    } catch (AddressException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+
+                    try {
+                        String cc = args.getString("cc");
+                        draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                    } catch (AddressException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+
+                    try {
+                        String bcc = args.getString("bcc");
+                        draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                    } catch (AddressException ex) {
+                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+
+                    draft.subject = args.getString("subject");
+                    body = args.getString("body");
+                    if (!TextUtils.isEmpty(body))
+                        body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+                } else {
                     draft.thread = ref.thread;
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
@@ -656,16 +704,19 @@ public class FragmentCompose extends FragmentEx {
                     }
                 }
 
-                if ("new".equals(action))
-                    body = "";
-
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;
                 draft.ui_hide = false;
 
                 draft.id = db.message().insertMessage(draft);
-                draft.write(context, body);
+                draft.write(context, body == null ? "" : body);
+
+                if (args.containsKey("attachments")) {
+                    ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                    for (Uri uri : uris)
+                        addAttachment(context, draft.id, uri);
+                }
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
