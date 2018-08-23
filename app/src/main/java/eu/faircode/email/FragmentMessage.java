@@ -72,6 +72,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
     private TextView tvFrom;
+    private TextView tvSize;
     private TextView tvTime;
     private TextView tvTo;
     private TextView tvSubject;
@@ -112,6 +113,7 @@ public class FragmentMessage extends FragmentEx {
 
         // Get controls
         tvFrom = view.findViewById(R.id.tvFrom);
+        tvSize = view.findViewById(R.id.tvSize);
         tvTime = view.findViewById(R.id.tvTime);
         tvTo = view.findViewById(R.id.tvTo);
         tvSubject = view.findViewById(R.id.tvSubject);
@@ -261,6 +263,8 @@ public class FragmentMessage extends FragmentEx {
         fab.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
+        tvSize.setText(null);
+
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttachment.setLayoutManager(llm);
@@ -329,11 +333,13 @@ public class FragmentMessage extends FragmentEx {
                     @Override
                     protected Spanned onLoad(Context context, Bundle args) throws Throwable {
                         String body = EntityMessage.read(context, args.getLong("id"));
+                        args.putInt("size", body.length());
                         return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
                     }
 
                     @Override
                     protected void onLoaded(Bundle args, Spanned body) {
+                        tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
                         tvBody.setText(body);
                         grpMessage.setVisibility(View.VISIBLE);
                         if (!free)

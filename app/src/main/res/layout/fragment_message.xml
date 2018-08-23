@@ -17,9 +17,21 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/tvTime"
+        app:layout_constraintEnd_toStartOf="@+id/tvSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:maxLines="1"
+        android:text="123 K"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toStartOf="@+id/tvTime"
+        app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -269,7 +281,7 @@
         android:id="@+id/grpHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvTime,tvSubject" />
+        app:constraint_referenced_ids="tvFrom,tvToTitle,tvTo,tvSize,tvTime,tvSubject" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAddresses"
