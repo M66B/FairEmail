@@ -201,7 +201,6 @@ public class FragmentMessage extends FragmentEx {
 
                 tvCount.setTag(tvCount.getVisibility());
                 tvCc.setTag(grpAddresses.getVisibility());
-                rvAttachment.setTag(grpAttachments.getVisibility());
                 tvError.setTag(tvError.getVisibility());
 
                 tvCount.setVisibility(View.GONE);
@@ -222,9 +221,11 @@ public class FragmentMessage extends FragmentEx {
                     vSeparatorBody.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.VISIBLE);
 
+                    RecyclerView.Adapter adapter = rvAttachment.getAdapter();
+
                     tvCount.setVisibility((int) tvCount.getTag());
                     grpAddresses.setVisibility((int) tvCc.getTag());
-                    grpAttachments.setVisibility((int) rvAttachment.getTag());
+                    grpAttachments.setVisibility(adapter != null && adapter.getItemCount() > 0 ? View.VISIBLE : View.GONE);
                     tvError.setVisibility((int) tvError.getTag());
 
                     return true;
@@ -287,7 +288,6 @@ public class FragmentMessage extends FragmentEx {
         if (free) {
             outState.putInt("tag_count", (int) tvCount.getTag());
             outState.putInt("tag_cc", (int) tvCc.getTag());
-            outState.putInt("tag_attachment", (int) rvAttachment.getTag());
             outState.putInt("tag_error", (int) tvError.getTag());
         }
     }
@@ -380,12 +380,25 @@ public class FragmentMessage extends FragmentEx {
                 if (free) {
                     tvCount.setVisibility((int) tvCount.getTag());
                     grpAddresses.setVisibility((int) tvCc.getTag());
-                    grpAttachments.setVisibility((int) rvAttachment.getTag());
                     tvError.setVisibility((int) tvError.getTag());
                 } else {
                     tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
                     tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
                 }
+
+                // Observe attachments
+                db.attachment().liveAttachments(id).removeObservers(getViewLifecycleOwner());
+                db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
+                        new Observer<List<EntityAttachment>>() {
+                            @Override
+                            public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                                if (attachments == null)
+                                    attachments = new ArrayList<>();
+
+                                adapter.set(attachments);
+                                grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                            }
+                        });
 
                 db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
@@ -428,21 +441,6 @@ public class FragmentMessage extends FragmentEx {
                 });
             }
         });
-
-        // Observe attachments
-        db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
-                new Observer<List<EntityAttachment>>() {
-                    @Override
-                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                        if (attachments == null)
-                            attachments = new ArrayList<>();
-
-                        adapter.set(attachments);
-                        if (!free)
-                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                    }
-                });
-
     }
 
     @Override
