@@ -43,6 +43,11 @@ Valid security certificates are officially signed (not self signed) and have mat
 Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,
 which is a waste of battery power and internet bandwidth and will delay notification of new emails.
 
+<a name="FAQ6"></a>
+**(6) How can I set a Google app password?**
+
+See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
