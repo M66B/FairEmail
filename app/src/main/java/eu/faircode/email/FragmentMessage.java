@@ -313,7 +313,6 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 FragmentMessage.this.message = message;
-                getActivity().invalidateOptionsMenu();
                 setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                 if (savedInstanceState == null) {
@@ -338,6 +337,8 @@ public class FragmentMessage extends FragmentEx {
                         tvError.setTag(savedInstanceState.getInt("tag_error"));
                     }
                 }
+
+                getActivity().invalidateOptionsMenu();
 
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
