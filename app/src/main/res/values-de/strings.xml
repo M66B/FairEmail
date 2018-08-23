@@ -115,7 +115,8 @@
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
   <string name="title_reply">Antworten</string>
-  <string name="title_no_viewer">Keine App zur Ansicht verfügbar</string>
+  <string name="title_no_viewer">No viewer app available for %1$s</string>
+  <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
   <string name="title_compose">Verfassen</string>

@@ -138,7 +138,8 @@
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
 
-    <string name="title_no_viewer">No viewer app available</string>
+    <string name="title_no_viewer">No viewer app available for %1$s</string>
+    <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_spam">Report message as spam?</string>
 

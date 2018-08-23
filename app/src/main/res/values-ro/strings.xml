@@ -119,7 +119,8 @@
   <string name="title_move">Mută</string>
   <string name="title_archive">Arhivă</string>
   <string name="title_reply">Răspunde</string>
-  <string name="title_no_viewer">Nici o aplicație nu poate deschide</string>
+  <string name="title_no_viewer">No viewer app available for %1$s</string>
+  <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
   <string name="title_ask_spam">Raportați mesajul drept spam?</string>
   <string name="title_compose">Compune</string>

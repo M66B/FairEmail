@@ -30,9 +30,9 @@ import androidx.room.Update;
 @Dao
 public interface DaoAttachment {
     @Query("SELECT * FROM attachment" +
-            " WHERE message = :id" +
+            " WHERE message = :message" +
             " ORDER BY sequence")
-    LiveData<List<EntityAttachment>> liveAttachments(long id);
+    LiveData<List<EntityAttachment>> liveAttachments(long message);
 
     @Query("SELECT COUNT(id)" +
             " FROM attachment" +
@@ -54,7 +54,13 @@ public interface DaoAttachment {
             " AND sequence = :sequence")
     EntityAttachment getAttachment(long message, int sequence);
 
-    @Query("UPDATE attachment SET progress = :progress WHERE id = :id")
+    @Query("SELECT * FROM attachment" +
+            " WHERE id = :id")
+    EntityAttachment getAttachment(long id);
+
+    @Query("UPDATE attachment" +
+            " SET progress = :progress" +
+            " WHERE id = :id")
     void setProgress(long id, Integer progress);
 
     @Insert
@@ -63,6 +69,7 @@ public interface DaoAttachment {
     @Update
     void updateAttachment(EntityAttachment attachment);
 
-    @Query("DELETE FROM attachment WHERE id = :id")
+    @Query("DELETE FROM attachment" +
+            " WHERE id = :id")
     int deleteAttachment(long id);
 }

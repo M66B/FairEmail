@@ -44,6 +44,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,6 +64,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         TextView tvName;
         TextView tvSize;
         ImageView ivStatus;
+        ImageView ivSave;
         TextView tvType;
         ProgressBar progressbar;
 
@@ -74,6 +76,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvName = itemView.findViewById(R.id.tvName);
             tvSize = itemView.findViewById(R.id.tvSize);
             ivStatus = itemView.findViewById(R.id.ivStatus);
+            ivSave = itemView.findViewById(R.id.ivSave);
             tvType = itemView.findViewById(R.id.tvType);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
@@ -81,14 +84,17 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private void wire() {
             itemView.setOnClickListener(this);
             ivDelete.setOnClickListener(this);
+            ivSave.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
             ivDelete.setOnClickListener(null);
+            ivSave.setOnClickListener(null);
         }
 
         private void bindTo(EntityAttachment attachment) {
+            ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
@@ -106,7 +112,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     ivStatus.setVisibility(View.GONE);
             }
 
-            ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
+            ivSave.setVisibility(readonly && attachment.available ? View.VISIBLE : View.GONE);
 
             if (attachment.progress != null)
                 progressbar.setProgress(attachment.progress);
@@ -137,6 +143,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     }
                 }.load(context, owner, args);
 
+            } else if (view.getId() == R.id.ivSave) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_STORE_ATTACHMENT)
+                                .putExtra("id", attachment.id)
+                                .putExtra("name", attachment.name)
+                                .putExtra("type", attachment.type));
+
             } else {
                 if (attachment.available) {
                     // Build file name
@@ -153,8 +167,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
                     Log.i(Helper.TAG, "Intent=" + intent);
 
-                    //context.startActivity(Intent.createChooser(intent, attachment.name));
-
                     // Set permissions
                     List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                     for (ResolveInfo resolveInfo : targets) {
@@ -164,7 +176,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                     // Check if viewer available
                     if (targets.size() == 0) {
-                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
                         return;
                     }
 

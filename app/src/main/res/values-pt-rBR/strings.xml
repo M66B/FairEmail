@@ -115,7 +115,8 @@
   <string name="title_move">Mover</string>
   <string name="title_archive">Arquivar</string>
   <string name="title_reply">Responder</string>
-  <string name="title_no_viewer">Sem aplicativo visualizador</string>
+  <string name="title_no_viewer">No viewer app available for %1$s</string>
+  <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
   <string name="title_ask_spam">Reportar mensagem com spam?</string>
   <string name="title_compose">Escrever</string>

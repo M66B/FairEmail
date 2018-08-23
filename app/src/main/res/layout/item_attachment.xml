@@ -55,8 +55,18 @@
         android:layout_height="24dp"
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_get_app_24"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivSave"
         app:layout_constraintStart_toEndOf="@id/tvSize"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSave"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_save_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivStatus"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
