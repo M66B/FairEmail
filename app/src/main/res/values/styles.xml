@@ -6,7 +6,7 @@
     <attr name="colorDrawerBackground" format="reference" />
     <attr name="drawableItemBackground" format="reference" />
 
-    <style name="AppThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowDisablePreview">true</item>
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -22,7 +22,7 @@
         <item name="drawableItemBackground">@drawable/item_background_light</item>
     </style>
 
-    <style name="AppThemeDark" parent="Theme.AppCompat">
+    <style name="AppThemeDark" parent="Base.Theme.AppCompat">
         <item name="android:windowDisablePreview">true</item>
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -38,7 +38,7 @@
         <item name="drawableItemBackground">@drawable/item_background_dark</item>
     </style>
 
-    <style name="Theme.Transparent" parent="Theme.AppCompat">
+    <style name="Theme.Transparent" parent="Base.Theme.AppCompat">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>

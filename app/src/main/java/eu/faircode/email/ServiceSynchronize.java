@@ -116,7 +116,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_START = 2; // seconds
     private static final int CONNECT_BACKOFF_MAX = 128; // seconds
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
-    private static final long FOLDER_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -552,18 +551,22 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 Log.i(Helper.TAG, folder.name + " start noop");
                                 while (state.running && ifolder.isOpen()) {
-                                    Log.i(Helper.TAG, folder.name + " request NOOP");
-                                    ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                                        public Object doCommand(IMAPProtocol p) throws ProtocolException {
-                                            Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
-                                            p.simpleCommand("NOOP", null);
-                                            Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
-                                            return null;
-                                        }
-                                    });
-
                                     try {
-                                        Thread.sleep(FOLDER_NOOP_INTERVAL);
+                                        Thread.sleep(account.poll_interval * 60 * 1000L);
+
+                                        if (istore.hasCapability("IDLE")) {
+                                            Log.i(Helper.TAG, folder.name + " request NOOP");
+                                            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                                                public Object doCommand(IMAPProtocol p) throws ProtocolException {
+                                                    Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
+                                                    p.simpleCommand("NOOP", null);
+                                                    Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
+                                                    return null;
+                                                }
+                                            });
+                                        } else
+                                            synchronizeMessages(account, folder, ifolder, state);
+
                                     } catch (InterruptedException ex) {
                                         Log.w(Helper.TAG, folder.name + " noop " + ex.getMessage());
                                     }

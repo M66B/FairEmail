@@ -47,7 +47,7 @@ Secure
 Efficient
 ---------
 
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) required (no Yahoo! support; no [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) support)
+* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) supported
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 

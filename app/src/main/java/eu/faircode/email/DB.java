@@ -44,7 +44,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 1,
+        version = 2,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -92,86 +92,15 @@ public abstract class DB extends RoomDatabase {
                         super.onOpen(db);
                     }
                 })
-                //.addMigrations(MIGRATION_1_2)
-                //.addMigrations(MIGRATION_2_3)
-                //.addMigrations(MIGRATION_3_4)
-                //.addMigrations(MIGRATION_4_5)
-                //.addMigrations(MIGRATION_5_6)
-                //.addMigrations(MIGRATION_6_7)
+                .addMigrations(new Migration(1, 2) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `poll_interval` INTEGER NOT NULL DEFAULT 9");
+                    }
+                })
                 .build();
     }
-
-    private static final Migration MIGRATION_1_2 = new Migration(1, 2) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("CREATE TABLE IF NOT EXISTS `attachment`" +
-                    " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
-                    ", `message` INTEGER NOT NULL" +
-                    ", `sequence` INTEGER NOT NULL" +
-                    ", `type` TEXT NOT NULL, `name` TEXT" +
-                    ", `content` BLOB, FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
-            db.execSQL("CREATE INDEX `index_attachment_message` ON `attachment` (`message`)");
-            db.execSQL("CREATE UNIQUE INDEX `index_attachment_message_sequence` ON `attachment` (`message`, `sequence`)");
-        }
-    };
-
-    private static final Migration MIGRATION_2_3 = new Migration(2, 3) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("ALTER TABLE `attachment` ADD COLUMN `size` INTEGER");
-            db.execSQL("ALTER TABLE `attachment` ADD COLUMN `progress` INTEGER");
-        }
-    };
-
-    private static final Migration MIGRATION_3_4 = new Migration(3, 4) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("CREATE INDEX `index_message_ui_seen` ON `message` (`ui_seen`)");
-        }
-    };
-
-    private static final Migration MIGRATION_4_5 = new Migration(4, 5) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("CREATE INDEX `index_message_ui_hide` ON `message` (`ui_hide`)");
-        }
-    };
-
-    private static final Migration MIGRATION_5_6 = new Migration(5, 6) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            db.execSQL("ALTER TABLE `account` ADD COLUMN `seen_until` INTEGER");
-        }
-    };
-
-    private static final Migration MIGRATION_6_7 = new Migration(6, 7) {
-        @Override
-        public void migrate(SupportSQLiteDatabase db) {
-            Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-            // Recreate is sometimes causing problems with ROOM
-            db.execSQL("DROP TABLE `identity`");
-            db.execSQL("CREATE TABLE `identity`" +
-                    " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
-                    ", `name` TEXT NOT NULL" +
-                    ", `email` TEXT NOT NULL" +
-                    ", `replyto` TEXT" +
-                    ", `account` INTEGER NOT NULL" +
-                    ", `host` TEXT NOT NULL" +
-                    ", `port` INTEGER NOT NULL" +
-                    ", `starttls` INTEGER NOT NULL" +
-                    ", `user` TEXT NOT NULL" +
-                    ", `password` TEXT NOT NULL" +
-                    ", `primary` INTEGER NOT NULL" +
-                    ", `synchronize` INTEGER NOT NULL" +
-                    ", FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
-            db.execSQL("CREATE INDEX `index_identity_account` ON `identity` (`account`)");
-        }
-    };
 
     public static class Converters {
         @TypeConverter

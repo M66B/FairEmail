@@ -38,6 +38,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -72,8 +73,10 @@ public class FragmentAccount extends FragmentEx {
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private CheckBox cbStoreSent;
+    private EditText etInterval;
     private Button btnCheck;
     private ProgressBar pbCheck;
+    private TextView tvIdle;
     private Spinner spDrafts;
     private Spinner spSent;
     private Spinner spAll;
@@ -106,8 +109,10 @@ public class FragmentAccount extends FragmentEx {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbStoreSent = view.findViewById(R.id.cbStoreSent);
+        etInterval = view.findViewById(R.id.etInterval);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
+        tvIdle = view.findViewById(R.id.tvIdle);
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
         spAll = view.findViewById(R.id.spAll);
@@ -197,11 +202,10 @@ public class FragmentAccount extends FragmentEx {
                             istore = (IMAPStore) isession.getStore("imaps");
                             istore.connect(host, Integer.parseInt(port), user, password);
 
-                            if (!istore.hasCapability("IDLE"))
-                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
-
                             if (!istore.hasCapability("UIDPLUS"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
+
+                            args.putBoolean("idle", istore.hasCapability("IDLE"));
 
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                                 String type = null;
@@ -263,6 +267,8 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
+
+                        tvIdle.setVisibility(args.getBoolean("idle") ? View.GONE : View.VISIBLE);
 
                         final Collator collator = Collator.getInstance(Locale.getDefault());
                         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -368,6 +374,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("store_sent", cbStoreSent.isChecked());
+                args.putString("poll_interval", etInterval.getText().toString());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
                 args.putParcelable("all", all);
@@ -385,6 +392,7 @@ public class FragmentAccount extends FragmentEx {
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         boolean store_sent = args.getBoolean("store_sent");
+                        String poll_interval = args.getString("poll_interval");
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
                         EntityFolder all = args.getParcelable("all");
@@ -402,6 +410,9 @@ public class FragmentAccount extends FragmentEx {
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
 
+                        if (TextUtils.isEmpty(poll_interval))
+                            poll_interval = "9";
+
                         // Check IMAP server
                         if (synchronize) {
                             Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
@@ -410,8 +421,8 @@ public class FragmentAccount extends FragmentEx {
                                 istore = (IMAPStore) isession.getStore("imaps");
                                 istore.connect(host, Integer.parseInt(port), user, password);
 
-                                if (!istore.hasCapability("IDLE"))
-                                    throw new MessagingException(getContext().getString(R.string.title_no_idle));
+                                if (!istore.hasCapability("UIDPLUS"))
+                                    throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
                             } finally {
                                 if (istore != null)
                                     istore.close();
@@ -437,6 +448,7 @@ public class FragmentAccount extends FragmentEx {
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
                             account.store_sent = store_sent;
+                            account.poll_interval = Integer.parseInt(poll_interval);
 
                             if (!synchronize)
                                 account.error = null;
@@ -570,6 +582,7 @@ public class FragmentAccount extends FragmentEx {
         pbCheck.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        tvIdle.setVisibility(View.GONE);
         grpFolders.setVisibility(View.GONE);
         ibDelete.setVisibility(View.GONE);
 
@@ -618,6 +631,7 @@ public class FragmentAccount extends FragmentEx {
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
                     cbStoreSent.setChecked(account == null ? false : account.store_sent);
+                    etInterval.setText(account == null ? "9" : Integer.toString(account.poll_interval));
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);

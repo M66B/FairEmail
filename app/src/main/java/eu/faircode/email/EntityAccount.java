@@ -48,6 +48,8 @@ public class EntityAccount {
     public Boolean synchronize;
     @NonNull
     public Boolean store_sent;
+    @NonNull
+    public Integer poll_interval;
     public Long seen_until;
     public String state;
     public String error;
