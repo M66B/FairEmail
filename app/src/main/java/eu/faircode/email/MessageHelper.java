@@ -242,18 +242,19 @@ public class MessageHelper {
         return TextUtils.join(", ", formatted);
     }
 
-    String getHtml() throws MessagingException {
+    String getHtml() throws MessagingException, UnsupportedEncodingException {
         return getHtml(imessage);
     }
 
-    private String getHtml(Part part) throws MessagingException {
+    private String getHtml(Part part) throws MessagingException, UnsupportedEncodingException {
         if (part.isMimeType("text/*"))
             try {
-                String s;
-                try {
-                    s = part.getContent().toString();
-                } catch (UnsupportedEncodingException ex) {
-                    throw new UnsupportedEncodingException(part.getContentType());
+                String s = part.getContent().toString();
+                if (part.isMimeType("text/plain"))
+                    s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                return s;
+            } catch (UnsupportedEncodingException ex) {
+                throw new UnsupportedEncodingException(part.getContentType());
 /*
                     // https://javaee.github.io/javamail/FAQ#unsupen
                     InputStream is = part.getInputStream();
@@ -270,11 +271,7 @@ public class MessageHelper {
                         Log.w(Helper.TAG, uex + "\n" + Log.getStackTraceString(uex));
                     }
 */
-                }
 
-                if (part.isMimeType("text/plain"))
-                    s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
-                return s;
             } catch (IOException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 return null;
@@ -334,7 +331,8 @@ public class MessageHelper {
         return result;
     }
 
-    private List<EntityAttachment> getAttachments(BodyPart part) throws IOException, MessagingException {
+    private List<EntityAttachment> getAttachments(BodyPart part) throws
+            IOException, MessagingException {
         List<EntityAttachment> result = new ArrayList<>();
 
         Object content = part.getContent();
