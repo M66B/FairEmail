@@ -1129,6 +1129,9 @@ public class ServiceSynchronize extends LifecycleService {
             cal.set(Calendar.MILLISECOND, 0);
 
             long ago = cal.getTimeInMillis();
+            if (ago < 0)
+                ago = 0;
+
             Log.i(Helper.TAG, folder.name + " ago=" + new Date(ago));
 
             // Delete old local messages
