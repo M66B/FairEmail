@@ -197,9 +197,11 @@
 
         <EditText
             android:id="@+id/etInterval"
-            android:layout_width="match_parent"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="9"
+            android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInterval" />
