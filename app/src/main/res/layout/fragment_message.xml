@@ -197,19 +197,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/top_navigation"
+    <View
+        android:id="@+id/vSeparatorBody"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="1dp"
         android:layout_marginTop="3dp"
         android:background="?attr/colorSeparator"
-        app:itemIconTint="@color/bottomnav_background"
-        app:itemTextColor="@color/bottomnav_background"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError"
-        app:menu="@menu/action_view_top" />
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -221,7 +216,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_navigation">
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBody">
 
         <TextView
             android:id="@+id/tvBody"

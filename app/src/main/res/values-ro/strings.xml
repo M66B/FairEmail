@@ -108,10 +108,9 @@
   <string name="title_image">imagine</string>
   <string name="title_subject_reply">Răsp: %1$s</string>
   <string name="title_subject_forward">Redir: %1$s</string>
-  <string name="title_thread">Discuție</string>
-  <string name="title_seen">Citit</string>
-  <string name="title_unseen">Necitit</string>
-  <string name="title_edit">Editare</string>
+  <string name="title_thread">Show thread</string>
+  <string name="title_seen">Mark read</string>
+  <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Redirecționează</string>
   <string name="title_reply_all">Răspunde tuturor</string>
   <string name="title_trash">Gunoi</string>

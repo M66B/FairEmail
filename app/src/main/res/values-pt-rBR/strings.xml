@@ -104,10 +104,9 @@
   <string name="title_image">imagem</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Enc: %1$s</string>
-  <string name="title_thread">Tópico</string>
-  <string name="title_seen">Lida</string>
-  <string name="title_unseen">Não lida</string>
-  <string name="title_edit">Edit</string>
+  <string name="title_thread">Show thread</string>
+  <string name="title_seen">Mark read</string>
+  <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Encaminhar</string>
   <string name="title_reply_all">Responder a todos</string>
   <string name="title_trash">Lixeira</string>

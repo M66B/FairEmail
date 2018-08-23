@@ -120,10 +120,9 @@
   <string name="title_image">image</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Fwd: %1$s</string>
-  <string name="title_thread">Thread</string>
-  <string name="title_seen">Read</string>
-  <string name="title_unseen">Unread</string>
-  <string name="title_edit">Edit</string>
+  <string name="title_thread">Show thread</string>
+  <string name="title_seen">Mark read</string>
+  <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Forward</string>
   <string name="title_reply_all">Reply to all</string>
   <string name="title_trash">Trash</string>

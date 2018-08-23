@@ -81,7 +81,7 @@ public class FragmentMessage extends FragmentEx {
     private TextView tvBcc;
     private RecyclerView rvAttachment;
     private TextView tvError;
-    private BottomNavigationView top_navigation;
+    private View vSeparatorBody;
     private TextView tvBody;
     private FloatingActionButton fab;
     private BottomNavigationView bottom_navigation;
@@ -91,6 +91,7 @@ public class FragmentMessage extends FragmentEx {
     private Group grpAttachments;
     private Group grpMessage;
 
+    private TupleMessageEx message = null;
     private boolean free = false;
     private AdapterAttachment adapter;
 
@@ -120,7 +121,7 @@ public class FragmentMessage extends FragmentEx {
         tvBcc = view.findViewById(R.id.tvBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvError = view.findViewById(R.id.tvError);
-        top_navigation = view.findViewById(R.id.top_navigation);
+        vSeparatorBody = view.findViewById(R.id.vSeparatorBody);
         tvBody = view.findViewById(R.id.tvBody);
         fab = view.findViewById(R.id.fab);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -131,6 +132,13 @@ public class FragmentMessage extends FragmentEx {
         grpMessage = view.findViewById(R.id.grpMessage);
 
         setHasOptionsMenu(true);
+
+        tvCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMenuThread(message.id);
+            }
+        });
 
         tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
@@ -179,27 +187,6 @@ public class FragmentMessage extends FragmentEx {
 
         // Wire controls
 
-        top_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_thread:
-                        onActionThread(id);
-                        return true;
-                    case R.id.action_seen:
-                        onActionSeen(id);
-                        return true;
-                    case R.id.action_forward:
-                        onActionForward(id);
-                        return true;
-                    case R.id.action_reply_all:
-                        onActionReplyAll(id);
-                        return true;
-                }
-                return false;
-            }
-        });
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -213,9 +200,9 @@ public class FragmentMessage extends FragmentEx {
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                 grpAddresses.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
-                top_navigation.setVisibility(View.GONE);
                 tvCount.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
+                vSeparatorBody.setVisibility(View.GONE);
                 fab.setVisibility(View.GONE);
             }
         });
@@ -229,9 +216,9 @@ public class FragmentMessage extends FragmentEx {
                     grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                     grpAddresses.setVisibility((int) tvCc.getTag());
                     rvAttachment.setVisibility((int) rvAttachment.getTag());
-                    top_navigation.setVisibility(View.VISIBLE);
                     tvCount.setVisibility((int) tvCount.getTag());
                     tvError.setVisibility((int) tvError.getTag());
+                    vSeparatorBody.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.VISIBLE);
                     return true;
                 }
@@ -267,7 +254,6 @@ public class FragmentMessage extends FragmentEx {
         grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
-        top_navigation.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         tvCount.setVisibility(View.GONE);
@@ -313,6 +299,8 @@ public class FragmentMessage extends FragmentEx {
                     return;
                 }
 
+                FragmentMessage.this.message = message;
+                getActivity().invalidateOptionsMenu();
                 setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                 if (savedInstanceState == null) {
@@ -364,32 +352,18 @@ public class FragmentMessage extends FragmentEx {
                 tvFrom.setTextColor(colorUnseen);
                 tvTime.setTextColor(colorUnseen);
 
-                MenuItem actionSeen = top_navigation.getMenu().findItem(R.id.action_seen);
-                actionSeen.setIcon(message.ui_seen
-                        ? R.drawable.baseline_visibility_off_24
-                        : R.drawable.baseline_visibility_24);
-                actionSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
-
                 db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                    private boolean once = false;
-
                     @Override
                     public void onChanged(@Nullable List<TupleFolderEx> folders) {
                         if (folders == null)
                             folders = new ArrayList<>();
 
-                        if (once)
-                            return;
-                        once = true;
-
                         boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
                         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
                         boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                        //boolean inDafts = EntityFolder.DRAFTS.equals(message.folderType);
                         boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
                         boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
-                        //boolean inSent = EntityFolder.SENT.equals(message.folderType);
 
                         boolean hasTrash = false;
                         boolean hasJunk = false;
@@ -408,13 +382,6 @@ public class FragmentMessage extends FragmentEx {
                             }
 
                         bottom_navigation.setTag(inTrash || !hasTrash);
-
-                        top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
-                        top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
-                        top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
-                        top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
-                        if (!free)
-                            top_navigation.setVisibility(View.VISIBLE);
 
                         bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inOutbox && !inArchive && !inJunk && hasJunk);
                         bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(message.uid != null && !inOutbox && hasTrash);
@@ -459,7 +426,22 @@ public class FragmentMessage extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
+
+        boolean inOutbox = (message != null && EntityFolder.OUTBOX.equals(message.folderType));
+
         menu.findItem(R.id.menu_addresses).setVisible(!free);
+        menu.findItem(R.id.menu_thread).setVisible(!free && message != null && message.count > 1);
+        menu.findItem(R.id.menu_seen).setVisible(!free && message != null && !inOutbox);
+        menu.findItem(R.id.menu_forward).setVisible(!free && message != null && !inOutbox);
+        menu.findItem(R.id.menu_reply_all).setVisible(!free && message != null && message.cc != null && !inOutbox);
+
+        if (message != null) {
+            MenuItem menuSeen = menu.findItem(R.id.menu_seen);
+            menuSeen.setIcon(message.ui_seen
+                    ? R.drawable.baseline_visibility_off_24
+                    : R.drawable.baseline_visibility_24);
+            menuSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+        }
     }
 
     @Override
@@ -467,6 +449,18 @@ public class FragmentMessage extends FragmentEx {
         switch (item.getItemId()) {
             case R.id.menu_addresses:
                 onMenuAddresses();
+                return true;
+            case R.id.menu_thread:
+                onMenuThread(message.id);
+                return true;
+            case R.id.menu_seen:
+                onMenuSeen(message.id);
+                return true;
+            case R.id.menu_forward:
+                onMenuForward(message.id);
+                return true;
+            case R.id.menu_reply_all:
+                onMenuReplyAll(message.id);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -477,7 +471,7 @@ public class FragmentMessage extends FragmentEx {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
-    private void onActionThread(long id) {
+    private void onMenuThread(long id) {
         getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
@@ -491,7 +485,7 @@ public class FragmentMessage extends FragmentEx {
         fragmentTransaction.commit();
     }
 
-    private void onActionSeen(long id) {
+    private void onMenuSeen(long id) {
         Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
@@ -536,13 +530,13 @@ public class FragmentMessage extends FragmentEx {
         }.load(this, args);
     }
 
-    private void onActionForward(long id) {
+    private void onMenuForward(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "forward")
                 .putExtra("reference", id));
     }
 
-    private void onActionReplyAll(long id) {
+    private void onMenuReplyAll(long id) {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
                 .putExtra("reference", id));
