@@ -204,6 +204,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             fragmentTransaction.commit();
         }
 
+        if (savedInstanceState != null)
+            drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
+
         new SimpleTask<Long>() {
             @Override
             protected Long onLoad(Context context, Bundle args) throws Throwable {
@@ -290,6 +293,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         }.load(this, new Bundle());
 
         checkIntent(getIntent());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("toggle", drawerToggle.isDrawerIndicatorEnabled());
     }
 
     @Override
