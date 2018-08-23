@@ -34,8 +34,13 @@ import android.widget.Spinner;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.Address;
@@ -136,5 +141,22 @@ public class Helper {
         if (a.length > 0)
             a[0] = a[0].split("\\+")[0];
         return TextUtils.join("@", a);
+    }
+
+    static void copy(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                byte[] buf = new byte[4096];
+                int len;
+                while ((len = in.read(buf)) > 0)
+                    out.write(buf, 0, len);
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
     }
 }

@@ -965,9 +965,11 @@ public class FragmentCompose extends FragmentEx {
 
                     // Restore attachments
                     for (EntityAttachment attachment : attachments) {
+                        File file = EntityAttachment.getFile(context, attachment.id);
                         attachment.id = null;
                         attachment.message = draft.id;
-                        db.attachment().insertAttachment(attachment);
+                        attachment.id = db.attachment().insertAttachment(attachment);
+                        Helper.copy(file, EntityAttachment.getFile(context, attachment.id));
                     }
 
                     EntityOperation.queue(db, draft, EntityOperation.SEND);
