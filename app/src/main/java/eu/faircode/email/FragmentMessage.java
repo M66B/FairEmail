@@ -192,20 +192,22 @@ public class FragmentMessage extends FragmentEx {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvCount.setTag(tvCount.getVisibility());
-                tvError.setTag(tvError.getVisibility());
-                tvCc.setTag(grpAddresses.getVisibility());
-                rvAttachment.setTag(grpAddresses.getVisibility());
-
                 free = true;
                 getActivity().invalidateOptionsMenu();
-                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                grpAddresses.setVisibility(View.GONE);
-                grpAttachments.setVisibility(View.GONE);
-                tvCount.setVisibility(View.GONE);
-                tvError.setVisibility(View.GONE);
+
+                grpHeader.setVisibility(View.GONE);
                 vSeparatorBody.setVisibility(View.GONE);
                 fab.setVisibility(View.GONE);
+
+                tvCount.setTag(tvCount.getVisibility());
+                tvCc.setTag(grpAddresses.getVisibility());
+                rvAttachment.setTag(grpAttachments.getVisibility());
+                tvError.setTag(tvError.getVisibility());
+
+                tvCount.setVisibility(View.GONE);
+                grpAddresses.setVisibility(View.GONE);
+                grpAttachments.setVisibility(View.GONE);
+                tvError.setVisibility(View.GONE);
             }
         });
 
@@ -215,13 +217,16 @@ public class FragmentMessage extends FragmentEx {
                 if (free && isVisible()) {
                     free = false;
                     getActivity().invalidateOptionsMenu();
-                    grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                    grpAddresses.setVisibility((int) tvCc.getTag());
-                    rvAttachment.setVisibility((int) rvAttachment.getTag());
-                    tvCount.setVisibility((int) tvCount.getTag());
-                    tvError.setVisibility((int) tvError.getTag());
+
+                    grpHeader.setVisibility(View.VISIBLE);
                     vSeparatorBody.setVisibility(View.VISIBLE);
                     fab.setVisibility(View.VISIBLE);
+
+                    tvCount.setVisibility((int) tvCount.getTag());
+                    grpAddresses.setVisibility((int) tvCc.getTag());
+                    grpAttachments.setVisibility((int) rvAttachment.getTag());
+                    tvError.setVisibility((int) tvError.getTag());
+
                     return true;
                 }
                 return false;
@@ -279,8 +284,12 @@ public class FragmentMessage extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("free", free);
-        outState.putInt("addresses", grpAddresses.getVisibility());
-        outState.putInt("attachments", rvAttachment.getVisibility());
+        if (free) {
+            outState.putInt("tag_count", (int) tvCount.getTag());
+            outState.putInt("tag_cc", (int) tvCc.getTag());
+            outState.putInt("tag_attachment", (int) rvAttachment.getTag());
+            outState.putInt("tag_error", (int) tvError.getTag());
+        }
     }
 
     @Override
@@ -322,8 +331,12 @@ public class FragmentMessage extends FragmentEx {
                     tvError.setText(message.error);
                 } else {
                     free = savedInstanceState.getBoolean("free");
-                    grpAddresses.setTag(savedInstanceState.getInt("addresses"));
-                    rvAttachment.setTag(savedInstanceState.getInt("attachments"));
+                    if (free) {
+                        tvCount.setTag(savedInstanceState.getInt("tag_count"));
+                        tvCc.setTag(savedInstanceState.getInt("tag_cc"));
+                        rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
+                        tvError.setTag(savedInstanceState.getInt("tag_error"));
+                    }
                 }
 
                 Bundle args = new Bundle();
@@ -357,6 +370,22 @@ public class FragmentMessage extends FragmentEx {
                         ? android.R.attr.textColorSecondary : R.attr.colorUnread);
                 tvFrom.setTextColor(colorUnseen);
                 tvTime.setTextColor(colorUnseen);
+
+                pbWait.setVisibility(View.GONE);
+
+                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+                vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
+                fab.setVisibility(free ? View.GONE : View.VISIBLE);
+
+                if (free) {
+                    tvCount.setVisibility((int) tvCount.getTag());
+                    grpAddresses.setVisibility((int) tvCc.getTag());
+                    grpAttachments.setVisibility((int) rvAttachment.getTag());
+                    tvError.setVisibility((int) tvError.getTag());
+                } else {
+                    tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+                    tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+                }
 
                 db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
@@ -397,13 +426,6 @@ public class FragmentMessage extends FragmentEx {
                         bottom_navigation.setVisibility(View.VISIBLE);
                     }
                 });
-
-                pbWait.setVisibility(View.GONE);
-                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                if (free)
-                    grpAddresses.setVisibility(View.GONE);
-                tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
-                tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
             }
         });
 
