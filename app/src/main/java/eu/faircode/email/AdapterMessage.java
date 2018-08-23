@@ -58,6 +58,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvFrom;
+        TextView tvSize;
         TextView tvTime;
         ImageView ivAttachments;
         TextView tvSubject;
@@ -71,6 +72,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             this.itemView = itemView;
             tvFrom = itemView.findViewById(R.id.tvFrom);
+            tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -92,10 +94,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void clear() {
             tvFrom.setText(null);
+            tvSize.setText(null);
             tvTime.setText(null);
             tvSubject.setText(null);
             ivAttachments.setVisibility(View.GONE);
+            tvFolder.setText(null);
             tvCount.setText(null);
+            tvError.setText(null);
             pbLoading.setVisibility(View.VISIBLE);
         }
 
@@ -112,21 +117,23 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 
-            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
-            tvSubject.setText(message.subject);
+            tvSize.setVisibility(View.GONE);
 
-            if (viewType == ViewType.UNIFIED) {
+            tvSubject.setText(message.subject);
+            ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+
+            if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);
-                tvCount.setText(Integer.toString(message.count));
-                tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
-            } else if (viewType == ViewType.FOLDER) {
+            else if (viewType == ViewType.FOLDER)
                 tvFolder.setVisibility(View.GONE);
+            else
+                tvFolder.setText(Helper.localizeFolderName(context, message.folderName));
+
+            if (viewType == ViewType.THREAD)
+                tvCount.setVisibility(View.GONE);
+            else {
                 tvCount.setText(Integer.toString(message.count));
                 tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
-            } else {
-                tvCount.setVisibility(View.GONE);
-                tvFolder.setText(Helper.localizeFolderName(context, message.folderName));
-                tvFolder.setVisibility(View.VISIBLE);
             }
 
             if (debug) {
