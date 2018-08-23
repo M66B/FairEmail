@@ -253,9 +253,9 @@ public class MessageHelper {
                 try {
                     s = part.getContent().toString();
                 } catch (UnsupportedEncodingException ex) {
-                    Log.w(Helper.TAG, part.getContentType() + "\n" + ex + "\n" + Log.getStackTraceString(ex));
-                    s = "Unsupported encoding: " + part.getContentType() + "\n\n";
-
+                    throw new UnsupportedEncodingException(part.getContentType());
+/*
+                    // https://javaee.github.io/javamail/FAQ#unsupen
                     InputStream is = part.getInputStream();
 
                     ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -269,6 +269,7 @@ public class MessageHelper {
                     } catch (UnsupportedEncodingException uex) {
                         Log.w(Helper.TAG, uex + "\n" + Log.getStackTraceString(uex));
                     }
+*/
                 }
 
                 if (part.isMimeType("text/plain"))

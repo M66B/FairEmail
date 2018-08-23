@@ -74,4 +74,6 @@ dependencies {
     // https://jsoup.org/
     implementation "org.jsoup:jsoup:$jsoup_version"
 
+    // http://www.freeutils.net/source/jcharset/
+    implementation "net.freeutils:jcharset:2.0"
 }
