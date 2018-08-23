@@ -74,6 +74,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private boolean newIntent = false;
 
+    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
 
@@ -631,7 +633,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         fos = new FileOutputStream(pfd.getFileDescriptor());
                         fis = new FileInputStream(file);
 
-                        byte[] buffer = new byte[4096];
+                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                         int read;
                         while ((read = fis.read(buffer)) != -1) {
                             fos.write(buffer, 0, read);
