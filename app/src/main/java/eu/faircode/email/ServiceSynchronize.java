@@ -129,7 +129,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public void onCreate() {
-        Log.i(Helper.TAG, "Service create");
+        Log.i(Helper.TAG, "Service create version=" + BuildConfig.VERSION_NAME);
         super.onCreate();
         startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
 

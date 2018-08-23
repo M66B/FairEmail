@@ -33,7 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create " + this.getClass().getName());
+        Log.i(Helper.TAG, "Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = prefs.getString("theme", "light");
         setTheme("light".equals(theme) ? R.style.AppThemeLight : R.style.AppThemeDark);
