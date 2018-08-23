@@ -113,8 +113,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
     private static final int NOTIFICATION_UNSEEN = 2;
 
-    private static final int CONNECT_BACKOFF_START = 2; // seconds
-    private static final int CONNECT_BACKOFF_MAX = 128; // seconds
+    private static final int CONNECT_BACKOFF_START = 32; // seconds
+    private static final int CONNECT_BACKOFF_MAX = 512; // seconds
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
