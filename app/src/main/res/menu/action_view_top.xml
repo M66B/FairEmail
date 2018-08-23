@@ -15,12 +15,6 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_edit"
-        android:icon="@drawable/baseline_edit_24"
-        android:title="@string/title_edit"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_forward"
         android:icon="@drawable/baseline_forward_24"
         android:title="@string/title_forward"

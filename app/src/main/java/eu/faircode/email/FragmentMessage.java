@@ -189,9 +189,6 @@ public class FragmentMessage extends FragmentEx {
                     case R.id.action_seen:
                         onActionSeen(id);
                         return true;
-                    case R.id.action_edit:
-                        onActionEdit(id);
-                        return true;
                     case R.id.action_forward:
                         onActionForward(id);
                         return true;
@@ -414,7 +411,6 @@ public class FragmentMessage extends FragmentEx {
 
                         top_navigation.getMenu().findItem(R.id.action_thread).setVisible(message.count > 1);
                         top_navigation.getMenu().findItem(R.id.action_seen).setVisible(!inOutbox);
-                        top_navigation.getMenu().findItem(R.id.action_edit).setVisible(inTrash);
                         top_navigation.getMenu().findItem(R.id.action_forward).setVisible(!inOutbox);
                         top_navigation.getMenu().findItem(R.id.action_reply_all).setVisible(!inOutbox && message.cc != null);
                         if (!free)
@@ -530,58 +526,6 @@ public class FragmentMessage extends FragmentEx {
             @Override
             protected void onLoaded(Bundle args, Void data) {
                 Helper.setViewsEnabled(view, true);
-            }
-
-            @Override
-            public void onException(Bundle args, Throwable ex) {
-                Helper.setViewsEnabled(view, true);
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-            }
-        }.load(this, args);
-    }
-
-    private void onActionEdit(final long id) {
-        Helper.setViewsEnabled(view, false);
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onLoad(Context context, Bundle args) {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityMessage draft = db.message().getMessage(id);
-                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
-                    draft.id = null;
-                    draft.folder = drafts.id;
-                    draft.uid = null;
-                    draft.msgid = EntityMessage.generateMessageId();
-                    draft.id = db.message().insertMessage(draft);
-
-                    EntityOperation.queue(db, draft, EntityOperation.ADD);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                EntityOperation.process(context);
-
-                return null;
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, Void data) {
-                Helper.setViewsEnabled(view, true);
-                getContext().startActivity(
-                        new Intent(getContext(), ActivityCompose.class)
-                                .putExtra("action", "edit")
-                                .putExtra("id", id));
             }
 
             @Override
