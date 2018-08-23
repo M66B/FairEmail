@@ -1,7 +1,7 @@
 FairEmail
 =========
 
-Open source, privacy friendly email app
+*Open source, privacy friendly email app*
 
 This email app might be for you if your current email app:
 
@@ -19,6 +19,7 @@ Features
 * Multiple accounts (inboxes)
 * Multiple identities (outboxes)
 * Unified inbox
+* Distraction free reading and writing
 * Message threading
 * Two way synchronization
 * Offline storage and operations
@@ -35,7 +36,6 @@ Simple
 Secure
 ------
 
-* Connect to email servers only
 * Allow encrypted connections only
 * Accept valid security certificates only
 * [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) authentication required
@@ -57,6 +57,7 @@ Downloads
 ---------
 
 * [GitHub](https://github.com/M66B/open-source-email/releases) (no update notifications)
+* [Play store](https://play.google.com/apps/testing/eu.faircode.email)
 * [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/eu.faircode.email)
 
 Frequently asked questions
