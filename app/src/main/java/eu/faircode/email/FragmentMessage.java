@@ -375,10 +375,16 @@ public class FragmentMessage extends FragmentEx {
 
                 db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                    private boolean once = false;
+
                     @Override
                     public void onChanged(@Nullable List<TupleFolderEx> folders) {
                         if (folders == null)
                             folders = new ArrayList<>();
+
+                        if (once)
+                            return;
+                        once = true;
 
                         boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
                         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
