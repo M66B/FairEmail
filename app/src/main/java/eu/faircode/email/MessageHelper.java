@@ -293,6 +293,8 @@ public class MessageHelper {
                     } else
                         return getHtml(bp);
                 }
+            } catch (UnsupportedEncodingException ex) {
+                throw ex;
             } catch (IOException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
@@ -307,6 +309,8 @@ public class MessageHelper {
                     if (s != null)
                         return s;
                 }
+            } catch (UnsupportedEncodingException ex) {
+                throw ex;
             } catch (IOException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }

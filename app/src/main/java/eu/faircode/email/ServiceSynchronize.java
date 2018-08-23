@@ -475,7 +475,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                         synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-
                                                     }
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
