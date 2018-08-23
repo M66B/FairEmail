@@ -880,6 +880,25 @@ public class FragmentCompose extends FragmentEx {
             if (draft == null)
                 throw new MessageRemovedException("Draft for action was deleted");
 
+            Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
+
+            // Convert data
+            Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
+            Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+            Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+            Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+
+            // Update draft
+            draft.identity = (identity == null ? null : identity.id);
+            draft.from = afrom;
+            draft.to = ato;
+            draft.cc = acc;
+            draft.bcc = abcc;
+            draft.subject = subject;
+            draft.received = new Date().getTime();
+
+            body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+
             // Check data
             if (action == R.id.action_send) {
                 if (draft.identity == null)
@@ -891,25 +910,6 @@ public class FragmentCompose extends FragmentEx {
 
             try {
                 db.beginTransaction();
-
-                Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
-
-                // Convert data
-                Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
-                Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-                Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-                Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
-
-                // Update draft
-                draft.identity = (identity == null ? null : identity.id);
-                draft.from = afrom;
-                draft.to = ato;
-                draft.cc = acc;
-                draft.bcc = abcc;
-                draft.subject = subject;
-                draft.received = new Date().getTime();
-
-                body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                 // Execute action
                 if (action == R.id.action_trash) {
