@@ -712,11 +712,10 @@ public class FragmentCompose extends FragmentEx {
                 draft.id = db.message().insertMessage(draft);
                 draft.write(context, body == null ? "" : body);
 
-                if (args.containsKey("attachments")) {
-                    ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                if (uris != null)
                     for (Uri uri : uris)
                         addAttachment(context, draft.id, uri);
-                }
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
