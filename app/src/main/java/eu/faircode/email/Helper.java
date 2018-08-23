@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -128,5 +129,12 @@ public class Helper {
 
     static Address myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
+    }
+
+    static String canonicalAddress(String address) {
+        String[] a = address.split("\\@");
+        if (a.length > 0)
+            a[0] = a[0].split("\\+")[0];
+        return TextUtils.join("@", a);
     }
 }

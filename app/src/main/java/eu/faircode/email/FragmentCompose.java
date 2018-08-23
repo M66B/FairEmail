@@ -805,9 +805,10 @@ public class FragmentCompose extends FragmentEx {
 
                     // Select identity matching from address
                     if (!found && draft.from != null && draft.from.length > 0) {
-                        String from = ((InternetAddress) draft.from[0]).getAddress();
+                        String from = Helper.canonicalAddress(((InternetAddress) draft.from[0]).getAddress());
+
                         for (int pos = 0; pos < identities.size(); pos++) {
-                            if (identities.get(pos).email.equals(from)) {
+                            if (Helper.canonicalAddress(identities.get(pos).email).equals(from)) {
                                 spFrom.setSelection(pos);
                                 found = true;
                                 break;
