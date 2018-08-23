@@ -107,7 +107,11 @@ public class Helper {
         Process proc = null;
         BufferedReader br = null;
         try {
-            String[] cmd = new String[]{"logcat", "-d", "-v", "threadtime", TAG + ":I"};
+            String[] cmd = new String[]{"logcat",
+                    "-d",
+                    "-v", "threadtime",
+                    "-t", "500",
+                    TAG + ":I"};
             proc = Runtime.getRuntime().exec(cmd);
             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             String line;
