@@ -73,6 +73,7 @@
   <string name="title_user">Nume utilizator</string>
   <string name="title_password">Parolă</string>
   <string name="title_store_sent">Stochează mesajele trimise (activați doar la nevoie)</string>
+  <string name="title_interval">Poll/keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
   <string name="title_primary_account">Primară (identitatea implicită)</string>

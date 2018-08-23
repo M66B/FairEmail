@@ -65,6 +65,7 @@
   <string name="title_user">User name</string>
   <string name="title_password">Password</string>
   <string name="title_store_sent">Store sent messages (enable if needed only)</string>
+  <string name="title_interval">Poll/keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Synchronize (receive messages)</string>
   <string name="title_synchronize_identity">Synchronize (send messages)</string>
   <string name="title_primary_account">Primary (default account)</string>
