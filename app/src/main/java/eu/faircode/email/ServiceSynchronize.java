@@ -332,7 +332,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
-                !(ex instanceof IllegalStateException)) {
+                !(ex instanceof IllegalStateException) &&
+                !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException)) {
             String action;
             if (TextUtils.isEmpty(account))
                 action = folder;
@@ -340,6 +341,7 @@ public class ServiceSynchronize extends LifecycleService {
                 action = account;
             else
                 action = account + "/" + folder;
+
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
