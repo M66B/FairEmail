@@ -67,7 +67,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -1549,17 +1548,6 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, "Joined " + thread.getName());
             } catch (InterruptedException ex) {
                 Log.e(Helper.TAG, thread.getName() + " join " + ex.toString());
-            }
-    }
-
-    private static void acquire(Semaphore semaphore, String name) {
-        boolean acquired = false;
-        while (!acquired)
-            try {
-                semaphore.acquire();
-                acquired = true;
-            } catch (InterruptedException ex) {
-                Log.e(Helper.TAG, name + " acquire " + ex.toString());
             }
     }
 
