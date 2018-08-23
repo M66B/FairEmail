@@ -36,6 +36,8 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
@@ -139,15 +141,38 @@ public class FragmentMessages extends FragmentEx {
         boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
         if (thread < 0)
             if (folder < 0) {
-                setSubtitle(R.string.title_folder_unified);
+                db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                    @Override
+                    public void onChanged(List<TupleFolderEx> folders) {
+                        int unseen = 0;
+                        if (folders != null)
+                            for (TupleFolderEx folder : folders)
+                                unseen += folder.unseen;
+                        String name = getString(R.string.title_folder_unified);
+                        if (unseen > 0)
+                            setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
+                        else
+                            setSubtitle(name);
+                    }
+                });
+
                 messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), PAGE_SIZE).build();
             } else {
                 db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
                     @Override
                     public void onChanged(@Nullable TupleFolderEx folder) {
-                        setSubtitle(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
+                        if (folder == null)
+                            setSubtitle(null);
+                        else {
+                            String name = Helper.localizeFolderName(getContext(), folder.name);
+                            if (folder.unseen > 0)
+                                setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
+                            else
+                                setSubtitle(name);
+                        }
                     }
                 });
+
                 messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), PAGE_SIZE).build();
             }
         else {
