@@ -199,14 +199,14 @@ public class FragmentMessage extends FragmentEx {
                 vSeparatorBody.setVisibility(View.GONE);
                 fab.setVisibility(View.GONE);
 
-                tvCount.setTag(tvCount.getVisibility());
-                tvCc.setTag(grpAddresses.getVisibility());
-                tvError.setTag(tvError.getVisibility());
-
                 tvCount.setVisibility(View.GONE);
                 grpAddresses.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
+
+                tvCount.setTag(tvCount.getVisibility());
+                tvCc.setTag(grpAddresses.getVisibility());
+                tvError.setTag(tvError.getVisibility());
             }
         });
 
@@ -356,8 +356,7 @@ public class FragmentMessage extends FragmentEx {
                         tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
                         tvBody.setText(body);
                         grpMessage.setVisibility(View.VISIBLE);
-                        if (!free)
-                            fab.setVisibility(View.VISIBLE);
+                        fab.setVisibility(free ? View.GONE : View.VISIBLE);
                     }
                 }.load(FragmentMessage.this, args);
 
@@ -376,7 +375,6 @@ public class FragmentMessage extends FragmentEx {
 
                 grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
                 vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
-                fab.setVisibility(free ? View.GONE : View.VISIBLE);
 
                 if (free) {
                     tvCount.setVisibility((int) tvCount.getTag());
