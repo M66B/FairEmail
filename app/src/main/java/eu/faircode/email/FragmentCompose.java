@@ -872,36 +872,38 @@ public class FragmentCompose extends FragmentEx {
             String subject = args.getString("subject");
             String body = args.getString("body");
 
-            // Get draft & selected identity
+            EntityMessage draft;
+
             DB db = DB.getInstance(context);
-            EntityMessage draft = db.message().getMessage(id);
-            EntityIdentity identity = db.identity().getIdentity(iid);
-
-            // Draft deleted by server
-            if (draft == null)
-                throw new MessageRemovedException("Draft for action was deleted");
-
-            Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
-
-            // Convert data
-            Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
-            Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-            Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-            Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
-
-            // Update draft
-            draft.identity = (identity == null ? null : identity.id);
-            draft.from = afrom;
-            draft.to = ato;
-            draft.cc = acc;
-            draft.bcc = abcc;
-            draft.subject = subject;
-            draft.received = new Date().getTime();
-
-            String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
-
             try {
                 db.beginTransaction();
+
+                // Get draft & selected identity
+                draft = db.message().getMessage(id);
+                EntityIdentity identity = db.identity().getIdentity(iid);
+
+                // Draft deleted by server
+                if (draft == null)
+                    throw new MessageRemovedException("Draft for action was deleted");
+
+                Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
+
+                // Convert data
+                Address afrom[] = (identity == null ? null : new Address[]{new InternetAddress(identity.email, identity.name)});
+                Address ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                Address acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                Address abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+
+                // Update draft
+                draft.identity = (identity == null ? null : identity.id);
+                draft.from = afrom;
+                draft.to = ato;
+                draft.cc = acc;
+                draft.bcc = abcc;
+                draft.subject = subject;
+                draft.received = new Date().getTime();
+
+                String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                 // Execute action
                 if (action == R.id.action_trash) {
@@ -932,13 +934,11 @@ public class FragmentCompose extends FragmentEx {
                     draft.write(context, pbody);
 
                     // Check data
-                    if (action == R.id.action_send) {
-                        if (draft.identity == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+                    if (draft.identity == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
-                        if (draft.to == null && draft.cc == null && draft.bcc == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
-                    }
+                    if (draft.to == null && draft.cc == null && draft.bcc == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
                     // Save message ID
                     String msgid = draft.msgid;
