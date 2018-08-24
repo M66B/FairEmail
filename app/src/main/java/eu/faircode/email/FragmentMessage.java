@@ -84,6 +84,7 @@ public class FragmentMessage extends FragmentEx {
     private TextView tvError;
     private View vSeparatorBody;
     private TextView tvBody;
+    private ProgressBar pbBody;
     private FloatingActionButton fab;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
@@ -125,6 +126,7 @@ public class FragmentMessage extends FragmentEx {
         tvError = view.findViewById(R.id.tvError);
         vSeparatorBody = view.findViewById(R.id.vSeparatorBody);
         tvBody = view.findViewById(R.id.tvBody);
+        pbBody = view.findViewById(R.id.pbBody);
         fab = view.findViewById(R.id.fab);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -263,6 +265,7 @@ public class FragmentMessage extends FragmentEx {
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
+        pbBody.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         tvCount.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
@@ -343,6 +346,7 @@ public class FragmentMessage extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
 
+                pbBody.setVisibility(View.VISIBLE);
                 new SimpleTask<Spanned>() {
                     @Override
                     protected Spanned onLoad(Context context, Bundle args) throws Throwable {
@@ -357,6 +361,7 @@ public class FragmentMessage extends FragmentEx {
                         tvBody.setText(body);
                         grpMessage.setVisibility(View.VISIBLE);
                         fab.setVisibility(free ? View.GONE : View.VISIBLE);
+                        pbBody.setVisibility(View.GONE);
                     }
                 }.load(FragmentMessage.this, args);
 

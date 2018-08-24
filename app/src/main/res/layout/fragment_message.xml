@@ -248,6 +248,18 @@
             android:textIsSelectable="true" />
     </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/pbBody"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@id/scroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/scroll" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
