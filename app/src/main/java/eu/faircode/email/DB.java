@@ -1,6 +1,7 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -94,6 +95,17 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void onOpen(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "Database version=" + db.getVersion());
+
+                        Cursor cursor = null;
+                        try {
+                            cursor = db.query("SELECT sqlite_version() AS sqlite_version");
+                            if (cursor.moveToNext())
+                                Log.i(Helper.TAG, "sqlite version=" + cursor.getString(0));
+                        } finally {
+                            if (cursor != null)
+                                cursor.close();
+                        }
+
                         super.onOpen(db);
                     }
                 })
