@@ -898,7 +898,7 @@ public class FragmentCompose extends FragmentEx {
             draft.subject = subject;
             draft.received = new Date().getTime();
 
-            body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+            String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
             // Check data
             if (action == R.id.action_send) {
@@ -917,7 +917,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.ui_seen = true;
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);
-                    draft.write(context, body);
+                    draft.write(context, pbody);
 
                     EntityOperation.queue(db, draft, EntityOperation.SEEN, true);
 
@@ -926,18 +926,19 @@ public class FragmentCompose extends FragmentEx {
 
                 } else if (action == R.id.action_save) {
                     if (ato == null && acc == null && abcc == null &&
-                            TextUtils.isEmpty(subject) && TextUtils.isEmpty(body) &&
+                            TextUtils.isEmpty(subject) &&
+                            TextUtils.isEmpty(body) &&
                             db.attachment().getAttachmentCount(draft.id) == 0)
                         return null;
 
                     db.message().updateMessage(draft);
-                    draft.write(context, body);
+                    draft.write(context, pbody);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
-                    draft.write(context, body);
+                    draft.write(context, pbody);
 
                     // Save message ID
                     String msgid = draft.msgid;
@@ -961,7 +962,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.msgid = msgid;
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
-                    draft.write(getContext(), body);
+                    draft.write(getContext(), pbody);
 
                     // Restore attachments
                     for (EntityAttachment attachment : attachments) {
