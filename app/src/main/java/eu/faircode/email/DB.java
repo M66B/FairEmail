@@ -79,14 +79,16 @@ public abstract class DB extends RoomDatabase {
             sInstance = migrate(Room
                     .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
                     .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
+
         return sInstance;
     }
 
-    public static DB getBlockingInstance(Context context) {
-        return migrate(Room
-                .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
-                .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING)
-                .allowMainThreadQueries());
+    @Override
+    public void beginTransaction() {
+        // This is a workaround for sqlite crashing on some devices
+        // Confusingly, the journal mode needs to be set to write ahead logging first for this to work
+        getOpenHelper().setWriteAheadLoggingEnabled(false);
+        super.beginTransaction();
     }
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {

@@ -900,15 +900,6 @@ public class FragmentCompose extends FragmentEx {
 
             String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
-            // Check data
-            if (action == R.id.action_send) {
-                if (draft.identity == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
-
-                if (draft.to == null && draft.cc == null && draft.bcc == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
-            }
-
             try {
                 db.beginTransaction();
 
@@ -939,6 +930,15 @@ public class FragmentCompose extends FragmentEx {
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
                     draft.write(context, pbody);
+
+                    // Check data
+                    if (action == R.id.action_send) {
+                        if (draft.identity == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+
+                        if (draft.to == null && draft.cc == null && draft.bcc == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
+                    }
 
                     // Save message ID
                     String msgid = draft.msgid;
