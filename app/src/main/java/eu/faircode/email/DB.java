@@ -75,12 +75,17 @@ public abstract class DB extends RoomDatabase {
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null)
-            sInstance = migrate(Room.databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME));
+            sInstance = migrate(Room
+                    .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
+                    .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
         return sInstance;
     }
 
     public static DB getBlockingInstance(Context context) {
-        return migrate(Room.databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME).allowMainThreadQueries());
+        return migrate(Room
+                .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
+                .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING)
+                .allowMainThreadQueries());
     }
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
