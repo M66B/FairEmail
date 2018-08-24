@@ -75,20 +75,31 @@ public abstract class DB extends RoomDatabase {
     private static final String DB_NAME = "email";
 
     public static synchronized DB getInstance(Context context) {
-        if (sInstance == null)
+        if (sInstance == null) {
             sInstance = migrate(Room
                     .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
                     .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
 
+            Log.i(Helper.TAG, "sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
+            Log.i(Helper.TAG, "sqlite sync=" + exec(sInstance, "PRAGMA synchronous"));
+            Log.i(Helper.TAG, "sqlite journal=" + exec(sInstance, "PRAGMA journal_mode"));
+        }
+
         return sInstance;
     }
 
-    @Override
-    public void beginTransaction() {
-        // This is a workaround for sqlite crashing on some devices
-        // Confusingly, the journal mode needs to be set to write ahead logging first for this to work
-        getOpenHelper().setWriteAheadLoggingEnabled(false);
-        super.beginTransaction();
+    static String exec(DB db, String command) {
+        Cursor cursor = null;
+        try {
+            cursor = db.query(command, new Object[0]);
+            if (cursor.moveToNext())
+                return cursor.getString(0);
+            else
+                return null;
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
     }
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
@@ -97,17 +108,6 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void onOpen(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "Database version=" + db.getVersion());
-
-                        Cursor cursor = null;
-                        try {
-                            cursor = db.query("SELECT sqlite_version() AS sqlite_version");
-                            if (cursor.moveToNext())
-                                Log.i(Helper.TAG, "sqlite version=" + cursor.getString(0));
-                        } finally {
-                            if (cursor != null)
-                                cursor.close();
-                        }
-
                         super.onOpen(db);
                     }
                 })
