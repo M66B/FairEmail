@@ -338,6 +338,7 @@ public class FragmentMessage extends FragmentEx {
                     tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
 
                     tvError.setText(message.error);
+
                 } else {
                     free = savedInstanceState.getBoolean("free");
                     if (free) {
@@ -350,27 +351,31 @@ public class FragmentMessage extends FragmentEx {
 
                 getActivity().invalidateOptionsMenu();
 
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
+                if (tvBody.getTag() == null) {
+                    // Spanned text needs to be loaded after recreation too
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
 
-                pbBody.setVisibility(View.VISIBLE);
-                new SimpleTask<Spanned>() {
-                    @Override
-                    protected Spanned onLoad(Context context, Bundle args) throws Throwable {
-                        String body = EntityMessage.read(context, args.getLong("id"));
-                        args.putInt("size", body.length());
-                        return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
-                    }
+                    pbBody.setVisibility(View.VISIBLE);
+                    new SimpleTask<Spanned>() {
+                        @Override
+                        protected Spanned onLoad(Context context, Bundle args) throws Throwable {
+                            String body = EntityMessage.read(context, args.getLong("id"));
+                            args.putInt("size", body.length());
+                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
+                        }
 
-                    @Override
-                    protected void onLoaded(Bundle args, Spanned body) {
-                        tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
-                        tvBody.setText(body);
-                        grpMessage.setVisibility(View.VISIBLE);
-                        fab.setVisibility(free ? View.GONE : View.VISIBLE);
-                        pbBody.setVisibility(View.GONE);
-                    }
-                }.load(FragmentMessage.this, args);
+                        @Override
+                        protected void onLoaded(Bundle args, Spanned body) {
+                            tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
+                            tvBody.setText(body);
+                            tvBody.setTag(true);
+                            grpMessage.setVisibility(View.VISIBLE);
+                            fab.setVisibility(free ? View.GONE : View.VISIBLE);
+                            pbBody.setVisibility(View.GONE);
+                        }
+                    }.load(FragmentMessage.this, args);
+                }
 
                 int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
                 tvFrom.setTypeface(null, typeface);
@@ -411,6 +416,7 @@ public class FragmentMessage extends FragmentEx {
                             }
                         });
 
+                // Observe folders
                 db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
