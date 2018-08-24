@@ -59,6 +59,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.SocketTimeoutException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -141,24 +143,32 @@ public class ServiceSynchronize extends LifecycleService {
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), serviceManager);
 
-        DB.getInstance(this).account().liveStats().observe(this, new Observer<TupleAccountStats>() {
-            private int prev_unseen = -1;
+        DB db = DB.getInstance(this);
 
+        db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
                 nm.notify(NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
+            }
+        });
 
-                if (stats.unseen > 0) {
-                    if (stats.unseen > prev_unseen) {
+        db.message().liveUnseenUnified().observe(this, new Observer<List<EntityMessage>>() {
+            private int prev_unseen = -1;
+
+            @Override
+            public void onChanged(List<EntityMessage> messages) {
+                NotificationManager nm = getSystemService(NotificationManager.class);
+                if (messages.size() > 0) {
+                    if (messages.size() > prev_unseen) {
                         nm.cancel(NOTIFICATION_UNSEEN);
-                        nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(stats.unseen).build());
+                        nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(messages).build());
                     }
                 } else
                     nm.cancel(NOTIFICATION_UNSEEN);
 
-                prev_unseen = stats.unseen;
+                prev_unseen = messages.size();
             }
         });
     }
@@ -257,7 +267,7 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private Notification.Builder getNotificationUnseen(int unseen) {
+    private Notification.Builder getNotificationUnseen(List<EntityMessage> messages) {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setAction("unseen");
@@ -271,6 +281,16 @@ public class ServiceSynchronize extends LifecycleService {
 
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+        StringBuilder sb = new StringBuilder();
+        for (EntityMessage message : messages) {
+            sb.append(MessageHelper.getFormattedAddresses(message.from, false));
+            if (!TextUtils.isEmpty(message.subject))
+                sb.append(": ").append(message.subject);
+            sb.append(" ").append(df.format(new Date(message.sent)));
+            sb.append("\n");
+        }
+
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -280,8 +300,9 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(R.drawable.baseline_mail_24)
-                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, unseen, unseen))
+                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
                 .setContentIntent(pi)
+                .setStyle(new Notification.BigTextStyle().bigText(sb.toString()))
                 .setSound(uri)
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_DEFAULT)

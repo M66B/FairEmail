@@ -57,13 +57,6 @@ public interface DaoAccount {
             "     JOIN account ON account.id = message.account" +
             "     WHERE synchronize) AS operations" +
             ", (SELECT COUNT(message.id) FROM message" +
-            "     JOIN account ON account.id = message.account" +
-            "     JOIN folder ON folder.id = message.folder" +
-            "     WHERE account.`synchronize`" +
-            "     AND NOT message.ui_seen AND NOT message.ui_hide" +
-            "     AND (account.seen_until IS NULL OR message.stored > account.seen_until)" +
-            "     AND folder.type = '" + EntityFolder.INBOX + "') AS unseen" +
-            ", (SELECT COUNT(message.id) FROM message" +
             "     JOIN folder ON folder.id = message.folder" +
             "     JOIN operation ON operation.message = message.id AND operation.name = '" + EntityOperation.SEND + "'" +
             "     WHERE NOT message.ui_seen" +

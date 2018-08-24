@@ -22,6 +22,5 @@ package eu.faircode.email;
 public class TupleAccountStats {
     public Integer accounts;
     public Integer operations;
-    public Integer unseen;
     public Integer unsent;
 }
