@@ -49,6 +49,8 @@ which is a waste of battery power and internet bandwidth and will delay notifica
 
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
 
+This will be easier after implementing [this feature](https://github.com/M66B/open-source-email/issues/17).
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
