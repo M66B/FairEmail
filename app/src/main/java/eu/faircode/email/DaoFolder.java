@@ -57,8 +57,9 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
-            " WHERE folder.type = '" + EntityFolder.INBOX + "'" +
+            " JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
+            " WHERE account.`synchronize`" +
+            " AND folder.type = '" + EntityFolder.INBOX + "'" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
