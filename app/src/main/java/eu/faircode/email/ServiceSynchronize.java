@@ -589,32 +589,34 @@ public class ServiceSynchronize extends LifecycleService {
                     noops.add(noop);
 
                     // Receive folder events
-                    Thread idle = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Log.i(Helper.TAG, folder.name + " start idle");
-                                while (state.running && ifolder.isOpen()) {
-                                    Log.i(Helper.TAG, folder.name + " do idle");
-                                    ifolder.idle(false);
-                                    Log.i(Helper.TAG, folder.name + " done idle");
-                                }
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(account.name, folder.name, ex);
+                    if (istore.hasCapability("IDLE")) {
+                        Thread idle = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Log.i(Helper.TAG, folder.name + " start idle");
+                                    while (state.running && ifolder.isOpen()) {
+                                        Log.i(Helper.TAG, folder.name + " do idle");
+                                        ifolder.idle(false);
+                                        Log.i(Helper.TAG, folder.name + " done idle");
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
 
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                synchronized (state) {
-                                    state.notifyAll();
+                                    synchronized (state) {
+                                        state.notifyAll();
+                                    }
+                                } finally {
+                                    Log.i(Helper.TAG, folder.name + " end idle");
                                 }
-                            } finally {
-                                Log.i(Helper.TAG, folder.name + " end idle");
                             }
-                        }
-                    }, "sync.idle." + folder.id);
-                    idle.start();
-                    idlers.add(idle);
+                        }, "sync.idle." + folder.id);
+                        idle.start();
+                        idlers.add(idle);
+                    }
                 }
 
                 BroadcastReceiver processReceiver = new BroadcastReceiver() {
