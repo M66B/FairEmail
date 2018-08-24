@@ -29,7 +29,7 @@
             starttls="false" />
     </provider-->
     <!-- no IMAP IDLE -->
-    <!--provider name="Yahoo!">
+    <provider name="Yahoo!">
         <imap
             host="imap.mail.yahoo.com"
             port="993" />
@@ -37,7 +37,7 @@
             host="smtp.mail.yahoo.com"
             port="465"
             starttls="false" />
-    </provider-->
+    </provider>
     <provider name="Posteo.de">
         <imap
             host="posteo.de"
@@ -66,7 +66,7 @@
             starttls="false" />
     </provider>
     <!-- no IMAP IDLE -->
-    <!--provider name="sfs.fr">
+    <provider name="sfs.fr">
         <imap
             host="imap.sfr.fr"
             port="993" />
@@ -74,7 +74,7 @@
             host="smtp.sfr.fr"
             port="465"
             starttls="false" />
-    </provider-->
+    </provider>
     <provider name="infomaniak">
         <imap
             host="mail.infomaniak.com"
