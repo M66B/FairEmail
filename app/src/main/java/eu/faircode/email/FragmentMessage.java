@@ -307,6 +307,8 @@ public class FragmentMessage extends FragmentEx {
 
         // Observe message
         db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+            private boolean once = false;
+
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
                 if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
@@ -316,9 +318,14 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 FragmentMessage.this.message = message;
-                setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                 if (savedInstanceState == null) {
+                    if (once)
+                        return;
+                    once = true;
+
+                    setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+
                     tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
                     tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                     tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));

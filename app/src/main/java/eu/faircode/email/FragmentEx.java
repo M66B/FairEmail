@@ -53,9 +53,17 @@ public class FragmentEx extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("subtitle", subtitle);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.i(Helper.TAG, "Create " + this);
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null)
+            subtitle = savedInstanceState.getString("subtitle");
     }
 
     @Override
