@@ -10,6 +10,8 @@ This email app might be for you if your current email app:
 * cannot show related messages
 * cannot work offline
 * looks outdated
+* is not maintained
+* stores your email on their servers
 * is closed source, potentially violating your privacy
 
 Features
