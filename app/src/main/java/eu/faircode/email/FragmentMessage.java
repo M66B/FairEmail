@@ -23,16 +23,22 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +46,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +54,11 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.xml.sax.XMLReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -83,6 +95,7 @@ public class FragmentMessage extends FragmentEx {
     private RecyclerView rvAttachment;
     private TextView tvError;
     private View vSeparatorBody;
+    private Button btnImages;
     private TextView tvBody;
     private ProgressBar pbBody;
     private FloatingActionButton fab;
@@ -125,6 +138,7 @@ public class FragmentMessage extends FragmentEx {
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvError = view.findViewById(R.id.tvError);
         vSeparatorBody = view.findViewById(R.id.vSeparatorBody);
+        btnImages = view.findViewById(R.id.btnImages);
         tvBody = view.findViewById(R.id.tvBody);
         pbBody = view.findViewById(R.id.pbBody);
         fab = view.findViewById(R.id.fab);
@@ -264,6 +278,7 @@ public class FragmentMessage extends FragmentEx {
         grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
+        btnImages.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
         pbBody.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
@@ -353,28 +368,90 @@ public class FragmentMessage extends FragmentEx {
 
                 if (tvBody.getTag() == null) {
                     // Spanned text needs to be loaded after recreation too
-                    Bundle args = new Bundle();
+                    final Bundle args = new Bundle();
                     args.putLong("id", message.id);
+                    args.putBoolean("has_images", false);
+                    args.putBoolean("show_images", false);
 
                     pbBody.setVisibility(View.VISIBLE);
-                    new SimpleTask<Spanned>() {
+                    final SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
                         @Override
-                        protected Spanned onLoad(Context context, Bundle args) throws Throwable {
+                        protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
+                            final boolean show_images = args.getBoolean("show_images");
                             String body = EntityMessage.read(context, args.getLong("id"));
                             args.putInt("size", body.length());
-                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false));
+
+                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
+                                @Override
+                                public Drawable getDrawable(String source) {
+                                    float scale = context.getResources().getDisplayMetrics().density;
+                                    int px = (int) (24 * scale + 0.5f);
+
+                                    if (show_images) {
+                                        InputStream is = null;
+                                        try {
+                                            is = new URL(source).openStream();
+                                            Bitmap bm = BitmapFactory.decodeStream(is);
+                                            if (bm == null)
+                                                throw new IllegalArgumentException();
+                                            Drawable d = new BitmapDrawable(context.getResources(), bm);
+                                            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                                            // TODO image caching?
+                                            return d;
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                            Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                                            d.setBounds(0, 0, px, px);
+                                            return d;
+                                        } finally {
+                                            if (is != null) {
+                                                try {
+                                                    is.close();
+                                                } catch (IOException e) {
+                                                    Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        args.putBoolean("has_images", true);
+                                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
+                                        d.setBounds(0, 0, px, px);
+                                        return d;
+                                    }
+                                }
+                            }, new Html.TagHandler() {
+                                @Override
+                                public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
+
+                                }
+                            });
                         }
 
                         @Override
                         protected void onLoaded(Bundle args, Spanned body) {
+                            boolean has_images = args.getBoolean("has_images");
+                            boolean show_images = args.getBoolean("show_images");
                             tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
                             tvBody.setText(body);
                             tvBody.setTag(true);
+                            btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                             grpMessage.setVisibility(View.VISIBLE);
                             fab.setVisibility(free ? View.GONE : View.VISIBLE);
                             pbBody.setVisibility(View.GONE);
+
                         }
-                    }.load(FragmentMessage.this, args);
+                    };
+
+                    bodyTask.load(FragmentMessage.this, args);
+
+                    btnImages.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            v.setEnabled(false);
+                            args.putBoolean("show_images", true);
+                            bodyTask.load(FragmentMessage.this, args);
+                        }
+                    });
                 }
 
                 int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);

@@ -95,6 +95,7 @@ public class HtmlHelper implements NodeVisitor {
                     alt = context.getString(R.string.title_image);
                 alt = Html.escapeHtml(alt);
                 sb.append(" ").append(String.format("<a href=\"%s\">%s [%d]</a>", ref, alt, refs.size()));
+                sb.append("<img src=\"" + ref + "\" alt=\"" + alt + "\">");
             }
         }
     }
