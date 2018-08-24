@@ -68,6 +68,7 @@
   <string name="title_port">Port-Nummer</string>
   <string name="title_user">Benutzername</string>
   <string name="title_password">Passwort</string>
+  <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Store sent messages (enable if needed only)</string>
   <string name="title_interval">Poll/keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
@@ -103,6 +104,7 @@
   <string name="title_no_messages">Keine E-Mails</string>
   <string name="title_link">Link</string>
   <string name="title_image">Bild</string>
+  <string name="title_show_images">Show images</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Fwd: %1$s</string>
   <string name="title_thread">Show thread</string>

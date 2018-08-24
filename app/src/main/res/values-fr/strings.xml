@@ -43,8 +43,8 @@
   <string name="title_setup_account_remark">Recevoir des e-mails</string>
   <string name="title_setup_identity">Gérer les identités</string>
   <string name="title_setup_identity_remark">Envoyer des e-mails</string>
-  <string name="title_setup_permissions">Accorder les permissions</string>
-  <string name="title_setup_permissions_remark">Pour l\'autocomplétion des adresses (facultatif)</string>
+  <string name="title_setup_permissions">Accorder les autorisations</string>
+  <string name="title_setup_permissions_remark">Saisie semi-automatique des adresses (facultatif)</string>
   <string name="title_setup_to_do">À faire</string>
   <string name="title_setup_done">Fait</string>
   <string name="title_setup_dark_theme">Thème sombre</string>
@@ -68,6 +68,7 @@
   <string name="title_port">Numéro de port</string>
   <string name="title_user">Nom d’utilisateur</string>
   <string name="title_password">Mot de passe</string>
+  <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Stocker les messages envoyés (à activer si nécessaire)</string>
   <string name="title_interval">Intervalle de consultation/requête (minutes)</string>
   <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
@@ -103,6 +104,7 @@
   <string name="title_no_messages">Aucun message</string>
   <string name="title_link">lien</string>
   <string name="title_image">image</string>
+  <string name="title_show_images">Show images</string>
   <string name="title_subject_reply">Re : %1$s</string>
   <string name="title_subject_forward">Tr : %1$s</string>
   <string name="title_thread">Afficher le fil de discussion</string>
@@ -125,15 +127,15 @@
   <string name="title_reply_to">Répondre à :</string>
   <string name="title_cc">Cc :</string>
   <string name="title_bcc">Cci :</string>
-  <string name="title_subject">Sujet :</string>
+  <string name="title_subject">Objet :</string>
   <string name="title_body_hint">Votre message</string>
   <string name="title_save">Enregistrer</string>
   <string name="title_send">Envoyer</string>
-  <string name="title_show_addresses">Aficher Cc/Cci</string>
+  <string name="title_show_addresses">Afficher Cc/Cci</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
   <string name="title_from_missing">Expéditeur manquant</string>
   <string name="title_to_missing">Destinataire manquant</string>
-  <string name="title_attachments_missing">Pièce jointe en-cours de chargement</string>
+  <string name="title_attachments_missing">Pièces jointes en cours de chargement</string>
   <string name="title_draft_trashed">Brouillon supprimé</string>
   <string name="title_draft_saved">Brouillon enregistré</string>
   <string name="title_queued">Envoi du message</string>
@@ -145,6 +147,6 @@
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>
   <string name="title_legend_closing">Fermeture en cours</string>
-  <string name="title_debug_info">Informations de débogage</string>
+  <string name="title_debug_info">Information de débogage</string>
   <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
 </resources>

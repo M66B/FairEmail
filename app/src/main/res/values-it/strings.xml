@@ -68,6 +68,7 @@
   <string name="title_port">Numero porta</string>
   <string name="title_user">Nome utente</string>
   <string name="title_password">Password</string>
+  <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Conserva i messaggi inviati (abilita solo se necessario)</string>
   <string name="title_interval">Intervallo di poll/keep-alive (minuti)</string>
   <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
@@ -103,6 +104,7 @@
   <string name="title_no_messages">Nessun messaggio</string>
   <string name="title_link">collegamento</string>
   <string name="title_image">immagine</string>
+  <string name="title_show_images">Show images</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Fwd: %1$s</string>
   <string name="title_thread">Visualizza thread</string>
