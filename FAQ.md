@@ -45,11 +45,10 @@ Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be p
 which is a waste of battery power and internet bandwidth and will delay notification of new emails.
 
 <a name="FAQ6"></a>
-**(6) How can I set a Google app password?**
+**(6) How can I login to Gmail / G suite?**
 
+To login to Gmail / G suite you'll often need an app password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
-
-This will be easier after implementing [this feature](https://github.com/M66B/open-source-email/issues/17).
 
 <br>
 

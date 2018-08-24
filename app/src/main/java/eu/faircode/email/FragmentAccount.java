@@ -23,7 +23,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +72,7 @@ public class FragmentAccount extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvLink;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private CheckBox cbStoreSent;
@@ -86,6 +89,7 @@ public class FragmentAccount extends FragmentEx {
     private ProgressBar pbSave;
     private ImageButton ibDelete;
     private ProgressBar pbWait;
+    private Group grpInstructions;
     private Group grpFolders;
 
     @Override
@@ -106,6 +110,7 @@ public class FragmentAccount extends FragmentEx {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvLink = view.findViewById(R.id.tvLink);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbStoreSent = view.findViewById(R.id.cbStoreSent);
@@ -122,6 +127,7 @@ public class FragmentAccount extends FragmentEx {
         pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
         pbWait = view.findViewById(R.id.pbWait);
+        grpInstructions = view.findViewById(R.id.grpInstructions);
         grpFolders = view.findViewById(R.id.grpFolders);
 
         // Wire controls
@@ -135,6 +141,10 @@ public class FragmentAccount extends FragmentEx {
                 adapterView.setTag(position);
 
                 Provider provider = (Provider) adapterView.getSelectedItem();
+
+                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
+                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
+
                 if (provider.imap_port != 0) {
                     etName.setText(provider.name);
                     etHost.setText(provider.imap_host);
@@ -578,6 +588,7 @@ public class FragmentAccount extends FragmentEx {
         // Initialize
         Helper.setViewsEnabled(view, false);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
+        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
         btnCheck.setEnabled(false);
         pbCheck.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
@@ -594,6 +605,7 @@ public class FragmentAccount extends FragmentEx {
         super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
+        outState.putInt("instructions", grpInstructions.getVisibility());
     }
 
     @Override
@@ -637,6 +649,7 @@ public class FragmentAccount extends FragmentEx {
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+                    grpInstructions.setVisibility(savedInstanceState.getInt("instructions"));
                 }
 
                 Helper.setViewsEnabled(view, true);

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <providers>
-    <provider name="Gmail">
+    <provider
+        name="Gmail"
+        link="https://support.google.com/mail/answer/7126229">
         <imap
             host="imap.gmail.com"
             port="993" />
@@ -9,7 +11,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="Outlook">
+    <provider
+        name="Outlook"
+        link="https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040">
         <imap
             host="imap-mail.outlook.com"
             port="993" />
@@ -29,7 +33,9 @@
             starttls="false" />
     </provider-->
     <!-- no IMAP IDLE -->
-    <provider name="Yahoo!">
+    <provider
+        name="Yahoo!"
+        link="https://help.yahoo.com/kb/SLN4075.html">
         <imap
             host="imap.mail.yahoo.com"
             port="993" />
@@ -38,7 +44,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="Posteo.de">
+    <provider
+        name="Posteo.de"
+        link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
             host="posteo.de"
             port="993" />
@@ -56,7 +64,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="FastMail">
+    <provider
+        name="FastMail"
+        link="https://www.fastmail.com/help/technical/servernamesandports.html">
         <imap
             host="imap.fastmail.com"
             port="993" />
@@ -93,7 +103,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="gmx.com">
+    <provider
+        name="gmx.com"
+        link="https://support.gmx.com/pop-imap/imap/index.html#breadcrumb_help_pop-imap_imap_server">
         <imap
             host="imap.gmx.com"
             port="993" />
