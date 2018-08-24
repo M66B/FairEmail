@@ -40,6 +40,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
@@ -326,12 +327,16 @@ public class ServiceSynchronize extends LifecycleService {
         // - "This operation is not allowed on a closed folder"
         // - can happen when syncing message
 
+        // ConnectionException
+        // - failed to create new store connection (connectivity)
+
         // MailConnectException
-        // - on connectity problems when connecting to stoe
+        // - on connectity problems when connecting to store
 
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
+                !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException)) {
             String action;
             if (TextUtils.isEmpty(account))
