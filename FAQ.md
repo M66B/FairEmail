@@ -11,6 +11,7 @@ Frequently Asked Questions
 * View network connections (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * Run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses
+* ... (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question.
 
 <a name="FAQ2"></a>
 **(2) Why is there a permanent notification shown?**
