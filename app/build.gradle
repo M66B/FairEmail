@@ -45,26 +45,41 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
+    // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
+    // https://mvnrepository.com/artifact/com.google.android.material/material
+    // https://mvnrepository.com/artifact/androidx.browser/browser
+    // https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout
+
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime
+    // https://mvnrepository.com/artifact/androidx.room/room-runtime
+    // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
+
+    // https://javaee.github.io/javamail/
+    // https://jsoup.org/
+    // http://www.freeutils.net/source/jcharset/
+
+    // https://developer.android.com/topic/libraries/support-library/androidx-rn
+    // https://developer.android.com/topic/libraries/support-library/refactor
+
+    // https://developer.android.com/topic/libraries/architecture/adding-components.html
+    // https://developer.android.com/jetpack/docs/release-notes
+
     def androidx_version = "1.0.0-rc01"
-    def lifecycle_version = "2.0.0-beta01"
-    def room_version = "2.0.0-beta01"
-    def paging_version = "2.0.0-beta01"
+    def constraintlayout_version = "1.1.2"
+    def lifecycle_version = "2.0.0-rc01"
+    def room_version = "2.0.0-rc01"
+    def paging_version = "2.0.0-rc01"
     def javamail_version = "1.6.0"
     def jsoup_version = "1.11.3"
     def jcharset_version = "2.0"
 
-    // https://developer.android.com/topic/libraries/support-library/androidx-rn
-    // https://developer.android.com/topic/libraries/support-library/refactor
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
     implementation "com.google.android.material:material:$androidx_version"
     implementation "androidx.browser:browser:$androidx_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
-    // https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout
-    implementation "androidx.constraintlayout:constraintlayout:1.1.2"
-
-    // https://developer.android.com/topic/libraries/architecture/adding-components.html
-    // https://developer.android.com/jetpack/docs/release-notes
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
@@ -73,13 +88,10 @@ dependencies {
 
     implementation "androidx.paging:paging-runtime:$paging_version"
 
-    // https://javaee.github.io/javamail/
     implementation "com.sun.mail:android-mail:$javamail_version"
     implementation "com.sun.mail:android-activation:$javamail_version"
 
-    // https://jsoup.org/
     implementation "org.jsoup:jsoup:$jsoup_version"
 
-    // http://www.freeutils.net/source/jcharset/
     implementation "net.freeutils:jcharset:$jcharset_version"
 }
