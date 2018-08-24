@@ -1583,14 +1583,12 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     public static void start(Context context) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class));
+        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
     }
 
     public static void reload(Context context, String reason) {
         Log.i(Helper.TAG, "Reload because of '" + reason + "'");
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class).setAction("reload"));
+        context.startService(new Intent(context, ServiceSynchronize.class).setAction("reload"));
     }
 
     private class ServiceState {
