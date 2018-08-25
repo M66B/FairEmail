@@ -36,6 +36,7 @@ import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.util.Log;
@@ -523,12 +524,12 @@ public class FragmentMessage extends FragmentEx {
                                     hasUser = true;
                             }
 
-                        bottom_navigation.setTag(inTrash || !hasTrash);
+                        bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
 
-                        bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inOutbox && !inArchive && !inJunk && hasJunk);
-                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible(message.uid != null && !inOutbox && hasTrash);
-                        bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && !inOutbox && (!inInbox || hasUser));
-                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inOutbox && !inArchive && hasArchive);
+                        bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
+                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                        bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                         bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                         bottom_navigation.setVisibility(View.VISIBLE);
                     }
@@ -739,10 +740,13 @@ public class FragmentMessage extends FragmentEx {
                                     try {
                                         db.beginTransaction();
 
-                                        db.message().setMessageUiHide(id, true);
-
                                         EntityMessage message = db.message().getMessage(id);
-                                        EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                        if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
+                                            db.message().deleteMessage(id);
+                                        else {
+                                            db.message().setMessageUiHide(id, true);
+                                            EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                        }
 
                                         db.setTransactionSuccessful();
                                     } finally {
