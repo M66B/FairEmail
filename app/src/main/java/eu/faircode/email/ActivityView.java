@@ -631,98 +631,112 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (ACTION_VIEW_MESSAGES.equals(intent.getAction())) {
-                FragmentMessages fragment = new FragmentMessages();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
-                fragmentTransaction.commit();
-
-            } else if (ACTION_VIEW_MESSAGE.equals(intent.getAction())) {
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage message = db.message().getMessage(id);
-                            for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
-                                if (message.uid != null) { // Skip drafts and outbox
-                                    db.message().setMessageUiSeen(tmessage.id, true);
-
-                                    EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
-                                }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        EntityOperation.process(context);
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Void result) {
-                        FragmentMessage fragment = new FragmentMessage();
-                        fragment.setArguments(args);
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
-                        fragmentTransaction.commit();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }.load(ActivityView.this, intent.getExtras());
-
-            } else if (ACTION_EDIT_FOLDER.equals(intent.getAction())) {
-                FragmentFolder fragment = new FragmentFolder();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
-                fragmentTransaction.commit();
-
-            } else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction())) {
-                Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-                create.addCategory(Intent.CATEGORY_OPENABLE);
-                create.setType(intent.getStringExtra("type"));
-                create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-                startActivityForResult(create, (int) intent.getLongExtra("id", -1) + REQUEST_ATTACHMENT_OFFSET);
-
-            } else if (ACTION_ACTIVATE_PRO.equals(intent.getAction())) {
-                try {
-                    Uri data = intent.getParcelableExtra("uri");
-                    String challenge = getChallenge();
-                    String response = data.getQueryParameter("response");
-                    Log.i(Helper.TAG, "Challenge=" + challenge);
-                    Log.i(Helper.TAG, "Response=" + response);
-                    String expected = getResponse();
-                    if (expected.equals(response)) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
-                        prefs.edit().putBoolean("pro", true).apply();
-                        Log.i(Helper.TAG, "Response valid");
-                        Snackbar.make(view, R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Log.i(Helper.TAG, "Response invalid");
-                        Snackbar.make(view, R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
-                    }
-
-                    intent.setData(null);
-                    setIntent(intent);
-                } catch (NoSuchAlgorithmException ex) {
-                    Log.e(Helper.TAG, Log.getStackTraceString(ex));
-                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            }
+            if (ACTION_VIEW_MESSAGES.equals(intent.getAction()))
+                onViewMessages(intent);
+            else if (ACTION_VIEW_MESSAGE.equals(intent.getAction()))
+                onViewMessage(intent);
+            else if (ACTION_EDIT_FOLDER.equals(intent.getAction()))
+                onEditFolder(intent);
+            else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction()))
+                onStoreAttachment(intent);
+            else if (ACTION_ACTIVATE_PRO.equals(intent.getAction()))
+                onActivatePro(intent);
         }
     };
+
+    private void onViewMessages(Intent intent) {
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
+        fragmentTransaction.commit();
+    }
+
+    private void onViewMessage(Intent intent) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
+                        if (message.uid != null) { // Skip drafts and outbox
+                            db.message().setMessageUiSeen(tmessage.id, true);
+
+                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
+                        }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void result) {
+                FragmentMessage fragment = new FragmentMessage();
+                fragment.setArguments(args);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
+                fragmentTransaction.commit();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(ActivityView.this, intent.getExtras());
+    }
+
+    private void onEditFolder(Intent intent) {
+        FragmentFolder fragment = new FragmentFolder();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
+        fragmentTransaction.commit();
+    }
+
+    private void onStoreAttachment(Intent intent) {
+        Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        create.addCategory(Intent.CATEGORY_OPENABLE);
+        create.setType(intent.getStringExtra("type"));
+        create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
+        startActivityForResult(create, (int) intent.getLongExtra("id", -1) + REQUEST_ATTACHMENT_OFFSET);
+    }
+
+    private void onActivatePro(Intent intent) {
+        try {
+            Uri data = intent.getParcelableExtra("uri");
+            String challenge = getChallenge();
+            String response = data.getQueryParameter("response");
+            Log.i(Helper.TAG, "Challenge=" + challenge);
+            Log.i(Helper.TAG, "Response=" + response);
+            String expected = getResponse();
+            if (expected.equals(response)) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+                prefs.edit().putBoolean("pro", true).apply();
+                Log.i(Helper.TAG, "Response valid");
+                Snackbar.make(view, R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
+            } else {
+                Log.i(Helper.TAG, "Response invalid");
+                Snackbar.make(view, R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
+            }
+
+            intent.setData(null);
+            setIntent(intent);
+        } catch (NoSuchAlgorithmException ex) {
+            Log.e(Helper.TAG, Log.getStackTraceString(ex));
+            Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
