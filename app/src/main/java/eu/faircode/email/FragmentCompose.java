@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -54,7 +55,13 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.openintents.openpgp.OpenPgpError;
+import org.openintents.openpgp.util.OpenPgpApi;
+import org.openintents.openpgp.util.OpenPgpServiceConnection;
+
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -110,7 +117,26 @@ public class FragmentCompose extends FragmentEx {
     private boolean addresses;
     private boolean autosave = true;
 
+    private String encrypted = null;
+    private OpenPgpServiceConnection openPgpConnection = null;
+
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        openPgpConnection = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
+        openPgpConnection.bindToService();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (openPgpConnection != null) {
+            openPgpConnection.unbindFromService();
+            openPgpConnection = null;
+        }
+    }
 
     @Override
     @Nullable
@@ -317,6 +343,7 @@ public class FragmentCompose extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putLong("working", working);
+        outState.putString("encrypted", encrypted);
     }
 
     @Override
@@ -337,6 +364,8 @@ public class FragmentCompose extends FragmentEx {
             args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
             draftLoader.load(this, args);
         } else {
+            encrypted = savedInstanceState.getString("encrypted");
+
             Bundle args = new Bundle();
             args.putString("action", "edit");
             args.putLong("id", savedInstanceState.getLong("working"));
@@ -365,6 +394,7 @@ public class FragmentCompose extends FragmentEx {
         menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
+        menu.findItem(R.id.menu_encrypt).setVisible(encrypted == null);
     }
 
     @Override
@@ -375,6 +405,9 @@ public class FragmentCompose extends FragmentEx {
                 return true;
             case R.id.menu_addresses:
                 onMenuAddresses();
+                return true;
+            case R.id.menu_encrypt:
+                onMenuEncrypt();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -392,12 +425,77 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
+    private void onMenuEncrypt() {
+        Log.i(Helper.TAG, "On encrypt");
+        try {
+            if (openPgpConnection == null)
+                throw new IllegalArgumentException();
+            if (!openPgpConnection.isBound())
+                throw new IllegalArgumentException("OpenPgp not available");
+
+            EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
+            if (identity == null)
+                throw new IllegalArgumentException("No identity selected");
+
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_ENCRYPT);
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{identity.email});
+            data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+
+            String plain = etBody.getText().toString();
+            final InputStream is = new ByteArrayInputStream(plain.getBytes("UTF-8"));
+            final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+            OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
+            api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {
+                @Override
+                public void onReturn(Intent result) {
+                    try {
+                        int code = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                        switch (code) {
+                            case OpenPgpApi.RESULT_CODE_SUCCESS: {
+                                Log.i(Helper.TAG, "Encrypted");
+                                FragmentCompose.this.encrypted = os.toString("UTF-8");
+                                getActivity().invalidateOptionsMenu();
+                                etBody.setText(FragmentCompose.this.encrypted);
+                                break;
+                            }
+                            case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
+                                Log.i(Helper.TAG, "User interaction");
+                                PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                                getActivity().startIntentSenderForResult(
+                                        pi.getIntentSender(),
+                                        ActivityCompose.REQUEST_OPENPGP,
+                                        null, 0, 0, 0);
+                                break;
+                            }
+                            case OpenPgpApi.RESULT_CODE_ERROR: {
+                                OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                                Log.e(Helper.TAG, error.getMessage());
+                                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
                 if (data != null)
                     handleAddAttachment(data);
+            } else if (requestCode == ActivityCompose.REQUEST_OPENPGP) {
+                Log.i(Helper.TAG, "User interacted");
+                onMenuEncrypt();
             } else
                 handlePickContact(requestCode, data);
         }
@@ -530,7 +628,6 @@ public class FragmentCompose extends FragmentEx {
                 attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
             if (attachment.type == null)
                 attachment.type = "application/octet-stream";
-
 
             attachment.size = (s == null ? null : Integer.parseInt(s));
             attachment.progress = 0;
@@ -903,7 +1000,11 @@ public class FragmentCompose extends FragmentEx {
                 draft.subject = subject;
                 draft.received = new Date().getTime();
 
-                String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                String pbody;
+                if (encrypted == null)
+                    pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                else
+                    pbody = encrypted;
 
                 // Execute action
                 if (action == R.id.action_trash) {

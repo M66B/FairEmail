@@ -36,6 +36,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     static final int REQUEST_CONTACT_CC = 2;
     static final int REQUEST_CONTACT_BCC = 3;
     static final int REQUEST_ATTACHMENT = 4;
+    static final int REQUEST_OPENPGP = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

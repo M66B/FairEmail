@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,8 +56,13 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.openintents.openpgp.OpenPgpError;
+import org.openintents.openpgp.util.OpenPgpApi;
+import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.xml.sax.XMLReader;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -73,6 +79,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.internet.InternetAddress;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -85,6 +93,8 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
@@ -116,10 +126,29 @@ public class FragmentMessage extends FragmentEx {
     private boolean free = false;
     private AdapterAttachment adapter;
 
+    private String decrypted = null;
+    private OpenPgpServiceConnection openPgpConnection = null;
+
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     private static final long CACHE_IMAGE_DURATION = 24 * 3600 * 1000L;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        openPgpConnection = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
+        openPgpConnection.bindToService();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (openPgpConnection != null) {
+            openPgpConnection.unbindFromService();
+            openPgpConnection = null;
+        }
+    }
 
     @Override
     @Nullable
@@ -611,6 +640,7 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_seen).setVisible(!free && message != null && !inOutbox);
         menu.findItem(R.id.menu_forward).setVisible(!free && message != null && !inOutbox);
         menu.findItem(R.id.menu_reply_all).setVisible(!free && message != null && message.cc != null && !inOutbox);
+        menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null);
 
         if (message != null) {
             MenuItem menuSeen = menu.findItem(R.id.menu_seen);
@@ -638,6 +668,9 @@ public class FragmentMessage extends FragmentEx {
                 return true;
             case R.id.menu_reply_all:
                 onMenuReplyAll(message.id);
+                return true;
+            case R.id.menu_decrypt:
+                onMenuDecrypt(message);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -717,6 +750,75 @@ public class FragmentMessage extends FragmentEx {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
                 .putExtra("reference", id));
+    }
+
+    private void onMenuDecrypt(EntityMessage message) {
+        Log.i(Helper.TAG, "On decrypt");
+        try {
+            if (openPgpConnection == null)
+                throw new IllegalArgumentException();
+            if (!openPgpConnection.isBound())
+                throw new IllegalArgumentException("OpenPgp not available");
+
+            InternetAddress to = (InternetAddress) message.to[0];
+
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
+
+            String encrypted = message.read(getContext());
+            final InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
+            final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+            OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
+            api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {
+                @Override
+                public void onReturn(Intent result) {
+                    try {
+                        int code = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                        switch (code) {
+                            case OpenPgpApi.RESULT_CODE_SUCCESS: {
+                                Log.i(Helper.TAG, "Decrypted");
+                                FragmentMessage.this.decrypted = os.toString("UTF-8");
+                                getActivity().invalidateOptionsMenu();
+                                tvBody.setText(decrypted);
+                                break;
+                            }
+                            case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
+                                Log.i(Helper.TAG, "User interaction");
+                                PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                                getActivity().startIntentSenderForResult(
+                                        pi.getIntentSender(),
+                                        ActivityView.REQUEST_OPENPGP,
+                                        null, 0, 0, 0);
+                                break;
+                            }
+                            case OpenPgpApi.RESULT_CODE_ERROR: {
+                                OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                                Log.e(Helper.TAG, error.getMessage());
+                                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ActivityView.REQUEST_OPENPGP && message != null) {
+                Log.i(Helper.TAG, "User interacted");
+                onMenuDecrypt(message);
+            }
+        }
     }
 
     private void onActionSpam(final long id) {

@@ -91,6 +91,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
+    static final int REQUEST_OPENPGP = 3;
+    static final int REQUEST_ATTACHMENT_OFFSET = 10;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
@@ -692,7 +694,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 create.addCategory(Intent.CATEGORY_OPENABLE);
                 create.setType(intent.getStringExtra("type"));
                 create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-                startActivityForResult(create, (int) intent.getLongExtra("id", -1));
+                startActivityForResult(create, (int) intent.getLongExtra("id", -1) + REQUEST_ATTACHMENT_OFFSET);
 
             } else if (ACTION_ACTIVATE_PRO.equals(intent.getAction())) {
                 try {
@@ -724,9 +726,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK && requestCode > REQUEST_ATTACHMENT_OFFSET) {
             Bundle args = new Bundle();
-            args.putLong("id", requestCode);
+            args.putLong("id", requestCode - REQUEST_ATTACHMENT_OFFSET);
             args.putParcelable("uri", data.getData());
             new SimpleTask<Void>() {
                 @Override

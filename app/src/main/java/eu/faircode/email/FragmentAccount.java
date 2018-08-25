@@ -453,6 +453,7 @@ public class FragmentAccount extends FragmentEx {
                             account.password = password;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
+                            account.store_sent = false;
                             account.poll_interval = Integer.parseInt(poll_interval);
 
                             if (!synchronize)
