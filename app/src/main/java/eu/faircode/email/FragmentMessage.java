@@ -57,6 +57,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.xml.sax.XMLReader;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -114,6 +117,8 @@ public class FragmentMessage extends FragmentEx {
 
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+
+    private static final long CACHE_IMAGE_DURATION = 24 * 3600 * 1000L;
 
     @Override
     @Nullable
@@ -380,8 +385,9 @@ public class FragmentMessage extends FragmentEx {
                     final SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
                         @Override
                         protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
+                            final long id = args.getLong("id");
                             final boolean show_images = args.getBoolean("show_images");
-                            String body = EntityMessage.read(context, args.getLong("id"));
+                            String body = EntityMessage.read(context, id);
                             args.putInt("size", body.length());
 
                             return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
@@ -391,22 +397,55 @@ public class FragmentMessage extends FragmentEx {
                                     int px = (int) (24 * scale + 0.5f);
 
                                     if (show_images) {
+                                        // Get cache folder
+                                        File dir = new File(context.getCacheDir(), "images");
+                                        dir.mkdir();
+
+                                        // Cleanup cache
+                                        long now = new Date().getTime();
+                                        File[] images = dir.listFiles();
+                                        if (images != null)
+                                            for (File image : images)
+                                                if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
+                                                    Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
+                                                    image.delete();
+                                                }
+
+                                        // Create unique file name
+                                        File file = new File(dir, id + "_" + source.hashCode());
+
                                         InputStream is = null;
+                                        FileOutputStream os = null;
                                         try {
-                                            is = new URL(source).openStream();
+                                            // Get input stream
+                                            if (file.exists())
+                                                is = new FileInputStream(file);
+                                            else
+                                                is = new URL(source).openStream();
+
+                                            // Decode image from stream
                                             Bitmap bm = BitmapFactory.decodeStream(is);
                                             if (bm == null)
                                                 throw new IllegalArgumentException();
+
+                                            // Cache bitmap
+                                            if (!file.exists()) {
+                                                os = new FileOutputStream(file);
+                                                bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+                                            }
+
+                                            // Create drawable from bitmap
                                             Drawable d = new BitmapDrawable(context.getResources(), bm);
                                             d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                                            // TODO image caching?
                                             return d;
                                         } catch (Throwable ex) {
+                                            // Show warning icon
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                             Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
                                             d.setBounds(0, 0, px, px);
                                             return d;
                                         } finally {
+                                            // Close streams
                                             if (is != null) {
                                                 try {
                                                     is.close();
@@ -414,8 +453,16 @@ public class FragmentMessage extends FragmentEx {
                                                     Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
                                                 }
                                             }
+                                            if (os != null) {
+                                                try {
+                                                    os.close();
+                                                } catch (IOException e) {
+                                                    Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                                                }
+                                            }
                                         }
                                     } else {
+                                        // Show placeholder icon
                                         args.putBoolean("has_images", true);
                                         Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
                                         d.setBounds(0, 0, px, px);
@@ -425,7 +472,7 @@ public class FragmentMessage extends FragmentEx {
                             }, new Html.TagHandler() {
                                 @Override
                                 public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-
+                                    // Do nothing
                                 }
                             });
                         }
@@ -441,7 +488,6 @@ public class FragmentMessage extends FragmentEx {
                             grpMessage.setVisibility(View.VISIBLE);
                             fab.setVisibility(free ? View.GONE : View.VISIBLE);
                             pbBody.setVisibility(View.GONE);
-
                         }
                     };
 
