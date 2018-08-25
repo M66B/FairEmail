@@ -57,6 +57,14 @@ Messages in the outbox are moved to the sent folder as soon as your provider add
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
 
+<a name="FAQ8"></a>
+**(8) Can I use a Microsoft exchange account?**
+
+If you can use a Microsoft exchange account depends on if the exchange account is accessible via IMAP.
+ActiveSync is not supported at this moment.
+See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
+
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
