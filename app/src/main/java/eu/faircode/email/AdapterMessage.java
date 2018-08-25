@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +41,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.PagedListAdapter;
-import androidx.recyclerview.selection.ItemDetailsLookup;
-import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +48,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private Context context;
     private LifecycleOwner owner;
     private ViewType viewType;
-    private SelectionTracker selectionTracker;
 
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
@@ -88,12 +84,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void wire() {
             itemView.setOnClickListener(this);
-            //itemView.setOnLongClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            //itemView.setOnLongClickListener(null);
+            itemView.setOnLongClickListener(null);
         }
 
         private void clear() {
@@ -110,8 +106,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
-
-            itemView.setActivated(selectionTracker.isSelected(message.id));
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
@@ -215,16 +209,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             return true;
         }
-
-        public ItemDetailsLookup.ItemDetails getItemDetails() {
-            Log.i(Helper.TAG, "getItemDetails");
-            return new MyItemDetail(getAdapterPosition(), getItem(getAdapterPosition()).id);
-        }
-    }
-
-    public void setSelectionTracker(SelectionTracker selectionTracker) {
-        Log.i(Helper.TAG, "setSelectionTracker");
-        this.selectionTracker = selectionTracker;
     }
 
     AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType) {
@@ -259,7 +243,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        Log.i(Helper.TAG, "onBindViewHolder");
 
         TupleMessageEx message = getItem(position);
         if (message == null)
