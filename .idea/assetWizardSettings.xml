@@ -48,6 +48,7 @@
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="cccccc" />
                                       <entry key="foregroundImage" value="$PROJECT_DIR$/images/6_foreground_3_bis.png" />
+                                      <entry key="webIconShape" value="NONE" />
                                     </map>
                                   </option>
                                 </PersistentState>
