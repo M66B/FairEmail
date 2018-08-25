@@ -198,15 +198,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
-        <CheckBox
-            android:id="@+id/cbStoreSent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_store_sent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
-
         <TextView
             android:id="@+id/tvInterval"
             android:layout_width="wrap_content"
@@ -215,15 +206,14 @@
             android:text="@string/title_interval"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbStoreSent" />
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <EditText
             android:id="@+id/etInterval"
-            android:layout_width="60dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:text="9"
-            android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvInterval" />

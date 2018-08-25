@@ -47,7 +47,7 @@ public class EntityAccount {
     @NonNull
     public Boolean synchronize;
     @NonNull
-    public Boolean store_sent;
+    public Boolean store_sent; // obsolete
     @NonNull
     public Integer poll_interval;
     public Long seen_until;
@@ -65,6 +65,7 @@ public class EntityAccount {
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
                     this.synchronize.equals(other.synchronize) &&
+                    this.poll_interval.equals(other.poll_interval) &&
                     (this.seen_until == null ? other.seen_until == null : this.seen_until.equals(other.seen_until)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));

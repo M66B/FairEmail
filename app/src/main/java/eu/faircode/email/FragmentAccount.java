@@ -75,7 +75,6 @@ public class FragmentAccount extends FragmentEx {
     private TextView tvLink;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
-    private CheckBox cbStoreSent;
     private EditText etInterval;
     private Button btnCheck;
     private ProgressBar pbCheck;
@@ -113,7 +112,6 @@ public class FragmentAccount extends FragmentEx {
         tvLink = view.findViewById(R.id.tvLink);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-        cbStoreSent = view.findViewById(R.id.cbStoreSent);
         etInterval = view.findViewById(R.id.etInterval);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -383,7 +381,6 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
-                args.putBoolean("store_sent", cbStoreSent.isChecked());
                 args.putString("poll_interval", etInterval.getText().toString());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
@@ -401,7 +398,6 @@ public class FragmentAccount extends FragmentEx {
                         String password = args.getString("password");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
-                        boolean store_sent = args.getBoolean("store_sent");
                         String poll_interval = args.getString("poll_interval");
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
@@ -457,7 +453,6 @@ public class FragmentAccount extends FragmentEx {
                             account.password = password;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
-                            account.store_sent = store_sent;
                             account.poll_interval = Integer.parseInt(poll_interval);
 
                             if (!synchronize)
@@ -642,7 +637,6 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
-                    cbStoreSent.setChecked(account == null ? false : account.store_sent);
                     etInterval.setText(account == null ? "9" : Integer.toString(account.poll_interval));
                 } else {
                     int provider = savedInstanceState.getInt("provider");

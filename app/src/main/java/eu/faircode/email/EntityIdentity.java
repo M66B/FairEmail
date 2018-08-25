@@ -62,6 +62,8 @@ public class EntityIdentity {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
+    @NonNull
+    public Boolean store_sent;
     public String state;
     public String error;
 
@@ -80,6 +82,7 @@ public class EntityIdentity {
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
                     this.synchronize.equals(other.synchronize) &&
+                    this.store_sent.equals(other.store_sent) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

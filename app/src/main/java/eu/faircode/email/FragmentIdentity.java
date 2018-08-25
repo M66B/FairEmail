@@ -72,6 +72,7 @@ public class FragmentIdentity extends FragmentEx {
     private TextView tvLink;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private CheckBox cbStoreSent;
     private Button btnSave;
     private ProgressBar pbSave;
     private ImageButton ibDelete;
@@ -103,6 +104,7 @@ public class FragmentIdentity extends FragmentEx {
         tvLink = view.findViewById(R.id.tvLink);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        cbStoreSent = view.findViewById(R.id.cbStoreSent);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
@@ -219,6 +221,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
+                args.putBoolean("store_sent", cbStoreSent.isChecked());
 
                 new SimpleTask<Void>() {
                     @Override
@@ -234,6 +237,8 @@ public class FragmentIdentity extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         boolean synchronize = args.getBoolean("synchronize");
+                        boolean primary = args.getBoolean("primary");
+                        boolean store_sent = args.getBoolean("store_sent");
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
@@ -283,7 +288,8 @@ public class FragmentIdentity extends FragmentEx {
                             identity.user = user;
                             identity.password = password;
                             identity.synchronize = synchronize;
-                            identity.primary = (identity.synchronize && args.getBoolean("primary"));
+                            identity.primary = (identity.synchronize && primary);
+                            identity.store_sent = store_sent;
 
                             if (!identity.synchronize)
                                 identity.error = null;
@@ -310,7 +316,6 @@ public class FragmentIdentity extends FragmentEx {
                     protected void onLoaded(Bundle args, Void data) {
                         getFragmentManager().popBackStack();
                     }
-
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
@@ -417,6 +422,7 @@ public class FragmentIdentity extends FragmentEx {
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
+                    cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     etName.requestFocus();
                 } else {

@@ -953,7 +953,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException, IOException {
         // Send message
-        EntityAccount account = db.account().getAccount(message.account);
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
@@ -998,7 +997,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                if (account.store_sent) {
+                if (ident.store_sent) {
                     EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
                     if (sent != null) {
                         message.folder = sent.id;
