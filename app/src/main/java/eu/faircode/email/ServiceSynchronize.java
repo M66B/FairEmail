@@ -37,6 +37,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -303,14 +304,14 @@ public class ServiceSynchronize extends LifecycleService {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
-                sb.append(MessageHelper.getFormattedAddresses(message.from, false));
+                sb.append("<strong>").append(MessageHelper.getFormattedAddresses(message.from, false)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(new Date(message.sent)));
                 sb.append("\n");
             }
 
-            builder.setStyle(new Notification.BigTextStyle().bigText(sb.toString()));
+            builder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
         }
 
         return builder;
