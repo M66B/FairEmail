@@ -134,6 +134,8 @@
   <string name="title_send">Send</string>
   <string name="title_show_addresses">Vis CC/BCC</string>
   <string name="title_add_attachment">Vedhæft fil</string>
+  <string name="title_encrypt">Encrypt</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>

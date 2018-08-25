@@ -134,6 +134,8 @@
   <string name="title_send">Enviar</string>
   <string name="title_show_addresses">Show CC/BCC</string>
   <string name="title_add_attachment">Add attachment</string>
+  <string name="title_encrypt">Encrypt</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Remetente faltante</string>
   <string name="title_to_missing">Destinatário faltante</string>
   <string name="title_attachments_missing">Attachments still loading</string>

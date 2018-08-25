@@ -138,6 +138,8 @@
   <string name="title_send">Trimite</string>
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
+  <string name="title_encrypt">Encrypt</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>

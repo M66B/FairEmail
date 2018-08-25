@@ -134,6 +134,8 @@
   <string name="title_send">Envoyer</string>
   <string name="title_show_addresses">Afficher Cc/Cci</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
+  <string name="title_encrypt">Encrypt</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Expéditeur manquant</string>
   <string name="title_to_missing">Destinataire manquant</string>
   <string name="title_attachments_missing">Pièces jointes en cours de chargement</string>
