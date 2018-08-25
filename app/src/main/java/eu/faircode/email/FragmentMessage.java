@@ -82,6 +82,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -187,8 +188,15 @@ public class FragmentMessage extends FragmentEx {
                 URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
                 if (link.length != 0) {
                     String url = link[0].getURL();
+                    Uri uri = Uri.parse(url);
 
-                    if (prefs.getBoolean("webview", false)) {
+                    if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_ACTIVATE_PRO)
+                                        .putExtra("uri", uri));
+
+                    } else if (prefs.getBoolean("webview", false)) {
                         Bundle args = new Bundle();
                         args.putString("link", url);
 

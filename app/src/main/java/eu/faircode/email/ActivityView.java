@@ -24,12 +24,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -42,11 +44,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -68,6 +73,7 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+    private View view;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
@@ -83,12 +89,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+    static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_view);
+        view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
+        setContentView(view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -129,6 +137,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                         break;
                     case R.string.menu_faq:
                         onMenuFAQ();
+                        break;
+                    case R.string.menu_pro:
+                        onMenuPro();
                         break;
                     case R.string.menu_privacy:
                         onMenuPrivacy();
@@ -179,6 +190,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
                 if (getIntentFAQ().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_question_answer_24, R.string.menu_faq));
+
+                Intent pro = getIntentPro();
+                if (pro == null || pro.resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
 
                 if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
@@ -327,6 +342,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
+        iff.addAction(ACTION_ACTIVATE_PRO);
         lbm.registerReceiver(receiver, iff);
 
         if (newIntent) {
@@ -388,13 +404,22 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         }
     }
 
+    private String getChallenge() throws NoSuchAlgorithmException {
+        String android_id = Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        return Helper.sha256(android_id);
+    }
+
+    private String getResponse() throws NoSuchAlgorithmException {
+        return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge());
+    }
+
     private void checkIntent(Intent intent) {
         Log.i(Helper.TAG, "View intent=" + intent + " action=" + intent.getAction());
         String action = intent.getAction();
-        intent.setAction(null);
-        setIntent(intent);
-
         if ("unseen".equals(action)) {
+            intent.setAction(null);
+            setIntent(intent);
+
             Bundle args = new Bundle();
             args.putLong("time", new Date().getTime());
 
@@ -438,6 +463,20 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         return intent;
     }
 
+    private Intent getIntentPro() {
+        if (Helper.isPlayStoreInstall(this))
+            return null;
+
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://email.faircode.eu/pro/?challenge=" + getChallenge()));
+            return intent;
+        } catch (NoSuchAlgorithmException ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            return null;
+        }
+    }
+
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
@@ -476,6 +515,13 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void onMenuFAQ() {
         startActivity(getIntentFAQ());
+    }
+
+    private void onMenuPro() {
+        if (Helper.isPlayStoreInstall(this)) {
+
+        } else
+            startActivity(getIntentPro());
     }
 
     private void onMenuPrivacy() {
@@ -616,6 +662,31 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 create.setType(intent.getStringExtra("type"));
                 create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
                 startActivityForResult(create, (int) intent.getLongExtra("id", -1));
+
+            } else if (ACTION_ACTIVATE_PRO.equals(intent.getAction())) {
+                try {
+                    Uri data = intent.getParcelableExtra("uri");
+                    String challenge = getChallenge();
+                    String response = data.getQueryParameter("response");
+                    Log.i(Helper.TAG, "Challenge=" + challenge);
+                    Log.i(Helper.TAG, "Response=" + response);
+                    String expected = getResponse();
+                    if (expected.equals(response)) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+                        prefs.edit().putBoolean("pro", true).apply();
+                        Log.i(Helper.TAG, "Response valid");
+                        Snackbar.make(view, R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Log.i(Helper.TAG, "Response invalid");
+                        Snackbar.make(view, R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
+                    }
+
+                    intent.setData(null);
+                    setIntent(intent);
+                } catch (NoSuchAlgorithmException ex) {
+                    Log.e(Helper.TAG, Log.getStackTraceString(ex));
+                    Toast.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
         }
     };

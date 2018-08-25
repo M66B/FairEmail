@@ -42,6 +42,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -162,5 +164,28 @@ public class Helper {
         } finally {
             in.close();
         }
+    }
+
+    static boolean isPlayStoreInstall(Context context) {
+        if (false && BuildConfig.DEBUG)
+            return true;
+        try {
+            return "com.android.vending".equals(context.getPackageManager().getInstallerPackageName(context.getPackageName()));
+        } catch (Throwable ex) {
+            Log.e(TAG, Log.getStackTraceString(ex));
+            return false;
+        }
+    }
+
+    static String sha256(String data) throws NoSuchAlgorithmException {
+        return sha256(data.getBytes());
+    }
+
+    static String sha256(byte[] data) throws NoSuchAlgorithmException {
+        byte[] bytes = MessageDigest.getInstance("SHA-256").digest(data);
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes)
+            sb.append(String.format("%02x", b));
+        return sb.toString();
     }
 }
