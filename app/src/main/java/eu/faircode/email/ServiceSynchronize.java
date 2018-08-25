@@ -98,6 +98,7 @@ import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.ParseException;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.ReceivedDateTerm;
 
@@ -1224,6 +1225,9 @@ public class ServiceSynchronize extends LifecycleService {
                         updated++;
                     else
                         unchanged++;
+                } catch (ParseException ex) {
+                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    reportError(account.name, folder.name, ex);
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
