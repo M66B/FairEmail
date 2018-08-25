@@ -50,6 +50,13 @@ which is a waste of battery power and internet bandwidth and will delay notifica
 To login to Gmail / G suite you'll often need an app password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
 
+<a name="FAQ7"></a>
+**(7) Why are messages in the outbox not moved to the sent folder?**
+
+Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
+If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
+In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
