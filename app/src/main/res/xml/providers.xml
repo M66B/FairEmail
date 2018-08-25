@@ -55,7 +55,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="free.fr">
+    <provider
+        name="free.fr"
+        link="https://www.free.fr/assistance/597.html">
         <imap
             host="imap.free.fr"
             port="993" />
@@ -76,7 +78,9 @@
             starttls="false" />
     </provider>
     <!-- no IMAP IDLE -->
-    <provider name="sfs.fr">
+    <provider
+        name="SFR.fr"
+        link="https://assistance.sfr.fr/service-et-accessoire/sfr-mail/serveurs-messagerie-sfr.html">
         <imap
             host="imap.sfr.fr"
             port="993" />
@@ -85,7 +89,9 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider name="infomaniak">
+    <provider
+        name="infomaniak"
+        link="https://www.infomaniak.com/fr/support/faq/1075/configurer-une-adresse-email-configuration-logiciel-de-messagerie-parametres-courrier">
         <imap
             host="mail.infomaniak.com"
             port="993" />
