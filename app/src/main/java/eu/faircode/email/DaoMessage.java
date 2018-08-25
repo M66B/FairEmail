@@ -103,8 +103,7 @@ public interface DaoMessage {
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
-            " AND message.thread = :thread" +
-            " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
+            " AND message.thread = :thread")
     List<EntityMessage> getMessageByThread(long account, String thread);
 
     @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
