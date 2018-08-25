@@ -65,6 +65,13 @@ If you can use a Microsoft exchange account depends on if the exchange account i
 ActiveSync is not supported at this moment.
 See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
 
+<a name="FAQ9"></a>
+**(9) What are identities?**
+
+Identities represent email addresses you are sending *from*.
+
+Some providers allow you to have multiple email aliases.
+You can configure these up by setting the email address field to the alias address and setting the user name field to your main email address.
 
 <br>
 
