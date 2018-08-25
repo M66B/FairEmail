@@ -1216,9 +1216,9 @@ public class ServiceSynchronize extends LifecycleService {
             int updated = 0;
             int unchanged = 0;
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
-            for (Message imessage : imessages)
+            for (int i = imessages.length - 1; i >= 0; i--)
                 try {
-                    int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
+                    int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[i]);
                     if (status > 0)
                         added++;
                     else if (status < 0)
