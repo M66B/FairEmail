@@ -26,6 +26,7 @@
   <string name="menu_operations">Aktiviteter</string>
   <string name="menu_legend">Forklaring</string>
   <string name="menu_faq">Ofte stillede spørgsmål</string>
+  <string name="menu_pro">Pro features</string>
   <string name="menu_privacy">Privatliv</string>
   <string name="menu_about">Om</string>
   <string name="menu_other">Andre apps</string>
@@ -68,7 +69,7 @@
   <string name="title_port">Portnummer</string>
   <string name="title_user">Brugernavn</string>
   <string name="title_password">Adgangskode</string>
-  <string name="title_instructions">Instructions</string>
+  <string name="title_instructions">Vejledning</string>
   <string name="title_store_sent">Gem sendte beskeder (aktivér kun hvis nødvendigt)</string>
   <string name="title_interval">Afstem/hold i live interval (minutter)</string>
   <string name="title_synchronize_account">Synkronisér (modtag meddelelser)</string>
@@ -104,7 +105,7 @@
   <string name="title_no_messages">Ingen beskeder</string>
   <string name="title_link">link</string>
   <string name="title_image">billede</string>
-  <string name="title_show_images">Show images</string>
+  <string name="title_show_images">Vis billeder</string>
   <string name="title_subject_reply">Sv: %1$s</string>
   <string name="title_subject_forward">Videresend: %1$s</string>
   <string name="title_thread">Vis tråd</string>
@@ -147,6 +148,9 @@
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>
   <string name="title_legend_closing">Lukker</string>
+  <string name="title_pro_activated">All pro features are activated</string>
+  <string name="title_pro_valid">All pro features activated</string>
+  <string name="title_pro_invalid">Invalid response</string>
   <string name="title_debug_info">Debugging info</string>
   <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunkt for problemet:</string>
 </resources>

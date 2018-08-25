@@ -26,6 +26,7 @@
   <string name="menu_operations">Operazioni</string>
   <string name="menu_legend">Legenda</string>
   <string name="menu_faq">Domande frequenti</string>
+  <string name="menu_pro">Pro features</string>
   <string name="menu_privacy">Privacy</string>
   <string name="menu_about">Info</string>
   <string name="menu_other">Altre app</string>
@@ -147,6 +148,9 @@
   <string name="title_legend_connecting">Connessione in corso</string>
   <string name="title_legend_connected">Connesso</string>
   <string name="title_legend_closing">Chiusura</string>
+  <string name="title_pro_activated">All pro features are activated</string>
+  <string name="title_pro_valid">All pro features activated</string>
+  <string name="title_pro_invalid">Invalid response</string>
   <string name="title_debug_info">Informazioni di debug</string>
   <string name="title_debug_info_remark">Si prega di descrivere il problema ed indicare il momento in cui è avvenuto:</string>
 </resources>
