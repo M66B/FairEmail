@@ -105,6 +105,7 @@ public class FragmentMessage extends FragmentEx {
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpError;
     private Group grpMessage;
 
     private TupleMessageEx message = null;
@@ -148,6 +149,7 @@ public class FragmentMessage extends FragmentEx {
         grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
+        grpError = view.findViewById(R.id.grpError);
         grpMessage = view.findViewById(R.id.grpMessage);
 
         setHasOptionsMenu(true);
@@ -219,11 +221,11 @@ public class FragmentMessage extends FragmentEx {
                 tvCount.setVisibility(View.GONE);
                 grpAddresses.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
-                tvError.setVisibility(View.GONE);
+                grpError.setVisibility(View.GONE);
 
                 tvCount.setTag(tvCount.getVisibility());
                 tvCc.setTag(grpAddresses.getVisibility());
-                tvError.setTag(tvError.getVisibility());
+                tvError.setTag(grpError.getVisibility());
             }
         });
 
@@ -243,7 +245,7 @@ public class FragmentMessage extends FragmentEx {
                     tvCount.setVisibility((int) tvCount.getTag());
                     grpAddresses.setVisibility((int) tvCc.getTag());
                     grpAttachments.setVisibility(adapter != null && adapter.getItemCount() > 0 ? View.VISIBLE : View.GONE);
-                    tvError.setVisibility((int) tvError.getTag());
+                    grpError.setVisibility((int) tvError.getTag());
 
                     return true;
                 }
@@ -284,7 +286,7 @@ public class FragmentMessage extends FragmentEx {
         pbBody.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         tvCount.setVisibility(View.GONE);
-        tvError.setVisibility(View.GONE);
+        grpError.setVisibility(View.GONE);
         fab.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -474,10 +476,10 @@ public class FragmentMessage extends FragmentEx {
                 if (free) {
                     tvCount.setVisibility((int) tvCount.getTag());
                     grpAddresses.setVisibility((int) tvCc.getTag());
-                    tvError.setVisibility((int) tvError.getTag());
+                    grpError.setVisibility((int) tvError.getTag());
                 } else {
                     tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
-                    tvError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+                    grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
                 }
 
                 // Observe attachments

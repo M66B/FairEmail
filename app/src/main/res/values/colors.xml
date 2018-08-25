@@ -10,6 +10,7 @@
     <color name="lightColorUnread">#000</color>
     <color name="lightColorItemSelected">#ccc</color>
     <color name="lightColorSeparator">#aaa</color>
+    <color name="lightColorWarning">#ffff0000</color>
     <color name="lightColorDrawerScrim">#99000000</color>
     <color name="lightColorDrawerText">#111</color>
     <color name="lightColorDrawerBackground">#eee</color>
@@ -17,6 +18,7 @@
     <color name="darkColorUnread">#fff</color>
     <color name="darkColorItemSelected">#555</color>
     <color name="darkColorSeparator">#666</color>
+    <color name="darkColorWarning">#ffffb300</color>
     <color name="darkColorDrawerScrim">#997f7f7f</color>
     <color name="darkColorDrawerText">#fff</color>
     <color name="darkColorDrawerBackground">#222</color>

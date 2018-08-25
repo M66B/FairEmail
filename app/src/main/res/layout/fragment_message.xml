@@ -203,19 +203,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
+    <View
+        android:id="@+id/vSeparatorError"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+
     <TextView
         android:id="@+id/tvError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
         android:freezesText="true"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="bold"
+        android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorError" />
 
     <View
         android:id="@+id/vSeparatorBody"
@@ -329,6 +339,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpError"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorError,tvError" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpMessage"
