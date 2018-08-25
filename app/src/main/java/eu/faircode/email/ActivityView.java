@@ -29,6 +29,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -44,6 +45,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.BufferedReader;
@@ -72,11 +78,12 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+public class ActivityView extends ActivityBase implements FragmentManager.OnBackStackChangedListener, PurchasesUpdatedListener {
     private View view;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
+    private BillingClient billingClient;
 
     private boolean newIntent = false;
 
@@ -307,6 +314,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
         }.load(this, new Bundle());
 
+        billingClient = BillingClient.newBuilder(this).setListener(this).build();
+        billingClient.startConnection(billingClientStateListener);
+
         checkIntent(getIntent());
     }
 
@@ -349,6 +359,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             newIntent = false;
             getSupportFragmentManager().popBackStack("unified", 0);
         }
+
+        if (billingClient.isReady())
+            queryPurchases();
     }
 
     @Override
@@ -366,6 +379,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onDestroy() {
+        billingClient.endConnection();
         super.onDestroy();
     }
 
@@ -518,8 +532,22 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void onMenuPro() {
-        if (Helper.isPlayStoreInstall(this)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("pro", false)) {
+            Snackbar.make(view, R.string.title_pro_activated, Snackbar.LENGTH_LONG).show();
+            return;
+        }
 
+        if (Helper.isPlayStoreInstall(this)) {
+            BillingFlowParams flowParams = BillingFlowParams.newBuilder()
+                    .setSku(BuildConfig.APPLICATION_ID + ".pro")
+                    .setType(BillingClient.SkuType.INAPP)
+                    .build();
+            int responseCode = billingClient.launchBillingFlow(ActivityView.this, flowParams);
+            String text = Helper.getBillingResponseText(responseCode);
+            Log.i(Helper.TAG, "IAB launch billing flow response=" + text);
+            if (responseCode != BillingClient.BillingResponse.OK)
+                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
         } else
             startActivity(getIntentPro());
     }
@@ -753,6 +781,70 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
                 }
             }.load(this, args);
+        }
+    }
+
+    private BillingClientStateListener billingClientStateListener = new BillingClientStateListener() {
+        private int backoff = 4; // seconds
+
+        @Override
+        public void onBillingSetupFinished(@BillingClient.BillingResponse int responseCode) {
+            String text = Helper.getBillingResponseText(responseCode);
+            Log.i(Helper.TAG, "IAB connected response=" + text);
+            if (responseCode == BillingClient.BillingResponse.OK) {
+                backoff = 4;
+                queryPurchases();
+            } else
+                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onBillingServiceDisconnected() {
+            backoff *= 2;
+            Log.i(Helper.TAG, "IAB disconnected retry in " + backoff + " s");
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (!billingClient.isReady())
+                        billingClient.startConnection(billingClientStateListener);
+                }
+            }, backoff * 1000L);
+        }
+    };
+
+    @Override
+    public void onPurchasesUpdated(int responseCode, @android.support.annotation.Nullable List<Purchase> purchases) {
+        String text = Helper.getBillingResponseText(responseCode);
+        Log.i(Helper.TAG, "IAB purchases updated response=" + text);
+        if (responseCode == BillingClient.BillingResponse.OK)
+            checkPurchases(purchases);
+        else
+            Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void queryPurchases() {
+        Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
+        String text = Helper.getBillingResponseText(result.getResponseCode());
+        Log.i(Helper.TAG, "IAB query purchases response=" + text);
+        if (result.getResponseCode() == BillingClient.BillingResponse.OK)
+            checkPurchases(result.getPurchasesList());
+        else
+            Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void checkPurchases(List<Purchase> purchases) {
+        if (purchases != null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.remove("pro");
+            for (Purchase purchase : purchases) {
+                Log.i(Helper.TAG, "IAB SKU=" + purchase.getSku());
+                if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
+                    editor.putBoolean("pro", true);
+                    Log.i(Helper.TAG, "IAB pro features activated");
+                }
+            }
+            editor.apply();
         }
     }
 }

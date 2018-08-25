@@ -55,6 +55,8 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.room/room-runtime
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
 
+    // https://developer.android.com/google/play/billing/billing_library_releases_notes
+
     // https://javaee.github.io/javamail/
     // https://jsoup.org/
     // http://www.freeutils.net/source/jcharset/
@@ -70,6 +72,7 @@ dependencies {
     def lifecycle_version = "2.0.0-rc01"
     def room_version = "2.0.0-rc01"
     def paging_version = "2.0.0-rc01"
+    def billingclient_version = "1.1"
     def javamail_version = "1.6.0"
     def jsoup_version = "1.11.3"
     def jcharset_version = "2.0"
@@ -87,6 +90,8 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     implementation "androidx.paging:paging-runtime:$paging_version"
+
+    implementation "com.android.billingclient:billing:$billingclient_version"
 
     implementation "com.sun.mail:android-mail:$javamail_version"
     implementation "com.sun.mail:android-activation:$javamail_version"

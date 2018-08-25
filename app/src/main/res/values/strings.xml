@@ -176,6 +176,7 @@
     <string name="title_legend_connected">Connected</string>
     <string name="title_legend_closing">Closing</string>
 
+    <string name="title_pro_activated">All pro features are activated</string>
     <string name="title_pro_valid">All pro features activated</string>
     <string name="title_pro_invalid">Invalid response</string>
 

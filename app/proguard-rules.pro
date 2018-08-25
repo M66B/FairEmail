@@ -27,6 +27,9 @@
 #AndroidX
 -keep class androidx.appcompat.app.AppCompatViewInflater { <init>(...); }
 
+#IAB
+-keep class com.android.vending.billing.**
+
 #JavaMail
 -dontshrink
 -keep class javax.** {*;}
