@@ -83,7 +83,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private DrawerLayout drawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
-    private BillingClient billingClient;
+    private BillingClient billingClient = null;
 
     private boolean newIntent = false;
 
@@ -314,8 +314,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             }
         }.load(this, new Bundle());
 
-        billingClient = BillingClient.newBuilder(this).setListener(this).build();
-        billingClient.startConnection(billingClientStateListener);
+        if (Helper.isPlayStoreInstall(this)) {
+            billingClient = BillingClient.newBuilder(this).setListener(this).build();
+            billingClient.startConnection(billingClientStateListener);
+        }
 
         checkIntent(getIntent());
     }
@@ -360,7 +362,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
             getSupportFragmentManager().popBackStack("unified", 0);
         }
 
-        if (billingClient.isReady())
+        if (billingClient != null && billingClient.isReady())
             queryPurchases();
     }
 
@@ -379,7 +381,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onDestroy() {
-        billingClient.endConnection();
+        if (billingClient != null)
+            billingClient.endConnection();
         super.onDestroy();
     }
 
