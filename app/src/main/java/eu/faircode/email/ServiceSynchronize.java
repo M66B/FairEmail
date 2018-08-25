@@ -281,16 +281,6 @@ public class ServiceSynchronize extends LifecycleService {
 
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-        StringBuilder sb = new StringBuilder();
-        for (EntityMessage message : messages) {
-            sb.append(MessageHelper.getFormattedAddresses(message.from, false));
-            if (!TextUtils.isEmpty(message.subject))
-                sb.append(": ").append(message.subject);
-            sb.append(" ").append(df.format(new Date(message.sent)));
-            sb.append("\n");
-        }
-
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -302,13 +292,26 @@ public class ServiceSynchronize extends LifecycleService {
                 .setSmallIcon(R.drawable.baseline_mail_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
                 .setContentIntent(pi)
-                .setStyle(new Notification.BigTextStyle().bigText(sb.toString()))
                 .setSound(uri)
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setDeleteIntent(pid);
+
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pro", false)) {
+            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+            StringBuilder sb = new StringBuilder();
+            for (EntityMessage message : messages) {
+                sb.append(MessageHelper.getFormattedAddresses(message.from, false));
+                if (!TextUtils.isEmpty(message.subject))
+                    sb.append(": ").append(message.subject);
+                sb.append(" ").append(df.format(new Date(message.sent)));
+                sb.append("\n");
+            }
+
+            builder.setStyle(new Notification.BigTextStyle().bigText(sb.toString()));
+        }
 
         return builder;
     }
