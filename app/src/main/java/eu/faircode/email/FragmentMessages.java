@@ -28,6 +28,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -46,6 +47,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
+import androidx.recyclerview.selection.OnDragInitiatedListener;
+import androidx.recyclerview.selection.SelectionPredicates;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,6 +63,7 @@ public class FragmentMessages extends FragmentEx {
 
     private long primary = -1;
     private AdapterMessage adapter;
+    private SelectionTracker selectionTracker;
 
     private static final int PAGE_SIZE = 50;
 
@@ -118,7 +124,14 @@ public class FragmentMessages extends FragmentEx {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (selectionTracker != null)
+            selectionTracker.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         // Get arguments
@@ -190,6 +203,53 @@ public class FragmentMessages extends FragmentEx {
 
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
+
+                selectionTracker = new SelectionTracker.Builder<>(
+                        "messages-selection",
+                        rvMessage,
+                        new MyItemKeyProvider(messages),
+                        new MyItemLookup(rvMessage),
+                        StorageStrategy.createLongStorage())
+                        .withSelectionPredicate(SelectionPredicates.<Long>createSelectAnything())
+                        .withOnDragInitiatedListener(new OnDragInitiatedListener() {
+                            @Override
+                            public boolean onDragInitiated(@NonNull MotionEvent e) {
+                                Log.i(Helper.TAG, "onDragInitiated");
+                                return true;
+                            }
+                        }).build();
+
+
+                adapter.setSelectionTracker(selectionTracker);
+
+                selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+                    @Override
+                    public void onItemStateChanged(@NonNull Object key, boolean selected) {
+                        Log.i(Helper.TAG, "onItemStateChanged");
+                        super.onItemStateChanged(key, selected);
+                    }
+
+                    @Override
+                    public void onSelectionRefresh() {
+                        Log.i(Helper.TAG, "onSelectionRefresh");
+                        super.onSelectionRefresh();
+                    }
+
+                    @Override
+                    public void onSelectionChanged() {
+                        Log.i(Helper.TAG, "onSelectionChanged");
+                        super.onSelectionChanged();
+                    }
+
+                    @Override
+                    public void onSelectionRestored() {
+                        Log.i(Helper.TAG, "onSelectionRestored");
+                        super.onSelectionRestored();
+                    }
+                });
+
+                if (savedInstanceState != null)
+                    selectionTracker.onRestoreInstanceState(savedInstanceState);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
