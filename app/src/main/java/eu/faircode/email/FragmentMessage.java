@@ -55,6 +55,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -353,6 +354,7 @@ public class FragmentMessage extends FragmentEx {
             outState.putInt("tag_cc", (int) tvCc.getTag());
             outState.putInt("tag_error", (int) tvError.getTag());
         }
+        outState.putString("decrypted", decrypted);
     }
 
     @Override
@@ -407,6 +409,7 @@ public class FragmentMessage extends FragmentEx {
                         rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
                         tvError.setTag(savedInstanceState.getInt("tag_error"));
                     }
+                    decrypted = savedInstanceState.getString("decrypted");
                 }
 
                 getActivity().invalidateOptionsMenu();
@@ -424,7 +427,7 @@ public class FragmentMessage extends FragmentEx {
                         protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
                             final long id = args.getLong("id");
                             final boolean show_images = args.getBoolean("show_images");
-                            String body = EntityMessage.read(context, id);
+                            String body = (decrypted == null ? EntityMessage.read(context, id) : decrypted);
                             args.putInt("size", body.length());
 
                             return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
@@ -755,10 +758,14 @@ public class FragmentMessage extends FragmentEx {
     private void onMenuDecrypt(EntityMessage message) {
         Log.i(Helper.TAG, "On decrypt");
         try {
-            if (openPgpConnection == null)
-                throw new IllegalArgumentException();
-            if (!openPgpConnection.isBound())
-                throw new IllegalArgumentException("OpenPgp not available");
+            if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false))
+                throw new IllegalArgumentException(getString(R.string.title_pro_feature));
+
+            if (openPgpConnection == null || !openPgpConnection.isBound())
+                throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
+
+            if (message.to == null || message.to.length == 0)
+                throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
             InternetAddress to = (InternetAddress) message.to[0];
 
@@ -787,32 +794,39 @@ public class FragmentMessage extends FragmentEx {
                             case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
                                 Log.i(Helper.TAG, "User interaction");
                                 PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-                                getActivity().startIntentSenderForResult(
+                                startIntentSenderForResult(
                                         pi.getIntentSender(),
                                         ActivityView.REQUEST_OPENPGP,
-                                        null, 0, 0, 0);
+                                        null, 0, 0, 0,
+                                        new Bundle());
                                 break;
                             }
                             case OpenPgpApi.RESULT_CODE_ERROR: {
                                 OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                                Log.e(Helper.TAG, error.getMessage());
-                                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                                throw new IllegalArgumentException(error.getMessage());
                             }
                         }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            if (ex instanceof IllegalArgumentException)
+                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            else
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(Helper.TAG, "Message onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityView.REQUEST_OPENPGP && message != null) {
                 Log.i(Helper.TAG, "User interacted");

@@ -28,6 +28,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -428,14 +429,15 @@ public class FragmentCompose extends FragmentEx {
     private void onMenuEncrypt() {
         Log.i(Helper.TAG, "On encrypt");
         try {
-            if (openPgpConnection == null)
-                throw new IllegalArgumentException();
-            if (!openPgpConnection.isBound())
-                throw new IllegalArgumentException("OpenPgp not available");
+            if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false))
+                throw new IllegalArgumentException(getString(R.string.title_pro_feature));
+
+            if (openPgpConnection == null || !openPgpConnection.isBound())
+                throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
             EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
             if (identity == null)
-                throw new IllegalArgumentException("No identity selected");
+                throw new IllegalArgumentException(getString(R.string.title_from_missing));
 
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_ENCRYPT);
@@ -463,32 +465,39 @@ public class FragmentCompose extends FragmentEx {
                             case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
                                 Log.i(Helper.TAG, "User interaction");
                                 PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-                                getActivity().startIntentSenderForResult(
+                                startIntentSenderForResult(
                                         pi.getIntentSender(),
                                         ActivityCompose.REQUEST_OPENPGP,
-                                        null, 0, 0, 0);
+                                        null, 0, 0, 0,
+                                        new Bundle());
                                 break;
                             }
                             case OpenPgpApi.RESULT_CODE_ERROR: {
                                 OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                                Log.e(Helper.TAG, error.getMessage());
-                                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                                throw new IllegalArgumentException(error.getMessage());
                             }
                         }
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            if (ex instanceof IllegalArgumentException)
+                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            else
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(Helper.TAG, "Compose onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
                 if (data != null)
@@ -846,11 +855,16 @@ public class FragmentCompose extends FragmentEx {
             new SimpleTask<Spanned>() {
                 @Override
                 protected Spanned onLoad(Context context, Bundle args) throws Throwable {
-                    return Html.fromHtml(EntityMessage.read(context, args.getLong("id")));
+                    String body = EntityMessage.read(context, args.getLong("id"));
+                    if (body != null && body.startsWith("-----BEGIN PGP MESSAGE-----"))
+                        args.putString("encrypted", body);
+                    return Html.fromHtml(body);
                 }
 
                 @Override
                 protected void onLoaded(Bundle args, Spanned body) {
+                    FragmentCompose.this.encrypted = args.getString("encrypted");
+                    getActivity().invalidateOptionsMenu();
                     etBody.setText(body);
                     etBody.setSelection(0);
                 }

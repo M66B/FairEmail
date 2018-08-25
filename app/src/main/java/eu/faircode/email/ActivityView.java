@@ -86,13 +86,15 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     private BillingClient billingClient = null;
 
     private boolean newIntent = false;
+    private long attachment = -1;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final int REQUEST_VIEW = 1;
     static final int REQUEST_UNSEEN = 2;
-    static final int REQUEST_OPENPGP = 3;
-    static final int REQUEST_ATTACHMENT_OFFSET = 10;
+
+    static final int REQUEST_ATTACHMENT = 1;
+    static final int REQUEST_OPENPGP = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
@@ -705,11 +707,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void onStoreAttachment(Intent intent) {
+        attachment = intent.getLongExtra("id", -1);
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-        startActivityForResult(create, (int) intent.getLongExtra("id", -1) + REQUEST_ATTACHMENT_OFFSET);
+        startActivityForResult(create, REQUEST_ATTACHMENT);
     }
 
     private void onActivatePro(Intent intent) {
@@ -740,67 +743,69 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK && requestCode > REQUEST_ATTACHMENT_OFFSET) {
-            Bundle args = new Bundle();
-            args.putLong("id", requestCode - REQUEST_ATTACHMENT_OFFSET);
-            args.putParcelable("uri", data.getData());
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-                    Uri uri = args.getParcelable("uri");
+        Log.i(Helper.TAG, "View onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
+        if (resultCode == Activity.RESULT_OK)
+            if (requestCode == REQUEST_ATTACHMENT) {
+                Bundle args = new Bundle();
+                args.putLong("id", attachment);
+                args.putParcelable("uri", data.getData());
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+                        Uri uri = args.getParcelable("uri");
 
-                    File file = EntityAttachment.getFile(context, id);
+                        File file = EntityAttachment.getFile(context, id);
 
-                    ParcelFileDescriptor pfd = null;
-                    FileOutputStream fos = null;
-                    FileInputStream fis = null;
-                    try {
-                        pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                        fos = new FileOutputStream(pfd.getFileDescriptor());
-                        fis = new FileInputStream(file);
+                        ParcelFileDescriptor pfd = null;
+                        FileOutputStream fos = null;
+                        FileInputStream fis = null;
+                        try {
+                            pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                            fos = new FileOutputStream(pfd.getFileDescriptor());
+                            fis = new FileInputStream(file);
 
-                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                        int read;
-                        while ((read = fis.read(buffer)) != -1) {
-                            fos.write(buffer, 0, read);
+                            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                            int read;
+                            while ((read = fis.read(buffer)) != -1) {
+                                fos.write(buffer, 0, read);
+                            }
+                        } finally {
+                            try {
+                                if (pfd != null)
+                                    pfd.close();
+                            } catch (Throwable ex) {
+                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                            try {
+                                if (fos != null)
+                                    fos.close();
+                            } catch (Throwable ex) {
+                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                            try {
+                                if (fis != null)
+                                    fis.close();
+                            } catch (Throwable ex) {
+                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
                         }
-                    } finally {
-                        try {
-                            if (pfd != null)
-                                pfd.close();
-                        } catch (Throwable ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                        try {
-                            if (fos != null)
-                                fos.close();
-                        } catch (Throwable ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                        try {
-                            if (fis != null)
-                                fis.close();
-                        } catch (Throwable ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
+
+                        return null;
                     }
 
-                    return null;
-                }
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+                    }
 
-                @Override
-                protected void onLoaded(Bundle args, Void data) {
-                    Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
-                }
-            }.load(this, args);
-        }
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }.load(this, args);
+            }
     }
 
     private BillingClientStateListener billingClientStateListener = new BillingClientStateListener() {
