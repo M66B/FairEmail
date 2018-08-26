@@ -147,6 +147,9 @@
   <string name="title_draft_trashed">Ciornă trimisă la gunoi</string>
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
+  <string name="title_search">Search</string>
+  <string name="title_search_hint">Search on server</string>
+  <string name="title_searching">Searching \'%1$s\'</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
   <string name="title_legend_synchronize">Sincronizare</string>

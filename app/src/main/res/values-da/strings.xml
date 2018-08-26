@@ -143,6 +143,9 @@
   <string name="title_draft_trashed">Kladde slettet</string>
   <string name="title_draft_saved">Kladde gemt</string>
   <string name="title_queued">Sender besked</string>
+  <string name="title_search">Search</string>
+  <string name="title_search_hint">Search on server</string>
+  <string name="title_searching">Searching \'%1$s\'</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Vedhæftning</string>
   <string name="title_legend_synchronize">Synkronisér</string>
