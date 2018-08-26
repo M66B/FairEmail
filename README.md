@@ -28,6 +28,12 @@ Features
 * Material design
 * Dark theme
 
+Pro features
+------------
+
+* Preview sender/subject in new messages status bar notification
+* Encrypt/decrypt messages using [OpenPGP](https://www.openpgp.org/)
+
 Simple
 ------
 
