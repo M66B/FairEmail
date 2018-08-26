@@ -91,6 +91,12 @@ public class MessageHelper {
         props.put("mail.smtp.writetimeout", "20000"); // one thread overhead
         props.put("mail.smtp.timeout", "20000");
 
+        props.put("mail.imaps.peek", "true");
+        //props.put("mail.imaps.minidletime", "5000");
+
+        props.put("mail.mime.address.strict", "false");
+        props.put("mail.mime.decodetext.strict", "false");
+
         return props;
     }
 

@@ -52,7 +52,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
-    enum ViewType {UNIFIED, FOLDER, THREAD}
+    enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {

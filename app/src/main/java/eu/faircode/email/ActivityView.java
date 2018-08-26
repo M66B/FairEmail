@@ -654,10 +654,11 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
-                        db.message().setMessageUiSeen(tmessage.id, true);
-                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
-                    }
+                    if (message != null) // Searched messages are not stored in the database
+                        for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                            db.message().setMessageUiSeen(tmessage.id, true);
+                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
+                        }
 
                     db.setTransactionSuccessful();
                 } finally {

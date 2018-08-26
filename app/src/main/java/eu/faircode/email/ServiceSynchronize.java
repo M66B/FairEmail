@@ -386,16 +386,11 @@ public class ServiceSynchronize extends LifecycleService {
         final DB db = DB.getInstance(this);
         final ExecutorService executor = Executors.newSingleThreadExecutor();
 
-        Properties props = MessageHelper.getSessionProperties();
-        props.setProperty("mail.imaps.peek", "true");
-        props.setProperty("mail.mime.address.strict", "false");
-        props.setProperty("mail.mime.decodetext.strict", "false");
-        //props.put("mail.imaps.minidletime", "5000");
-
         boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
         if (debug)
             System.setProperty("mail.socket.debug", "true");
 
+        Properties props = MessageHelper.getSessionProperties();
         final Session isession = Session.getInstance(props, null);
         isession.setDebug(debug);
         // adb -t 1 logcat | grep "fairemail\|System.out"
