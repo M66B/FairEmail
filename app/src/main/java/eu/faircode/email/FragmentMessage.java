@@ -133,7 +133,7 @@ public class FragmentMessage extends FragmentEx {
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    private static final long CACHE_IMAGE_DURATION = 24 * 3600 * 1000L;
+    private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
