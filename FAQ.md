@@ -75,6 +75,13 @@ Identities represent email addresses you are sending *from*.
 Some providers allow you to have multiple email aliases.
 You can configure these by setting the email address field to the alias address and setting the user name field to your main email address.
 
+<a name="FAQ10"></a>
+**(10) What does 'UIDPLUS not supported' mean?**
+
+The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
+This IMAP extension is required to implement two way synchronization, which is not an optional feature.
+So, unless your provider can enable this extension, you cannot use FairEmail for this provider.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
