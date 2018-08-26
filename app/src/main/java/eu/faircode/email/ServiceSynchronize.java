@@ -126,9 +126,11 @@ public class ServiceSynchronize extends LifecycleService {
 
     public ServiceSynchronize() {
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
+        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.ignoreunknownencoding", "true");
         System.setProperty("mail.mime.decodefilename", "true");
         System.setProperty("mail.mime.encodefilename", "true");
+        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
     }
 
     @Override
