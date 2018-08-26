@@ -37,6 +37,8 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
     private long fid;
     private String search;
 
+    private EntityFolder folder;
+    private EntityAccount account;
     private IMAPStore istore = null;
     private IMAPFolder ifolder;
     private Message[] imessages;
@@ -91,8 +93,8 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
 
     @Override
     public void loadRange(LoadRangeParams params, LoadRangeCallback<TupleMessageEx> callback) {
+        Log.i(Helper.TAG, "SDS load range");
         try {
-            Log.i(Helper.TAG, "SDS load range");
             SearchResult result = search(search, params.startPosition, params.loadSize);
             callback.onResult(result.messages);
         } catch (Throwable ex) {
@@ -103,11 +105,11 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
     private SearchResult search(String term, int from, int count) throws MessagingException, UnsupportedEncodingException {
         Log.i(Helper.TAG, "SDS search from=" + from + " count=" + count);
 
-        DB db = DB.getInstance(context);
-        EntityFolder folder = db.folder().getFolder(fid);
-        EntityAccount account = db.account().getAccount(folder.account);
-
         if (istore == null) {
+            DB db = DB.getInstance(context);
+            folder = db.folder().getFolder(fid);
+            account = db.account().getAccount(folder.account);
+
             Properties props = MessageHelper.getSessionProperties();
             Session isession = Session.getInstance(props, null);
 
