@@ -36,23 +36,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPStore;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-
-import javax.mail.FetchProfile;
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.UIDFolder;
-import javax.mail.internet.MimeMessage;
-import javax.mail.search.BodyTerm;
-import javax.mail.search.OrTerm;
-import javax.mail.search.SubjectTerm;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -64,7 +49,6 @@ import androidx.lifecycle.Observer;
 import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
-import androidx.paging.PositionalDataSource;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -78,10 +62,14 @@ public class FragmentMessages extends FragmentEx {
     private long folder = -1;
     private long thread = -1;
     private String search = null;
+
+    private SearchDataSource sds = null;
+
     private long primary = -1;
     private AdapterMessage adapter;
 
-    private static final int PAGE_SIZE = 50;
+    private static final int MESSAGES_PAGE_SIZE = 50;
+    private static final int SEARCH_PAGE_SIZE = 10;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -164,8 +152,9 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        // Observe folder/messages/search
         LiveData<PagedList<TupleMessageEx>> messages;
+
+        // Observe folder/messages/search
         if (TextUtils.isEmpty(search)) {
             boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
             if (thread < 0)
@@ -185,7 +174,7 @@ public class FragmentMessages extends FragmentEx {
                         }
                     });
 
-                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), MESSAGES_PAGE_SIZE).build();
                 } else {
                     db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
                         @Override
@@ -202,144 +191,35 @@ public class FragmentMessages extends FragmentEx {
                         }
                     });
 
-                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), MESSAGES_PAGE_SIZE).build();
                 }
             else {
                 setSubtitle(R.string.title_folder_thread);
-                messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), PAGE_SIZE).build();
+                messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), MESSAGES_PAGE_SIZE).build();
             }
         } else {
             setSubtitle(getString(R.string.title_searching, search));
 
-            DataSource.Factory<Integer, TupleMessageEx> dsf = new DataSource.Factory<Integer, TupleMessageEx>() {
-                @Override
-                public DataSource<Integer, TupleMessageEx> create() {
-                    return new PositionalDataSource<TupleMessageEx>() {
+            // Searching is expensive:
+            // - reuse existing data source
+            // - use fragment lifecycle (instead of getViewLifecycleOwner)
+            // - saving state is not feasible
+            if (sds == null)
+                sds = new SearchDataSource(getContext(), this, folder, search);
+
+            messages = new LivePagedListBuilder<>(
+                    new DataSource.Factory<Integer, TupleMessageEx>() {
                         @Override
-                        public void loadInitial(LoadInitialParams params, LoadInitialCallback<TupleMessageEx> callback) {
-                            Log.i(Helper.TAG, "loadInitial(" + params.requestedStartPosition + ", " + params.requestedLoadSize + ")");
-                            SearchResult result = search(search, params.requestedStartPosition, params.requestedLoadSize);
-                            callback.onResult(result.messages, params.requestedStartPosition, result.total);
+                        public DataSource<Integer, TupleMessageEx> create() {
+                            return sds;
                         }
-
-                        @Override
-                        public void loadRange(LoadRangeParams params, LoadRangeCallback<TupleMessageEx> callback) {
-                            Log.i(Helper.TAG, "loadRange(" + params.startPosition + ", " + params.loadSize + ")");
-                            SearchResult result = search(search, params.startPosition, params.loadSize);
-                            callback.onResult(result.messages);
-                        }
-
-                        class SearchResult {
-                            int total;
-                            List<TupleMessageEx> messages;
-                        }
-
-                        private SearchResult search(String term, int from, int count) {
-                            SearchResult result = new SearchResult();
-                            result.messages = new ArrayList<>();
-                            IMAPStore istore = null;
-                            try {
-                                DB db = DB.getInstance(getContext());
-
-                                EntityFolder f = db.folder().getFolder(folder);
-                                EntityAccount account = db.account().getAccount(f.account);
-
-                                Properties props = MessageHelper.getSessionProperties();
-                                Session isession = Session.getInstance(props, null);
-                                Log.i(Helper.TAG, "Connecting to account=" + account.name);
-                                istore = (IMAPStore) isession.getStore("imaps");
-                                istore.connect(account.host, account.port, account.user, account.password);
-
-                                Log.i(Helper.TAG, "Opening folder=" + f.name);
-                                IMAPFolder ifolder = (IMAPFolder) istore.getFolder(f.name);
-                                ifolder.open(Folder.READ_WRITE);
-
-                                Log.i(Helper.TAG, "Search for term=" + term);
-                                Message[] imessages = ifolder.search(
-                                        new OrTerm(
-                                                new SubjectTerm(term),
-                                                new BodyTerm(term)));
-                                result.total = imessages.length;
-                                Log.i(Helper.TAG, "Found messages=" + imessages.length);
-
-                                List<Message> selected = new ArrayList<>();
-                                int base = imessages.length - 1 - from;
-                                for (int i = base; i >= 0 && i >= base - count + 1; i--)
-                                    selected.add(imessages[i]);
-                                Log.i(Helper.TAG, "Selected messages=" + selected.size());
-
-                                FetchProfile fp = new FetchProfile();
-                                fp.add(UIDFolder.FetchProfileItem.UID);
-                                fp.add(IMAPFolder.FetchProfileItem.FLAGS);
-                                fp.add(FetchProfile.Item.ENVELOPE);
-                                fp.add(FetchProfile.Item.CONTENT_INFO);
-                                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-                                fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-                                ifolder.fetch(selected.toArray(new Message[0]), fp);
-
-                                for (Message imessage : selected) {
-                                    long uid = ifolder.getUID(imessage);
-                                    Log.i(Helper.TAG, "Get uid=" + uid);
-
-                                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                                    boolean seen = helper.getSeen();
-
-                                    TupleMessageEx message = new TupleMessageEx();
-                                    message.id = uid;
-                                    message.account = f.account;
-                                    message.folder = f.id;
-                                    message.uid = uid;
-                                    message.msgid = helper.getMessageID();
-                                    message.references = TextUtils.join(" ", helper.getReferences());
-                                    message.inreplyto = helper.getInReplyTo();
-                                    message.thread = helper.getThreadId(uid);
-                                    message.from = helper.getFrom();
-                                    message.to = helper.getTo();
-                                    message.cc = helper.getCc();
-                                    message.bcc = helper.getBcc();
-                                    message.reply = helper.getReply();
-                                    message.subject = imessage.getSubject();
-                                    message.received = imessage.getReceivedDate().getTime();
-                                    message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
-                                    message.seen = seen;
-                                    message.ui_seen = seen;
-                                    message.ui_hide = false;
-
-                                    message.accountName = account.name;
-                                    message.folderName = f.name;
-                                    message.folderType = f.type;
-                                    message.count = 1;
-                                    message.unseen = (seen ? 0 : 1);
-                                    message.attachments = 0;
-
-                                    message.body = helper.getHtml();
-                                    message.virtual = true;
-
-                                    result.messages.add(message);
-                                }
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            } finally {
-                                if (istore != null)
-                                    try {
-                                        istore.close();
-                                    } catch (MessagingException ex) {
-                                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                    }
-                            }
-
-                            return result;
-                        }
-                    };
-                }
-            };
-
-            PagedList.Config.Builder plcb = new PagedList.Config.Builder()
-                    .setEnablePlaceholders(true)
-                    .setInitialLoadSizeHint(10)
-                    .setPageSize(10);
-
-            messages = new LivePagedListBuilder<>(dsf, plcb.build()).build();
+                    },
+                    new PagedList.Config.Builder()
+                            .setEnablePlaceholders(true)
+                            .setInitialLoadSizeHint(SEARCH_PAGE_SIZE)
+                            .setPageSize(SEARCH_PAGE_SIZE)
+                            .build()
+            ).build();
         }
 
         messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
@@ -414,10 +294,9 @@ public class FragmentMessages extends FragmentEx {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_list, menu);
 
-        // TODO: search hint
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
         final SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setSubmitButtonEnabled(true);
+        searchView.setQueryHint(getString(R.string.title_search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -447,7 +326,7 @@ public class FragmentMessages extends FragmentEx {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_search).setVisible(folder >= 0);
+        menu.findItem(R.id.menu_search).setVisible(folder >= 0 && search == null);
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         super.onPrepareOptionsMenu(menu);
     }
