@@ -100,6 +100,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+    static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
     @Override
@@ -358,6 +359,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
+        iff.addAction(ACTION_PURCHASE);
         iff.addAction(ACTION_ACTIVATE_PRO);
         lbm.registerReceiver(receiver, iff);
 
@@ -539,24 +541,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private void onMenuPro() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("pro", false)) {
-            Snackbar.make(view, R.string.title_pro_activated, Snackbar.LENGTH_LONG).show();
-            return;
-        }
-
-        if (Helper.isPlayStoreInstall(this)) {
-            BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                    .setSku(BuildConfig.APPLICATION_ID + ".pro")
-                    .setType(BillingClient.SkuType.INAPP)
-                    .build();
-            int responseCode = billingClient.launchBillingFlow(ActivityView.this, flowParams);
-            String text = Helper.getBillingResponseText(responseCode);
-            Log.i(Helper.TAG, "IAB launch billing flow response=" + text);
-            if (responseCode != BillingClient.BillingResponse.OK)
-                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
-        } else
-            startActivity(getIntentPro());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
     }
 
     private void onMenuPrivacy() {
@@ -641,6 +628,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 onEditFolder(intent);
             else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction()))
                 onStoreAttachment(intent);
+            else if (ACTION_PURCHASE.equals(intent.getAction()))
+                onPurchase(intent);
             else if (ACTION_ACTIVATE_PRO.equals(intent.getAction()))
                 onActivatePro(intent);
         }
@@ -711,6 +700,21 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         startActivityForResult(create, REQUEST_ATTACHMENT);
+    }
+
+    private void onPurchase(Intent intent) {
+        if (Helper.isPlayStoreInstall(this)) {
+            BillingFlowParams flowParams = BillingFlowParams.newBuilder()
+                    .setSku(BuildConfig.APPLICATION_ID + ".pro")
+                    .setType(BillingClient.SkuType.INAPP)
+                    .build();
+            int responseCode = billingClient.launchBillingFlow(ActivityView.this, flowParams);
+            String text = Helper.getBillingResponseText(responseCode);
+            Log.i(Helper.TAG, "IAB launch billing flow response=" + text);
+            if (responseCode != BillingClient.BillingResponse.OK)
+                Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
+        } else
+            startActivity(getIntentPro());
     }
 
     private void onActivatePro(Intent intent) {
