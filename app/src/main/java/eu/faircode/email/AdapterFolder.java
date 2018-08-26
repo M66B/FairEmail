@@ -48,7 +48,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         ImageView ivEdit;
         TextView tvName;
@@ -75,12 +75,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void wire(boolean properties) {
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             if (properties)
                 ivEdit.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            itemView.setOnLongClickListener(null);
+            ivEdit.setOnClickListener(null);
         }
 
         private void bindTo(TupleFolderEx folder) {
@@ -104,8 +107,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
 
             tvAfter.setText(Integer.toString(folder.after));
-            tvAfter.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
             ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
 
             if ("connected".equals(folder.state))
@@ -141,6 +142,22 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("folder", folder.id));
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            TupleFolderEx folder = filtered.get(pos);
+            Log.i(Helper.TAG, folder.name + " requesting sync");
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
+                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
+                    .putExtra("folder", folder.id));
+
+            return true;
         }
     }
 

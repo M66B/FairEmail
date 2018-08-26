@@ -122,6 +122,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
+    static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
 
     public ServiceSynchronize() {
@@ -652,15 +653,15 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
 
-                BroadcastReceiver processReceiver = new BroadcastReceiver() {
+                BroadcastReceiver processFolder = new BroadcastReceiver() {
                     @Override
-                    public void onReceive(Context context, Intent intent) {
-                        final long fid = intent.getLongExtra("folder", -1);
-                        //Log.v(Helper.TAG, "run operations folder=" + fid);
-
+                    public void onReceive(Context context, final Intent intent) {
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
+                                long fid = intent.getLongExtra("folder", -1);
+                                Log.i(Helper.TAG, "Process folder=" + fid + " intent=" + intent);
+
                                 // Get folder
                                 EntityFolder folder = null;
                                 IMAPFolder ifolder = null;
@@ -675,21 +676,29 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 try {
                                     if (folder == null)
-                                        throw new IllegalArgumentException("Unknown folder=" + fid);
+                                        folder = db.folder().getFolder(fid);
 
                                     if (shouldClose)
-                                        Log.v(Helper.TAG, folder.name + " start operations offline=" + shouldClose);
+                                        Log.i(Helper.TAG, folder.name + " run offline=" + shouldClose);
+                                    else
+                                        Log.i(Helper.TAG, folder.name + " run online");
 
                                     if (ifolder == null) {
                                         // Prevent unnecessary folder connections
-                                        if (db.operation().getOperationCount(fid) == 0)
-                                            return;
+                                        if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
+                                            if (db.operation().getOperationCount(fid) == 0)
+                                                return;
 
                                         ifolder = (IMAPFolder) istore.getFolder(folder.name);
                                         ifolder.open(Folder.READ_WRITE);
                                     }
 
-                                    processOperations(folder, isession, istore, ifolder);
+                                    if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
+                                        processOperations(folder, isession, istore, ifolder);
+
+                                    else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction()))
+                                        synchronizeMessages(account, folder, ifolder, state);
+
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     reportError(account.name, folder.name, ex);
@@ -702,7 +711,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             }
                                         }
-                                    //Log.v(Helper.TAG, folder.name + " stop operations");
                                 }
                             }
                         });
@@ -710,10 +718,13 @@ public class ServiceSynchronize extends LifecycleService {
                 };
 
                 // Listen for folder operations
-                IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
+                IntentFilter f = new IntentFilter();
+                f.addAction(ACTION_SYNCHRONIZE_FOLDER);
+                f.addAction(ACTION_PROCESS_OPERATIONS);
                 f.addDataType("account/" + account.id);
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                lbm.registerReceiver(processReceiver, f);
+                lbm.registerReceiver(processFolder, f);
+
                 try {
                     // Process pending folder operations
                     Log.i(Helper.TAG, "listen process folder");
@@ -739,7 +750,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                     Log.i(Helper.TAG, account.name + " done running=" + state.running);
                 } finally {
-                    lbm.unregisterReceiver(processReceiver);
+                    lbm.unregisterReceiver(processFolder);
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1471,7 +1482,9 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
                         // Start monitoring outbox
-                        IntentFilter f = new IntentFilter(ACTION_PROCESS_OPERATIONS);
+                        IntentFilter f = new IntentFilter();
+                        f.addAction(ACTION_SYNCHRONIZE_FOLDER);
+                        f.addAction(ACTION_PROCESS_OPERATIONS);
                         f.addDataType("account/outbox");
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.registerReceiver(outboxReceiver, f);
@@ -1564,13 +1577,13 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void run() {
                         try {
-                            Log.v(Helper.TAG, outbox.name + " start operations");
+                            Log.i(Helper.TAG, outbox.name + " start operations");
                             processOperations(outbox, isession, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);
                         } finally {
-                            Log.v(Helper.TAG, outbox.name + " end operations");
+                            Log.i(Helper.TAG, outbox.name + " end operations");
                         }
                     }
                 });
