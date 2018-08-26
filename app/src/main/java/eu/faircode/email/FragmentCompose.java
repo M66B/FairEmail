@@ -1027,8 +1027,6 @@ public class FragmentCompose extends FragmentEx {
                     db.message().updateMessage(draft);
                     draft.write(context, pbody);
 
-                    EntityOperation.queue(db, draft, EntityOperation.SEEN, true);
-
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
 

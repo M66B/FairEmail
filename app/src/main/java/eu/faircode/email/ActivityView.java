@@ -665,12 +665,10 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
-                        if (message.uid != null) { // Skip drafts and outbox
-                            db.message().setMessageUiSeen(tmessage.id, true);
-
-                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
-                        }
+                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                        db.message().setMessageUiSeen(tmessage.id, true);
+                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {
