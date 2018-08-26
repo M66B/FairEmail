@@ -218,17 +218,25 @@ public class FragmentMessages extends FragmentEx {
                         @Override
                         public void loadInitial(LoadInitialParams params, LoadInitialCallback<TupleMessageEx> callback) {
                             Log.i(Helper.TAG, "loadInitial(" + params.requestedStartPosition + ", " + params.requestedLoadSize + ")");
-                            callback.onResult(search(search, params.requestedStartPosition, params.requestedLoadSize), params.requestedStartPosition);
+                            SearchResult result = search(search, params.requestedStartPosition, params.requestedLoadSize);
+                            callback.onResult(result.messages, params.requestedStartPosition, result.total);
                         }
 
                         @Override
                         public void loadRange(LoadRangeParams params, LoadRangeCallback<TupleMessageEx> callback) {
                             Log.i(Helper.TAG, "loadRange(" + params.startPosition + ", " + params.loadSize + ")");
-                            callback.onResult(search(search, params.startPosition, params.loadSize));
+                            SearchResult result = search(search, params.startPosition, params.loadSize);
+                            callback.onResult(result.messages);
                         }
 
-                        private List<TupleMessageEx> search(String term, int from, int count) {
-                            List<TupleMessageEx> list = new ArrayList<>();
+                        class SearchResult {
+                            int total;
+                            List<TupleMessageEx> messages;
+                        }
+
+                        private SearchResult search(String term, int from, int count) {
+                            SearchResult result = new SearchResult();
+                            result.messages = new ArrayList<>();
                             IMAPStore istore = null;
                             try {
                                 DB db = DB.getInstance(getContext());
@@ -251,11 +259,12 @@ public class FragmentMessages extends FragmentEx {
                                         new OrTerm(
                                                 new SubjectTerm(term),
                                                 new BodyTerm(term)));
+                                result.total = imessages.length;
                                 Log.i(Helper.TAG, "Found messages=" + imessages.length);
 
                                 List<Message> selected = new ArrayList<>();
                                 int base = imessages.length - 1 - from;
-                                for (int i = base; i >= 0 && i >= base - count - 1; i--)
+                                for (int i = base; i >= 0 && i >= base - count + 1; i--)
                                     selected.add(imessages[i]);
                                 Log.i(Helper.TAG, "Selected messages=" + selected.size());
 
@@ -303,7 +312,10 @@ public class FragmentMessages extends FragmentEx {
                                     message.unseen = (seen ? 0 : 1);
                                     message.attachments = 0;
 
-                                    list.add(message);
+                                    message.body = helper.getHtml();
+                                    message.virtual = true;
+
+                                    result.messages.add(message);
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -316,17 +328,16 @@ public class FragmentMessages extends FragmentEx {
                                     }
                             }
 
-                            return list;
+                            return result;
                         }
-
                     };
                 }
             };
 
             PagedList.Config.Builder plcb = new PagedList.Config.Builder()
-                    .setEnablePlaceholders(false)
+                    .setEnablePlaceholders(true)
                     .setInitialLoadSizeHint(10)
-                    .setPageSize(PAGE_SIZE);
+                    .setPageSize(10);
 
             messages = new LivePagedListBuilder<>(dsf, plcb.build()).build();
         }

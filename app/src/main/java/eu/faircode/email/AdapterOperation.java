@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +35,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,7 +48,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         View itemView;
         TextView tvMessage;
         TextView tvName;
@@ -66,12 +64,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
 
         private void wire() {
-            itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            itemView.setOnClickListener(null);
             itemView.setOnLongClickListener(null);
         }
 
@@ -79,20 +75,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             tvMessage.setText(Long.toString(operation.message));
             tvName.setText(operation.name);
             tvTime.setText(df.format(new Date(operation.created)));
-        }
-
-        @Override
-        public void onClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-
-            EntityOperation operation = filtered.get(pos);
-
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                            .putExtra("id", operation.message));
         }
 
         @Override

@@ -138,6 +138,12 @@ public class FragmentMessage extends FragmentEx {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState == null)
+            message = (TupleMessageEx) getArguments().getSerializable("message");
+        else
+            message = (TupleMessageEx) savedInstanceState.getSerializable("message");
+
         openPgpConnection = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
         openPgpConnection.bindToService();
     }
@@ -155,10 +161,6 @@ public class FragmentMessage extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_message, container, false);
-
-        // Get arguments
-        Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id"));
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         debug = prefs.getBoolean("debug", false);
@@ -193,7 +195,7 @@ public class FragmentMessage extends FragmentEx {
         tvCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onMenuThread(message.id);
+                onMenuThread();
             }
         });
 
@@ -301,19 +303,19 @@ public class FragmentMessage extends FragmentEx {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_spam:
-                        onActionSpam(id);
+                        onActionSpam();
                         return true;
                     case R.id.action_trash:
-                        onActionDelete(id);
+                        onActionDelete();
                         return true;
                     case R.id.action_move:
-                        onActionMove(id);
+                        onActionMove();
                         return true;
                     case R.id.action_archive:
-                        onActionArchive(id);
+                        onActionArchive();
                         return true;
                     case R.id.action_reply:
-                        onActionReply(id);
+                        onActionReply();
                         return true;
                 }
                 return false;
@@ -348,6 +350,7 @@ public class FragmentMessage extends FragmentEx {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putSerializable("message", message);
         outState.putBoolean("free", free);
         if (free) {
             outState.putInt("tag_count", (int) tvCount.getTag());
@@ -361,269 +364,255 @@ public class FragmentMessage extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Get arguments
-        Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id"));
+        if (savedInstanceState == null) {
+            setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
-        final DB db = DB.getInstance(getContext());
+            tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
+            tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
+            tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
+            tvSubject.setText(message.subject);
 
-        // Observe message
-        db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
-            private boolean once = false;
+            tvCount.setText(Integer.toString(message.count));
 
-            @Override
-            public void onChanged(@Nullable final TupleMessageEx message) {
-                if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
-                    // Message gone (moved, deleted)
-                    finish();
-                    return;
-                }
+            tvReplyTo.setText(message.reply == null ? null : MessageHelper.getFormattedAddresses(message.reply, true));
+            tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
+            tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
 
-                FragmentMessage.this.message = message;
+            tvError.setText(message.error);
+        } else {
+            free = savedInstanceState.getBoolean("free");
+            if (free) {
+                tvCount.setTag(savedInstanceState.getInt("tag_count"));
+                tvCc.setTag(savedInstanceState.getInt("tag_cc"));
+                rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
+                tvError.setTag(savedInstanceState.getInt("tag_error"));
+            }
+            decrypted = savedInstanceState.getString("decrypted");
+        }
 
-                if (savedInstanceState == null) {
-                    if (once)
-                        return;
-                    once = true;
+        if (tvBody.getTag() == null) {
+            // Spanned text needs to be loaded after recreation too
+            final Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("has_images", false);
+            args.putBoolean("show_images", false);
 
-                    setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+            pbBody.setVisibility(View.VISIBLE);
+            final SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+                @Override
+                protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
+                    final long id = args.getLong("id");
+                    final boolean show_images = args.getBoolean("show_images");
+                    String body = (decrypted == null ? message.read(context) : decrypted);
+                    args.putInt("size", body.length());
 
-                    tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
-                    tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
-                    tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
-                    tvSubject.setText(message.subject);
-
-                    tvCount.setText(Integer.toString(message.count));
-
-                    tvReplyTo.setText(message.reply == null ? null : MessageHelper.getFormattedAddresses(message.reply, true));
-                    tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
-                    tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
-
-                    tvError.setText(message.error);
-
-                } else {
-                    free = savedInstanceState.getBoolean("free");
-                    if (free) {
-                        tvCount.setTag(savedInstanceState.getInt("tag_count"));
-                        tvCc.setTag(savedInstanceState.getInt("tag_cc"));
-                        rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
-                        tvError.setTag(savedInstanceState.getInt("tag_error"));
-                    }
-                    decrypted = savedInstanceState.getString("decrypted");
-                }
-
-                getActivity().invalidateOptionsMenu();
-
-                if (tvBody.getTag() == null) {
-                    // Spanned text needs to be loaded after recreation too
-                    final Bundle args = new Bundle();
-                    args.putLong("id", message.id);
-                    args.putBoolean("has_images", false);
-                    args.putBoolean("show_images", false);
-
-                    pbBody.setVisibility(View.VISIBLE);
-                    final SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+                    return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
                         @Override
-                        protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
-                            final long id = args.getLong("id");
-                            final boolean show_images = args.getBoolean("show_images");
-                            String body = (decrypted == null ? EntityMessage.read(context, id) : decrypted);
-                            args.putInt("size", body.length());
+                        public Drawable getDrawable(String source) {
+                            float scale = context.getResources().getDisplayMetrics().density;
+                            int px = (int) (24 * scale + 0.5f);
 
-                            return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
-                                @Override
-                                public Drawable getDrawable(String source) {
-                                    float scale = context.getResources().getDisplayMetrics().density;
-                                    int px = (int) (24 * scale + 0.5f);
+                            if (show_images) {
+                                // Get cache folder
+                                File dir = new File(context.getCacheDir(), "images");
+                                dir.mkdir();
 
-                                    if (show_images) {
-                                        // Get cache folder
-                                        File dir = new File(context.getCacheDir(), "images");
-                                        dir.mkdir();
-
-                                        // Cleanup cache
-                                        long now = new Date().getTime();
-                                        File[] images = dir.listFiles();
-                                        if (images != null)
-                                            for (File image : images)
-                                                if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
-                                                    Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
-                                                    image.delete();
-                                                }
-
-                                        // Create unique file name
-                                        File file = new File(dir, id + "_" + source.hashCode());
-
-                                        InputStream is = null;
-                                        FileOutputStream os = null;
-                                        try {
-                                            // Get input stream
-                                            if (file.exists())
-                                                is = new FileInputStream(file);
-                                            else
-                                                is = new URL(source).openStream();
-
-                                            // Decode image from stream
-                                            Bitmap bm = BitmapFactory.decodeStream(is);
-                                            if (bm == null)
-                                                throw new IllegalArgumentException();
-
-                                            // Cache bitmap
-                                            if (!file.exists()) {
-                                                os = new FileOutputStream(file);
-                                                bm.compress(Bitmap.CompressFormat.PNG, 100, os);
-                                            }
-
-                                            // Create drawable from bitmap
-                                            Drawable d = new BitmapDrawable(context.getResources(), bm);
-                                            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                                            return d;
-                                        } catch (Throwable ex) {
-                                            // Show warning icon
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                            Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                                            d.setBounds(0, 0, px, px);
-                                            return d;
-                                        } finally {
-                                            // Close streams
-                                            if (is != null) {
-                                                try {
-                                                    is.close();
-                                                } catch (IOException e) {
-                                                    Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                                                }
-                                            }
-                                            if (os != null) {
-                                                try {
-                                                    os.close();
-                                                } catch (IOException e) {
-                                                    Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                                                }
-                                            }
+                                // Cleanup cache
+                                long now = new Date().getTime();
+                                File[] images = dir.listFiles();
+                                if (images != null)
+                                    for (File image : images)
+                                        if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
+                                            Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
+                                            image.delete();
                                         }
-                                    } else {
-                                        // Show placeholder icon
-                                        args.putBoolean("has_images", true);
-                                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
-                                        d.setBounds(0, 0, px, px);
-                                        return d;
+
+                                // Create unique file name
+                                File file = new File(dir, id + "_" + source.hashCode());
+
+                                InputStream is = null;
+                                FileOutputStream os = null;
+                                try {
+                                    // Get input stream
+                                    if (file.exists())
+                                        is = new FileInputStream(file);
+                                    else
+                                        is = new URL(source).openStream();
+
+                                    // Decode image from stream
+                                    Bitmap bm = BitmapFactory.decodeStream(is);
+                                    if (bm == null)
+                                        throw new IllegalArgumentException();
+
+                                    // Cache bitmap
+                                    if (!file.exists()) {
+                                        os = new FileOutputStream(file);
+                                        bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+                                    }
+
+                                    // Create drawable from bitmap
+                                    Drawable d = new BitmapDrawable(context.getResources(), bm);
+                                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                                    return d;
+                                } catch (Throwable ex) {
+                                    // Show warning icon
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                                    d.setBounds(0, 0, px, px);
+                                    return d;
+                                } finally {
+                                    // Close streams
+                                    if (is != null) {
+                                        try {
+                                            is.close();
+                                        } catch (IOException e) {
+                                            Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                                        }
+                                    }
+                                    if (os != null) {
+                                        try {
+                                            os.close();
+                                        } catch (IOException e) {
+                                            Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                                        }
                                     }
                                 }
-                            }, new Html.TagHandler() {
-                                @Override
-                                public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                                    // Do nothing
-                                }
-                            });
+                            } else {
+                                // Show placeholder icon
+                                args.putBoolean("has_images", true);
+                                Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
+                                d.setBounds(0, 0, px, px);
+                                return d;
+                            }
                         }
-
+                    }, new Html.TagHandler() {
                         @Override
-                        protected void onLoaded(Bundle args, Spanned body) {
-                            boolean has_images = args.getBoolean("has_images");
-                            boolean show_images = args.getBoolean("show_images");
-                            tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
-                            tvBody.setText(body);
-                            tvBody.setTag(true);
-                            btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
-                            grpMessage.setVisibility(View.VISIBLE);
-                            fab.setVisibility(free ? View.GONE : View.VISIBLE);
-                            pbBody.setVisibility(View.GONE);
-                        }
-                    };
-
-                    bodyTask.load(FragmentMessage.this, args);
-
-                    btnImages.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            v.setEnabled(false);
-                            args.putBoolean("show_images", true);
-                            bodyTask.load(FragmentMessage.this, args);
+                        public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
+                            // Do nothing
                         }
                     });
                 }
 
-                int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
-                tvFrom.setTypeface(null, typeface);
-                tvTime.setTypeface(null, typeface);
-                tvSubject.setTypeface(null, typeface);
-                tvCount.setTypeface(null, typeface);
-
-                int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
-                        ? android.R.attr.textColorSecondary : R.attr.colorUnread);
-                tvFrom.setTextColor(colorUnseen);
-                tvTime.setTextColor(colorUnseen);
-
-                pbWait.setVisibility(View.GONE);
-
-                grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
-                vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
-
-                if (free) {
-                    tvCount.setVisibility((int) tvCount.getTag());
-                    grpAddresses.setVisibility((int) tvCc.getTag());
-                    grpError.setVisibility((int) tvError.getTag());
-                } else {
-                    tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
-                    grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+                @Override
+                protected void onLoaded(Bundle args, Spanned body) {
+                    boolean has_images = args.getBoolean("has_images");
+                    boolean show_images = args.getBoolean("show_images");
+                    tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
+                    tvBody.setText(body);
+                    tvBody.setTag(true);
+                    btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+                    grpMessage.setVisibility(View.VISIBLE);
+                    fab.setVisibility(free ? View.GONE : View.VISIBLE);
+                    pbBody.setVisibility(View.GONE);
                 }
+            };
 
-                // Observe attachments
-                db.attachment().liveAttachments(id).removeObservers(getViewLifecycleOwner());
-                db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(),
-                        new Observer<List<EntityAttachment>>() {
-                            @Override
-                            public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                                if (attachments == null)
-                                    attachments = new ArrayList<>();
+            bodyTask.load(FragmentMessage.this, args);
 
-                                adapter.set(attachments);
-                                grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                            }
-                        });
+            btnImages.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.setEnabled(false);
+                    args.putBoolean("show_images", true);
+                    bodyTask.load(FragmentMessage.this, args);
+                }
+            });
+        }
 
-                // Observe folders
-                db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
-                db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                    @Override
-                    public void onChanged(@Nullable List<TupleFolderEx> folders) {
-                        if (folders == null)
-                            folders = new ArrayList<>();
+        int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
+        tvFrom.setTypeface(null, typeface);
+        tvTime.setTypeface(null, typeface);
+        tvSubject.setTypeface(null, typeface);
+        tvCount.setTypeface(null, typeface);
 
-                        boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
-                        boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                        boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                        boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
-                        boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+        int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
+                ? android.R.attr.textColorSecondary : R.attr.colorUnread);
+        tvFrom.setTextColor(colorUnseen);
+        tvTime.setTextColor(colorUnseen);
 
-                        boolean hasTrash = false;
-                        boolean hasJunk = false;
-                        boolean hasArchive = false;
-                        boolean hasUser = false;
-                        if (folders != null)
-                            for (EntityFolder folder : folders) {
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    hasTrash = true;
-                                else if (EntityFolder.JUNK.equals(folder.type))
-                                    hasJunk = true;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    hasArchive = true;
-                                else if (EntityFolder.USER.equals(folder.type))
-                                    hasUser = true;
-                            }
+        pbWait.setVisibility(View.GONE);
 
-                        bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
+        grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
+        vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
 
-                        bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
-                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                        bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
-                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-                        bottom_navigation.setVisibility(View.VISIBLE);
+        if (free) {
+            tvCount.setVisibility((int) tvCount.getTag());
+            grpAddresses.setVisibility((int) tvCc.getTag());
+            grpError.setVisibility((int) tvError.getTag());
+        } else {
+            tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+            grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
+        }
+
+        DB db = DB.getInstance(getContext());
+
+        if (!message.virtual) {
+            // Observe message
+            db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+
+                @Override
+                public void onChanged(@Nullable final TupleMessageEx message) {
+                    if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
+                        // Message gone (moved, deleted)
+                        finish();
+                        return;
                     }
-                });
-            }
-        });
+                }
+            });
+
+            // Observe attachments
+            db.attachment().liveAttachments(message.id).observe(getViewLifecycleOwner(),
+                    new Observer<List<EntityAttachment>>() {
+                        @Override
+                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                            if (attachments == null)
+                                attachments = new ArrayList<>();
+
+                            adapter.set(attachments);
+                            grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                        }
+                    });
+
+            // Observe folders
+            db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                @Override
+                public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                    if (folders == null)
+                        folders = new ArrayList<>();
+
+                    boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                    boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                    boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                    boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                    boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+
+                    boolean hasTrash = false;
+                    boolean hasJunk = false;
+                    boolean hasArchive = false;
+                    boolean hasUser = false;
+                    if (folders != null)
+                        for (EntityFolder folder : folders) {
+                            if (EntityFolder.TRASH.equals(folder.type))
+                                hasTrash = true;
+                            else if (EntityFolder.JUNK.equals(folder.type))
+                                hasJunk = true;
+                            else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                hasArchive = true;
+                            else if (EntityFolder.USER.equals(folder.type))
+                                hasUser = true;
+                        }
+
+                    bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
+
+                    bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
+                    bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                    bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                    bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                    bottom_navigation.setVisibility(View.VISIBLE);
+                }
+            });
+        }
     }
 
     @Override
@@ -636,22 +625,20 @@ public class FragmentMessage extends FragmentEx {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        boolean inOutbox = (message != null && EntityFolder.OUTBOX.equals(message.folderType));
+        boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
-        menu.findItem(R.id.menu_thread).setVisible(!free && message != null && message.count > 1);
-        menu.findItem(R.id.menu_seen).setVisible(!free && message != null && !inOutbox);
-        menu.findItem(R.id.menu_forward).setVisible(!free && message != null && !inOutbox);
-        menu.findItem(R.id.menu_reply_all).setVisible(!free && message != null && message.cc != null && !inOutbox);
+        menu.findItem(R.id.menu_thread).setVisible(!free && !message.virtual && message.count > 1);
+        menu.findItem(R.id.menu_seen).setVisible(!free && !message.virtual && !inOutbox);
+        menu.findItem(R.id.menu_forward).setVisible(!free && !message.virtual && !inOutbox);
+        menu.findItem(R.id.menu_reply_all).setVisible(!free && !message.virtual && message.cc != null && !inOutbox);
         menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null);
 
-        if (message != null) {
-            MenuItem menuSeen = menu.findItem(R.id.menu_seen);
-            menuSeen.setIcon(message.ui_seen
-                    ? R.drawable.baseline_visibility_off_24
-                    : R.drawable.baseline_visibility_24);
-            menuSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
-        }
+        MenuItem menuSeen = menu.findItem(R.id.menu_seen);
+        menuSeen.setIcon(message.ui_seen
+                ? R.drawable.baseline_visibility_off_24
+                : R.drawable.baseline_visibility_24);
+        menuSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
     }
 
     @Override
@@ -661,19 +648,19 @@ public class FragmentMessage extends FragmentEx {
                 onMenuAddresses();
                 return true;
             case R.id.menu_thread:
-                onMenuThread(message.id);
+                onMenuThread();
                 return true;
             case R.id.menu_seen:
-                onMenuSeen(message.id);
+                onMenuSeen();
                 return true;
             case R.id.menu_forward:
-                onMenuForward(message.id);
+                onMenuForward();
                 return true;
             case R.id.menu_reply_all:
-                onMenuReplyAll(message.id);
+                onMenuReplyAll();
                 return true;
             case R.id.menu_decrypt:
-                onMenuDecrypt(message);
+                onMenuDecrypt();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -684,11 +671,11 @@ public class FragmentMessage extends FragmentEx {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
-    private void onMenuThread(long id) {
+    private void onMenuThread() {
         getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
-        args.putLong("thread", id); // message ID
+        args.putLong("thread", message.id);
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
@@ -698,11 +685,11 @@ public class FragmentMessage extends FragmentEx {
         fragmentTransaction.commit();
     }
 
-    private void onMenuSeen(long id) {
+    private void onMenuSeen() {
         Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", message.id);
 
         new SimpleTask<Void>() {
             @Override
@@ -741,19 +728,19 @@ public class FragmentMessage extends FragmentEx {
         }.load(this, args);
     }
 
-    private void onMenuForward(long id) {
+    private void onMenuForward() {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "forward")
-                .putExtra("reference", id));
+                .putExtra("reference", message.id));
     }
 
-    private void onMenuReplyAll(long id) {
+    private void onMenuReplyAll() {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
-                .putExtra("reference", id));
+                .putExtra("reference", message.id));
     }
 
-    private void onMenuDecrypt(EntityMessage message) {
+    private void onMenuDecrypt() {
         Log.i(Helper.TAG, "On decrypt");
         try {
             if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false))
@@ -826,14 +813,14 @@ public class FragmentMessage extends FragmentEx {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i(Helper.TAG, "Message onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == ActivityView.REQUEST_OPENPGP && message != null) {
+            if (requestCode == ActivityView.REQUEST_OPENPGP) {
                 Log.i(Helper.TAG, "User interacted");
-                onMenuDecrypt(message);
+                onMenuDecrypt();
             }
         }
     }
 
-    private void onActionSpam(final long id) {
+    private void onActionSpam() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder
                 .setMessage(R.string.title_ask_spam)
@@ -843,7 +830,7 @@ public class FragmentMessage extends FragmentEx {
                         Helper.setViewsEnabled(view, false);
 
                         Bundle args = new Bundle();
-                        args.putLong("id", id);
+                        args.putLong("id", message.id);
 
                         new SimpleTask<Void>() {
                             @Override
@@ -886,7 +873,7 @@ public class FragmentMessage extends FragmentEx {
                 .setNegativeButton(android.R.string.cancel, null).show();
     }
 
-    private void onActionDelete(final long id) {
+    private void onActionDelete() {
         boolean delete = (Boolean) bottom_navigation.getTag();
         if (delete) {
             // No trash or is trash
@@ -899,7 +886,7 @@ public class FragmentMessage extends FragmentEx {
                             Helper.setViewsEnabled(view, false);
 
                             Bundle args = new Bundle();
-                            args.putLong("id", id);
+                            args.putLong("id", message.id);
 
                             new SimpleTask<Void>() {
                                 @Override
@@ -946,7 +933,7 @@ public class FragmentMessage extends FragmentEx {
             Helper.setViewsEnabled(view, false);
 
             Bundle args = new Bundle();
-            args.putLong("id", id);
+            args.putLong("id", message.id);
 
             new SimpleTask<Void>() {
                 @Override
@@ -986,9 +973,9 @@ public class FragmentMessage extends FragmentEx {
         }
     }
 
-    private void onActionMove(long id) {
+    private void onActionMove() {
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", message.id);
 
         new SimpleTask<List<EntityFolder>>() {
             @Override
@@ -1102,11 +1089,11 @@ public class FragmentMessage extends FragmentEx {
         }.load(FragmentMessage.this, args);
     }
 
-    private void onActionArchive(long id) {
+    private void onActionArchive() {
         Helper.setViewsEnabled(view, false);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", message.id);
 
         new SimpleTask<Void>() {
             @Override
@@ -1147,9 +1134,9 @@ public class FragmentMessage extends FragmentEx {
         }.load(FragmentMessage.this, args);
     }
 
-    private void onActionReply(long id) {
+    private void onActionReply() {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply")
-                .putExtra("reference", id));
+                .putExtra("reference", message.id));
     }
 }

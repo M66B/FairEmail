@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Random;
 
@@ -36,6 +37,7 @@ import javax.mail.Address;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -64,7 +66,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"ui_hide"})
         }
 )
-public class EntityMessage {
+public class EntityMessage implements Serializable {
     static final String TABLE_NAME = "message";
 
     @PrimaryKey(autoGenerate = true)
@@ -97,6 +99,11 @@ public class EntityMessage {
     @NonNull
     public Boolean ui_hide;
     public String error;
+
+    @Ignore
+    String body = null;
+    @Ignore
+    boolean virtual = false;
 
     static String generateMessageId() {
         StringBuffer sb = new StringBuffer();
@@ -131,7 +138,9 @@ public class EntityMessage {
     }
 
     String read(Context context) throws IOException {
-        return read(context, this.id);
+        if (body == null)
+            body = read(context, this.id);
+        return body;
     }
 
     static String read(Context context, Long id) throws IOException {

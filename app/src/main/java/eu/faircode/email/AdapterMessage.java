@@ -190,7 +190,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                .putExtra("id", message.id));
+                                .putExtra("message", message));
             }
         }
 
@@ -205,7 +205,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                            .putExtra("id", message.id));
+                            .putExtra("message", message));
 
             return true;
         }
