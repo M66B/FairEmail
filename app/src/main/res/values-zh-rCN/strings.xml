@@ -130,6 +130,7 @@
   <string name="title_send">Send</string>
   <string name="title_show_addresses">Show CC/BCC</string>
   <string name="title_add_attachment">Add attachment</string>
+  <string name="title_no_openpgp">OpenPGP not available</string>
   <string name="title_encrypt">Encrypt</string>
   <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Sender missing</string>
@@ -146,6 +147,10 @@
   <string name="title_legend_connecting">Connecting</string>
   <string name="title_legend_connected">Connected</string>
   <string name="title_legend_closing">Closing</string>
+  <string name="title_pro_feature">This is a pro feature</string>
+  <string name="title_pro_list">List of pro features</string>
+  <string name="title_pro_purchase">Buy</string>
+  <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features and will keep this app maintained and supported</string>
   <string name="title_pro_activated">All pro features are activated</string>
   <string name="title_pro_valid">All pro features activated</string>
   <string name="title_pro_invalid">Invalid response</string>
