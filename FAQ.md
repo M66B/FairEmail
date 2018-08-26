@@ -51,6 +51,8 @@ which is a waste of battery power and internet bandwidth and will delay notifica
 To login to Gmail / G suite you'll often need an app password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
 
+If this doesn't work, see here for more solutions: [https://support.google.com/mail/accounts/answer/78754](https://support.google.com/mail/accounts/answer/78754)
+
 <a name="FAQ7"></a>
 **(7) Why are messages in the outbox not moved to the sent folder?**
 
