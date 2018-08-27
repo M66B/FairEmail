@@ -1,9 +1,12 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import android.widget.Toast;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
@@ -88,6 +91,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
             callback.onResult(result.messages, params.requestedStartPosition, result.total);
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            reportError(ex);
         }
     }
 
@@ -99,6 +103,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
             callback.onResult(result.messages);
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            reportError(ex);
         }
     }
 
@@ -203,6 +208,15 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
 
         Log.i(Helper.TAG, "SDS result=" + result.messages.size());
         return result;
+    }
+
+    private void reportError(final Throwable ex) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(context, Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private class SearchResult {

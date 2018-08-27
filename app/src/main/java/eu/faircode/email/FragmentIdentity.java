@@ -362,7 +362,6 @@ public class FragmentIdentity extends FragmentEx {
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
                                         Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-                                        // TODO: recover from error
                                     }
                                 }.load(FragmentIdentity.this, args);
                             }
