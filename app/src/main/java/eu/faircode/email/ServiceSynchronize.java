@@ -119,7 +119,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int NOTIFICATION_UNSEEN = 2;
 
     private static final int CONNECT_BACKOFF_START = 32; // seconds
-    private static final int CONNECT_BACKOFF_MAX = 512; // seconds
+    private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
@@ -755,12 +755,9 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                reportError(account.name, null, ex);
-
+                if (!(ex instanceof AuthenticationFailedException)) // Also: Too many simultaneous connections
+                    reportError(account.name, null, ex);
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-
-                if (ex instanceof AuthenticationFailedException)
-                    break;
             } finally {
                 // Close store
                 Log.i(Helper.TAG, account.name + " closing");
