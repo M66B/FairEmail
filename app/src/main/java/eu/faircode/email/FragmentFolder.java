@@ -43,16 +43,23 @@ public class FragmentFolder extends FragmentEx {
     private ProgressBar pbSave;
     private ProgressBar pbWait;
 
+    private long id = -1;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        id = (args == null ? -1 : args.getLong("id"));
+    }
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_folder);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folder, container, false);
-
-        // Get arguments
-        Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id"));
 
         // Get controls
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
@@ -132,10 +139,6 @@ public class FragmentFolder extends FragmentEx {
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // Get arguments
-        Bundle args = getArguments();
-        long id = (args == null ? -1 : args.getLong("id"));
 
         // Observe
         DB.getInstance(getContext()).folder().liveFolder(id).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
