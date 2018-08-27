@@ -99,6 +99,17 @@ The latter is both safer and more inconvenient because you'll need to login to w
 
 Chrome Custom Tabs are used by default, which can be changed in the advanced options in the setup screen.
 
+<a name="FAQ13"></a>
+**(13) How does search on server work?**
+
+You can start searching for messages in a folder on the server by using the magnify glass in the action bar of a folder.
+The server is requested to search on sender, subject and message text.
+The server executes the search request and determines if the search is case sensitive,
+if searching will be done on whole words and which messages will be search through.
+Results will be shown in real time as they become available from the server.
+For performance reasons attachments are not downloaded and shown.
+Search on server is a pro feature.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
