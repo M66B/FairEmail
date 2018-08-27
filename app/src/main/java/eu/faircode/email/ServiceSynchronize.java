@@ -1608,6 +1608,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, "Joined " + thread.getName());
             } catch (InterruptedException ex) {
                 Log.e(Helper.TAG, thread.getName() + " join " + ex.toString());
+                thread.interrupt();
             }
     }
 
