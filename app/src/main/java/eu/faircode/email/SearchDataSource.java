@@ -48,6 +48,8 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
 
     private SparseArray<TupleMessageEx> cache = new SparseArray<>();
 
+    private static final float MAX_MEMORY_USAGE = 0.6f; // percent
+
     SearchDataSource(Context context, LifecycleOwner owner, long folder, String search) {
         Log.i(Helper.TAG, "SDS create");
 
@@ -203,7 +205,12 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
 
             result.messages.add(message);
 
-            cache.put(pos, message);
+            Runtime rt = Runtime.getRuntime();
+            float used = (float) (rt.totalMemory() - rt.freeMemory()) / rt.maxMemory();
+            if (used < MAX_MEMORY_USAGE)
+                cache.put(pos, message);
+            else
+                Log.i(Helper.TAG, "SDS memory used=" + used);
         }
 
         Log.i(Helper.TAG, "SDS result=" + result.messages.size());
