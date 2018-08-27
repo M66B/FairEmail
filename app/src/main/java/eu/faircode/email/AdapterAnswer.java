@@ -20,12 +20,10 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.Collator;
@@ -36,103 +34,52 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
+public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder> {
     private Context context;
 
-    private List<EntityAccount> all = new ArrayList<>();
-    private List<EntityAccount> filtered = new ArrayList<>();
+    private List<EntityAnswer> all = new ArrayList<>();
+    private List<EntityAnswer> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         View itemView;
-        ImageView ivPrimary;
         TextView tvName;
-        ImageView ivSync;
-        TextView tvUser;
-        TextView tvHost;
-        ImageView ivState;
-        TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView;
-            ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
-            ivSync = itemView.findViewById(R.id.ivSync);
-            tvUser = itemView.findViewById(R.id.tvUser);
-            tvHost = itemView.findViewById(R.id.tvHost);
-            ivState = itemView.findViewById(R.id.ivState);
-            tvError = itemView.findViewById(R.id.tvError);
         }
 
-        private void wire() {
-            itemView.setOnClickListener(this);
-        }
-
-        private void unwire() {
-            itemView.setOnClickListener(null);
-        }
-
-        private void bindTo(EntityAccount account) {
-            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
-            tvName.setText(account.name);
-            ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-            tvUser.setText(account.user);
-            tvHost.setText(String.format("%s:%d", account.host, account.port));
-
-            if ("connected".equals(account.state))
-                ivState.setImageResource(R.drawable.baseline_cloud_24);
-            else if ("connecting".equals(account.state))
-                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
-            else if ("closing".equals(account.state))
-                ivState.setImageResource(R.drawable.baseline_close_24);
-            else
-                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-            ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
-
-            tvError.setText(account.error);
-            tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-            EntityAccount account = filtered.get(pos);
-
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
-                            .putExtra("id", account.id));
+        private void bindTo(EntityAnswer answer) {
+            tvName.setText(answer.name);
         }
     }
 
-    AdapterAccount(Context context) {
+    AdapterAnswer(Context context) {
         this.context = context;
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityAccount> accounts) {
-        Log.i(Helper.TAG, "Set accounts=" + accounts.size());
+    public void set(@NonNull List<EntityAnswer> answers) {
+        Log.i(Helper.TAG, "Set answers=" + answers.size());
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        Collections.sort(accounts, new Comparator<EntityAccount>() {
+        Collections.sort(answers, new Comparator<EntityAnswer>() {
             @Override
-            public int compare(EntityAccount a1, EntityAccount a2) {
-                return collator.compare(a1.host, a2.host);
+            public int compare(EntityAnswer a1, EntityAnswer a2) {
+                return collator.compare(a1.name, a2.name);
             }
         });
 
         all.clear();
-        all.addAll(accounts);
+        all.addAll(answers);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 
@@ -164,10 +111,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<EntityAccount> prev;
-        private List<EntityAccount> next;
+        private List<EntityAnswer> prev;
+        private List<EntityAnswer> next;
 
-        MessageDiffCallback(List<EntityAccount> prev, List<EntityAccount> next) {
+        MessageDiffCallback(List<EntityAnswer> prev, List<EntityAnswer> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -184,16 +131,16 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAccount f1 = prev.get(oldItemPosition);
-            EntityAccount f2 = next.get(newItemPosition);
-            return f1.id.equals(f2.id);
+            EntityAnswer a1 = prev.get(oldItemPosition);
+            EntityAnswer a2 = next.get(newItemPosition);
+            return a1.id.equals(a2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityAccount f1 = prev.get(oldItemPosition);
-            EntityAccount f2 = next.get(newItemPosition);
-            return f1.equals(f2);
+            EntityAnswer a1 = prev.get(oldItemPosition);
+            EntityAnswer a2 = next.get(newItemPosition);
+            return a1.equals(a2);
         }
     }
 
@@ -210,16 +157,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_account, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_folder, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.unwire();
-
-        EntityAccount account = filtered.get(position);
-        holder.bindTo(account);
-
-        holder.wire();
+        EntityAnswer answer = filtered.get(position);
+        holder.bindTo(answer);
     }
 }

@@ -141,6 +141,9 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                     case R.string.menu_setup:
                         onMenuSetup();
                         break;
+                    case R.string.menu_answers:
+                        onMenuAnswers();
+                        break;
                     case R.string.menu_operations:
                         onMenuOperations();
                         break;
@@ -194,6 +197,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
+                drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_reply_24, R.string.menu_answers));
 
                 if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
@@ -428,7 +432,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     }
 
     private String getChallenge() throws NoSuchAlgorithmException {
-        String android_id = Settings.System.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         return Helper.sha256(android_id);
     }
 
@@ -522,6 +526,12 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
 
     private void onMenuSetup() {
         startActivity(new Intent(ActivityView.this, ActivitySetup.class));
+    }
+
+    private void onMenuAnswers() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
+        fragmentTransaction.commit();
     }
 
     private void onMenuOperations() {

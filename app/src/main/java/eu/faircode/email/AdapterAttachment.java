@@ -267,7 +267,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 Log.i(Helper.TAG, "Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(AdapterAttachment.this);
+        diff.dispatchUpdatesTo(this);
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {

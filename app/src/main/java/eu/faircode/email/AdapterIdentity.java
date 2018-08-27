@@ -161,7 +161,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                 Log.i(Helper.TAG, "Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(AdapterIdentity.this);
+        diff.dispatchUpdatesTo(this);
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {

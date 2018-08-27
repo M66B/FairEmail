@@ -45,14 +45,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 3,
+        version = 4,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
                 EntityFolder.class,
                 EntityMessage.class,
                 EntityAttachment.class,
-                EntityOperation.class
+                EntityOperation.class,
+                EntityAnswer.class,
         }
 )
 
@@ -69,6 +70,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoAttachment attachment();
 
     public abstract DaoOperation operation();
+
+    public abstract DaoAnswer answer();
 
     private static DB sInstance;
 
@@ -123,6 +126,13 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `store_sent` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(3, 4) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `answer` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `text` TEXT NOT NULL)");
                     }
                 })
                 .build();

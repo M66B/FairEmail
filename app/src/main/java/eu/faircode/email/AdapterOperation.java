@@ -139,7 +139,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 Log.i(Helper.TAG, "Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(AdapterOperation.this);
+        diff.dispatchUpdatesTo(this);
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {

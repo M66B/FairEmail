@@ -218,7 +218,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 Log.i(Helper.TAG, "Changed @" + position + " #" + count);
             }
         });
-        diff.dispatchUpdatesTo(AdapterFolder.this);
+        diff.dispatchUpdatesTo(this);
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
