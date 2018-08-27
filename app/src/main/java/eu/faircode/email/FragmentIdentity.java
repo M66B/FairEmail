@@ -79,16 +79,23 @@ public class FragmentIdentity extends FragmentEx {
     private ProgressBar pbWait;
     private Group grpInstructions;
 
+    private long id = -1;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        id = (args == null ? -1 : args.getLong("id", -1));
+    }
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_identity);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_identity, container, false);
-
-        // Get arguments
-        Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Get controls
         etName = view.findViewById(R.id.etName);
@@ -214,6 +221,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("email", etEmail.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
                 args.putLong("account", account == null ? -1 : account.id);
+                args.putInt("auth_type", account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
                 args.putString("host", etHost.getText().toString());
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
@@ -236,6 +244,7 @@ public class FragmentIdentity extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        int auth_type = args.getInt("auth_type");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         boolean store_sent = args.getBoolean("store_sent");
@@ -260,7 +269,7 @@ public class FragmentIdentity extends FragmentEx {
 
                         // Check SMTP server
                         if (synchronize) {
-                            Properties props = MessageHelper.getSessionProperties();
+                            Properties props = MessageHelper.getSessionProperties(auth_type);
                             Session isession = Session.getInstance(props, null);
                             Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
                             try {
@@ -287,6 +296,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.starttls = starttls;
                             identity.user = user;
                             identity.password = password;
+                            identity.auth_type = auth_type;
                             identity.synchronize = synchronize;
                             identity.primary = (identity.synchronize && primary);
                             identity.store_sent = store_sent;
@@ -394,10 +404,6 @@ public class FragmentIdentity extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Get arguments
-        Bundle args = getArguments();
-        long id = (args == null ? -1 : args.getLong("id", -1));
-
         final DB db = DB.getInstance(getContext());
 
         // Observe identity
@@ -447,7 +453,7 @@ public class FragmentIdentity extends FragmentEx {
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
-                        unselected.name = "";
+                        unselected.name = getString(R.string.title_select);
                         unselected.primary = false;
                         accounts.add(0, unselected);
 

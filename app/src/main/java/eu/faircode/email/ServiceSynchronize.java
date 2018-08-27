@@ -73,6 +73,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.mail.Address;
+import javax.mail.AuthenticationFailedException;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -390,7 +391,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (debug)
             System.setProperty("mail.socket.debug", "true");
 
-        Properties props = MessageHelper.getSessionProperties();
+        Properties props = MessageHelper.getSessionProperties(account.auth_type);
         final Session isession = Session.getInstance(props, null);
         isession.setDebug(debug);
         // adb -t 1 logcat | grep "fairemail\|System.out"
@@ -455,6 +456,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Initiate connection
                 Log.i(Helper.TAG, account.name + " connect");
+                for (EntityFolder folder : db.folder().getFolders(account.id))
+                    db.folder().setFolderState(folder.id, null);
                 db.account().setAccountState(account.id, "connecting");
                 istore.connect(account.host, account.port, account.user, account.password);
 
@@ -469,9 +472,6 @@ public class ServiceSynchronize extends LifecycleService {
                     // Don't show to user
                     throw new IllegalStateException("synchronize folders", ex);
                 }
-
-                for (EntityFolder folder : db.folder().getFolders(account.id))
-                    db.folder().setFolderState(folder.id, null);
 
                 // Synchronize folders
                 for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
@@ -752,6 +752,9 @@ public class ServiceSynchronize extends LifecycleService {
                 reportError(account.name, null, ex);
 
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+
+                if (ex instanceof AuthenticationFailedException)
+                    break;
             } finally {
                 // Close store
                 Log.i(Helper.TAG, account.name + " closing");
@@ -840,7 +843,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 doDelete(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.SEND.equals(op.name))
-                                doSend(isession, message, db);
+                                doSend(message, db);
 
                             else if (EntityOperation.ATTACHMENT.equals(op.name))
                                 doAttachment(folder, op, ifolder, message, jargs, db);
@@ -960,23 +963,27 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().deleteMessage(message.id);
     }
 
-    private void doSend(Session isession, EntityMessage message, DB db) throws MessagingException, IOException {
+    private void doSend(EntityMessage message, DB db) throws MessagingException, IOException {
         // Send message
         EntityIdentity ident = db.identity().getIdentity(message.identity);
-        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-
         if (!ident.synchronize) {
             // Message will remain in outbox
             return;
         }
 
+        // Create session
+        Properties props = MessageHelper.getSessionProperties(ident.auth_type);
+        final Session isession = Session.getInstance(props, null);
+
         // Create message
         MimeMessage imessage;
+        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         if (reply == null)
             imessage = MessageHelper.from(this, message, attachments, isession);
         else
             imessage = MessageHelper.from(this, message, reply, attachments, isession);
+
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
 
@@ -1564,16 +1571,12 @@ public class ServiceSynchronize extends LifecycleService {
             public void onReceive(Context context, Intent intent) {
                 Log.v(Helper.TAG, outbox.name + " run operations");
 
-                // Create session
-                Properties props = MessageHelper.getSessionProperties();
-                final Session isession = Session.getInstance(props, null);
-
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             Log.i(Helper.TAG, outbox.name + " start operations");
-                            processOperations(outbox, isession, null, null);
+                            processOperations(outbox, null, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);

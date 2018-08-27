@@ -43,6 +43,8 @@ public class EntityAccount {
     @NonNull
     public String password;
     @NonNull
+    public Integer auth_type;
+    @NonNull
     public Boolean primary;
     @NonNull
     public Boolean synchronize;

@@ -117,7 +117,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
             folder = db.folder().getFolder(fid);
             account = db.account().getAccount(folder.account);
 
-            Properties props = MessageHelper.getSessionProperties();
+            Properties props = MessageHelper.getSessionProperties(account.auth_type);
             Session isession = Session.getInstance(props, null);
 
             Log.i(Helper.TAG, "SDS connecting account=" + account.name);

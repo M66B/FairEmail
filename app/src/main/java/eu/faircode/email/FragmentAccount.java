@@ -19,8 +19,17 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -53,6 +62,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
 import javax.mail.Folder;
 import javax.mail.MessagingException;
@@ -62,7 +72,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
+
+import static android.accounts.AccountManager.newChooseAccountIntent;
 
 public class FragmentAccount extends FragmentEx {
     private ViewGroup view;
@@ -70,6 +83,7 @@ public class FragmentAccount extends FragmentEx {
     private Spinner spProvider;
     private EditText etHost;
     private EditText etPort;
+    private Button btnAuthorize;
     private EditText etUser;
     private TextInputLayout tilPassword;
     private TextView tvLink;
@@ -91,6 +105,18 @@ public class FragmentAccount extends FragmentEx {
     private Group grpInstructions;
     private Group grpFolders;
 
+    private long id = -1;
+    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        id = (args == null ? -1 : args.getLong("id", -1));
+    }
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -98,14 +124,11 @@ public class FragmentAccount extends FragmentEx {
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_account, container, false);
 
-        // Get arguments
-        Bundle args = getArguments();
-        final long id = (args == null ? -1 : args.getLong("id", -1));
-
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
         etName = view.findViewById(R.id.etName);
         etHost = view.findViewById(R.id.etHost);
+        btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -143,16 +166,40 @@ public class FragmentAccount extends FragmentEx {
                 tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
                 grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
 
-                if (provider.imap_port != 0) {
+                if (provider.imap_port > 0) {
                     etName.setText(provider.name);
                     etHost.setText(provider.imap_host);
                     etPort.setText(Integer.toString(provider.imap_port));
-                    etUser.requestFocus();
+                    if (provider.type == null)
+                        etUser.requestFocus();
                 }
+
+                if (provider.type == null) {
+                    btnAuthorize.setVisibility(View.GONE);
+                    if (auth_type != Helper.AUTH_TYPE_PASSWORD) {
+                        auth_type = Helper.AUTH_TYPE_PASSWORD;
+                        etUser.setText(null);
+                        tilPassword.getEditText().setText(null);
+                    }
+                } else
+                    btnAuthorize.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        btnAuthorize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String permission = Manifest.permission.GET_ACCOUNTS;
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
+                        ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                    Log.i(Helper.TAG, "Requesting " + permission);
+                    requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
+                } else
+                    selectAccount();
             }
         });
 
@@ -181,6 +228,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putInt("auth_type", auth_type);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -192,6 +240,7 @@ public class FragmentAccount extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        int auth_type = args.getInt("auth_type");
 
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
@@ -204,7 +253,10 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server / get folders
                         List<EntityFolder> folders = new ArrayList<>();
-                        Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                        Properties props = MessageHelper.getSessionProperties(auth_type);
+
+                        Session isession = Session.getInstance(props, null);
+                        isession.setDebug(true);
                         IMAPStore istore = null;
                         try {
                             istore = (IMAPStore) isession.getStore("imaps");
@@ -379,6 +431,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putInt("auth_type", auth_type);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putString("poll_interval", etInterval.getText().toString());
@@ -396,6 +449,7 @@ public class FragmentAccount extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        int auth_type = args.getInt("auth_type");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         String poll_interval = args.getString("poll_interval");
@@ -421,7 +475,7 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server
                         if (synchronize) {
-                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(), null);
+                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type), null);
                             IMAPStore istore = null;
                             try {
                                 istore = (IMAPStore) isession.getStore("imaps");
@@ -451,6 +505,7 @@ public class FragmentAccount extends FragmentEx {
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
+                            account.auth_type = auth_type;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
                             account.store_sent = false;
@@ -582,6 +637,7 @@ public class FragmentAccount extends FragmentEx {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+        btnAuthorize.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
         btnCheck.setEnabled(false);
@@ -599,6 +655,7 @@ public class FragmentAccount extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
+        outState.putInt("auth_type", auth_type);
         outState.putString("password", tilPassword.getEditText().getText().toString());
         outState.putInt("instructions", grpInstructions.getVisibility());
     }
@@ -606,10 +663,6 @@ public class FragmentAccount extends FragmentEx {
     @Override
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // Get arguments
-        Bundle args = getArguments();
-        long id = (args == null ? -1 : args.getLong("id", -1));
 
         // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
@@ -640,6 +693,7 @@ public class FragmentAccount extends FragmentEx {
                     etInterval.setText(account == null ? "9" : Integer.toString(account.poll_interval));
                 } else {
                     int provider = savedInstanceState.getInt("provider");
+                    auth_type = savedInstanceState.getInt("auth_type");
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
@@ -648,6 +702,7 @@ public class FragmentAccount extends FragmentEx {
 
                 Helper.setViewsEnabled(view, true);
 
+                btnAuthorize.setVisibility(auth_type == Helper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
@@ -659,5 +714,71 @@ public class FragmentAccount extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
             }
         });
+    }
+
+    void selectAccount() {
+        Log.i(Helper.TAG, "Select account");
+        Provider provider = (Provider) spProvider.getSelectedItem();
+        if (provider.type != null)
+            startActivityForResult(newChooseAccountIntent(
+                    null,
+                    null,
+                    new String[]{provider.type},
+                    null,
+                    null,
+                    null,
+                    null), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == ActivitySetup.REQUEST_PERMISSION)
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                selectAccount();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(Helper.TAG, "Activity result request=" + requestCode + " result=" + resultCode + " data=" + data);
+        if (resultCode == Activity.RESULT_OK)
+            if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
+                String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
+
+                String authTokenType = null;
+                if ("com.google".equals(type))
+                    authTokenType = "oauth2:https://mail.google.com/";
+
+                AccountManager am = AccountManager.get(getContext());
+                Account[] accounts = am.getAccountsByType(type);
+                Log.i(Helper.TAG, "Accounts=" + accounts.length);
+                for (final Account account : accounts)
+                    if (name.equals(account.name)) {
+                        am.getAuthToken(
+                                account,
+                                authTokenType,
+                                new Bundle(),
+                                getActivity(),
+                                new AccountManagerCallback<Bundle>() {
+                                    @Override
+                                    public void run(AccountManagerFuture<Bundle> future) {
+                                        try {
+                                            Bundle bundle = future.getResult();
+                                            String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
+                                            Log.i(Helper.TAG, "Got token");
+
+                                            auth_type = Helper.AUTH_TYPE_GMAIL;
+                                            etUser.setText(account.name);
+                                            tilPassword.getEditText().setText(token);
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                            Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                },
+                                null);
+                        break;
+                    }
+            }
     }
 }

@@ -35,6 +35,7 @@ import java.util.Locale;
 public class Provider {
     public String name;
     public String link;
+    public String type;
     public String imap_host;
     public int imap_port;
     public String smtp_host;
@@ -62,6 +63,7 @@ public class Provider {
                         provider = new Provider();
                         provider.name = xml.getAttributeValue(null, "name");
                         provider.link = xml.getAttributeValue(null, "link");
+                        provider.type = xml.getAttributeValue(null, "type");
                     } else if ("imap".equals(xml.getName())) {
                         provider.imap_host = xml.getAttributeValue(null, "host");
                         provider.imap_port = xml.getAttributeIntValue(null, "port", 0);

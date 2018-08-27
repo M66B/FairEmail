@@ -52,6 +52,9 @@ import javax.mail.internet.InternetAddress;
 public class Helper {
     static final String TAG = "fairemail";
 
+    static final int AUTH_TYPE_PASSWORD = 1;
+    static final int AUTH_TYPE_GMAIL = 2;
+
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);

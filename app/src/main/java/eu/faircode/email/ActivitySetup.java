@@ -37,6 +37,9 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     boolean hasAccount;
 
+    static final int REQUEST_PERMISSION = 1;
+    static final int REQUEST_CHOOSE_ACCOUNT = 2;
+
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
 

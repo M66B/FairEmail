@@ -10,9 +10,10 @@ Frequently Asked Questions
 * Full network access (INTERNET): to send and receive email
 * View network connections (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
 * Run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* In-app billing (BILLING): to allow in-app purchases
+* Foreground service (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses
-* ... (BILLING): to offer in-app purchases
-* ... (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
+* Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
 <a name="FAQ2"></a>
 **(2) Why is there a permanent notification shown?**

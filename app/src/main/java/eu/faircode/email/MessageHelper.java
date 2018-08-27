@@ -57,7 +57,7 @@ public class MessageHelper {
     private MimeMessage imessage;
     private String raw = null;
 
-    static Properties getSessionProperties() {
+    static Properties getSessionProperties(int auth_type) {
         Properties props = new Properties();
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
@@ -96,6 +96,12 @@ public class MessageHelper {
 
         props.put("mail.mime.address.strict", "false");
         props.put("mail.mime.decodetext.strict", "false");
+
+        // https://javaee.github.io/javamail/OAuth2
+        if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+            props.put("mail.imaps.auth.mechanisms", "XOAUTH2");
+            props.put("mail.smtps.auth.mechanisms", "XOAUTH2");
+        }
 
         return props;
     }

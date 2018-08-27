@@ -804,7 +804,7 @@ public class FragmentCompose extends FragmentEx {
                             text = db.answer().getAnswer(answer).text;
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("%s<br><br>%s %s:<br><br>%s",
-                                Html.escapeHtml(text).replaceAll("\\r?\\n", "<br />"),
+                                text.replaceAll("\\r?\\n", "<br />"),
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(context, ref.read(context), true));

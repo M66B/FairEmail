@@ -2,7 +2,8 @@
 <providers>
     <provider
         name="Gmail"
-        link="https://support.google.com/mail/answer/7126229">
+        link="https://support.google.com/mail/answer/7126229"
+        type="com.google">
         <imap
             host="imap.gmail.com"
             port="993" />
