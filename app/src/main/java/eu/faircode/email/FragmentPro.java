@@ -51,7 +51,7 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
 
-        tvList.setText(Html.fromHtml("<a href=\"https://email.faircode.eu/\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
+        tvList.setText(Html.fromHtml("<a href=\"https://email.faircode.eu/#pro\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
         tvList.setMovementMethod(LinkMovementMethod.getInstance());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
