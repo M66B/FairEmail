@@ -89,6 +89,15 @@ STARTTLS starts with an unencrypted connection and is therefore not secure.
 All known IMAP servers support IMAP with STARTTLS, so there is no need to support STARTTLS for IMAP.
 If you encounter an IMAP server that requires STARTTLS, please [create an issue](https://github.com/M66B/open-source-email/issues/new).
 
+<a name="FAQ12"></a>
+**(12) What is the difference between Chrome Custom Tabs and WebViews?**
+
+The main difference is that [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) store cookies persistently
+and [WebViews](https://developer.android.com/reference/android/webkit/WebView) do not.
+The latter is both safer and more inconvenient because you'll need to login to websites each and every time.
+
+Chrome Custom Tabs are used by default, which can be changed in the advanced options in the setup screen.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
