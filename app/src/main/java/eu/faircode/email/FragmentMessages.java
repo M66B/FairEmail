@@ -53,6 +53,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
+    private ViewGroup view;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
@@ -87,7 +88,7 @@ public class FragmentMessages extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_messages, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_messages, container, false);
 
         setHasOptionsMenu(true);
 
@@ -302,15 +303,21 @@ public class FragmentMessages extends FragmentEx {
             public boolean onQueryTextSubmit(String query) {
                 menuSearch.collapseActionView();
 
-                Intent intent = new Intent();
-                intent.putExtra("folder", folder);
-                intent.putExtra("search", query);
+                if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                    Intent intent = new Intent();
+                    intent.putExtra("folder", folder);
+                    intent.putExtra("search", query);
 
-                FragmentMessages fragment = new FragmentMessages();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                fragmentTransaction.commit();
+                    FragmentMessages fragment = new FragmentMessages();
+                    fragment.setArguments(intent.getExtras());
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+                    fragmentTransaction.commit();
+                } else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
 
                 return true;
             }

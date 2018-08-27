@@ -793,10 +793,15 @@ public class FragmentMessage extends FragmentEx {
 
     private void onMenuDecrypt() {
         Log.i(Helper.TAG, "On decrypt");
-        try {
-            if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false))
-                throw new IllegalArgumentException(getString(R.string.title_pro_feature));
 
+        if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+            return;
+        }
+
+        try {
             if (openPgpConnection == null || !openPgpConnection.isBound())
                 throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
