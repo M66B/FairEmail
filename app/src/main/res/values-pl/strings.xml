@@ -31,6 +31,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
+  <string name="menu_answers">Answers</string>
   <string name="menu_operations">Operacje</string>
   <string name="menu_legend">Legenda</string>
   <string name="menu_faq">FAQ</string>
@@ -77,6 +78,7 @@
   <string name="title_port">Numer portu</string>
   <string name="title_user">Nazwa użytkownika</string>
   <string name="title_password">Hasło</string>
+  <string name="title_authorize">Authorize</string>
   <string name="title_instructions">Instrukcje</string>
   <string name="title_store_sent">Store sent messages (enable if needed only)</string>
   <string name="title_interval">Poll/keep-alive interval (minutes)</string>
@@ -154,6 +156,9 @@
   <string name="title_search">Szukaj</string>
   <string name="title_search_hint">Szukaj na serwerze</string>
   <string name="title_searching">Szukam \'%1$s\'</string>
+  <string name="title_answer_reply">Standard answer</string>
+  <string name="title_answer_name">Answer name</string>
+  <string name="title_answer_text">Answer text</string>
   <string name="title_legend_cc">DW/UDW</string>
   <string name="title_legend_attachment">Załącznik</string>
   <string name="title_legend_synchronize">Synchronizuj</string>
