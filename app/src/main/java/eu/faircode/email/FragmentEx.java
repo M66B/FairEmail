@@ -54,13 +54,14 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        Log.i(Helper.TAG, "Save instance " + this);
         super.onSaveInstanceState(outState);
         outState.putString("subtitle", subtitle);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create " + this);
+        Log.i(Helper.TAG, "Create " + this + " saved=" + (savedInstanceState != null));
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null)
             subtitle = savedInstanceState.getString("subtitle");
@@ -74,7 +75,7 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Activity " + this);
+        Log.i(Helper.TAG, "Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
     }
 

@@ -352,19 +352,29 @@ public class FragmentCompose extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState == null) {
-            Bundle args = new Bundle();
-            args.putString("action", getArguments().getString("action"));
-            args.putLong("id", getArguments().getLong("id", -1));
-            args.putLong("account", getArguments().getLong("account", -1));
-            args.putLong("reference", getArguments().getLong("reference", -1));
-            args.putLong("answer", getArguments().getLong("answer", -1));
-            args.putString("to", getArguments().getString("to"));
-            args.putString("cc", getArguments().getString("cc"));
-            args.putString("bcc", getArguments().getString("bcc"));
-            args.putString("subject", getArguments().getString("subject"));
-            args.putString("body", getArguments().getString("body"));
-            args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
-            draftLoader.load(this, args);
+            if (working < 0) {
+                Bundle args = new Bundle();
+                args.putString("action", getArguments().getString("action"));
+                args.putLong("id", getArguments().getLong("id", -1));
+                args.putLong("account", getArguments().getLong("account", -1));
+                args.putLong("reference", getArguments().getLong("reference", -1));
+                args.putLong("answer", getArguments().getLong("answer", -1));
+                args.putString("to", getArguments().getString("to"));
+                args.putString("cc", getArguments().getString("cc"));
+                args.putString("bcc", getArguments().getString("bcc"));
+                args.putString("subject", getArguments().getString("subject"));
+                args.putString("body", getArguments().getString("body"));
+                args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
+                draftLoader.load(this, args);
+            } else {
+                Bundle args = new Bundle();
+                args.putString("action", "edit");
+                args.putLong("id", working);
+                args.putLong("account", -1);
+                args.putLong("reference", -1);
+                args.putLong("answer", -1);
+                draftLoader.load(this, args);
+            }
         } else {
             encrypted = savedInstanceState.getString("encrypted");
 
