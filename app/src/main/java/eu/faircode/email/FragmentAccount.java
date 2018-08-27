@@ -163,9 +163,6 @@ public class FragmentAccount extends FragmentEx {
 
                 Provider provider = (Provider) adapterView.getSelectedItem();
 
-                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
-
                 if (provider.imap_port > 0) {
                     etName.setText(provider.name);
                     etHost.setText(provider.imap_host);
@@ -183,6 +180,9 @@ public class FragmentAccount extends FragmentEx {
                     }
                 } else
                     btnAuthorize.setVisibility(View.VISIBLE);
+
+                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
+                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
             }
 
             @Override
@@ -254,7 +254,6 @@ public class FragmentAccount extends FragmentEx {
                         // Check IMAP server / get folders
                         List<EntityFolder> folders = new ArrayList<>();
                         Properties props = MessageHelper.getSessionProperties(auth_type);
-
                         Session isession = Session.getInstance(props, null);
                         isession.setDebug(true);
                         IMAPStore istore = null;
@@ -476,6 +475,7 @@ public class FragmentAccount extends FragmentEx {
                         // Check IMAP server
                         if (synchronize) {
                             Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type), null);
+                            isession.setDebug(true);
                             IMAPStore istore = null;
                             try {
                                 istore = (IMAPStore) isession.getStore("imaps");
@@ -683,20 +683,37 @@ public class FragmentAccount extends FragmentEx {
                         return;
                     once = true;
 
+                    spProvider.setTag(0);
+                    spProvider.setSelection(0);
+                    if (account != null) {
+                        for (int pos = 1; pos < providers.size(); pos++)
+                            if (providers.get(pos).imap_host.equals(account.host)) {
+                                spProvider.setTag(pos);
+                                spProvider.setSelection(pos);
+                                break;
+                            }
+                    }
+
                     etName.setText(account == null ? null : account.name);
+
                     etHost.setText(account == null ? null : account.host);
                     etPort.setText(account == null ? null : Long.toString(account.port));
+
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
+                    auth_type = (account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
                     etInterval.setText(account == null ? "9" : Integer.toString(account.poll_interval));
                 } else {
                     int provider = savedInstanceState.getInt("provider");
-                    auth_type = savedInstanceState.getInt("auth_type");
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
+
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+                    auth_type = savedInstanceState.getInt("auth_type");
+
                     grpInstructions.setVisibility(savedInstanceState.getInt("instructions"));
                 }
 

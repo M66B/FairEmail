@@ -177,14 +177,14 @@ public class FragmentIdentity extends FragmentEx {
 
                 Provider provider = (Provider) adapterView.getSelectedItem();
 
-                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
-
-                if (provider.smtp_port != 0) {
+                if (provider.smtp_port > 0) {
                     etHost.setText(provider.smtp_host);
                     etPort.setText(Integer.toString(provider.smtp_port));
                     cbStartTls.setChecked(provider.starttls);
                 }
+
+                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
+                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
             }
 
             @Override
@@ -271,6 +271,7 @@ public class FragmentIdentity extends FragmentEx {
                         if (synchronize) {
                             Properties props = MessageHelper.getSessionProperties(auth_type);
                             Session isession = Session.getInstance(props, null);
+                            isession.setDebug(true);
                             Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
                             try {
                                 itransport.connect(host, Integer.parseInt(port), user, password);
@@ -470,9 +471,25 @@ public class FragmentIdentity extends FragmentEx {
                         spProvider.setAdapter(adapterProfile);
 
                         if (savedInstanceState == null) {
+                            spProvider.setTag(0);
+                            spProvider.setSelection(0);
+                            if (identity != null)
+                                for (int pos = 1; pos < providers.size(); pos++)
+                                    if (providers.get(pos).smtp_host.equals(identity.host)) {
+                                        spProvider.setTag(pos);
+                                        spProvider.setSelection(pos);
+                                        break;
+                                    }
+
+                            spAccount.setTag(0);
+                            spAccount.setSelection(0);
                             for (int pos = 0; pos < accounts.size(); pos++)
                                 if (accounts.get(pos).id == (identity == null ? -1 : identity.account)) {
+                                    spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
+                                    // OAuth token could be updated
+                                    if (accounts.get(pos).auth_type != Helper.AUTH_TYPE_PASSWORD)
+                                        tilPassword.getEditText().setText(accounts.get(pos).password);
                                     break;
                                 }
                         } else {
