@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".ActivityView">
 
+    <View
+        android:id="@+id/vwAnswerAnchor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvFrom"
         android:layout_width="0dp"
@@ -309,7 +316,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/action_view_bottom" />
+        app:menu="@menu/action_view" />
 
     <ProgressBar
         android:id="@+id/pbWait"

@@ -99,6 +99,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
+    private View vwAnswerAnchor;
     private TextView tvFrom;
     private TextView tvSize;
     private TextView tvTime;
@@ -166,6 +167,7 @@ public class FragmentMessage extends FragmentEx {
         debug = prefs.getBoolean("debug", false);
 
         // Get controls
+        vwAnswerAnchor = view.findViewById(R.id.vwAnswerAnchor);
         tvFrom = view.findViewById(R.id.tvFrom);
         tvSize = view.findViewById(R.id.tvSize);
         tvTime = view.findViewById(R.id.tvTime);
@@ -668,6 +670,9 @@ public class FragmentMessage extends FragmentEx {
             case R.id.menu_reply_all:
                 onMenuReplyAll();
                 return true;
+            case R.id.menu_answer:
+                onMenuAnswer();
+                return true;
             case R.id.menu_decrypt:
                 onMenuDecrypt();
                 return true;
@@ -747,6 +752,43 @@ public class FragmentMessage extends FragmentEx {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
                 .putExtra("reference", message.id));
+    }
+
+    private void onMenuAnswer() {
+        DB.getInstance(getContext()).answer().liveAnswers().observe(getViewLifecycleOwner(), new Observer<List<EntityAnswer>>() {
+            @Override
+            public void onChanged(List<EntityAnswer> answers) {
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(answers, new Comparator<EntityAnswer>() {
+                    @Override
+                    public int compare(EntityAnswer a1, EntityAnswer a2) {
+                        return collator.compare(a1.name, a2.name);
+                    }
+                });
+
+                PopupMenu popupMenu = new PopupMenu(getContext(), vwAnswerAnchor);
+
+                int order = 0;
+                for (EntityAnswer answer : answers)
+                    popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++,
+                            Helper.localizeFolderName(getContext(), answer.name));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        startActivity(new Intent(getContext(), ActivityCompose.class)
+                                .putExtra("action", "reply")
+                                .putExtra("reference", message.id)
+                                .putExtra("answer", (long) target.getItemId()));
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
     }
 
     private void onMenuDecrypt() {

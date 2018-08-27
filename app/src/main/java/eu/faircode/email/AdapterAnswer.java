@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +46,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     private List<EntityAnswer> all = new ArrayList<>();
     private List<EntityAnswer> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView tvName;
 
@@ -55,8 +57,30 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
         }
 
+        private void wire() {
+            itemView.setOnClickListener(this);
+        }
+
+        private void unwire() {
+            itemView.setOnClickListener(null);
+        }
+
         private void bindTo(EntityAnswer answer) {
             tvName.setText(answer.name);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            EntityAnswer answer = filtered.get(pos);
+
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_EDIT_ANSWER)
+                            .putExtra("id", answer.id));
         }
     }
 
@@ -157,12 +181,14 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_folder, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_answer, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.unwire();
         EntityAnswer answer = filtered.get(position);
         holder.bindTo(answer);
+        holder.wire();
     }
 }

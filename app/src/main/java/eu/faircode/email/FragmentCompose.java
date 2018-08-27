@@ -357,6 +357,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("id", getArguments().getLong("id", -1));
             args.putLong("account", getArguments().getLong("account", -1));
             args.putLong("reference", getArguments().getLong("reference", -1));
+            args.putLong("answer", getArguments().getLong("answer", -1));
             args.putString("to", getArguments().getString("to"));
             args.putString("cc", getArguments().getString("cc"));
             args.putString("bcc", getArguments().getString("bcc"));
@@ -372,6 +373,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("id", savedInstanceState.getLong("working"));
             args.putLong("account", -1);
             args.putLong("reference", -1);
+            args.putLong("answer", -1);
             draftLoader.load(this, args);
         }
     }
@@ -697,6 +699,7 @@ public class FragmentCompose extends FragmentEx {
             long id = args.getLong("id", -1);
             long account = args.getLong("account", -1);
             long reference = args.getLong("reference", -1);
+            long answer = args.getLong("answer", -1);
 
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
 
@@ -796,8 +799,12 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
+                        String text = "";
+                        if (answer > 0)
+                            text = db.answer().getAnswer(answer).text;
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                        body = String.format("<br><br>%s %s:<br><br>%s",
+                        body = String.format("%s<br><br>%s %s:<br><br>%s",
+                                Html.escapeHtml(text).replaceAll("\\r?\\n", "<br />"),
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(context, ref.read(context), true));

@@ -19,12 +19,17 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,8 +40,20 @@ public class FragmentAnswer extends FragmentEx {
     private ViewGroup view;
     private TextView etName;
     private TextView etText;
+    private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpReady;
+
+    private long id = -1;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        id = (args == null ? -1 : args.getLong("id", -1));
+    }
 
     @Override
     @Nullable
@@ -46,9 +63,27 @@ public class FragmentAnswer extends FragmentEx {
         // Get controls
         etName = view.findViewById(R.id.etName);
         etText = view.findViewById(R.id.etText);
+        etText = view.findViewById(R.id.etText);
+        bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
 
+        bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_trash:
+                        onActionTrash();
+                        return true;
+                    case R.id.action_save:
+                        onActionSave();
+                        return true;
+                }
+                return false;
+            }
+        });
+
+        // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -59,17 +94,87 @@ public class FragmentAnswer extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Get arguments
-        Bundle args = getArguments();
-        long id = (args == null ? -1 : args.getLong("id"));
-
         DB.getInstance(getContext()).answer().liveAnswer(id).observe(getViewLifecycleOwner(), new Observer<EntityAnswer>() {
             @Override
-            public void onChanged(EntityAnswer entityAnswer) {
+            public void onChanged(EntityAnswer answer) {
+                etName.setText(answer == null ? null : answer.name);
+                etText.setText(answer == null ? null : answer.text);
+                bottom_navigation.findViewById(R.id.action_trash).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    private void onActionTrash() {
+        Helper.setViewsEnabled(view, false);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                DB.getInstance(context).answer().deleteAnswer(id);
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.setViewsEnabled(view, true);
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, args);
+    }
+
+    private void onActionSave() {
+        Helper.setViewsEnabled(view, false);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putString("name", etName.getText().toString());
+        args.putString("text", etText.getText().toString());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String name = args.getString("name");
+                String text = args.getString("text");
+
+                DB db = DB.getInstance(context);
+                if (id < 0) {
+                    EntityAnswer answer = new EntityAnswer();
+                    answer.name = name;
+                    answer.text = text;
+                    answer.id = db.answer().insertAnswer(answer);
+                } else {
+                    EntityAnswer answer = db.answer().getAnswer(id);
+                    answer.name = name;
+                    answer.text = text;
+                    db.answer().updateAnswer(answer);
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.setViewsEnabled(view, true);
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, args);
     }
 }

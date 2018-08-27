@@ -99,6 +99,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
+    static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
@@ -362,6 +363,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_MESSAGE);
         iff.addAction(ACTION_EDIT_FOLDER);
+        iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_PURCHASE);
         iff.addAction(ACTION_ACTIVATE_PRO);
@@ -636,6 +638,8 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                 onViewMessage(intent);
             else if (ACTION_EDIT_FOLDER.equals(intent.getAction()))
                 onEditFolder(intent);
+            else if (ACTION_EDIT_ANSWER.equals(intent.getAction()))
+                onEditAnswer(intent);
             else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction()))
                 onStoreAttachment(intent);
             else if (ACTION_PURCHASE.equals(intent.getAction()))
@@ -699,6 +703,14 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
+        fragmentTransaction.commit();
+    }
+
+    private void onEditAnswer(Intent intent) {
+        FragmentAnswer fragment = new FragmentAnswer();
+        fragment.setArguments(intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("answer");
         fragmentTransaction.commit();
     }
 
