@@ -391,6 +391,12 @@ public class ServiceSynchronize extends LifecycleService {
         if (debug)
             System.setProperty("mail.socket.debug", "true");
 
+        // Refresh token
+        if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+            account.password = Helper.refreshToken(this, "com.google", account.user, account.password);
+            db.account().setAccountPassword(account.id, account.password);
+        }
+
         Properties props = MessageHelper.getSessionProperties(account.auth_type);
         final Session isession = Session.getInstance(props, null);
         isession.setDebug(debug);
@@ -969,6 +975,12 @@ public class ServiceSynchronize extends LifecycleService {
         if (!ident.synchronize) {
             // Message will remain in outbox
             return;
+        }
+
+        // Refresh token
+        if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
+            ident.password = Helper.refreshToken(this, "com.google", ident.user, ident.password);
+            db.identity().setIdentityPassword(ident.id, ident.password);
         }
 
         // Create session

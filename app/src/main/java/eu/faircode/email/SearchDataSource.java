@@ -117,6 +117,12 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
             folder = db.folder().getFolder(fid);
             account = db.account().getAccount(folder.account);
 
+            // Refresh token
+            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+                db.account().setAccountPassword(account.id, account.password);
+            }
+
             Properties props = MessageHelper.getSessionProperties(account.auth_type);
             Session isession = Session.getInstance(props, null);
 

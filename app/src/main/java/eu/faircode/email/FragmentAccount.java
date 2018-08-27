@@ -251,6 +251,12 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
 
+                        // Refresh token
+                        if (id >= 0 && auth_type == Helper.AUTH_TYPE_GMAIL) {
+                            password = Helper.refreshToken(getContext(), "com.google", user, password);
+                            args.putString("password", password);
+                        }
+
                         // Check IMAP server / get folders
                         List<EntityFolder> folders = new ArrayList<>();
                         Properties props = MessageHelper.getSessionProperties(auth_type);
@@ -326,6 +332,9 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
+
+                        // Refreshed token
+                        tilPassword.getEditText().setText(args.getString("password"));
 
                         tvIdle.setVisibility(args.getBoolean("idle") ? View.GONE : View.VISIBLE);
 
@@ -762,10 +771,6 @@ public class FragmentAccount extends FragmentEx {
                 String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                 String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
 
-                String authTokenType = null;
-                if ("com.google".equals(type))
-                    authTokenType = "oauth2:https://mail.google.com/";
-
                 AccountManager am = AccountManager.get(getContext());
                 Account[] accounts = am.getAccountsByType(type);
                 Log.i(Helper.TAG, "Accounts=" + accounts.length);
@@ -773,7 +778,7 @@ public class FragmentAccount extends FragmentEx {
                     if (name.equals(account.name)) {
                         am.getAuthToken(
                                 account,
-                                authTokenType,
+                                Helper.getAuthTokenType(type),
                                 new Bundle(),
                                 getActivity(),
                                 new AccountManagerCallback<Bundle>() {

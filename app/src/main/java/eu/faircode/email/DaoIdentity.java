@@ -57,6 +57,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET state = :state WHERE id = :id")
     int setIdentityState(long id, String state);
 
+    @Query("UPDATE identity SET password = :password WHERE id = :id")
+    int setIdentityPassword(long id, String password);
+
     @Query("UPDATE identity SET error = :error WHERE id = :id")
     int setIdentityError(long id, String error);
 

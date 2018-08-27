@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
@@ -168,6 +170,30 @@ public class Helper {
         } finally {
             in.close();
         }
+    }
+
+    static String refreshToken(Context context, String type, String name, String current) {
+        try {
+            AccountManager am = AccountManager.get(context);
+            Account[] accounts = am.getAccountsByType(type);
+            for (Account account : accounts)
+                if (name.equals(account.name)) {
+                    Log.i(Helper.TAG, "Refreshing token");
+                    am.invalidateAuthToken(type, current);
+                    String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
+                    Log.i(Helper.TAG, "Refreshed token");
+                    return refreshed;
+                }
+        } catch (Throwable ex) {
+            Log.w(TAG, ex + "\n" + Log.getStackTraceString(ex));
+        }
+        return current;
+    }
+
+    static String getAuthTokenType(String type) {
+        if ("com.google".equals(type))
+            return "oauth2:https://mail.google.com/";
+        return null;
     }
 
     static boolean isPlayStoreInstall(Context context) {

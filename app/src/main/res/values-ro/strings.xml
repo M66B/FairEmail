@@ -58,6 +58,7 @@
   <string name="title_advanced_webview">Folosește WebView</string>
   <string name="title_advanced_customtabs">în loc de <a href="https://developer.chrome.com/multidevice/android/customtabs">tab Chrome personalizat</a></string>
   <string name="title_advanced_debug">Depanare</string>
+  <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
   <string name="title_identity_email">Adresa dvs. de e-mail</string>
   <string name="title_identity_reply_to">Răspuns la adresa</string>
@@ -74,7 +75,7 @@
   <string name="title_port">Număr port</string>
   <string name="title_user">Nume utilizator</string>
   <string name="title_password">Parolă</string>
-  <string name="title_authorize">Authorize</string>
+  <string name="title_authorize">Select account</string>
   <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Stochează mesajele trimise (activați doar la nevoie)</string>
   <string name="title_interval">Interval sincronizare (minute)</string>

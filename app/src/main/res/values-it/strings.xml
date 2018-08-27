@@ -54,6 +54,7 @@
   <string name="title_advanced_webview">Usa WebView</string>
   <string name="title_advanced_customtabs">Al posto di <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
   <string name="title_advanced_debug">Debug</string>
+  <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
   <string name="title_identity_email">Il tuo indirizzo email</string>
   <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
@@ -70,7 +71,7 @@
   <string name="title_port">Numero porta</string>
   <string name="title_user">Nome utente</string>
   <string name="title_password">Password</string>
-  <string name="title_authorize">Authorize</string>
+  <string name="title_authorize">Select account</string>
   <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Conserva i messaggi inviati (abilita solo se necessario)</string>
   <string name="title_interval">Intervallo di poll/keep-alive (minuti)</string>
