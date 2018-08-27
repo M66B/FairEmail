@@ -519,16 +519,7 @@ public class FragmentMessage extends FragmentEx {
             });
         }
 
-        int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
-        tvFrom.setTypeface(null, typeface);
-        tvTime.setTypeface(null, typeface);
-        tvSubject.setTypeface(null, typeface);
-        tvCount.setTypeface(null, typeface);
-
-        int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
-                ? android.R.attr.textColorSecondary : R.attr.colorUnread);
-        tvFrom.setTextColor(colorUnseen);
-        tvTime.setTextColor(colorUnseen);
+        setSeen();
 
         pbWait.setVisibility(View.GONE);
 
@@ -557,6 +548,11 @@ public class FragmentMessage extends FragmentEx {
                         finish();
                         return;
                     }
+
+                    // Messages are immutable except for flags
+                    FragmentMessage.this.message.seen = message.seen;
+                    FragmentMessage.this.message.ui_seen = message.ui_seen;
+                    setSeen();
                 }
             });
 
@@ -613,6 +609,19 @@ public class FragmentMessage extends FragmentEx {
                 }
             });
         }
+    }
+
+    private void setSeen() {
+        int typeface = (message.ui_seen ? Typeface.NORMAL : Typeface.BOLD);
+        tvFrom.setTypeface(null, typeface);
+        tvTime.setTypeface(null, typeface);
+        tvSubject.setTypeface(null, typeface);
+        tvCount.setTypeface(null, typeface);
+
+        int colorUnseen = Helper.resolveColor(getContext(), message.ui_seen
+                ? android.R.attr.textColorSecondary : R.attr.colorUnread);
+        tvFrom.setTextColor(colorUnseen);
+        tvTime.setTextColor(colorUnseen);
     }
 
     @Override
