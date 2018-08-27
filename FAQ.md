@@ -82,6 +82,13 @@ The error message *UIDPLUS not supported* means that your email provider does no
 This IMAP extension is required to implement two way synchronization, which is not an optional feature.
 So, unless your provider can enable this extension, you cannot use FairEmail for this provider.
 
+<a name="FAQ11"></a>
+**(11) Why is STARTTLS for IMAP not supported?**
+
+STARTTLS starts with an unencrypted connection and is therefore not secure.
+All known IMAP servers support IMAP with STARTTLS, so there is no need to support STARTTLS for IMAP.
+If you encounter an IMAP server that requires STARTTLS, please [create an issue](https://github.com/M66B/open-source-email/issues/new).
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
