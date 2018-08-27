@@ -122,4 +122,13 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider name="disroot.org">
+        <imap
+            host="disroot.org"
+            port="993" />
+        <smtp
+            host="disroot.org"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
