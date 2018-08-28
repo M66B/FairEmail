@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
-  <string name="menu_answers">Standard replies</string>
+  <string name="menu_answers">Réponses standard</string>
   <string name="menu_operations">Opérations</string>
   <string name="menu_legend">Légende</string>
   <string name="menu_faq">FAQ</string>
@@ -122,6 +122,7 @@
   <string name="title_move">Déplacer</string>
   <string name="title_archive">Archiver</string>
   <string name="title_reply">Répondre</string>
+  <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
   <string name="title_attachment_saved">Pièce jointe enregistrée</string>
   <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
@@ -150,7 +151,7 @@
   <string name="title_search">Rechercher</string>
   <string name="title_search_hint">Rechercher sur le serveur</string>
   <string name="title_searching">Recherche de \'%1$s\'</string>
-  <string name="title_answer_reply">Standard reply</string>
+  <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>
   <string name="title_legend_cc">Cc/Cci</string>
@@ -161,6 +162,8 @@
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>
   <string name="title_legend_closing">Fermeture en cours</string>
+  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_understood">Understood</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>

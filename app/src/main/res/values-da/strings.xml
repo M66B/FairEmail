@@ -122,6 +122,7 @@
   <string name="title_move">Flyt</string>
   <string name="title_archive">Arkivér</string>
   <string name="title_reply">Besvar</string>
+  <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">Ingen viewer app til rådighed for %1$s</string>
   <string name="title_attachment_saved">Vedhæftet fil gemt</string>
   <string name="title_ask_delete">Slet meddelelsen permanent?</string>
@@ -161,6 +162,8 @@
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>
   <string name="title_legend_closing">Lukker</string>
+  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_understood">Understood</string>
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List of pro features</string>
   <string name="title_pro_purchase">Buy</string>

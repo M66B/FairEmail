@@ -54,14 +54,14 @@
   <string name="title_setup_identity">Zarządzaj tożsamościami</string>
   <string name="title_setup_identity_remark">To send email</string>
   <string name="title_setup_permissions">Przyznaj uprawnienia</string>
-  <string name="title_setup_permissions_remark">To autocomplete addresses (optional)</string>
+  <string name="title_setup_permissions_remark">Do auto-uzupełniania adresów (opcjonalnie)</string>
   <string name="title_setup_to_do">To do</string>
   <string name="title_setup_done">Gotowe</string>
   <string name="title_setup_dark_theme">Ciemny motyw</string>
   <string name="title_advanced">Opcje zaawansowane</string>
   <string name="title_advanced_webview">Use WebView to show external links</string>
   <string name="title_advanced_customtabs">Instead of <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
-  <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
+  <string name="title_advanced_sanitize">Usuń formatowanie HTML z wiadomości</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Your name</string>
@@ -130,6 +130,7 @@
   <string name="title_move">Przenieś</string>
   <string name="title_archive">Archiwum</string>
   <string name="title_reply">Odpowiedz</string>
+  <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">No viewer app available for %1$s</string>
   <string name="title_attachment_saved">Załącznik zapisany</string>
   <string name="title_ask_delete">Delete message permanently?</string>
@@ -169,6 +170,8 @@
   <string name="title_legend_connecting">‎Łączenie</string>
   <string name="title_legend_connected">Połączony</string>
   <string name="title_legend_closing">Zamykanie</string>
+  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_understood">Understood</string>
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List funkcji pro</string>
   <string name="title_pro_purchase">Buy</string>

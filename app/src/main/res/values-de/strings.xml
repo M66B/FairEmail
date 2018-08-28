@@ -122,6 +122,7 @@
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
   <string name="title_reply">Antworten</string>
+  <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
@@ -161,6 +162,8 @@
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>
   <string name="title_legend_closing">Schließen</string>
+  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_understood">Understood</string>
   <string name="title_pro_feature">Dies ist eine Premium Funktion</string>
   <string name="title_pro_list">Liste der Premium Funktionen</string>
   <string name="title_pro_purchase">Kaufen</string>

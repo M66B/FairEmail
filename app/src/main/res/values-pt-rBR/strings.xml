@@ -122,6 +122,7 @@
   <string name="title_move">Mover</string>
   <string name="title_archive">Arquivar</string>
   <string name="title_reply">Responder</string>
+  <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">No viewer app available for %1$s</string>
   <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
@@ -161,6 +162,8 @@
   <string name="title_legend_connecting">Connecting</string>
   <string name="title_legend_connected">Connected</string>
   <string name="title_legend_closing">Closing</string>
+  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_understood">Understood</string>
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List of pro features</string>
   <string name="title_pro_purchase">Buy</string>
