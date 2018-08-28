@@ -102,6 +102,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.ParseException;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.ReceivedDateTerm;
+import javax.net.ssl.SSLHandshakeException;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -367,7 +368,8 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException)) {
+                !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
+                !(ex instanceof MessagingException && ex.getCause() instanceof SSLHandshakeException)) {
             String action;
             if (TextUtils.isEmpty(account))
                 action = folder;
