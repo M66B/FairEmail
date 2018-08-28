@@ -57,6 +57,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -829,7 +831,13 @@ public class FragmentMessage extends FragmentEx {
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
             data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
 
-            String encrypted = message.read(getContext());
+            String begin = "-----BEGIN PGP MESSAGE-----";
+            String end = "-----END PGP MESSAGE-----";
+            Document document = Jsoup.parse(message.read(getContext()));
+            String encrypted = document.text();
+            int efrom = encrypted.indexOf(begin) + begin.length();
+            int eto = encrypted.indexOf(end);
+            encrypted = begin + "\n" + encrypted.substring(efrom, eto).replace(" ", "\n") + end + "\n";
             final InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
             final ByteArrayOutputStream os = new ByteArrayOutputStream();
 
