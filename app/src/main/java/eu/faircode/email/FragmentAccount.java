@@ -210,6 +210,7 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onClick(View v) {
                 Helper.setViewsEnabled(view, false);
+                btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
                 btnSave.setVisibility(View.GONE);
@@ -326,6 +327,7 @@ public class FragmentAccount extends FragmentEx {
                     @Override
                     protected void onLoaded(Bundle args, List<EntityFolder> folders) {
                         Helper.setViewsEnabled(view, true);
+                        btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
 
@@ -393,6 +395,7 @@ public class FragmentAccount extends FragmentEx {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.setViewsEnabled(view, true);
+                        btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
@@ -407,6 +410,7 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onClick(View v) {
                 Helper.setViewsEnabled(view, false);
+                btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
@@ -590,6 +594,7 @@ public class FragmentAccount extends FragmentEx {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.setViewsEnabled(view, true);
+                        btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
@@ -610,6 +615,7 @@ public class FragmentAccount extends FragmentEx {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Helper.setViewsEnabled(view, false);
+                                btnAuthorize.setEnabled(false);
                                 btnCheck.setEnabled(false);
                                 btnSave.setEnabled(false);
                                 pbWait.setVisibility(View.VISIBLE);
@@ -647,6 +653,7 @@ public class FragmentAccount extends FragmentEx {
         btnAuthorize.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
+        btnAuthorize.setEnabled(false);
         btnCheck.setEnabled(false);
         pbCheck.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
@@ -734,6 +741,7 @@ public class FragmentAccount extends FragmentEx {
 
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
+                btnAuthorize.setEnabled(true);
                 btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
             }
