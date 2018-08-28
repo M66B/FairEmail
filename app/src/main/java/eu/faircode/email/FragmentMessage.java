@@ -784,10 +784,16 @@ public class FragmentMessage extends FragmentEx {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
-                        startActivity(new Intent(getContext(), ActivityCompose.class)
-                                .putExtra("action", "reply")
-                                .putExtra("reference", message.id)
-                                .putExtra("answer", (long) target.getItemId()));
+                        if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                            startActivity(new Intent(getContext(), ActivityCompose.class)
+                                    .putExtra("action", "reply")
+                                    .putExtra("reference", message.id)
+                                    .putExtra("answer", (long) target.getItemId()));
+                        } else {
+                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                            fragmentTransaction.commit();
+                        }
                         return true;
                     }
                 });
