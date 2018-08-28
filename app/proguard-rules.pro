@@ -46,3 +46,6 @@
 
 #JCharset
 -keep class net.freeutils.charset.**
+
+#OpenPGP
+-keep class org.openintents.openpgp.**
