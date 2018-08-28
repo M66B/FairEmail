@@ -1421,7 +1421,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private class ServiceManager extends ConnectivityManager.NetworkCallback {
-        private ServiceState state = new ServiceState();
+        private ServiceState state;
         private boolean running = false;
         private Thread main;
         private EntityFolder outbox = null;
@@ -1472,10 +1472,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void start() {
-            synchronized (state) {
-                state.running = true;
-                state.disconnected = false;
-            }
+            state = new ServiceState();
 
             main = new Thread(new Runnable() {
                 private List<Thread> threads = new ArrayList<>();
@@ -1632,7 +1629,7 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private class ServiceState {
-        boolean running = false;
+        boolean running = true;
         boolean disconnected = false;
     }
 }
