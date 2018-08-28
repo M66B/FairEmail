@@ -221,7 +221,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("email", etEmail.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
                 args.putLong("account", account == null ? -1 : account.id);
-                args.putInt("auth_type", account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
+                args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
                 args.putString("host", etHost.getText().toString());
                 args.putBoolean("starttls", cbStartTls.isChecked());
                 args.putString("port", etPort.getText().toString());
