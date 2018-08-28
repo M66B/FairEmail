@@ -149,13 +149,33 @@
             app:layout_constraintTop_toTopOf="@id/ivConnected" />
 
         <ImageView
+            android:id="@+id/ivSynchronizing"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_compare_arrows_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConnected" />
+
+        <TextView
+            android:id="@+id/tvSynchronizing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_synchronizing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSynchronizing"
+            app:layout_constraintStart_toEndOf="@id/ivSynchronizing"
+            app:layout_constraintTop_toTopOf="@id/ivSynchronizing" />
+
+        <ImageView
             android:id="@+id/ivClosing"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_close_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivConnected" />
+            app:layout_constraintTop_toBottomOf="@id/tvSynchronizing" />
 
         <TextView
             android:id="@+id/tvClosing"

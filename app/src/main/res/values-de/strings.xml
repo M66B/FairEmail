@@ -161,6 +161,7 @@
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>
+  <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
   <string name="title_understood">Understood</string>

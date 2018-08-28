@@ -165,6 +165,7 @@
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>
+  <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Închidere</string>
   <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
   <string name="title_understood">Understood</string>

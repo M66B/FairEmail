@@ -122,7 +122,7 @@
   <string name="title_move">Déplacer</string>
   <string name="title_archive">Archiver</string>
   <string name="title_reply">Répondre</string>
-  <string name="title_moving">Moving message to %1$s</string>
+  <string name="title_moving">Déplacement du message vers %1$s</string>
   <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
   <string name="title_attachment_saved">Pièce jointe enregistrée</string>
   <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
@@ -161,9 +161,10 @@
   <string name="title_legend_disconnected">Déconnecté</string>
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>
+  <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Fermeture en cours</string>
-  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
-  <string name="title_understood">Understood</string>
+  <string name="title_hint_swipe">Balayer à gauche pour supprimer et balayer à droite pour archiver (si disponible)</string>
+  <string name="title_understood">Compris</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>

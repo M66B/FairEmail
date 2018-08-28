@@ -161,6 +161,7 @@
   <string name="title_legend_disconnected">Afbrudt</string>
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>
+  <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Lukker</string>
   <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
   <string name="title_understood">Understood</string>
