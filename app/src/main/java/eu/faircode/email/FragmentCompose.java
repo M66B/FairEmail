@@ -1054,7 +1054,9 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
 
                 } else if (action == R.id.action_save) {
-                    if (ato == null && acc == null && abcc == null &&
+                    EntityIdentity primary = db.identity().getPrimaryIdentity(draft.account);
+                    if ((primary == null || draft.identity == primary.id) &&
+                            ato == null && acc == null && abcc == null &&
                             TextUtils.isEmpty(subject) &&
                             TextUtils.isEmpty(body) &&
                             db.attachment().getAttachmentCount(draft.id) == 0)
