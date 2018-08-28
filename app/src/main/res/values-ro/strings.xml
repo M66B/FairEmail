@@ -27,11 +27,11 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
-  <string name="menu_answers">Answers</string>
+  <string name="menu_answers">Răspunsuri</string>
   <string name="menu_operations">Operaţii</string>
   <string name="menu_legend">Legendă</string>
   <string name="menu_faq">Întrebări frecvente</string>
-  <string name="menu_pro">Pro features</string>
+  <string name="menu_pro">Caracteristici versiune Pro</string>
   <string name="menu_privacy">Confidențialitate</string>
   <string name="menu_about">Despre</string>
   <string name="menu_other">Alte aplicații</string>
@@ -58,7 +58,7 @@
   <string name="title_advanced_webview">Folosește WebView</string>
   <string name="title_advanced_customtabs">în loc de <a href="https://developer.chrome.com/multidevice/android/customtabs">tab Chrome personalizat</a></string>
   <string name="title_advanced_debug">Depanare</string>
-  <string name="title_select">Select &#8230;</string>
+  <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
   <string name="title_identity_email">Adresa dvs. de e-mail</string>
   <string name="title_identity_reply_to">Răspuns la adresa</string>
@@ -75,8 +75,8 @@
   <string name="title_port">Număr port</string>
   <string name="title_user">Nume utilizator</string>
   <string name="title_password">Parolă</string>
-  <string name="title_authorize">Select account</string>
-  <string name="title_instructions">Instructions</string>
+  <string name="title_authorize">Selectare cont</string>
+  <string name="title_instructions">Instrucțiuni</string>
   <string name="title_store_sent">Stochează mesajele trimise (activați doar la nevoie)</string>
   <string name="title_interval">Interval sincronizare (minute)</string>
   <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
@@ -112,7 +112,7 @@
   <string name="title_no_messages">Nici un mesaj</string>
   <string name="title_link">legătură</string>
   <string name="title_image">imagine</string>
-  <string name="title_show_images">Show images</string>
+  <string name="title_show_images">Afișare imagini</string>
   <string name="title_subject_reply">Răsp: %1$s</string>
   <string name="title_subject_forward">Redir: %1$s</string>
   <string name="title_thread">Arată discuția</string>
@@ -141,21 +141,21 @@
   <string name="title_send">Trimite</string>
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
-  <string name="title_no_openpgp">OpenPGP not available</string>
-  <string name="title_encrypt">Encrypt</string>
-  <string name="title_decrypt">Decrypt</string>
+  <string name="title_no_openpgp">OpenPGP nu este disponibil</string>
+  <string name="title_encrypt">Criptare</string>
+  <string name="title_decrypt">Decriptare</string>
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
   <string name="title_draft_trashed">Ciornă trimisă la gunoi</string>
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
-  <string name="title_search">Search</string>
-  <string name="title_search_hint">Search on server</string>
-  <string name="title_searching">Searching \'%1$s\'</string>
-  <string name="title_answer_reply">Standard answer</string>
-  <string name="title_answer_name">Answer name</string>
-  <string name="title_answer_text">Answer text</string>
+  <string name="title_search">Caută</string>
+  <string name="title_search_hint">Căutare pe server</string>
+  <string name="title_searching">Se caută \'%1$s\'</string>
+  <string name="title_answer_reply">Răspuns standard</string>
+  <string name="title_answer_name">Numele de răspuns</string>
+  <string name="title_answer_text">Textul de răspuns</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
   <string name="title_legend_synchronize">Sincronizare</string>
@@ -164,13 +164,13 @@
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>
   <string name="title_legend_closing">Închidere</string>
-  <string name="title_pro_feature">This is a pro feature</string>
-  <string name="title_pro_list">List of pro features</string>
-  <string name="title_pro_purchase">Buy</string>
-  <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features and will keep this app maintained and supported</string>
-  <string name="title_pro_activated">All pro features are activated</string>
-  <string name="title_pro_valid">All pro features activated</string>
-  <string name="title_pro_invalid">Invalid response</string>
+  <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
+  <string name="title_pro_list">Lista de caracteristici Pro</string>
+  <string name="title_pro_purchase">Cumpără</string>
+  <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
+  <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
+  <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
+  <string name="title_pro_invalid">Răspunsul nu este valid</string>
   <string name="title_debug_info">Depanare</string>
   <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
 </resources>
