@@ -442,10 +442,13 @@ public class FragmentMessage extends FragmentEx {
                                 FileOutputStream os = null;
                                 try {
                                     // Get input stream
-                                    if (file.exists())
+                                    if (file.exists()) {
+                                        Log.i(Helper.TAG, "Using cached " + file);
                                         is = new FileInputStream(file);
-                                    else
+                                    } else {
+                                        Log.i(Helper.TAG, "Downloading " + source);
                                         is = new URL(source).openStream();
+                                    }
 
                                     // Decode image from stream
                                     Bitmap bm = BitmapFactory.decodeStream(is);
