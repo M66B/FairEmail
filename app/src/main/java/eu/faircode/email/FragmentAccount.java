@@ -106,7 +106,7 @@ public class FragmentAccount extends FragmentEx {
     private Group grpFolders;
 
     private long id = -1;
-    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
+    private boolean authorized = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -163,23 +163,17 @@ public class FragmentAccount extends FragmentEx {
 
                 Provider provider = (Provider) adapterView.getSelectedItem();
 
-                if (provider.imap_port > 0) {
-                    etName.setText(provider.name);
-                    etHost.setText(provider.imap_host);
-                    etPort.setText(Integer.toString(provider.imap_port));
-                    if (provider.type == null)
-                        etUser.requestFocus();
+                etName.setText(provider.name);
+
+                btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
+                if (authorized) {
+                    authorized = false;
+                    etUser.setText(null);
+                    tilPassword.getEditText().setText(null);
                 }
 
-                if (provider.type == null) {
-                    btnAuthorize.setVisibility(View.GONE);
-                    if (auth_type != Helper.AUTH_TYPE_PASSWORD) {
-                        auth_type = Helper.AUTH_TYPE_PASSWORD;
-                        etUser.setText(null);
-                        tilPassword.getEditText().setText(null);
-                    }
-                } else
-                    btnAuthorize.setVisibility(View.VISIBLE);
+                etHost.setText(provider.imap_host);
+                etPort.setText(position == 0 ? null : Integer.toString(provider.imap_port));
 
                 tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
                 grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
@@ -221,6 +215,8 @@ public class FragmentAccount extends FragmentEx {
                 btnSave.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
 
+                Provider provider = (Provider) spProvider.getSelectedItem();
+
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("name", etName.getText().toString());
@@ -228,7 +224,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putInt("auth_type", auth_type);
+                args.putInt("auth_type", authorized ? provider.getAuthType() : Helper.AUTH_TYPE_PASSWORD);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -415,6 +411,8 @@ public class FragmentAccount extends FragmentEx {
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
+                Provider provider = (Provider) spProvider.getSelectedItem();
+
                 EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
                 EntityFolder sent = (EntityFolder) spSent.getSelectedItem();
                 EntityFolder all = (EntityFolder) spAll.getSelectedItem();
@@ -439,7 +437,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putInt("auth_type", auth_type);
+                args.putInt("auth_type", authorized ? provider.getAuthType() : Helper.AUTH_TYPE_PASSWORD);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putString("poll_interval", etInterval.getText().toString());
@@ -664,9 +662,8 @@ public class FragmentAccount extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
-        outState.putInt("auth_type", auth_type);
+        outState.putBoolean("authorized", authorized);
         outState.putString("password", tilPassword.getEditText().getText().toString());
-        outState.putInt("instructions", grpInstructions.getVisibility());
     }
 
     @Override
@@ -710,7 +707,6 @@ public class FragmentAccount extends FragmentEx {
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
-                    auth_type = (account == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
@@ -720,15 +716,17 @@ public class FragmentAccount extends FragmentEx {
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
 
+                    authorized = savedInstanceState.getBoolean("authorized");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
-                    auth_type = savedInstanceState.getInt("auth_type");
-
-                    grpInstructions.setVisibility(savedInstanceState.getInt("instructions"));
                 }
 
                 Helper.setViewsEnabled(view, true);
 
-                btnAuthorize.setVisibility(auth_type == Helper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
+                Provider provider = (Provider) spProvider.getSelectedItem();
+                btnAuthorize.setVisibility(provider.getAuthType() == Helper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
+                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
+                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
+
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
@@ -789,7 +787,7 @@ public class FragmentAccount extends FragmentEx {
                                             String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                             Log.i(Helper.TAG, "Got token");
 
-                                            auth_type = Helper.AUTH_TYPE_GMAIL;
+                                            authorized = true;
                                             etUser.setText(account.name);
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {

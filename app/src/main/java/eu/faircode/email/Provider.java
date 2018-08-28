@@ -98,6 +98,12 @@ public class Provider {
         return result;
     }
 
+    public int getAuthType() {
+        if ("com.google".equals(type))
+            return Helper.AUTH_TYPE_GMAIL;
+        return Helper.AUTH_TYPE_PASSWORD;
+    }
+
     @Override
     public String toString() {
         return name;

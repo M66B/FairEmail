@@ -145,6 +145,7 @@ public class FragmentIdentity extends FragmentEx {
 
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
 
+                // Select associated provider
                 for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                     Provider provider = (Provider) spProvider.getItemAtPosition(pos);
                     if (provider.imap_host.equals(account.host) && provider.imap_port == account.port) {
@@ -153,13 +154,12 @@ public class FragmentIdentity extends FragmentEx {
                     }
                 }
 
-                if (position > 0 && TextUtils.isEmpty(etUser.getText()))
-                    etUser.setText(account.user);
+                // Copy account user name
+                etUser.setText(account.user);
 
-                if (position > 0 && TextUtils.isEmpty(tilPassword.getEditText().getText())) {
-                    tilPassword.getEditText().setText(account.password);
-                    tilPassword.setPasswordVisibilityToggleEnabled(false);
-                }
+                // Copy account password
+                tilPassword.getEditText().setText(account.password);
+                tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
             }
 
             @Override
@@ -177,12 +177,12 @@ public class FragmentIdentity extends FragmentEx {
 
                 Provider provider = (Provider) adapterView.getSelectedItem();
 
-                if (provider.smtp_port > 0) {
-                    etHost.setText(provider.smtp_host);
-                    etPort.setText(Integer.toString(provider.smtp_port));
-                    cbStartTls.setChecked(provider.starttls);
-                }
+                // Set associated host/port/starttls
+                etHost.setText(provider.smtp_host);
+                etPort.setText(position == 0 ? null : Integer.toString(provider.smtp_port));
+                cbStartTls.setChecked(provider.starttls);
 
+                // Show link to instructions
                 tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
                 grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
             }
@@ -402,7 +402,6 @@ public class FragmentIdentity extends FragmentEx {
         outState.putInt("account", spAccount.getSelectedItemPosition());
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
-        outState.putInt("instructions", grpInstructions.getVisibility());
     }
 
     @Override
@@ -435,13 +434,12 @@ public class FragmentIdentity extends FragmentEx {
                     cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     etName.requestFocus();
-                } else {
+                } else
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
-                    grpInstructions.setVisibility(savedInstanceState.getInt("instructions"));
-                }
 
                 Helper.setViewsEnabled(view, true);
 
+                grpInstructions.setVisibility(View.GONE);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous save/delete as cancelled
@@ -492,7 +490,7 @@ public class FragmentIdentity extends FragmentEx {
                                     spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
                                     // OAuth token could be updated
-                                    if (accounts.get(pos).auth_type != Helper.AUTH_TYPE_PASSWORD)
+                                    if (pos > 0 && accounts.get(pos).auth_type != Helper.AUTH_TYPE_PASSWORD)
                                         tilPassword.getEditText().setText(accounts.get(pos).password);
                                     break;
                                 }
@@ -505,6 +503,10 @@ public class FragmentIdentity extends FragmentEx {
                             spAccount.setTag(account);
                             spAccount.setSelection(account);
                         }
+
+                        Provider provider = (Provider) spProvider.getSelectedItem();
+                        tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
+                        grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
                     }
                 });
             }
