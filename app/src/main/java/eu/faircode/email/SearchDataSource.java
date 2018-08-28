@@ -124,6 +124,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
             }
 
             Properties props = MessageHelper.getSessionProperties(account.auth_type);
+            props.setProperty("mail.imap.throwsearchexception", "true");
             Session isession = Session.getInstance(props, null);
 
             Log.i(Helper.TAG, "SDS connecting account=" + account.name);
