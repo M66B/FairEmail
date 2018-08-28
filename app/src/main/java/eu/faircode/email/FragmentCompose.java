@@ -865,9 +865,9 @@ public class FragmentCompose extends FragmentEx {
             final String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
 
-            etTo.setText(draft.to == null ? null : MessageHelper.getFormattedAddresses(draft.to, true));
-            etCc.setText(draft.cc == null ? null : MessageHelper.getFormattedAddresses(draft.cc, true));
-            etBcc.setText(draft.bcc == null ? null : MessageHelper.getFormattedAddresses(draft.bcc, true));
+            etTo.setText(MessageHelper.getFormattedAddresses(draft.to, true));
+            etCc.setText(MessageHelper.getFormattedAddresses(draft.cc, true));
+            etBcc.setText(MessageHelper.getFormattedAddresses(draft.bcc, true));
             etSubject.setText(draft.subject);
 
             etBody.setText(null);

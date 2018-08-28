@@ -375,16 +375,16 @@ public class FragmentMessage extends FragmentEx {
         if (savedInstanceState == null) {
             setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
-            tvFrom.setText(message.from == null ? null : MessageHelper.getFormattedAddresses(message.from, true));
+            tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, true));
             tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
-            tvTo.setText(message.to == null ? null : MessageHelper.getFormattedAddresses(message.to, true));
+            tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
             tvSubject.setText(message.subject);
 
             tvCount.setText(Integer.toString(message.count));
 
-            tvReplyTo.setText(message.reply == null ? null : MessageHelper.getFormattedAddresses(message.reply, true));
-            tvCc.setText(message.cc == null ? null : MessageHelper.getFormattedAddresses(message.cc, true));
-            tvBcc.setText(message.bcc == null ? null : MessageHelper.getFormattedAddresses(message.bcc, true));
+            tvReplyTo.setText(MessageHelper.getFormattedAddresses(message.reply, true));
+            tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
+            tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
 
             tvError.setText(message.error);
         } else {

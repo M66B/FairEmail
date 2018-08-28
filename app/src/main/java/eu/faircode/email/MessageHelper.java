@@ -252,8 +252,8 @@ public class MessageHelper {
     }
 
     static String getFormattedAddresses(Address[] addresses, boolean full) {
-        if (addresses == null)
-            return null;
+        if (addresses == null || addresses.length == 0)
+            return "";
 
         List<String> formatted = new ArrayList<>();
         for (Address address : addresses)
