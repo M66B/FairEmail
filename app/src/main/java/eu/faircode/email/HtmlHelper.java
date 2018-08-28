@@ -20,12 +20,15 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.TextUtils;
 
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.NodeTraversor;
@@ -110,9 +113,19 @@ public class HtmlHelper implements NodeVisitor {
     }
 
     public static String sanitize(Context context, String html, boolean reply) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         Document document = Jsoup.parse(html);
-        HtmlHelper visitor = new HtmlHelper(context, reply);
-        NodeTraversor.traverse(visitor, document.body());
-        return visitor.toString();
+        if (prefs.getBoolean("sanitize", false)) {
+            HtmlHelper visitor = new HtmlHelper(context, reply);
+            NodeTraversor.traverse(visitor, document.body());
+            return visitor.toString();
+        } else {
+            document.getElementsByTag("style").remove();
+            document.select("[style]").removeAttr("style");
+            for (Element tr : document.select("tr"))
+                tr.after("<br>");
+            return document.body().html();
+        }
     }
 }

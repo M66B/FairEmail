@@ -18,7 +18,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_webview"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,11 +27,23 @@
             android:id="@+id/tvCustomTabs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="45dp"
             android:text="@string/title_advanced_customtabs"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbWebView" />
+
+        <CheckBox
+            android:id="@+id/cbSanitize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_sanitize"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCustomTabs" />
 
         <CheckBox
             android:id="@+id/cbDebug"
@@ -40,9 +52,9 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_debug"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCustomTabs" />
+            app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

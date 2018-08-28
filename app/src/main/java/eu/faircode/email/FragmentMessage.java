@@ -224,6 +224,11 @@ public class FragmentMessage extends FragmentEx {
                     String url = link[0].getURL();
                     Uri uri = Uri.parse(url);
 
+                    if (!"http".equals(uri.getScheme()) && !"https".equals(uri.getScheme())) {
+                        Toast.makeText(getContext(), getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+
                     if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                         lbm.sendBroadcast(
@@ -249,6 +254,7 @@ public class FragmentMessage extends FragmentEx {
                         customTabsIntent.launchUrl(getContext(), Uri.parse(url));
                     }
                 }
+
                 return true;
             }
         });
@@ -490,7 +496,7 @@ public class FragmentMessage extends FragmentEx {
                     }, new Html.TagHandler() {
                         @Override
                         public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                            // Do nothing
+                            Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
                         }
                     });
                 }

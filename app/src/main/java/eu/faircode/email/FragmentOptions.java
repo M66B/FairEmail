@@ -36,6 +36,7 @@ import androidx.annotation.Nullable;
 public class FragmentOptions extends FragmentEx {
     private CheckBox cbWebView;
     private TextView tvCustomTabs;
+    private CheckBox cbSanitize;
     private CheckBox cbDebug;
 
     @Override
@@ -48,6 +49,7 @@ public class FragmentOptions extends FragmentEx {
         // Get controls
         cbWebView = view.findViewById(R.id.cbWebView);
         tvCustomTabs = view.findViewById(R.id.tvCustomTabs);
+        cbSanitize = view.findViewById(R.id.cbSanitize);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -59,6 +61,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("webview", checked).apply();
+            }
+        });
+
+        cbSanitize.setChecked(prefs.getBoolean("sanitize", false));
+        cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sanitize", checked).apply();
             }
         });
 
