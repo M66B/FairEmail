@@ -112,6 +112,11 @@ public class MessageHelper {
         props.put("mail.mime.address.strict", "false");
         props.put("mail.mime.decodetext.strict", "false");
 
+        props.put("mail.mime.ignoreunknownencoding", "true");
+        props.put("mail.mime.decodefilename", "true");
+        props.put("mail.mime.encodefilename", "true");
+        props.put("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
+
         // https://javaee.github.io/javamail/OAuth2
         Log.i(Helper.TAG, "Auth type=" + auth_type);
         if (auth_type == Helper.AUTH_TYPE_GMAIL) {
@@ -278,21 +283,20 @@ public class MessageHelper {
     private String getHtml(Part part) throws MessagingException, UnsupportedEncodingException {
         if (part.isMimeType("text/*"))
             try {
-                String s;
-                if ("x-binaryenc".equals(part.getContentType())) {
-                    InputStream is = part.getInputStream();
-                    ByteArrayOutputStream os = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[4096];
-                    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-                        os.write(buffer, 0, len);
-                    s = new String(os.toByteArray(), "US-ASCII");
-                } else
-                    s = part.getContent().toString();
+                String s = part.getContent().toString();
                 if (part.isMimeType("text/plain"))
                     s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 return s;
             } catch (UnsupportedEncodingException ex) {
                 // https://javaee.github.io/javamail/FAQ#unsupen
+                //if ("x-binaryenc".equals(part.getContentType())) {
+                //    InputStream is = part.getInputStream();
+                //    ByteArrayOutputStream os = new ByteArrayOutputStream();
+                //    byte[] buffer = new byte[4096];
+                //    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                //        os.write(buffer, 0, len);
+                //    s = new String(os.toByteArray(), "US-ASCII");
+                //}
                 throw new UnsupportedEncodingException(part.getContentType());
 
             } catch (IOException ex) {

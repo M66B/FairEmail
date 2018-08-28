@@ -127,15 +127,6 @@ public class ServiceSynchronize extends LifecycleService {
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
 
-    public ServiceSynchronize() {
-        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/package-summary.html
-        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
-        System.setProperty("mail.mime.ignoreunknownencoding", "true");
-        System.setProperty("mail.mime.decodefilename", "true");
-        System.setProperty("mail.mime.encodefilename", "true");
-        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
-    }
-
     @Override
     public void onCreate() {
         Log.i(Helper.TAG, "Service create version=" + BuildConfig.VERSION_NAME);
@@ -418,7 +409,6 @@ public class ServiceSynchronize extends LifecycleService {
                     public void notification(StoreEvent e) {
                         Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
                         db.account().setAccountError(account.id, e.getMessage());
-
 
                         synchronized (state) {
                             state.notifyAll();
