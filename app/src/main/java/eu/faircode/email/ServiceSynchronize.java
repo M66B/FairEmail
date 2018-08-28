@@ -606,7 +606,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             synchronizeMessages(account, folder, ifolder, state);
 
                                     } catch (InterruptedException ex) {
-                                        Log.w(Helper.TAG, folder.name + " noop " + ex.getMessage());
+                                        Log.w(Helper.TAG, folder.name + " noop " + ex.toString());
                                     }
                                 }
                             } catch (Throwable ex) {
@@ -800,7 +800,7 @@ public class ServiceSynchronize extends LifecycleService {
                     if (backoff < CONNECT_BACKOFF_MAX)
                         backoff *= 2;
                 } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, account.name + " backoff " + ex.getMessage());
+                    Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
                 }
             }
         }
