@@ -278,28 +278,22 @@ public class MessageHelper {
     private String getHtml(Part part) throws MessagingException, UnsupportedEncodingException {
         if (part.isMimeType("text/*"))
             try {
-                String s = part.getContent().toString();
+                String s;
+                if ("x-binaryenc".equals(part.getContentType())) {
+                    InputStream is = part.getInputStream();
+                    ByteArrayOutputStream os = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                        os.write(buffer, 0, len);
+                    s = new String(os.toByteArray(), "US-ASCII");
+                } else
+                    s = part.getContent().toString();
                 if (part.isMimeType("text/plain"))
                     s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
                 return s;
             } catch (UnsupportedEncodingException ex) {
+                // https://javaee.github.io/javamail/FAQ#unsupen
                 throw new UnsupportedEncodingException(part.getContentType());
-/*
-                    // https://javaee.github.io/javamail/FAQ#unsupen
-                    InputStream is = part.getInputStream();
-
-                    ByteArrayOutputStream os = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[8192];
-                    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-                        os.write(buffer, 0, len);
-                    os.toByteArray();
-
-                    try {
-                        s += new String(os.toByteArray(), "US-ASCII");
-                    } catch (UnsupportedEncodingException uex) {
-                        Log.w(Helper.TAG, uex + "\n" + Log.getStackTraceString(uex));
-                    }
-*/
 
             } catch (IOException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
