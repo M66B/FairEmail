@@ -389,23 +389,24 @@ public class ServiceSynchronize extends LifecycleService {
         final DB db = DB.getInstance(this);
         final ExecutorService executor = Executors.newSingleThreadExecutor();
 
-        boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
-        if (debug)
-            System.setProperty("mail.socket.debug", "true");
-
-        // Refresh token
-        if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-            account.password = Helper.refreshToken(this, "com.google", account.user, account.password);
-            db.account().setAccountPassword(account.id, account.password);
-        }
-
-        Properties props = MessageHelper.getSessionProperties(account.auth_type);
-        final Session isession = Session.getInstance(props, null);
-        isession.setDebug(debug);
-        // adb -t 1 logcat | grep "fairemail\|System.out"
-
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
+            // Debug
+            boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
+            if (debug)
+                System.setProperty("mail.socket.debug", "true");
+
+            // Refresh token
+            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                account.password = Helper.refreshToken(this, "com.google", account.user, account.password);
+                db.account().setAccountPassword(account.id, account.password);
+            }
+
+            Properties props = MessageHelper.getSessionProperties(account.auth_type);
+            final Session isession = Session.getInstance(props, null);
+            isession.setDebug(debug);
+            // adb -t 1 logcat | grep "fairemail\|System.out"
+
             final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
             final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
             List<Thread> noops = new ArrayList<>();
