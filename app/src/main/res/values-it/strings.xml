@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fallito</string>
   <string name="menu_setup">Configurazione</string>
-  <string name="menu_answers">Answers</string>
+  <string name="menu_answers">Standard replies</string>
   <string name="menu_operations">Operazioni</string>
   <string name="menu_legend">Legenda</string>
   <string name="menu_faq">Domande frequenti</string>
@@ -51,8 +51,9 @@
   <string name="title_setup_done">Fine</string>
   <string name="title_setup_dark_theme">Tema scuro</string>
   <string name="title_advanced">Opzioni avanzate</string>
-  <string name="title_advanced_webview">Usa WebView</string>
+  <string name="title_advanced_webview">Use WebView to show external links</string>
   <string name="title_advanced_customtabs">Al posto di <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
+  <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
@@ -149,7 +150,7 @@
   <string name="title_search">Search</string>
   <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Searching \'%1$s\'</string>
-  <string name="title_answer_reply">Standard answer</string>
+  <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Answer name</string>
   <string name="title_answer_text">Answer text</string>
   <string name="title_legend_cc">CC/BCC</string>

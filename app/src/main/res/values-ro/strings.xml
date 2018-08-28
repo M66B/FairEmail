@@ -27,7 +27,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
-  <string name="menu_answers">Răspunsuri</string>
+  <string name="menu_answers">Standard replies</string>
   <string name="menu_operations">Operaţii</string>
   <string name="menu_legend">Legendă</string>
   <string name="menu_faq">Întrebări frecvente</string>
@@ -55,8 +55,9 @@
   <string name="title_setup_done">Gata</string>
   <string name="title_setup_dark_theme">Temă întunecată</string>
   <string name="title_advanced">Opțiuni avansate</string>
-  <string name="title_advanced_webview">Folosește WebView</string>
+  <string name="title_advanced_webview">Use WebView to show external links</string>
   <string name="title_advanced_customtabs">în loc de <a href="https://developer.chrome.com/multidevice/android/customtabs">tab Chrome personalizat</a></string>
+  <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
@@ -153,7 +154,7 @@
   <string name="title_search">Caută</string>
   <string name="title_search_hint">Căutare pe server</string>
   <string name="title_searching">Se caută \'%1$s\'</string>
-  <string name="title_answer_reply">Răspuns standard</string>
+  <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Numele de răspuns</string>
   <string name="title_answer_text">Textul de răspuns</string>
   <string name="title_legend_cc">CC/BCC</string>

@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
-  <string name="menu_answers">Réponses</string>
+  <string name="menu_answers">Standard replies</string>
   <string name="menu_operations">Opérations</string>
   <string name="menu_legend">Légende</string>
   <string name="menu_faq">FAQ</string>
@@ -51,10 +51,11 @@
   <string name="title_setup_done">Fait</string>
   <string name="title_setup_dark_theme">Thème sombre</string>
   <string name="title_advanced">Options avancées</string>
-  <string name="title_advanced_webview">Utiliser WebView</string>
+  <string name="title_advanced_webview">Utiliser WebView pour afficher les liens externes</string>
   <string name="title_advanced_customtabs">Au lieu des <a href="https://developer.chrome.com/multidevice/android/customtabs">onglets personnalisés Chrome</a></string>
+  <string name="title_advanced_sanitize">Supprimer le formatage HTML des messages</string>
   <string name="title_advanced_debug">Débogage</string>
-  <string name="title_select">Select &#8230;</string>
+  <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
   <string name="title_identity_email">Votre adresse e-mail</string>
   <string name="title_identity_reply_to">Répondre à l\'adresse</string>
@@ -71,7 +72,7 @@
   <string name="title_port">Numéro de port</string>
   <string name="title_user">Nom d’utilisateur</string>
   <string name="title_password">Mot de passe</string>
-  <string name="title_authorize">Select account</string>
+  <string name="title_authorize">Sélectionner un compte</string>
   <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Stocker les messages envoyés (à activer si nécessaire)</string>
   <string name="title_interval">Intervalle de consultation/requête (minutes)</string>
@@ -149,7 +150,7 @@
   <string name="title_search">Rechercher</string>
   <string name="title_search_hint">Rechercher sur le serveur</string>
   <string name="title_searching">Recherche de \'%1$s\'</string>
-  <string name="title_answer_reply">Réponse standard</string>
+  <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>
   <string name="title_legend_cc">Cc/Cci</string>

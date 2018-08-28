@@ -32,7 +32,7 @@
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
     <string name="menu_setup">Setup</string>
-    <string name="menu_answers">Answers</string>
+    <string name="menu_answers">Standard replies</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_legend">Legend</string>
     <string name="menu_faq">FAQ</string>
@@ -179,7 +179,7 @@
     <string name="title_search_hint">Search on server</string>
     <string name="title_searching">Searching \'%1$s\'</string>
 
-    <string name="title_answer_reply">Standard answer</string>
+    <string name="title_answer_reply">Standard reply</string>
     <string name="title_answer_name">Answer name</string>
     <string name="title_answer_text">Answer text</string>
 
