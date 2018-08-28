@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -31,11 +32,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -49,14 +52,17 @@ import androidx.lifecycle.Observer;
 import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
+    private Button btnHintSwipe;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
+    private Group grpHintSwipe;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -93,13 +99,24 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
+        btnHintSwipe = view.findViewById(R.id.btnHintSwipe);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+        grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         fab = view.findViewById(R.id.fab);
 
         // Wire controls
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        btnHintSwipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("understood_swipe", true).apply();
+                grpHintSwipe.setVisibility(View.GONE);
+            }
+        });
 
         rvMessage.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -119,6 +136,87 @@ public class FragmentMessages extends FragmentEx {
 
         adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType);
         rvMessage.setAdapter(adapter);
+
+        new ItemTouchHelper(new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                int pos = viewHolder.getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return 0;
+
+                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                if (EntityFolder.OUTBOX.equals(message.folderType))
+                    return 0;
+
+                return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+            }
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int pos = viewHolder.getAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                    Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+                    args.putInt("direction", direction);
+                    new SimpleTask<String>() {
+                        @Override
+                        protected String onLoad(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            int direction = args.getInt("direction");
+                            EntityFolder target = null;
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+                                EntityMessage message = db.message().getMessage(id);
+                                EntityFolder folder = db.folder().getFolder(message.folder);
+
+                                if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
+                                    target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                                else {
+                                    if (direction == ItemTouchHelper.RIGHT)
+                                        target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                                    if (direction == ItemTouchHelper.LEFT || target == null)
+                                        target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                }
+
+                                db.message().setMessageUiHide(message.id, true);
+                                EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            EntityOperation.process(context);
+
+                            return target.name;
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, String folder) {
+                            Snackbar.make(
+                                    view,
+                                    getString(R.string.title_moving, Helper.localizeFolderName(getContext(), folder)),
+                                    Snackbar.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }.load(FragmentMessages.this, args);
+                }
+            }
+        }).attachToRecyclerView(rvMessage);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +241,10 @@ public class FragmentMessages extends FragmentEx {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        grpHintSwipe.setVisibility(prefs.getBoolean("understood_swipe", false) ? View.GONE : View.VISIBLE);
+
         final DB db = DB.getInstance(getContext());
 
         db.account().livePrimaryAccount().observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
@@ -157,7 +259,7 @@ public class FragmentMessages extends FragmentEx {
 
         // Observe folder/messages/search
         if (TextUtils.isEmpty(search)) {
-            boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
+            boolean debug = prefs.getBoolean("debug", false);
             if (thread < 0)
                 if (folder < 0) {
                     db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
