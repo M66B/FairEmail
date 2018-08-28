@@ -469,6 +469,7 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderState(folder.id, null);
                 db.account().setAccountState(account.id, "connecting");
                 istore.connect(account.host, account.port, account.user, account.password);
+                boolean hasIdle = istore.hasCapability("IDLE");
 
                 backoff = CONNECT_BACKOFF_START;
                 db.account().setAccountState(account.id, "connected");
@@ -627,7 +628,7 @@ public class ServiceSynchronize extends LifecycleService {
                     noops.add(noop);
 
                     // Receive folder events
-                    if (istore.hasCapability("IDLE")) {
+                    if (hasIdle) {
                         Thread idle = new Thread(new Runnable() {
                             @Override
                             public void run() {

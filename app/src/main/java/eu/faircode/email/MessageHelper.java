@@ -70,6 +70,8 @@ public class MessageHelper {
         props.put("mail.imaps.timeout", "20000");
         props.put("mail.imaps.writetimeout", "20000"); // one thread overhead
 
+        props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");
         props.put("mail.smtps.ssl.trust", "*");
