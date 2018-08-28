@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -57,8 +59,10 @@ public class MessageHelper {
     private MimeMessage imessage;
     private String raw = null;
 
-    static Properties getSessionProperties(int auth_type) {
+    static Properties getSessionProperties(Context context, int auth_type) {
         Properties props = new Properties();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
         props.put("mail.imaps.ssl.checkserveridentity", "true");
@@ -71,6 +75,15 @@ public class MessageHelper {
         props.put("mail.imaps.writetimeout", "20000"); // one thread overhead
 
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+
+        // https://tools.ietf.org/html/rfc4978
+        // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
+        if (prefs.getBoolean("compress", true)) {
+            Log.i(Helper.TAG, "IMAP compress enabled");
+            props.put("mail.imaps.compress.enable", "true");
+            //props.put("mail.imaps.compress.level", "-1");
+            //props.put("mail.imaps.compress.strategy", "0");
+        }
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");

@@ -54,6 +54,7 @@
   <string name="title_advanced_webview">Use WebView to show external links</string>
   <string name="title_advanced_customtabs">Anstatt <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome benutzerdefinierte Tabs</a></string>
   <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
+  <string name="title_advanced_compress_imap">Compress IMAP data</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>

@@ -37,6 +37,7 @@ public class FragmentOptions extends FragmentEx {
     private CheckBox cbWebView;
     private TextView tvCustomTabs;
     private CheckBox cbSanitize;
+    private CheckBox cbCompressImap;
     private CheckBox cbDebug;
 
     @Override
@@ -50,6 +51,7 @@ public class FragmentOptions extends FragmentEx {
         cbWebView = view.findViewById(R.id.cbWebView);
         tvCustomTabs = view.findViewById(R.id.tvCustomTabs);
         cbSanitize = view.findViewById(R.id.cbSanitize);
+        cbCompressImap = view.findViewById(R.id.cbCompressImap);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -69,6 +71,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sanitize", checked).apply();
+            }
+        });
+
+        cbCompressImap.setChecked(prefs.getBoolean("compress", true));
+        cbCompressImap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("compress", checked).apply();
             }
         });
 

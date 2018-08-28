@@ -54,6 +54,7 @@
   <string name="title_advanced_webview">Utiliser WebView pour afficher les liens externes</string>
   <string name="title_advanced_customtabs">Au lieu des <a href="https://developer.chrome.com/multidevice/android/customtabs">onglets personnalisés Chrome</a></string>
   <string name="title_advanced_sanitize">Supprimer le formatage HTML des messages</string>
+  <string name="title_advanced_compress_imap">Compress IMAP data</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -161,7 +162,7 @@
   <string name="title_legend_disconnected">Déconnecté</string>
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>
-  <string name="title_legend_synchronizing">Synchronizing</string>
+  <string name="title_legend_synchronizing">Synchronisation en cours</string>
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_swipe">Balayer à gauche pour supprimer et balayer à droite pour archiver (si disponible)</string>
   <string name="title_understood">Compris</string>

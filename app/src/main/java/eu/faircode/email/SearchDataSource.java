@@ -123,7 +123,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
                 db.account().setAccountPassword(account.id, account.password);
             }
 
-            Properties props = MessageHelper.getSessionProperties(account.auth_type);
+            Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
             props.setProperty("mail.imap.throwsearchexception", "true");
             Session isession = Session.getInstance(props, null);
 

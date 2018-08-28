@@ -58,6 +58,7 @@
   <string name="title_advanced_webview">Folosește WebView pentru legăturile externe</string>
   <string name="title_advanced_customtabs">în loc de <a href="https://developer.chrome.com/multidevice/android/customtabs">tab Chrome personalizat</a></string>
   <string name="title_advanced_sanitize">Înlătură formatarea HTML din mesaje</string>
+  <string name="title_advanced_compress_imap">Compress IMAP data</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
