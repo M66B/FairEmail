@@ -764,6 +764,8 @@ public class ServiceSynchronize extends LifecycleService {
                 // Close store
                 Log.i(Helper.TAG, account.name + " closing");
                 db.account().setAccountState(account.id, "closing");
+                for (EntityFolder folder : folders.keySet())
+                    db.folder().setFolderState(folder.id, "closing");
                 try {
                     // This can take some time
                     istore.close();
@@ -1173,10 +1175,11 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, ServiceState state) throws MessagingException, IOException {
+        DB db = DB.getInstance(this);
         try {
             Log.v(Helper.TAG, folder.name + " start sync after=" + folder.after);
 
-            DB db = DB.getInstance(this);
+            db.folder().setFolderState(folder.id, "syncing");
 
             // Get reference times
             Calendar cal = Calendar.getInstance();
@@ -1283,6 +1286,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync");
+            db.folder().setFolderState(folder.id, ifolder.isOpen() ? "connected" : "disconnected");
         }
     }
 
@@ -1579,20 +1583,23 @@ public class ServiceSynchronize extends LifecycleService {
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
             @Override
-            public void onReceive(Context context, Intent intent) {
+            public void onReceive(final Context context, Intent intent) {
                 Log.v(Helper.TAG, outbox.name + " run operations");
 
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
+                        DB db = DB.getInstance(context);
                         try {
                             Log.i(Helper.TAG, outbox.name + " start operations");
+                            db.folder().setFolderState(outbox.id, "syncing");
                             processOperations(outbox, null, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);
                         } finally {
                             Log.i(Helper.TAG, outbox.name + " end operations");
+                            db.folder().setFolderState(outbox.id, "connected");
                         }
                     }
                 });

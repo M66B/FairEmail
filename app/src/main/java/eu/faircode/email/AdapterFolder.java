@@ -113,6 +113,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
             else if ("connecting".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+            else if ("closing".equals(folder.state))
+                ivState.setImageResource(R.drawable.baseline_close_24);
+            else if ("syncing".equals(folder.state))
+                ivState.setImageResource(R.drawable.baseline_sync_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(folder.synchronize || outbox ? View.VISIBLE : View.INVISIBLE);
