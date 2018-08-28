@@ -31,6 +31,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
+import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
@@ -115,14 +116,13 @@ public class HtmlHelper implements NodeVisitor {
     public static String sanitize(Context context, String html, boolean reply) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        Document document = Jsoup.parse(html);
         if (prefs.getBoolean("sanitize", false)) {
+            Document document = Jsoup.parse(html);
             HtmlHelper visitor = new HtmlHelper(context, reply);
             NodeTraversor.traverse(visitor, document.body());
             return visitor.toString();
         } else {
-            document.getElementsByTag("style").remove();
-            document.select("[style]").removeAttr("style");
+            Document document = Jsoup.parse(Jsoup.clean(html, Whitelist.relaxed()));
             for (Element tr : document.select("tr"))
                 tr.after("<br>");
             return document.body().html();
