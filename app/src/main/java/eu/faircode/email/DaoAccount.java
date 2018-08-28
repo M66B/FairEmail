@@ -44,6 +44,9 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE `primary`")
     EntityAccount getPrimaryAccount();
 
+    @Query("SELECT COUNT(*) FROM account WHERE synchronize")
+    int getSynchronizingAccountCount();
+
     @Query("SELECT * FROM account WHERE `primary`")
     LiveData<EntityAccount> livePrimaryAccount();
 
