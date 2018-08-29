@@ -365,7 +365,13 @@ public class MessageHelper {
             IOException, MessagingException {
         List<EntityAttachment> result = new ArrayList<>();
 
-        Object content = part.getContent();
+        Object content;
+        try {
+            content = part.getContent();
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(Helper.TAG, "attachment content type=" + part.getContentType());
+            content = part.getInputStream();
+        }
         if (content instanceof InputStream || content instanceof String) {
             String disposition;
             try {
