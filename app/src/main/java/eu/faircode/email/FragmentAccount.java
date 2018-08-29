@@ -32,8 +32,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -106,7 +108,7 @@ public class FragmentAccount extends FragmentEx {
     private Group grpFolders;
 
     private long id = -1;
-    private boolean authorized = true;
+    private String authorized = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -166,8 +168,8 @@ public class FragmentAccount extends FragmentEx {
                 etName.setText(provider.name);
 
                 btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
-                if (authorized) {
-                    authorized = false;
+                if (authorized != null) {
+                    authorized = null;
                     etUser.setText(null);
                     tilPassword.getEditText().setText(null);
                 }
@@ -181,6 +183,22 @@ public class FragmentAccount extends FragmentEx {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        tilPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (authorized != null && !authorized.equals(s.toString()))
+                    authorized = null;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
 
@@ -225,7 +243,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putInt("auth_type", authorized ? provider.getAuthType() : Helper.AUTH_TYPE_PASSWORD);
+                args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
 
@@ -441,7 +459,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
-                args.putInt("auth_type", authorized ? provider.getAuthType() : Helper.AUTH_TYPE_PASSWORD);
+                args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putString("poll_interval", etInterval.getText().toString());
@@ -669,7 +687,7 @@ public class FragmentAccount extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("provider", spProvider.getSelectedItemPosition());
-        outState.putBoolean("authorized", authorized);
+        outState.putString("authorized", authorized);
         outState.putString("password", tilPassword.getEditText().getText().toString());
     }
 
@@ -712,6 +730,7 @@ public class FragmentAccount extends FragmentEx {
                     etHost.setText(account == null ? null : account.host);
                     etPort.setText(account == null ? null : Long.toString(account.port));
 
+                    authorized = (account != null && account.auth_type != Helper.AUTH_TYPE_PASSWORD ? account.password : null);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
@@ -723,7 +742,7 @@ public class FragmentAccount extends FragmentEx {
                     spProvider.setTag(provider);
                     spProvider.setSelection(provider);
 
-                    authorized = savedInstanceState.getBoolean("authorized");
+                    authorized = savedInstanceState.getString("authorized");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                 }
 
@@ -748,7 +767,7 @@ public class FragmentAccount extends FragmentEx {
         });
     }
 
-    void selectAccount() {
+    private void selectAccount() {
         Log.i(Helper.TAG, "Select account");
         Provider provider = (Provider) spProvider.getSelectedItem();
         if (provider.type != null)
@@ -795,7 +814,7 @@ public class FragmentAccount extends FragmentEx {
                                             String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                                             Log.i(Helper.TAG, "Got token");
 
-                                            authorized = true;
+                                            authorized = token;
                                             etUser.setText(account.name);
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
