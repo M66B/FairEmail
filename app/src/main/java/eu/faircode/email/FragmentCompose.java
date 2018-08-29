@@ -650,7 +650,9 @@ public class FragmentCompose extends FragmentEx {
             attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
             attachment.name = name;
 
-            String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+            String extension = null;
+            if (attachment.name != null) // External attach
+                extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
             if (extension != null)
                 attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
             if (attachment.type == null)
