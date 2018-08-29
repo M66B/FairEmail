@@ -110,6 +110,17 @@ Results will be shown in real time as they become available from the server.
 For performance reasons attachments are not downloaded and shown.
 Search on server is a pro feature.
 
+<a name="FAQ14"></a>
+**(14) How does openPGP integration work?**
+
+You need to install and setup the [OpenKeychain](https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain).
+
+You can send an encrypted message by composing a message as usual and encrypt it by using the *Encrypt* overflow menu just before sending.
+
+If you received an encrypted message as attachment, you can decrypt it by downloading and viewing the attachment with the encrypted text.
+
+If you received an encrypted message with inline encryption, you can decrypt it by using the *Decrypt* overflow menu.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
