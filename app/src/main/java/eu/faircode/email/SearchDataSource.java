@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,7 @@ public class SearchDataSource extends PositionalDataSource<TupleMessageEx> imple
         }
     }
 
-    private SearchResult search(String term, int from, int count) throws MessagingException, UnsupportedEncodingException {
+    private SearchResult search(String term, int from, int count) throws MessagingException, IOException {
         Log.i(Helper.TAG, "SDS search from=" + from + " count=" + count);
 
         if (istore == null) {
