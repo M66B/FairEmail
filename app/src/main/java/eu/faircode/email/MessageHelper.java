@@ -112,9 +112,10 @@ public class MessageHelper {
         props.put("mail.mime.address.strict", "false");
         props.put("mail.mime.decodetext.strict", "false");
 
-        props.put("mail.mime.ignoreunknownencoding", "true");
+        props.put("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
         props.put("mail.mime.decodefilename", "true");
         props.put("mail.mime.encodefilename", "true");
+        props.put("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         props.put("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
         // https://javaee.github.io/javamail/OAuth2
@@ -276,33 +277,31 @@ public class MessageHelper {
         return TextUtils.join(", ", formatted);
     }
 
-    String getHtml() throws MessagingException, UnsupportedEncodingException {
+    String getHtml() throws MessagingException, IOException {
         return getHtml(imessage);
     }
 
-    private String getHtml(Part part) throws MessagingException, UnsupportedEncodingException {
-        if (part.isMimeType("text/*"))
+    private String getHtml(Part part) throws MessagingException, IOException {
+        if (part.isMimeType("text/*")) {
+            String s;
             try {
-                String s = part.getContent().toString();
-                if (part.isMimeType("text/plain"))
-                    s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
-                return s;
+                s = part.getContent().toString();
             } catch (UnsupportedEncodingException ex) {
+                // x-binaryenc
+                Log.w(Helper.TAG, "Unsupported encoding: " + part.getContentType());
                 // https://javaee.github.io/javamail/FAQ#unsupen
-                //if ("x-binaryenc".equals(part.getContentType())) {
-                //    InputStream is = part.getInputStream();
-                //    ByteArrayOutputStream os = new ByteArrayOutputStream();
-                //    byte[] buffer = new byte[4096];
-                //    for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-                //        os.write(buffer, 0, len);
-                //    s = new String(os.toByteArray(), "US-ASCII");
-                //}
-                throw new UnsupportedEncodingException(part.getContentType());
-
-            } catch (IOException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return null;
+                InputStream is = part.getInputStream();
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                byte[] buffer = new byte[4096];
+                for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+                    os.write(buffer, 0, len);
+                s = new String(os.toByteArray(), "US-ASCII");
             }
+
+            if (part.isMimeType("text/plain"))
+                s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
+            return s;
+        }
 
         if (part.isMimeType("multipart/alternative")) {
             String text = null;

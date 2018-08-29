@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
-  <string name="menu_answers">Standard replies</string>
+  <string name="menu_answers">Standardantworten</string>
   <string name="menu_operations">Vorgänge</string>
   <string name="menu_legend">Legende</string>
   <string name="menu_faq">FAQ</string>
@@ -51,10 +51,10 @@
   <string name="title_setup_done">Fertig</string>
   <string name="title_setup_dark_theme">Dunkles Thema</string>
   <string name="title_advanced">Erweiterte Optionen</string>
-  <string name="title_advanced_webview">Use WebView to show external links</string>
+  <string name="title_advanced_webview">Verwende WebView, um externe Links anzuzeigen</string>
   <string name="title_advanced_customtabs">Anstatt <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome benutzerdefinierte Tabs</a></string>
-  <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
-  <string name="title_advanced_compress_imap">Compress IMAP data</string>
+  <string name="title_advanced_sanitize">HTML Formatierung von Nachrichten entfernen</string>
+  <string name="title_advanced_compress_imap">IMAP Daten komprimieren</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -123,7 +123,7 @@
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
   <string name="title_reply">Antworten</string>
-  <string name="title_moving">Moving message to %1$s</string>
+  <string name="title_moving">Verschiebe Nachrichten nach %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
@@ -141,6 +141,7 @@
   <string name="title_show_addresses">CC/BCC anzeigen</string>
   <string name="title_add_attachment">Anhang hinzufügen</string>
   <string name="title_no_openpgp">OpenPGP nicht verfügbar</string>
+  <string name="title_not_encrypted">Encrypted message not found</string>
   <string name="title_encrypt">Verschlüsseln</string>
   <string name="title_decrypt">Entschlüsseln</string>
   <string name="title_from_missing">Absender fehlt</string>
@@ -152,7 +153,7 @@
   <string name="title_search">Suche</string>
   <string name="title_search_hint">Auf Server suchen</string>
   <string name="title_searching">Suche „%1$s“</string>
-  <string name="title_answer_reply">Standard reply</string>
+  <string name="title_answer_reply">Standardantworten</string>
   <string name="title_answer_name">Antwort Name</string>
   <string name="title_answer_text">Antworttext</string>
   <string name="title_legend_cc">CC/BCC</string>
@@ -162,10 +163,10 @@
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>
-  <string name="title_legend_synchronizing">Synchronizing</string>
+  <string name="title_legend_synchronizing">Synchronisiere</string>
   <string name="title_legend_closing">Schließen</string>
-  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
-  <string name="title_understood">Understood</string>
+  <string name="title_hint_swipe">Streichen Sie nach links zum Löschen und nach rechts zum archivieren (sofern verfügbar)</string>
+  <string name="title_understood">Verstanden</string>
   <string name="title_pro_feature">Dies ist eine Premium Funktion</string>
   <string name="title_pro_list">Liste der Premium Funktionen</string>
   <string name="title_pro_purchase">Kaufen</string>

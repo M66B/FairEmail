@@ -825,21 +825,24 @@ public class FragmentMessage extends FragmentEx {
             if (message.to == null || message.to.length == 0)
                 throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-            InternetAddress to = (InternetAddress) message.to[0];
-
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
-
+            // Find encrypted message
             String begin = "-----BEGIN PGP MESSAGE-----";
             String end = "-----END PGP MESSAGE-----";
             Document document = Jsoup.parse(message.read(getContext()));
             String encrypted = document.text();
             int efrom = encrypted.indexOf(begin) + begin.length();
             int eto = encrypted.indexOf(end);
+            if (efrom < 0 || eto < 0)
+                throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
             encrypted = begin + "\n" + encrypted.substring(efrom, eto).replace(" ", "\n") + end + "\n";
             final InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
             final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+            InternetAddress to = (InternetAddress) message.to[0];
+
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
 
             OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
             api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {

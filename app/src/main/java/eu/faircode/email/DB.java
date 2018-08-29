@@ -203,7 +203,8 @@ public abstract class DB extends RoomDatabase {
                                 jaddress.getString("address")));
                 }
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                // Compose can store invalid addresses
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
             return result.toArray(new Address[0]);
         }

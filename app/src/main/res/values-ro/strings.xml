@@ -145,6 +145,7 @@
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
   <string name="title_no_openpgp">OpenPGP nu este disponibil</string>
+  <string name="title_not_encrypted">Encrypted message not found</string>
   <string name="title_encrypt">Criptare</string>
   <string name="title_decrypt">Decriptare</string>
   <string name="title_from_missing">Expeditor lipsă</string>

@@ -739,7 +739,11 @@ public class ServiceSynchronize extends LifecycleService {
                         // Wait for stop or folder error
                         Log.i(Helper.TAG, account.name + " wait");
                         synchronized (state) {
-                            state.wait(STORE_NOOP_INTERVAL);
+                            try {
+                                state.wait(STORE_NOOP_INTERVAL);
+                            } catch (InterruptedException ex) {
+                                Log.w(Helper.TAG, account.name + " wait " + ex.toString());
+                            }
                         }
                         Log.i(Helper.TAG, account.name + " waited");
                     }

@@ -54,7 +54,7 @@
   <string name="title_advanced_webview">Utiliser WebView pour afficher les liens externes</string>
   <string name="title_advanced_customtabs">Au lieu des <a href="https://developer.chrome.com/multidevice/android/customtabs">onglets personnalisés Chrome</a></string>
   <string name="title_advanced_sanitize">Supprimer le formatage HTML des messages</string>
-  <string name="title_advanced_compress_imap">Compress IMAP data</string>
+  <string name="title_advanced_compress_imap">Compresser les données IMAP</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -141,6 +141,7 @@
   <string name="title_show_addresses">Afficher Cc/Cci</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
   <string name="title_no_openpgp">OpenPGP n’est pas disponible</string>
+  <string name="title_not_encrypted">Encrypted message not found</string>
   <string name="title_encrypt">Chiffrer</string>
   <string name="title_decrypt">Déchiffrer</string>
   <string name="title_from_missing">Expéditeur manquant</string>

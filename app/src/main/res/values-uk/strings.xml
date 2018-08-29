@@ -149,6 +149,7 @@
   <string name="title_show_addresses">Show CC/BCC</string>
   <string name="title_add_attachment">Add attachment</string>
   <string name="title_no_openpgp">OpenPGP not available</string>
+  <string name="title_not_encrypted">Encrypted message not found</string>
   <string name="title_encrypt">Encrypt</string>
   <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Sender missing</string>

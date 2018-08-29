@@ -149,6 +149,7 @@
   <string name="title_show_addresses">Pokaż DW/UDW</string>
   <string name="title_add_attachment">Dodaj załącznik</string>
   <string name="title_no_openpgp">OpenPGP nie dostępne</string>
+  <string name="title_not_encrypted">Encrypted message not found</string>
   <string name="title_encrypt">Zaszyfruj</string>
   <string name="title_decrypt">Odszyfruj</string>
   <string name="title_from_missing">Brak nadawcy</string>
