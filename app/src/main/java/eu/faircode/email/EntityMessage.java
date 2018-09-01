@@ -98,12 +98,12 @@ public class EntityMessage implements Serializable {
     public Boolean ui_seen;
     @NonNull
     public Boolean ui_hide;
+    @NonNull
+    public Boolean ui_found;
     public String error;
 
     @Ignore
     String body = null;
-    @Ignore
-    boolean virtual = false;
 
     static String generateMessageId() {
         StringBuffer sb = new StringBuffer();

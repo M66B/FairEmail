@@ -294,6 +294,7 @@ public class ActivityView extends ActivityBase implements FragmentManager.OnBack
                             draft.seen = false;
                             draft.ui_seen = false;
                             draft.ui_hide = false;
+                            draft.ui_found = false;
                             draft.id = db.message().insertMessage(draft);
                             draft.write(context, body);
                         }

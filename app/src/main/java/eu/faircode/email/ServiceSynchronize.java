@@ -499,7 +499,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.i(Helper.TAG, folder.name + " messages added");
                                                 for (Message imessage : e.getMessages())
                                                     try {
-                                                        synchronizeMessage(folder, ifolder, (IMAPMessage) imessage);
+                                                        synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     }
@@ -559,7 +559,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             try {
                                                 try {
                                                     Log.i(Helper.TAG, folder.name + " message changed");
-                                                    synchronizeMessage(folder, ifolder, (IMAPMessage) e.getMessage());
+                                                    synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 }
@@ -1237,7 +1237,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i--)
                 try {
-                    int status = synchronizeMessage(folder, ifolder, (IMAPMessage) imessages[i]);
+                    int status = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], false);
                     if (status > 0)
                         added++;
                     else if (status < 0)
@@ -1280,7 +1280,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private int synchronizeMessage(EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage) throws MessagingException, IOException {
+    static int synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean found) throws MessagingException, IOException {
         long uid;
         try {
             FetchProfile fp = new FetchProfile();
@@ -1303,7 +1303,7 @@ public class ServiceSynchronize extends LifecycleService {
             MessageHelper helper = new MessageHelper(imessage);
             boolean seen = helper.getSeen();
 
-            DB db = DB.getInstance(this);
+            DB db = DB.getInstance(context);
             try {
                 int result = 0;
 
@@ -1381,9 +1381,10 @@ public class ServiceSynchronize extends LifecycleService {
                     message.seen = seen;
                     message.ui_seen = seen;
                     message.ui_hide = false;
+                    message.ui_found = found;
 
                     message.id = db.message().insertMessage(message);
-                    message.write(this, helper.getHtml());
+                    message.write(context, helper.getHtml());
                     Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                     int sequence = 0;

@@ -39,17 +39,38 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPMessage;
+import com.sun.mail.imap.IMAPStore;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.search.AndTerm;
+import javax.mail.search.BodyTerm;
+import javax.mail.search.ComparisonTerm;
+import javax.mail.search.FromStringTerm;
+import javax.mail.search.OrTerm;
+import javax.mail.search.ReceivedDateTerm;
+import javax.mail.search.SubjectTerm;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.GenericLifecycleObserver;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -69,8 +90,6 @@ public class FragmentMessages extends FragmentEx {
     private long folder = -1;
     private long thread = -1;
     private String search = null;
-
-    private SearchDataSource sds = null;
 
     private long primary = -1;
     private AdapterMessage adapter;
@@ -294,60 +313,196 @@ public class FragmentMessages extends FragmentEx {
                         }
                     });
 
-                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, debug), MESSAGES_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, false, debug), MESSAGES_PAGE_SIZE).build();
                 }
             else {
                 setSubtitle(R.string.title_folder_thread);
                 messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), MESSAGES_PAGE_SIZE).build();
             }
+
+            messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+                @Override
+                public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                    if (messages == null) {
+                        finish();
+                        return;
+                    }
+
+                    Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                    adapter.submitList(messages);
+
+                    pbWait.setVisibility(View.GONE);
+                    grpReady.setVisibility(View.VISIBLE);
+
+                    if (messages.size() == 0) {
+                        tvNoEmail.setVisibility(View.VISIBLE);
+                        rvMessage.setVisibility(View.GONE);
+                    } else {
+                        tvNoEmail.setVisibility(View.GONE);
+                        rvMessage.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
         } else {
             setSubtitle(getString(R.string.title_searching, search));
 
-            // Searching is expensive:
-            // - reuse existing data source
-            // - use fragment lifecycle (instead of getViewLifecycleOwner)
-            // - saving state is not feasible
-            if (sds == null)
-                sds = new SearchDataSource(getContext(), this, folder, search);
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("search", search);
 
-            messages = new LivePagedListBuilder<>(
-                    new DataSource.Factory<Integer, TupleMessageEx>() {
-                        @Override
-                        public DataSource<Integer, TupleMessageEx> create() {
-                            return sds;
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    long folder = args.getLong("folder");
+                    String search = args.getString("search").toLowerCase();
+
+                    db.message().resetFound(folder);
+
+                    for (long id : db.message().getMessageIDs(folder)) {
+                        EntityMessage message = db.message().getMessage(id);
+                        String from = MessageHelper.getFormattedAddresses(message.from, true);
+                        if (from.toLowerCase().contains(search) ||
+                                message.subject.toLowerCase().contains(search) ||
+                                message.read(context).toLowerCase().contains(search)) {
+                            Log.i(Helper.TAG, "SDS found id=" + id);
+                            db.message().setMessageFound(message.id, true);
                         }
-                    },
-                    new PagedList.Config.Builder()
-                            .setEnablePlaceholders(true)
-                            .setInitialLoadSizeHint(SEARCH_PAGE_SIZE)
-                            .setPageSize(SEARCH_PAGE_SIZE)
-                            .build()
-            ).build();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onLoaded(final Bundle args, Void data) {
+                    LiveData<PagedList<TupleMessageEx>> messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, true, false), SEARCH_PAGE_SIZE)
+                            .setBoundaryCallback(new PagedList.BoundaryCallback<TupleMessageEx>() {
+                                private IMAPStore istore = null;
+                                private IMAPFolder ifolder = null;
+                                private Message[] imessages = null;
+                                private int offset = 0;
+                                private boolean observing = false;
+                                private ExecutorService executor = Executors.newSingleThreadExecutor();
+
+                                @Override
+                                public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
+                                    final Context context = getContext();
+
+                                    if (!observing) {
+                                        observing = true;
+                                        getLifecycle().addObserver(new GenericLifecycleObserver() {
+                                            @Override
+                                            public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
+                                                if (event == Lifecycle.Event.ON_DESTROY)
+                                                    new Thread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            Log.i(Helper.TAG, "SDS close");
+                                                            try {
+                                                                if (istore != null)
+                                                                    istore.close();
+                                                            } catch (Throwable ex) {
+                                                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                                            }
+                                                        }
+                                                    }).start();
+                                            }
+                                        });
+                                    }
+
+                                    executor.submit(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                long folder = args.getLong("folder");
+                                                String search = args.getString("search");
+
+                                                EntityFolder _folder = db.folder().getFolder(folder);
+                                                EntityAccount account = db.account().getAccount(_folder.account);
+
+                                                // Refresh token
+                                                //if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                                //    account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+                                                //    db.account().setAccountPassword(account.id, account.password);
+                                                //}
+
+                                                if (imessages == null) {
+                                                    Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
+                                                    props.setProperty("mail.imap.throwsearchexception", "true");
+                                                    Session isession = Session.getInstance(props, null);
+
+                                                    Log.i(Helper.TAG, "SDS connecting account=" + account.name);
+                                                    istore = (IMAPStore) isession.getStore("imaps");
+                                                    istore.connect(account.host, account.port, account.user, account.password);
+
+                                                    Log.i(Helper.TAG, "SDS opening folder=" + _folder.name);
+                                                    ifolder = (IMAPFolder) istore.getFolder(_folder.name);
+                                                    ifolder.open(Folder.READ_WRITE);
+
+                                                    Log.i(Helper.TAG, "SDS searching=" + search + " before=" + new Date(itemAtEnd.received));
+                                                    imessages = ifolder.search(
+                                                            new AndTerm(
+                                                                    new ReceivedDateTerm(ComparisonTerm.LT, new Date(itemAtEnd.received)),
+                                                                    new OrTerm(
+                                                                            new FromStringTerm(search),
+                                                                            new OrTerm(
+                                                                                    new SubjectTerm(search),
+                                                                                    new BodyTerm(search)))));
+                                                    Log.i(Helper.TAG, "SDS found messages=" + imessages.length);
+                                                }
+
+                                                Log.i(Helper.TAG, "SDS offset=" + offset);
+                                                List<Message> selected = new ArrayList<>();
+                                                int index = imessages.length - 1 - offset;
+                                                while (selected.size() < SEARCH_PAGE_SIZE && index >= 0) {
+                                                    if (imessages[index].getReceivedDate().getTime() < itemAtEnd.received)
+                                                        selected.add(imessages[index]);
+                                                    index--;
+                                                }
+                                                Log.i(Helper.TAG, "SDS selected messages=" + selected.size());
+
+                                                for (Message imessage : selected) {
+                                                    Log.i(Helper.TAG, "Search sync uid=" + ifolder.getUID(imessage));
+                                                    ServiceSynchronize.synchronizeMessage(context, _folder, ifolder, (IMAPMessage) imessage, true);
+                                                }
+
+                                                offset += selected.size();
+
+                                                Log.i(Helper.TAG, "SDS done");
+                                            } catch (Throwable ex) {
+                                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                            }
+                                        }
+                                    });
+                                }
+                            })
+                            .build();
+
+                    messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+                        @Override
+                        public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                            if (messages == null) {
+                                finish();
+                                return;
+                            }
+
+                            Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                            adapter.submitList(messages);
+
+                            pbWait.setVisibility(View.GONE);
+                            grpReady.setVisibility(View.VISIBLE);
+
+                            if (messages.size() == 0) {
+                                tvNoEmail.setVisibility(View.VISIBLE);
+                                rvMessage.setVisibility(View.GONE);
+                            } else {
+                                tvNoEmail.setVisibility(View.GONE);
+                                rvMessage.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
+                }
+            }.load(FragmentMessages.this, args);
         }
-
-        messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-            @Override
-            public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                if (messages == null) {
-                    finish();
-                    return;
-                }
-
-                Log.i(Helper.TAG, "Submit messages=" + messages.size());
-                adapter.submitList(messages);
-
-                pbWait.setVisibility(View.GONE);
-                grpReady.setVisibility(View.VISIBLE);
-
-                if (messages.size() == 0) {
-                    tvNoEmail.setVisibility(View.VISIBLE);
-                    rvMessage.setVisibility(View.GONE);
-                } else {
-                    tvNoEmail.setVisibility(View.GONE);
-                    rvMessage.setVisibility(View.VISIBLE);
-                }
-            }
-        });
 
         Bundle args = new Bundle();
         args.putLong("folder", folder);

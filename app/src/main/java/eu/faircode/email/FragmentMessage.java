@@ -467,78 +467,76 @@ public class FragmentMessage extends FragmentEx {
 
         DB db = DB.getInstance(getContext());
 
-        if (!message.virtual) {
-            // Observe message
-            db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+        // Observe message
+        db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
 
-                @Override
-                public void onChanged(@Nullable final TupleMessageEx message) {
-                    if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
-                        // Message gone (moved, deleted)
-                        finish();
-                        return;
+            @Override
+            public void onChanged(@Nullable final TupleMessageEx message) {
+                if (message == null || (!(debug && BuildConfig.DEBUG) && message.ui_hide)) {
+                    // Message gone (moved, deleted)
+                    finish();
+                    return;
+                }
+
+                // Messages are immutable except for flags
+                FragmentMessage.this.message.seen = message.seen;
+                FragmentMessage.this.message.ui_seen = message.ui_seen;
+                setSeen();
+            }
+        });
+
+        // Observe attachments
+        db.attachment().liveAttachments(message.id).observe(getViewLifecycleOwner(),
+                new Observer<List<EntityAttachment>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                        if (attachments == null)
+                            attachments = new ArrayList<>();
+
+                        adapter.set(attachments);
+                        grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                    }
+                });
+
+        // Observe folders
+        db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+            @Override
+            public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+
+                boolean hasTrash = false;
+                boolean hasJunk = false;
+                boolean hasArchive = false;
+                boolean hasUser = false;
+                if (folders != null)
+                    for (EntityFolder folder : folders) {
+                        if (EntityFolder.TRASH.equals(folder.type))
+                            hasTrash = true;
+                        else if (EntityFolder.JUNK.equals(folder.type))
+                            hasJunk = true;
+                        else if (EntityFolder.ARCHIVE.equals(folder.type))
+                            hasArchive = true;
+                        else if (EntityFolder.USER.equals(folder.type))
+                            hasUser = true;
                     }
 
-                    // Messages are immutable except for flags
-                    FragmentMessage.this.message.seen = message.seen;
-                    FragmentMessage.this.message.ui_seen = message.ui_seen;
-                    setSeen();
-                }
-            });
+                bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
 
-            // Observe attachments
-            db.attachment().liveAttachments(message.id).observe(getViewLifecycleOwner(),
-                    new Observer<List<EntityAttachment>>() {
-                        @Override
-                        public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                            if (attachments == null)
-                                attachments = new ArrayList<>();
-
-                            adapter.set(attachments);
-                            grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
-                        }
-                    });
-
-            // Observe folders
-            db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                @Override
-                public void onChanged(@Nullable List<TupleFolderEx> folders) {
-                    if (folders == null)
-                        folders = new ArrayList<>();
-
-                    boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
-                    boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                    boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                    boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
-                    boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
-
-                    boolean hasTrash = false;
-                    boolean hasJunk = false;
-                    boolean hasArchive = false;
-                    boolean hasUser = false;
-                    if (folders != null)
-                        for (EntityFolder folder : folders) {
-                            if (EntityFolder.TRASH.equals(folder.type))
-                                hasTrash = true;
-                            else if (EntityFolder.JUNK.equals(folder.type))
-                                hasJunk = true;
-                            else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                hasArchive = true;
-                            else if (EntityFolder.USER.equals(folder.type))
-                                hasUser = true;
-                        }
-
-                    bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
-
-                    bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
-                    bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                    bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                    bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-                    bottom_navigation.setVisibility(View.VISIBLE);
-                }
-            });
-        }
+                bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
+                bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                bottom_navigation.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     private void setSeen() {
@@ -567,9 +565,9 @@ public class FragmentMessage extends FragmentEx {
         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
-        menu.findItem(R.id.menu_thread).setVisible(!free && !message.virtual && message.count > 1);
-        menu.findItem(R.id.menu_forward).setVisible(!free && !message.virtual && !inOutbox);
-        menu.findItem(R.id.menu_reply_all).setVisible(!free && !message.virtual && message.cc != null && !inOutbox);
+        menu.findItem(R.id.menu_thread).setVisible(!free && message.count > 1);
+        menu.findItem(R.id.menu_forward).setVisible(!free && !inOutbox);
+        menu.findItem(R.id.menu_reply_all).setVisible(!free && message.cc != null && !inOutbox);
         menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null && !inOutbox);
     }
 

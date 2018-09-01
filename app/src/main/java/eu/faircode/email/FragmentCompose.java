@@ -845,6 +845,7 @@ public class FragmentCompose extends FragmentEx {
                 draft.seen = false;
                 draft.ui_seen = false;
                 draft.ui_hide = false;
+                draft.ui_found = false;
 
                 draft.id = db.message().insertMessage(draft);
                 draft.write(context, body == null ? "" : body);
@@ -1107,6 +1108,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.uid = null;
                     draft.msgid = msgid;
                     draft.ui_hide = false;
+                    draft.ui_found = false;
                     draft.id = db.message().insertMessage(draft);
                     draft.write(getContext(), pbody);
 
