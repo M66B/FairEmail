@@ -94,7 +94,6 @@ public class FragmentAccount extends FragmentEx {
     private EditText etInterval;
     private Button btnCheck;
     private ProgressBar pbCheck;
-    private TextView tvIdle;
     private Spinner spDrafts;
     private Spinner spSent;
     private Spinner spAll;
@@ -105,6 +104,7 @@ public class FragmentAccount extends FragmentEx {
     private ImageButton ibDelete;
     private ProgressBar pbWait;
     private Group grpInstructions;
+    private Group grpInterval;
     private Group grpFolders;
 
     private long id = -1;
@@ -140,7 +140,6 @@ public class FragmentAccount extends FragmentEx {
         etInterval = view.findViewById(R.id.etInterval);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
-        tvIdle = view.findViewById(R.id.tvIdle);
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
         spAll = view.findViewById(R.id.spAll);
@@ -151,6 +150,7 @@ public class FragmentAccount extends FragmentEx {
         ibDelete = view.findViewById(R.id.ibDelete);
         pbWait = view.findViewById(R.id.pbWait);
         grpInstructions = view.findViewById(R.id.grpInstructions);
+        grpInterval = view.findViewById(R.id.grpInterval);
         grpFolders = view.findViewById(R.id.grpFolders);
 
         // Wire controls
@@ -282,10 +282,11 @@ public class FragmentAccount extends FragmentEx {
                             istore = (IMAPStore) isession.getStore("imaps");
                             istore.connect(host, Integer.parseInt(port), user, password);
 
+                            if (!istore.hasCapability("IDLE"))
+                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
+
                             if (!istore.hasCapability("UIDPLUS"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
-
-                            args.putBoolean("idle", istore.hasCapability("IDLE"));
 
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                                 String type = null;
@@ -351,8 +352,6 @@ public class FragmentAccount extends FragmentEx {
 
                         // Refreshed token
                         tilPassword.getEditText().setText(args.getString("password"));
-
-                        tvIdle.setVisibility(args.getBoolean("idle") ? View.GONE : View.VISIBLE);
 
                         final Collator collator = Collator.getInstance(Locale.getDefault());
                         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -672,11 +671,12 @@ public class FragmentAccount extends FragmentEx {
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
         btnAuthorize.setEnabled(false);
+        grpInstructions.setVisibility(View.GONE);
+        grpInterval.setVisibility(View.GONE);
         btnCheck.setEnabled(false);
         pbCheck.setVisibility(View.GONE);
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        tvIdle.setVisibility(View.GONE);
         grpFolders.setVisibility(View.GONE);
         ibDelete.setVisibility(View.GONE);
 
@@ -754,6 +754,8 @@ public class FragmentAccount extends FragmentEx {
                 grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
+
+                grpInterval.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
                 btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
                 btnSave.setVisibility(cbSynchronize.isChecked() ? View.GONE : View.VISIBLE);

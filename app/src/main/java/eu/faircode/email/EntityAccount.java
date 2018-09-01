@@ -51,7 +51,7 @@ public class EntityAccount {
     @NonNull
     public Boolean store_sent; // obsolete
     @NonNull
-    public Integer poll_interval;
+    public Integer poll_interval; // NOOP interval
     public Long seen_until;
     public String state;
     public String error;
