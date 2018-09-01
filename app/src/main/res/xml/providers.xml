@@ -132,4 +132,15 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Mail.de"
+        link="https://mail.de/hilfe/pop3-imap-einstellungen">
+        <imap
+            host="imap.mail.de"
+            port="993" />
+        <smtp
+            host="smtp.mail.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
