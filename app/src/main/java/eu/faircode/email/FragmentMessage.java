@@ -653,7 +653,7 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_thread).setVisible(!free && !message.virtual && message.count > 1);
         menu.findItem(R.id.menu_forward).setVisible(!free && !message.virtual && !inOutbox);
         menu.findItem(R.id.menu_reply_all).setVisible(!free && !message.virtual && message.cc != null && !inOutbox);
-        menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null);
+        menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null && !inOutbox);
     }
 
     @Override
