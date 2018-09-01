@@ -12,7 +12,7 @@
         android:id="@+id/menu_thread"
         android:icon="@drawable/baseline_message_24"
         android:title="@string/title_thread"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_forward"
