@@ -354,6 +354,11 @@ public class FragmentMessage extends FragmentEx {
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), true);
         rvAttachment.setAdapter(adapter);
 
+        tvCount.setTag(View.GONE);
+        tvCc.setTag(View.GONE);
+        rvAttachment.setTag(View.GONE);
+        tvError.setTag(View.GONE);
+
         return view;
     }
 
