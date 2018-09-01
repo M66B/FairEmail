@@ -20,9 +20,11 @@ package eu.faircode.email;
 */
 
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,8 +39,10 @@ import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.Spanned;
+import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.text.style.ImageSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -82,7 +86,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.Multipart;
+import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetHeaders;
+import javax.mail.internet.MimeBodyPart;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -137,6 +145,7 @@ public class FragmentMessage extends FragmentEx {
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
+    static final String ACTION_DECRYPT_MESSAGE = BuildConfig.APPLICATION_ID + ".DECRYPT_MESSAGEs";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -149,6 +158,21 @@ public class FragmentMessage extends FragmentEx {
 
         openPgpConnection = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
         openPgpConnection.bindToService();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        IntentFilter iff = new IntentFilter(ACTION_DECRYPT_MESSAGE);
+        lbm.registerReceiver(receiver, iff);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.unregisterReceiver(receiver);
     }
 
     @Override
@@ -409,121 +433,9 @@ public class FragmentMessage extends FragmentEx {
             // Spanned text needs to be loaded after recreation too
             final Bundle args = new Bundle();
             args.putLong("id", message.id);
-            args.putBoolean("has_images", false);
             args.putBoolean("show_images", false);
 
             pbBody.setVisibility(View.VISIBLE);
-            final SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
-                @Override
-                protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
-                    final long id = args.getLong("id");
-                    final boolean show_images = args.getBoolean("show_images");
-                    String body = (decrypted == null ? message.read(context) : decrypted);
-                    args.putInt("size", body.length());
-
-                    return Html.fromHtml(HtmlHelper.sanitize(getContext(), body, false), new Html.ImageGetter() {
-                        @Override
-                        public Drawable getDrawable(String source) {
-                            float scale = context.getResources().getDisplayMetrics().density;
-                            int px = (int) (24 * scale + 0.5f);
-
-                            if (show_images) {
-                                // Get cache folder
-                                File dir = new File(context.getCacheDir(), "images");
-                                dir.mkdir();
-
-                                // Cleanup cache
-                                long now = new Date().getTime();
-                                File[] images = dir.listFiles();
-                                if (images != null)
-                                    for (File image : images)
-                                        if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
-                                            Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
-                                            image.delete();
-                                        }
-
-                                // Create unique file name
-                                File file = new File(dir, id + "_" + source.hashCode());
-
-                                InputStream is = null;
-                                FileOutputStream os = null;
-                                try {
-                                    // Get input stream
-                                    if (file.exists()) {
-                                        Log.i(Helper.TAG, "Using cached " + file);
-                                        is = new FileInputStream(file);
-                                    } else {
-                                        Log.i(Helper.TAG, "Downloading " + source);
-                                        is = new URL(source).openStream();
-                                    }
-
-                                    // Decode image from stream
-                                    Bitmap bm = BitmapFactory.decodeStream(is);
-                                    if (bm == null)
-                                        throw new IllegalArgumentException();
-
-                                    // Cache bitmap
-                                    if (!file.exists()) {
-                                        os = new FileOutputStream(file);
-                                        bm.compress(Bitmap.CompressFormat.PNG, 100, os);
-                                    }
-
-                                    // Create drawable from bitmap
-                                    Drawable d = new BitmapDrawable(context.getResources(), bm);
-                                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                                    return d;
-                                } catch (Throwable ex) {
-                                    // Show warning icon
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                                    d.setBounds(0, 0, px, px);
-                                    return d;
-                                } finally {
-                                    // Close streams
-                                    if (is != null) {
-                                        try {
-                                            is.close();
-                                        } catch (IOException e) {
-                                            Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                                        }
-                                    }
-                                    if (os != null) {
-                                        try {
-                                            os.close();
-                                        } catch (IOException e) {
-                                            Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                                        }
-                                    }
-                                }
-                            } else {
-                                // Show placeholder icon
-                                args.putBoolean("has_images", true);
-                                Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
-                                d.setBounds(0, 0, px, px);
-                                return d;
-                            }
-                        }
-                    }, new Html.TagHandler() {
-                        @Override
-                        public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                            Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
-                        }
-                    });
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, Spanned body) {
-                    boolean has_images = args.getBoolean("has_images");
-                    boolean show_images = args.getBoolean("show_images");
-                    tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
-                    tvBody.setText(body);
-                    tvBody.setTag(true);
-                    btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
-                    grpMessage.setVisibility(View.VISIBLE);
-                    fab.setVisibility(free ? View.GONE : View.VISIBLE);
-                    pbBody.setVisibility(View.GONE);
-                }
-            };
 
             bodyTask.load(FragmentMessage.this, args);
 
@@ -761,79 +673,24 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onMenuDecrypt() {
-        Log.i(Helper.TAG, "On decrypt");
-
-        if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
-            return;
-        }
-
         try {
-            if (openPgpConnection == null || !openPgpConnection.isBound())
-                throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
-
-            if (message.to == null || message.to.length == 0)
-                throw new IllegalArgumentException(getString(R.string.title_to_missing));
-
             // Find encrypted message
             String begin = "-----BEGIN PGP MESSAGE-----";
             String end = "-----END PGP MESSAGE-----";
             Document document = Jsoup.parse(message.read(getContext()));
+
             String encrypted = document.text();
+
             int efrom = encrypted.indexOf(begin) + begin.length();
             int eto = encrypted.indexOf(end);
             if (efrom < 0 || eto < 0)
                 throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
+
             encrypted = begin + "\n" + encrypted.substring(efrom, eto).replace(" ", "\n") + end + "\n";
-            final InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
-            final ByteArrayOutputStream os = new ByteArrayOutputStream();
+            InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
 
-            InternetAddress to = (InternetAddress) message.to[0];
+            decrypt(is, false);
 
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
-
-            OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
-            api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {
-                @Override
-                public void onReturn(Intent result) {
-                    try {
-                        int code = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                        switch (code) {
-                            case OpenPgpApi.RESULT_CODE_SUCCESS: {
-                                Log.i(Helper.TAG, "Decrypted");
-                                FragmentMessage.this.decrypted = os.toString("UTF-8");
-                                getActivity().invalidateOptionsMenu();
-                                tvBody.setText(decrypted);
-                                break;
-                            }
-                            case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
-                                Log.i(Helper.TAG, "User interaction");
-                                PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-                                startIntentSenderForResult(
-                                        pi.getIntentSender(),
-                                        ActivityView.REQUEST_OPENPGP,
-                                        null, 0, 0, 0,
-                                        new Bundle());
-                                break;
-                            }
-                            case OpenPgpApi.RESULT_CODE_ERROR: {
-                                OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                                throw new IllegalArgumentException(error.getMessage());
-                            }
-                        }
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             if (ex instanceof IllegalArgumentException)
@@ -1173,4 +1030,235 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("action", "reply")
                 .putExtra("reference", message.id));
     }
+
+    SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+        @Override
+        protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
+            final long id = args.getLong("id");
+            final boolean show_images = args.getBoolean("show_images");
+            String body = (decrypted == null ? message.read(context) : decrypted);
+            args.putInt("size", body.length());
+            return decodeHtml(context, id, body, show_images);
+        }
+
+        @Override
+        protected void onLoaded(Bundle args, Spanned body) {
+            boolean show_images = args.getBoolean("show_images");
+
+            SpannedString ss = new SpannedString(body);
+            boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
+
+            tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
+            tvBody.setText(body);
+            tvBody.setTag(true);
+            btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+            grpMessage.setVisibility(View.VISIBLE);
+            fab.setVisibility(free ? View.GONE : View.VISIBLE);
+            pbBody.setVisibility(View.GONE);
+        }
+    };
+
+    private static Spanned decodeHtml(final Context context, final long id, String body, final boolean show_images) {
+        Spanned result = Html.fromHtml(HtmlHelper.sanitize(context, body, false), new Html.ImageGetter() {
+            @Override
+            public Drawable getDrawable(String source) {
+                float scale = context.getResources().getDisplayMetrics().density;
+                int px = (int) (24 * scale + 0.5f);
+
+                if (show_images) {
+                    // Get cache folder
+                    File dir = new File(context.getCacheDir(), "images");
+                    dir.mkdir();
+
+                    // Cleanup cache
+                    long now = new Date().getTime();
+                    File[] images = dir.listFiles();
+                    if (images != null)
+                        for (File image : images)
+                            if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
+                                Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
+                                image.delete();
+                            }
+
+                    // Create unique file name
+                    File file = new File(dir, id + "_" + source.hashCode());
+
+                    InputStream is = null;
+                    FileOutputStream os = null;
+                    try {
+                        // Get input stream
+                        if (file.exists()) {
+                            Log.i(Helper.TAG, "Using cached " + file);
+                            is = new FileInputStream(file);
+                        } else {
+                            Log.i(Helper.TAG, "Downloading " + source);
+                            is = new URL(source).openStream();
+                        }
+
+                        // Decode image from stream
+                        Bitmap bm = BitmapFactory.decodeStream(is);
+                        if (bm == null)
+                            throw new IllegalArgumentException();
+
+                        // Cache bitmap
+                        if (!file.exists()) {
+                            os = new FileOutputStream(file);
+                            bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+                        }
+
+                        // Create drawable from bitmap
+                        Drawable d = new BitmapDrawable(context.getResources(), bm);
+                        d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                        return d;
+                    } catch (Throwable ex) {
+                        // Show warning icon
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    } finally {
+                        // Close streams
+                        if (is != null) {
+                            try {
+                                is.close();
+                            } catch (IOException e) {
+                                Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                            }
+                        }
+                        if (os != null) {
+                            try {
+                                os.close();
+                            } catch (IOException e) {
+                                Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                            }
+                        }
+                    }
+                } else {
+                    // Show placeholder icon
+                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                }
+            }
+        }, new Html.TagHandler() {
+            @Override
+            public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
+                Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
+            }
+        });
+
+        return result;
+    }
+
+    private void decrypt(InputStream is, final boolean isPart) {
+        Log.i(Helper.TAG, "On decrypt");
+
+        if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+            return;
+        }
+
+        if (openPgpConnection == null || !openPgpConnection.isBound())
+            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
+
+        if (message.to == null || message.to.length == 0)
+            throw new IllegalArgumentException(getString(R.string.title_to_missing));
+
+        final ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        InternetAddress to = (InternetAddress) message.to[0];
+
+        Intent data = new Intent();
+        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
+
+        OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
+        api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {
+            @Override
+            public void onReturn(Intent result) {
+                try {
+                    int code = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                    switch (code) {
+                        case OpenPgpApi.RESULT_CODE_SUCCESS: {
+                            Log.i(Helper.TAG, "Decrypted");
+                            String decrypted = os.toString("UTF-8");
+                            if (isPart) {
+                                String plain = null;
+                                String html = null;
+                                InternetHeaders ih = new InternetHeaders();
+                                ih.addHeader("Content-Type", "multipart/alternative");
+                                MimeBodyPart part = new MimeBodyPart(ih, decrypted.getBytes());
+                                Multipart mp = (Multipart) part.getContent();
+                                for (int i = 0; i < mp.getCount(); i++) {
+                                    Part bp = mp.getBodyPart(i);
+                                    if (bp.isMimeType("text/plain"))
+                                        plain = bp.getContent().toString();
+                                    else if (bp.isMimeType("text/html"))
+                                        html = bp.getContent().toString();
+                                }
+
+                                if (html != null)
+                                    FragmentMessage.this.decrypted = html;
+                                else if (plain != null)
+                                    FragmentMessage.this.decrypted = "<pre>" + plain.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                            } else
+                                FragmentMessage.this.decrypted = "<pre>" + decrypted.replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+                            getActivity().invalidateOptionsMenu();
+
+                            Bundle args = new Bundle();
+                            args.putLong("id", message.id);
+                            args.putBoolean("show_images", false);
+
+                            pbBody.setVisibility(View.VISIBLE);
+                            bodyTask.load(FragmentMessage.this, args);
+
+                            break;
+                        }
+                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
+                            Log.i(Helper.TAG, "User interaction");
+                            PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                            startIntentSenderForResult(
+                                    pi.getIntentSender(),
+                                    ActivityView.REQUEST_OPENPGP,
+                                    null, 0, 0, 0,
+                                    new Bundle());
+                            break;
+                        }
+                        case OpenPgpApi.RESULT_CODE_ERROR: {
+                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            throw new IllegalArgumentException(error.getMessage());
+                        }
+                    }
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    if (ex instanceof IllegalArgumentException)
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            new SimpleTask<InputStream>() {
+                @Override
+                protected InputStream onLoad(Context context, Bundle args) throws Throwable {
+                    File file = (File) args.getSerializable("file");
+                    FileInputStream fis = new FileInputStream(file);
+                    return fis;
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, InputStream data) {
+                    decrypt(data, true);
+                }
+            }.load(FragmentMessage.this, intent.getExtras());
+        }
+    };
 }

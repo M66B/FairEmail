@@ -156,31 +156,38 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     // Build file name
                     File file = EntityAttachment.getFile(context, attachment.id);
 
-                    // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                    Log.i(Helper.TAG, "uri=" + uri);
+                    if ("encrypted.asc".equals(attachment.name)) {
+                        Intent intent = new Intent(FragmentMessage.ACTION_DECRYPT_MESSAGE);
+                        intent.putExtra("file", file);
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(intent);
+                    } else {
+                        // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                        Log.i(Helper.TAG, "uri=" + uri);
 
-                    // Build intent
-                    final Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(uri, attachment.type);
-                    intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
-                    Log.i(Helper.TAG, "Intent=" + intent);
+                        // Build intent
+                        final Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setDataAndType(uri, attachment.type);
+                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
+                        Log.i(Helper.TAG, "Intent=" + intent);
 
-                    // Set permissions
-                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : targets) {
-                        Log.i(Helper.TAG, "Target=" + resolveInfo);
-                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        // Set permissions
+                        List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                        for (ResolveInfo resolveInfo : targets) {
+                            Log.i(Helper.TAG, "Target=" + resolveInfo);
+                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        }
+
+                        // Check if viewer available
+                        if (targets.size() == 0) {
+                            Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        context.startActivity(intent);
                     }
-
-                    // Check if viewer available
-                    if (targets.size() == 0) {
-                        Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    context.startActivity(intent);
                 } else {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
