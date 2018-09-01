@@ -68,6 +68,7 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.xml.sax.XMLReader;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -75,6 +76,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -86,8 +88,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import javax.mail.Multipart;
-import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeBodyPart;
@@ -1185,24 +1185,68 @@ public class FragmentMessage extends FragmentEx {
                             Log.i(Helper.TAG, "Decrypted");
                             String decrypted = os.toString("UTF-8");
                             if (isPart) {
-                                String plain = null;
-                                String html = null;
                                 InternetHeaders ih = new InternetHeaders();
                                 ih.addHeader("Content-Type", "multipart/alternative");
-                                MimeBodyPart part = new MimeBodyPart(ih, decrypted.getBytes());
-                                Multipart mp = (Multipart) part.getContent();
-                                for (int i = 0; i < mp.getCount(); i++) {
-                                    Part bp = mp.getBodyPart(i);
-                                    if (bp.isMimeType("text/plain"))
-                                        plain = bp.getContent().toString();
-                                    else if (bp.isMimeType("text/html"))
-                                        html = bp.getContent().toString();
-                                }
+                                final MimeBodyPart part = new MimeBodyPart(ih, decrypted.getBytes());
+                                FragmentMessage.this.decrypted = MessageHelper.getHtml(part);
 
-                                if (html != null)
-                                    FragmentMessage.this.decrypted = html;
-                                else if (plain != null)
-                                    FragmentMessage.this.decrypted = "<pre>" + plain.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                                // Store attachments
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            DB db = DB.getInstance(getContext());
+                                            int sequence = db.attachment().getAttachmentCount(message.id);
+
+                                            for (EntityAttachment attachment : MessageHelper.getAttachments(part))
+                                                if (db.attachment().getAttachmentCount(message.id, attachment.name) == 0)
+                                                    try {
+                                                        db.beginTransaction();
+
+                                                        attachment.message = message.id;
+                                                        attachment.sequence = ++sequence;
+                                                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                                                        File file = EntityAttachment.getFile(getContext(), attachment.id);
+
+                                                        // Store attachment
+                                                        InputStream is = null;
+                                                        OutputStream os = null;
+                                                        try {
+                                                            is = attachment.part.getInputStream();
+                                                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                                                            int size = 0;
+                                                            byte[] buffer = new byte[4096];
+                                                            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                                                                size += len;
+                                                                os.write(buffer, 0, len);
+                                                            }
+
+                                                            // Store attachment data
+                                                            attachment.size = size;
+                                                            attachment.progress = null;
+                                                            attachment.available = true;
+                                                            db.attachment().updateAttachment(attachment);
+                                                        } finally {
+                                                            try {
+                                                                if (is != null)
+                                                                    is.close();
+                                                            } finally {
+                                                                if (os != null)
+                                                                    os.close();
+                                                            }
+                                                        }
+
+                                                        db.setTransactionSuccessful();
+                                                    } finally {
+                                                        db.endTransaction();
+                                                    }
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        }
+                                    }
+                                }).start();
                             } else
                                 FragmentMessage.this.decrypted = "<pre>" + decrypted.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
