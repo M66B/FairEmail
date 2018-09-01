@@ -155,7 +155,7 @@
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
   <string name="title_search">Caută</string>
-  <string name="title_search_hint">Căutare pe server</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Se caută \'%1$s\'</string>
   <string name="title_answer_reply">Răspuns standard</string>
   <string name="title_answer_name">Titlu răspuns</string>

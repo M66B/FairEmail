@@ -151,7 +151,7 @@
   <string name="title_draft_saved">Brouillon enregistré</string>
   <string name="title_queued">Envoi du message</string>
   <string name="title_search">Rechercher</string>
-  <string name="title_search_hint">Rechercher sur le serveur</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Recherche de \'%1$s\'</string>
   <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>

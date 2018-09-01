@@ -151,7 +151,7 @@
   <string name="title_draft_saved">Kladde gemt</string>
   <string name="title_queued">Sender besked</string>
   <string name="title_search">Søg</string>
-  <string name="title_search_hint">Søg på server</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Søger \'%1$s \'</string>
   <string name="title_answer_reply">Standard svar</string>
   <string name="title_answer_name">Svarnavn</string>

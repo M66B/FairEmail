@@ -151,7 +151,7 @@
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
-  <string name="title_search_hint">Auf Server suchen</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Suche „%1$s“</string>
   <string name="title_answer_reply">Standardantworten</string>
   <string name="title_answer_name">Antwort Name</string>
@@ -165,7 +165,7 @@
   <string name="title_legend_connected">Verbunden</string>
   <string name="title_legend_synchronizing">Synchronisiere</string>
   <string name="title_legend_closing">Schließen</string>
-  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
+  <string name="title_hint_actions">Nach links wischen um in den Papierkorb zu werfen; Nach rechts wischen zum archivieren (sofern verfügbar); langes Drücken um als gelesen/ungelesen zu markieren</string>
   <string name="title_understood">Verstanden</string>
   <string name="title_pro_feature">Dies ist eine Premium Funktion</string>
   <string name="title_pro_list">Liste der Premium Funktionen</string>

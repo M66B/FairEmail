@@ -159,7 +159,7 @@
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
   <string name="title_search">Szukaj</string>
-  <string name="title_search_hint">Szukaj na serwerze</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Szukam \'%1$s\'</string>
   <string name="title_answer_reply">Standardowa odpowiedź</string>
   <string name="title_answer_name">Answer name</string>

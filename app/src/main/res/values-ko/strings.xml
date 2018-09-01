@@ -147,7 +147,7 @@
   <string name="title_draft_saved">Draft saved</string>
   <string name="title_queued">Sending message</string>
   <string name="title_search">Search</string>
-  <string name="title_search_hint">Search on server</string>
+  <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Searching \'%1$s\'</string>
   <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Answer name</string>

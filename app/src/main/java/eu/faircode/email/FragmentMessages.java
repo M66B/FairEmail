@@ -43,12 +43,9 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -379,14 +376,10 @@ public class FragmentMessages extends FragmentEx {
                                 private IMAPStore istore = null;
                                 private IMAPFolder ifolder = null;
                                 private Message[] imessages = null;
-                                private int offset = 0;
                                 private boolean observing = false;
-                                private ExecutorService executor = Executors.newSingleThreadExecutor();
 
                                 @Override
                                 public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
-                                    final Context context = getContext();
-
                                     if (!observing) {
                                         observing = true;
                                         getLifecycle().addObserver(new GenericLifecycleObserver() {
@@ -409,7 +402,12 @@ public class FragmentMessages extends FragmentEx {
                                         });
                                     }
 
-                                    executor.submit(new Runnable() {
+                                    Log.i(Helper.TAG, "SDS more");
+
+                                    // Hold on to context
+                                    final Context context = getContext();
+
+                                    new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
@@ -450,29 +448,22 @@ public class FragmentMessages extends FragmentEx {
                                                     Log.i(Helper.TAG, "SDS found messages=" + imessages.length);
                                                 }
 
-                                                Log.i(Helper.TAG, "SDS offset=" + offset);
-                                                List<Message> selected = new ArrayList<>();
-                                                int index = imessages.length - 1 - offset;
-                                                while (selected.size() < SEARCH_PAGE_SIZE && index >= 0) {
-                                                    if (imessages[index].getReceivedDate().getTime() < itemAtEnd.received)
-                                                        selected.add(imessages[index]);
+                                                int index = imessages.length - 1;
+                                                while (index >= 0) {
+                                                    if (imessages[index].getReceivedDate().getTime() < itemAtEnd.received) {
+                                                        Log.i(Helper.TAG, "Search sync uid=" + ifolder.getUID(imessages[index]));
+                                                        ServiceSynchronize.synchronizeMessage(context, _folder, ifolder, (IMAPMessage) imessages[index], true);
+                                                        break;
+                                                    }
                                                     index--;
                                                 }
-                                                Log.i(Helper.TAG, "SDS selected messages=" + selected.size());
-
-                                                for (Message imessage : selected) {
-                                                    Log.i(Helper.TAG, "Search sync uid=" + ifolder.getUID(imessage));
-                                                    ServiceSynchronize.synchronizeMessage(context, _folder, ifolder, (IMAPMessage) imessage, true);
-                                                }
-
-                                                offset += selected.size();
 
                                                 Log.i(Helper.TAG, "SDS done");
                                             } catch (Throwable ex) {
                                                 Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                             }
                                         }
-                                    });
+                                    }).start();
                                 }
                             })
                             .build();
