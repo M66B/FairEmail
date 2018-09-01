@@ -22,6 +22,7 @@ Features
 * Multiple identities (outboxes)
 * Unified inbox
 * Distraction free reading and writing
+* No advertising
 * Message threading
 * Two way synchronization
 * Offline storage and operations
