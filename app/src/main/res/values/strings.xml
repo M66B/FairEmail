@@ -196,7 +196,7 @@
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_closing">Closing</string>
 
-    <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+    <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
     <string name="title_understood">Understood</string>
 
     <string name="title_pro_feature">This is a pro feature</string>

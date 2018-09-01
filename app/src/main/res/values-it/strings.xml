@@ -76,7 +76,7 @@
   <string name="title_authorize">Select account</string>
   <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Conserva i messaggi inviati (abilita solo se necessario)</string>
-  <string name="title_interval">Intervallo di poll/keep-alive (minuti)</string>
+  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
   <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
   <string name="title_primary_account">Principale (account predefinito)</string>
@@ -165,7 +165,7 @@
   <string name="title_legend_connected">Connesso</string>
   <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Chiusura</string>
-  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
+  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
   <string name="title_understood">Understood</string>
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List of pro features</string>

@@ -18,28 +18,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvHintSwipe"
+        android:id="@+id/tvHintActions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
-        android:text="@string/title_hint_swipe"
-        app:layout_constraintEnd_toStartOf="@+id/btnHintSwipe"
+        android:text="@string/title_hint_actions"
+        app:layout_constraintEnd_toStartOf="@+id/btnHintActions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnHintSwipe"
+        android:id="@+id/btnHintActions"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:text="@string/title_understood"
-        app:layout_constraintBottom_toBottomOf="@id/tvHintSwipe"
+        app:layout_constraintBottom_toBottomOf="@id/tvHintActions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvHintSwipe" />
+        app:layout_constraintTop_toTopOf="@id/tvHintActions" />
 
     <View
         android:id="@+id/vSeparator"
@@ -48,7 +48,7 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnHintSwipe" />
+        app:layout_constraintTop_toBottomOf="@id/btnHintActions" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
@@ -88,7 +88,7 @@
         android:id="@+id/grpHintSwipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvHintSwipe,btnHintSwipe,vSeparator" />
+        app:constraint_referenced_ids="tvHintActions,btnHintActions,vSeparator" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpReady"

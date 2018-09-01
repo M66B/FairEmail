@@ -651,16 +651,9 @@ public class FragmentMessage extends FragmentEx {
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
         menu.findItem(R.id.menu_thread).setVisible(!free && !message.virtual && message.count > 1);
-        menu.findItem(R.id.menu_seen).setVisible(!free && !message.virtual && !inOutbox);
         menu.findItem(R.id.menu_forward).setVisible(!free && !message.virtual && !inOutbox);
         menu.findItem(R.id.menu_reply_all).setVisible(!free && !message.virtual && message.cc != null && !inOutbox);
         menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null);
-
-        MenuItem menuSeen = menu.findItem(R.id.menu_seen);
-        menuSeen.setIcon(message.ui_seen
-                ? R.drawable.baseline_visibility_off_24
-                : R.drawable.baseline_visibility_24);
-        menuSeen.setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
     }
 
     @Override
@@ -671,9 +664,6 @@ public class FragmentMessage extends FragmentEx {
                 return true;
             case R.id.menu_thread:
                 onMenuThread();
-                return true;
-            case R.id.menu_seen:
-                onMenuSeen();
                 return true;
             case R.id.menu_forward:
                 onMenuForward();
@@ -708,49 +698,6 @@ public class FragmentMessage extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
         fragmentTransaction.commit();
-    }
-
-    private void onMenuSeen() {
-        Helper.setViewsEnabled(view, false);
-
-        Bundle args = new Bundle();
-        args.putLong("id", message.id);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onLoad(Context context, Bundle args) {
-                long id = args.getLong("id");
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityMessage message = db.message().getMessage(id);
-                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
-                        db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
-                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
-                    }
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                EntityOperation.process(context);
-
-                return null;
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, Void data) {
-                Helper.setViewsEnabled(view, true);
-            }
-
-            @Override
-            public void onException(Bundle args, Throwable ex) {
-                Helper.setViewsEnabled(view, true);
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-            }
-        }.load(this, args);
     }
 
     private void onMenuForward() {

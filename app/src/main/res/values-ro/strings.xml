@@ -58,7 +58,7 @@
   <string name="title_advanced_webview">Folosește WebView pentru legăturile externe</string>
   <string name="title_advanced_customtabs">în loc de <a href="https://developer.chrome.com/multidevice/android/customtabs">tab Chrome personalizat</a></string>
   <string name="title_advanced_sanitize">Înlătură formatarea HTML din mesaje</string>
-  <string name="title_advanced_compress_imap">Compress IMAP data</string>
+  <string name="title_advanced_compress_imap">Comprimă datele IMAP</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
@@ -80,7 +80,7 @@
   <string name="title_authorize">Selectare cont</string>
   <string name="title_instructions">Instrucțiuni</string>
   <string name="title_store_sent">Stochează mesajele trimise (activați doar la nevoie)</string>
-  <string name="title_interval">Interval sincronizare (minute)</string>
+  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
   <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -127,7 +127,7 @@
   <string name="title_move">Mută</string>
   <string name="title_archive">Arhivă</string>
   <string name="title_reply">Răspunde</string>
-  <string name="title_moving">Moving message to %1$s</string>
+  <string name="title_moving">Mesajul se mută în %1$s</string>
   <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
   <string name="title_attachment_saved">Atașament salvat</string>
   <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
@@ -145,7 +145,7 @@
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
   <string name="title_no_openpgp">OpenPGP nu este disponibil</string>
-  <string name="title_not_encrypted">Encrypted message not found</string>
+  <string name="title_not_encrypted">Mesajul criptat nu a fost găsit</string>
   <string name="title_encrypt">Criptare</string>
   <string name="title_decrypt">Decriptare</string>
   <string name="title_from_missing">Expeditor lipsă</string>
@@ -167,10 +167,10 @@
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>
-  <string name="title_legend_synchronizing">Synchronizing</string>
+  <string name="title_legend_synchronizing">Sincronizare</string>
   <string name="title_legend_closing">Închidere</string>
-  <string name="title_hint_swipe">Swipe left to trash and swipe right to archive (if available)</string>
-  <string name="title_understood">Understood</string>
+  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
+  <string name="title_understood">Am înțeles</string>
   <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
   <string name="title_pro_list">Lista de caracteristici Pro</string>
   <string name="title_pro_purchase">Cumpără</string>

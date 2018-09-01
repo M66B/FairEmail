@@ -76,7 +76,7 @@
   <string name="title_authorize">Konto wählen</string>
   <string name="title_instructions">Anweisungen</string>
   <string name="title_store_sent">Speichere gesendete Nachrichten (nur bei Bedarf aktivieren)</string>
-  <string name="title_interval">Poll/Keep-Alive Intervall (Minuten)</string>
+  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primär (Standard-Konto)</string>
@@ -141,7 +141,7 @@
   <string name="title_show_addresses">CC/BCC anzeigen</string>
   <string name="title_add_attachment">Anhang hinzufügen</string>
   <string name="title_no_openpgp">OpenPGP nicht verfügbar</string>
-  <string name="title_not_encrypted">Encrypted message not found</string>
+  <string name="title_not_encrypted">Verschlüsselte Nachricht nicht gefunden</string>
   <string name="title_encrypt">Verschlüsseln</string>
   <string name="title_decrypt">Entschlüsseln</string>
   <string name="title_from_missing">Absender fehlt</string>
@@ -165,7 +165,7 @@
   <string name="title_legend_connected">Verbunden</string>
   <string name="title_legend_synchronizing">Synchronisiere</string>
   <string name="title_legend_closing">Schließen</string>
-  <string name="title_hint_swipe">Streichen Sie nach links zum Löschen und nach rechts zum archivieren (sofern verfügbar)</string>
+  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
   <string name="title_understood">Verstanden</string>
   <string name="title_pro_feature">Dies ist eine Premium Funktion</string>
   <string name="title_pro_list">Liste der Premium Funktionen</string>

@@ -76,7 +76,7 @@
   <string name="title_authorize">Sélectionner un compte</string>
   <string name="title_instructions">Instructions</string>
   <string name="title_store_sent">Stocker les messages envoyés (à activer si nécessaire)</string>
-  <string name="title_interval">Intervalle de consultation/requête (minutes)</string>
+  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
   <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
   <string name="title_primary_account">Principal (compte par défaut)</string>
@@ -141,7 +141,7 @@
   <string name="title_show_addresses">Afficher Cc/Cci</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
   <string name="title_no_openpgp">OpenPGP n’est pas disponible</string>
-  <string name="title_not_encrypted">Encrypted message not found</string>
+  <string name="title_not_encrypted">Message chiffré non trouvé</string>
   <string name="title_encrypt">Chiffrer</string>
   <string name="title_decrypt">Déchiffrer</string>
   <string name="title_from_missing">Expéditeur manquant</string>
@@ -165,7 +165,7 @@
   <string name="title_legend_connected">Connecté</string>
   <string name="title_legend_synchronizing">Synchronisation en cours</string>
   <string name="title_legend_closing">Fermeture en cours</string>
-  <string name="title_hint_swipe">Balayer à gauche pour supprimer et balayer à droite pour archiver (si disponible)</string>
+  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
   <string name="title_understood">Compris</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>

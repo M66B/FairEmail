@@ -15,12 +15,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_seen"
-        android:icon="@drawable/baseline_visibility_off_24"
-        android:title="@string/title_seen"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_forward"
         android:icon="@drawable/baseline_forward_24"
         android:title="@string/title_forward"

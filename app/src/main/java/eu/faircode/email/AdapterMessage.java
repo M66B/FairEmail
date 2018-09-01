@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -202,10 +204,38 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             TupleMessageEx message = getItem(pos);
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                            .putExtra("message", message));
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
+                            db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
+                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    EntityOperation.process(context);
+
+                    return null;
+                }
+
+                @Override
+                public void onException(Bundle args, Throwable ex) {
+                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                }
+            }.load(context, owner, args);
 
             return true;
         }

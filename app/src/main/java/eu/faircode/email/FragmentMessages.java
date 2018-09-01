@@ -58,7 +58,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
-    private Button btnHintSwipe;
+    private Button btnHintActions;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
@@ -99,7 +99,7 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
-        btnHintSwipe = view.findViewById(R.id.btnHintSwipe);
+        btnHintActions = view.findViewById(R.id.btnHintActions);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         pbWait = view.findViewById(R.id.pbWait);
@@ -110,10 +110,10 @@ public class FragmentMessages extends FragmentEx {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        btnHintSwipe.setOnClickListener(new View.OnClickListener() {
+        btnHintActions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putBoolean("understood_swipe", true).apply();
+                prefs.edit().putBoolean("understood_actions", true).apply();
                 grpHintSwipe.setVisibility(View.GONE);
             }
         });
@@ -243,7 +243,7 @@ public class FragmentMessages extends FragmentEx {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        grpHintSwipe.setVisibility(prefs.getBoolean("understood_swipe", false) ? View.GONE : View.VISIBLE);
+        grpHintSwipe.setVisibility(prefs.getBoolean("understood_actions", false) ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
