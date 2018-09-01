@@ -746,18 +746,23 @@ public class FragmentCompose extends FragmentEx {
                     account = ref.account;
 
                     // Reply to sender, not to known self
-                    if (ref.from != null && ref.from.length == 1) {
-                        // All identities, synchronized or not
-                        List<EntityIdentity> identities = db.identity().getIdentities();
-                        for (EntityIdentity identity : identities)
-                            if (((InternetAddress) ref.from[0]).getAddress().equals(identity.email)) {
-                                Address[] tmp = ref.to;
-                                ref.to = ref.from;
-                                ref.reply = null;
-                                ref.from = tmp;
-                                break;
-                            }
-                    }
+                    String from = (ref.from == null || ref.from.length == 0 ? null : ((InternetAddress) ref.from[0]).getAddress());
+                    String replyto = (ref.reply == null || ref.reply.length == 0 ? null : ((InternetAddress) ref.reply[0]).getAddress());
+                    List<EntityIdentity> identities = db.identity().getIdentities();
+                    for (EntityIdentity identity : identities)
+                        if (from != null && from.equals(identity.email)) {
+                            Address[] tmp = ref.to;
+                            ref.to = ref.from;
+                            ref.reply = null;
+                            ref.from = tmp;
+                            break;
+                        } else if (replyto != null && replyto.equals(identity.email)) {
+                            Address[] tmp = ref.reply;
+                            ref.to = ref.from;
+                            ref.reply = null;
+                            ref.from = tmp;
+                            break;
+                        }
                 }
 
                 EntityFolder drafts;
