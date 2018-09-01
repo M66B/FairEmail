@@ -453,13 +453,14 @@ public class FragmentCompose extends FragmentEx {
             if (openPgpConnection == null || !openPgpConnection.isBound())
                 throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
-            EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
-            if (identity == null)
-                throw new IllegalArgumentException(getString(R.string.title_from_missing));
+            String to = etTo.getText().toString();
+            InternetAddress ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+            if (ato == null || ato.length == 0)
+                throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_ENCRYPT);
-            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{identity.email});
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{ato[0].getAddress()});
             data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
             String plain = etBody.getText().toString();
