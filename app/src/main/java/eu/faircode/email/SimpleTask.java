@@ -22,8 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.HandlerThread;
+import android.support.annotation.NonNull;
 import android.util.Log;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -47,15 +51,14 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Bundle args = null;
     private Result stored = null;
 
-    private static HandlerThread handlerThread;
-    private static Handler handler;
-
-    static {
-        handlerThread = new HandlerThread("SimpleTask");
-        handlerThread.start();
-        handlerThread.setPriority(THREAD_PRIORITY_BACKGROUND);
-        handler = new Handler(handlerThread.getLooper());
-    }
+    private ExecutorService executor = Executors.newFixedThreadPool(10, new ThreadFactory() {
+        @Override
+        public Thread newThread(@NonNull Runnable runnable) {
+            Thread thread = new Thread(runnable);
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+            return thread;
+        }
+    });
 
     public void load(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);
@@ -120,7 +123,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         owner.getLifecycle().addObserver(this);
 
         // Run in background thread
-        handler.post(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 final Result result = new Result();
