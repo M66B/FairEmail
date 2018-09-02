@@ -45,7 +45,6 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " AND NOT ui_found" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.type = '" + EntityFolder.INBOX + "' THEN 1 ELSE 0 END) > 0" +
             " ORDER BY message.received DESC")
@@ -61,7 +60,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " LEFT JOIN folder f ON f.id = :folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
-            " AND ui_found = :found" +
+            " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " ORDER BY message.received DESC, message.sent DESC")
@@ -75,7 +74,6 @@ public interface DaoMessage {
             " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
-            " AND NOT ui_found" +
             " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
             " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
             " ORDER BY message.received DESC, message.sent DESC")
@@ -131,7 +129,6 @@ public interface DaoMessage {
             " WHERE account.`synchronize`" +
             " AND folder.type = '" + EntityFolder.INBOX + "'" +
             " AND NOT message.ui_seen AND NOT message.ui_hide" +
-            " AND NOT ui_found" +
             " AND (account.seen_until IS NULL OR message.stored > account.seen_until)" +
             " ORDER BY message.received")
     LiveData<List<EntityMessage>> liveUnseenUnified();
@@ -140,7 +137,7 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND received >= :received" +
             " AND NOT uid IS NULL" +
-            " AND NOT ui_found")
+            " AND NOT ui_found" /* keep found messages */)
     List<Long> getUids(long folder, long received);
 
     @Insert

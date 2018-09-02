@@ -39,33 +39,15 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPMessage;
-import com.sun.mail.imap.IMAPStore;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
-
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.search.AndTerm;
-import javax.mail.search.BodyTerm;
-import javax.mail.search.ComparisonTerm;
-import javax.mail.search.FromStringTerm;
-import javax.mail.search.OrTerm;
-import javax.mail.search.ReceivedDateTerm;
-import javax.mail.search.SubjectTerm;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.GenericLifecycleObserver;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.paging.LivePagedListBuilder;
@@ -91,8 +73,13 @@ public class FragmentMessages extends FragmentEx {
     private long primary = -1;
     private AdapterMessage adapter;
 
+    private SearchState searchState = SearchState.Reset;
+    private BoundaryCallbackMessages searchCallback = null;
+
     private static final int MESSAGES_PAGE_SIZE = 50;
     private static final int SEARCH_PAGE_SIZE = 10;
+
+    private enum SearchState {Reset, Database, Boundary}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -184,7 +171,7 @@ public class FragmentMessages extends FragmentEx {
                     args.putInt("direction", direction);
                     new SimpleTask<String>() {
                         @Override
-                        protected String onLoad(Context context, Bundle args) throws Throwable {
+                        protected String onLoad(Context context, Bundle args) {
                             long id = args.getLong("id");
                             int direction = args.getInt("direction");
                             EntityFolder target = null;
@@ -341,7 +328,29 @@ public class FragmentMessages extends FragmentEx {
                 }
             });
         } else {
+            Log.i(Helper.TAG, "Search state=" + searchState);
             setSubtitle(getString(R.string.title_searching, search));
+
+            if (searchCallback == null)
+                searchCallback = new BoundaryCallbackMessages(
+                        getContext(), FragmentMessages.this,
+                        folder, search,
+                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                            @Override
+                            public void onLoading() {
+                                pbWait.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            public void onLoaded() {
+                                pbWait.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onError(Throwable ex) {
+                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        });
 
             Bundle args = new Bundle();
             args.putLong("folder", folder);
@@ -349,150 +358,68 @@ public class FragmentMessages extends FragmentEx {
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
-                    long folder = args.getLong("folder");
-                    String search = args.getString("search").toLowerCase();
-
-                    db.message().resetFound(folder);
-
-                    for (long id : db.message().getMessageIDs(folder)) {
-                        EntityMessage message = db.message().getMessage(id);
-                        String from = MessageHelper.getFormattedAddresses(message.from, true);
-                        if (from.toLowerCase().contains(search) ||
-                                message.subject.toLowerCase().contains(search) ||
-                                message.read(context).toLowerCase().contains(search)) {
-                            Log.i(Helper.TAG, "SDS found id=" + id);
-                            db.message().setMessageFound(message.id, true);
-                        }
+                protected Void onLoad(Context context, Bundle args) {
+                    if (searchState == SearchState.Reset) {
+                        long folder = args.getLong("folder");
+                        DB.getInstance(context).message().resetFound(folder);
+                        searchState = SearchState.Database;
+                        Log.i(Helper.TAG, "Search reset done");
                     }
-
                     return null;
                 }
 
                 @Override
                 protected void onLoaded(final Bundle args, Void data) {
-                    LiveData<PagedList<TupleMessageEx>> messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, true, false), SEARCH_PAGE_SIZE)
-                            .setBoundaryCallback(new PagedList.BoundaryCallback<TupleMessageEx>() {
-                                private IMAPStore istore = null;
-                                private IMAPFolder ifolder = null;
-                                private Message[] imessages = null;
-                                private boolean observing = false;
-
-                                @Override
-                                public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
-                                    if (!observing) {
-                                        observing = true;
-                                        getLifecycle().addObserver(new GenericLifecycleObserver() {
-                                            @Override
-                                            public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
-                                                if (event == Lifecycle.Event.ON_DESTROY)
-                                                    new Thread(new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            Log.i(Helper.TAG, "SDS close");
-                                                            try {
-                                                                if (istore != null)
-                                                                    istore.close();
-                                                            } catch (Throwable ex) {
-                                                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                                            }
-                                                        }
-                                                    }).start();
-                                            }
-                                        });
-                                    }
-
-                                    Log.i(Helper.TAG, "SDS more");
-
-                                    // Hold on to context
-                                    final Context context = getContext();
-
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                long folder = args.getLong("folder");
-                                                String search = args.getString("search");
-
-                                                EntityFolder _folder = db.folder().getFolder(folder);
-                                                EntityAccount account = db.account().getAccount(_folder.account);
-
-                                                // Refresh token
-                                                //if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                                //    account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
-                                                //    db.account().setAccountPassword(account.id, account.password);
-                                                //}
-
-                                                if (imessages == null) {
-                                                    Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
-                                                    props.setProperty("mail.imap.throwsearchexception", "true");
-                                                    Session isession = Session.getInstance(props, null);
-
-                                                    Log.i(Helper.TAG, "SDS connecting account=" + account.name);
-                                                    istore = (IMAPStore) isession.getStore("imaps");
-                                                    istore.connect(account.host, account.port, account.user, account.password);
-
-                                                    Log.i(Helper.TAG, "SDS opening folder=" + _folder.name);
-                                                    ifolder = (IMAPFolder) istore.getFolder(_folder.name);
-                                                    ifolder.open(Folder.READ_WRITE);
-
-                                                    Log.i(Helper.TAG, "SDS searching=" + search + " before=" + new Date(itemAtEnd.received));
-                                                    imessages = ifolder.search(
-                                                            new AndTerm(
-                                                                    new ReceivedDateTerm(ComparisonTerm.LT, new Date(itemAtEnd.received)),
-                                                                    new OrTerm(
-                                                                            new FromStringTerm(search),
-                                                                            new OrTerm(
-                                                                                    new SubjectTerm(search),
-                                                                                    new BodyTerm(search)))));
-                                                    Log.i(Helper.TAG, "SDS found messages=" + imessages.length);
-                                                }
-
-                                                int index = imessages.length - 1;
-                                                while (index >= 0) {
-                                                    if (imessages[index].getReceivedDate().getTime() < itemAtEnd.received) {
-                                                        Log.i(Helper.TAG, "Search sync uid=" + ifolder.getUID(imessages[index]));
-                                                        ServiceSynchronize.synchronizeMessage(context, _folder, ifolder, (IMAPMessage) imessages[index], true);
-                                                        break;
-                                                    }
-                                                    index--;
-                                                }
-
-                                                Log.i(Helper.TAG, "SDS done");
-                                            } catch (Throwable ex) {
-                                                Log.i(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                            }
-                                        }
-                                    }).start();
-                                }
-                            })
-                            .build();
-
+                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(db.message().pagedFolder(folder, true, false), SEARCH_PAGE_SIZE);
+                    builder.setBoundaryCallback(searchCallback);
+                    LiveData<PagedList<TupleMessageEx>> messages = builder.build();
                     messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
                         @Override
-                        public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                            if (messages == null) {
-                                finish();
-                                return;
-                            }
-
-                            Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                        public void onChanged(PagedList<TupleMessageEx> messages) {
+                            Log.i(Helper.TAG, "Submit found messages=" + messages.size());
                             adapter.submitList(messages);
-
-                            pbWait.setVisibility(View.GONE);
                             grpReady.setVisibility(View.VISIBLE);
-
-                            if (messages.size() == 0) {
-                                tvNoEmail.setVisibility(View.VISIBLE);
-                                rvMessage.setVisibility(View.GONE);
-                            } else {
-                                tvNoEmail.setVisibility(View.GONE);
-                                rvMessage.setVisibility(View.VISIBLE);
-                            }
                         }
                     });
+
+                    new SimpleTask<Long>() {
+                        @Override
+                        protected Long onLoad(Context context, Bundle args) throws Throwable {
+                            long last = 0;
+                            if (searchState == SearchState.Database) {
+                                last = new Date().getTime();
+                                long folder = args.getLong("folder");
+                                String search = args.getString("search").toLowerCase();
+                                DB db = DB.getInstance(context);
+                                for (long id : db.message().getMessageIDs(folder)) {
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message != null) { // Message could be removed in the meantime
+                                        String from = MessageHelper.getFormattedAddresses(message.from, true);
+                                        if (from.toLowerCase().contains(search) ||
+                                                message.subject.toLowerCase().contains(search) ||
+                                                message.read(context).toLowerCase().contains(search)) {
+                                            Log.i(Helper.TAG, "Search found id=" + id);
+                                            db.message().setMessageFound(message.id, true);
+                                            last = message.received;
+                                        }
+                                    }
+                                }
+                                searchState = SearchState.Boundary;
+                                Log.i(Helper.TAG, "Search database done");
+                            }
+                            return last;
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Long last) {
+                            pbWait.setVisibility(View.GONE);
+                            searchCallback.setEnabled(true);
+                            if (last > 0)
+                                searchCallback.load(last);
+                        }
+                    }.load(FragmentMessages.this, args);
                 }
-            }.load(FragmentMessages.this, args);
+            }.load(this, args);
         }
 
         Bundle args = new Bundle();
