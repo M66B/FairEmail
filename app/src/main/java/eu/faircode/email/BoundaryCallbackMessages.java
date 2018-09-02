@@ -109,10 +109,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                         if (imessages == null) {
                             // Refresh token
-                            //if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                            //    account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
-                            //    db.account().setAccountPassword(account.id, account.password);
-                            //}
+                            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+                                db.account().setAccountPassword(account.id, account.password);
+                            }
 
                             Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
                             props.setProperty("mail.imap.throwsearchexception", "true");
