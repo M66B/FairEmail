@@ -230,7 +230,7 @@ public class FragmentMessage extends FragmentEx {
         tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() != MotionEvent.ACTION_UP)
-                    return super.onTouchEvent(widget, buffer, event);
+                    return false;
 
                 int x = (int) event.getX();
                 int y = (int) event.getY();
