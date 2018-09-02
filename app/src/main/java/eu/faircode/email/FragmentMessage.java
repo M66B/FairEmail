@@ -1078,12 +1078,15 @@ public class FragmentMessage extends FragmentEx {
                                 image.delete();
                             }
 
-                    // Create unique file name
-                    File file = new File(dir, id + "_" + source.hashCode());
-
                     InputStream is = null;
                     FileOutputStream os = null;
                     try {
+                        if (source == null)
+                            throw new IllegalArgumentException("Html.ImageGetter.getDrawable(source == null)");
+
+                        // Create unique file name
+                        File file = new File(dir, id + "_" + source.hashCode());
+
                         // Get input stream
                         if (file.exists()) {
                             Log.i(Helper.TAG, "Using cached " + file);
