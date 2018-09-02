@@ -10,6 +10,8 @@ import com.sun.mail.imap.IMAPStore;
 
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -33,6 +35,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private String search;
     private Handler mainHandler;
     private IBoundaryCallbackMessages intf;
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private boolean enabled = false;
     private IMAPStore istore = null;
@@ -91,82 +94,80 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     void load(final long before) {
-        new Thread(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
-                synchronized (context.getApplicationContext()) {
-                    try {
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onLoading();
-                            }
-                        });
+                try {
+                    mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onLoading();
+                        }
+                    });
 
-                        DB db = DB.getInstance(context);
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        EntityAccount account = db.account().getAccount(folder.account);
+                    DB db = DB.getInstance(context);
+                    EntityFolder folder = db.folder().getFolder(fid);
+                    EntityAccount account = db.account().getAccount(folder.account);
 
-                        if (imessages == null) {
-                            // Refresh token
-                            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                                account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
-                                db.account().setAccountPassword(account.id, account.password);
-                            }
-
-                            Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
-                            props.setProperty("mail.imap.throwsearchexception", "true");
-                            Session isession = Session.getInstance(props, null);
-
-                            Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
-                            istore = (IMAPStore) isession.getStore("imaps");
-                            istore.connect(account.host, account.port, account.user, account.password);
-
-                            Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
-                            ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                            ifolder.open(Folder.READ_WRITE);
-
-                            Log.i(Helper.TAG, "Boundary searching=" + search + " before=" + new Date(before));
-                            imessages = ifolder.search(
-                                    new AndTerm(
-                                            new ReceivedDateTerm(ComparisonTerm.LT, new Date(before)),
-                                            new OrTerm(
-                                                    new FromStringTerm(search),
-                                                    new OrTerm(
-                                                            new SubjectTerm(search),
-                                                            new BodyTerm(search)))));
-                            Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
+                    if (imessages == null) {
+                        // Refresh token
+                        if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                            account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+                            db.account().setAccountPassword(account.id, account.password);
                         }
 
-                        int index = imessages.length - 1;
-                        while (index >= 0) {
-                            if (imessages[index].getReceivedDate().getTime() < before) {
-                                Log.i(Helper.TAG, "Boundary sync uid=" + ifolder.getUID(imessages[index]));
-                                ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], true);
-                                break;
-                            }
-                            index--;
-                        }
+                        Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
+                        props.setProperty("mail.imap.throwsearchexception", "true");
+                        Session isession = Session.getInstance(props, null);
 
-                        Log.i(Helper.TAG, "Boundary done");
-                    } catch (final Throwable ex) {
-                        Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onError(ex);
-                            }
-                        });
-                    } finally {
-                        mainHandler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                intf.onLoaded();
-                            }
-                        });
+                        Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
+                        istore = (IMAPStore) isession.getStore("imaps");
+                        istore.connect(account.host, account.port, account.user, account.password);
+
+                        Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
+                        ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                        ifolder.open(Folder.READ_WRITE);
+
+                        Log.i(Helper.TAG, "Boundary searching=" + search + " before=" + new Date(before));
+                        imessages = ifolder.search(
+                                new AndTerm(
+                                        new ReceivedDateTerm(ComparisonTerm.LT, new Date(before)),
+                                        new OrTerm(
+                                                new FromStringTerm(search),
+                                                new OrTerm(
+                                                        new SubjectTerm(search),
+                                                        new BodyTerm(search)))));
+                        Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
                     }
+
+                    int index = imessages.length - 1;
+                    while (index >= 0) {
+                        if (imessages[index].getReceivedDate().getTime() < before) {
+                            Log.i(Helper.TAG, "Boundary sync uid=" + ifolder.getUID(imessages[index]));
+                            ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], true);
+                            break;
+                        }
+                        index--;
+                    }
+
+                    Log.i(Helper.TAG, "Boundary done");
+                } catch (final Throwable ex) {
+                    Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                    mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onError(ex);
+                        }
+                    });
+                } finally {
+                    mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onLoaded();
+                        }
+                    });
                 }
             }
-        }).start();
+        });
     }
 }
