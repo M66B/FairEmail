@@ -45,7 +45,8 @@ public class HtmlHelper implements NodeVisitor {
     private String newline;
     private List<String> refs = new ArrayList<>();
     private StringBuilder sb = new StringBuilder();
-    private Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
+
+    private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
 
     private HtmlHelper(Context context, boolean reply) {
         this.context = context;
@@ -56,7 +57,6 @@ public class HtmlHelper implements NodeVisitor {
         String name = node.nodeName();
         if (node instanceof TextNode) {
             String text = ((TextNode) node).text();
-            text = Html.escapeHtml(text);
             Matcher matcher = pattern.matcher(text);
             while (matcher.find()) {
                 String ref = matcher.group();
@@ -125,6 +125,25 @@ public class HtmlHelper implements NodeVisitor {
             Document document = Jsoup.parse(Jsoup.clean(html, Whitelist.relaxed()));
             for (Element tr : document.select("tr"))
                 tr.after("<br>");
+            NodeTraversor.traverse(new NodeVisitor() {
+                @Override
+                public void head(Node node, int depth) {
+                    if (node instanceof TextNode) {
+                        String text = ((TextNode) node).text();
+                        Matcher matcher = pattern.matcher(text);
+                        while (matcher.find()) {
+                            String ref = matcher.group();
+                            text = text.replace(ref, String.format("<a href=\"%s\">%s</a>", ref, ref));
+                        }
+                        node.before(text);
+                        ((TextNode) node).text("");
+                    }
+                }
+
+                @Override
+                public void tail(Node node, int depth) {
+                }
+            }, document.body());
             return document.body().html();
         }
     }
