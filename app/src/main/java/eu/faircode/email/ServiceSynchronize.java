@@ -59,6 +59,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -359,6 +360,7 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
+                !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SSLException)) {
             String action;
