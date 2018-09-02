@@ -1584,7 +1584,7 @@ public class ServiceSynchronize extends LifecycleService {
                             reportError(null, outbox.name, ex);
                         } finally {
                             Log.i(Helper.TAG, outbox.name + " end operations");
-                            db.folder().setFolderState(outbox.id, "connected");
+                            db.folder().setFolderState(outbox.id, null);
                         }
                     }
                 });
