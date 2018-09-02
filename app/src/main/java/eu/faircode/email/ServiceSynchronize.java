@@ -490,6 +490,9 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void run() {
                             try {
+                                // Process pending operations
+                                processOperations(folder, isession, istore, ifolder);
+
                                 // Listen for new and deleted messages
                                 ifolder.addMessageCountListener(new MessageCountAdapter() {
                                     @Override
@@ -715,14 +718,6 @@ public class ServiceSynchronize extends LifecycleService {
                 lbm.registerReceiver(processFolder, f);
 
                 try {
-                    // Process pending folder operations
-                    Log.i(Helper.TAG, "listen process folder");
-                    for (final EntityFolder folder : folders.keySet())
-                        if (!EntityFolder.OUTBOX.equals(folder.type))
-                            lbm.sendBroadcast(new Intent(ACTION_PROCESS_OPERATIONS)
-                                    .setType("account/" + account.id)
-                                    .putExtra("folder", folder.id));
-
                     // Keep store alive
                     while (state.running && istore.isConnected()) {
                         Log.i(Helper.TAG, "Checking folders");
