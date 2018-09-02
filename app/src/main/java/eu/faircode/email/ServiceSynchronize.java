@@ -306,7 +306,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
                 sb.append(" ").append(df.format(new Date(message.sent)));
-                sb.append("\n");
+                sb.append("<br>");
             }
 
             builder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
