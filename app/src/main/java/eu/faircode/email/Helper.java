@@ -120,7 +120,7 @@ public class Helper {
             String[] cmd = new String[]{"logcat",
                     "-d",
                     "-v", "threadtime",
-                    "-t", "500",
+                    "-t", "1000",
                     TAG + ":I"};
             proc = Runtime.getRuntime().exec(cmd);
             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
