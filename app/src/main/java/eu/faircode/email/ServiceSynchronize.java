@@ -910,17 +910,19 @@ public class ServiceSynchronize extends LifecycleService {
         MimeMessage imessage = MessageHelper.from(this, message, attachments, isession);
         AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
 
-        if (message.uid != null) {
-            Message iprev = ifolder.getMessageByUID(message.uid);
+        Long old = message.uid;
+
+        db.message().setMessageUid(message.id, uid[0].uid);
+        Log.i(Helper.TAG, "Appended uid=" + message.uid);
+
+        if (old != null) {
+            Message iprev = ifolder.getMessageByUID(old);
             if (iprev != null) {
-                Log.i(Helper.TAG, "Deleting existing id=" + message.id);
+                Log.i(Helper.TAG, "Deleting existing uid=" + old);
                 iprev.setFlag(Flags.Flag.DELETED, true);
                 ifolder.expunge();
             }
         }
-
-        db.message().setMessageUid(message.id, uid[0].uid);
-        Log.i(Helper.TAG, "Appended uid=" + message.uid);
     }
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
