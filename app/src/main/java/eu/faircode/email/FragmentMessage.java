@@ -180,11 +180,11 @@ public class FragmentMessage extends FragmentEx {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if (openPgpConnection != null) {
             openPgpConnection.unbindFromService();
             openPgpConnection = null;
         }
+        super.onDestroy();
     }
 
     @Override
@@ -387,6 +387,12 @@ public class FragmentMessage extends FragmentEx {
         tvError.setTag(View.GONE);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        adapter = null;
+        super.onDestroyView();
     }
 
     @Override
