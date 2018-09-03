@@ -333,6 +333,7 @@ public class FragmentCompose extends FragmentEx {
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAttachment.setLayoutManager(llm);
+        rvAttachment.setItemAnimator(null);
 
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), false);
         rvAttachment.setAdapter(adapter);
