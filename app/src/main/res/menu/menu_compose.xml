@@ -13,9 +13,4 @@
         android:icon="@drawable/baseline_people_24"
         android:title="@string/title_show_addresses"
         app:showAsAction="always" />
-
-    <item
-        android:id="@+id/menu_encrypt"
-        android:title="@string/title_encrypt"
-        app:showAsAction="never" />
 </menu>
