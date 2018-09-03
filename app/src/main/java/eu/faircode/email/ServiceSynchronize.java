@@ -482,7 +482,12 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderState(folder.id, "connecting");
 
                     final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                    ifolder.open(Folder.READ_WRITE);
+                    try {
+                        ifolder.open(Folder.READ_WRITE);
+                    } catch (Throwable ex) {
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        throw ex;
+                    }
                     folders.put(folder, ifolder);
 
                     db.folder().setFolderState(folder.id, "connected");
@@ -684,8 +689,13 @@ public class ServiceSynchronize extends LifecycleService {
                                             if (db.operation().getOperationCount(fid) == 0)
                                                 return;
 
+                                        db.folder().setFolderState(folder.id, "connecting");
+
                                         ifolder = (IMAPFolder) istore.getFolder(folder.name);
                                         ifolder.open(Folder.READ_WRITE);
+
+                                        db.folder().setFolderState(folder.id, "connected");
+                                        db.folder().setFolderError(folder.id, null);
                                     }
 
                                     if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
@@ -697,15 +707,20 @@ public class ServiceSynchronize extends LifecycleService {
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     reportError(account.name, folder.name, ex);
+
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 } finally {
-                                    if (shouldClose)
+                                    if (shouldClose) {
                                         if (ifolder != null && ifolder.isOpen()) {
+                                            db.folder().setFolderState(folder.id, "closing");
                                             try {
                                                 ifolder.close(false);
                                             } catch (MessagingException ex) {
                                                 Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             }
                                         }
+                                        db.folder().setFolderState(folder.id, null);
+                                    }
                                 }
                             }
                         });

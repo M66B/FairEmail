@@ -119,7 +119,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-            ivState.setVisibility(folder.synchronize || outbox ? View.VISIBLE : View.INVISIBLE);
+            ivState.setVisibility(folder.synchronize || "syncing".equals(folder.state) || outbox ? View.VISIBLE : View.INVISIBLE);
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
