@@ -340,6 +340,8 @@ public class ServiceSynchronize extends LifecycleService {
                 .setCategory(Notification.CATEGORY_ERROR)
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
+        builder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
+
         return builder;
     }
 
