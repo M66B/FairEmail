@@ -51,7 +51,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Bundle args = null;
     private Result stored = null;
 
-    private ExecutorService executor = Executors.newFixedThreadPool(10, new ThreadFactory() {
+    private ExecutorService executor = Executors.newCachedThreadPool(new ThreadFactory() {
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
             Thread thread = new Thread(runnable);
