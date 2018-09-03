@@ -138,11 +138,12 @@ public class FragmentCompose extends FragmentEx {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if (openPgpConnection != null) {
             openPgpConnection.unbindFromService();
             openPgpConnection = null;
         }
+
+        super.onDestroy();
     }
 
     @Override
@@ -380,9 +381,10 @@ public class FragmentCompose extends FragmentEx {
                 draftLoader.load(this, args);
             }
         } else {
+            long id = savedInstanceState.getLong("working");
             Bundle args = new Bundle();
             args.putString("action", "edit");
-            args.putLong("id", savedInstanceState.getLong("working"));
+            args.putLong("id", id);
             args.putLong("account", -1);
             args.putLong("reference", -1);
             args.putLong("answer", -1);
@@ -446,8 +448,10 @@ public class FragmentCompose extends FragmentEx {
             } else if (requestCode == ActivityCompose.REQUEST_OPENPGP) {
                 Log.i(Helper.TAG, "User interacted");
                 onAction(R.id.action_encrypt);
-            } else
-                handlePickContact(requestCode, data);
+            } else {
+                if (data != null)
+                    handlePickContact(requestCode, data);
+            }
         }
     }
 
@@ -986,14 +990,6 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
 
                 } else if (action == R.id.action_save) {
-                    EntityIdentity primary = db.identity().getPrimaryIdentity(draft.account);
-                    if ((primary == null || draft.identity == primary.id) &&
-                            ato == null && acc == null && abcc == null &&
-                            TextUtils.isEmpty(subject) &&
-                            TextUtils.isEmpty(body) &&
-                            db.attachment().getAttachmentCount(draft.id) == 0)
-                        return null;
-
                     db.message().updateMessage(draft);
                     draft.write(context, pbody);
 
