@@ -86,6 +86,7 @@ import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
+import javax.mail.StoreClosedException;
 import javax.mail.Transport;
 import javax.mail.UIDFolder;
 import javax.mail.event.ConnectionAdapter;
@@ -360,6 +361,8 @@ public class ServiceSynchronize extends LifecycleService {
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
+                !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections)
+                !(ex instanceof StoreClosedException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
@@ -387,8 +390,7 @@ public class ServiceSynchronize extends LifecycleService {
         while (state.running) {
             // Debug
             boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
-            if (debug)
-                System.setProperty("mail.socket.debug", "true");
+            System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
             // Refresh token
             if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
@@ -396,6 +398,7 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountPassword(account.id, account.password);
             }
 
+            // Create session
             Properties props = MessageHelper.getSessionProperties(this, account.auth_type);
             final Session isession = Session.getInstance(props, null);
             isession.setDebug(debug);
@@ -468,12 +471,7 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountError(account.id, null);
 
                 // Update folder list
-                try {
-                    synchronizeFolders(account, istore, state);
-                } catch (MessagingException ex) {
-                    // Don't show to user
-                    throw new IllegalStateException("synchronize folders", ex);
-                }
+                synchronizeFolders(account, istore, state);
 
                 // Synchronize folders
                 for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
@@ -678,10 +676,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     if (folder == null)
                                         folder = db.folder().getFolder(fid);
 
-                                    if (shouldClose)
-                                        Log.i(Helper.TAG, folder.name + " run offline=" + shouldClose);
-                                    else
-                                        Log.i(Helper.TAG, folder.name + " run online");
+                                    Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
 
                                     if (ifolder == null) {
                                         // Prevent unnecessary folder connections
@@ -700,7 +695,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
                                         processOperations(folder, isession, istore, ifolder);
-
                                     else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction()))
                                         synchronizeMessages(account, folder, ifolder, state);
 
@@ -760,8 +754,7 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                if (!(ex instanceof AuthenticationFailedException)) // Also: Too many simultaneous connections
-                    reportError(account.name, null, ex);
+                reportError(account.name, null, ex);
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 // Close store
