@@ -48,8 +48,8 @@ Secure
 
 * Allow encrypted connections only
 * Accept valid security certificates only
-* [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) authentication required
-* Text view only (converted [HTML](https://en.wikipedia.org/wiki/HTML))
+* Authentication required
+* Optional text view only (converted [HTML](https://en.wikipedia.org/wiki/HTML))
 * No special permissions required
 * No advertisements
 * No analytics and no tracking
@@ -57,7 +57,7 @@ Secure
 Efficient
 ---------
 
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) supported
+* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 
