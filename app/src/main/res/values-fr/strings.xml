@@ -174,6 +174,7 @@
   <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
   <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
   <string name="title_pro_invalid">Réponse non valide</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">Information de débogage</string>
   <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
 </resources>

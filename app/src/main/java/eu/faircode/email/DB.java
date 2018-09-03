@@ -45,7 +45,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 6,
+        version = 7,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -54,6 +54,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
                 EntityAttachment.class,
                 EntityOperation.class,
                 EntityAnswer.class,
+                EntityLog.class
         }
 )
 
@@ -72,6 +73,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoOperation operation();
 
     public abstract DaoAnswer answer();
+
+    public abstract DaoLog log();
 
     private static DB sInstance;
 
@@ -148,6 +151,14 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_found` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(6, 7) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `log` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `time` INTEGER NOT NULL, `data` TEXT NOT NULL)");
+                        db.execSQL("CREATE  INDEX `index_log_time` ON `log` (`time`)");
                     }
                 })
                 .build();

@@ -76,7 +76,7 @@
   <string name="title_authorize">Konto wählen</string>
   <string name="title_instructions">Anweisungen</string>
   <string name="title_store_sent">Speichere gesendete Nachrichten (nur bei Bedarf aktivieren)</string>
-  <string name="title_interval">Keep-alive interval (minutes)</string>
+  <string name="title_interval">Keep-alive-Intervall (Minuten)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primär (Standard-Konto)</string>
@@ -151,7 +151,7 @@
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
-  <string name="title_search_hint">Search sender/subject/text</string>
+  <string name="title_search_hint">Absender/Betreff/Text durchsuchen</string>
   <string name="title_searching">Suche „%1$s“</string>
   <string name="title_answer_reply">Standardantworten</string>
   <string name="title_answer_name">Antwort Name</string>
@@ -174,6 +174,7 @@
   <string name="title_pro_activated">Alle Premium Funktionen sind aktiviert</string>
   <string name="title_pro_valid">Alle Premium Funktionen aktiviert</string>
   <string name="title_pro_invalid">Ungültige Antwort</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">Debuginformationen</string>
   <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt dieses aufgetreten ist:</string>
 </resources>

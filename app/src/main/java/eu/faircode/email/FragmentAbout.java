@@ -39,8 +39,13 @@ import javax.mail.Address;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentAbout extends FragmentEx {
+    private TextView tvVersion;
+    private Button btnLog;
+    private Button btnDebugInfo;
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,10 +53,20 @@ public class FragmentAbout extends FragmentEx {
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        TextView tvVersion = view.findViewById(R.id.tvVersion);
-        final Button btnDebugInfo = view.findViewById(R.id.btnDebugInfo);
+        tvVersion = view.findViewById(R.id.tvVersion);
+        btnLog = view.findViewById(R.id.btnLog);
+        btnDebugInfo = view.findViewById(R.id.btnDebugInfo);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
+
+        btnLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
+                fragmentTransaction.commit();
+            }
+        });
 
         btnDebugInfo.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -170,6 +170,7 @@
   <string name="title_pro_activated">专业版功能已激活</string>
   <string name="title_pro_valid">专业版功能已激活</string>
   <string name="title_pro_invalid">无效的响应</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">调试信息</string>
   <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
 </resources>

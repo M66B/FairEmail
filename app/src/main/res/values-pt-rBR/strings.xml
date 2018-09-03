@@ -174,6 +174,7 @@
   <string name="title_pro_activated">All pro features are activated</string>
   <string name="title_pro_valid">All pro features activated</string>
   <string name="title_pro_invalid">Invalid response</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">Informações de depuração</string>
   <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
 </resources>

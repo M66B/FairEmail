@@ -178,6 +178,7 @@
   <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
   <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
   <string name="title_pro_invalid">Răspunsul nu este valid</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">Depanare</string>
   <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
 </resources>

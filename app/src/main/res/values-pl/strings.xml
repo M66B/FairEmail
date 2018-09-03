@@ -84,7 +84,7 @@
   <string name="title_authorize">Wybierz konto</string>
   <string name="title_instructions">Instrukcje</string>
   <string name="title_store_sent">Zachowuj wysłane wiadomości (włącz tylko gdy potrzebne)</string>
-  <string name="title_interval">Keep-alive interval (minutes)</string>
+  <string name="title_interval">Interwał utrzymywania aktywności (minuty)</string>
   <string name="title_synchronize_account">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
   <string name="title_primary_account">Podstawowe (domyślne konto)</string>
@@ -104,7 +104,7 @@
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_after">Synchronizuj (dni)</string>
-  <string name="title_folder_unified">Unified inbox</string>
+  <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>
   <string name="title_folder_inbox">Odebrane</string>
   <string name="title_folder_outbox">Wysłane</string>
   <string name="title_folder_all">Archiwum</string>
@@ -113,7 +113,7 @@
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Wysłane</string>
   <string name="title_folder_user">Użytkownik</string>
-  <string name="title_folder_primary">Folders primary account</string>
+  <string name="title_folder_primary">Podstawowe konto folderów</string>
   <string name="title_folder_thread">Wątek wiadomości</string>
   <string name="title_no_messages">Brak wiadomości</string>
   <string name="title_link">link</string>
@@ -132,7 +132,7 @@
   <string name="title_archive">Archiwum</string>
   <string name="title_reply">Odpowiedz</string>
   <string name="title_moving">Przenoszenie wiadomości do %1$s</string>
-  <string name="title_no_viewer">No viewer app available for %1$s</string>
+  <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
   <string name="title_attachment_saved">Załącznik zapisany</string>
   <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
   <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
@@ -159,11 +159,11 @@
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
   <string name="title_search">Szukaj</string>
-  <string name="title_search_hint">Search sender/subject/text</string>
+  <string name="title_search_hint">Wyszukaj nadawcę/temat/tekst</string>
   <string name="title_searching">Szukam \'%1$s\'</string>
   <string name="title_answer_reply">Standardowa odpowiedź</string>
-  <string name="title_answer_name">Answer name</string>
-  <string name="title_answer_text">Answer text</string>
+  <string name="title_answer_name">Nazwa odpowiedzi</string>
+  <string name="title_answer_text">Tekst odpowiedzi</string>
   <string name="title_legend_cc">DW/UDW</string>
   <string name="title_legend_attachment">Załącznik</string>
   <string name="title_legend_synchronize">Synchronizuj</string>
@@ -173,7 +173,7 @@
   <string name="title_legend_connected">Połączony</string>
   <string name="title_legend_synchronizing">Synchronizowanie</string>
   <string name="title_legend_closing">Zamykanie</string>
-  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
+  <string name="title_hint_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane</string>
   <string name="title_understood">Rozumiem</string>
   <string name="title_pro_feature">Jest to funkcja pro</string>
   <string name="title_pro_list">List funkcji pro</string>
@@ -182,6 +182,7 @@
   <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
   <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
   <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
+  <string name="title_log">Log</string>
   <string name="title_debug_info">Info debugowania</string>
   <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
 </resources>

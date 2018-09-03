@@ -358,6 +358,8 @@ public class ServiceSynchronize extends LifecycleService {
         // MailConnectException
         // - on connectity problems when connecting to store
 
+        EntityLog.log(this, ex.toString());
+
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
@@ -1433,7 +1435,10 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onAvailable(Network network) {
-            Log.i(Helper.TAG, "Network available " + network);
+            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+            NetworkInfo ni = cm.getNetworkInfo(network);
+            Log.i(Helper.TAG, "Network available " + network + " " + ni);
+            EntityLog.log(ServiceSynchronize.this, "Network available " + network + " " + ni);
 
             if (running)
                 Log.i(Helper.TAG, "Service already running");
@@ -1453,14 +1458,16 @@ public class ServiceSynchronize extends LifecycleService {
         @Override
         public void onLost(Network network) {
             Log.i(Helper.TAG, "Network lost " + network);
+            EntityLog.log(ServiceSynchronize.this, "Network lost " + network);
 
             if (running) {
                 Log.i(Helper.TAG, "Service running");
                 ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-                NetworkInfo ni = cm.getActiveNetworkInfo();
-                Log.i(Helper.TAG, "Network active=" + (ni == null ? null : ni.toString()));
-                if (ni == null || !ni.isConnected()) {
-                    Log.i(Helper.TAG, "Network disconnected=" + ni);
+                NetworkInfo ani = cm.getActiveNetworkInfo();
+                Log.i(Helper.TAG, "Network active=" + (ani == null ? null : ani.toString()));
+                if (ani == null || !ani.isConnected()) {
+                    EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
+                    Log.i(Helper.TAG, "Network disconnected=" + ani);
                     running = false;
                     lifecycle.submit(new Runnable() {
                         @Override
@@ -1475,6 +1482,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void start() {
+            EntityLog.log(ServiceSynchronize.this, "Start");
             state = new ServiceState();
 
             main = new Thread(new Runnable() {
@@ -1530,6 +1538,8 @@ public class ServiceSynchronize extends LifecycleService {
                             threads.add(t);
                         }
 
+                        EntityLog.log(ServiceSynchronize.this, "Started");
+
                         // Stop monitoring accounts
                         for (Thread t : threads)
                             join(t);
@@ -1539,6 +1549,8 @@ public class ServiceSynchronize extends LifecycleService {
                         lbm.unregisterReceiver(outboxReceiver);
                         Log.i(Helper.TAG, outbox.name + " unlisten operations");
                         db.folder().setFolderState(outbox.id, null);
+
+                        EntityLog.log(ServiceSynchronize.this, "Exited");
                     } catch (Throwable ex) {
                         // Fail-safe
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -1551,6 +1563,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void stop(boolean disconnected) {
             if (main != null) {
+                EntityLog.log(ServiceSynchronize.this, "Stop disconnected=" + disconnected);
                 synchronized (state) {
                     state.running = false;
                     state.disconnected = disconnected;
@@ -1562,6 +1575,8 @@ public class ServiceSynchronize extends LifecycleService {
                 join(main);
 
                 main = null;
+
+                EntityLog.log(ServiceSynchronize.this, "Stopped");
             }
         }
 
