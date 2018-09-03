@@ -466,7 +466,7 @@ public class FragmentMessage extends FragmentEx {
             grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
         }
 
-        DB db = DB.getInstance(getContext());
+        final DB db = DB.getInstance(getContext());
 
         // Observe message
         db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
@@ -480,9 +480,53 @@ public class FragmentMessage extends FragmentEx {
                 }
 
                 // Messages are immutable except for flags
-                FragmentMessage.this.message.seen = message.seen;
-                FragmentMessage.this.message.ui_seen = message.ui_seen;
+                FragmentMessage.this.message = message;
                 setSeen();
+
+                // Message count can be changed
+                getActivity().invalidateOptionsMenu();
+
+                // Messages can be moved to another folder
+                setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+
+                // Observe folders
+                db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
+                db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                    @Override
+                    public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                        boolean hasTrash = false;
+                        boolean hasJunk = false;
+                        boolean hasArchive = false;
+                        boolean hasUser = false;
+
+                        if (folders != null)
+                            for (EntityFolder folder : folders) {
+                                if (EntityFolder.TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.JUNK.equals(folder.type))
+                                    hasJunk = true;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
+                                else if (EntityFolder.USER.equals(folder.type))
+                                    hasUser = true;
+                            }
+
+                        boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                        boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                        boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                        boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                        boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+
+                        bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
+
+                        bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
+                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                        bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                        bottom_navigation.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         });
 
@@ -499,45 +543,6 @@ public class FragmentMessage extends FragmentEx {
                     }
                 });
 
-        // Observe folders
-        db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-            @Override
-            public void onChanged(@Nullable List<TupleFolderEx> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
-                boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
-                boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
-                boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
-
-                boolean hasTrash = false;
-                boolean hasJunk = false;
-                boolean hasArchive = false;
-                boolean hasUser = false;
-                if (folders != null)
-                    for (EntityFolder folder : folders) {
-                        if (EntityFolder.TRASH.equals(folder.type))
-                            hasTrash = true;
-                        else if (EntityFolder.JUNK.equals(folder.type))
-                            hasJunk = true;
-                        else if (EntityFolder.ARCHIVE.equals(folder.type))
-                            hasArchive = true;
-                        else if (EntityFolder.USER.equals(folder.type))
-                            hasUser = true;
-                    }
-
-                bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
-
-                bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
-                bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
-                bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-                bottom_navigation.setVisibility(View.VISIBLE);
-            }
-        });
     }
 
     private void setSeen() {
