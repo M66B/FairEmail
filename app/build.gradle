@@ -19,11 +19,13 @@ android {
 
     buildTypes {
         release {
+            debuggable = false
             minifyEnabled = true
             useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            debuggable = false // Workaround profiler bug
             minifyEnabled = true
             useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
