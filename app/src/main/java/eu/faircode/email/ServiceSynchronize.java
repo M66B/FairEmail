@@ -1301,10 +1301,12 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (imessage.isExpunged()) {
                 Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
+                imessage.invalidateHeaders();
                 return 0;
             }
             if (imessage.isSet(Flags.Flag.DELETED)) {
                 Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
+                imessage.invalidateHeaders();
                 return 0;
             }
 
@@ -1394,6 +1396,9 @@ public class ServiceSynchronize extends LifecycleService {
                     message.id = db.message().insertMessage(message);
                     message.write(context, helper.getHtml());
                     Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+                    // Free memory
+                    imessage.invalidateHeaders();
 
                     int sequence = 0;
                     for (EntityAttachment attachment : helper.getAttachments()) {
