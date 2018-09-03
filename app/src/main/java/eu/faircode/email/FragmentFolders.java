@@ -43,7 +43,17 @@ public class FragmentFolders extends FragmentEx {
     private Group grpReady;
     private FloatingActionButton fab;
 
+    private long account;
     private AdapterFolder adapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Get arguments
+        Bundle args = getArguments();
+        account = (args == null ? -1 : args.getLong("account"));
+    }
 
     @Override
     @Nullable
@@ -88,10 +98,6 @@ public class FragmentFolders extends FragmentEx {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // Get arguments
-        Bundle args = getArguments();
-        long account = (args == null ? -1 : args.getLong("account"));
 
         DB db = DB.getInstance(getContext());
 
