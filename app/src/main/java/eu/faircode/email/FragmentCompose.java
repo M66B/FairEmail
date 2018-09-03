@@ -129,8 +129,6 @@ public class FragmentCompose extends FragmentEx {
 
     private OpenPgpServiceConnection openPgpConnection = null;
 
-    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -613,7 +611,7 @@ public class FragmentCompose extends FragmentEx {
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
                 int size = 0;
-                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
                     os.write(buffer, 0, len);

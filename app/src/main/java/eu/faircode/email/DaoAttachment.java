@@ -41,12 +41,6 @@ public interface DaoAttachment {
 
     @Query("SELECT COUNT(id)" +
             " FROM attachment" +
-            " WHERE message = :message" +
-            " AND name = :name")
-    int getAttachmentCount(long message, String name);
-
-    @Query("SELECT COUNT(id)" +
-            " FROM attachment" +
             " WHERE id = :id")
     int countAttachment(long id);
 

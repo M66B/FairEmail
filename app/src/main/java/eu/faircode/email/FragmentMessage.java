@@ -87,6 +87,8 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
@@ -138,14 +140,15 @@ public class FragmentMessage extends FragmentEx {
     private boolean free = false;
     private AdapterAttachment adapter;
 
-    private String decrypted = null;
     private OpenPgpServiceConnection openPgpConnection = null;
 
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
+    private ExecutorService executor = Executors.newCachedThreadPool();
+
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
-    static final String ACTION_DECRYPT_MESSAGE = BuildConfig.APPLICATION_ID + ".DECRYPT_MESSAGEs";
+    static final String ACTION_DECRYPT_MESSAGE = BuildConfig.APPLICATION_ID + ".DECRYPT_MESSAGE";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -396,7 +399,6 @@ public class FragmentMessage extends FragmentEx {
             outState.putInt("tag_cc", (int) tvCc.getTag());
             outState.putInt("tag_error", (int) tvError.getTag());
         }
-        outState.putString("decrypted", decrypted);
     }
 
     @Override
@@ -426,7 +428,6 @@ public class FragmentMessage extends FragmentEx {
                 rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
                 tvError.setTag(savedInstanceState.getInt("tag_error"));
             }
-            decrypted = savedInstanceState.getString("decrypted");
         }
 
         if (tvBody.getTag() == null) {
@@ -568,7 +569,7 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_thread).setVisible(!free && message.count > 1);
         menu.findItem(R.id.menu_forward).setVisible(!free && !inOutbox);
         menu.findItem(R.id.menu_reply_all).setVisible(!free && message.cc != null && !inOutbox);
-        menu.findItem(R.id.menu_decrypt).setVisible(decrypted == null && !inOutbox);
+        menu.findItem(R.id.menu_decrypt).setVisible(!inOutbox);
     }
 
     @Override
@@ -1034,7 +1035,7 @@ public class FragmentMessage extends FragmentEx {
         protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
             final long id = args.getLong("id");
             final boolean show_images = args.getBoolean("show_images");
-            String body = (decrypted == null ? message.read(context) : decrypted);
+            String body = message.read(context);
             args.putInt("size", body.length());
             return decodeHtml(context, id, body, show_images);
         }
@@ -1189,69 +1190,71 @@ public class FragmentMessage extends FragmentEx {
                                 InternetHeaders ih = new InternetHeaders();
                                 ih.addHeader("Content-Type", "multipart/alternative");
                                 final MimeBodyPart part = new MimeBodyPart(ih, decrypted.getBytes());
-                                FragmentMessage.this.decrypted = MessageHelper.getHtml(part);
+
+                                String dbody = MessageHelper.getHtml(part);
+                                message.write(getContext(), dbody);
 
                                 // Store attachments
-                                new Thread(new Runnable() {
+                                executor.submit(new Runnable() {
                                     @Override
                                     public void run() {
+                                        DB db = DB.getInstance(getContext());
                                         try {
-                                            DB db = DB.getInstance(getContext());
-                                            int sequence = db.attachment().getAttachmentCount(message.id);
+                                            db.beginTransaction();
 
-                                            for (EntityAttachment attachment : MessageHelper.getAttachments(part))
-                                                if (db.attachment().getAttachmentCount(message.id, attachment.name) == 0)
-                                                    try {
-                                                        db.beginTransaction();
+                                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+                                                if ("encrypted.asc".equals(attachment.name))
+                                                    db.attachment().deleteAttachment(attachment.id);
 
-                                                        attachment.message = message.id;
-                                                        attachment.sequence = ++sequence;
-                                                        attachment.id = db.attachment().insertAttachment(attachment);
+                                            int sequence = 0;
+                                            for (EntityAttachment attachment : MessageHelper.getAttachments(part)) {
 
-                                                        File file = EntityAttachment.getFile(getContext(), attachment.id);
+                                                attachment.message = message.id;
+                                                attachment.sequence = ++sequence;
+                                                attachment.id = db.attachment().insertAttachment(attachment);
 
-                                                        // Store attachment
-                                                        InputStream is = null;
-                                                        OutputStream os = null;
-                                                        try {
-                                                            is = attachment.part.getInputStream();
-                                                            os = new BufferedOutputStream(new FileOutputStream(file));
+                                                File file = EntityAttachment.getFile(getContext(), attachment.id);
 
-                                                            int size = 0;
-                                                            byte[] buffer = new byte[4096];
-                                                            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                                                                size += len;
-                                                                os.write(buffer, 0, len);
-                                                            }
+                                                // Store attachment
+                                                InputStream is = null;
+                                                OutputStream os = null;
+                                                try {
+                                                    is = attachment.part.getInputStream();
+                                                    os = new BufferedOutputStream(new FileOutputStream(file));
 
-                                                            // Store attachment data
-                                                            attachment.size = size;
-                                                            attachment.progress = null;
-                                                            attachment.available = true;
-                                                            db.attachment().updateAttachment(attachment);
-                                                        } finally {
-                                                            try {
-                                                                if (is != null)
-                                                                    is.close();
-                                                            } finally {
-                                                                if (os != null)
-                                                                    os.close();
-                                                            }
-                                                        }
-
-                                                        db.setTransactionSuccessful();
-                                                    } finally {
-                                                        db.endTransaction();
+                                                    int size = 0;
+                                                    byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
+                                                    for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                                                        size += len;
+                                                        os.write(buffer, 0, len);
                                                     }
+
+                                                    // Store attachment data
+                                                    attachment.size = size;
+                                                    attachment.progress = null;
+                                                    attachment.available = true;
+                                                    db.attachment().updateAttachment(attachment);
+                                                } finally {
+                                                    try {
+                                                        if (is != null)
+                                                            is.close();
+                                                    } finally {
+                                                        if (os != null)
+                                                            os.close();
+                                                    }
+                                                }
+                                            }
+
+                                            db.setTransactionSuccessful();
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        } finally {
+                                            db.endTransaction();
                                         }
                                     }
-                                }).start();
+                                });
                             } else
-                                FragmentMessage.this.decrypted = "<pre>" + decrypted.replaceAll("\\r?\\n", "<br />") + "</pre>";
-
-                            getActivity().invalidateOptionsMenu();
+                                message.write(getContext(), "<pre>" + decrypted.replaceAll("\\r?\\n", "<br />") + "</pre>");
 
                             Bundle args = new Bundle();
                             args.putLong("id", message.id);

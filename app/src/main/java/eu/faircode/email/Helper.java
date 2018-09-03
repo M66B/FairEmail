@@ -57,6 +57,8 @@ public class Helper {
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
 
+    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);

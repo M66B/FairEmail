@@ -125,8 +125,9 @@ public class EntityMessage implements Serializable {
         File file = getFile(context, id);
         BufferedWriter out = null;
         try {
+            this.body = (body == null ? "" : body);
             out = new BufferedWriter(new FileWriter(file));
-            out.write(body == null ? "" : body);
+            out.write(body);
         } finally {
             if (out != null)
                 try {

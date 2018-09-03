@@ -123,7 +123,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_START = 32; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
-    private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -1073,7 +1072,7 @@ public class ServiceSynchronize extends LifecycleService {
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
                 int size = 0;
-                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
                     os.write(buffer, 0, len);
