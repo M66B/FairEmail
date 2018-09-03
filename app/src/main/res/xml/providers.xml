@@ -143,4 +143,15 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Yandex"
+        link="https://yandex.com/support/mail/mail-clients.html#imap">
+        <imap
+            host="imap.yandex.com"
+            port="993" />
+        <smtp
+            host="smtp.yandex.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
