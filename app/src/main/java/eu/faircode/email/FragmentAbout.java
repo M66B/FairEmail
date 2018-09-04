@@ -33,6 +33,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.mail.Address;
@@ -95,13 +97,20 @@ public class FragmentAbout extends FragmentEx {
                         sb.append(String.format("Id: %s\r\n", Build.ID));
                         sb.append("\r\n");
 
+                        // Get recent log
+                        long from = new Date().getTime() - 12 * 3600 * 1000L;
+                        DateFormat DF = SimpleDateFormat.getTimeInstance();
+                        DB db = DB.getInstance(context);
+                        for (EntityLog log : db.log().getLogs(from))
+                            sb.append(DF.format(log.time)).append(" ").append(log.data).append("\r\n");
+                        sb.append("\r\n");
+
                         sb.append(Helper.getLogcat());
 
                         String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                         EntityMessage draft;
 
-                        DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 

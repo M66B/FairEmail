@@ -358,7 +358,17 @@ public class ServiceSynchronize extends LifecycleService {
         // MailConnectException
         // - on connectity problems when connecting to store
 
-        EntityLog.log(this, ex.toString());
+        String action;
+        if (TextUtils.isEmpty(account))
+            action = folder;
+        else if (TextUtils.isEmpty(folder))
+            action = account;
+        else
+            action = account + "/" + folder;
+
+        StackTraceElement[] ste = ex.getStackTrace();
+        EntityLog.log(this, action + "\n" + ex.toString() +
+                (ste != null && ste.length > 0 ? "\n" + ste[0].toString() : ""));
 
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
@@ -369,27 +379,20 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SSLException)) {
-            String action;
-            if (TextUtils.isEmpty(account))
-                action = folder;
-            else if (TextUtils.isEmpty(folder))
-                action = account;
-            else
-                action = account + "/" + folder;
-
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
-        Log.i(Helper.TAG, account.name + " start");
-
         final DB db = DB.getInstance(this);
         final ExecutorService executor = Executors.newSingleThreadExecutor();
 
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
+            Log.i(Helper.TAG, account.name + " run");
+            EntityLog.log(this, account.name + " run");
+
             // Debug
             boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
             System.setProperty("mail.socket.debug", Boolean.toString(debug));
@@ -471,6 +474,8 @@ public class ServiceSynchronize extends LifecycleService {
                 backoff = CONNECT_BACKOFF_START;
                 db.account().setAccountState(account.id, "connected");
                 db.account().setAccountError(account.id, null);
+
+                EntityLog.log(this, account.name + " connected");
 
                 // Update folder list
                 synchronizeFolders(account, istore, state);
@@ -764,6 +769,7 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountState(account.id, "closing");
                 for (EntityFolder folder : folders.keySet())
                     db.folder().setFolderState(folder.id, "closing");
+                EntityLog.log(this, account.name + " closing");
                 try {
                     // This can take some time
                     istore.close();
@@ -771,6 +777,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 } finally {
                     Log.i(Helper.TAG, account.name + " closed");
+                    EntityLog.log(this, account.name + " closed");
                     db.account().setAccountState(account.id, null);
                     for (EntityFolder folder : folders.keySet())
                         db.folder().setFolderState(folder.id, null);
@@ -791,7 +798,8 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (state.running) {
                 try {
-                    Log.i(Helper.TAG, "Backoff seconds=" + backoff);
+                    Log.i(Helper.TAG, account.name + " backoff=" + backoff);
+                    EntityLog.log(this, account.name + " backoff=" + backoff);
                     Thread.sleep(backoff * 1000L);
 
                     if (backoff < CONNECT_BACKOFF_MAX)
@@ -803,6 +811,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         Log.i(Helper.TAG, account.name + " stopped");
+        EntityLog.log(this, account.name + " stopped");
     }
 
     private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
@@ -1482,7 +1491,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void start() {
-            EntityLog.log(ServiceSynchronize.this, "Start");
+            EntityLog.log(ServiceSynchronize.this, "Main start");
             state = new ServiceState();
 
             main = new Thread(new Runnable() {
@@ -1538,7 +1547,7 @@ public class ServiceSynchronize extends LifecycleService {
                             threads.add(t);
                         }
 
-                        EntityLog.log(ServiceSynchronize.this, "Started");
+                        EntityLog.log(ServiceSynchronize.this, "Main started");
 
                         // Stop monitoring accounts
                         for (Thread t : threads)
@@ -1550,7 +1559,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(Helper.TAG, outbox.name + " unlisten operations");
                         db.folder().setFolderState(outbox.id, null);
 
-                        EntityLog.log(ServiceSynchronize.this, "Exited");
+                        EntityLog.log(ServiceSynchronize.this, "Main exited");
                     } catch (Throwable ex) {
                         // Fail-safe
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -1563,7 +1572,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void stop(boolean disconnected) {
             if (main != null) {
-                EntityLog.log(ServiceSynchronize.this, "Stop disconnected=" + disconnected);
+                EntityLog.log(ServiceSynchronize.this, "Main stop disconnected=" + disconnected);
                 synchronized (state) {
                     state.running = false;
                     state.disconnected = disconnected;
@@ -1576,7 +1585,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 main = null;
 
-                EntityLog.log(ServiceSynchronize.this, "Stopped");
+                EntityLog.log(ServiceSynchronize.this, "Main stopped");
             }
         }
 

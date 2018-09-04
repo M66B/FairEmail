@@ -28,8 +28,15 @@ import androidx.room.Query;
 
 @Dao
 public interface DaoLog {
-    @Query("SELECT * FROM log ORDER BY time DESC LIMIT 500")
-    LiveData<List<EntityLog>> liveLogs();
+    @Query("SELECT * FROM log" +
+            " WHERE time > :from" +
+            " ORDER BY time DESC")
+    LiveData<List<EntityLog>> liveLogs(long from);
+
+    @Query("SELECT * FROM log" +
+            " WHERE time > :from" +
+            " ORDER BY time DESC")
+    List<EntityLog> getLogs(long from);
 
     @Insert
     long insertLog(EntityLog log);

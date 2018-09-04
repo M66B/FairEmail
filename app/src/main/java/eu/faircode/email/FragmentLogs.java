@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -74,8 +75,10 @@ public class FragmentLogs extends FragmentEx {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        long from = new Date().getTime() - 24 * 3600 * 1000L;
+
         DB db = DB.getInstance(getContext());
-        db.log().liveLogs().observe(getViewLifecycleOwner(), new Observer<List<EntityLog>>() {
+        db.log().liveLogs(from).observe(getViewLifecycleOwner(), new Observer<List<EntityLog>>() {
             @Override
             public void onChanged(List<EntityLog> logs) {
                 if (logs == null)
