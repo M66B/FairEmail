@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -46,11 +48,21 @@ public class EntityLog {
     @NonNull
     public String data;
 
+    private static ExecutorService executor = Executors.newSingleThreadExecutor();
+
     static void log(Context context, String data) {
-        EntityLog entry = new EntityLog();
+        final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();
         entry.data = data;
-        DB.getInstance(context).log().insertLog(entry);
+
+        final DB db = DB.getInstance(context);
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                db.log().insertLog(entry);
+            }
+        });
     }
 
     @Override
