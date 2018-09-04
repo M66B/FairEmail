@@ -103,26 +103,27 @@ The latter is both safer and more inconvenient because you'll need to login to w
 Chrome Custom Tabs are used by default, which can be changed in the advanced options in the setup screen.
 
 <a name="FAQ13"></a>
-**(13) How does search on server work?**
+**(13) How does progressive search work?**
 
-You can start searching for messages in a folder on the server by using the magnify glass in the action bar of a folder.
-The server is requested to search on sender, subject and message text.
-The server executes the search request and determines if the search is case sensitive,
-if searching will be done on whole words and which messages will be search through.
-Results will be shown in real time as they become available from the server.
-For performance reasons attachments are not downloaded and shown.
-Search on server is a pro feature.
+You can start searching for messages on sender, subject or text by using the magnify glass in the action bar of a folder.
+First messages are searched on device, then the server is requested to search.
+Scrolling down will download more messages from the server.
+Searching on device is case insensitive and on partial text.
+Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Progressive search is a pro feature.
 
 <a name="FAQ14"></a>
-**(14) How does openPGP integration work?**
+**(14) How does OpenPGP integration work?**
 
-You need to install and setup the [OpenKeychain](https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain).
+You need to install and setup the [OpenKeychain](https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain) app.
 
-You can send an encrypted message by composing a message as usual and encrypt it by using the *Encrypt* overflow menu just before sending.
+There is a special action to send an encrypted message at the bottom.
 
-If you received an encrypted message as attachment, you can decrypt it by downloading and viewing the attachment with the encrypted text.
+If you received an encrypted message as an attachment with the name *encrypted.asc*, you can decrypt it by downloading and viewing this attachment.
 
 If you received an encrypted message with inline encryption, you can decrypt it by using the *Decrypt* overflow menu.
+
+OpenPGP integration is a pro feature.
 
 <br>
 
