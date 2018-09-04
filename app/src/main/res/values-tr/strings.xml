@@ -106,14 +106,14 @@
   <string name="title_folder_sent">Gönderilen</string>
   <string name="title_folder_user">Kullanıcı</string>
   <string name="title_folder_primary">Klasörler birincil hesap</string>
-  <string name="title_folder_thread">İleti dizisi</string>
+  <string name="title_folder_thread">Conversation</string>
   <string name="title_no_messages">İleti yok</string>
   <string name="title_link">bağlantı</string>
   <string name="title_image">resim</string>
   <string name="title_show_images">Resimleri göster</string>
   <string name="title_subject_reply">Ynt: %1$s</string>
   <string name="title_subject_forward">İlet: %1$s</string>
-  <string name="title_thread">Konuyu göster</string>
+  <string name="title_thread">Show conversation</string>
   <string name="title_seen">Okundu olarak işaretle</string>
   <string name="title_unseen">Okunmadı olarak işaretle</string>
   <string name="title_forward">İlet</string>
@@ -160,6 +160,7 @@
   <string name="title_answer_text">Yanıt metni</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Ek</string>
+  <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Senkronize et</string>
   <string name="title_legend_primary">Birincil</string>
   <string name="title_legend_disconnected">Bağlantı kesildi</string>

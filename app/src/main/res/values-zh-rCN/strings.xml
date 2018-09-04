@@ -102,14 +102,14 @@
   <string name="title_folder_sent">已发送邮件</string>
   <string name="title_folder_user">用户</string>
   <string name="title_folder_primary">文件夹主账户</string>
-  <string name="title_folder_thread">邮件会话</string>
+  <string name="title_folder_thread">Conversation</string>
   <string name="title_no_messages">没有邮件</string>
   <string name="title_link">链接</string>
   <string name="title_image">图片</string>
   <string name="title_show_images">显示图片</string>
   <string name="title_subject_reply">回复：%1$s</string>
   <string name="title_subject_forward">转发：%1$s</string>
-  <string name="title_thread">显示会话</string>
+  <string name="title_thread">Show conversation</string>
   <string name="title_seen">标记为已读</string>
   <string name="title_unseen">标记为未读</string>
   <string name="title_forward">转发</string>
@@ -156,6 +156,7 @@
   <string name="title_answer_text">回复文本</string>
   <string name="title_legend_cc">抄送或密送</string>
   <string name="title_legend_attachment">附件</string>
+  <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">同步</string>
   <string name="title_legend_primary">首选</string>
   <string name="title_legend_disconnected">未连接</string>

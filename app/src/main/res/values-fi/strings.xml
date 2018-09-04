@@ -106,14 +106,14 @@
   <string name="title_folder_sent">Sent</string>
   <string name="title_folder_user">User</string>
   <string name="title_folder_primary">Folders primary account</string>
-  <string name="title_folder_thread">Message thread</string>
+  <string name="title_folder_thread">Conversation</string>
   <string name="title_no_messages">No messages</string>
   <string name="title_link">link</string>
   <string name="title_image">image</string>
   <string name="title_show_images">Show images</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Fwd: %1$s</string>
-  <string name="title_thread">Show thread</string>
+  <string name="title_thread">Show conversation</string>
   <string name="title_seen">Mark read</string>
   <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Forward</string>
@@ -160,6 +160,7 @@
   <string name="title_answer_text">Answer text</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Attachment</string>
+  <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Synchronize</string>
   <string name="title_legend_primary">Primary</string>
   <string name="title_legend_disconnected">Disconnected</string>

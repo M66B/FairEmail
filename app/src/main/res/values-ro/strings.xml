@@ -110,14 +110,14 @@
   <string name="title_folder_sent">Trimise</string>
   <string name="title_folder_user">Utilizator</string>
   <string name="title_folder_primary">Dosare cont primar</string>
-  <string name="title_folder_thread">Mesaje discuție</string>
+  <string name="title_folder_thread">Conversation</string>
   <string name="title_no_messages">Nici un mesaj</string>
   <string name="title_link">legătură</string>
   <string name="title_image">imagine</string>
   <string name="title_show_images">Afișare imagini</string>
   <string name="title_subject_reply">Răsp: %1$s</string>
   <string name="title_subject_forward">Redir: %1$s</string>
-  <string name="title_thread">Arată discuția</string>
+  <string name="title_thread">Show conversation</string>
   <string name="title_seen">Marchează ca Citit</string>
   <string name="title_unseen">Marcare ca necitit</string>
   <string name="title_forward">Redirecționează</string>
@@ -164,6 +164,7 @@
   <string name="title_answer_text">Text răspuns</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
+  <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Sincronizare</string>
   <string name="title_legend_primary">Primar</string>
   <string name="title_legend_disconnected">Deconectat</string>

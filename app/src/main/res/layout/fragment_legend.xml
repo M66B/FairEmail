@@ -49,13 +49,33 @@
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
         <ImageView
+            android:id="@+id/ivThread"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_message_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+
+        <TextView
+            android:id="@+id/tvThread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_thread"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivThread"
+            app:layout_constraintStart_toEndOf="@id/ivThread"
+            app:layout_constraintTop_toTopOf="@id/ivThread" />
+
+        <ImageView
             android:id="@+id/ivSynchronize"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_sync_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/ivThread" />
 
         <TextView
             android:id="@+id/tvSynchronize"
