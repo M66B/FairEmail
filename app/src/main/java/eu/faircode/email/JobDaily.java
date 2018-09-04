@@ -94,6 +94,11 @@ public class JobDaily extends JobService {
                 int logs = db.log().deleteLogs(before);
                 Log.i(Helper.TAG, "Deleted logs=" + logs);
 
+                // Cleanup found messages
+                Log.i(Helper.TAG, "Cleanup found messages");
+                int found = db.message().deleteFoundMessages();
+                Log.i(Helper.TAG, "Deleted found messages=" + found);
+
                 Log.i(Helper.TAG, "End daily job");
             }
         });

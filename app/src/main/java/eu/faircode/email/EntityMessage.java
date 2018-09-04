@@ -63,7 +63,8 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),
-                @Index(value = {"ui_hide"})
+                @Index(value = {"ui_hide"}),
+                @Index(value = {"ui_found"})
         }
 )
 public class EntityMessage implements Serializable {

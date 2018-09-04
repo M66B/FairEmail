@@ -45,7 +45,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 7,
+        version = 8,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -159,6 +159,13 @@ public abstract class DB extends RoomDatabase {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("CREATE TABLE IF NOT EXISTS `log` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `time` INTEGER NOT NULL, `data` TEXT NOT NULL)");
                         db.execSQL("CREATE  INDEX `index_log_time` ON `log` (`time`)");
+                    }
+                })
+                .addMigrations(new Migration(7, 8) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE  INDEX `index_message_ui_found` ON `message` (`ui_found`)");
                     }
                 })
                 .build();
