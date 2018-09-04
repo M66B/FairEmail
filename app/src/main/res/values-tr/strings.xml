@@ -118,6 +118,7 @@
   <string name="title_unseen">Okunmadı olarak işaretle</string>
   <string name="title_forward">İlet</string>
   <string name="title_reply_all">Tümünü yanıtla</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Çöp Kutusu</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Taşı</string>

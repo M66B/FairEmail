@@ -114,6 +114,7 @@
   <string name="title_unseen">标记为未读</string>
   <string name="title_forward">转发</string>
   <string name="title_reply_all">回复全部</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">回收站</string>
   <string name="title_spam">垃圾邮件</string>
   <string name="title_move">移动</string>

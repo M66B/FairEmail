@@ -118,6 +118,7 @@
   <string name="title_unseen">Als ungelesen markieren</string>
   <string name="title_forward">Weiterleiten</string>
   <string name="title_reply_all">Antworten an alle</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Papierkorb</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Verschieben</string>

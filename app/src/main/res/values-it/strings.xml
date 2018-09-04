@@ -118,6 +118,7 @@
   <string name="title_unseen">Segna come non letto</string>
   <string name="title_forward">Inoltra</string>
   <string name="title_reply_all">Rispondi a tutti</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Cestino</string>
   <string name="title_spam">Posta indesiderata</string>
   <string name="title_move">Sposta</string>

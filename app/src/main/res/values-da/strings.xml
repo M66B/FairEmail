@@ -118,6 +118,7 @@
   <string name="title_unseen">Markér som ulæst</string>
   <string name="title_forward">Videresend</string>
   <string name="title_reply_all">Svar alle</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Papirkurv</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Flyt</string>

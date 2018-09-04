@@ -118,6 +118,7 @@
   <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Encaminhar</string>
   <string name="title_reply_all">Responder a todos</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Lixeira</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Mover</string>

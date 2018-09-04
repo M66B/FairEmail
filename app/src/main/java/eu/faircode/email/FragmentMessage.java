@@ -259,7 +259,7 @@ public class FragmentMessage extends FragmentEx {
 
                     } else if (prefs.getBoolean("webview", false)) {
                         Bundle args = new Bundle();
-                        args.putString("link", url);
+                        args.putString("url", url);
 
                         FragmentWebView fragment = new FragmentWebView();
                         fragment.setArguments(args);
@@ -584,6 +584,9 @@ public class FragmentMessage extends FragmentEx {
             case R.id.menu_reply_all:
                 onMenuReplyAll();
                 return true;
+            case R.id.menu_show_html:
+                onMenuShowHtml();
+                return true;
             case R.id.menu_answer:
                 onMenuAnswer();
                 return true;
@@ -623,6 +626,29 @@ public class FragmentMessage extends FragmentEx {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
                 .putExtra("reference", message.id));
+    }
+
+    private void onMenuShowHtml() {
+        new SimpleTask<String>() {
+            @Override
+            protected String onLoad(Context context, Bundle args) throws Throwable {
+                return message.read(context);
+            }
+
+            @Override
+            protected void onLoaded(Bundle a, String html) {
+                Bundle args = new Bundle();
+                args.putString("html", html);
+                args.putString("from", MessageHelper.getFormattedAddresses(message.from, true));
+
+                FragmentWebView fragment = new FragmentWebView();
+                fragment.setArguments(args);
+
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
+                fragmentTransaction.commit();
+            }
+        }.load(this, new Bundle());
     }
 
     private void onMenuAnswer() {

@@ -122,6 +122,7 @@
   <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Forward</string>
   <string name="title_reply_all">Reply to all</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Trash</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Move</string>

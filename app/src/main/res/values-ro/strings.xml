@@ -122,6 +122,7 @@
   <string name="title_unseen">Marcare ca necitit</string>
   <string name="title_forward">Redirecționează</string>
   <string name="title_reply_all">Răspunde tuturor</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Gunoi</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Mută</string>

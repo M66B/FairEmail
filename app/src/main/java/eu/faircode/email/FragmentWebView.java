@@ -35,23 +35,19 @@ import androidx.annotation.Nullable;
 // https://developer.android.com/reference/android/webkit/WebView
 
 public class FragmentWebView extends FragmentEx {
-    private String url = null;
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_webview, container, false);
 
         final ProgressBar progressBar = view.findViewById(R.id.progressbar);
-        WebView webview = view.findViewById(R.id.webview);
+        final WebView webview = view.findViewById(R.id.webview);
 
         progressBar.setProgress(0);
         progressBar.setVisibility(View.VISIBLE);
 
         WebSettings settings = webview.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(true);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
         webview.setWebViewClient(new WebViewClient() {
@@ -71,9 +67,31 @@ public class FragmentWebView extends FragmentEx {
         });
 
         Bundle args = getArguments();
-        url = (args == null ? null : args.getString("link"));
-        webview.loadUrl(url);
-        setSubtitle(url);
+        if (args.containsKey("url")) {
+            String url = args.getString("url");
+            webview.loadUrl(url);
+            setSubtitle(url);
+        } else if (args.containsKey("html")) {
+            String html = args.getString("html");
+            String from = args.getString("from");
+            webview.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+            setSubtitle(from);
+        }
+
+        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                boolean can = webview.canGoBack();
+                if (can)
+                    webview.goBack();
+
+                Bundle args = getArguments();
+                if (args.containsKey("from") && !webview.canGoBack())
+                    setSubtitle(args.getString("from"));
+
+                return can;
+            }
+        });
 
         return view;
     }

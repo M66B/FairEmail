@@ -126,6 +126,7 @@
   <string name="title_unseen">Oznacz jako nieprzeczytane</string>
   <string name="title_forward">Prześlij dalej</string>
   <string name="title_reply_all">Odpowiedz wszystkim</string>
+  <string name="title_show_html">Show original</string>
   <string name="title_trash">Kosz</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Przenieś</string>

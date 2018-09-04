@@ -27,6 +27,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_show_html"
+        android:icon="@drawable/baseline_visibility_24"
+        android:title="@string/title_show_html"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_answer"
         android:icon="@drawable/baseline_reply_24"
         android:title="@string/title_answer_reply"
