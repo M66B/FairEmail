@@ -34,7 +34,7 @@ Pro features
 * Preview sender/subject in new messages status bar notification
 * Encrypt/decrypt messages using [OpenPGP](https://www.openpgp.org/)
 * Progressive search (first local, then server)
-* Standard answers
+* Standard replies
 
 Simple
 ------
