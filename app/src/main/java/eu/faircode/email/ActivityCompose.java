@@ -49,40 +49,45 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
             Bundle args;
-            if (Intent.ACTION_SEND.equals(getIntent().getAction()) ||
-                    Intent.ACTION_SENDTO.equals(getIntent().getAction()) ||
-                    Intent.ACTION_SEND_MULTIPLE.equals(getIntent().getAction())) {
+            Intent intent = getIntent();
+            String action = intent.getAction();
+            if (Intent.ACTION_VIEW.equals(action) ||
+                    Intent.ACTION_SENDTO.equals(action) ||
+                    Intent.ACTION_SEND.equals(action) ||
+                    Intent.ACTION_SEND_MULTIPLE.equals(action)) {
                 args = new Bundle();
-
                 args.putString("action", "new");
                 args.putLong("account", -1);
 
-                if (getIntent().hasExtra(Intent.EXTRA_EMAIL))
-                    args.putString("to", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_EMAIL)));
+                Uri uri = intent.getData();
+                if (uri != null && "mailto".equals(uri.getScheme()))
+                    args.putString("to", uri.getSchemeSpecificPart());
 
-                if (getIntent().hasExtra(Intent.EXTRA_CC))
-                    args.putString("cc", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_CC)));
+                if (intent.hasExtra(Intent.EXTRA_EMAIL))
+                    args.putString("to", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_EMAIL)));
 
-                if (getIntent().hasExtra(Intent.EXTRA_BCC))
-                    args.putString("bcc", TextUtils.join(", ", getIntent().getStringArrayExtra(Intent.EXTRA_BCC)));
+                if (intent.hasExtra(Intent.EXTRA_CC))
+                    args.putString("cc", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_CC)));
 
-                if (getIntent().hasExtra(Intent.EXTRA_SUBJECT))
-                    args.putString("subject", getIntent().getStringExtra(Intent.EXTRA_SUBJECT));
+                if (intent.hasExtra(Intent.EXTRA_BCC))
+                    args.putString("bcc", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_BCC)));
 
-                if (getIntent().hasExtra(Intent.EXTRA_TEXT))
-                    args.putString("body", getIntent().getStringExtra(Intent.EXTRA_TEXT)); // Intent.EXTRA_HTML_TEXT
+                if (intent.hasExtra(Intent.EXTRA_SUBJECT))
+                    args.putString("subject", intent.getStringExtra(Intent.EXTRA_SUBJECT));
 
-                if (getIntent().hasExtra(Intent.EXTRA_STREAM))
-                    if (Intent.ACTION_SEND_MULTIPLE.equals(getIntent().getAction()))
-                        args.putParcelableArrayList("attachments", getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM));
+                if (intent.hasExtra(Intent.EXTRA_TEXT))
+                    args.putString("body", intent.getStringExtra(Intent.EXTRA_TEXT)); // Intent.EXTRA_HTML_TEXT
+
+                if (intent.hasExtra(Intent.EXTRA_STREAM))
+                    if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+                        args.putParcelableArrayList("attachments", intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM));
                     else {
                         ArrayList<Uri> uris = new ArrayList<>();
-                        uris.add((Uri) getIntent().getParcelableExtra(Intent.EXTRA_STREAM));
+                        uris.add((Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM));
                         args.putParcelableArrayList("attachments", uris);
                     }
-
             } else
-                args = getIntent().getExtras();
+                args = intent.getExtras();
 
             FragmentCompose fragment = new FragmentCompose();
             fragment.setArguments(args);
