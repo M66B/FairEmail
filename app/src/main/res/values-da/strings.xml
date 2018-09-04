@@ -146,6 +146,7 @@
   <string name="title_decrypt">Dekryptér</string>
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>
   <string name="title_draft_trashed">Kladde slettet</string>
   <string name="title_draft_saved">Kladde gemt</string>

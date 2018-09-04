@@ -154,6 +154,7 @@
   <string name="title_decrypt">Odszyfruj</string>
   <string name="title_from_missing">Brak nadawcy</string>
   <string name="title_to_missing">Brak adresata</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Załączniki są wciąż ładowane</string>
   <string name="title_draft_trashed">Szkice usunięte</string>
   <string name="title_draft_saved">Szkic zapisany</string>

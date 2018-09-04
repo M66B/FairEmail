@@ -142,6 +142,7 @@
   <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Sender missing</string>
   <string name="title_to_missing">Recipient missing</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Attachments still loading</string>
   <string name="title_draft_trashed">Draft trashed</string>
   <string name="title_draft_saved">Draft saved</string>

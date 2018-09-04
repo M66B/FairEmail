@@ -150,6 +150,7 @@
   <string name="title_decrypt">Decriptare</string>
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
   <string name="title_draft_trashed">Ciornă trimisă la gunoi</string>
   <string name="title_draft_saved">Ciornă salvată</string>

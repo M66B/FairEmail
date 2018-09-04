@@ -146,6 +146,7 @@
   <string name="title_decrypt">Şifre çöz</string>
   <string name="title_from_missing">Gönderici Eksik</string>
   <string name="title_to_missing">Alıcı eksik</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Ekler hala yükleniyor</string>
   <string name="title_draft_trashed">Taslak çöp kutusuna atıldı</string>
   <string name="title_draft_saved">Taslak kaydedildi</string>

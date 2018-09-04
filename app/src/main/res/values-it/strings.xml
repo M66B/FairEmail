@@ -146,6 +146,7 @@
   <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Mittente mancante</string>
   <string name="title_to_missing">Destinatario mancante</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Allegati ancora in fase di caricamento</string>
   <string name="title_draft_trashed">Bozza cestinata</string>
   <string name="title_draft_saved">Bozza salvata</string>

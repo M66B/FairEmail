@@ -146,6 +146,7 @@
   <string name="title_decrypt">Entschlüsseln</string>
   <string name="title_from_missing">Absender fehlt</string>
   <string name="title_to_missing">Empfänger fehlt</string>
+  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Anhänge werden noch geladen</string>
   <string name="title_draft_trashed">Entwurf gelöscht</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
