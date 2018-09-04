@@ -252,7 +252,6 @@
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:text="@string/title_show_images"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 

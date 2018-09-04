@@ -22,6 +22,10 @@
         <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
 
         <item name="drawableItemBackground">@drawable/item_background_light</item>
+
+        <item name="android:checkboxStyle">@style/checkboxStyle</item>
+        <item name="android:buttonStyle">@style/buttonStyle</item>
+        <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
     </style>
 
     <style name="AppThemeDark" parent="Base.Theme.AppCompat">
@@ -39,6 +43,10 @@
         <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
 
         <item name="drawableItemBackground">@drawable/item_background_dark</item>
+
+        <item name="android:checkboxStyle">@style/checkboxStyle</item>
+        <item name="android:buttonStyle">@style/buttonStyle</item>
+        <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
     </style>
 
     <style name="Theme.Transparent" parent="Base.Theme.AppCompat">
@@ -48,5 +56,18 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="checkboxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="buttonStyle" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="buttonStyleSmall" parent="Base.Widget.AppCompat.Button.Small">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
     </style>
 </resources>

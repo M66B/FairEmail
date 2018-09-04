@@ -56,7 +56,6 @@
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:text="@string/title_log"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEula" />
 
@@ -69,7 +68,6 @@
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:text="@string/title_debug_info"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEula" />
     </androidx.constraintlayout.widget.ConstraintLayout>
