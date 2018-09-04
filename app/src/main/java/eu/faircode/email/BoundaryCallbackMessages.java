@@ -169,6 +169,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         index--;
                     }
 
+                    EntityOperation.process(context); // download small attachments
+
                     Log.i(Helper.TAG, "Boundary done");
                 } catch (final Throwable ex) {
                     Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
