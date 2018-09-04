@@ -367,9 +367,7 @@ public class ServiceSynchronize extends LifecycleService {
         else
             action = account + "/" + folder;
 
-        StackTraceElement[] ste = ex.getStackTrace();
-        EntityLog.log(this, action + "\n" + ex.toString() +
-                (ste != null && ste.length > 0 ? "\n" + ste[0].toString() : ""));
+        EntityLog.log(this, action + "\n" + ex.toString() + "\n" + Log.getStackTraceString(ex));
 
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
