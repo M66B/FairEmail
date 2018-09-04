@@ -7,7 +7,7 @@ This email app might be for you if your current email app:
 
 * takes long to receive or show messages
 * can manage only one mailbox
-* cannot show related messages
+* cannot show conversations
 * cannot work offline
 * looks outdated
 * is not maintained
