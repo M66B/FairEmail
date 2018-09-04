@@ -372,12 +372,13 @@ public class ServiceSynchronize extends LifecycleService {
         if (!(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
-                !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections)
+                !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
                 !(ex instanceof StoreClosedException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
-                !(ex instanceof MessagingException && ex.getCause() instanceof SSLException)) {
+                !(ex instanceof MessagingException && ex.getCause() instanceof SSLException) &&
+                !(ex instanceof MessagingException && "connection failure".equals(ex.getMessage()))) {
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
