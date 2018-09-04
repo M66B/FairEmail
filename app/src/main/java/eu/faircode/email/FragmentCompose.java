@@ -1011,12 +1011,13 @@ public class FragmentCompose extends FragmentEx {
                         if (openPgpConnection == null || !openPgpConnection.isBound())
                             throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
-                        if (ato.length != 1)
-                            throw new IllegalArgumentException(context.getString(R.string.title_to_one));
+                        List<String> tos = new ArrayList<>();
+                        for (InternetAddress ia : ato)
+                            tos.add(ia.getAddress());
 
                         Intent data = new Intent();
                         data.setAction(OpenPgpApi.ACTION_ENCRYPT);
-                        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{ato[0].getAddress()});
+                        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos.toArray(new String[0]));
                         data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
                         Multipart multipart = new MimeMultipart();
