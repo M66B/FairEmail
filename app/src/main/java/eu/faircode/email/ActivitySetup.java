@@ -35,7 +35,7 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
-    boolean hasAccount;
+    private boolean hasAccount;
 
     static final int REQUEST_PERMISSION = 1;
     static final int REQUEST_CHOOSE_ACCOUNT = 2;

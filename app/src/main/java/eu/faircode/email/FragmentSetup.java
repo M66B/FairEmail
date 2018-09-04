@@ -144,6 +144,7 @@ public class FragmentSetup extends FragmentEx {
         pbAccount.setVisibility(View.GONE);
         pbIdentity.setVisibility(View.GONE);
         tvAccountDone.setText(R.string.title_setup_to_do);
+        btnIdentity.setEnabled(false);
         tvIdentityDone.setText(R.string.title_setup_to_do);
         tvPermissionsDone.setText(R.string.title_setup_to_do);
 
@@ -198,6 +199,7 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
                 tvAccountDone.setText(accounts != null && accounts.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
+                btnIdentity.setEnabled(accounts != null && accounts.size() > 0);
             }
         });
 
