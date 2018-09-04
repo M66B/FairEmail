@@ -20,18 +20,26 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,21 +47,25 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 
 public class FragmentSetup extends FragmentEx {
     private Button btnAccount;
-    private ProgressBar pbAccount;
     private TextView tvAccountDone;
 
     private Button btnIdentity;
-    private ProgressBar pbIdentity;
     private TextView tvIdentityDone;
 
     private Button btnPermissions;
     private TextView tvPermissionsDone;
+
+    private Button btnDoze;
+    private TextView tvDozeDone;
+
+    private Button btnData;
 
     private CheckBox cbDarkTheme;
 
@@ -72,15 +84,18 @@ public class FragmentSetup extends FragmentEx {
 
         // Get controls
         btnAccount = view.findViewById(R.id.btnAccount);
-        pbAccount = view.findViewById(R.id.pbAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
-        pbIdentity = view.findViewById(R.id.pbIdentity);
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
 
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsDone = view.findViewById(R.id.tvPermissionsDone);
+
+        btnDoze = view.findViewById(R.id.btnDoze);
+        tvDozeDone = view.findViewById(R.id.tvDozeDone);
+
+        btnData = view.findViewById(R.id.btnData);
 
         cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
         btnOptions = view.findViewById(R.id.btnOptions);
@@ -113,6 +128,39 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
+        btnDoze.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getContext())
+                        .setMessage(R.string.title_setup_doze_instructions)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
+                            }
+                        })
+                        .create()
+                        .show();
+            }
+        });
+
+        btnData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            @TargetApi(Build.VERSION_CODES.N)
+            public void onClick(View v) {
+                try {
+                    startActivity(new Intent(Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
+                            Uri.parse("package:" + BuildConfig.APPLICATION_ID)));
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
+            }
+        });
+
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         String theme = prefs.getString("theme", "light");
@@ -141,12 +189,13 @@ public class FragmentSetup extends FragmentEx {
 
         // Initialize
 
-        pbAccount.setVisibility(View.GONE);
-        pbIdentity.setVisibility(View.GONE);
-        tvAccountDone.setText(R.string.title_setup_to_do);
+        tvAccountDone.setText(null);
         btnIdentity.setEnabled(false);
-        tvIdentityDone.setText(R.string.title_setup_to_do);
-        tvPermissionsDone.setText(R.string.title_setup_to_do);
+        tvIdentityDone.setText(null);
+        tvPermissionsDone.setText(null);
+        btnDoze.setEnabled(false);
+        tvDozeDone.setText(null);
+        btnData.setVisibility(View.GONE);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -198,8 +247,8 @@ public class FragmentSetup extends FragmentEx {
         db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                tvAccountDone.setText(accounts != null && accounts.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
                 btnIdentity.setEnabled(accounts != null && accounts.size() > 0);
+                tvAccountDone.setText(accounts != null && accounts.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
             }
         });
 
@@ -209,6 +258,22 @@ public class FragmentSetup extends FragmentEx {
                 tvIdentityDone.setText(identities != null && identities.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        PowerManager pm = getContext().getSystemService(PowerManager.class);
+        boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        btnDoze.setEnabled(!ignoring);
+        tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
+            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+            btnData.setVisibility(saving ? View.VISIBLE : View.GONE);
+        }
     }
 
     @Override

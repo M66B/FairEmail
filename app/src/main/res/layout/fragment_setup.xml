@@ -23,17 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/pbAccount"
-            style="@style/Base.Widget.AppCompat.ProgressBar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/btnAccount"
-            app:layout_constraintStart_toEndOf="@id/btnAccount"
-            app:layout_constraintTop_toTopOf="@id/btnAccount" />
-
         <TextView
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
@@ -61,22 +50,11 @@
             android:id="@+id/btnIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:text="@string/title_setup_identity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
-
-        <ProgressBar
-            android:id="@+id/pbIdentity"
-            style="@style/Base.Widget.AppCompat.ProgressBar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/btnIdentity"
-            app:layout_constraintStart_toEndOf="@id/btnIdentity"
-            app:layout_constraintTop_toTopOf="@id/btnIdentity" />
 
         <TextView
             android:id="@+id/tvIdentity"
@@ -105,7 +83,7 @@
             android:id="@+id/btnPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:text="@string/title_setup_permissions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -132,22 +110,70 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissions" />
 
+        <!-- doze -->
+
+        <Button
+            android:id="@+id/btnDoze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/title_setup_doze"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
+
+        <TextView
+            android:id="@+id/tvDoze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_setup_doze_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+
+        <TextView
+            android:id="@+id/tvDozeDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_setup_to_do"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDoze" />
+
+        <!-- data saver -->
+
+        <Button
+            android:id="@+id/btnData"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:text="@string/title_setup_data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
+
         <CheckBox
             android:id="@+id/cbDarkTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:text="@string/title_setup_dark_theme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
+            app:layout_constraintTop_toBottomOf="@id/btnData" />
 
         <Button
             android:id="@+id/btnOptions"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:text="@string/title_advanced"
