@@ -60,12 +60,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvFrom;
-        TextView tvSize;
         TextView tvTime;
         ImageView ivAttachments;
         TextView tvSubject;
         TextView tvFolder;
         TextView tvCount;
+        ImageView ivThread;
         TextView tvError;
         ProgressBar pbLoading;
 
@@ -74,12 +74,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             this.itemView = itemView;
             tvFrom = itemView.findViewById(R.id.tvFrom);
-            tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvCount = itemView.findViewById(R.id.tvCount);
+            ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
         }
@@ -96,12 +96,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void clear() {
             tvFrom.setText(null);
-            tvSize.setText(null);
             tvTime.setText(null);
             tvSubject.setText(null);
             ivAttachments.setVisibility(View.GONE);
             tvFolder.setText(null);
             tvCount.setText(null);
+            ivThread.setVisibility(View.GONE);
             tvError.setText(null);
             pbLoading.setVisibility(View.VISIBLE);
         }
@@ -119,8 +119,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 
-            tvSize.setVisibility(View.GONE);
-
             tvSubject.setText(message.subject);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
@@ -131,11 +129,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 tvFolder.setText(Helper.localizeFolderName(context, message.folderName));
 
-            if (viewType == ViewType.THREAD)
+            if (viewType == ViewType.THREAD) {
                 tvCount.setVisibility(View.GONE);
-            else {
+                ivThread.setVisibility(View.GONE);
+            } else {
                 tvCount.setText(Integer.toString(message.count));
-                tvCount.setVisibility(debug || message.count > 1 ? View.VISIBLE : View.GONE);
+                ivThread.setVisibility(View.VISIBLE);
             }
 
             if (debug) {

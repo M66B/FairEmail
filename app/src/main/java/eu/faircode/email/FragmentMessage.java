@@ -113,7 +113,6 @@ public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
     private View vwAnswerAnchor;
     private TextView tvFrom;
-    private TextView tvSize;
     private TextView tvTime;
     private TextView tvTo;
     private TextView tvSubject;
@@ -131,6 +130,7 @@ public class FragmentMessage extends FragmentEx {
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpHeader;
+    private Group grpThread;
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpError;
@@ -198,7 +198,6 @@ public class FragmentMessage extends FragmentEx {
         // Get controls
         vwAnswerAnchor = view.findViewById(R.id.vwAnswerAnchor);
         tvFrom = view.findViewById(R.id.tvFrom);
-        tvSize = view.findViewById(R.id.tvSize);
         tvTime = view.findViewById(R.id.tvTime);
         tvTo = view.findViewById(R.id.tvTo);
         tvSubject = view.findViewById(R.id.tvSubject);
@@ -216,19 +215,13 @@ public class FragmentMessage extends FragmentEx {
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
+        grpThread = view.findViewById(R.id.grpThread);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpError = view.findViewById(R.id.grpError);
         grpMessage = view.findViewById(R.id.grpMessage);
 
         setHasOptionsMenu(true);
-
-        tvCount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onMenuThread();
-            }
-        });
 
         tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
@@ -300,12 +293,11 @@ public class FragmentMessage extends FragmentEx {
                 vSeparatorBody.setVisibility(View.GONE);
                 fab.setVisibility(View.GONE);
 
-                tvCount.setVisibility(View.GONE);
+                grpThread.setVisibility(View.GONE);
                 grpAddresses.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
                 grpError.setVisibility(View.GONE);
 
-                tvCount.setTag(tvCount.getVisibility());
                 tvCc.setTag(grpAddresses.getVisibility());
                 tvError.setTag(grpError.getVisibility());
             }
@@ -324,7 +316,7 @@ public class FragmentMessage extends FragmentEx {
 
                     RecyclerView.Adapter adapter = rvAttachment.getAdapter();
 
-                    tvCount.setVisibility((int) tvCount.getTag());
+                    grpThread.setVisibility(View.VISIBLE);
                     grpAddresses.setVisibility((int) tvCc.getTag());
                     grpAttachments.setVisibility(adapter != null && adapter.getItemCount() > 0 ? View.VISIBLE : View.GONE);
                     grpError.setVisibility((int) tvError.getTag());
@@ -367,12 +359,10 @@ public class FragmentMessage extends FragmentEx {
         grpMessage.setVisibility(View.GONE);
         pbBody.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
-        tvCount.setVisibility(View.GONE);
+        grpThread.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
         fab.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-
-        tvSize.setText(null);
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -382,9 +372,7 @@ public class FragmentMessage extends FragmentEx {
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), true);
         rvAttachment.setAdapter(adapter);
 
-        tvCount.setTag(View.GONE);
         tvCc.setTag(View.GONE);
-        rvAttachment.setTag(View.GONE);
         tvError.setTag(View.GONE);
 
         return view;
@@ -402,7 +390,6 @@ public class FragmentMessage extends FragmentEx {
         outState.putSerializable("message", message);
         outState.putBoolean("free", free);
         if (free) {
-            outState.putInt("tag_count", (int) tvCount.getTag());
             outState.putInt("tag_cc", (int) tvCc.getTag());
             outState.putInt("tag_error", (int) tvError.getTag());
         }
@@ -430,9 +417,7 @@ public class FragmentMessage extends FragmentEx {
         } else {
             free = savedInstanceState.getBoolean("free");
             if (free) {
-                tvCount.setTag(savedInstanceState.getInt("tag_count"));
                 tvCc.setTag(savedInstanceState.getInt("tag_cc"));
-                rvAttachment.setTag(savedInstanceState.getInt("tag_attachment"));
                 tvError.setTag(savedInstanceState.getInt("tag_error"));
             }
         }
@@ -465,11 +450,11 @@ public class FragmentMessage extends FragmentEx {
         vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
 
         if (free) {
-            tvCount.setVisibility((int) tvCount.getTag());
+            grpThread.setVisibility(View.GONE);
             grpAddresses.setVisibility((int) tvCc.getTag());
             grpError.setVisibility((int) tvError.getTag());
         } else {
-            tvCount.setVisibility(!free && message.count > 1 ? View.VISIBLE : View.GONE);
+            grpThread.setVisibility(!free ? View.VISIBLE : View.GONE);
             grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
         }
 
@@ -578,9 +563,9 @@ public class FragmentMessage extends FragmentEx {
         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
-        menu.findItem(R.id.menu_thread).setVisible(!free && message.count > 1);
-        menu.findItem(R.id.menu_forward).setVisible(!free && !inOutbox);
-        menu.findItem(R.id.menu_reply_all).setVisible(!free && message.cc != null && !inOutbox);
+        menu.findItem(R.id.menu_thread).setVisible(message.count > 1);
+        menu.findItem(R.id.menu_forward).setVisible(!inOutbox);
+        menu.findItem(R.id.menu_reply_all).setVisible(message.cc != null && !inOutbox);
         menu.findItem(R.id.menu_decrypt).setVisible(!inOutbox);
     }
 
@@ -1059,7 +1044,6 @@ public class FragmentMessage extends FragmentEx {
             SpannedString ss = new SpannedString(body);
             boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
 
-            tvSize.setText(Helper.humanReadableByteCount(args.getInt("size"), false));
             tvBody.setText(body);
             tvBody.setTag(true);
             btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
