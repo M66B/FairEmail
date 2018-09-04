@@ -386,7 +386,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
         final DB db = DB.getInstance(this);
-        final ExecutorService executor = Executors.newSingleThreadExecutor();
+        final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
@@ -1270,28 +1270,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
 
-            // Cleanup files
-            File[] messages = new File(getFilesDir(), "messages").listFiles();
-            if (messages != null)
-                for (File file : messages)
-                    if (file.isFile()) {
-                        long id = Long.parseLong(file.getName());
-                        if (db.message().countMessage(id) == 0) {
-                            Log.i(Helper.TAG, "Cleanup message id=" + id);
-                            file.delete();
-                        }
-                    }
-            File[] attachments = new File(getFilesDir(), "attachments").listFiles();
-            if (attachments != null)
-                for (File file : attachments)
-                    if (file.isFile()) {
-                        long id = Long.parseLong(file.getName());
-                        if (db.attachment().countAttachment(id) == 0) {
-                            Log.i(Helper.TAG, "Cleanup attachment id=" + id);
-                            file.delete();
-                        }
-                    }
-
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync");
@@ -1439,8 +1417,8 @@ public class ServiceSynchronize extends LifecycleService {
         private boolean running = false;
         private Thread main;
         private EntityFolder outbox = null;
-        private ExecutorService lifecycle = Executors.newSingleThreadExecutor();
-        private ExecutorService executor = Executors.newSingleThreadExecutor();
+        private ExecutorService lifecycle = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+        private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
         public void onAvailable(Network network) {
@@ -1648,6 +1626,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     public static void start(Context context) {
         ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+        JobDaily.schedule(context);
     }
 
     public static void reload(Context context, String reason) {

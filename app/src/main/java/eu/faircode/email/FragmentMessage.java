@@ -145,7 +145,7 @@ public class FragmentMessage extends FragmentEx {
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    private ExecutorService executor = Executors.newCachedThreadPool();
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
     static final String ACTION_DECRYPT_MESSAGE = BuildConfig.APPLICATION_ID + ".DECRYPT_MESSAGE";

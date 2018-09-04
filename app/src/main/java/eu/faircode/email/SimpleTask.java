@@ -22,12 +22,10 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -36,8 +34,6 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.OnLifecycleEvent;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 //
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
@@ -51,14 +47,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Bundle args = null;
     private Result stored = null;
 
-    private ExecutorService executor = Executors.newCachedThreadPool(new ThreadFactory() {
-        @Override
-        public Thread newThread(@NonNull Runnable runnable) {
-            Thread thread = new Thread(runnable);
-            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-            return thread;
-        }
-    });
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     public void load(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);

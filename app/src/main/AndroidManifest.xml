@@ -73,6 +73,11 @@
 
         <service android:name=".ServiceSynchronize" />
 
+        <service
+            android:name=".JobDaily"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}"

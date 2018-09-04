@@ -40,4 +40,8 @@ public interface DaoLog {
 
     @Insert
     long insertLog(EntityLog log);
+
+    @Query("DELETE FROM log" +
+            " WHERE time < :before")
+    int deleteLogs(long before);
 }

@@ -23,6 +23,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -47,17 +48,31 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class Helper {
     static final String TAG = "fairemail";
+
+    static final int JOB_DAILY = 1001;
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
+
+    static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
+        @Override
+        public Thread newThread(@NonNull Runnable runnable) {
+            Thread thread = new Thread(runnable);
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+            return thread;
+        }
+    };
 
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
