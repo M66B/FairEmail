@@ -31,7 +31,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
-public class ActivityCompose extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+public class ActivityCompose extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     static final int REQUEST_CONTACT_TO = 1;
     static final int REQUEST_CONTACT_CC = 2;
     static final int REQUEST_CONTACT_BCC = 3;
