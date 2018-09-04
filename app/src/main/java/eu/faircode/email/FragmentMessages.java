@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -160,64 +162,100 @@ public class FragmentMessages extends FragmentEx {
             }
 
             @Override
+            public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                int pos = viewHolder.getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
+
+                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
+
+                View itemView = viewHolder.itemView;
+                int margin = Math.round(12 * (getResources().getDisplayMetrics().density));
+
+                if (dX > margin) {
+                    // Right swipe
+                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24, getContext().getTheme());
+                    d.setBounds(
+                            itemView.getLeft() + margin,
+                            itemView.getTop() + d.getIntrinsicHeight() / 2,
+                            itemView.getLeft() + margin + d.getIntrinsicWidth(),
+                            itemView.getTop() + (itemView.getHeight() - d.getIntrinsicHeight() / 2));
+                    d.draw(canvas);
+                } else if (dX < -margin) {
+                    // Left swipe
+                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
+                    d.setBounds(
+                            itemView.getLeft() + itemView.getWidth() - d.getIntrinsicWidth() - margin,
+                            itemView.getTop() + d.getIntrinsicHeight() / 2,
+                            itemView.getLeft() + itemView.getWidth() - margin,
+                            itemView.getTop() + (itemView.getHeight() - d.getIntrinsicHeight() / 2));
+                    d.draw(canvas);
+                }
+
+                super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+
+            @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 int pos = viewHolder.getAdapterPosition();
-                if (pos != RecyclerView.NO_POSITION) {
-                    TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                    Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
 
-                    Bundle args = new Bundle();
-                    args.putLong("id", message.id);
-                    args.putInt("direction", direction);
-                    new SimpleTask<String>() {
-                        @Override
-                        protected String onLoad(Context context, Bundle args) {
-                            long id = args.getLong("id");
-                            int direction = args.getInt("direction");
-                            EntityFolder target = null;
+                TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
 
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
-                                EntityMessage message = db.message().getMessage(id);
-                                EntityFolder folder = db.folder().getFolder(message.folder);
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
+                args.putInt("direction", direction);
+                new SimpleTask<String>() {
+                    @Override
+                    protected String onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        int direction = args.getInt("direction");
+                        EntityFolder target = null;
 
-                                if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                                else {
-                                    if (direction == ItemTouchHelper.RIGHT)
-                                        target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                                    if (direction == ItemTouchHelper.LEFT || target == null)
-                                        target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                }
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+                            EntityMessage message = db.message().getMessage(id);
+                            EntityFolder folder = db.folder().getFolder(message.folder);
 
-                                db.message().setMessageUiHide(message.id, true);
-                                EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
+                            if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
+                                target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                            else {
+                                if (direction == ItemTouchHelper.RIGHT)
+                                    target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                                if (direction == ItemTouchHelper.LEFT || target == null)
+                                    target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                             }
 
-                            EntityOperation.process(context);
+                            db.message().setMessageUiHide(message.id, true);
+                            EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
 
-                            return target.name;
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
                         }
 
-                        @Override
-                        protected void onLoaded(Bundle args, String folder) {
-                            Snackbar.make(
-                                    view,
-                                    getString(R.string.title_moving, Helper.localizeFolderName(getContext(), folder)),
-                                    Snackbar.LENGTH_SHORT).show();
-                        }
+                        EntityOperation.process(context);
 
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }.load(FragmentMessages.this, args);
-                }
+                        return target.name;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, String folder) {
+                        Snackbar.make(
+                                view,
+                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), folder)),
+                                Snackbar.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }.load(FragmentMessages.this, args);
             }
         }).attachToRecyclerView(rvMessage);
 
