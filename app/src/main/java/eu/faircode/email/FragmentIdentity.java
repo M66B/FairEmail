@@ -134,6 +134,12 @@ public class FragmentIdentity extends FragmentEx {
                     Provider provider = (Provider) spProvider.getItemAtPosition(pos);
                     if (provider.imap_host.equals(account.host) && provider.imap_port == account.port) {
                         spProvider.setSelection(pos);
+
+                        // This is needed because the spinner might be invisible
+                        etHost.setText(provider.smtp_host);
+                        etPort.setText(Integer.toString(provider.smtp_port));
+                        cbStartTls.setChecked(provider.starttls);
+
                         break;
                     }
                 }
@@ -396,15 +402,15 @@ public class FragmentIdentity extends FragmentEx {
 
         // Observe identity
         db.identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
-            boolean once = false;
+            private boolean once = false;
 
             @Override
             public void onChanged(@Nullable final EntityIdentity identity) {
-                if (savedInstanceState == null) {
-                    if (once)
-                        return;
-                    once = true;
+                if (once)
+                    return;
+                once = true;
 
+                if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
@@ -433,8 +439,14 @@ public class FragmentIdentity extends FragmentEx {
 
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+                    private boolean once = false;
+
                     @Override
                     public void onChanged(List<EntityAccount> accounts) {
+                        if (once)
+                            return;
+                        once = true;
+
                         if (accounts == null)
                             accounts = new ArrayList<>();
 

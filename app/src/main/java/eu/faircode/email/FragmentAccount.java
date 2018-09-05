@@ -711,10 +711,14 @@ public class FragmentAccount extends FragmentEx {
 
         // Observe
         DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
-            boolean once = false;
+            private boolean once = false;
 
             @Override
             public void onChanged(@Nullable EntityAccount account) {
+                if (once)
+                    return;
+                once = true;
+
                 // Get providers
                 List<Provider> providers = Provider.loadProfiles(getContext());
                 providers.add(0, new Provider(getString(R.string.title_select)));
@@ -725,10 +729,6 @@ public class FragmentAccount extends FragmentEx {
                 spProvider.setAdapter(padapter);
 
                 if (savedInstanceState == null) {
-                    if (once)
-                        return;
-                    once = true;
-
                     if (account != null) {
                         for (int pos = 2; pos < providers.size(); pos++)
                             if (providers.get(pos).imap_host.equals(account.host)) {

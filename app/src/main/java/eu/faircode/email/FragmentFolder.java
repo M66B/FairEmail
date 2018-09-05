@@ -146,7 +146,7 @@ public class FragmentFolder extends FragmentEx {
 
         // Observe
         DB.getInstance(getContext()).folder().liveFolder(id).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-            boolean once = false;
+            private boolean once = false;
 
             @Override
             public void onChanged(@Nullable EntityFolder folder) {
@@ -155,11 +155,11 @@ public class FragmentFolder extends FragmentEx {
                     return;
                 }
 
-                if (savedInstanceState == null) {
-                    if (once)
-                        return;
-                    once = true;
+                if (once)
+                    return;
+                once = true;
 
+                if (savedInstanceState == null) {
                     cbSynchronize.setChecked(folder.synchronize);
                     cbUnified.setChecked(folder.unified);
                     etAfter.setText(Integer.toString(folder.after));
