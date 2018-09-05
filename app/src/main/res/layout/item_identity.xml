@@ -96,7 +96,7 @@
         android:layout_marginStart="6dp"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="bold"
+        android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvHost" />

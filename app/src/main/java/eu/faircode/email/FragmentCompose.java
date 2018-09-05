@@ -683,22 +683,21 @@ public class FragmentCompose extends FragmentEx {
                     account = ref.account;
 
                     // Reply to recipient, not to known self
-                    String from = (ref.from == null || ref.from.length == 0 ? null : ((InternetAddress) ref.from[0]).getAddress());
-                    String replyto = (ref.reply == null || ref.reply.length == 0 ? null : ((InternetAddress) ref.reply[0]).getAddress());
-                    List<EntityIdentity> identities = db.identity().getIdentities();
-                    for (EntityIdentity identity : identities)
-                        if (replyto == null) {
-                            if (from != null && from.equals(identity.email)) {
+                    if (ref.from != null && ref.from.length > 0) {
+                        String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
+                        List<EntityIdentity> identities = db.identity().getIdentities();
+                        for (EntityIdentity identity : identities) {
+                            String email = Helper.canonicalAddress(identity.email);
+                            if (from.equals(email)) {
+                                Log.i(Helper.TAG, "Swapping from/to");
                                 Address[] tmp = ref.to;
                                 ref.to = ref.from;
                                 ref.reply = null;
                                 ref.from = tmp;
                                 break;
                             }
-                        } else if (replyto.equals(identity.email)) {
-                            ref.reply = ref.to;
-                            break;
                         }
+                    }
                 }
 
                 EntityFolder drafts;
@@ -881,9 +880,9 @@ public class FragmentCompose extends FragmentEx {
                     // Select identity matching from address
                     if (!found && draft.from != null && draft.from.length > 0) {
                         String from = Helper.canonicalAddress(((InternetAddress) draft.from[0]).getAddress());
-
                         for (int pos = 0; pos < identities.size(); pos++) {
-                            if (Helper.canonicalAddress(identities.get(pos).email).equals(from)) {
+                            String email = Helper.canonicalAddress(identities.get(pos).email);
+                            if (email.equals(from)) {
                                 spFrom.setSelection(pos);
                                 found = true;
                                 break;
