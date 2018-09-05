@@ -267,10 +267,6 @@ public class FragmentIdentity extends FragmentEx {
                         if (TextUtils.isEmpty(replyto))
                             replyto = null;
 
-                        // Refresh token
-                        if (id >= 0 && auth_type == Helper.AUTH_TYPE_GMAIL)
-                            password = Helper.refreshToken(getContext(), "com.google", user, password);
-
                         // Check SMTP server
                         if (synchronize) {
                             Properties props = MessageHelper.getSessionProperties(context, auth_type);

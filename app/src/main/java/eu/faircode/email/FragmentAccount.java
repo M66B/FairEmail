@@ -287,12 +287,6 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
 
-                        // Refresh token
-                        if (id >= 0 && auth_type == Helper.AUTH_TYPE_GMAIL) {
-                            password = Helper.refreshToken(getContext(), "com.google", user, password);
-                            args.putString("password", password);
-                        }
-
                         // Check IMAP server / get folders
                         List<EntityFolder> folders = new ArrayList<>();
                         Properties props = MessageHelper.getSessionProperties(context, auth_type);
@@ -370,9 +364,6 @@ public class FragmentAccount extends FragmentEx {
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
-
-                        // Refreshed token
-                        tilPassword.getEditText().setText(args.getString("password"));
 
                         final Collator collator = Collator.getInstance(Locale.getDefault());
                         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
