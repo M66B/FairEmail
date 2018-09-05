@@ -38,6 +38,7 @@ import androidx.lifecycle.Observer;
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
     private CheckBox cbSynchronize;
+    private CheckBox cbUnified;
     private EditText etAfter;
     private Button btnSave;
     private ProgressBar pbSave;
@@ -63,6 +64,7 @@ public class FragmentFolder extends FragmentEx {
 
         // Get controls
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
+        cbUnified = view.findViewById(R.id.cbUnified);
         etAfter = view.findViewById(R.id.etAfter);
         pbSave = view.findViewById(R.id.pbSave);
         btnSave = view.findViewById(R.id.btnSave);
@@ -78,6 +80,7 @@ public class FragmentFolder extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("unified", cbUnified.isChecked());
                 args.putString("after", etAfter.getText().toString());
 
                 new SimpleTask<Void>() {
@@ -85,6 +88,7 @@ public class FragmentFolder extends FragmentEx {
                     protected Void onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
                         boolean synchronize = args.getBoolean("synchronize");
+                        boolean unified = args.getBoolean("unified");
                         String after = args.getString("after");
                         int days = (TextUtils.isEmpty(after) ? 7 : Integer.parseInt(after));
 
@@ -92,7 +96,7 @@ public class FragmentFolder extends FragmentEx {
                         try {
                             db.beginTransaction();
 
-                            db.folder().setFolderProperties(id, synchronize, days);
+                            db.folder().setFolderProperties(id, synchronize, unified, days);
                             if (!synchronize)
                                 db.folder().setFolderError(id, null);
 
@@ -157,6 +161,7 @@ public class FragmentFolder extends FragmentEx {
                     once = true;
 
                     cbSynchronize.setChecked(folder.synchronize);
+                    cbUnified.setChecked(folder.unified);
                     etAfter.setText(Integer.toString(folder.after));
                 }
 

@@ -54,6 +54,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TextView tvName;
         TextView tvMessages;
         TextView tvType;
+        ImageView ivUnified;
         TextView tvAfter;
         ImageView ivSync;
         ImageView ivState;
@@ -67,6 +68,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             tvType = itemView.findViewById(R.id.tvType);
+            ivUnified = itemView.findViewById(R.id.ivUnified);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvError = itemView.findViewById(R.id.tvError);
@@ -105,6 +107,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     "string",
                     context.getPackageName());
             tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+
+            ivUnified.setVisibility(folder.unified ? View.VISIBLE : View.GONE);
 
             tvAfter.setText(Integer.toString(folder.after));
             ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);

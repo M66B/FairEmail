@@ -556,6 +556,7 @@ public class FragmentAccount extends FragmentEx {
                             inbox.name = "INBOX";
                             inbox.type = EntityFolder.INBOX;
                             inbox.synchronize = true;
+                            inbox.unified = true;
                             inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
 
                             folders.add(inbox);

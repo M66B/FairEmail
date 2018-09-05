@@ -39,14 +39,14 @@ public interface DaoMessage {
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            ", MAX(CASE WHEN folder.type = '" + EntityFolder.INBOX + "' THEN message.id ELSE 0 END) as dummy" +
+            ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
-            " HAVING SUM(CASE WHEN folder.type = '" + EntityFolder.INBOX + "' THEN 1 ELSE 0 END) > 0" +
+            " HAVING SUM(unified) > 0" +
             " ORDER BY message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
@@ -127,7 +127,7 @@ public interface DaoMessage {
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
-            " AND folder.type = '" + EntityFolder.INBOX + "'" +
+            " AND folder.unified" +
             " AND NOT message.ui_seen AND NOT message.ui_hide" +
             " AND (account.seen_until IS NULL OR message.stored > account.seen_until)" +
             " ORDER BY message.received")

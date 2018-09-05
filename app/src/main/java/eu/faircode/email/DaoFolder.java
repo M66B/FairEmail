@@ -61,7 +61,7 @@ public interface DaoFolder {
             " JOIN account ON account.id = folder.account" +
             " JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE account.`synchronize`" +
-            " AND folder.type = '" + EntityFolder.INBOX + "'" +
+            " AND folder.unified" +
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
@@ -114,8 +114,8 @@ public interface DaoFolder {
             " AND type = :type")
     int setFolderUser(long account, String type);
 
-    @Query("UPDATE folder SET synchronize = :synchronize, after = :after WHERE id = :id")
-    int setFolderProperties(long id, boolean synchronize, int after);
+    @Query("UPDATE folder SET synchronize = :synchronize, unified = :unified, after = :after WHERE id = :id")
+    int setFolderProperties(long id, boolean synchronize, boolean unified, int after);
 
     @Query("DELETE FROM folder WHERE account= :account AND name = :name")
     void deleteFolder(Long account, String name);

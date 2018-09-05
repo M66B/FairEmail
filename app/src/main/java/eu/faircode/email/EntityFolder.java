@@ -42,9 +42,11 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"account", "name"}, unique = true),
                 @Index(value = {"account"}),
                 @Index(value = {"name"}),
-                @Index(value = {"type"})
+                @Index(value = {"type"}),
+                @Index(value = {"unified"})
         }
 )
+
 public class EntityFolder implements Parcelable {
     static final String TABLE_NAME = "folder";
 
@@ -55,6 +57,8 @@ public class EntityFolder implements Parcelable {
     public String name;
     @NonNull
     public String type;
+    @NonNull
+    public Boolean unified = false;
     @NonNull
     public Boolean synchronize;
     @NonNull

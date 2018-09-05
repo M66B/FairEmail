@@ -117,6 +117,7 @@
 
     <string name="title_folder_unseen" translatable="false">%1$s (%2$d)</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
+    <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_after">Synchronize (days)</string>
 
     <string name="title_folder_unified">Unified inbox</string>
@@ -197,6 +198,7 @@
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_synchronize">Synchronize</string>
     <string name="title_legend_primary">Primary</string>
+    <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_disconnected">Disconnected</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
