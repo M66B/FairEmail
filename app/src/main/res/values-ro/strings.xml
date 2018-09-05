@@ -103,6 +103,7 @@
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Sincronizare (zile)</string>
   <string name="title_folder_unified">Căsuță poștală comună</string>
   <string name="title_folder_inbox">Mesaje primite</string>
@@ -171,6 +172,7 @@
   <string name="title_legend_thread">Conversație</string>
   <string name="title_legend_synchronize">Sincronizare</string>
   <string name="title_legend_primary">Primar</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>

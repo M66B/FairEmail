@@ -99,6 +99,7 @@
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synchronisiere (Tage)</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
   <string name="title_folder_inbox">Posteingang</string>
@@ -167,6 +168,7 @@
   <string name="title_legend_thread">Unterhaltung</string>
   <string name="title_legend_synchronize">Synchronisieren</string>
   <string name="title_legend_primary">Primär</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>

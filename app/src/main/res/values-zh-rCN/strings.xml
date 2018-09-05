@@ -95,6 +95,7 @@
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>
   <string name="title_synchronize_folder">同步文件夹（接收）</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">同步天数</string>
   <string name="title_folder_unified">聚合收件箱</string>
   <string name="title_folder_inbox">收件箱</string>
@@ -163,6 +164,7 @@
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">同步</string>
   <string name="title_legend_primary">首选</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">未连接</string>
   <string name="title_legend_connecting">正在连接</string>
   <string name="title_legend_connected">已连接</string>

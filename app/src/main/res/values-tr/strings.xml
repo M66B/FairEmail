@@ -99,6 +99,7 @@
   <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>
   <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Senkronize (günler)</string>
   <string name="title_folder_unified">Birleştirilmiş gelen kutusu</string>
   <string name="title_folder_inbox">Gelen kutusu</string>
@@ -167,6 +168,7 @@
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Senkronize et</string>
   <string name="title_legend_primary">Birincil</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Bağlantı kesildi</string>
   <string name="title_legend_connecting">Bağlanıyor</string>
   <string name="title_legend_connected">Bağlandı</string>

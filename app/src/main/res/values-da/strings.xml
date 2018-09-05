@@ -99,6 +99,7 @@
   <string name="title_account_delete">Slet denne konto permanent?</string>
   <string name="title_identity_delete">Slet denne identitet permanent?</string>
   <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synkronisér (dage)</string>
   <string name="title_folder_unified">Samlet indbakke</string>
   <string name="title_folder_inbox">Indbakke</string>
@@ -167,6 +168,7 @@
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Synkronisér</string>
   <string name="title_legend_primary">Primær</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Afbrudt</string>
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>

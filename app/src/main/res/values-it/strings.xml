@@ -99,6 +99,7 @@
   <string name="title_account_delete">Cancellare questo account permanentemente?</string>
   <string name="title_identity_delete">Cancellare questa identità permanentemente?</string>
   <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
+  <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Sincronizza (giorni)</string>
   <string name="title_folder_unified">Posta in arrivo unificata</string>
   <string name="title_folder_inbox">Posta in arrivo</string>
@@ -167,6 +168,7 @@
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Sincronizza</string>
   <string name="title_legend_primary">Principale</string>
+  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Disconnesso</string>
   <string name="title_legend_connecting">Connessione in corso</string>
   <string name="title_legend_connected">Connesso</string>
