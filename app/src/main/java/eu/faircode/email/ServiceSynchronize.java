@@ -61,6 +61,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -376,6 +377,7 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
                 !(ex instanceof StoreClosedException) &&
+                !(ex instanceof MessagingException && ex.getCause() instanceof UnknownHostException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
