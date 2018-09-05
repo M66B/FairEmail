@@ -120,6 +120,8 @@ public class FragmentMessage extends FragmentEx {
     private TextView tvReplyTo;
     private TextView tvCc;
     private TextView tvBcc;
+    private TextView tvRawHeaders;
+    private ProgressBar pbRawHeaders;
     private RecyclerView rvAttachment;
     private TextView tvError;
     private View vSeparatorBody;
@@ -132,12 +134,15 @@ public class FragmentMessage extends FragmentEx {
     private Group grpHeader;
     private Group grpThread;
     private Group grpAddresses;
+    private Group grpRawHeaders;
     private Group grpAttachments;
     private Group grpError;
     private Group grpMessage;
 
     private TupleMessageEx message = null;
     private boolean free = false;
+    private boolean addresses = false;
+    private boolean headers = false;
     private AdapterAttachment adapter;
 
     private OpenPgpServiceConnection openPgpConnection = null;
@@ -205,6 +210,8 @@ public class FragmentMessage extends FragmentEx {
         tvReplyTo = view.findViewById(R.id.tvReplyTo);
         tvCc = view.findViewById(R.id.tvCc);
         tvBcc = view.findViewById(R.id.tvBcc);
+        tvRawHeaders = view.findViewById(R.id.tvRawHeaders);
+        pbRawHeaders = view.findViewById(R.id.pbRawHeaders);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvError = view.findViewById(R.id.tvError);
         vSeparatorBody = view.findViewById(R.id.vSeparatorBody);
@@ -217,6 +224,7 @@ public class FragmentMessage extends FragmentEx {
         grpHeader = view.findViewById(R.id.grpHeader);
         grpThread = view.findViewById(R.id.grpThread);
         grpAddresses = view.findViewById(R.id.grpAddresses);
+        grpRawHeaders = view.findViewById(R.id.grpRawHeaders);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpError = view.findViewById(R.id.grpError);
         grpMessage = view.findViewById(R.id.grpMessage);
@@ -295,11 +303,10 @@ public class FragmentMessage extends FragmentEx {
 
                 grpThread.setVisibility(View.GONE);
                 grpAddresses.setVisibility(View.GONE);
+                pbRawHeaders.setVisibility(View.GONE);
+                grpRawHeaders.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
                 grpError.setVisibility(View.GONE);
-
-                tvCc.setTag(grpAddresses.getVisibility());
-                tvError.setTag(grpError.getVisibility());
             }
         });
 
@@ -317,9 +324,10 @@ public class FragmentMessage extends FragmentEx {
                     RecyclerView.Adapter adapter = rvAttachment.getAdapter();
 
                     grpThread.setVisibility(View.VISIBLE);
-                    grpAddresses.setVisibility((int) tvCc.getTag());
+                    grpAddresses.setVisibility(addresses ? View.VISIBLE : View.GONE);
+                    pbRawHeaders.setVisibility(headers && message.headers == null ? View.VISIBLE : View.GONE);
+                    grpRawHeaders.setVisibility(headers ? View.VISIBLE : View.GONE);
                     grpAttachments.setVisibility(adapter != null && adapter.getItemCount() > 0 ? View.VISIBLE : View.GONE);
-                    grpError.setVisibility((int) tvError.getTag());
 
                     return true;
                 }
@@ -354,6 +362,8 @@ public class FragmentMessage extends FragmentEx {
         // Initialize
         grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
+        pbRawHeaders.setVisibility(View.GONE);
+        grpRawHeaders.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         btnImages.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
@@ -372,9 +382,6 @@ public class FragmentMessage extends FragmentEx {
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), true);
         rvAttachment.setAdapter(adapter);
 
-        tvCc.setTag(View.GONE);
-        tvError.setTag(View.GONE);
-
         return view;
     }
 
@@ -389,10 +396,8 @@ public class FragmentMessage extends FragmentEx {
         super.onSaveInstanceState(outState);
         outState.putSerializable("message", message);
         outState.putBoolean("free", free);
-        if (free) {
-            outState.putInt("tag_cc", (int) tvCc.getTag());
-            outState.putInt("tag_error", (int) tvError.getTag());
-        }
+        outState.putBoolean("headers", headers);
+        outState.putBoolean("addresses", addresses);
     }
 
     @Override
@@ -413,13 +418,13 @@ public class FragmentMessage extends FragmentEx {
             tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
             tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
 
+            tvRawHeaders.setText(message.headers);
+
             tvError.setText(message.error);
         } else {
             free = savedInstanceState.getBoolean("free");
-            if (free) {
-                tvCc.setTag(savedInstanceState.getInt("tag_cc"));
-                tvError.setTag(savedInstanceState.getInt("tag_error"));
-            }
+            headers = savedInstanceState.getBoolean("headers");
+            addresses = savedInstanceState.getBoolean("addresses");
         }
 
         if (tvBody.getTag() == null) {
@@ -449,14 +454,11 @@ public class FragmentMessage extends FragmentEx {
         grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
         vSeparatorBody.setVisibility(free ? View.GONE : View.VISIBLE);
 
-        if (free) {
-            grpThread.setVisibility(View.GONE);
-            grpAddresses.setVisibility((int) tvCc.getTag());
-            grpError.setVisibility((int) tvError.getTag());
-        } else {
-            grpThread.setVisibility(!free ? View.VISIBLE : View.GONE);
-            grpError.setVisibility(free || message.error == null ? View.GONE : View.VISIBLE);
-        }
+        grpAddresses.setVisibility(!free && addresses ? View.VISIBLE : View.GONE);
+        grpThread.setVisibility(free ? View.GONE : View.VISIBLE);
+        pbRawHeaders.setVisibility(!free && headers && message.headers == null ? View.VISIBLE : View.GONE);
+        grpRawHeaders.setVisibility(free || !headers ? View.GONE : View.VISIBLE);
+        grpError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
@@ -474,6 +476,10 @@ public class FragmentMessage extends FragmentEx {
                 // Messages are immutable except for flags
                 FragmentMessage.this.message = message;
                 setSeen();
+
+                // Headers can be downloaded
+                tvRawHeaders.setText(message.headers);
+                pbRawHeaders.setVisibility(!free && headers && message.headers == null ? View.VISIBLE : View.GONE);
 
                 // Message count can be changed
                 getActivity().invalidateOptionsMenu();
@@ -565,6 +571,9 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_addresses).setVisible(!free);
         menu.findItem(R.id.menu_thread).setVisible(message.count > 1);
         menu.findItem(R.id.menu_forward).setVisible(!inOutbox);
+        menu.findItem(R.id.menu_show_headers).setChecked(headers);
+        menu.findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
+        menu.findItem(R.id.menu_show_headers).setVisible(!free);
         menu.findItem(R.id.menu_reply_all).setVisible(message.cc != null && !inOutbox);
         menu.findItem(R.id.menu_decrypt).setVisible(!inOutbox);
     }
@@ -587,6 +596,9 @@ public class FragmentMessage extends FragmentEx {
             case R.id.menu_show_html:
                 onMenuShowHtml();
                 return true;
+            case R.id.menu_show_headers:
+                onMenuShowHeaders();
+                return true;
             case R.id.menu_answer:
                 onMenuAnswer();
                 return true;
@@ -599,7 +611,8 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onMenuAddresses() {
-        grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+        addresses = !addresses;
+        grpAddresses.setVisibility(addresses ? View.VISIBLE : View.GONE);
     }
 
     private void onMenuThread() {
@@ -626,6 +639,30 @@ public class FragmentMessage extends FragmentEx {
         startActivity(new Intent(getContext(), ActivityCompose.class)
                 .putExtra("action", "reply_all")
                 .putExtra("reference", message.id));
+    }
+
+    private void onMenuShowHeaders() {
+        headers = !headers;
+        getActivity().invalidateOptionsMenu();
+        pbRawHeaders.setVisibility(headers && message.headers == null ? View.VISIBLE : View.GONE);
+        grpRawHeaders.setVisibility(headers ? View.VISIBLE : View.GONE);
+
+        if (headers && message.headers == null) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    Long id = args.getLong("id");
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    EntityOperation.queue(db, message, EntityOperation.HEADERS);
+                    EntityOperation.process(context);
+                    return null;
+                }
+            }.load(this, args);
+        }
     }
 
     private void onMenuShowHtml() {

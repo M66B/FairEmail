@@ -28,12 +28,13 @@ Most, if not all, other email apps don't show a notification with the "side effe
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* SEEN: mark message as seen/unseen in remote folder
-* ADD: add message to remote folder
-* MOVE: move message to another remote folder
-* DELETE: delete message from remote folder
-* SEND: send message
-* ATTACHMENT download attachment
+* seen: mark message as seen/unseen in remote folder
+* add: add message to remote folder
+* move: move message to another remote folder
+* delete: delete message from remote folder
+* send: send message
+* attachment download attachment
+* headers: download message headers
 
 <a name="FAQ4"></a>
 **(4) What is a valid security certificate?**

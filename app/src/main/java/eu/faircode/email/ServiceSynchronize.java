@@ -66,6 +66,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,6 +81,7 @@ import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.FolderNotFoundException;
+import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -841,7 +843,8 @@ public class ServiceSynchronize extends LifecycleService {
                             if (message.uid == null &&
                                     (EntityOperation.SEEN.equals(op.name) ||
                                             EntityOperation.DELETE.equals(op.name) ||
-                                            EntityOperation.MOVE.equals(op.name)))
+                                            EntityOperation.MOVE.equals(op.name) ||
+                                            EntityOperation.HEADERS.equals(op.name)))
                                 throw new IllegalArgumentException(op.name + " without uid");
 
                             JSONArray jargs = new JSONArray(op.args);
@@ -863,6 +866,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                             else if (EntityOperation.ATTACHMENT.equals(op.name))
                                 doAttachment(folder, op, ifolder, message, jargs, db);
+
+                            else if (EntityOperation.HEADERS.equals(op.name))
+                                doHeaders(folder, ifolder, message, db);
 
                             else
                                 throw new MessagingException("Unknown operation name=" + op.name);
@@ -1122,6 +1128,17 @@ public class ServiceSynchronize extends LifecycleService {
             db.attachment().updateAttachment(attachment);
             throw ex;
         }
+    }
+
+    private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        Enumeration<Header> headers = imessage.getAllHeaders();
+        StringBuilder sb = new StringBuilder();
+        while (headers.hasMoreElements()) {
+            Header header = headers.nextElement();
+            sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
+        }
+        db.message().setMessageHeaders(message.id, sb.toString());
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {

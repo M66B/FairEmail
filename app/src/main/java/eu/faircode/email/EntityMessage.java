@@ -87,6 +87,7 @@ public class EntityMessage implements Serializable {
     public Address[] cc;
     public Address[] bcc;
     public Address[] reply;
+    public String headers;
     public String subject;
     public Long sent; // compose = null
     @NonNull

@@ -185,6 +185,45 @@
         app:layout_constraintStart_toEndOf="@id/tvBccTitle"
         app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
+
+    <View
+        android:id="@+id/vSeparatorRawHeaders"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+    <TextView
+        android:id="@+id/tvRawHeaders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="monospace"
+
+        android:freezesText="true"
+        android:maxHeight="120sp"
+        android:text="H1\nH2\nH3\nH4\nH5\nH6\nH7\nH8\nH9\n"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorRawHeaders" />
+
+    <ProgressBar
+        android:id="@+id/pbRawHeaders"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@id/tvRawHeaders"
+        app:layout_constraintEnd_toEndOf="@id/tvRawHeaders"
+        app:layout_constraintStart_toStartOf="@id/tvRawHeaders"
+        app:layout_constraintTop_toTopOf="@id/tvRawHeaders" />
+
     <View
         android:id="@+id/vSeparatorAttachments"
         android:layout_width="match_parent"
@@ -192,7 +231,7 @@
         android:layout_marginTop="3dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+        app:layout_constraintTop_toBottomOf="@id/tvRawHeaders" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAttachment"
@@ -283,11 +322,10 @@
         style="@style/Base.Widget.AppCompat.ProgressBar"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="12dp"
         android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="@id/scroll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/scroll"
+        app:layout_constraintStart_toStartOf="@id/scroll"
         app:layout_constraintTop_toTopOf="@id/scroll" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -344,6 +382,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="vSeparatorAddress,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpRawHeaders"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorRawHeaders,tvRawHeaders" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpAttachments"

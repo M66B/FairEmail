@@ -27,6 +27,13 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_show_headers"
+        android:checkable="true"
+        android:icon="@drawable/baseline_visibility_24"
+        android:title="@string/title_show_headers"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_show_html"
         android:icon="@drawable/baseline_visibility_24"
         android:title="@string/title_show_html"

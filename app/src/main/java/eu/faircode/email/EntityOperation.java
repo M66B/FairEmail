@@ -71,6 +71,7 @@ public class EntityOperation {
     public static final String DELETE = "delete";
     public static final String SEND = "send";
     public static final String ATTACHMENT = "attachment";
+    public static final String HEADERS = "headers";
 
     private static List<Intent> queue = new ArrayList<>();
 
