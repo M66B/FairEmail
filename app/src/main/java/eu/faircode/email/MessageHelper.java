@@ -268,10 +268,13 @@ public class MessageHelper {
                 String personal = a.getPersonal();
                 if (TextUtils.isEmpty(personal))
                     formatted.add(address.toString());
-                else if (full)
-                    formatted.add(personal + " <" + a.getAddress() + ">");
-                else
-                    formatted.add(personal);
+                else {
+                    personal = personal.replaceAll("[\\,\\<\\>]", "");
+                    if (full)
+                        formatted.add(personal + " <" + a.getAddress() + ">");
+                    else
+                        formatted.add(personal);
+                }
             } else
                 formatted.add(address.toString());
         return TextUtils.join(", ", formatted);
