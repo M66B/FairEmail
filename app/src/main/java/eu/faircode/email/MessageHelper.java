@@ -25,6 +25,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -397,8 +398,23 @@ public class MessageHelper {
                 attachment.type = ct.getBaseType();
                 attachment.size = part.getSize();
                 attachment.part = part;
+
+                // Try to guess a better content type
+                // Sometimes PDF files are sent using the wrong type
+                if ("application/octet-stream".equals(attachment.type) && attachment.name != null) {
+                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                    if (extension != null) {
+                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                        if (type != null) {
+                            Log.w(Helper.TAG, "Guessing file=" + attachment.name + " type=" + type);
+                            attachment.type = type;
+                        }
+                    }
+                }
+
                 if (attachment.size < 0)
                     attachment.size = null;
+
                 result.add(attachment);
             }
         } else if (content instanceof Multipart) {
