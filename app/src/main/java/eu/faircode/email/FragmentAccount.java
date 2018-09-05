@@ -33,10 +33,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +49,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -82,17 +79,16 @@ import static android.accounts.AccountManager.newChooseAccountIntent;
 
 public class FragmentAccount extends FragmentEx {
     private ViewGroup view;
-    private EditText etName;
     private Spinner spProvider;
     private EditText etHost;
     private EditText etPort;
     private Button btnAuthorize;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private TextView tvLink;
+    private Button btnAdvanced;
+    private EditText etName;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
-    private EditText etInterval;
     private Button btnCheck;
     private ProgressBar pbCheck;
     private Spinner spDrafts;
@@ -104,8 +100,9 @@ public class FragmentAccount extends FragmentEx {
     private ProgressBar pbSave;
     private ImageButton ibDelete;
     private ProgressBar pbWait;
-    private Group grpInstructions;
-    private Group grpInterval;
+    private Group grpServer;
+    private Group grpAuthorize;
+    private Group grpAdvanced;
     private Group grpFolders;
 
     private long id = -1;
@@ -129,29 +126,37 @@ public class FragmentAccount extends FragmentEx {
 
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
-        etName = view.findViewById(R.id.etName);
         etHost = view.findViewById(R.id.etHost);
-        btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etPort = view.findViewById(R.id.etPort);
+
+        btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        tvLink = view.findViewById(R.id.tvLink);
+
+        btnAdvanced = view.findViewById(R.id.btnAdvanced);
+        etName = view.findViewById(R.id.etName);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-        etInterval = view.findViewById(R.id.etInterval);
+
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
+
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
         spAll = view.findViewById(R.id.spAll);
         spTrash = view.findViewById(R.id.spTrash);
         spJunk = view.findViewById(R.id.spJunk);
+
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+
         ibDelete = view.findViewById(R.id.ibDelete);
+
         pbWait = view.findViewById(R.id.pbWait);
-        grpInstructions = view.findViewById(R.id.grpInstructions);
-        grpInterval = view.findViewById(R.id.grpInterval);
+
+        grpServer = view.findViewById(R.id.grpServer);
+        grpAuthorize = view.findViewById(R.id.grpAuthorize);
+        grpAdvanced = view.findViewById(R.id.grpAdvanced);
         grpFolders = view.findViewById(R.id.grpFolders);
 
         // Wire controls
@@ -159,27 +164,32 @@ public class FragmentAccount extends FragmentEx {
         spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Integer tag = (Integer) adapterView.getTag();
-                if (tag != null && tag.equals(position))
+                Provider provider = (Provider) adapterView.getSelectedItem();
+                grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
+                grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+
+                btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
+
+                btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                if (position == 0)
+                    grpAdvanced.setVisibility(View.GONE);
+
+                btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
+
+                Object tag = adapterView.getTag();
+                if (tag != null && (Integer) tag == position)
                     return;
                 adapterView.setTag(position);
 
-                Provider provider = (Provider) adapterView.getSelectedItem();
-
-                etName.setText(provider.name);
-
-                btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
-                if (authorized != null) {
-                    authorized = null;
-                    etUser.setText(null);
-                    tilPassword.getEditText().setText(null);
-                }
-
                 etHost.setText(provider.imap_host);
-                etPort.setText(position == 0 ? null : Integer.toString(provider.imap_port));
+                etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
 
-                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
+                etUser.setText(null);
+                tilPassword.getEditText().setText(null);
+
+                etName.setText(position > 1 ? provider.name : null);
             }
 
             @Override
@@ -216,12 +226,25 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        btnAdvanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+                grpAdvanced.setVisibility(visibility);
+                if (visibility == View.VISIBLE)
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, btnCheck.getBottom());
+                        }
+                    });
+            }
+        });
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 cbPrimary.setEnabled(checked);
-                btnCheck.setVisibility(checked ? View.VISIBLE : View.GONE);
-                btnSave.setVisibility(checked ? View.GONE : View.VISIBLE);
             }
         });
 
@@ -232,21 +255,18 @@ public class FragmentAccount extends FragmentEx {
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
-                btnSave.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
 
                 Provider provider = (Provider) spProvider.getSelectedItem();
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
-                args.putString("name", etName.getText().toString());
                 args.putString("host", etHost.getText().toString());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("primary", cbPrimary.isChecked());
 
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
@@ -454,15 +474,14 @@ public class FragmentAccount extends FragmentEx {
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
-                args.putString("name", etName.getText().toString());
                 args.putString("host", etHost.getText().toString());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
+                args.putString("name", etName.getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
-                args.putString("poll_interval", etInterval.getText().toString());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
                 args.putParcelable("all", all);
@@ -472,15 +491,14 @@ public class FragmentAccount extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
-                        String name = args.getString("name");
                         String host = args.getString("host");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
+                        String name = args.getString("name");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
-                        String poll_interval = args.getString("poll_interval");
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
                         EntityFolder all = args.getParcelable("all");
@@ -497,9 +515,6 @@ public class FragmentAccount extends FragmentEx {
                             throw new Throwable(getContext().getString(R.string.title_no_password));
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
-
-                        if (TextUtils.isEmpty(poll_interval))
-                            poll_interval = "9";
 
                         // Check IMAP server
                         if (synchronize) {
@@ -529,16 +544,16 @@ public class FragmentAccount extends FragmentEx {
                             boolean update = (account != null);
                             if (account == null)
                                 account = new EntityAccount();
-                            account.name = name;
                             account.host = host;
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
                             account.auth_type = auth_type;
+                            account.name = name;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
                             account.store_sent = false;
-                            account.poll_interval = Integer.parseInt(poll_interval);
+                            account.poll_interval = 9;
 
                             if (!synchronize)
                                 account.error = null;
@@ -671,16 +686,21 @@ public class FragmentAccount extends FragmentEx {
         Helper.setViewsEnabled(view, false);
         btnAuthorize.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
-        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
-        btnAuthorize.setEnabled(false);
-        grpInstructions.setVisibility(View.GONE);
-        grpInterval.setVisibility(View.GONE);
-        btnCheck.setEnabled(false);
+
+        btnAdvanced.setVisibility(View.GONE);
+
+        btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
+
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        grpFolders.setVisibility(View.GONE);
+
         ibDelete.setVisibility(View.GONE);
+
+        grpServer.setVisibility(View.GONE);
+        grpAuthorize.setVisibility(View.GONE);
+        grpAdvanced.setVisibility(View.GONE);
+        grpFolders.setVisibility(View.GONE);
 
         return view;
     }
@@ -691,6 +711,7 @@ public class FragmentAccount extends FragmentEx {
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("authorized", authorized);
         outState.putString("password", tilPassword.getEditText().getText().toString());
+        outState.putInt("advanced", grpAdvanced.getVisibility());
     }
 
     @Override
@@ -705,7 +726,8 @@ public class FragmentAccount extends FragmentEx {
             public void onChanged(@Nullable EntityAccount account) {
                 // Get providers
                 List<Provider> providers = Provider.loadProfiles(getContext());
-                providers.add(0, new Provider(getString(R.string.title_custom)));
+                providers.add(0, new Provider(getString(R.string.title_select)));
+                providers.add(1, new Provider(getString(R.string.title_custom)));
 
                 ArrayAdapter<Provider> padapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
                 padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
@@ -716,29 +738,25 @@ public class FragmentAccount extends FragmentEx {
                         return;
                     once = true;
 
-                    spProvider.setTag(0);
-                    spProvider.setSelection(0);
                     if (account != null) {
-                        for (int pos = 1; pos < providers.size(); pos++)
+                        for (int pos = 2; pos < providers.size(); pos++)
                             if (providers.get(pos).imap_host.equals(account.host)) {
                                 spProvider.setTag(pos);
                                 spProvider.setSelection(pos);
                                 break;
                             }
+                        etHost.setText(account.host);
+                        etPort.setText(Long.toString(account.port));
                     }
-
-                    etName.setText(account == null ? null : account.name);
-
-                    etHost.setText(account == null ? null : account.host);
-                    etPort.setText(account == null ? null : Long.toString(account.port));
 
                     authorized = (account != null && account.auth_type != Helper.AUTH_TYPE_PASSWORD ? account.password : null);
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
+                    etName.setText(account == null ? null : account.name);
+
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
-                    etInterval.setText(account == null ? "9" : Integer.toString(account.poll_interval));
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
@@ -746,26 +764,15 @@ public class FragmentAccount extends FragmentEx {
 
                     authorized = savedInstanceState.getString("authorized");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+                    grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
                 }
 
                 Helper.setViewsEnabled(view, true);
 
-                Provider provider = (Provider) spProvider.getSelectedItem();
-                btnAuthorize.setVisibility(provider.getAuthType() == Helper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
-                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
-
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-
-                grpInterval.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-
-                btnCheck.setVisibility(cbSynchronize.isChecked() ? View.VISIBLE : View.GONE);
-                btnSave.setVisibility(cbSynchronize.isChecked() ? View.GONE : View.VISIBLE);
 
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
-                btnAuthorize.setEnabled(true);
-                btnCheck.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
             }
         });

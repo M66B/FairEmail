@@ -30,28 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvProvider" />
 
-        <!-- name -->
-
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_account_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spProvider" />
-
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/title_account_name_hint"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
-
         <!-- IMAP -->
 
         <TextView
@@ -62,7 +40,7 @@
             android:text="@string/title_imap"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toBottomOf="@id/spProvider" />
 
         <!-- host -->
 
@@ -167,27 +145,39 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tvInstructions"
+        <!-- name -->
+
+        <Button
+            android:id="@+id/btnAdvanced"
+            style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:freezesText="true"
-            android:text="@string/title_instructions"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <TextView
-            android:id="@+id/tvLink"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:freezesText="true"
-            android:text="link"
+            android:text="@string/title_account_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInstructions" />
+            app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_account_name_hint"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <CheckBox
             android:id="@+id/cbSynchronize"
@@ -196,7 +186,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_account"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLink" />
+            app:layout_constraintTop_toBottomOf="@id/etName" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -207,26 +197,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
-        <TextView
-            android:id="@+id/tvInterval"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_interval"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
-
-        <EditText
-            android:id="@+id/etInterval"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="9"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInterval" />
-
         <!-- check -->
 
         <Button
@@ -236,7 +206,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etInterval" />
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <ProgressBar
             android:id="@+id/pbCheck"
@@ -256,7 +226,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etInterval" />
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <TextView
             android:id="@+id/tvDrafts"
@@ -392,16 +362,22 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpInterval"
+            android:id="@+id/grpServer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvInterval,etInterval" />
+            app:constraint_referenced_ids="tvImap,tvHost,etHost,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpInstructions"
+            android:id="@+id/grpAuthorize"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvInstructions,tvLink" />
+            app:constraint_referenced_ids="tvUser,etUser,tvPassword,tilPassword" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAdvanced"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvName,etName,cbSynchronize,cbPrimary" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

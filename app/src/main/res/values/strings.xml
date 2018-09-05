@@ -95,9 +95,8 @@
     <string name="title_password">Password</string>
     <string name="title_authorize">Select account</string>
     <string name="title_authorizing">Authorizing account &#8230;</string>
-    <string name="title_instructions">Instructions</string>
+    <string name="title_setup_advanced">Advanced</string>
     <string name="title_store_sent">Store sent messages (enable if needed only)</string>
-    <string name="title_interval">Keep-alive interval (minutes)</string>
     <string name="title_synchronize_account">Synchronize (receive messages)</string>
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
