@@ -465,12 +465,12 @@ public class FragmentAccount extends FragmentEx {
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
+                args.putString("name", etName.getText().toString());
                 args.putString("host", etHost.getText().toString());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
-                args.putString("name", etName.getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putParcelable("drafts", drafts);
@@ -482,12 +482,12 @@ public class FragmentAccount extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        String name = args.getString("name");
                         String host = args.getString("host");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
-                        String name = args.getString("name");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         EntityFolder drafts = args.getParcelable("drafts");
@@ -535,12 +535,12 @@ public class FragmentAccount extends FragmentEx {
                             boolean update = (account != null);
                             if (account == null)
                                 account = new EntityAccount();
+                            account.name = name;
                             account.host = host;
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
                             account.auth_type = auth_type;
-                            account.name = name;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
                             account.store_sent = false;

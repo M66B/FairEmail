@@ -145,8 +145,6 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- name -->
-
         <Button
             android:id="@+id/btnAdvanced"
             style="@style/buttonStyleSmall"
@@ -158,6 +156,8 @@
             android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+        <!-- name -->
 
         <TextView
             android:id="@+id/tvName"

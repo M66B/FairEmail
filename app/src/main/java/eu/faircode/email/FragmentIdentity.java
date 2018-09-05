@@ -22,11 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.Html;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +35,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -60,16 +55,16 @@ import androidx.lifecycle.Observer;
 public class FragmentIdentity extends FragmentEx {
     private ViewGroup view;
     private EditText etName;
+    private Spinner spAccount;
+    private Button btnAdvanced;
     private EditText etEmail;
     private EditText etReplyTo;
     private Spinner spProvider;
-    private Spinner spAccount;
     private EditText etHost;
     private CheckBox cbStartTls;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
-    private TextView tvLink;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private CheckBox cbStoreSent;
@@ -77,7 +72,7 @@ public class FragmentIdentity extends FragmentEx {
     private ProgressBar pbSave;
     private ImageButton ibDelete;
     private ProgressBar pbWait;
-    private Group grpInstructions;
+    private Group grpAdvanced;
 
     private long id = -1;
 
@@ -99,16 +94,16 @@ public class FragmentIdentity extends FragmentEx {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
+        spAccount = view.findViewById(R.id.spAccount);
+        btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         spProvider = view.findViewById(R.id.spProvider);
-        spAccount = view.findViewById(R.id.spAccount);
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
-        tvLink = view.findViewById(R.id.tvLink);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbStoreSent = view.findViewById(R.id.cbStoreSent);
@@ -116,28 +111,17 @@ public class FragmentIdentity extends FragmentEx {
         pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
         pbWait = view.findViewById(R.id.pbWait);
-        grpInstructions = view.findViewById(R.id.grpInstructions);
+        grpAdvanced = view.findViewById(R.id.grpAdvanced);
 
         // Wire controls
-
-        etEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                etUser.setText(s.toString());
-            }
-        });
 
         spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
+                btnSave.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+
                 Integer tag = (Integer) adapterView.getTag();
                 if (tag != null && tag.equals(position))
                     return;
@@ -155,15 +139,23 @@ public class FragmentIdentity extends FragmentEx {
                 }
 
                 // Copy account user name
+                etEmail.setText(account.user);
                 etUser.setText(account.user);
 
                 // Copy account password
                 tilPassword.getEditText().setText(account.password);
-                tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        btnAdvanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+                grpAdvanced.setVisibility(visibility);
             }
         });
 
@@ -181,10 +173,6 @@ public class FragmentIdentity extends FragmentEx {
                 etHost.setText(provider.smtp_host);
                 etPort.setText(position == 0 ? null : Integer.toString(provider.smtp_port));
                 cbStartTls.setChecked(provider.starttls);
-
-                // Show link to instructions
-                tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
             }
 
             @Override
@@ -236,9 +224,9 @@ public class FragmentIdentity extends FragmentEx {
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         String name = args.getString("name");
+                        long account = args.getLong("account");
                         String email = args.getString("email");
                         String replyto = args.getString("replyto");
-                        long account = args.getLong("account");
                         String host = args.getString("host");
                         boolean starttls = args.getBoolean("starttls");
                         String port = args.getString("port");
@@ -253,8 +241,6 @@ public class FragmentIdentity extends FragmentEx {
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
                         if (TextUtils.isEmpty(email))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
-                        if (account < 0)
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_account));
                         if (TextUtils.isEmpty(host))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
@@ -289,9 +275,9 @@ public class FragmentIdentity extends FragmentEx {
                             if (identity == null)
                                 identity = new EntityIdentity();
                             identity.name = name;
+                            identity.account = account;
                             identity.email = email;
                             identity.replyto = replyto;
-                            identity.account = account;
                             identity.host = host;
                             identity.port = Integer.parseInt(port);
                             identity.starttls = starttls;
@@ -384,8 +370,9 @@ public class FragmentIdentity extends FragmentEx {
         // Initialize
         Helper.setViewsEnabled(view, false);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
-        tvLink.setMovementMethod(LinkMovementMethod.getInstance());
-        btnSave.setEnabled(false);
+        btnSave.setVisibility(View.GONE);
+        btnAdvanced.setVisibility(View.GONE);
+        grpAdvanced.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         ibDelete.setVisibility(View.GONE);
 
@@ -398,6 +385,7 @@ public class FragmentIdentity extends FragmentEx {
         outState.putInt("account", spAccount.getSelectedItemPosition());
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
+        outState.putInt("advanced", grpAdvanced.getVisibility());
     }
 
     @Override
@@ -430,17 +418,17 @@ public class FragmentIdentity extends FragmentEx {
                     cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     etName.requestFocus();
-                } else
+                } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
+                    grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
+                }
 
                 Helper.setViewsEnabled(view, true);
 
-                grpInstructions.setVisibility(View.GONE);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous save/delete as cancelled
                 ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
-                btnSave.setEnabled(true);
                 pbWait.setVisibility(View.GONE);
 
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
@@ -499,10 +487,6 @@ public class FragmentIdentity extends FragmentEx {
                             spAccount.setTag(account);
                             spAccount.setSelection(account);
                         }
-
-                        Provider provider = (Provider) spProvider.getSelectedItem();
-                        tvLink.setText(Html.fromHtml("<a href=\"" + provider.link + "\">" + provider.link + "</a>"));
-                        grpInstructions.setVisibility(provider.link == null ? View.GONE : View.VISIBLE);
                     }
                 });
             }
