@@ -1142,10 +1142,11 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
+        DB db = DB.getInstance(this);
         try {
-            Log.v(Helper.TAG, "Start sync folders");
+            db.beginTransaction();
 
-            DB db = DB.getInstance(this);
+            Log.v(Helper.TAG, "Start sync folders");
 
             List<String> names = new ArrayList<>();
             for (EntityFolder folder : db.folder().getUserFolders(account.id))
@@ -1156,9 +1157,6 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
-                if (!state.running)
-                    return;
-
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 boolean selectable = true;
                 for (String attr : attrs) {
@@ -1193,7 +1191,10 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Delete local folder=" + names.size());
             for (String name : names)
                 db.folder().deleteFolder(account.id, name);
+
+            db.setTransactionSuccessful();
         } finally {
+            db.endTransaction();
             Log.v(Helper.TAG, "End sync folder");
         }
     }
