@@ -94,6 +94,7 @@
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
     <string name="title_authorize">Select account</string>
+    <string name="title_authorizing">Authorizing account &#8230;</string>
     <string name="title_instructions">Instructions</string>
     <string name="title_store_sent">Store sent messages (enable if needed only)</string>
     <string name="title_interval">Keep-alive interval (minutes)</string>

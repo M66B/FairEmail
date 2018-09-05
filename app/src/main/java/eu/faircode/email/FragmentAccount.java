@@ -54,6 +54,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
@@ -804,6 +805,8 @@ public class FragmentAccount extends FragmentEx {
                 Log.i(Helper.TAG, "Accounts=" + accounts.length);
                 for (final Account account : accounts)
                     if (name.equals(account.name)) {
+                        final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
+                        snackbar.show();
                         am.getAuthToken(
                                 account,
                                 Helper.getAuthTokenType(type),
@@ -823,6 +826,8 @@ public class FragmentAccount extends FragmentEx {
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                             Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                                        } finally {
+                                            snackbar.dismiss();
                                         }
                                     }
                                 },
