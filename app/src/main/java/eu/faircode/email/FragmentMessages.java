@@ -385,8 +385,8 @@ public class FragmentMessages extends FragmentEx {
                             }
 
                             @Override
-                            public void onError(Throwable ex) {
-                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                            public void onError(Context context, Throwable ex) {
+                                Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                             }
                         });
 
