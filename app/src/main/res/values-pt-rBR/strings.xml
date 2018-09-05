@@ -45,6 +45,10 @@
   <string name="title_setup_account_remark">Receber e-mail</string>
   <string name="title_setup_identity">Gerenciar identidades</string>
   <string name="title_setup_identity_remark">Para enviar e-mail</string>
+  <string name="title_setup_doze">Disable battery optimizations</string>
+  <string name="title_setup_doze_remark">To continuously receive email (optional)</string>
+  <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
+  <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">Garantir permissões</string>
   <string name="title_setup_permissions_remark">To autocomplete addresses (optional)</string>
   <string name="title_setup_to_do">To do</string>
@@ -118,6 +122,7 @@
   <string name="title_unseen">Mark unread</string>
   <string name="title_forward">Encaminhar</string>
   <string name="title_reply_all">Responder a todos</string>
+  <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">Lixeira</string>
   <string name="title_spam">Spam</string>
@@ -147,7 +152,6 @@
   <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Remetente faltante</string>
   <string name="title_to_missing">Destinatário faltante</string>
-  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Attachments still loading</string>
   <string name="title_draft_trashed">Rascunho excluído</string>
   <string name="title_draft_saved">Rascunho salvo</string>

@@ -41,6 +41,10 @@
   <string name="title_setup_account_remark">用于接收电子邮件</string>
   <string name="title_setup_identity">管理身份</string>
   <string name="title_setup_identity_remark">用于发送电子邮件</string>
+  <string name="title_setup_doze">Disable battery optimizations</string>
+  <string name="title_setup_doze_remark">To continuously receive email (optional)</string>
+  <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
+  <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">授予权限</string>
   <string name="title_setup_permissions_remark">用于联系人自动补全（可选）</string>
   <string name="title_setup_to_do">未设置</string>
@@ -114,6 +118,7 @@
   <string name="title_unseen">标记为未读</string>
   <string name="title_forward">转发</string>
   <string name="title_reply_all">回复全部</string>
+  <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">回收站</string>
   <string name="title_spam">垃圾邮件</string>
@@ -143,7 +148,6 @@
   <string name="title_decrypt">解密</string>
   <string name="title_from_missing">缺少发件人</string>
   <string name="title_to_missing">缺少收件人</string>
-  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">附件加载中</string>
   <string name="title_draft_trashed">草稿已删除</string>
   <string name="title_draft_saved">草稿已保存</string>

@@ -45,6 +45,10 @@
   <string name="title_setup_account_remark">Til at modtage email</string>
   <string name="title_setup_identity">Håndter identiteter</string>
   <string name="title_setup_identity_remark">At sende email</string>
+  <string name="title_setup_doze">Disable battery optimizations</string>
+  <string name="title_setup_doze_remark">To continuously receive email (optional)</string>
+  <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
+  <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">Giv tilladelser</string>
   <string name="title_setup_permissions_remark">Til autoudfyldelse af adresser (valgfri)</string>
   <string name="title_setup_to_do">Gøremål</string>
@@ -118,6 +122,7 @@
   <string name="title_unseen">Markér som ulæst</string>
   <string name="title_forward">Videresend</string>
   <string name="title_reply_all">Svar alle</string>
+  <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">Papirkurv</string>
   <string name="title_spam">Spam</string>
@@ -147,7 +152,6 @@
   <string name="title_decrypt">Dekryptér</string>
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
-  <string name="title_to_one">One recipient expected</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>
   <string name="title_draft_trashed">Kladde slettet</string>
   <string name="title_draft_saved">Kladde gemt</string>
