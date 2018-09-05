@@ -1226,6 +1226,19 @@ public class ServiceSynchronize extends LifecycleService {
             int old = db.message().deleteMessagesBefore(folder.id, ago);
             Log.i(Helper.TAG, folder.name + " local old=" + old);
 
+            if (folder.last_sync != null) {
+                Log.i(Helper.TAG, "Last sync=" + new Date(folder.last_sync));
+                cal.setTimeInMillis(folder.last_sync);
+                // For late arrivals and sync duration
+                cal.add(Calendar.DAY_OF_MONTH, -1);
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                cal.set(Calendar.MILLISECOND, 0);
+                ago = cal.getTimeInMillis();
+                Log.i(Helper.TAG, folder.name + " ago=" + new Date(ago));
+            }
+
             // Get list of local uids
             List<Long> uids = db.message().getUids(folder.id, ago);
             Log.i(Helper.TAG, folder.name + " local count=" + uids.size());
@@ -1288,6 +1301,9 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
             EntityOperation.process(this); // download small attachments
+
+            folder.last_sync = new Date().getTime();
+            db.folder().setFolderLastSync(folder.id, folder.last_sync);
 
             Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
         } finally {
