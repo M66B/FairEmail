@@ -33,7 +33,7 @@ The low priority status bar notification shows the number of pending operations,
 * move: move message to another remote folder
 * delete: delete message from remote folder
 * send: send message
-* attachment download attachment
+* attachment: download attachment
 * headers: download message headers
 
 <a name="FAQ4"></a>
