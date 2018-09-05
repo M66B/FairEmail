@@ -154,4 +154,15 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="web.de"
+        link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html">
+        <imap
+            host="imap.web.de"
+            port="993" />
+        <smtp
+            host="smtp.web.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
