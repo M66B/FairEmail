@@ -1549,9 +1549,19 @@ public class ServiceSynchronize extends LifecycleService {
 
                         EntityLog.log(ServiceSynchronize.this, "Main started");
 
+                        synchronized (state) {
+                            try {
+                                state.wait();
+                            } catch (InterruptedException ex) {
+                                Log.w(Helper.TAG, "main wait " + ex.toString());
+                            }
+                        }
+
                         // Stop monitoring accounts
-                        for (Thread t : threads)
+                        for (Thread t : threads) {
+                            t.interrupt();
                             join(t);
+                        }
                         threads.clear();
 
                         // Stop monitoring outbox
@@ -1642,7 +1652,6 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, "Joined " + thread.getName());
             } catch (InterruptedException ex) {
                 Log.e(Helper.TAG, thread.getName() + " join " + ex.toString());
-                thread.interrupt();
             }
     }
 
