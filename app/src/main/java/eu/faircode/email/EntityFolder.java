@@ -63,7 +63,6 @@ public class EntityFolder implements Parcelable {
     public Boolean synchronize;
     @NonNull
     public Integer after; // days
-    public Long last_sync;
     public String state;
     public String error;
 
