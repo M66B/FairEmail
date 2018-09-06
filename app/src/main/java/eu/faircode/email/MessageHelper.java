@@ -55,6 +55,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.ParseException;
 
 public class MessageHelper {
     private MimeMessage imessage;
@@ -300,6 +301,10 @@ public class MessageHelper {
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer))
                     os.write(buffer, 0, len);
                 s = new String(os.toByteArray(), "US-ASCII");
+            } catch (IOException ex) {
+                // IOException; Unknown encoding: none
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                s = ex.toString();
             }
 
             if (part.isMimeType("text/plain"))
@@ -309,30 +314,40 @@ public class MessageHelper {
 
         if (part.isMimeType("multipart/alternative")) {
             String text = null;
-            Multipart mp = (Multipart) part.getContent();
-            for (int i = 0; i < mp.getCount(); i++) {
-                Part bp = mp.getBodyPart(i);
-                if (bp.isMimeType("text/plain")) {
-                    if (text == null)
-                        text = getHtml(bp);
-                } else if (bp.isMimeType("text/html")) {
-                    String s = getHtml(bp);
-                    if (s != null)
-                        return s;
-                } else
-                    return getHtml(bp);
+            try {
+                Multipart mp = (Multipart) part.getContent();
+                for (int i = 0; i < mp.getCount(); i++) {
+                    Part bp = mp.getBodyPart(i);
+                    if (bp.isMimeType("text/plain")) {
+                        if (text == null)
+                            text = getHtml(bp);
+                    } else if (bp.isMimeType("text/html")) {
+                        String s = getHtml(bp);
+                        if (s != null)
+                            return s;
+                    } else
+                        return getHtml(bp);
+                }
+            } catch (ParseException ex) {
+                // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                text = ex.toString();
             }
             return text;
         }
 
-        if (part.isMimeType("multipart/*")) {
-            Multipart mp = (Multipart) part.getContent();
-            for (int i = 0; i < mp.getCount(); i++) {
-                String s = getHtml(mp.getBodyPart(i));
-                if (s != null)
-                    return s;
+        if (part.isMimeType("multipart/*"))
+            try {
+                Multipart mp = (Multipart) part.getContent();
+                for (int i = 0; i < mp.getCount(); i++) {
+                    String s = getHtml(mp.getBodyPart(i));
+                    if (s != null)
+                        return s;
+                }
+            } catch (ParseException ex) {
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                return ex.toString();
             }
-        }
 
         return null;
     }
@@ -340,14 +355,18 @@ public class MessageHelper {
     public List<EntityAttachment> getAttachments() throws IOException, MessagingException {
         List<EntityAttachment> result = new ArrayList<>();
 
-        Object content = imessage.getContent();
-        if (content instanceof String)
-            return result;
+        try {
+            Object content = imessage.getContent();
+            if (content instanceof String)
+                return result;
 
-        if (content instanceof Multipart) {
-            Multipart multipart = (Multipart) content;
-            for (int i = 0; i < multipart.getCount(); i++)
-                result.addAll(getAttachments(multipart.getBodyPart(i)));
+            if (content instanceof Multipart) {
+                Multipart multipart = (Multipart) content;
+                for (int i = 0; i < multipart.getCount(); i++)
+                    result.addAll(getAttachments(multipart.getBodyPart(i)));
+            }
+        } catch (ParseException ex) {
+            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
         }
 
         return result;
@@ -363,7 +382,11 @@ public class MessageHelper {
         } catch (UnsupportedEncodingException ex) {
             Log.w(Helper.TAG, "attachment content type=" + part.getContentType());
             content = part.getInputStream();
+        } catch (ParseException ex) {
+            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            content = null;
         }
+
         if (content instanceof InputStream || content instanceof String) {
             String disposition;
             try {

@@ -521,8 +521,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                         synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                    } catch (Throwable ex) {
-                                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     }
                                                 EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                             } catch (Throwable ex) {
@@ -585,8 +583,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                     EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                } catch (Throwable ex) {
-                                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 }
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1286,10 +1282,6 @@ public class ServiceSynchronize extends LifecycleService {
                         unchanged++;
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                } catch (FolderClosedException ex) {
-                    throw ex;
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
             EntityOperation.process(this); // download small attachments
 
