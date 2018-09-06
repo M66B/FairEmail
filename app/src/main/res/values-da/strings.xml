@@ -78,9 +78,9 @@
   <string name="title_user">Brugernavn</string>
   <string name="title_password">Adgangskode</string>
   <string name="title_authorize">Vælg konto</string>
-  <string name="title_instructions">Vejledning</string>
+  <string name="title_authorizing">Authorizing account &#8230;</string>
+  <string name="title_setup_advanced">Advanced</string>
   <string name="title_store_sent">Gem sendte beskeder (aktivér kun hvis nødvendigt)</string>
-  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Synkronisér (modtag meddelelser)</string>
   <string name="title_synchronize_identity">Synkronisér (send meddelelser)</string>
   <string name="title_primary_account">Primær (standard konto)</string>
@@ -147,10 +147,6 @@
   <string name="title_send">Send</string>
   <string name="title_show_addresses">Vis CC/BCC</string>
   <string name="title_add_attachment">Vedhæft fil</string>
-  <string name="title_no_openpgp">OpenPGP ikke tilgængelig</string>
-  <string name="title_not_encrypted">Krypteret meddelelse ikke fundet</string>
-  <string name="title_encrypt">Kryptér</string>
-  <string name="title_decrypt">Dekryptér</string>
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>

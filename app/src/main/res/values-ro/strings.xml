@@ -49,10 +49,10 @@
   <string name="title_setup_account_remark">Pentru a primi e-mail</string>
   <string name="title_setup_identity">Gestionarea identităţilor</string>
   <string name="title_setup_identity_remark">Pentru a trimite e-mail</string>
-  <string name="title_setup_doze">Disable battery optimizations</string>
-  <string name="title_setup_doze_remark">To continuously receive email (optional)</string>
-  <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
-  <string name="title_setup_data">Disable data saving</string>
+  <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
+  <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
+  <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
+  <string name="title_setup_data">Dezactivează salvarea datelor</string>
   <string name="title_setup_permissions">Acordă permisiuni</string>
   <string name="title_setup_permissions_remark">Pentru completarea automată a adreselor (opţional)</string>
   <string name="title_setup_to_do">De făcut</string>
@@ -82,9 +82,9 @@
   <string name="title_user">Nume utilizator</string>
   <string name="title_password">Parolă</string>
   <string name="title_authorize">Selectare cont</string>
-  <string name="title_instructions">Instrucțiuni</string>
+  <string name="title_authorizing">Autorizare cont &#8230;</string>
+  <string name="title_setup_advanced">Advanced</string>
   <string name="title_store_sent">Stochează mesajele trimise (activați doar la nevoie)</string>
-  <string name="title_interval">Interval menținere conexiune (minute)</string>
   <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
   <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -103,7 +103,7 @@
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
-  <string name="title_unified_folder">Show in unified inbox</string>
+  <string name="title_unified_folder">Arată în căsuța poștală comună</string>
   <string name="title_after">Sincronizare (zile)</string>
   <string name="title_folder_unified">Căsuță poștală comună</string>
   <string name="title_folder_inbox">Mesaje primite</string>
@@ -127,7 +127,7 @@
   <string name="title_unseen">Marcare ca necitit</string>
   <string name="title_forward">Redirecționează</string>
   <string name="title_reply_all">Răspunde tuturor</string>
-  <string name="title_show_headers">Show headers</string>
+  <string name="title_show_headers">Arată antetul</string>
   <string name="title_show_html">Arată original</string>
   <string name="title_trash">Gunoi</string>
   <string name="title_spam">Spam</string>
@@ -151,10 +151,6 @@
   <string name="title_send">Trimite</string>
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
-  <string name="title_no_openpgp">OpenPGP nu este disponibil</string>
-  <string name="title_not_encrypted">Mesajul criptat nu a fost găsit</string>
-  <string name="title_encrypt">Criptare</string>
-  <string name="title_decrypt">Decriptare</string>
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
@@ -172,7 +168,7 @@
   <string name="title_legend_thread">Conversație</string>
   <string name="title_legend_synchronize">Sincronizare</string>
   <string name="title_legend_primary">Primar</string>
-  <string name="title_legend_unified">Unified inbox</string>
+  <string name="title_legend_unified">Căsuță poștală comună</string>
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>

@@ -78,9 +78,9 @@
   <string name="title_user">Kullanıcı adı</string>
   <string name="title_password">Şifre</string>
   <string name="title_authorize">Hesap seç</string>
-  <string name="title_instructions">Talimatlar</string>
+  <string name="title_authorizing">Authorizing account &#8230;</string>
+  <string name="title_setup_advanced">Advanced</string>
   <string name="title_store_sent">Gönderilen iletileri kaydet (yalnızca gerekliyse etkinleştir)</string>
-  <string name="title_interval">Canlı tutma aralığı (dakika)</string>
   <string name="title_synchronize_account">Senkronize et (iletileri al)</string>
   <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
   <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -147,10 +147,6 @@
   <string name="title_send">Gönder</string>
   <string name="title_show_addresses">CC/BCC göster</string>
   <string name="title_add_attachment">Ek ekle</string>
-  <string name="title_no_openpgp">OpenPGP mevcut değil</string>
-  <string name="title_not_encrypted">Şifreli ileti bulunamadı</string>
-  <string name="title_encrypt">Şifrele</string>
-  <string name="title_decrypt">Şifre çöz</string>
   <string name="title_from_missing">Gönderici Eksik</string>
   <string name="title_to_missing">Alıcı eksik</string>
   <string name="title_attachments_missing">Ekler hala yükleniyor</string>

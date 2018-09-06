@@ -19,12 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -59,24 +56,14 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.openintents.openpgp.OpenPgpError;
-import org.openintents.openpgp.util.OpenPgpApi;
-import org.openintents.openpgp.util.OpenPgpServiceConnection;
 import org.xml.sax.XMLReader;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -87,12 +74,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.InternetHeaders;
-import javax.mail.internet.MimeBodyPart;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -106,8 +87,6 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
@@ -145,15 +124,10 @@ public class FragmentMessage extends FragmentEx {
     private boolean headers = false;
     private AdapterAttachment adapter;
 
-    private OpenPgpServiceConnection openPgpConnection = null;
-
     private boolean debug;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 
-    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
-
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
-    static final String ACTION_DECRYPT_MESSAGE = BuildConfig.APPLICATION_ID + ".DECRYPT_MESSAGE";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -163,33 +137,6 @@ public class FragmentMessage extends FragmentEx {
             message = (TupleMessageEx) getArguments().getSerializable("message");
         else
             message = (TupleMessageEx) savedInstanceState.getSerializable("message");
-
-        openPgpConnection = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
-        openPgpConnection.bindToService();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        IntentFilter iff = new IntentFilter(ACTION_DECRYPT_MESSAGE);
-        lbm.registerReceiver(receiver, iff);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        lbm.unregisterReceiver(receiver);
-    }
-
-    @Override
-    public void onDestroy() {
-        if (openPgpConnection != null) {
-            openPgpConnection.unbindFromService();
-            openPgpConnection = null;
-        }
-        super.onDestroy();
     }
 
     @Override
@@ -575,7 +522,6 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
         menu.findItem(R.id.menu_show_headers).setVisible(!free);
         menu.findItem(R.id.menu_reply_all).setVisible(!inOutbox);
-        menu.findItem(R.id.menu_decrypt).setVisible(!inOutbox);
     }
 
     @Override
@@ -601,9 +547,6 @@ public class FragmentMessage extends FragmentEx {
                 return true;
             case R.id.menu_answer:
                 onMenuAnswer();
-                return true;
-            case R.id.menu_decrypt:
-                onMenuDecrypt();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -729,45 +672,6 @@ public class FragmentMessage extends FragmentEx {
                 popupMenu.show();
             }
         });
-    }
-
-    private void onMenuDecrypt() {
-        try {
-            // Find encrypted message
-            String begin = "-----BEGIN PGP MESSAGE-----";
-            String end = "-----END PGP MESSAGE-----";
-            Document document = Jsoup.parse(message.read(getContext()));
-
-            String encrypted = document.text();
-
-            int efrom = encrypted.indexOf(begin) + begin.length();
-            int eto = encrypted.indexOf(end);
-            if (efrom < 0 || eto < 0)
-                throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
-
-            encrypted = begin + "\n" + encrypted.substring(efrom, eto).replace(" ", "\n") + end + "\n";
-            InputStream is = new ByteArrayInputStream(encrypted.getBytes("UTF-8"));
-
-            decrypt(is, false);
-
-        } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(Helper.TAG, "Message onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == ActivityView.REQUEST_OPENPGP) {
-                Log.i(Helper.TAG, "User interacted");
-                onMenuDecrypt();
-            }
-        }
     }
 
     private void onActionSpam() {
@@ -1210,162 +1114,4 @@ public class FragmentMessage extends FragmentEx {
 
         return result;
     }
-
-    private void decrypt(InputStream is, final boolean isPart) {
-        Log.i(Helper.TAG, "On decrypt");
-
-        if (!PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
-            return;
-        }
-
-        if (openPgpConnection == null || !openPgpConnection.isBound())
-            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
-
-        if (message.to == null || message.to.length == 0)
-            throw new IllegalArgumentException(getString(R.string.title_to_missing));
-
-        final ByteArrayOutputStream os = new ByteArrayOutputStream();
-
-        InternetAddress to = (InternetAddress) message.to[0];
-
-        Intent data = new Intent();
-        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{to.getAddress()});
-
-        OpenPgpApi api = new OpenPgpApi(getContext(), openPgpConnection.getService());
-        api.executeApiAsync(data, is, os, new OpenPgpApi.IOpenPgpCallback() {
-            @Override
-            public void onReturn(Intent result) {
-                try {
-                    int code = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                    switch (code) {
-                        case OpenPgpApi.RESULT_CODE_SUCCESS: {
-                            Log.i(Helper.TAG, "Decrypted");
-                            String decrypted = os.toString("UTF-8");
-                            if (isPart) {
-                                InternetHeaders ih = new InternetHeaders();
-                                ih.addHeader("Content-Type", "multipart/alternative");
-                                final MimeBodyPart part = new MimeBodyPart(ih, decrypted.getBytes());
-
-                                String dbody = MessageHelper.getHtml(part);
-                                message.write(getContext(), dbody);
-
-                                // Store attachments
-                                executor.submit(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        DB db = DB.getInstance(getContext());
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
-                                                if ("encrypted.asc".equals(attachment.name))
-                                                    db.attachment().deleteAttachment(attachment.id);
-
-                                            int sequence = 0;
-                                            for (EntityAttachment attachment : MessageHelper.getAttachments(part)) {
-
-                                                attachment.message = message.id;
-                                                attachment.sequence = ++sequence;
-                                                attachment.id = db.attachment().insertAttachment(attachment);
-
-                                                File file = EntityAttachment.getFile(getContext(), attachment.id);
-
-                                                // Store attachment
-                                                InputStream is = null;
-                                                OutputStream os = null;
-                                                try {
-                                                    is = attachment.part.getInputStream();
-                                                    os = new BufferedOutputStream(new FileOutputStream(file));
-
-                                                    int size = 0;
-                                                    byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
-                                                    for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                                                        size += len;
-                                                        os.write(buffer, 0, len);
-                                                    }
-
-                                                    // Store attachment data
-                                                    attachment.size = size;
-                                                    attachment.progress = null;
-                                                    attachment.available = true;
-                                                    db.attachment().updateAttachment(attachment);
-                                                } finally {
-                                                    try {
-                                                        if (is != null)
-                                                            is.close();
-                                                    } finally {
-                                                        if (os != null)
-                                                            os.close();
-                                                    }
-                                                }
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-                                    }
-                                });
-                            } else
-                                message.write(getContext(), "<pre>" + decrypted.replaceAll("\\r?\\n", "<br />") + "</pre>");
-
-                            Bundle args = new Bundle();
-                            args.putLong("id", message.id);
-                            args.putBoolean("show_images", false);
-
-                            pbBody.setVisibility(View.VISIBLE);
-                            bodyTask.load(FragmentMessage.this, args);
-
-                            break;
-                        }
-                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED: {
-                            Log.i(Helper.TAG, "User interaction");
-                            PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-                            startIntentSenderForResult(
-                                    pi.getIntentSender(),
-                                    ActivityView.REQUEST_OPENPGP,
-                                    null, 0, 0, 0,
-                                    new Bundle());
-                            break;
-                        }
-                        case OpenPgpApi.RESULT_CODE_ERROR: {
-                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                            throw new IllegalArgumentException(error.getMessage());
-                        }
-                    }
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    if (ex instanceof IllegalArgumentException)
-                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                    else
-                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
-
-    BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            new SimpleTask<InputStream>() {
-                @Override
-                protected InputStream onLoad(Context context, Bundle args) throws Throwable {
-                    File file = (File) args.getSerializable("file");
-                    FileInputStream fis = new FileInputStream(file);
-                    return fis;
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, InputStream data) {
-                    decrypt(data, true);
-                }
-            }.load(FragmentMessage.this, intent.getExtras());
-        }
-    };
 }

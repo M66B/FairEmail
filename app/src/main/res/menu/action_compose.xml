@@ -15,12 +15,6 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_encrypt"
-        android:icon="@drawable/baseline_send_24"
-        android:title="@string/title_encrypt"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_send"
         android:icon="@drawable/baseline_send_24"
         android:title="@string/title_send"

@@ -80,7 +80,6 @@ dependencies {
     def javamail_version = "1.6.0"
     def jsoup_version = "1.11.3"
     def jcharset_version = "2.0"
-    def openpgp_version = "12.0"
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
@@ -104,6 +103,4 @@ dependencies {
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     implementation "net.freeutils:jcharset:$jcharset_version"
-
-    implementation "org.sufficientlysecure:openpgp-api:$openpgp_version"
 }

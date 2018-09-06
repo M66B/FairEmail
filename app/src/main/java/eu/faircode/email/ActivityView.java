@@ -82,7 +82,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_UNSEEN = 2;
 
     static final int REQUEST_ATTACHMENT = 1;
-    static final int REQUEST_OPENPGP = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";

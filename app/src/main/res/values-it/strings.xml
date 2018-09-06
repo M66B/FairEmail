@@ -78,9 +78,9 @@
   <string name="title_user">Nome utente</string>
   <string name="title_password">Password</string>
   <string name="title_authorize">Select account</string>
-  <string name="title_instructions">Instructions</string>
+  <string name="title_authorizing">Authorizing account &#8230;</string>
+  <string name="title_setup_advanced">Advanced</string>
   <string name="title_store_sent">Conserva i messaggi inviati (abilita solo se necessario)</string>
-  <string name="title_interval">Keep-alive interval (minutes)</string>
   <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
   <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
   <string name="title_primary_account">Principale (account predefinito)</string>
@@ -147,10 +147,6 @@
   <string name="title_send">Invia</string>
   <string name="title_show_addresses">Mostra CC/BCC</string>
   <string name="title_add_attachment">Aggiungi allegato</string>
-  <string name="title_no_openpgp">OpenPGP not available</string>
-  <string name="title_not_encrypted">Encrypted message not found</string>
-  <string name="title_encrypt">Encrypt</string>
-  <string name="title_decrypt">Decrypt</string>
   <string name="title_from_missing">Mittente mancante</string>
   <string name="title_to_missing">Destinatario mancante</string>
   <string name="title_attachments_missing">Allegati ancora in fase di caricamento</string>

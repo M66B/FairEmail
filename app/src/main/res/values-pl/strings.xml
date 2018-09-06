@@ -86,9 +86,9 @@
   <string name="title_user">Nazwa użytkownika</string>
   <string name="title_password">Hasło</string>
   <string name="title_authorize">Wybierz konto</string>
-  <string name="title_instructions">Instrukcje</string>
+  <string name="title_authorizing">Authorizing account &#8230;</string>
+  <string name="title_setup_advanced">Advanced</string>
   <string name="title_store_sent">Zachowuj wysłane wiadomości (włącz tylko gdy potrzebne)</string>
-  <string name="title_interval">Interwał utrzymywania aktywności (minuty)</string>
   <string name="title_synchronize_account">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
   <string name="title_primary_account">Podstawowe (domyślne konto)</string>
@@ -155,10 +155,6 @@
   <string name="title_send">Wyślij</string>
   <string name="title_show_addresses">Pokaż DW/UDW</string>
   <string name="title_add_attachment">Dodaj załącznik</string>
-  <string name="title_no_openpgp">OpenPGP nie dostępne</string>
-  <string name="title_not_encrypted">Nie znaleziono zaszyfrowanej wiadomości</string>
-  <string name="title_encrypt">Zaszyfruj</string>
-  <string name="title_decrypt">Odszyfruj</string>
   <string name="title_from_missing">Brak nadawcy</string>
   <string name="title_to_missing">Brak adresata</string>
   <string name="title_attachments_missing">Załączniki są wciąż ładowane</string>

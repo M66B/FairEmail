@@ -44,9 +44,4 @@
         android:icon="@drawable/baseline_reply_24"
         android:title="@string/title_answer_reply"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_decrypt"
-        android:title="@string/title_decrypt"
-        app:showAsAction="never" />
 </menu>
