@@ -285,7 +285,7 @@ public class MessageHelper {
         return getHtml(imessage);
     }
 
-    static String getHtml(Part part) throws MessagingException, IOException {
+    private static String getHtml(Part part) throws MessagingException, IOException {
         if (part.isMimeType("text/*")) {
             String s;
             try {
@@ -353,7 +353,7 @@ public class MessageHelper {
         return result;
     }
 
-    static List<EntityAttachment> getAttachments(BodyPart part) throws
+    private static List<EntityAttachment> getAttachments(BodyPart part) throws
             IOException, MessagingException {
         List<EntityAttachment> result = new ArrayList<>();
 

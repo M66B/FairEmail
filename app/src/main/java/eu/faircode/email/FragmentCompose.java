@@ -1062,7 +1062,7 @@ public class FragmentCompose extends FragmentEx {
         private Context context;
         private List<EntityIdentity> identities;
 
-        public IdentityAdapter(@NonNull Context context, List<EntityIdentity> identities) {
+        IdentityAdapter(@NonNull Context context, List<EntityIdentity> identities) {
             super(context, 0, identities);
             this.context = context;
             this.identities = identities;
@@ -1079,10 +1079,8 @@ public class FragmentCompose extends FragmentEx {
             return getLayout(position, convertView, parent);
         }
 
-        public View getLayout(int position, View convertView, ViewGroup parent) {
-            View view = convertView;
-            if (view == convertView)
-                view = LayoutInflater.from(context).inflate(R.layout.spinner_item2, parent, false);
+        View getLayout(int position, View convertView, ViewGroup parent) {
+            View view = LayoutInflater.from(context).inflate(R.layout.spinner_item2, parent, false);
 
             EntityIdentity identity = identities.get(position);
 

@@ -596,7 +596,7 @@ public class FragmentMessage extends FragmentEx {
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                protected Void onLoad(Context context, Bundle args) {
                     Long id = args.getLong("id");
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
@@ -994,7 +994,7 @@ public class FragmentMessage extends FragmentEx {
                 .putExtra("reference", message.id));
     }
 
-    SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+    private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
         @Override
         protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
             final long id = args.getLong("id");
@@ -1021,7 +1021,7 @@ public class FragmentMessage extends FragmentEx {
     };
 
     private static Spanned decodeHtml(final Context context, final long id, String body, final boolean show_images) {
-        Spanned result = Html.fromHtml(HtmlHelper.sanitize(context, body, false), new Html.ImageGetter() {
+        return Html.fromHtml(HtmlHelper.sanitize(context, body, false), new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
                 float scale = context.getResources().getDisplayMetrics().density;
@@ -1111,7 +1111,5 @@ public class FragmentMessage extends FragmentEx {
                 Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
             }
         });
-
-        return result;
     }
 }
