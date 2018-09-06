@@ -104,7 +104,6 @@ import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.ParseException;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.net.ssl.SSLException;
@@ -522,6 +521,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                         synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    } catch (Throwable ex) {
+                                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     }
                                                 EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                             } catch (Throwable ex) {
@@ -584,6 +585,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                     EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                } catch (Throwable ex) {
+                                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 }
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1281,11 +1284,10 @@ public class ServiceSynchronize extends LifecycleService {
                         updated++;
                     else
                         unchanged++;
-                } catch (ParseException ex) {
-                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    reportError(account.name, folder.name, ex);
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
             EntityOperation.process(this); // download small attachments
 

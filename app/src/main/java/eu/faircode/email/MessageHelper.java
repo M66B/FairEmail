@@ -309,40 +309,28 @@ public class MessageHelper {
 
         if (part.isMimeType("multipart/alternative")) {
             String text = null;
-            try {
-                Multipart mp = (Multipart) part.getContent();
-                for (int i = 0; i < mp.getCount(); i++) {
-                    Part bp = mp.getBodyPart(i);
-                    if (bp.isMimeType("text/plain")) {
-                        if (text == null)
-                            text = getHtml(bp);
-                    } else if (bp.isMimeType("text/html")) {
-                        String s = getHtml(bp);
-                        if (s != null)
-                            return s;
-                    } else
-                        return getHtml(bp);
-                }
-            } catch (UnsupportedEncodingException ex) {
-                throw ex;
-            } catch (IOException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Multipart mp = (Multipart) part.getContent();
+            for (int i = 0; i < mp.getCount(); i++) {
+                Part bp = mp.getBodyPart(i);
+                if (bp.isMimeType("text/plain")) {
+                    if (text == null)
+                        text = getHtml(bp);
+                } else if (bp.isMimeType("text/html")) {
+                    String s = getHtml(bp);
+                    if (s != null)
+                        return s;
+                } else
+                    return getHtml(bp);
             }
             return text;
         }
 
         if (part.isMimeType("multipart/*")) {
-            try {
-                Multipart mp = (Multipart) part.getContent();
-                for (int i = 0; i < mp.getCount(); i++) {
-                    String s = getHtml(mp.getBodyPart(i));
-                    if (s != null)
-                        return s;
-                }
-            } catch (UnsupportedEncodingException ex) {
-                throw ex;
-            } catch (IOException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Multipart mp = (Multipart) part.getContent();
+            for (int i = 0; i < mp.getCount(); i++) {
+                String s = getHtml(mp.getBodyPart(i));
+                if (s != null)
+                    return s;
             }
         }
 
@@ -381,6 +369,7 @@ public class MessageHelper {
             try {
                 disposition = part.getDisposition();
             } catch (MessagingException ex) {
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 disposition = null;
             }
 
@@ -388,6 +377,7 @@ public class MessageHelper {
             try {
                 filename = part.getFileName();
             } catch (MessagingException ex) {
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 filename = null;
             }
 
