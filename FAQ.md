@@ -114,17 +114,10 @@ Searching on the server might be case sensitive or case insensitive and might be
 Progressive search is a pro feature.
 
 <a name="FAQ14"></a>
-**(14) How does OpenPGP integration work?**
+**(14) How can I setup Outlook with 2FA?**
 
-You need to install and setup the [OpenKeychain](https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain) app.
-
-There is a special action to send an encrypted message at the bottom.
-
-If you received an encrypted message as an attachment with the name *encrypted.asc*, you can decrypt it by downloading and viewing this attachment.
-
-If you received an encrypted message with inline encryption, you can decrypt it by using the *Decrypt* overflow menu.
-
-OpenPGP integration is a pro feature.
+To use Outlook with two factor authentication enabled, you need to create an app password.
+See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
 <br>
 
