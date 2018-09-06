@@ -98,10 +98,12 @@
   <string name="title_no_user">Lipsește numele de utilizator</string>
   <string name="title_no_password">Lipsește parola</string>
   <string name="title_no_drafts">Lipsește dosarul de ciorne</string>
-  <string name="title_no_idle">IDLE nu este suportat</string>
-  <string name="title_no_uidplus">UIDPLUS nu este suportat</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
   <string name="title_unified_folder">Arată în căsuța poștală comună</string>
   <string name="title_after">Sincronizare (zile)</string>

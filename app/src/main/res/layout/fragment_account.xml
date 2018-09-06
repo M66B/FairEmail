@@ -42,6 +42,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spProvider" />
 
+        <TextView
+            android:id="@+id/tvPop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_pop"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImap" />
+
+        <TextView
+            android:id="@+id/tvInsecure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_insecure"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPop" />
+
         <!-- host -->
 
         <TextView
@@ -52,7 +72,7 @@
             android:text="@string/title_host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImap" />
+            app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
 
         <EditText
             android:id="@+id/etHost"
@@ -365,7 +385,7 @@
             android:id="@+id/grpServer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvImap,tvHost,etHost,tvPort,etPort" />
+            app:constraint_referenced_ids="tvImap,tvPop,tvInsecure,tvHost,etHost,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"

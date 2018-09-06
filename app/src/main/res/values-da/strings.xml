@@ -94,10 +94,12 @@
   <string name="title_no_user">Brugernavn mangler</string>
   <string name="title_no_password">Adgangskode mangler</string>
   <string name="title_no_drafts">Kladdemappe mangler</string>
-  <string name="title_no_idle">IDLE understøttes ikke</string>
-  <string name="title_no_uidplus">UIDPLUS understøttes ikke</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">Slet denne konto permanent?</string>
   <string name="title_identity_delete">Slet denne identitet permanent?</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synkronisér (dage)</string>

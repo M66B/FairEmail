@@ -102,10 +102,12 @@
   <string name="title_no_user">Brak nazwy użytkownika</string>
   <string name="title_no_password">Brak hasła</string>
   <string name="title_no_drafts">Brakuje folderu Szkice</string>
-  <string name="title_no_idle">IDLE nie obsługiwany</string>
-  <string name="title_no_uidplus">UIDPLUS nie obsługiwany</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synchronizuj (dni)</string>

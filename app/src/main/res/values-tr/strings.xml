@@ -94,10 +94,12 @@
   <string name="title_no_user">Kullanıcı adı eksik</string>
   <string name="title_no_password">Parola Eksik</string>
   <string name="title_no_drafts">Taslaklar klasörü eksik</string>
-  <string name="title_no_idle">IDLE desteklenmiyor</string>
-  <string name="title_no_uidplus">UIDPLUS desteklenmiyor</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Senkronize (günler)</string>

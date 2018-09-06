@@ -90,10 +90,12 @@
   <string name="title_no_user">缺少用户名</string>
   <string name="title_no_password">缺少密码</string>
   <string name="title_no_drafts">缺少草稿箱</string>
-  <string name="title_no_idle">IDLE 不受支持</string>
-  <string name="title_no_uidplus">UIDPLUS 不受支持</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">同步文件夹（接收）</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">同步天数</string>

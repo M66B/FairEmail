@@ -94,10 +94,12 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">IDLE wird nicht unterstützt</string>
-  <string name="title_no_uidplus">UIDPLUS nicht unterstützt</string>
+  <string name="title_no_idle">IMAP IDLE not supported</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
+  <string name="title_pop">POP is not support</string>
+  <string name="title_insecure">Insecure connections are not supported</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
