@@ -1286,6 +1286,8 @@ public class ServiceSynchronize extends LifecycleService {
                         unchanged++;
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                } catch (FolderClosedException ex) {
+                    throw ex;
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
