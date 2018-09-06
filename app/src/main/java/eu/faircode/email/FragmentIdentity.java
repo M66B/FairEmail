@@ -119,6 +119,8 @@ public class FragmentIdentity extends FragmentEx {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                if (position == 0)
+                    grpAdvanced.setVisibility(View.GONE);
                 tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
                 btnSave.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
@@ -130,18 +132,28 @@ public class FragmentIdentity extends FragmentEx {
                 EntityAccount account = (EntityAccount) adapterView.getAdapter().getItem(position);
 
                 // Select associated provider
-                for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
-                    Provider provider = (Provider) spProvider.getItemAtPosition(pos);
-                    if (provider.imap_host.equals(account.host) && provider.imap_port == account.port) {
-                        spProvider.setSelection(pos);
+                if (position == 0)
+                    spProvider.setSelection(0);
+                else {
+                    boolean found = false;
+                    for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
+                        Provider provider = (Provider) spProvider.getItemAtPosition(pos);
+                        if (provider.imap_host.equals(account.host) &&
+                                provider.imap_port == account.port) {
+                            found = true;
 
-                        // This is needed because the spinner might be invisible
-                        etHost.setText(provider.smtp_host);
-                        etPort.setText(Integer.toString(provider.smtp_port));
-                        cbStartTls.setChecked(provider.starttls);
+                            spProvider.setSelection(pos);
 
-                        break;
+                            // This is needed because the spinner might be invisible
+                            etHost.setText(provider.smtp_host);
+                            etPort.setText(Integer.toString(provider.smtp_port));
+                            cbStartTls.setChecked(provider.starttls);
+
+                            break;
+                        }
                     }
+                    if (!found)
+                        grpAdvanced.setVisibility(View.VISIBLE);
                 }
 
                 // Copy account user name
