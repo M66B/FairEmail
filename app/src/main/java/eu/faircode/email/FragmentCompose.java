@@ -71,6 +71,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -748,8 +749,24 @@ public class FragmentCompose extends FragmentEx {
                         draft.replying = ref.id;
                         draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                         draft.from = ref.to;
-                        if ("reply_all".equals(action))
-                            draft.cc = ref.cc;
+
+                        if ("reply_all".equals(action)) {
+                            List<Address> addresses = new ArrayList<>();
+                            if (ref.to != null)
+                                addresses.addAll(Arrays.asList(ref.to));
+                            if (ref.cc != null)
+                                addresses.addAll(Arrays.asList(ref.cc));
+                            List<EntityIdentity> identities = db.identity().getIdentities();
+                            for (Address address : new ArrayList<>(addresses)) {
+                                String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
+                                for (EntityIdentity identity : identities) {
+                                    String email = Helper.canonicalAddress(identity.email);
+                                    if (cc.equals(email))
+                                        addresses.remove(address);
+                                }
+                            }
+                            draft.cc = addresses.toArray(new Address[0]);
+                        }
 
                     } else if ("forward".equals(action)) {
                         //msg.replying = ref.id;
