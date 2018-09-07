@@ -48,8 +48,8 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     LiveData<EntityIdentity> liveIdentity(long id);
 
-    @Query("SELECT * FROM identity WHERE account = :account AND `primary`")
-    EntityIdentity getPrimaryIdentity(long account);
+    @Query("SELECT COUNT(*) FROM identity WHERE synchronize")
+    int getSynchronizingIdentityCount();
 
     @Insert
     long insertIdentity(EntityIdentity identity);

@@ -751,6 +751,19 @@ public class FragmentAccount extends FragmentEx {
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
+
+                    if (account == null)
+                        new SimpleTask<Integer>() {
+                            @Override
+                            protected Integer onLoad(Context context, Bundle args) {
+                                return DB.getInstance(context).account().getSynchronizingAccountCount();
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Integer count) {
+                                cbPrimary.setChecked(count == 0);
+                            }
+                        }.load(FragmentAccount.this, new Bundle());
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);

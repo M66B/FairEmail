@@ -436,6 +436,19 @@ public class FragmentIdentity extends FragmentEx {
                     cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     etName.requestFocus();
+
+                    if (identity == null)
+                        new SimpleTask<Integer>() {
+                            @Override
+                            protected Integer onLoad(Context context, Bundle args) {
+                                return DB.getInstance(context).identity().getSynchronizingIdentityCount();
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Integer count) {
+                                cbPrimary.setChecked(count == 0);
+                            }
+                        }.load(FragmentIdentity.this, new Bundle());
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
