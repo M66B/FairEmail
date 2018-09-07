@@ -235,5 +235,11 @@
         android:id="@+id/grpMessage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="scroll,ibBold,ibItalic,bottom_navigation" />
+        app:constraint_referenced_ids="scroll,bottom_navigation" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpAction"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ibBold,ibItalic" />
 </androidx.constraintlayout.widget.ConstraintLayout>
