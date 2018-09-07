@@ -68,6 +68,7 @@
   <string name="title_account_linked">Verknüpftes Konto</string>
   <string name="title_account_name">Kontobezeichnung</string>
   <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Anbieter</string>
@@ -98,7 +99,7 @@
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
-  <string name="title_pop">POP is not supported</string>
+  <string name="title_pop">POP wird nicht unterstützt</string>
   <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
@@ -128,6 +129,7 @@
   <string name="title_show_headers">Kopfzeile anzeigen</string>
   <string name="title_show_html">Original anzeigen</string>
   <string name="title_trash">Papierkorb</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
@@ -152,7 +154,7 @@
   <string name="title_from_missing">Absender fehlt</string>
   <string name="title_to_missing">Empfänger fehlt</string>
   <string name="title_attachments_missing">Anhänge werden noch geladen</string>
-  <string name="title_draft_trashed">Entwurf gelöscht</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>

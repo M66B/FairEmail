@@ -64,6 +64,7 @@
   <string name="title_account_linked">已绑定的账户</string>
   <string name="title_account_name">账户名称</string>
   <string name="title_account_name_hint">用于区分文件夹</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">服务提供商</string>
@@ -124,6 +125,7 @@
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">回收站</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">垃圾邮件</string>
   <string name="title_move">移动</string>
   <string name="title_archive">存档</string>
@@ -148,7 +150,7 @@
   <string name="title_from_missing">缺少发件人</string>
   <string name="title_to_missing">缺少收件人</string>
   <string name="title_attachments_missing">附件加载中</string>
-  <string name="title_draft_trashed">草稿已删除</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">草稿已保存</string>
   <string name="title_queued">正在发送邮件</string>
   <string name="title_search">搜索</string>

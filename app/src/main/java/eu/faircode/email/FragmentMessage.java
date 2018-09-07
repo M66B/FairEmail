@@ -289,7 +289,7 @@ public class FragmentMessage extends FragmentEx {
                     case R.id.action_spam:
                         onActionSpam();
                         return true;
-                    case R.id.action_trash:
+                    case R.id.action_delete:
                         onActionDelete();
                         return true;
                     case R.id.action_move:
@@ -465,7 +465,7 @@ public class FragmentMessage extends FragmentEx {
                         bottom_navigation.setTag(inTrash || !hasTrash || inOutbox);
 
                         bottom_navigation.getMenu().findItem(R.id.action_spam).setVisible(message.uid != null && !inArchive && !inJunk && hasJunk);
-                        bottom_navigation.getMenu().findItem(R.id.action_trash).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                        bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
                         bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
                         bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                         bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);

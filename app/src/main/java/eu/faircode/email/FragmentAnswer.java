@@ -72,7 +72,7 @@ public class FragmentAnswer extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.action_trash:
+                    case R.id.action_delete:
                         onActionTrash();
                         return true;
                     case R.id.action_save:
@@ -99,7 +99,7 @@ public class FragmentAnswer extends FragmentEx {
             public void onChanged(EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
                 etText.setText(answer == null ? null : answer.text);
-                bottom_navigation.findViewById(R.id.action_trash).setVisibility(answer == null ? View.GONE : View.VISIBLE);
+                bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

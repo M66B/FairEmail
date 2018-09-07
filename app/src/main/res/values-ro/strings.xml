@@ -72,6 +72,7 @@
   <string name="title_account_linked">Cont asociat</string>
   <string name="title_account_name">Nume cont</string>
   <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Furnizor</string>
@@ -132,6 +133,7 @@
   <string name="title_show_headers">Arată antetul</string>
   <string name="title_show_html">Arată original</string>
   <string name="title_trash">Gunoi</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Mută</string>
   <string name="title_archive">Arhivă</string>
@@ -156,7 +158,7 @@
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
-  <string name="title_draft_trashed">Ciornă trimisă la gunoi</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
   <string name="title_search">Caută</string>

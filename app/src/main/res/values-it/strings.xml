@@ -68,6 +68,7 @@
   <string name="title_account_linked">Account collegato</string>
   <string name="title_account_name">Nome account</string>
   <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Fornitore</string>
@@ -128,6 +129,7 @@
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">Cestino</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Posta indesiderata</string>
   <string name="title_move">Sposta</string>
   <string name="title_archive">Archivo</string>
@@ -152,7 +154,7 @@
   <string name="title_from_missing">Mittente mancante</string>
   <string name="title_to_missing">Destinatario mancante</string>
   <string name="title_attachments_missing">Allegati ancora in fase di caricamento</string>
-  <string name="title_draft_trashed">Bozza cestinata</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Bozza salvata</string>
   <string name="title_queued">Invio messaggio</string>
   <string name="title_search">Search</string>

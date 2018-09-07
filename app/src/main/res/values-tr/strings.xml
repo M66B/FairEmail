@@ -68,6 +68,7 @@
   <string name="title_account_linked">Bağlı hesap</string>
   <string name="title_account_name">Hesap adı</string>
   <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Sağlayıcı</string>
@@ -128,6 +129,7 @@
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">Çöp Kutusu</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Taşı</string>
   <string name="title_archive">Arşivle</string>
@@ -152,7 +154,7 @@
   <string name="title_from_missing">Gönderici Eksik</string>
   <string name="title_to_missing">Alıcı eksik</string>
   <string name="title_attachments_missing">Ekler hala yükleniyor</string>
-  <string name="title_draft_trashed">Taslak çöp kutusuna atıldı</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Taslak kaydedildi</string>
   <string name="title_queued">İleti gönderiliyor</string>
   <string name="title_search">Ara</string>

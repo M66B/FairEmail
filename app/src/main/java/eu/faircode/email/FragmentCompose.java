@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -75,6 +76,7 @@ import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -226,7 +228,21 @@ public class FragmentCompose extends FragmentEx {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                onAction(item.getItemId());
+                int action = item.getItemId();
+                if (action == R.id.action_delete) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder
+                            .setMessage(R.string.title_ask_delete)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onAction(R.id.action_delete);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null).show();
+
+                } else
+                    onAction(action);
                 return false;
             }
         });
@@ -960,14 +976,12 @@ public class FragmentCompose extends FragmentEx {
                 String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                 // Execute action
-                if (action == R.id.action_trash) {
-                    draft.ui_seen = true;
+                if (action == R.id.action_delete) {
+                    draft.msgid = null;
                     draft.ui_hide = true;
                     db.message().updateMessage(draft);
-                    draft.write(context, pbody);
 
-                    EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
-                    EntityOperation.queue(db, draft, EntityOperation.MOVE, trash.id);
+                    EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                 } else if (action == R.id.action_save) {
                     db.message().updateMessage(draft);
@@ -1041,10 +1055,10 @@ public class FragmentCompose extends FragmentEx {
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
 
-            if (action == R.id.action_trash) {
+            if (action == R.id.action_delete) {
                 autosave = false;
                 getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), R.string.title_draft_trashed, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
 
             } else if (action == R.id.action_save) {
                 if (draft != null)

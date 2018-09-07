@@ -76,6 +76,7 @@
   <string name="title_account_linked">Połączone konto</string>
   <string name="title_account_name">Nazwa konta</string>
   <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Dostawca</string>
@@ -136,6 +137,7 @@
   <string name="title_show_headers">Pokaż nagłówki</string>
   <string name="title_show_html">Pokaż oryginał</string>
   <string name="title_trash">Kosz</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Przenieś</string>
   <string name="title_archive">Archiwum</string>
@@ -160,7 +162,7 @@
   <string name="title_from_missing">Brak nadawcy</string>
   <string name="title_to_missing">Brak adresata</string>
   <string name="title_attachments_missing">Załączniki są wciąż ładowane</string>
-  <string name="title_draft_trashed">Szkice usunięte</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
   <string name="title_search">Szukaj</string>

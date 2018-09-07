@@ -68,6 +68,7 @@
   <string name="title_account_linked">Forbundet konto</string>
   <string name="title_account_name">Kontonavn</string>
   <string name="title_account_name_hint">Bruges til at differentiere mapper</string>
+  <string name="title_account_signature">Signature text</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Udbyder</string>
@@ -128,6 +129,7 @@
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
   <string name="title_trash">Papirkurv</string>
+  <string name="title_delete">Delete</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Flyt</string>
   <string name="title_archive">Arkivér</string>
@@ -152,7 +154,7 @@
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>
-  <string name="title_draft_trashed">Kladde slettet</string>
+  <string name="title_draft_deleted">Draft deleted</string>
   <string name="title_draft_saved">Kladde gemt</string>
   <string name="title_queued">Sender besked</string>
   <string name="title_search">Søg</string>
