@@ -79,7 +79,7 @@
   <string name="title_password">Mot de passe</string>
   <string name="title_authorize">Sélectionner un compte</string>
   <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
-  <string name="title_setup_advanced">Advanced</string>
+  <string name="title_setup_advanced">Avancé</string>
   <string name="title_store_sent">Stocker les messages envoyés (à activer si nécessaire)</string>
   <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
   <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
@@ -94,12 +94,12 @@
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Répertoire Brouillons manquant</string>
-  <string name="title_no_idle">IMAP IDLE not supported</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
+  <string name="title_no_idle">IMAP IDLE non supporté</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS non supporté</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
-  <string name="title_pop">POP is not support</string>
-  <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_pop">POP is not supported</string>
+  <string name="title_insecure">Les connexions non sécurisées ne sont pas supportées</string>
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>

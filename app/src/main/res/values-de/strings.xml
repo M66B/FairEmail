@@ -79,7 +79,7 @@
   <string name="title_password">Passwort</string>
   <string name="title_authorize">Konto wählen</string>
   <string name="title_authorizing">Autorisieren Konto &#8230;</string>
-  <string name="title_setup_advanced">Advanced</string>
+  <string name="title_setup_advanced">Erweitert</string>
   <string name="title_store_sent">Speichere gesendete Nachrichten (nur bei Bedarf aktivieren)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
@@ -94,12 +94,12 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">IMAP IDLE not supported</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
+  <string name="title_no_idle">IMAP IDLE wird nicht unterstützt</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
-  <string name="title_pop">POP is not support</string>
-  <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_pop">POP is not supported</string>
+  <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
