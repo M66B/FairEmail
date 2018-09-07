@@ -751,8 +751,14 @@ public class FragmentCompose extends FragmentEx {
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
                         String text = "";
-                        if (answer > 0)
+                        if (answer > 0) {
                             text = db.answer().getAnswer(answer).text;
+
+                            String name = "";
+                            if (draft.to != null && draft.to.length > 0)
+                                name = ((InternetAddress) draft.to[0]).getPersonal();
+                            text = text.replace("$name$", name);
+                        }
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("%s<br><br>%s %s:<br><br>%s",
                                 text.replaceAll("\\r?\\n", "<br />"),
