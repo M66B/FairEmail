@@ -26,6 +26,7 @@
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
+        <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
     </style>
 
     <style name="AppThemeDark" parent="Base.Theme.AppCompat">
@@ -47,6 +48,7 @@
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
+        <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
     </style>
 
     <style name="Theme.Transparent" parent="Base.Theme.AppCompat">
@@ -69,5 +71,9 @@
 
     <style name="buttonStyleSmall" parent="Base.Widget.AppCompat.Button.Small">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
+
+    <style name="buttonStyleToggle" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 </resources>

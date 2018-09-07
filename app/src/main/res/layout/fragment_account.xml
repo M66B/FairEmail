@@ -209,25 +209,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <TextView
-            android:id="@+id/tvSignaturePro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_pro_feature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
-
         <EditText
             android:id="@+id/etSignature"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/title_optional"
             android:inputType="textCapSentences|textMultiLine"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toStartOf="@+id/ibPro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSignaturePro" />
+            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
+
+        <ImageButton
+            android:id="@+id/ibPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="@id/etSignature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etSignature" />
 
         <CheckBox
             android:id="@+id/cbSynchronize"
@@ -427,7 +428,7 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,tvSignature,tvSignaturePro,etSignature,cbSynchronize,cbPrimary" />
+            app:constraint_referenced_ids="tvName,etName,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

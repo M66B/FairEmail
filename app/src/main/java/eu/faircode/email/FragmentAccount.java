@@ -29,10 +29,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -50,7 +50,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -90,8 +89,8 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
     private Button btnAdvanced;
     private EditText etName;
-    private TextView tvSignaturePro;
     private EditText etSignature;
+    private ImageButton ibPro;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private Button btnCheck;
@@ -140,8 +139,9 @@ public class FragmentAccount extends FragmentEx {
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etName = view.findViewById(R.id.etName);
-        tvSignaturePro = view.findViewById(R.id.tvSignaturePro);
         etSignature = view.findViewById(R.id.etSignature);
+        ibPro = view.findViewById(R.id.ibPro);
+
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
 
@@ -248,8 +248,7 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
-        tvSignaturePro.setPaintFlags(tvSignaturePro.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvSignaturePro.setOnClickListener(new View.OnClickListener() {
+        ibPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -802,6 +801,16 @@ public class FragmentAccount extends FragmentEx {
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                boolean pro = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false);
+                etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
+                etSignature.setEnabled(pro);
+                if (pro) {
+                    ViewGroup.LayoutParams lp = ibPro.getLayoutParams();
+                    lp.height = 0;
+                    lp.width = 0;
+                    ibPro.setLayoutParams(lp);
+                }
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 

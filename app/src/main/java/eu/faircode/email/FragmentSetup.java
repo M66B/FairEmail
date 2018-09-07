@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
@@ -38,10 +39,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.List;
 
@@ -67,9 +68,11 @@ public class FragmentSetup extends FragmentEx {
 
     private Button btnData;
 
-    private CheckBox cbDarkTheme;
+    private ToggleButton tbDarkTheme;
 
     private Button btnOptions;
+
+    private Drawable check;
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -79,6 +82,8 @@ public class FragmentSetup extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
+
+        check = getResources().getDrawable(R.drawable.baseline_check_24, getContext().getTheme());
 
         View view = inflater.inflate(R.layout.fragment_setup, container, false);
 
@@ -97,7 +102,7 @@ public class FragmentSetup extends FragmentEx {
 
         btnData = view.findViewById(R.id.btnData);
 
-        cbDarkTheme = view.findViewById(R.id.cbDarkTheme);
+        tbDarkTheme = view.findViewById(R.id.tbDarkTheme);
         btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
@@ -165,14 +170,14 @@ public class FragmentSetup extends FragmentEx {
 
         String theme = prefs.getString("theme", "light");
         boolean dark = "dark".equals(theme);
-        cbDarkTheme.setTag(dark);
-        cbDarkTheme.setChecked(dark);
-        cbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        tbDarkTheme.setTag(dark);
+        tbDarkTheme.setChecked(dark);
+        tbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton button, boolean checked) {
                 if (checked != (Boolean) button.getTag()) {
                     button.setTag(checked);
-                    cbDarkTheme.setChecked(checked);
+                    tbDarkTheme.setChecked(checked);
                     prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                 }
             }
@@ -190,11 +195,19 @@ public class FragmentSetup extends FragmentEx {
         // Initialize
 
         tvAccountDone.setText(null);
+        tvAccountDone.setCompoundDrawables(null, null, null, null);
+
         btnIdentity.setEnabled(false);
         tvIdentityDone.setText(null);
+        tvIdentityDone.setCompoundDrawables(null, null, null, null);
+
         tvPermissionsDone.setText(null);
+        tvPermissionsDone.setCompoundDrawables(null, null, null, null);
+
         btnDoze.setEnabled(false);
         tvDozeDone.setText(null);
+        tvDozeDone.setCompoundDrawables(null, null, null, null);
+
         btnData.setVisibility(View.GONE);
 
         int[] grantResults = new int[permissions.length];
@@ -247,15 +260,19 @@ public class FragmentSetup extends FragmentEx {
         db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                btnIdentity.setEnabled(accounts != null && accounts.size() > 0);
-                tvAccountDone.setText(accounts != null && accounts.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
+                boolean done = (accounts != null && accounts.size() > 0);
+                btnIdentity.setEnabled(done);
+                tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
+                tvAccountDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
             }
         });
 
         db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
-                tvIdentityDone.setText(identities != null && identities.size() > 0 ? R.string.title_setup_done : R.string.title_setup_to_do);
+                boolean done = (identities != null && identities.size() > 0);
+                tvIdentityDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
+                tvIdentityDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
             }
         });
     }
@@ -268,6 +285,7 @@ public class FragmentSetup extends FragmentEx {
         boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         btnDoze.setEnabled(!ignoring);
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
@@ -287,5 +305,6 @@ public class FragmentSetup extends FragmentEx {
 
         btnPermissions.setEnabled(!has);
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
+        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
     }
 }
