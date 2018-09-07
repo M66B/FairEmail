@@ -750,14 +750,20 @@ public class FragmentAccount extends FragmentEx {
 
                 if (savedInstanceState == null) {
                     if (account != null) {
+                        boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
                             Provider provider = providers.get(pos);
                             if (provider.imap_host.equals(account.host) &&
                                     provider.imap_port == account.port) {
+                                found = true;
                                 spProvider.setTag(pos);
                                 spProvider.setSelection(pos);
                                 break;
                             }
+                        }
+                        if (!found) {
+                            spProvider.setTag(1);
+                            spProvider.setSelection(1);
                         }
                         etHost.setText(account.host);
                         etPort.setText(Long.toString(account.port));
