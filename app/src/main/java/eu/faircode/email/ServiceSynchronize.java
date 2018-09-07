@@ -530,7 +530,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                 EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
 
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
@@ -559,7 +558,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                     }
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
 
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
@@ -596,7 +594,6 @@ public class ServiceSynchronize extends LifecycleService {
                                                 }
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
 
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
@@ -629,7 +626,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(account.name, folder.name, ex);
 
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
@@ -657,7 +653,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(account.name, folder.name, ex);
 
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
@@ -722,7 +717,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                    reportError(account.name, folder.name, ex);
 
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 } finally {
@@ -776,7 +770,6 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                reportError(account.name, null, ex);
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 // Close store
@@ -1278,7 +1271,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    reportError(account.name, folder.name, ex);
 
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
@@ -1668,7 +1660,7 @@ public class ServiceSynchronize extends LifecycleService {
                             processOperations(outbox, null, null, null);
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            reportError(null, outbox.name, ex);
+                            db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                         } finally {
                             Log.i(Helper.TAG, outbox.name + " end operations");
                             db.folder().setFolderState(outbox.id, null);
