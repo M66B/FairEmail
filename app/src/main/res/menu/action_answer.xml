@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/baseline_delete_24"
-        android:title="@string/title_trash"
+        android:title="@string/title_delete"
         app:showAsAction="ifRoom" />
 
     <item
