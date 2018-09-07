@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,6 +50,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -73,6 +75,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
@@ -87,6 +90,8 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
     private Button btnAdvanced;
     private EditText etName;
+    private TextView tvSignaturePro;
+    private EditText etSignature;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private Button btnCheck;
@@ -135,6 +140,8 @@ public class FragmentAccount extends FragmentEx {
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etName = view.findViewById(R.id.etName);
+        tvSignaturePro = view.findViewById(R.id.tvSignaturePro);
+        etSignature = view.findViewById(R.id.etSignature);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
 
@@ -238,6 +245,16 @@ public class FragmentAccount extends FragmentEx {
                             ((ScrollView) view).smoothScrollTo(0, btnCheck.getBottom());
                         }
                     });
+            }
+        });
+
+        tvSignaturePro.setPaintFlags(tvSignaturePro.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvSignaturePro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.commit();
             }
         });
 
@@ -465,13 +482,14 @@ public class FragmentAccount extends FragmentEx {
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
-                args.putString("name", etName.getText().toString());
                 args.putString("host", etHost.getText().toString());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putString("name", etName.getText().toString());
+                args.putString("signature", etSignature.getText().toString());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
@@ -482,12 +500,13 @@ public class FragmentAccount extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
-                        String name = args.getString("name");
                         String host = args.getString("host");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
+                        String name = args.getString("name");
+                        String signature = args.getString("signature");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         EntityFolder drafts = args.getParcelable("drafts");
@@ -536,6 +555,7 @@ public class FragmentAccount extends FragmentEx {
                             if (account == null)
                                 account = new EntityAccount();
                             account.name = name;
+                            account.signature = signature;
                             account.host = host;
                             account.port = Integer.parseInt(port);
                             account.user = user;
@@ -748,6 +768,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
+                    etSignature.setText(account == null ? null : account.signature);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);

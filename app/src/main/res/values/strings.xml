@@ -84,6 +84,7 @@
     <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
+    <string name="title_account_signature">Signature text</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Provider</string>

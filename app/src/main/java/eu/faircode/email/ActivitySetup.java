@@ -34,7 +34,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
+public class ActivitySetup extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private boolean hasAccount;
 
     static final int REQUEST_PERMISSION = 1;

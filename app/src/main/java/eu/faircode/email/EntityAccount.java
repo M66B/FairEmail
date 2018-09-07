@@ -34,6 +34,7 @@ public class EntityAccount {
     @PrimaryKey(autoGenerate = true)
     public Long id;
     public String name;
+    public String signature;
     @NonNull
     public String host; // IMAP
     @NonNull

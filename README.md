@@ -31,9 +31,10 @@ Features
 Pro features
 ------------
 
-* Preview sender/subject in new messages status bar notification
-* Progressive search (first local, then server)
+* Signatures
 * Standard replies
+* Progressive search (first local, then server)
+* Preview sender/subject in new messages status bar notification
 
 Simple
 ------

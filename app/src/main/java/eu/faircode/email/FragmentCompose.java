@@ -27,6 +27,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -605,11 +606,11 @@ public class FragmentCompose extends FragmentEx {
         protected EntityMessage onLoad(Context context, Bundle args) throws IOException {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
-            long account = args.getLong("account", -1);
             long reference = args.getLong("reference", -1);
             long answer = args.getLong("answer", -1);
+            boolean pro = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
 
-            Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " account=" + account + " reference=" + reference);
+            Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " reference=" + reference);
 
             EntityMessage draft;
 
@@ -624,16 +625,18 @@ public class FragmentCompose extends FragmentEx {
                 } else
                     return draft;
 
+                EntityAccount account;
                 EntityMessage ref = db.message().getMessage(reference);
                 if (ref == null) {
-                    if (account < 0) {
-                        EntityAccount a = db.account().getPrimaryAccount();
-                        if (a == null)
+                    long aid = args.getLong("account", -1);
+                    if (aid < 0) {
+                        account = db.account().getPrimaryAccount();
+                        if (account == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_account));
-                        account = a.id;
-                    }
+                    } else
+                        account = db.account().getAccount(aid);
                 } else {
-                    account = ref.account;
+                    account = db.account().getAccount(ref.account);
 
                     // Reply to recipient, not to known self
                     if (ref.from != null && ref.from.length > 0) {
@@ -654,7 +657,7 @@ public class FragmentCompose extends FragmentEx {
                 }
 
                 EntityFolder drafts;
-                drafts = db.folder().getFolderByType(account, EntityFolder.DRAFTS);
+                drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
                 if (drafts == null)
                     drafts = db.folder().getPrimaryDrafts();
                 if (drafts == null)
@@ -663,7 +666,7 @@ public class FragmentCompose extends FragmentEx {
                 String body = "";
 
                 draft = new EntityMessage();
-                draft.account = account;
+                draft.account = account.id;
                 draft.folder = drafts.id;
                 draft.msgid = EntityMessage.generateMessageId(); // for multiple appends
 
@@ -691,8 +694,13 @@ public class FragmentCompose extends FragmentEx {
 
                     draft.subject = args.getString("subject");
                     body = args.getString("body");
-                    if (!TextUtils.isEmpty(body))
-                        body = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
+                    if (body == null)
+                        body = "";
+                    else
+                        body = body.replaceAll("\\r?\\n", "<br />");
+
+                    if (pro && !TextUtils.isEmpty(account.signature))
+                        body = "<br>" + account.signature + "<br>" + body;
 
                 } else {
                     draft.thread = ref.thread;
@@ -742,6 +750,9 @@ public class FragmentCompose extends FragmentEx {
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(context, ref.read(context), true));
                     }
+
+                    if (pro && !TextUtils.isEmpty(account.signature))
+                        body = "<br>" + account.signature + "<br>" + body;
                 }
 
                 draft.received = new Date().getTime();
