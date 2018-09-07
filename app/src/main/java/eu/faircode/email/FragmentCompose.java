@@ -716,7 +716,7 @@ public class FragmentCompose extends FragmentEx {
                         body = body.replaceAll("\\r?\\n", "<br />");
 
                     if (pro && !TextUtils.isEmpty(account.signature))
-                        body = "<br>" + account.signature + "<br>" + body;
+                        body = "<br>" + account.signature.replaceAll("\\r?\\n", "<br />") + "<br>" + body;
 
                 } else {
                     draft.thread = ref.thread;
@@ -768,7 +768,7 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     if (pro && !TextUtils.isEmpty(account.signature))
-                        body = "<br>" + account.signature + "<br>" + body;
+                        body = "<br>" + account.signature.replaceAll("\\r?\\n", "<br />") + "<br>" + body;
                 }
 
                 draft.received = new Date().getTime();
