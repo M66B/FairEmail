@@ -126,6 +126,8 @@
   <string name="title_thread">Show conversation</string>
   <string name="title_seen">Markér som læst</string>
   <string name="title_unseen">Markér som ulæst</string>
+  <string name="title_flag">Add star</string>
+  <string name="title_unflag">Remove star</string>
   <string name="title_forward">Videresend</string>
   <string name="title_reply_all">Svar alle</string>
   <string name="title_show_headers">Show headers</string>

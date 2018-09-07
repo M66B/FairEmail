@@ -126,6 +126,8 @@
   <string name="title_thread">Show conversation</string>
   <string name="title_seen">Okundu olarak işaretle</string>
   <string name="title_unseen">Okunmadı olarak işaretle</string>
+  <string name="title_flag">Add star</string>
+  <string name="title_unflag">Remove star</string>
   <string name="title_forward">İlet</string>
   <string name="title_reply_all">Tümünü yanıtla</string>
   <string name="title_show_headers">Show headers</string>

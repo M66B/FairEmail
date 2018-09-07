@@ -126,6 +126,8 @@
   <string name="title_thread">Afficher le fil de discussion</string>
   <string name="title_seen">Marquer comme lu</string>
   <string name="title_unseen">Marquer comme non lu</string>
+  <string name="title_flag">Add star</string>
+  <string name="title_unflag">Remove star</string>
   <string name="title_forward">Transférer</string>
   <string name="title_reply_all">Répondre à tous</string>
   <string name="title_show_headers">Afficher les en-têtes</string>

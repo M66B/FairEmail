@@ -122,6 +122,8 @@
   <string name="title_thread">Show conversation</string>
   <string name="title_seen">标记为已读</string>
   <string name="title_unseen">标记为未读</string>
+  <string name="title_flag">Add star</string>
+  <string name="title_unflag">Remove star</string>
   <string name="title_forward">转发</string>
   <string name="title_reply_all">回复全部</string>
   <string name="title_show_headers">Show headers</string>

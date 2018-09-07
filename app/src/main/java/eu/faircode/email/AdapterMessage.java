@@ -26,6 +26,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -39,6 +41,7 @@ import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -69,6 +72,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         ImageView ivThread;
         TextView tvError;
         ProgressBar pbLoading;
+
+        private static final int action_seen = 1;
+        private static final int action_flag = 2;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -207,40 +213,59 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            TupleMessageEx message = getItem(pos);
+            final TupleMessageEx message = getItem(pos);
 
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<Void>() {
+            PopupMenu popupMenu = new PopupMenu(context, itemView);
+            popupMenu.getMenu().add(Menu.NONE, action_flag, 1, message.ui_flagged ? R.string.title_unflag : R.string.title_flag);
+            popupMenu.getMenu().add(Menu.NONE, action_seen, 2, message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
+                public boolean onMenuItemClick(MenuItem target) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+                    args.putInt("action", target.getItemId());
 
-                        EntityMessage message = db.message().getMessage(id);
-                        for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
-                            db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
-                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onLoad(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            int action = args.getInt("action");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                EntityMessage message = db.message().getMessage(id);
+                                for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
+                                    if (action == action_flag) {
+                                        db.message().setMessageUiFlagged(tmessage.id, !message.ui_flagged);
+                                        EntityOperation.queue(db, tmessage, EntityOperation.FLAG, !tmessage.ui_flagged);
+                                    } else if (action == action_seen) {
+                                        db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
+                                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
+                                    }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            EntityOperation.process(context);
+
+                            return null;
                         }
 
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
+                        @Override
+                        public void onException(Bundle args, Throwable ex) {
+                            Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }.load(context, owner, args);
 
-                    EntityOperation.process(context);
-
-                    return null;
+                    return true;
                 }
+            });
 
-                @Override
-                public void onException(Bundle args, Throwable ex) {
-                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                }
-            }.load(context, owner, args);
+            popupMenu.show();
 
             return true;
         }
