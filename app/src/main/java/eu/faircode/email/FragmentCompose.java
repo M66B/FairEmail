@@ -252,6 +252,7 @@ public class FragmentCompose extends FragmentEx {
                     s.setSpan(new StyleSpan(v.getId() == ibBold.getId() ? Typeface.BOLD : Typeface.ITALIC),
                             start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     etBody.setText(s);
+                    etBody.setSelection(end);
                 }
             }
         };
