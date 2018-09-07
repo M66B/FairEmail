@@ -26,9 +26,9 @@
   <string name="menu_answers">Standardantworten</string>
   <string name="menu_operations">Vorgänge</string>
   <string name="menu_legend">Legende</string>
-  <string name="menu_faq">FAQ</string>
+  <string name="menu_faq">FAQ/support</string>
   <string name="menu_pro">Pro-Funktionen</string>
-  <string name="menu_privacy">Privatsphäre</string>
+  <string name="menu_privacy">Datenschutz</string>
   <string name="menu_about">Über</string>
   <string name="menu_other">Weitere Apps</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
@@ -68,7 +68,7 @@
   <string name="title_account_linked">Verknüpftes Konto</string>
   <string name="title_account_name">Kontobezeichnung</string>
   <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
-  <string name="title_account_signature">Signature text</string>
+  <string name="title_account_signature">Signaturtext</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Anbieter</string>
@@ -129,7 +129,7 @@
   <string name="title_show_headers">Kopfzeile anzeigen</string>
   <string name="title_show_html">Original anzeigen</string>
   <string name="title_trash">Papierkorb</string>
-  <string name="title_delete">Delete</string>
+  <string name="title_delete">Löschen</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
@@ -154,7 +154,7 @@
   <string name="title_from_missing">Absender fehlt</string>
   <string name="title_to_missing">Empfänger fehlt</string>
   <string name="title_attachments_missing">Anhänge werden noch geladen</string>
-  <string name="title_draft_deleted">Draft deleted</string>
+  <string name="title_draft_deleted">Entwurf gelöscht</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
@@ -176,7 +176,7 @@
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_actions">Nach links wischen, um in den Papierkorb zu werfen; nach rechts wischen zum archivieren (sofern verfügbar); langes drücken, um als gelesen/ungelesen zu markieren</string>
   <string name="title_understood">Verstanden</string>
-  <string name="title_pro_feature">Dies ist eine Premium Funktion</string>
+  <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
   <string name="title_pro_list">Liste der Pro-Funktionen</string>
   <string name="title_pro_purchase">Kaufen</string>
   <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
