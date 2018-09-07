@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,8 +33,10 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -46,6 +49,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
@@ -100,6 +104,8 @@ public class FragmentCompose extends FragmentEx {
     private EditText etSubject;
     private RecyclerView rvAttachment;
     private EditText etBody;
+    private ImageButton ibBold;
+    private ImageButton ibItalic;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpHeader;
@@ -133,6 +139,8 @@ public class FragmentCompose extends FragmentEx {
         etSubject = view.findViewById(R.id.etSubject);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         etBody = view.findViewById(R.id.etBody);
+        ibBold = view.findViewById(R.id.ibBold);
+        ibItalic = view.findViewById(R.id.ibItalic);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
@@ -224,6 +232,28 @@ public class FragmentCompose extends FragmentEx {
                 return false;
             }
         });
+
+        View.OnClickListener styleListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int start = etBody.getSelectionStart();
+                int end = etBody.getSelectionEnd();
+                if (start > end) {
+                    int tmp = start;
+                    start = end;
+                    end = tmp;
+                }
+                if (start != end) {
+                    SpannableString s = new SpannableString(etBody.getText());
+                    s.setSpan(new StyleSpan(v.getId() == ibBold.getId() ? Typeface.BOLD : Typeface.ITALIC),
+                            start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    etBody.setText(s);
+                }
+            }
+        };
+
+        ibBold.setOnClickListener(styleListener);
+        ibItalic.setOnClickListener(styleListener);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -521,7 +551,7 @@ public class FragmentCompose extends FragmentEx {
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
-        args.putString("body", etBody.getText().toString());
+        args.putString("body", Html.toHtml(etBody.getText()));
 
         Log.i(Helper.TAG, "Run load id=" + working);
         actionLoader.load(this, args);
@@ -981,8 +1011,6 @@ public class FragmentCompose extends FragmentEx {
                 draft.subject = subject;
                 draft.received = new Date().getTime();
 
-                String pbody = "<pre>" + body.replaceAll("\\r?\\n", "<br />") + "</pre>";
-
                 // Execute action
                 if (action == R.id.action_delete) {
                     draft.msgid = null;
@@ -993,13 +1021,13 @@ public class FragmentCompose extends FragmentEx {
 
                 } else if (action == R.id.action_save) {
                     db.message().updateMessage(draft);
-                    draft.write(context, pbody);
+                    draft.write(context, body);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
-                    draft.write(context, pbody);
+                    draft.write(context, body);
 
                     // Check data
                     if (draft.identity == null)
@@ -1030,7 +1058,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.msgid = msgid;
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
-                    draft.write(getContext(), pbody);
+                    draft.write(getContext(), body);
 
                     // Restore attachments
                     for (EntityAttachment attachment : attachments) {
