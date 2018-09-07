@@ -165,4 +165,15 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Telstra"
+        link="https://www.telstra.com.au/support/category/email/set-up/imap-pop-and-smtp-information-for-manual-email-set-up">
+        <imap
+            host="imap.telstra.com"
+            port="993" />
+        <smtp
+            host="smtp.telstra.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
