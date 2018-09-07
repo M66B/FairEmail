@@ -124,7 +124,7 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 <a name="FAQ15"></a>
 **(15) Can you add ... ?**
 
-* Account colors: the goal is to keep the app as simple as possible, so this will not be added.
+* More themes / account colors: the goal is to keep the app as simple as possible, so this will not be added.
 * LED notifications: there are less and less devices with a notification light and if there is one, it can mostly be managed by Android, so there is little point in adding support for this.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justifiy putting effort into this.
 * POP/poll support: besides that any decent provider is supporting / should support IMAP, polling does consume extra battery power and will delay notification of new messages, so this will not be added.
