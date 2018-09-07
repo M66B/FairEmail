@@ -2,6 +2,8 @@
 
 If you have a feature request or found a bug, you can report it [as an issue](https://github.com/M66B/open-source-email/issues).
 
+If you have a question, please check the frequently asked questions below first. At the bottom you can find how you can ask other questions.
+
 ## Frequently Asked Questions
 
 <a name="FAQ1"></a>
@@ -130,3 +132,4 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
+Registration is free.

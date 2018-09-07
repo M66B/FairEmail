@@ -30,6 +30,7 @@
   <string name="menu_pro">Fonctionnalités Pro</string>
   <string name="menu_privacy">Confidentialité</string>
   <string name="menu_about">À propos</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Autres applications</string>
   <string name="title_eula">Contrat de licence d\'utilisateur final</string>
   <string name="title_agree">J\'accepte</string>
@@ -176,6 +177,9 @@
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu</string>
   <string name="title_understood">Compris</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>

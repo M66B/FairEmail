@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro özellikleri</string>
   <string name="menu_privacy">Gizlilik</string>
   <string name="menu_about">Hakkında</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Diğer uygulamalar</string>
   <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
   <string name="title_agree">Kabul ediyorum</string>
@@ -176,6 +177,9 @@
   <string name="title_legend_closing">Kapatılıyor</string>
   <string name="title_hint_actions">Silmek için sola kaydırın; arşivlemek (mümkün ise) için sağa kaydırın; okundu/okunmadı işaretlemek için uzun basın</string>
   <string name="title_understood">Anlaşıldı</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">Bu Pro özelliğidir</string>
   <string name="title_pro_list">Pro özelliklerin listesi</string>
   <string name="title_pro_purchase">Satın al</string>

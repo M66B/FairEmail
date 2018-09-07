@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro features</string>
   <string name="menu_privacy">Privacy</string>
   <string name="menu_about">Info</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Altre app</string>
   <string name="title_eula">Contratto di licenza con l\'utente finale</string>
   <string name="title_agree">Accetto</string>
@@ -176,6 +177,9 @@
   <string name="title_legend_closing">Chiusura</string>
   <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
   <string name="title_understood">Understood</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List of pro features</string>
   <string name="title_pro_purchase">Buy</string>

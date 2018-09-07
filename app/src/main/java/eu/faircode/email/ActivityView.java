@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
@@ -60,6 +61,7 @@ import javax.mail.Address;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -148,6 +150,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_about:
                         onMenuAbout();
                         break;
+                    case R.string.menu_rate:
+                        onMenuRate();
+                        break;
                     case R.string.menu_other:
                         onMenuOtherApps();
                         break;
@@ -201,6 +206,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
+
+                if (getIntentRate().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_star_24, R.string.menu_rate));
 
                 if (getIntentOtherApps().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_get_app_24, R.string.menu_other));
@@ -452,6 +460,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return intent;
     }
 
+    private Intent getIntentRate() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+        if (intent.resolveActivity(getPackageManager()) == null)
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
+        return intent;
+    }
+
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
@@ -512,6 +527,30 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuRate() {
+        Intent faq = getIntentFAQ();
+        if (faq.resolveActivity(getPackageManager()) == null)
+            startActivity(getIntentRate());
+        else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder
+                    .setMessage(R.string.title_issue)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(getIntentFAQ());
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(getIntentRate());
+                        }
+                    })
+                    .show();
+        }
     }
 
     private void onMenuOtherApps() {
@@ -664,7 +703,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         startActivityForResult(create, REQUEST_ATTACHMENT);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

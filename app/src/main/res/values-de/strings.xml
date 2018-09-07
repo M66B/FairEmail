@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro-Funktionen</string>
   <string name="menu_privacy">Datenschutz</string>
   <string name="menu_about">Über</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Weitere Apps</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
   <string name="title_agree">Ich stimme zu</string>
@@ -176,6 +177,9 @@
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_actions">Nach links wischen, um in den Papierkorb zu werfen; nach rechts wischen zum archivieren (sofern verfügbar); langes drücken, um als gelesen/ungelesen zu markieren</string>
   <string name="title_understood">Verstanden</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
   <string name="title_pro_list">Liste der Pro-Funktionen</string>
   <string name="title_pro_purchase">Kaufen</string>

@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro funktioner</string>
   <string name="menu_privacy">Privatliv</string>
   <string name="menu_about">Om</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Andre apps</string>
   <string name="title_eula">Slutbrugerlicensaftale</string>
   <string name="title_agree">Jeg accepterer</string>
@@ -176,6 +177,9 @@
   <string name="title_legend_closing">Lukker</string>
   <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
   <string name="title_understood">Forstået</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">Dette er en pro funktion</string>
   <string name="title_pro_list">Liste over pro funktioner</string>
   <string name="title_pro_purchase">Køb</string>

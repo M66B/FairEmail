@@ -38,6 +38,7 @@
   <string name="menu_pro">Funkcje pro</string>
   <string name="menu_privacy">Prywatność</string>
   <string name="menu_about">O programie</string>
+  <string name="menu_rate">Rate this app</string>
   <string name="menu_other">Inne aplikacje</string>
   <string name="title_eula">Umowa licencyjna użytkownika końcowego</string>
   <string name="title_agree">Zgadzam się</string>
@@ -184,6 +185,9 @@
   <string name="title_legend_closing">Zamykanie</string>
   <string name="title_hint_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane</string>
   <string name="title_understood">Rozumiem</string>
+  <string name="title_issue">Do you have a question or problem?</string>
+  <string name="title_yes">Yes</string>
+  <string name="title_no">No</string>
   <string name="title_pro_feature">Jest to funkcja pro</string>
   <string name="title_pro_list">List funkcji pro</string>
   <string name="title_pro_purchase">Kup</string>
