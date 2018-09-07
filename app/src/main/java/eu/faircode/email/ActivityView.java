@@ -190,6 +190,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_settings_applications_24, R.string.menu_setup));
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_reply_24, R.string.menu_answers));
 
+                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
                 if (PreferenceManager.getDefaultSharedPreferences(ActivityView.this).getBoolean("debug", false))
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_list_24, R.string.menu_operations));
 
@@ -206,6 +208,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
+
+                drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
                 if (getIntentRate().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_star_24, R.string.menu_rate));
