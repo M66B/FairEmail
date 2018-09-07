@@ -97,7 +97,11 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean seen;
     @NonNull
+    public Boolean flagged;
+    @NonNull
     public Boolean ui_seen;
+    @NonNull
+    public Boolean ui_flagged;
     @NonNull
     public Boolean ui_hide;
     @NonNull
@@ -187,12 +191,17 @@ public class EntityMessage implements Serializable {
                     equal(this.cc, other.cc) &&
                     equal(this.bcc, other.bcc) &&
                     equal(this.reply, other.reply) &&
+                    (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
+                    this.stored.equals(other.stored) &&
                     this.seen.equals(other.seen) &&
                     this.ui_seen.equals(other.ui_seen) &&
+                    this.flagged.equals(other.flagged) &&
+                    this.ui_flagged.equals(other.ui_flagged) &&
                     this.ui_hide.equals(other.ui_hide) &&
+                    this.ui_found.equals(other.ui_found) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;

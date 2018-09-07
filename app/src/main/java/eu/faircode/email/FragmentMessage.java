@@ -50,6 +50,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -91,6 +92,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
     private View vwAnswerAnchor;
+    private ImageView ivFlagged;
     private TextView tvFrom;
     private TextView tvTime;
     private TextView tvTo;
@@ -149,6 +151,7 @@ public class FragmentMessage extends FragmentEx {
 
         // Get controls
         vwAnswerAnchor = view.findViewById(R.id.vwAnswerAnchor);
+        ivFlagged = view.findViewById(R.id.ivFlagged);
         tvFrom = view.findViewById(R.id.tvFrom);
         tvTime = view.findViewById(R.id.tvTime);
         tvTo = view.findViewById(R.id.tvTo);
@@ -177,6 +180,33 @@ public class FragmentMessage extends FragmentEx {
         grpMessage = view.findViewById(R.id.grpMessage);
 
         setHasOptionsMenu(true);
+
+        ivFlagged.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("account", message.account);
+                args.putString("thread", message.thread);
+                args.putBoolean("flagged", !message.ui_flagged);
+                Log.i(Helper.TAG, "Set message id=" + message.id + " flagged=" + !message.ui_flagged);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        long account = args.getLong("account");
+                        String thread = args.getString("thread");
+                        boolean flagged = args.getBoolean("flagged");
+                        DB db = DB.getInstance(context);
+                        for (EntityMessage message : db.message().getMessageByThread(account, thread)) {
+                            db.message().setMessageUiFlagged(message.id, flagged);
+                            EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+                        }
+                        EntityOperation.process(context);
+                        return null;
+                    }
+                }.load(FragmentMessage.this, args);
+            }
+        });
 
         tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
@@ -354,6 +384,7 @@ public class FragmentMessage extends FragmentEx {
         if (savedInstanceState == null) {
             setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
+            ivFlagged.setImageResource(message.ui_flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, true));
             tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
             tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
@@ -423,6 +454,7 @@ public class FragmentMessage extends FragmentEx {
                 // Messages are immutable except for flags
                 FragmentMessage.this.message = message;
                 setSeen();
+                ivFlagged.setImageResource(message.ui_flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
 
                 // Headers can be downloaded
                 tvRawHeaders.setText(message.headers);

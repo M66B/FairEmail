@@ -14,6 +14,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ivFlagged"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_star_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+
     <TextView
         android:id="@+id/tvFrom"
         android:layout_width="0dp"
@@ -26,7 +37,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toStartOf="@+id/tvTime"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivFlagged"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

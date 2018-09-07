@@ -214,6 +214,10 @@ public class MessageHelper {
         return imessage.isSet(Flags.Flag.SEEN);
     }
 
+    boolean getFlagged() throws MessagingException {
+        return imessage.isSet(Flags.Flag.FLAGGED);
+    }
+
     String getMessageID() throws MessagingException {
         return imessage.getHeader("Message-ID", null);
     }

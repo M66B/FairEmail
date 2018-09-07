@@ -59,6 +59,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
+        ImageView ivFlagged;
         TextView tvFrom;
         TextView tvTime;
         ImageView ivAttachments;
@@ -73,6 +74,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             super(itemView);
 
             this.itemView = itemView;
+            ivFlagged = itemView.findViewById(R.id.ivFlagged);
             tvFrom = itemView.findViewById(R.id.tvFrom);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
@@ -95,10 +97,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void clear() {
+            ivFlagged.setVisibility(View.GONE);
             tvFrom.setText(null);
             tvTime.setText(null);
             tvSubject.setText(null);
             ivAttachments.setVisibility(View.GONE);
+            tvSubject.setText(null);
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
@@ -108,6 +112,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
+
+            ivFlagged.setVisibility(message.ui_flagged ? View.VISIBLE : View.GONE);
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||

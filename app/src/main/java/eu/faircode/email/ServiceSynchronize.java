@@ -863,6 +863,9 @@ public class ServiceSynchronize extends LifecycleService {
                             if (EntityOperation.SEEN.equals(op.name))
                                 doSeen(folder, ifolder, message, jargs, db);
 
+                            else if (EntityOperation.FLAG.equals(op.name))
+                                doFlag(folder, ifolder, message, jargs, db);
+
                             else if (EntityOperation.ADD.equals(op.name))
                                 doAdd(folder, isession, ifolder, message, jargs, db);
 
@@ -931,6 +934,18 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.SEEN, seen);
 
         db.message().setMessageSeen(message.id, seen);
+    }
+
+    private void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+        // Star/unstar message
+        boolean flagged = jargs.getBoolean(0);
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        imessage.setFlag(Flags.Flag.FLAGGED, flagged);
+
+        db.message().setMessageFlagged(message.id, flagged);
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
@@ -1332,6 +1347,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             MessageHelper helper = new MessageHelper(imessage);
             boolean seen = helper.getSeen();
+            boolean flagged = helper.getFlagged();
 
             DB db = DB.getInstance(context);
             try {
@@ -1375,6 +1391,13 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
                         result = -1;
                     }
+                    if (message.flagged != flagged || message.flagged != message.ui_flagged) {
+                        message.flagged = flagged;
+                        message.ui_flagged = flagged;
+                        db.message().updateMessage(message);
+                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                        result = -1;
+                    }
                 }
 
                 if (message == null) {
@@ -1410,6 +1433,8 @@ public class ServiceSynchronize extends LifecycleService {
                     message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
                     message.seen = seen;
                     message.ui_seen = seen;
+                    message.flagged = false;
+                    message.ui_flagged = false;
                     message.ui_hide = false;
                     message.ui_found = found;
 

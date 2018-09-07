@@ -780,6 +780,8 @@ public class FragmentCompose extends FragmentEx {
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;
+                draft.flagged = false;
+                draft.ui_flagged = false;
                 draft.ui_hide = false;
                 draft.ui_found = false;
 
@@ -1027,7 +1029,6 @@ public class FragmentCompose extends FragmentEx {
                     draft.uid = null;
                     draft.msgid = msgid;
                     draft.ui_hide = false;
-                    draft.ui_found = false;
                     draft.id = db.message().insertMessage(draft);
                     draft.write(getContext(), pbody);
 

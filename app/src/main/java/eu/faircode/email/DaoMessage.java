@@ -156,6 +156,12 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id")
     int setMessageUiSeen(long id, boolean ui_seen);
 
+    @Query("UPDATE message SET flagged = :flagged WHERE id = :id")
+    int setMessageFlagged(long id, boolean flagged);
+
+    @Query("UPDATE message SET ui_flagged = :ui_flagged WHERE id = :id")
+    int setMessageUiFlagged(long id, boolean ui_flagged);
+
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);
 

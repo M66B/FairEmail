@@ -37,6 +37,7 @@ The low priority status bar notification shows the number of pending operations,
 * send: send message
 * attachment: download attachment
 * headers: download message headers
+* flag: star/unstar remote message
 
 <a name="FAQ4"></a>
 **(4) What is a valid security certificate?**

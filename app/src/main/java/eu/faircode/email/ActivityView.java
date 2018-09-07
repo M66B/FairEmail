@@ -290,6 +290,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.received = new Date().getTime();
                             draft.seen = false;
                             draft.ui_seen = false;
+                            draft.flagged = false;
+                            draft.ui_flagged = false;
                             draft.ui_hide = false;
                             draft.ui_found = false;
                             draft.id = db.message().insertMessage(draft);
