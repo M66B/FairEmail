@@ -25,6 +25,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvFrom" />
 
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_person_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivFlagged"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+
     <TextView
         android:id="@+id/tvFrom"
         android:layout_width="0dp"
@@ -36,33 +46,56 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/tvTime"
-        app:layout_constraintStart_toEndOf="@id/ivFlagged"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
         android:freezesText="true"
         android:maxLines="1"
-        android:text="Time"
+        android:text="12:34:56"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
+        app:layout_constraintEnd_toStartOf="@+id/tvCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:maxLines="1"
+        android:text="3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/ivThread"
+        app:layout_constraintTop_toTopOf="@id/tvTime" />
+
+    <ImageView
+        android:id="@+id/ivThread"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/baseline_message_24"
+        app:layout_constraintBottom_toBottomOf="@id/tvTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvFrom" />
+        app:layout_constraintTop_toTopOf="@id/tvTime" />
 
     <TextView
         android:id="@+id/tvToTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
         android:text="@string/title_to"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+        app:layout_constraintTop_toBottomOf="@id/tvTime" />
 
     <TextView
         android:id="@+id/tvTo"
@@ -70,14 +103,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
         android:freezesText="true"
         android:text="To"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvToTitle"
-        app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+        app:layout_constraintTop_toBottomOf="@id/tvTime" />
 
     <TextView
         android:id="@+id/tvSubject"
@@ -89,31 +121,9 @@
         android:text="Subject"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/tvCount"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTo" />
-
-    <TextView
-        android:id="@+id/tvCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:maxLines="1"
-        android:text="3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-        app:layout_constraintEnd_toStartOf="@+id/ivThread"
-        app:layout_constraintTop_toTopOf="@id/tvSubject" />
-
-    <ImageView
-        android:id="@+id/ivThread"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/baseline_message_24"
-        app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvSubject" />
 
     <View
         android:id="@+id/vSeparatorAddress"
@@ -380,7 +390,7 @@
         android:id="@+id/grpHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="ivFlagged,tvFrom,tvToTitle,tvTo,tvSize,tvTime,tvSubject" />
+        app:constraint_referenced_ids="ivFlagged,ivAvatar,tvFrom,tvToTitle,tvTo,tvSize,tvTime,tvSubject" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpThread"

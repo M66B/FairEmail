@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
@@ -93,11 +95,12 @@ public class FragmentMessage extends FragmentEx {
     private ViewGroup view;
     private View vwAnswerAnchor;
     private ImageView ivFlagged;
+    private ImageView ivAvatar;
     private TextView tvFrom;
     private TextView tvTime;
+    private TextView tvCount;
     private TextView tvTo;
     private TextView tvSubject;
-    private TextView tvCount;
     private TextView tvReplyTo;
     private TextView tvCc;
     private TextView tvBcc;
@@ -152,11 +155,12 @@ public class FragmentMessage extends FragmentEx {
         // Get controls
         vwAnswerAnchor = view.findViewById(R.id.vwAnswerAnchor);
         ivFlagged = view.findViewById(R.id.ivFlagged);
+        ivAvatar = view.findViewById(R.id.ivAvatar);
         tvFrom = view.findViewById(R.id.tvFrom);
         tvTime = view.findViewById(R.id.tvTime);
+        tvCount = view.findViewById(R.id.tvCount);
         tvTo = view.findViewById(R.id.tvTo);
         tvSubject = view.findViewById(R.id.tvSubject);
-        tvCount = view.findViewById(R.id.tvCount);
         tvReplyTo = view.findViewById(R.id.tvReplyTo);
         tvCc = view.findViewById(R.id.tvCc);
         tvBcc = view.findViewById(R.id.tvBcc);
@@ -387,10 +391,9 @@ public class FragmentMessage extends FragmentEx {
             ivFlagged.setImageResource(message.ui_flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, true));
             tvTime.setText(message.sent == null ? null : df.format(new Date(message.sent)));
+            tvCount.setText(Integer.toString(message.count));
             tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
             tvSubject.setText(message.subject);
-
-            tvCount.setText(Integer.toString(message.count));
 
             tvReplyTo.setText(MessageHelper.getFormattedAddresses(message.reply, true));
             tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
@@ -426,6 +429,17 @@ public class FragmentMessage extends FragmentEx {
         }
 
         setSeen();
+
+        if (message.avatar == null) {
+            ViewGroup.LayoutParams lp = ivAvatar.getLayoutParams();
+            lp.height = 0;
+            lp.width = 0;
+            ivAvatar.setLayoutParams(lp);
+        } else {
+            ContentResolver resolver = getContext().getContentResolver();
+            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
+            ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+        }
 
         pbWait.setVisibility(View.GONE);
 
