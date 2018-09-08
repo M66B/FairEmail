@@ -8,9 +8,9 @@
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
         android:hint="@string/title_answer_name"
         android:inputType="textCapSentences"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -26,29 +26,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <EditText
+        android:id="@+id/etText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:fillViewport="true"
-        android:orientation="vertical"
+        android:layout_margin="6dp"
+        android:background="@null"
+        android:fontFamily="monospace"
+        android:gravity="top"
+        android:hint="@string/title_answer_text"
+        android:inputType="textCapSentences|textMultiLine"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator">
-
-        <EditText
-            android:id="@+id/etText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:fontFamily="monospace"
-            android:gravity="top"
-            android:hint="@string/title_answer_text"
-            android:inputType="textCapSentences|textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -78,5 +69,5 @@
         android:id="@+id/grpReady"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="etName,vSeparator,scroll,bottom_navigation" />
+        app:constraint_referenced_ids="etName,vSeparator,etText,bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
