@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -488,7 +489,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("name", etName.getText().toString());
-                args.putString("signature", etSignature.getText().toString());
+                args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
@@ -773,7 +774,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
-                    etSignature.setText(account == null ? null : account.signature);
+                    etSignature.setText(account == null ? null : Html.fromHtml(account.signature));
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);

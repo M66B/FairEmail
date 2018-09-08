@@ -21,12 +21,13 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,8 +39,8 @@ import androidx.lifecycle.Observer;
 
 public class FragmentAnswer extends FragmentEx {
     private ViewGroup view;
-    private TextView etName;
-    private TextView etText;
+    private EditText etName;
+    private EditText etText;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpReady;
@@ -98,7 +99,7 @@ public class FragmentAnswer extends FragmentEx {
             @Override
             public void onChanged(EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
-                etText.setText(answer == null ? null : answer.text);
+                etText.setText(answer == null ? null : Html.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
                 pbWait.setVisibility(View.GONE);
@@ -115,7 +116,7 @@ public class FragmentAnswer extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
                 DB.getInstance(context).answer().deleteAnswer(id);
                 return null;
@@ -140,11 +141,11 @@ public class FragmentAnswer extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString());
-        args.putString("text", etText.getText().toString());
+        args.putString("text", Html.toHtml(etText.getText()));
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
                 String name = args.getString("name");
                 String text = args.getString("text");
