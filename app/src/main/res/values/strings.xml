@@ -122,6 +122,7 @@
     <string name="title_insecure">Insecure connections are not supported</string>
 
     <string name="title_folder_unseen" translatable="false">%1$s (%2$d)</string>
+    <string name="title_edit_properties">Edit properties</string>
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
@@ -213,8 +214,8 @@
     <string name="title_legend_synchronizing">Synchronizing</string>
     <string name="title_legend_closing">Closing</string>
 
-    <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
-    <string name="title_understood">Understood</string>
+    <string name="title_hint_folder_actions">Long press for options</string>
+    <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
 
     <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>

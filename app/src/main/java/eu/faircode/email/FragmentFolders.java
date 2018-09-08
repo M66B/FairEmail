@@ -20,10 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,8 +41,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentFolders extends FragmentEx {
+    private ImageButton ibHintActions;
     private RecyclerView rvFolder;
     private ProgressBar pbWait;
+    private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -61,12 +66,23 @@ public class FragmentFolders extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_folders, container, false);
 
         // Get controls
+        ibHintActions = view.findViewById(R.id.ibHintActions);
         rvFolder = view.findViewById(R.id.rvFolder);
         pbWait = view.findViewById(R.id.pbWait);
+        grpHintActions = view.findViewById(R.id.grpHintActions);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
 
         // Wire controls
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        ibHintActions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("folder_actions", true).apply();
+                grpHintActions.setVisibility(View.GONE);
+            }
+        });
 
         rvFolder.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -99,6 +115,9 @@ public class FragmentFolders extends FragmentEx {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
+
         DB db = DB.getInstance(getContext());
 
         // Observe account
@@ -106,6 +125,7 @@ public class FragmentFolders extends FragmentEx {
             @Override
             public void onChanged(@Nullable EntityAccount account) {
                 setSubtitle(account == null ? null : account.name);
+                adapter.setAccountState(account.state);
             }
         });
 

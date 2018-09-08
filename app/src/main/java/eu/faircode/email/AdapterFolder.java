@@ -51,78 +51,51 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
+    private String accountState = null;
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
-        ImageView ivEdit;
+        ImageView ivState;
         TextView tvName;
         TextView tvMessages;
-        TextView tvType;
         ImageView ivUnified;
+        TextView tvType;
         TextView tvAfter;
         ImageView ivSync;
-        ImageView ivState;
         TextView tvError;
 
-        private final static int action_synchronize = 1;
-        private final static int action_delete_local = 2;
+        private final static int action_edit = 1;
+        private final static int action_sync = 2;
+        private final static int action_delete = 3;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             this.itemView = itemView;
-            ivEdit = itemView.findViewById(R.id.ivEdit);
+            ivState = itemView.findViewById(R.id.ivState);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
-            tvType = itemView.findViewById(R.id.tvType);
             ivUnified = itemView.findViewById(R.id.ivUnified);
+            tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvError = itemView.findViewById(R.id.tvError);
-            ivState = itemView.findViewById(R.id.ivState);
         }
 
-        private void wire(boolean properties) {
+        private void wire() {
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-            if (properties)
-                ivEdit.setOnClickListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
             itemView.setOnLongClickListener(null);
-            ivEdit.setOnClickListener(null);
         }
 
         private void bindTo(TupleFolderEx folder) {
-            boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
-            ivEdit.setVisibility(outbox ? View.INVISIBLE : View.VISIBLE);
-
-            String name = Helper.localizeFolderName(context, folder.name);
-            if (folder.unseen > 0)
-                tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
-            else
-                tvName.setText(name);
-            tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
-            tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
-
-            tvMessages.setText(Integer.toString(folder.messages));
-
-            int resid = context.getResources().getIdentifier(
-                    "title_folder_" + folder.type.toLowerCase(),
-                    "string",
-                    context.getPackageName());
-            tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
-
-            ivUnified.setVisibility(folder.unified ? View.VISIBLE : View.GONE);
-
-            tvAfter.setText(Integer.toString(folder.after));
-            ivSync.setVisibility(folder.synchronize ? View.VISIBLE : View.INVISIBLE);
-
             if ("connected".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
             else if ("connecting".equals(folder.state))
@@ -134,6 +107,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(folder.synchronize || folder.state != null ? View.VISIBLE : View.INVISIBLE);
+
+            String name = Helper.localizeFolderName(context, folder.name);
+            if (folder.unseen > 0)
+                tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
+            else
+                tvName.setText(name);
+            tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
+            tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+
+            tvMessages.setText(Integer.toString(folder.messages));
+
+            ivUnified.setVisibility(folder.unified ? View.VISIBLE : View.INVISIBLE);
+
+            int resid = context.getResources().getIdentifier(
+                    "title_folder_" + folder.type.toLowerCase(),
+                    "string",
+                    context.getPackageName());
+            tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+
+            if (folder.account == null) {
+                tvAfter.setText(null);
+                ivSync.setVisibility(View.GONE);
+            } else {
+                tvAfter.setText(Integer.toString(folder.after));
+                ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
+                ivSync.setVisibility(View.VISIBLE);
+            }
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
@@ -147,19 +147,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             TupleFolderEx folder = filtered.get(pos);
 
-            if (view.getId() == R.id.ivEdit) {
-                if (!EntityFolder.OUTBOX.equals(folder.type)) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                    .putExtra("id", folder.id));
-                }
-            } else {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                .putExtra("folder", folder.id));
-            }
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                            .putExtra("folder", folder.id));
         }
 
         @Override
@@ -171,21 +162,34 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             final TupleFolderEx folder = filtered.get(pos);
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
-            popupMenu.getMenu().add(Menu.NONE, action_synchronize, 1, R.string.title_synchronize_now);
-            popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
+
+            popupMenu.getMenu().add(Menu.NONE, action_sync, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().findItem(action_sync).setEnabled("connected".equals(accountState));
+
+            if (folder.account != null) {
+                popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, action_edit, 3, R.string.title_edit_properties);
+            }
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     switch (target.getItemId()) {
-                        case action_synchronize:
+                        case action_edit:
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                            .putExtra("id", folder.id));
+                            break;
+                        case action_sync:
                             Log.i(Helper.TAG, folder.name + " requesting sync");
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                            lbm.sendBroadcast(new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
-                                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
-                                    .putExtra("folder", folder.id));
+                            lbm.sendBroadcast(
+                                    new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
+                                            .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
+                                            .putExtra("folder", folder.id));
                             break;
 
-                        case action_delete_local:
+                        case action_delete:
                             Bundle args = new Bundle();
                             args.putLong("id", folder.id);
 
@@ -276,6 +280,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
+    public void setAccountState(String state) {
+        this.accountState = state;
+    }
+
     private class MessageDiffCallback extends DiffUtil.Callback {
         private List<TupleFolderEx> prev;
         private List<TupleFolderEx> next;
@@ -333,6 +341,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         TupleFolderEx folder = filtered.get(position);
         holder.bindTo(folder);
 
-        holder.wire(folder.account != null);
+        holder.wire();
     }
 }

@@ -24,19 +24,19 @@
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
-        android:text="@string/title_hint_actions"
-        app:layout_constraintEnd_toStartOf="@+id/btnHintActions"
+        android:gravity="center_vertical"
+        android:minHeight="33dp"
+        android:text="@string/title_hint_message_actions"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/ibHintActions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnHintActions"
-        style="?android:attr/buttonStyleSmall"
+    <ImageButton
+        android:id="@+id/ibHintActions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:text="@string/title_understood"
+        android:src="@drawable/baseline_close_24"
         app:layout_constraintBottom_toBottomOf="@id/tvHintActions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvHintActions" />
@@ -48,7 +48,7 @@
         android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnHintActions" />
+        app:layout_constraintTop_toBottomOf="@id/tvHintActions" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
@@ -85,10 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpHintSwipe"
+        android:id="@+id/grpHintActions"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvHintActions,btnHintActions,vSeparator" />
+        app:constraint_referenced_ids="tvHintActions,ibHintActions,vSeparator" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpReady"

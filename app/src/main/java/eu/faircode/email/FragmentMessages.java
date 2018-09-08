@@ -34,7 +34,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,11 +60,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
-    private Button btnHintActions;
+    private ImageButton ibHintActions;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
-    private Group grpHintSwipe;
+    private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -104,22 +104,22 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
-        btnHintActions = view.findViewById(R.id.btnHintActions);
+        ibHintActions = view.findViewById(R.id.ibHintActions);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
-        grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
+        grpHintActions = view.findViewById(R.id.grpHintActions);
         fab = view.findViewById(R.id.fab);
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        btnHintActions.setOnClickListener(new View.OnClickListener() {
+        ibHintActions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putBoolean("understood_actions", true).apply();
-                grpHintSwipe.setVisibility(View.GONE);
+                prefs.edit().putBoolean("message_actions", true).apply();
+                grpHintActions.setVisibility(View.GONE);
             }
         });
 
@@ -283,8 +283,7 @@ public class FragmentMessages extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        grpHintSwipe.setVisibility(prefs.getBoolean("understood_actions", false) ? View.GONE : View.VISIBLE);
+        grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
