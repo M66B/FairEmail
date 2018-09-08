@@ -911,6 +911,10 @@ public class FragmentMessage extends FragmentEx {
                     }
                 });
 
+                EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
+                if (!message.folder.equals(sent.id))
+                    folders.add(0, sent);
+
                 EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                 if (!message.folder.equals(inbox.id))
                     folders.add(0, inbox);
