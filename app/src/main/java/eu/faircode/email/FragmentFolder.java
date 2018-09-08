@@ -100,10 +100,6 @@ public class FragmentFolder extends FragmentEx {
                             if (!synchronize)
                                 db.folder().setFolderError(id, null);
 
-                            EntityFolder folder = db.folder().getFolder(id);
-                            if (!folder.synchronize)
-                                db.message().deleteMessages(folder.id);
-
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();

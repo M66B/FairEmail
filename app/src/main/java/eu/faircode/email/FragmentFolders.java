@@ -72,7 +72,7 @@ public class FragmentFolders extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        adapter = new AdapterFolder(getContext());
+        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner());
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

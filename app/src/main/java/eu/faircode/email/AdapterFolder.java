@@ -22,12 +22,16 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -37,6 +41,8 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -44,6 +50,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
+    private LifecycleOwner owner;
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
@@ -59,6 +66,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         ImageView ivSync;
         ImageView ivState;
         TextView tvError;
+
+        private final static int action_synchronize = 1;
+        private final static int action_delete_local = 2;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -158,19 +168,56 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            TupleFolderEx folder = filtered.get(pos);
-            Log.i(Helper.TAG, folder.name + " requesting sync");
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
-                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
-                    .putExtra("folder", folder.id));
+            final TupleFolderEx folder = filtered.get(pos);
+
+            PopupMenu popupMenu = new PopupMenu(context, itemView);
+            popupMenu.getMenu().add(Menu.NONE, action_synchronize, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem target) {
+                    switch (target.getItemId()) {
+                        case action_synchronize:
+                            Log.i(Helper.TAG, folder.name + " requesting sync");
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            lbm.sendBroadcast(new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
+                                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
+                                    .putExtra("folder", folder.id));
+                            break;
+
+                        case action_delete_local:
+                            Bundle args = new Bundle();
+                            args.putLong("id", folder.id);
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onLoad(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    DB.getInstance(context).message().deleteMessages(id);
+                                    return null;
+                                }
+
+                                @Override
+                                public void onException(Bundle args, Throwable ex) {
+                                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }.load(context, owner, args);
+
+                            break;
+                    }
+                    return true;
+                }
+            });
+
+            popupMenu.show();
 
             return true;
         }
     }
 
-    AdapterFolder(Context context) {
+    AdapterFolder(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.owner = owner;
         setHasStableIds(true);
     }
 
