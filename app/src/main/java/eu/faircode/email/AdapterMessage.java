@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
@@ -66,8 +67,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private LifecycleOwner owner;
     private ViewType viewType;
 
+    private boolean avatars;
     private boolean debug;
-    private boolean hasContactsPermission;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
@@ -135,7 +136,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbLoading.setVisibility(View.GONE);
 
             ivAvatar.setVisibility(View.GONE);
-            if (hasContactsPermission && message.from != null && message.from.length > 0) {
+            if (avatars && message.from != null && message.from.length > 0) {
                 itemView.setHasTransientState(true);
 
                 Bundle args = new Bundle();
@@ -339,8 +340,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.context = context;
         this.owner = owner;
         this.viewType = viewType;
-        this.hasContactsPermission = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
-        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        this.avatars = (prefs.getBoolean("avatars", false) &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
+        this.debug = prefs.getBoolean("debug", false);
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
