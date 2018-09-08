@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -218,6 +219,7 @@ public class FragmentMessages extends FragmentEx {
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
+
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
 
@@ -231,24 +233,86 @@ public class FragmentMessages extends FragmentEx {
                             }
 
                             db.message().setMessageUiHide(message.id, true);
-                            EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
 
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
                         }
 
-                        EntityOperation.process(context);
+                        Log.i(Helper.TAG, "Move id=" + id + " target=" + target);
 
                         return target.name;
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, String folder) {
-                        Snackbar.make(
+                    protected void onLoaded(final Bundle args, final String target) {
+                        final Snackbar snackbar = Snackbar.make(
                                 view,
-                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), folder)),
-                                Snackbar.LENGTH_SHORT).show();
+                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), target)),
+                                Snackbar.LENGTH_INDEFINITE);
+                        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onLoad(Context context, Bundle args) {
+                                        long id = args.getLong("id");
+                                        Log.i(Helper.TAG, "Undo move id=" + id);
+                                        DB.getInstance(context).message().setMessageUiHide(id, false);
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        super.onException(args, ex);
+                                    }
+                                }.load(FragmentMessages.this, args);
+                            }
+                        });
+                        snackbar.show();
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (snackbar.isShown()) {
+                                    snackbar.dismiss();
+
+                                    args.putString("target", target);
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                            long id = args.getLong("id");
+                                            String target = args.getString("target");
+                                            Log.i(Helper.TAG, "Moving id=" + id + " target=" + target);
+
+                                            DB db = DB.getInstance(context);
+                                            try {
+                                                db.beginTransaction();
+
+                                                EntityMessage message = db.message().getMessage(id);
+                                                EntityFolder folder = db.folder().getFolderByName(message.account, target);
+                                                EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            EntityOperation.process(context);
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            super.onException(args, ex);
+                                        }
+                                    }.load(FragmentMessages.this, args);
+                                }
+                            }
+                        }, 5000);
                     }
 
                     @Override

@@ -87,6 +87,8 @@ dependencies {
     implementation "androidx.browser:browser:$androidx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.0.0-alpha1"
+
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
