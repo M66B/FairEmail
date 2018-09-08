@@ -125,6 +125,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void clear() {
             ivFlagged.setVisibility(View.GONE);
+            ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
             tvTime.setText(null);
             tvSubject.setText(null);
@@ -133,7 +134,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
-            tvError.setText(null);
+            tvError.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
         }
 
