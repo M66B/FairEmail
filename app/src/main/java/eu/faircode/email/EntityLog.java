@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
@@ -51,6 +52,8 @@ public class EntityLog {
     private static ExecutorService executor = Executors.newSingleThreadExecutor();
 
     static void log(Context context, String data) {
+        Log.i(Helper.TAG, data);
+
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();
         entry.data = data;

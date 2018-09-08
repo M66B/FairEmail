@@ -182,7 +182,7 @@ public class ServiceSynchronize extends LifecycleService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
 
-        serviceManager.stop(false);
+        serviceManager.stop();
 
         stopForeground(true);
 
@@ -400,7 +400,6 @@ public class ServiceSynchronize extends LifecycleService {
 
         int backoff = CONNECT_BACKOFF_START;
         while (state.running) {
-            Log.i(Helper.TAG, account.name + " run");
             EntityLog.log(this, account.name + " run");
 
             // Debug
@@ -788,18 +787,16 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 // Close store
-                Log.i(Helper.TAG, account.name + " closing");
+                EntityLog.log(this, account.name + " closing");
                 db.account().setAccountState(account.id, "closing");
                 for (EntityFolder folder : folders.keySet())
                     db.folder().setFolderState(folder.id, "closing");
-                EntityLog.log(this, account.name + " closing");
                 try {
                     // This can take some time
                     istore.close();
                 } catch (MessagingException ex) {
                     Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 } finally {
-                    Log.i(Helper.TAG, account.name + " closed");
                     EntityLog.log(this, account.name + " closed");
                     db.account().setAccountState(account.id, null);
                     for (EntityFolder folder : folders.keySet())
@@ -821,7 +818,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (state.running) {
                 try {
-                    Log.i(Helper.TAG, account.name + " backoff=" + backoff);
                     EntityLog.log(this, account.name + " backoff=" + backoff);
                     Thread.sleep(backoff * 1000L);
 
@@ -833,7 +829,6 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
-        Log.i(Helper.TAG, account.name + " stopped");
         EntityLog.log(this, account.name + " stopped");
     }
 
@@ -1491,13 +1486,9 @@ public class ServiceSynchronize extends LifecycleService {
         public void onAvailable(Network network) {
             ConnectivityManager cm = getSystemService(ConnectivityManager.class);
             NetworkInfo ni = cm.getNetworkInfo(network);
-            Log.i(Helper.TAG, "Network available " + network + " " + ni);
-            EntityLog.log(ServiceSynchronize.this, "Network available " + network + " " + ni);
+            EntityLog.log(ServiceSynchronize.this, "Network available " + network + " running=" + running + " " + ni);
 
-            if (running)
-                Log.i(Helper.TAG, "Service already running");
-            else {
-                Log.i(Helper.TAG, "Service not running");
+            if (!running) {
                 running = true;
                 lifecycle.submit(new Runnable() {
                     @Override
@@ -1511,28 +1502,23 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onLost(Network network) {
-            Log.i(Helper.TAG, "Network lost " + network);
-            EntityLog.log(ServiceSynchronize.this, "Network lost " + network);
+            EntityLog.log(ServiceSynchronize.this, "Network lost " + network + " running=" + running);
 
             if (running) {
-                Log.i(Helper.TAG, "Service running");
                 ConnectivityManager cm = getSystemService(ConnectivityManager.class);
                 NetworkInfo ani = cm.getActiveNetworkInfo();
-                Log.i(Helper.TAG, "Network active=" + (ani == null ? null : ani.toString()));
+                EntityLog.log(ServiceSynchronize.this, "Network active=" + (ani == null ? null : ani.toString()));
                 if (ani == null || !ani.isConnected()) {
                     EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
-                    Log.i(Helper.TAG, "Network disconnected=" + ani);
                     running = false;
                     lifecycle.submit(new Runnable() {
                         @Override
                         public void run() {
-                            Log.i(Helper.TAG, "Stopping service");
-                            stop(true);
+                            stop();
                         }
                     });
                 }
-            } else
-                Log.i(Helper.TAG, "Service not running");
+            }
         }
 
         private void start() {
@@ -1549,14 +1535,14 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
-                            Log.i(Helper.TAG, "No outbox, halt");
+                            EntityLog.log(ServiceSynchronize.this, "No outbox, halt");
                             stopSelf();
                             return;
                         }
 
                         List<EntityAccount> accounts = db.account().getAccounts(true);
                         if (accounts.size() == 0) {
-                            Log.i(Helper.TAG, "No accounts, halt");
+                            EntityLog.log(ServiceSynchronize.this, "No accounts, halt");
                             stopSelf();
                             return;
                         }
@@ -1592,7 +1578,7 @@ public class ServiceSynchronize extends LifecycleService {
                             threads.add(t);
                         }
 
-                        EntityLog.log(ServiceSynchronize.this, "Main started");
+                        EntityLog.log(ServiceSynchronize.this, "Main started " + main);
 
                         synchronized (state) {
                             try {
@@ -1625,12 +1611,11 @@ public class ServiceSynchronize extends LifecycleService {
             main.start();
         }
 
-        private void stop(boolean disconnected) {
+        private void stop() {
             if (main != null) {
-                EntityLog.log(ServiceSynchronize.this, "Main stop disconnected=" + disconnected);
+                EntityLog.log(ServiceSynchronize.this, "Main stop " + main);
                 synchronized (state) {
                     state.running = false;
-                    state.disconnected = disconnected;
                     state.notifyAll();
                 }
 
@@ -1640,7 +1625,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 main = null;
 
-                EntityLog.log(ServiceSynchronize.this, "Main stopped");
+                EntityLog.log(ServiceSynchronize.this, "Main stopped " + main);
             }
         }
 
@@ -1648,14 +1633,12 @@ public class ServiceSynchronize extends LifecycleService {
             lifecycle.submit(new Runnable() {
                 @Override
                 public void run() {
-                    Log.i(Helper.TAG, "Stopping service");
-                    stop(true);
+                    stop();
                 }
             });
             lifecycle.submit(new Runnable() {
                 @Override
                 public void run() {
-                    Log.i(Helper.TAG, "Starting service");
                     start();
                 }
             });
@@ -1689,16 +1672,16 @@ public class ServiceSynchronize extends LifecycleService {
         };
     }
 
-    private static void join(Thread thread) {
+    private void join(Thread thread) {
         boolean joined = false;
         while (!joined)
             try {
-                Log.i(Helper.TAG, "Joining " + thread.getName());
+                EntityLog.log(this, "Joining " + thread.getName());
                 thread.join();
                 joined = true;
-                Log.i(Helper.TAG, "Joined " + thread.getName());
+                EntityLog.log(this, "Joined " + thread.getName());
             } catch (InterruptedException ex) {
-                Log.e(Helper.TAG, thread.getName() + " join " + ex.toString());
+                Log.w(Helper.TAG, thread.getName() + " join " + ex.toString());
             }
     }
 
@@ -1714,6 +1697,5 @@ public class ServiceSynchronize extends LifecycleService {
 
     private class ServiceState {
         boolean running = true;
-        boolean disconnected = false;
     }
 }

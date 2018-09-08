@@ -52,7 +52,6 @@ public class JobDaily extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters args) {
-        Log.i(Helper.TAG, "Starting daily job");
         EntityLog.log(this, "Daily cleanup");
 
         final DB db = DB.getInstance(this);
