@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
@@ -96,6 +97,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+
+    static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
+    static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -469,13 +473,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate() {
+        final long now = new Date().getTime();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
+            return;
+
         new SimpleTask<UpdateInfo>() {
             @Override
             protected UpdateInfo onLoad(Context context, Bundle args) throws Throwable {
                 StringBuilder json = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
-                    URL latest = new URL("https://api.github.com/repos/M66B/open-source-email/releases/latest");
+                    URL latest = new URL(UPDATE_LATEST_API);
                     urlConnection = (HttpsURLConnection) latest.openConnection();
                     BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
@@ -487,6 +496,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (jroot.has("tag_name") &&
                             jroot.has("html_url") &&
                             jroot.has("assets")) {
+                        prefs.edit().putLong("last_update_check", now).apply();
+
                         UpdateInfo info = new UpdateInfo();
                         info.html_url = jroot.getString("html_url");
                         JSONArray jassets = jroot.getJSONArray("assets");
@@ -496,7 +507,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 String name = jasset.getString("name");
                                 if (name != null && name.endsWith(".apk")) {
                                     info.tag_name = jroot.getString("tag_name");
-                                    Log.i(Helper.TAG, "Lastest version=" + info.tag_name);
+                                    Log.i(Helper.TAG, "Latest version=" + info.tag_name);
                                     if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                         break;
                                     else
