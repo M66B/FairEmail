@@ -72,9 +72,9 @@ public class MessageHelper {
         props.put("mail.imaps.starttls.enable", "false");
 
         // TODO: make timeouts configurable?
-        props.put("mail.imaps.connectiontimeout", "20000");
-        props.put("mail.imaps.timeout", "20000");
-        props.put("mail.imaps.writetimeout", "20000"); // one thread overhead
+        props.put("mail.imaps.connectiontimeout", "60000");
+        props.put("mail.imaps.timeout", "60000");
+        props.put("mail.imaps.writetimeout", "60000"); // one thread overhead
 
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
 
