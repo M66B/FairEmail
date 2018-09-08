@@ -690,7 +690,6 @@ public class FragmentCompose extends FragmentEx {
                                 Log.i(Helper.TAG, "Swapping from/to");
                                 Address[] tmp = ref.to;
                                 ref.to = ref.from;
-                                ref.reply = null;
                                 ref.from = tmp;
                                 break;
                             }
