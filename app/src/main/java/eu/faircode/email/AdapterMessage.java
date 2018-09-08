@@ -19,11 +19,19 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,13 +43,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.mail.internet.InternetAddress;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -55,6 +67,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private ViewType viewType;
 
     private boolean debug;
+    private boolean hasContactsPermission;
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
@@ -62,6 +75,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
+        ImageView ivAvatar;
         ImageView ivFlagged;
         TextView tvFrom;
         TextView tvTime;
@@ -80,6 +94,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             super(itemView);
 
             this.itemView = itemView;
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             tvFrom = itemView.findViewById(R.id.tvFrom);
             tvTime = itemView.findViewById(R.id.tvTime);
@@ -118,6 +133,54 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
+
+            ivAvatar.setVisibility(View.GONE);
+            if (hasContactsPermission && message.from != null && message.from.length > 0) {
+                itemView.setHasTransientState(true);
+
+                Bundle args = new Bundle();
+                args.putSerializable("from", message.from[0]);
+
+                new SimpleTask<Drawable>() {
+                    @Override
+                    protected Drawable onLoad(Context context, Bundle args) {
+                        Cursor cursor = null;
+                        try {
+                            InternetAddress from = (InternetAddress) args.getSerializable("from");
+                            ContentResolver resolver = context.getContentResolver();
+                            cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                    new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
+                                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                    new String[]{from.getAddress()}, null);
+                            if (cursor.moveToNext()) {
+                                int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                long contactId = cursor.getLong(colContactId);
+                                Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uri);
+                                return Drawable.createFromStream(is, from.getPersonal());
+                            }
+                        } finally {
+                            if (cursor != null)
+                                cursor.close();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Drawable photo) {
+                        if (photo != null) {
+                            ivAvatar.setImageDrawable(photo);
+                            ivAvatar.setVisibility(View.VISIBLE);
+                        }
+                        itemView.setHasTransientState(false);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        itemView.setHasTransientState(false);
+                    }
+                }.load(context, owner, args);
+            }
 
             ivFlagged.setVisibility(message.ui_flagged ? View.VISIBLE : View.GONE);
 
@@ -276,6 +339,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.context = context;
         this.owner = owner;
         this.viewType = viewType;
+        this.hasContactsPermission = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
         this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
     }
 
