@@ -61,6 +61,8 @@ public class MessageHelper {
     private MimeMessage imessage;
     private String raw = null;
 
+    private final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
+
     static Properties getSessionProperties(Context context, int auth_type) {
         Properties props = new Properties();
 
@@ -72,9 +74,9 @@ public class MessageHelper {
         props.put("mail.imaps.starttls.enable", "false");
 
         // TODO: make timeouts configurable?
-        props.put("mail.imaps.connectiontimeout", "60000");
-        props.put("mail.imaps.timeout", "60000");
-        props.put("mail.imaps.writetimeout", "60000"); // one thread overhead
+        props.put("mail.imaps.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.imaps.timeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.imaps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
 
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
 
@@ -94,9 +96,9 @@ public class MessageHelper {
         props.put("mail.smtps.starttls.required", "false");
         props.put("mail.smtps.auth", "true");
 
-        props.put("mail.smtps.connectiontimeout", "20000");
-        props.put("mail.smtps.writetimeout", "20000"); // one thread overhead
-        props.put("mail.smtps.timeout", "20000");
+        props.put("mail.smtps.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.smtps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
+        props.put("mail.smtps.timeout", Integer.toString(NETWORK_TIMEOUT));
 
         props.put("mail.smtp.ssl.checkserveridentity", "true");
         props.put("mail.smtp.ssl.trust", "*");
@@ -104,9 +106,9 @@ public class MessageHelper {
         props.put("mail.smtp.starttls.required", "true");
         props.put("mail.smtp.auth", "true");
 
-        props.put("mail.smtp.connectiontimeout", "20000");
-        props.put("mail.smtp.writetimeout", "20000"); // one thread overhead
-        props.put("mail.smtp.timeout", "20000");
+        props.put("mail.smtp.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
+        props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
 
         props.put("mail.imaps.peek", "true");
         //props.put("mail.imaps.minidletime", "5000");
