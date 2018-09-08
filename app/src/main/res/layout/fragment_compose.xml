@@ -154,7 +154,7 @@
         android:layout_marginStart="6dp"
         android:fillViewport="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/ibBold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator">
 
@@ -169,25 +169,6 @@
             android:inputType="textCapSentences|textMultiLine"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
     </ScrollView>
-
-    <ImageButton
-        android:id="@+id/ibBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_format_bold_24"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll" />
-
-    <ImageButton
-        android:id="@+id/ibItalic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_format_italic_24"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toEndOf="@id/ibBold"
-        app:layout_constraintTop_toBottomOf="@id/scroll" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -236,10 +217,4 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="scroll,bottom_navigation" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAction"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="ibBold,ibItalic" />
 </androidx.constraintlayout.widget.ConstraintLayout>

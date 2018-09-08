@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_bold"
+        android:icon="@drawable/baseline_format_bold_24"
+        android:title="@string/title_style_bold"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_italic"
+        android:icon="@drawable/baseline_format_italic_24"
+        android:title="@string/title_style_italic"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_attachment"
         android:icon="@drawable/baseline_attachment_24"
         android:title="@string/title_add_attachment"

@@ -49,7 +49,6 @@ import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
@@ -104,15 +103,12 @@ public class FragmentCompose extends FragmentEx {
     private EditText etSubject;
     private RecyclerView rvAttachment;
     private EditText etBody;
-    private ImageButton ibBold;
-    private ImageButton ibItalic;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
     private Group grpMessage;
-    private Group grpAction;
 
     private AdapterAttachment adapter;
 
@@ -140,15 +136,12 @@ public class FragmentCompose extends FragmentEx {
         etSubject = view.findViewById(R.id.etSubject);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         etBody = view.findViewById(R.id.etBody);
-        ibBold = view.findViewById(R.id.ibBold);
-        ibItalic = view.findViewById(R.id.ibItalic);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpMessage = view.findViewById(R.id.grpMessage);
-        grpAction = view.findViewById(R.id.grpAction);
 
         // Wire controls
 
@@ -201,7 +194,6 @@ public class FragmentCompose extends FragmentEx {
                     addresses = (grpAddresses.getVisibility() != View.GONE);
                     grpAddresses.setVisibility(View.GONE);
                     grpAttachments.setVisibility(View.GONE);
-                    grpAction.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -220,7 +212,6 @@ public class FragmentCompose extends FragmentEx {
                                     grpAddresses.setVisibility(View.VISIBLE);
                                 if (rvAttachment.getAdapter().getItemCount() > 0)
                                     grpAttachments.setVisibility(View.VISIBLE);
-                                grpAction.setVisibility(View.GONE);
 
                                 new Handler().post(new Runnable() {
                                     @Override
@@ -236,29 +227,6 @@ public class FragmentCompose extends FragmentEx {
                 return false;
             }
         });
-
-        View.OnClickListener styleListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-                if (start > end) {
-                    int tmp = start;
-                    start = end;
-                    end = tmp;
-                }
-                if (start != end) {
-                    SpannableString s = new SpannableString(etBody.getText());
-                    s.setSpan(new StyleSpan(v.getId() == ibBold.getId() ? Typeface.BOLD : Typeface.ITALIC),
-                            start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    etBody.setText(s);
-                    etBody.setSelection(end);
-                }
-            }
-        };
-
-        ibBold.setOnClickListener(styleListener);
-        ibItalic.setOnClickListener(styleListener);
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -289,7 +257,6 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         grpMessage.setVisibility(View.GONE);
-        grpAction.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         getActivity().invalidateOptionsMenu();
@@ -427,6 +394,8 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.menu_bold).setVisible(free && working >= 0);
+        menu.findItem(R.id.menu_italic).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
@@ -435,6 +404,10 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_bold:
+            case R.id.menu_italic:
+                onMenuStyle(item.getItemId());
+                return true;
             case R.id.menu_attachment:
                 onMenuAttachment();
                 return true;
@@ -443,6 +416,23 @@ public class FragmentCompose extends FragmentEx {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuStyle(int id) {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+        if (start != end) {
+            SpannableString s = new SpannableString(etBody.getText());
+            s.setSpan(new StyleSpan(id == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC),
+                    start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            etBody.setText(s);
+            etBody.setSelection(end);
         }
     }
 
