@@ -59,7 +59,7 @@
   <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj i dotknij FairEmail, wybierz \"Nie optymalizuj\"</string>
   <string name="title_setup_data">Wyłącz oszczędzanie danych</string>
   <string name="title_setup_permissions">Przyznaj uprawnienia</string>
-  <string name="title_setup_permissions_remark">Do auto-uzupełniania adresów (opcjonalnie)</string>
+  <string name="title_setup_permissions_remark">To get contact information (optional)</string>
   <string name="title_setup_to_do">Do zrobienia</string>
   <string name="title_setup_done">Gotowe</string>
   <string name="title_setup_light_theme">Jasny motyw</string>
@@ -69,6 +69,7 @@
   <string name="title_advanced_customtabs">Zamiast <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
   <string name="title_advanced_sanitize">Usuń formatowanie HTML z wiadomości</string>
   <string name="title_advanced_compress_imap">Kompresuj dane IMAP</string>
+  <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">Debuguj</string>
   <string name="title_select">Wybierz &#8230;</string>
   <string name="title_identity_name">Twoja nazwa</string>
@@ -111,6 +112,7 @@
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
   <string name="title_pop">POP nie jest wspierane</string>
   <string name="title_insecure">Niezabezpieczone połączenia nie są obsługiwane</string>
+  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
@@ -190,8 +192,8 @@
   <string name="title_legend_connected">Połączony</string>
   <string name="title_legend_synchronizing">Synchronizowanie</string>
   <string name="title_legend_closing">Zamykanie</string>
-  <string name="title_hint_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane</string>
-  <string name="title_understood">Rozumiem</string>
+  <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Masz pytanie lub problem?</string>
   <string name="title_yes">Tak</string>

@@ -59,7 +59,7 @@
   <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
   <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">Grant permissions</string>
-  <string name="title_setup_permissions_remark">To autocomplete addresses (optional)</string>
+  <string name="title_setup_permissions_remark">To get contact information (optional)</string>
   <string name="title_setup_to_do">To do</string>
   <string name="title_setup_done">Done</string>
   <string name="title_setup_light_theme">Light theme</string>
@@ -69,6 +69,7 @@
   <string name="title_advanced_customtabs">Instead of <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
   <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
   <string name="title_advanced_compress_imap">Compress IMAP data</string>
+  <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Your name</string>
@@ -111,6 +112,7 @@
   <string name="title_identity_delete">Delete this identity permanently?</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">Synchronize (receive messages)</string>
@@ -190,8 +192,8 @@
   <string name="title_legend_connected">Connected</string>
   <string name="title_legend_synchronizing">Synchronizing</string>
   <string name="title_legend_closing">Closing</string>
-  <string name="title_hint_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread</string>
-  <string name="title_understood">Understood</string>
+  <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>
   <string name="title_yes">Yes</string>

@@ -51,7 +51,7 @@
   <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
   <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">İzin Ver</string>
-  <string name="title_setup_permissions_remark">Adresleri otomatik tamamlamak için (isteğe bağlı)</string>
+  <string name="title_setup_permissions_remark">To get contact information (optional)</string>
   <string name="title_setup_to_do">Yapılacak</string>
   <string name="title_setup_done">Bitti</string>
   <string name="title_setup_light_theme">Light theme</string>
@@ -61,6 +61,7 @@
   <string name="title_advanced_customtabs"><a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Özel Sekmeler</a> yerine</string>
   <string name="title_advanced_sanitize">HTML biçimlendirmesini iletilerden kaldır</string>
   <string name="title_advanced_compress_imap">IMAP verilerini sıkıştır</string>
+  <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">Hata ayıklama</string>
   <string name="title_select">Seçin &#8230;</string>
   <string name="title_identity_name">Adınız</string>
@@ -103,6 +104,7 @@
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
@@ -182,8 +184,8 @@
   <string name="title_legend_connected">Bağlandı</string>
   <string name="title_legend_synchronizing">Senkronize ediliyor</string>
   <string name="title_legend_closing">Kapatılıyor</string>
-  <string name="title_hint_actions">Silmek için sola kaydırın; arşivlemek (mümkün ise) için sağa kaydırın; okundu/okunmadı işaretlemek için uzun basın</string>
-  <string name="title_understood">Anlaşıldı</string>
+  <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
   <string name="title_yes">Evet</string>

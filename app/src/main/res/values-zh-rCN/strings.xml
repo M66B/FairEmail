@@ -47,7 +47,7 @@
   <string name="title_setup_doze_instructions">In the next dialog, select \"All apps\" at the top, select this app and select and confirm \"Don\'t optimize\"</string>
   <string name="title_setup_data">Disable data saving</string>
   <string name="title_setup_permissions">授予权限</string>
-  <string name="title_setup_permissions_remark">用于联系人自动补全（可选）</string>
+  <string name="title_setup_permissions_remark">To get contact information (optional)</string>
   <string name="title_setup_to_do">未设置</string>
   <string name="title_setup_done">已设置</string>
   <string name="title_setup_light_theme">Light theme</string>
@@ -57,6 +57,7 @@
   <string name="title_advanced_customtabs">而非使用 <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
   <string name="title_advanced_sanitize">去除邮件中的 HTML 格式</string>
   <string name="title_advanced_compress_imap">压缩 IMAP 数据</string>
+  <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">调试模式</string>
   <string name="title_select">选择 &#8230;</string>
   <string name="title_identity_name">姓名</string>
@@ -99,6 +100,7 @@
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">同步文件夹（接收）</string>
@@ -178,8 +180,8 @@
   <string name="title_legend_connected">已连接</string>
   <string name="title_legend_synchronizing">正在同步</string>
   <string name="title_legend_closing">正在结束</string>
-  <string name="title_hint_actions">向左滑掷入垃圾桶，向右滑存档（如果可用），长按切换已读状态</string>
-  <string name="title_understood">理解了</string>
+  <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>
   <string name="title_yes">Yes</string>
