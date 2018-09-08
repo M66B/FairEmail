@@ -681,9 +681,21 @@ public class FragmentCompose extends FragmentEx {
                     account = db.account().getAccount(ref.account);
 
                     // Reply to recipient, not to known self
+                    List<EntityIdentity> identities = db.identity().getIdentities();
+
+                    if (ref.reply != null && ref.reply.length > 0) {
+                        String reply = Helper.canonicalAddress(((InternetAddress) ref.reply[0]).getAddress());
+                        for (EntityIdentity identity : identities) {
+                            String email = Helper.canonicalAddress(identity.email);
+                            if (reply.equals(email)) {
+                                ref.reply = null;
+                                break;
+                            }
+                        }
+                    }
+
                     if (ref.from != null && ref.from.length > 0) {
                         String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                        List<EntityIdentity> identities = db.identity().getIdentities();
                         for (EntityIdentity identity : identities) {
                             String email = Helper.canonicalAddress(identity.email);
                             if (from.equals(email)) {
