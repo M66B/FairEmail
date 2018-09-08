@@ -103,6 +103,8 @@
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_pop">POP wird nicht unterstützt</string>
   <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
+  <string name="title_synchronize_now">Synchronize now</string>
+  <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
@@ -126,8 +128,8 @@
   <string name="title_thread">Unterhaltung anzeigen</string>
   <string name="title_seen">Als gelesen markieren</string>
   <string name="title_unseen">Als ungelesen markieren</string>
-  <string name="title_flag">Add star</string>
-  <string name="title_unflag">Remove star</string>
+  <string name="title_flag">Als Favorit markieren</string>
+  <string name="title_unflag">Von Favoriten entfernen</string>
   <string name="title_forward">Weiterleiten</string>
   <string name="title_reply_all">Antworten an alle</string>
   <string name="title_show_headers">Kopfzeile anzeigen</string>
@@ -153,6 +155,8 @@
   <string name="title_body_hint">Ihre Nachricht</string>
   <string name="title_save">Speichern</string>
   <string name="title_send">Senden</string>
+  <string name="title_style_bold">Bold</string>
+  <string name="title_style_italic">Italic</string>
   <string name="title_show_addresses">CC/BCC anzeigen</string>
   <string name="title_add_attachment">Anhang hinzufügen</string>
   <string name="title_from_missing">Absender fehlt</string>

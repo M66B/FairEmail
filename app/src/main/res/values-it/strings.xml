@@ -103,6 +103,8 @@
   <string name="title_identity_delete">Cancellare questa identità permanentemente?</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
+  <string name="title_synchronize_now">Synchronize now</string>
+  <string name="title_delete_local">Delete local messages</string>
   <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Sincronizza (giorni)</string>
@@ -153,6 +155,8 @@
   <string name="title_body_hint">Il tuo messaggio</string>
   <string name="title_save">Salva</string>
   <string name="title_send">Invia</string>
+  <string name="title_style_bold">Bold</string>
+  <string name="title_style_italic">Italic</string>
   <string name="title_show_addresses">Mostra CC/BCC</string>
   <string name="title_add_attachment">Aggiungi allegato</string>
   <string name="title_from_missing">Mittente mancante</string>
