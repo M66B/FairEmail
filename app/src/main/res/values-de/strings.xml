@@ -86,8 +86,8 @@
   <string name="title_store_sent">Speichere gesendete Nachrichten (nur bei Bedarf aktivieren)</string>
   <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
-  <string name="title_primary_account">Primär (Standard-Konto)</string>
-  <string name="title_primary_identity">Primär (Standard Identität)</string>
+  <string name="title_primary_account">Primäres Konto</string>
+  <string name="title_primary_identity">Primäre Identität</string>
   <string name="title_check">Prüfen</string>
   <string name="title_no_name">Name fehlt</string>
   <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -103,8 +103,8 @@
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_pop">POP wird nicht unterstützt</string>
   <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
-  <string name="title_synchronize_now">Synchronize now</string>
-  <string name="title_delete_local">Delete local messages</string>
+  <string name="title_synchronize_now">Jetzt synchronisieren</string>
+  <string name="title_delete_local">Lösche lokale Nachrichten</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
@@ -155,8 +155,8 @@
   <string name="title_body_hint">Ihre Nachricht</string>
   <string name="title_save">Speichern</string>
   <string name="title_send">Senden</string>
-  <string name="title_style_bold">Bold</string>
-  <string name="title_style_italic">Italic</string>
+  <string name="title_style_bold">Fett</string>
+  <string name="title_style_italic">Kursiv</string>
   <string name="title_show_addresses">CC/BCC anzeigen</string>
   <string name="title_add_attachment">Anhang hinzufügen</string>
   <string name="title_from_missing">Absender fehlt</string>
@@ -175,7 +175,7 @@
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>
   <string name="title_legend_synchronize">Synchronisieren</string>
-  <string name="title_legend_primary">Primär</string>
+  <string name="title_legend_primary">Hauptkonto</string>
   <string name="title_legend_unified">Sammeleingang</string>
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
@@ -184,6 +184,7 @@
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_actions">Nach links wischen, um in den Papierkorb zu werfen; nach rechts wischen zum archivieren (sofern verfügbar); langes drücken, um als gelesen/ungelesen zu markieren</string>
   <string name="title_understood">Verstanden</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
   <string name="title_yes">Ja</string>
   <string name="title_no">Nein</string>

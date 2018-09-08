@@ -188,6 +188,7 @@
   <string name="title_legend_closing">Închidere</string>
   <string name="title_hint_actions">Glisare la stânga pentru gunoi; glisare la dreapta pentru arhivare (dacă este disponibilă); atingeți lung pentru a marca citit/necitit</string>
   <string name="title_understood">Am înțeles</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>
   <string name="title_yes">Yes</string>
   <string name="title_no">No</string>

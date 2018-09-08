@@ -184,6 +184,7 @@
   <string name="title_legend_closing">Kapatılıyor</string>
   <string name="title_hint_actions">Silmek için sola kaydırın; arşivlemek (mümkün ise) için sağa kaydırın; okundu/okunmadı işaretlemek için uzun basın</string>
   <string name="title_understood">Anlaşıldı</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
   <string name="title_yes">Evet</string>
   <string name="title_no">Hayır</string>

@@ -192,6 +192,7 @@
   <string name="title_legend_closing">Zamykanie</string>
   <string name="title_hint_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane</string>
   <string name="title_understood">Rozumiem</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Masz pytanie lub problem?</string>
   <string name="title_yes">Tak</string>
   <string name="title_no">Nie</string>

@@ -180,6 +180,7 @@
   <string name="title_legend_closing">正在结束</string>
   <string name="title_hint_actions">向左滑掷入垃圾桶，向右滑存档（如果可用），长按切换已读状态</string>
   <string name="title_understood">理解了</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>
   <string name="title_yes">Yes</string>
   <string name="title_no">No</string>

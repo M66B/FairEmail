@@ -184,6 +184,7 @@
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu</string>
   <string name="title_understood">Compris</string>
+  <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Avez-vous une question ou un problème ?</string>
   <string name="title_yes">Oui</string>
   <string name="title_no">Non</string>
