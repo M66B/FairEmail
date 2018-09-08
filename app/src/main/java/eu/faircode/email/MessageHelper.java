@@ -61,7 +61,7 @@ public class MessageHelper {
     private MimeMessage imessage;
     private String raw = null;
 
-    private final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
+    final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
 
     static Properties getSessionProperties(Context context, int auth_type) {
         Properties props = new Properties();

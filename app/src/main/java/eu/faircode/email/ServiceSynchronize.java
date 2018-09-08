@@ -126,7 +126,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
-    private static final long STORE_CLOSE_TIMEOUT = 20 * 1000L; // ms
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
@@ -807,7 +806,7 @@ public class ServiceSynchronize extends LifecycleService {
                     });
                     t.start();
                     try {
-                        t.join(STORE_CLOSE_TIMEOUT);
+                        t.join(MessageHelper.NETWORK_TIMEOUT);
                         if (t.isAlive())
                             Log.w(Helper.TAG, account.name + " Close timeout");
                     } catch (InterruptedException ex) {
