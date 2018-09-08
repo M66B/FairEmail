@@ -1624,6 +1624,7 @@ public class ServiceSynchronize extends LifecycleService {
                 join(main);
 
                 main = null;
+                state = null;
 
                 EntityLog.log(ServiceSynchronize.this, "Main stopped " + main);
             }

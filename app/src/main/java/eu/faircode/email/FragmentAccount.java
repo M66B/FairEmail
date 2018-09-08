@@ -774,7 +774,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
-                    etSignature.setText(account == null ? null : Html.fromHtml(account.signature));
+                    etSignature.setText(account == null || account.signature == null ? null : Html.fromHtml(account.signature));
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
