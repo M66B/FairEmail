@@ -808,8 +808,10 @@ public class ServiceSynchronize extends LifecycleService {
                     t.start();
                     try {
                         t.join(STORE_CLOSE_TIMEOUT);
+                        if (t.isAlive())
+                            Log.w(Helper.TAG, account.name + " Close timeout");
                     } catch (InterruptedException ex) {
-                        Log.w(Helper.TAG, account.name + " Close timeout");
+                        Log.w(Helper.TAG, account.name + " close wait " + ex.toString());
                         t.interrupt();
                     }
                 } finally {
