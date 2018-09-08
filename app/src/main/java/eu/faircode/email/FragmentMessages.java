@@ -45,6 +45,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -79,8 +81,11 @@ public class FragmentMessages extends FragmentEx {
     private SearchState searchState = SearchState.Reset;
     private BoundaryCallbackMessages searchCallback = null;
 
+    private ExecutorService executor = Executors.newCachedThreadPool();
+
     private static final int MESSAGES_PAGE_SIZE = 50;
     private static final int SEARCH_PAGE_SIZE = 10;
+    private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
     private enum SearchState {Reset, Database, Boundary}
 
@@ -209,6 +214,7 @@ public class FragmentMessages extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putInt("direction", direction);
+
                 new SimpleTask<String>() {
                     @Override
                     protected String onLoad(Context context, Bundle args) {
@@ -216,6 +222,7 @@ public class FragmentMessages extends FragmentEx {
                         int direction = args.getInt("direction");
                         EntityFolder target = null;
 
+                        // Get target folder and hide message
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
@@ -246,6 +253,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onLoaded(final Bundle args, final String target) {
+                        // Show undo snackbar
                         final Snackbar snackbar = Snackbar.make(
                                 view,
                                 getString(R.string.title_moving, Helper.localizeFolderName(getContext(), target)),
@@ -255,6 +263,7 @@ public class FragmentMessages extends FragmentEx {
                             public void onClick(View v) {
                                 snackbar.dismiss();
 
+                                // Show message again
                                 new SimpleTask<Void>() {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
@@ -273,27 +282,38 @@ public class FragmentMessages extends FragmentEx {
                         });
                         snackbar.show();
 
+                        // Wait
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                if (snackbar.isShown()) {
+                                Log.i(Helper.TAG, "Move timeout shown=" + snackbar.isShown());
+
+                                // Remove snackbar
+                                if (snackbar.isShown())
                                     snackbar.dismiss();
 
-                                    args.putString("target", target);
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                final Context context = getContext();
+                                args.putString("target", target);
+
+                                // Process move in a thread
+                                // - the fragment could be gone
+                                executor.submit(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
                                             long id = args.getLong("id");
                                             String target = args.getString("target");
-                                            Log.i(Helper.TAG, "Moving id=" + id + " target=" + target);
 
                                             DB db = DB.getInstance(context);
                                             try {
                                                 db.beginTransaction();
 
                                                 EntityMessage message = db.message().getMessage(id);
-                                                EntityFolder folder = db.folder().getFolderByName(message.account, target);
-                                                EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                                if (message != null && message.ui_hide) {
+                                                    Log.i(Helper.TAG, "Moving id=" + id + " target=" + target);
+                                                    EntityFolder folder = db.folder().getFolderByName(message.account, target);
+                                                    EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                                }
 
                                                 db.setTransactionSuccessful();
                                             } finally {
@@ -302,17 +322,13 @@ public class FragmentMessages extends FragmentEx {
 
                                             EntityOperation.process(context);
 
-                                            return null;
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                         }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            super.onException(args, ex);
-                                        }
-                                    }.load(FragmentMessages.this, args);
-                                }
+                                    }
+                                });
                             }
-                        }, 5000);
+                        }, UNDO_TIMEOUT);
                     }
 
                     @Override
