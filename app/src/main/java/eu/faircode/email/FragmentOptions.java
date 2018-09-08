@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,11 +85,19 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
-        cbAvatars.setChecked(prefs.getBoolean("avatars", false));
+        cbAvatars.setChecked(prefs.getBoolean("avatars", true));
         cbAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
+                if (!checked)
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.i(Helper.TAG, "Clearing avatars");
+                            DB.getInstance(getContext()).message().clearMessageAvatars();
+                        }
+                    }).start();
             }
         });
 

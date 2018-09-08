@@ -177,6 +177,12 @@ public interface DaoMessage {
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);
 
+    @Query("UPDATE message SET avatar = :avatar WHERE id = :id")
+    int setMessageAvatar(long id, String avatar);
+
+    @Query("UPDATE message SET avatar = NULL")
+    void clearMessageAvatars();
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 

@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,6 +50,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.internet.InternetAddress;
 
@@ -69,6 +72,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     private boolean avatars;
     private boolean debug;
+
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
@@ -135,52 +140,42 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
-            ivAvatar.setVisibility(View.GONE);
+            if (message.avatar != null) {
+                ContentResolver resolver = context.getContentResolver();
+                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
+                ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+            }
+            ivAvatar.setVisibility(message.avatar == null ? View.GONE : View.VISIBLE);
+
             if (avatars && message.from != null && message.from.length > 0) {
-                itemView.setHasTransientState(true);
-
-                Bundle args = new Bundle();
-                args.putSerializable("from", message.from[0]);
-
-                new SimpleTask<Drawable>() {
+                final long id = message.id;
+                final String email = ((InternetAddress) message.from[0]).getAddress();
+                executor.submit(new Runnable() {
                     @Override
-                    protected Drawable onLoad(Context context, Bundle args) {
-                        Cursor cursor = null;
+                    public void run() {
                         try {
-                            InternetAddress from = (InternetAddress) args.getSerializable("from");
-                            ContentResolver resolver = context.getContentResolver();
-                            cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                    new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
-                                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                    new String[]{from.getAddress()}, null);
-                            if (cursor.moveToNext()) {
-                                int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                long contactId = cursor.getLong(colContactId);
-                                Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uri);
-                                return Drawable.createFromStream(is, from.getPersonal());
+                            Cursor cursor = null;
+                            try {
+                                ContentResolver resolver = context.getContentResolver();
+                                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                        new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
+                                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                        new String[]{email}, null);
+                                if (cursor.moveToNext()) {
+                                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                    long contactId = cursor.getLong(colContactId);
+                                    Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+                                    DB.getInstance(context).message().setMessageAvatar(id, uri.toString());
+                                }
+                            } finally {
+                                if (cursor != null)
+                                    cursor.close();
                             }
-                        } finally {
-                            if (cursor != null)
-                                cursor.close();
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                         }
-                        return null;
                     }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Drawable photo) {
-                        if (photo != null) {
-                            ivAvatar.setImageDrawable(photo);
-                            ivAvatar.setVisibility(View.VISIBLE);
-                        }
-                        itemView.setHasTransientState(false);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        itemView.setHasTransientState(false);
-                    }
-                }.load(context, owner, args);
+                });
             }
 
             ivFlagged.setVisibility(message.ui_flagged ? View.VISIBLE : View.GONE);
@@ -343,7 +338,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        this.avatars = (prefs.getBoolean("avatars", false) &&
+        this.avatars = (prefs.getBoolean("avatars", true) &&
                 ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
         this.debug = prefs.getBoolean("debug", false);
     }

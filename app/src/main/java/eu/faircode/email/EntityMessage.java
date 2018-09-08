@@ -82,6 +82,7 @@ public class EntityMessage implements Serializable {
     public String references;
     public String inreplyto;
     public String thread; // compose = null
+    public String avatar; // URI
     public Address[] from;
     public Address[] to;
     public Address[] cc;
@@ -186,6 +187,7 @@ public class EntityMessage implements Serializable {
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&
                     (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
+                    (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
                     equal(this.from, other.from) &&
                     equal(this.to, other.to) &&
                     equal(this.cc, other.cc) &&
