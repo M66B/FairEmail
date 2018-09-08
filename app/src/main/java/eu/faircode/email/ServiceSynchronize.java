@@ -370,7 +370,7 @@ public class ServiceSynchronize extends LifecycleService {
         else
             action = account + "/" + folder;
 
-        EntityLog.log(this, action + "\n" + ex.toString() + "\n" + Log.getStackTraceString(ex));
+        EntityLog.log(this, action + " " + Helper.formatThrowable(ex));
 
         if (ex instanceof SendFailedException) {
             NotificationManager nm = getSystemService(NotificationManager.class);
@@ -1695,10 +1695,10 @@ public class ServiceSynchronize extends LifecycleService {
         boolean joined = false;
         while (!joined)
             try {
-                EntityLog.log(this, "Joining " + thread.getName());
+                Log.i(Helper.TAG, "Joining " + thread.getName());
                 thread.join();
                 joined = true;
-                EntityLog.log(this, "Joined " + thread.getName());
+                Log.i(Helper.TAG, "Joined " + thread.getName());
             } catch (InterruptedException ex) {
                 Log.w(Helper.TAG, thread.getName() + " join " + ex.toString());
             }
