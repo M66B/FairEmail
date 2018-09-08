@@ -371,7 +371,14 @@ public class ServiceSynchronize extends LifecycleService {
 
         EntityLog.log(this, action + "\n" + ex.toString() + "\n" + Log.getStackTraceString(ex));
 
-        if (!(ex instanceof MailConnectException) &&
+        if (ex instanceof SendFailedException) {
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            nm.notify(action, 1, getNotificationError(action, ex).build());
+        }
+
+        if (BuildConfig.DEBUG &&
+                !(ex instanceof SendFailedException) &&
+                !(ex instanceof MailConnectException) &&
                 !(ex instanceof FolderClosedException) &&
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
@@ -777,6 +784,7 @@ public class ServiceSynchronize extends LifecycleService {
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 reportError(account.name, null, ex);
+
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
                 // Close store
@@ -1669,6 +1677,8 @@ public class ServiceSynchronize extends LifecycleService {
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                             reportError(null, outbox.name, ex);
+
+                            db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                         } finally {
                             Log.i(Helper.TAG, outbox.name + " end operations");
                             db.folder().setFolderState(outbox.id, null);
