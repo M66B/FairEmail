@@ -544,7 +544,7 @@ public class FragmentAccount extends FragmentEx {
                         }
 
                         if (TextUtils.isEmpty(name))
-                            name = host + "/" + user;
+                            name = user;
 
                         DB db = DB.getInstance(getContext());
                         try {
