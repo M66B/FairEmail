@@ -43,11 +43,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +62,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.mail.Address;
+import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -325,6 +331,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.load(this, new Bundle());
 
         checkIntent(getIntent());
+
+        if (!Helper.isPlayStoreInstall(this))
+            checkUpdate();
     }
 
     @Override
@@ -452,6 +461,79 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }.load(this, args);
         }
+    }
+
+    private class UpdateInfo {
+        public String tag_name; // version
+        public String html_url;
+    }
+
+    private void checkUpdate() {
+        new SimpleTask<UpdateInfo>() {
+            @Override
+            protected UpdateInfo onLoad(Context context, Bundle args) throws Throwable {
+                StringBuilder json = new StringBuilder();
+                HttpsURLConnection urlConnection = null;
+                try {
+                    URL latest = new URL("https://api.github.com/repos/M66B/open-source-email/releases/latest");
+                    urlConnection = (HttpsURLConnection) latest.openConnection();
+                    BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+                    String line;
+                    while ((line = br.readLine()) != null)
+                        json.append(line);
+
+                    JSONObject jroot = new JSONObject(json.toString());
+                    if (jroot.has("tag_name") &&
+                            jroot.has("html_url") &&
+                            jroot.has("assets")) {
+                        UpdateInfo info = new UpdateInfo();
+                        info.html_url = jroot.getString("html_url");
+                        JSONArray jassets = jroot.getJSONArray("assets");
+                        for (int i = 0; i < jassets.length(); i++) {
+                            JSONObject jasset = jassets.getJSONObject(i);
+                            if (jasset.has("name")) {
+                                String name = jasset.getString("name");
+                                if (name != null && name.endsWith(".apk")) {
+                                    info.tag_name = jroot.getString("tag_name");
+                                    Log.i(Helper.TAG, "Lastest version=" + info.tag_name);
+                                    if (BuildConfig.VERSION_NAME.equals(info.tag_name))
+                                        break;
+                                    else
+                                        return info;
+                                }
+                            }
+                        }
+                    }
+                } finally {
+                    if (urlConnection != null)
+                        urlConnection.disconnect();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, UpdateInfo info) {
+                final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
+                if (update.resolveActivity(getPackageManager()) != null)
+                    new AlertDialog.Builder(ActivityView.this)
+                            .setMessage(getString(R.string.title_updated, info.tag_name))
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(update);
+                                }
+                            })
+                            .show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (BuildConfig.DEBUG)
+                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, new Bundle());
     }
 
     private Intent getIntentPrivacy() {
