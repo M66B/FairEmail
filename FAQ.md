@@ -131,6 +131,32 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 * POP/poll support: besides that any decent provider is supporting / should support IMAP, polling does consume extra battery power and will delay notification of new messages, so this will not be added.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
 
+<a name="FAQ16"></a>
+**(16) Why are messages not being synchronized?**
+
+Possible causes of messages not being synchronized (sent or received) are:
+
+* The account or folder(s) or not set to synchronize
+* The number of days to synchronize is set to low
+* There is no usable internet connection
+* The email server is temporarily not available
+
+So, check your account and folder settings and check if the accounts/folders are connected (see the legend menu for the meaning of the icons).
+
+<a name="FAQ17"></a>
+**(17) Why does manual synchronize not work?**
+
+If the *Synchronize now* menu is dimmed, there is no connection to the account.
+
+See the previous question for more information.
+
+<a name="FAQ18"></a>
+**(18) When should I enabled 'Store sent messages' ?**
+
+The option *Store sent messages* should be enabled only
+when the email server does not store sent messages in the sent folder (it should)
+or when an SMTP server not related to the account is being used.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
