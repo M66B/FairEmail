@@ -407,9 +407,9 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_link:
             case R.id.menu_bold:
             case R.id.menu_italic:
+            case R.id.menu_link:
                 onMenuStyle(item.getItemId());
                 return true;
             case R.id.menu_attachment:
