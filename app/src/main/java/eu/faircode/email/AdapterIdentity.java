@@ -83,7 +83,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private void bindTo(TupleIdentityEx identity) {
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(identity.name);
-            ivSync.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
+            ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             tvUser.setText(identity.email);
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);

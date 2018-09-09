@@ -81,7 +81,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private void bindTo(EntityAccount account) {
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);
-            ivSync.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
+            ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             tvUser.setText(account.user);
             tvHost.setText(String.format("%s:%d", account.host, account.port));
 
