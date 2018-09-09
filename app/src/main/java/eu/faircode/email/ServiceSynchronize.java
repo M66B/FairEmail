@@ -1418,6 +1418,12 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
                         result = -1;
                     }
+                    if (message.ui_hide) {
+                        message.ui_hide = false;
+                        db.message().updateMessage(message);
+                        Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
+                        result = -1;
+                    }
                 }
 
                 if (message == null) {
