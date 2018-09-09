@@ -161,6 +161,8 @@
   <string name="title_body_hint">Mesajul dumneavoastră</string>
   <string name="title_save">Salvează</string>
   <string name="title_send">Trimite</string>
+  <string name="title_clipboard_empty">Clipboard empty</string>
+  <string name="title_style_link">Insert link</string>
   <string name="title_style_bold">Bold</string>
   <string name="title_style_italic">Italic</string>
   <string name="title_show_addresses">Arată CC/BCC</string>

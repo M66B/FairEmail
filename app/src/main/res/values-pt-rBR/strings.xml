@@ -157,6 +157,8 @@
   <string name="title_body_hint">Sua mensagem</string>
   <string name="title_save">Salvar</string>
   <string name="title_send">Enviar</string>
+  <string name="title_clipboard_empty">Clipboard empty</string>
+  <string name="title_style_link">Insert link</string>
   <string name="title_style_bold">Bold</string>
   <string name="title_style_italic">Italic</string>
   <string name="title_show_addresses">Show CC/BCC</string>
