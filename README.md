@@ -66,9 +66,8 @@ This app starts a foreground service with a low priority status bar notification
 Downloads
 ---------
 
-* [GitHub](https://github.com/M66B/open-source-email/releases) (no update notifications)
+* [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
-* [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/eu.faircode.email)
 
 Frequently asked questions
 --------------------------
