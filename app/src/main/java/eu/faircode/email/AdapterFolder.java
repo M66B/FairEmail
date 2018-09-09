@@ -166,10 +166,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             popupMenu.getMenu().add(Menu.NONE, action_sync, 1, R.string.title_synchronize_now);
             popupMenu.getMenu().findItem(action_sync).setEnabled("connected".equals(accountState));
 
-            if (folder.account != null) {
-                popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
+            popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
+
+            if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_edit, 3, R.string.title_edit_properties);
-            }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -192,12 +192,18 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         case action_delete:
                             Bundle args = new Bundle();
                             args.putLong("id", folder.id);
+                            args.putBoolean("outbox", folder.account == null);
 
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onLoad(Context context, Bundle args) {
                                     long id = args.getLong("id");
-                                    DB.getInstance(context).message().deleteMessages(id);
+                                    boolean outbox = args.getBoolean("outbox");
+                                    Log.i(Helper.TAG, "Delete local messages outbox=" + outbox);
+                                    if (outbox)
+                                        DB.getInstance(context).message().deleteSeenMessages(id);
+                                    else
+                                        DB.getInstance(context).message().deleteMessages(id);
                                     return null;
                                 }
 
