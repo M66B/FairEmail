@@ -480,7 +480,6 @@ public class ServiceSynchronize extends LifecycleService {
                 db.account().setAccountState(account.id, "connecting");
                 istore.connect(account.host, account.port, account.user, account.password);
 
-                backoff = CONNECT_BACKOFF_START;
                 db.account().setAccountState(account.id, "connected");
                 db.account().setAccountError(account.id, null);
 
@@ -678,6 +677,8 @@ public class ServiceSynchronize extends LifecycleService {
                     idle.start();
                     idlers.add(idle);
                 }
+
+                backoff = CONNECT_BACKOFF_START;
 
                 BroadcastReceiver processFolder = new BroadcastReceiver() {
                     @Override
