@@ -6,23 +6,29 @@
         android:id="@+id/menu_bold"
         android:icon="@drawable/baseline_format_bold_24"
         android:title="@string/title_style_bold"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_italic"
         android:icon="@drawable/baseline_format_italic_24"
         android:title="@string/title_style_italic"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_link"
+        android:icon="@drawable/baseline_insert_link_24"
+        android:title="@string/title_style_link"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_attachment"
         android:icon="@drawable/baseline_attachment_24"
         android:title="@string/title_add_attachment"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_addresses"
         android:icon="@drawable/baseline_people_24"
         android:title="@string/title_show_addresses"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

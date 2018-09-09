@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,6 +38,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -396,6 +398,7 @@ public class FragmentCompose extends FragmentEx {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_bold).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_italic).setVisible(free && working >= 0);
+        menu.findItem(R.id.menu_link).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
@@ -404,6 +407,7 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_link:
             case R.id.menu_bold:
             case R.id.menu_italic:
                 onMenuStyle(item.getItemId());
@@ -429,8 +433,28 @@ public class FragmentCompose extends FragmentEx {
         }
         if (start != end) {
             SpannableString s = new SpannableString(etBody.getText());
-            s.setSpan(new StyleSpan(id == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC),
-                    start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            switch (id) {
+                case R.id.menu_bold:
+                    s.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    break;
+                case R.id.menu_italic:
+                    s.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    break;
+                case R.id.menu_link:
+                    Uri uri = null;
+                    ClipboardManager cbm = getContext().getSystemService(ClipboardManager.class);
+                    if (cbm.hasPrimaryClip()) {
+                        String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+                        uri = Uri.parse(link);
+                        if (uri.getScheme() == null)
+                            uri = null;
+                    }
+                    if (uri == null)
+                        Snackbar.make(view, R.string.title_clipboard_empty, Snackbar.LENGTH_LONG).show();
+                    else
+                        s.setSpan(new URLSpan(uri.toString()), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    break;
+            }
             etBody.setText(s);
             etBody.setSelection(end);
         }

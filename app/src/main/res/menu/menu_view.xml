@@ -6,13 +6,13 @@
         android:id="@+id/menu_addresses"
         android:icon="@drawable/baseline_people_24"
         android:title="@string/title_show_addresses"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_thread"
         android:icon="@drawable/baseline_message_24"
         android:title="@string/title_thread"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_forward"
