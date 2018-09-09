@@ -190,6 +190,7 @@
   <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
   <string name="title_yes">Evet</string>
   <string name="title_no">Hayır</string>
+  <string name="title_undo">Undo</string>
   <string name="title_pro_feature">Bu Pro özelliğidir</string>
   <string name="title_pro_list">Pro özelliklerin listesi</string>
   <string name="title_pro_purchase">Satın al</string>

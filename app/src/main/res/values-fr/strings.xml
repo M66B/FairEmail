@@ -104,7 +104,7 @@
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
   <string name="title_pop">POP n\'est pas supporté</string>
   <string name="title_insecure">Les connexions non sécurisées ne sont pas supportées</string>
-  <string name="title_edit_properties">Edit properties</string>
+  <string name="title_edit_properties">Éditer les propriétés</string>
   <string name="title_synchronize_now">Synchroniser maintenant</string>
   <string name="title_delete_local">Supprimer les messages locaux</string>
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
@@ -184,12 +184,13 @@
   <string name="title_legend_connected">Connecté</string>
   <string name="title_legend_synchronizing">Synchronisation en cours</string>
   <string name="title_legend_closing">Fermeture en cours</string>
-  <string name="title_hint_folder_actions">Long press for options</string>
-  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
+  <string name="title_hint_folder_actions">Appui long pour les options</string>
+  <string name="title_hint_message_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu ou pour suivre/ne plus suivre</string>
   <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
   <string name="title_issue">Avez-vous une question ou un problème ?</string>
   <string name="title_yes">Oui</string>
   <string name="title_no">Non</string>
+  <string name="title_undo">Undo</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>

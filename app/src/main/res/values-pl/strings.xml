@@ -198,6 +198,7 @@
   <string name="title_issue">Masz pytanie lub problem?</string>
   <string name="title_yes">Tak</string>
   <string name="title_no">Nie</string>
+  <string name="title_undo">Undo</string>
   <string name="title_pro_feature">Jest to funkcja pro</string>
   <string name="title_pro_list">List funkcji pro</string>
   <string name="title_pro_purchase">Kup</string>
