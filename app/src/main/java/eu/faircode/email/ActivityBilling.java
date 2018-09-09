@@ -200,7 +200,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
-            editor.remove("pro");
+            if (prefs.getBoolean("play_store", true))
+                editor.remove("pro");
             for (Purchase purchase : purchases) {
                 Log.i(Helper.TAG, "IAB SKU=" + purchase.getSku());
                 if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
