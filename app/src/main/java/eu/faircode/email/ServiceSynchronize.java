@@ -637,7 +637,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 reportError(account.name, folder.name, ex);
 
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                if (!(ex instanceof IllegalStateException) && !(ex instanceof FolderClosedException))
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                 synchronized (state) {
                                     state.notifyAll();
