@@ -61,6 +61,8 @@ Efficient
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 
+This app is minimalistic by design, so you can concentrate on reading and writing messages.
+
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
 Downloads
