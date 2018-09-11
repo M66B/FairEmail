@@ -724,8 +724,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
                                         processOperations(folder, isession, istore, ifolder);
-                                    else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction()))
+                                    else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction())) {
+                                        processOperations(folder, isession, istore, ifolder);
                                         synchronizeMessages(account, folder, ifolder, state);
+                                    }
 
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
