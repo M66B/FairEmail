@@ -1636,37 +1636,31 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void stop() {
-            if (main != null) {
-                EntityLog.log(ServiceSynchronize.this, "Main stop " + main);
-                synchronized (state) {
-                    state.running = false;
-                    state.notifyAll();
-                }
-
-                // stop wait or backoff
-                main.interrupt();
-                join(main);
-
-                main = null;
-                state = null;
-
-                EntityLog.log(ServiceSynchronize.this, "Main stopped " + main);
+            EntityLog.log(ServiceSynchronize.this, "Main stop " + main);
+            synchronized (state) {
+                state.running = false;
+                state.notifyAll();
             }
+
+            // stop wait or backoff
+            main.interrupt();
+            join(main);
+
+            main = null;
+            state = null;
+
+            EntityLog.log(ServiceSynchronize.this, "Main stopped " + main);
         }
 
         private void restart() {
-            lifecycle.submit(new Runnable() {
-                @Override
-                public void run() {
-                    stop();
-                }
-            });
-            lifecycle.submit(new Runnable() {
-                @Override
-                public void run() {
-                    start();
-                }
-            });
+            if (running)
+                lifecycle.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        stop();
+                        start();
+                    }
+                });
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
