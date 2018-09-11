@@ -78,7 +78,10 @@ public class MessageHelper {
         props.put("mail.imaps.timeout", Integer.toString(NETWORK_TIMEOUT));
         props.put("mail.imaps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
 
+        props.put("mail.imaps.connectionpool.debug", "true");
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+
+        // "mail.imaps.finalizecleanclose"
 
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
