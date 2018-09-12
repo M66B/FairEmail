@@ -188,6 +188,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
+            vwColor.setVisibility(viewType == ViewType.UNIFIED ? View.VISIBLE : View.GONE);
 
             ivFlagged.setVisibility(message.ui_flagged ? View.VISIBLE : View.GONE);
 
