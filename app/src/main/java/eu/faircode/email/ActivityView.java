@@ -82,7 +82,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
-    private boolean newIntent = false;
+    private boolean newMessages = false;
     private long attachment = -1;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
@@ -357,10 +357,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onNewIntent(Intent intent) {
-        if (intent.getBooleanExtra("setup", false))
-            intent.getExtras().remove("setup");
-        else
-            newIntent = true;
         checkIntent(intent);
         super.onNewIntent(intent);
     }
@@ -378,9 +374,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_STORE_ATTACHMENT);
         lbm.registerReceiver(receiver, iff);
 
-        if (newIntent) {
-            newIntent = false;
-            getSupportFragmentManager().popBackStack("unified", 0);
+        if (newMessages) {
+            newMessages = false;
+            FragmentManager fm = getSupportFragmentManager();
+            fm.popBackStack("unified", 0);
+            FragmentMessages fragment = (FragmentMessages) fm.findFragmentById(R.id.content_frame);
+            fragment.onNewMessages();
         }
     }
 
@@ -438,6 +437,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if ("unseen".equals(action)) {
             intent.setAction(null);
             setIntent(intent);
+
+            newMessages = true;
 
             Bundle args = new Bundle();
             args.putLong("time", new Date().getTime());

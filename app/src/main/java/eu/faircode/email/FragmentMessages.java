@@ -670,4 +670,8 @@ public class FragmentMessages extends FragmentEx {
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
     }
+
+    void onNewMessages() {
+        rvMessage.scrollToPosition(0);
+    }
 }

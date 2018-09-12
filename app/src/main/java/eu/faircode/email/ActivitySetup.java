@@ -98,7 +98,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
             if (hasAccount)
-                startActivity(new Intent(this, ActivityView.class).putExtra("setup", true));
+                startActivity(new Intent(this, ActivityView.class));
             finish();
         }
     }
