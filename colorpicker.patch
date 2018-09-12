@@ -1,0 +1,43 @@
+diff --git a/build.gradle b/build.gradle
+index 9c93cd0..4625fc4 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -1,9 +1,16 @@
+ apply plugin: 'com.android.library'
+ 
+ android {
++    compileSdkVersion 28
++
+     sourceSets.main {
+         manifest.srcFile 'AndroidManifest.xml'
+         java.srcDirs = ['src']
+         res.srcDirs = ['res']
+     }
++
++    dependencies {
++        def androidx_version = "1.0.0-rc02"
++        implementation "androidx.appcompat:appcompat:$androidx_version"
++    }
+ }
+diff --git a/src/com/android/colorpicker/ColorPickerDialog.java b/src/com/android/colorpicker/ColorPickerDialog.java
+index 0d24b49..aabc2d1 100644
+--- a/src/com/android/colorpicker/ColorPickerDialog.java
++++ b/src/com/android/colorpicker/ColorPickerDialog.java
+@@ -17,14 +17,15 @@
+ package com.android.colorpicker;
+ 
+ import android.app.Activity;
+-import android.app.AlertDialog;
+ import android.app.Dialog;
+-import android.app.DialogFragment;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.widget.ProgressBar;
+ 
++import androidx.appcompat.app.AlertDialog;
++import androidx.fragment.app.DialogFragment;
++
+ import com.android.colorpicker.ColorPickerSwatch.OnColorSelectedListener;
+ 
+ /**
