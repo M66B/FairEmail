@@ -32,6 +32,7 @@ Pro features
 ------------
 
 * Signatures
+* Account colors
 * Standard replies
 * Progressive search (first local, then server)
 * Preview sender/subject in new messages status bar notification

@@ -282,20 +282,22 @@ public class FragmentAccount extends FragmentEx {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
-
-                ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
-                colorPickerDialog.initialize(
-                        R.string.title_account_color, colors, color, 4, colors.length);
-
-                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
-                    @Override
-                    public void onColorSelected(int color) {
-                        setColor(color);
-                    }
-                });
-
-                colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                    int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                    ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                    colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                    colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                        @Override
+                        public void onColorSelected(int color) {
+                            setColor(color);
+                        }
+                    });
+                    colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                } else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
             }
         });
 
