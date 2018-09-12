@@ -371,7 +371,7 @@ public class FragmentCompose extends FragmentEx {
         } else {
             long id = savedInstanceState.getLong("working");
             Bundle args = new Bundle();
-            args.putString("action", "edit");
+            args.putString("action", id < 0 ? "new" : "edit");
             args.putLong("id", id);
             args.putLong("account", -1);
             args.putLong("reference", -1);
