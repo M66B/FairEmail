@@ -37,7 +37,9 @@ public interface DaoMessage {
 
     @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
-            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
+            ", SUM(CASE WHEN message.ui_seen" +
+            "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
+            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
@@ -52,7 +54,9 @@ public interface DaoMessage {
 
     @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
-            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
+            ", SUM(CASE WHEN message.ui_seen" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
@@ -68,7 +72,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
             ", 1 AS count" +
-            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
+            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " LEFT JOIN account ON account.id = message.account" +
