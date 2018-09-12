@@ -557,6 +557,7 @@ public class FragmentMessage extends FragmentEx {
         menu.findItem(R.id.menu_show_headers).setChecked(headers);
         menu.findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
         menu.findItem(R.id.menu_show_headers).setVisible(!free);
+        menu.findItem(R.id.menu_show_html).setEnabled(Helper.classExists("android.webkit.WebView"));
         menu.findItem(R.id.menu_reply_all).setVisible(!inOutbox);
     }
 

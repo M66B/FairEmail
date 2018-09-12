@@ -124,6 +124,15 @@ public class Helper {
         return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
     }
 
+    static boolean classExists(String className) {
+        try {
+            Class.forName(className);
+            return true;
+        } catch (ClassNotFoundException ignored) {
+            return false;
+        }
+    }
+
     static Address myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
     }
