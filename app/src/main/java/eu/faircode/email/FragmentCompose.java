@@ -968,6 +968,7 @@ public class FragmentCompose extends FragmentEx {
                 }
             });
 
+            db.attachment().liveAttachments(draft.id).removeObservers(getViewLifecycleOwner());
             db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
                         @Override
@@ -976,11 +977,11 @@ public class FragmentCompose extends FragmentEx {
                                 attachments = new ArrayList<>();
 
                             adapter.set(attachments);
-                            if (!free)
-                                grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                            grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
                         }
                     });
 
+            db.message().liveMessage(draft.id).removeObservers(getViewLifecycleOwner());
             db.message().liveMessage(draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
                 public void onChanged(final EntityMessage draft) {
