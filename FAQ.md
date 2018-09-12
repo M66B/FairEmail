@@ -26,7 +26,7 @@ to prevent Android from killing the service that takes care of receiving and sen
 Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
 
 <a name="FAQ3"></a>
-**(3) What are operations?**
+**(3) What are operations and why are they pending?**
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
@@ -38,6 +38,9 @@ The low priority status bar notification shows the number of pending operations,
 * attachment: download attachment
 * headers: download message headers
 * flag: star/unstar remote message
+
+Operations are processed only when there is a connection to the email server or when manually synchronizing.
+See also [this FAQ](#FAQ16).
 
 <a name="FAQ4"></a>
 **(4) What is a valid security certificate?**
