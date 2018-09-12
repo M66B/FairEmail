@@ -166,7 +166,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             popupMenu.getMenu().add(Menu.NONE, action_sync, 1, R.string.title_synchronize_now);
             popupMenu.getMenu().findItem(action_sync).setEnabled("connected".equals(accountState));
 
-            popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
+            if (!EntityFolder.DRAFTS.equals(folder.type))
+                popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
 
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_edit, 3, R.string.title_edit_properties);
