@@ -45,15 +45,13 @@
             android:name=".ActivitySetup"
             android:exported="false"
             android:launchMode="singleInstance"
-            android:parentActivityName=".ActivityMain"
-            android:windowSoftInputMode="stateUnchanged" />
+            android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivityView"
             android:exported="false"
             android:launchMode="singleTop"
-            android:parentActivityName=".ActivityMain"
-            android:windowSoftInputMode="stateUnchanged" />
+            android:parentActivityName=".ActivityMain" />
 
         <activity
             android:name=".ActivityCompose"
