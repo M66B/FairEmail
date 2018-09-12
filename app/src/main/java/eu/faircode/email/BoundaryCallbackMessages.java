@@ -80,7 +80,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             @Override
             public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
                 if (event == Lifecycle.Event.ON_DESTROY)
-                    new Thread(new Runnable() {
+                    executor.submit(new Runnable() {
                         @Override
                         public void run() {
                             Log.i(Helper.TAG, "Boundary close");
@@ -95,7 +95,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 imessages = null;
                             }
                         }
-                    }).start();
+                    });
             }
         });
     }
