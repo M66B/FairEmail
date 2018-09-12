@@ -61,9 +61,6 @@
   <string name="title_setup_light_theme">Light theme</string>
   <string name="title_setup_dark_theme">Dark theme</string>
   <string name="title_advanced">Advanced options</string>
-  <string name="title_advanced_webview">Use WebView to show external links</string>
-  <string name="title_advanced_customtabs">Instead of <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
-  <string name="title_advanced_sanitize">Remove HTML formatting from messages</string>
   <string name="title_advanced_compress_imap">Compress IMAP data</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">Debug</string>
@@ -76,6 +73,7 @@
   <string name="title_account_name">Account name</string>
   <string name="title_account_name_hint">Used to differentiate folders</string>
   <string name="title_account_signature">Signature text</string>
+  <string name="title_account_color">Color</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Provider</string>
@@ -88,7 +86,7 @@
   <string name="title_authorize">Select account</string>
   <string name="title_authorizing">Authorizing account &#8230;</string>
   <string name="title_setup_advanced">Advanced</string>
-  <string name="title_store_sent">Store sent messages (enable if needed only)</string>
+  <string name="title_store_sent">Store sent messages (normally not needed)</string>
   <string name="title_synchronize_account">Synchronize (receive messages)</string>
   <string name="title_synchronize_identity">Synchronize (send messages)</string>
   <string name="title_primary_account">Primary (default account)</string>
@@ -200,11 +198,13 @@
   <string name="title_pro_feature">This is a pro feature</string>
   <string name="title_pro_list">List of pro features</string>
   <string name="title_pro_purchase">Buy</string>
-  <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features and will keep this app maintained and supported</string>
+  <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported</string>
   <string name="title_pro_activated">All pro features are activated</string>
   <string name="title_pro_valid">All pro features activated</string>
   <string name="title_pro_invalid">Invalid response</string>
+  <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
   <string name="title_log">Log</string>
   <string name="title_debug_info">Debug info</string>
   <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
+  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
 </resources>

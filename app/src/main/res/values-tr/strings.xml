@@ -57,9 +57,6 @@
   <string name="title_setup_light_theme">Light theme</string>
   <string name="title_setup_dark_theme">Koyu Tema</string>
   <string name="title_advanced">Gelişmiş ayarlar</string>
-  <string name="title_advanced_webview">Dış bağlantıları göstermek için WebView kullanın</string>
-  <string name="title_advanced_customtabs"><a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Özel Sekmeler</a> yerine</string>
-  <string name="title_advanced_sanitize">HTML biçimlendirmesini iletilerden kaldır</string>
   <string name="title_advanced_compress_imap">IMAP verilerini sıkıştır</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">Hata ayıklama</string>
@@ -72,6 +69,7 @@
   <string name="title_account_name">Hesap adı</string>
   <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
   <string name="title_account_signature">Signature text</string>
+  <string name="title_account_color">Color</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Sağlayıcı</string>
@@ -84,7 +82,7 @@
   <string name="title_authorize">Hesap seç</string>
   <string name="title_authorizing">Authorizing account &#8230;</string>
   <string name="title_setup_advanced">Advanced</string>
-  <string name="title_store_sent">Gönderilen iletileri kaydet (yalnızca gerekliyse etkinleştir)</string>
+  <string name="title_store_sent">Store sent messages (normally not needed)</string>
   <string name="title_synchronize_account">Senkronize et (iletileri al)</string>
   <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
   <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -200,7 +198,9 @@
   <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
   <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
   <string name="title_pro_invalid">Geçersiz yanıt</string>
+  <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
   <string name="title_log">Kayıt defteri</string>
   <string name="title_debug_info">Hata ayıklama bilgisi</string>
   <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
+  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
 </resources>

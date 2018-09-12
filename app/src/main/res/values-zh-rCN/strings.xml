@@ -53,9 +53,6 @@
   <string name="title_setup_light_theme">Light theme</string>
   <string name="title_setup_dark_theme">暗色主题</string>
   <string name="title_advanced">高级选项</string>
-  <string name="title_advanced_webview">使用应用内浏览器查看外部链接</string>
-  <string name="title_advanced_customtabs">而非使用 <a href="https://developer.chrome.com/multidevice/android/customtabs">Chrome Custom Tabs</a></string>
-  <string name="title_advanced_sanitize">去除邮件中的 HTML 格式</string>
   <string name="title_advanced_compress_imap">压缩 IMAP 数据</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_debug">调试模式</string>
@@ -68,6 +65,7 @@
   <string name="title_account_name">账户名称</string>
   <string name="title_account_name_hint">用于区分文件夹</string>
   <string name="title_account_signature">Signature text</string>
+  <string name="title_account_color">Color</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">服务提供商</string>
@@ -80,7 +78,7 @@
   <string name="title_authorize">选择账户</string>
   <string name="title_authorizing">Authorizing account &#8230;</string>
   <string name="title_setup_advanced">Advanced</string>
-  <string name="title_store_sent">存储已发送的邮件（请只在需要时启用）</string>
+  <string name="title_store_sent">Store sent messages (normally not needed)</string>
   <string name="title_synchronize_account">同步（接收）</string>
   <string name="title_synchronize_identity">同步（发送）</string>
   <string name="title_primary_account">默认账户</string>
@@ -196,7 +194,9 @@
   <string name="title_pro_activated">专业版功能已激活</string>
   <string name="title_pro_valid">专业版功能已激活</string>
   <string name="title_pro_invalid">无效的响应</string>
+  <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
   <string name="title_log">Log</string>
   <string name="title_debug_info">调试信息</string>
   <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
+  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
 </resources>
