@@ -380,7 +380,6 @@ public class FragmentMessages extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        grpSupport.setVisibility(prefs.getBoolean("pro", false) ? View.GONE : View.VISIBLE);
         grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
@@ -599,6 +598,13 @@ public class FragmentMessages extends FragmentEx {
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, args);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        grpSupport.setVisibility(prefs.getBoolean("pro", false) ? View.GONE : View.VISIBLE);
     }
 
     @Override
