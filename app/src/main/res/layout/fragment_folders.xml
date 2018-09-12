@@ -16,6 +16,7 @@
         android:gravity="center_vertical"
         android:minHeight="33dp"
         android:text="@string/title_hint_folder_actions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/ibHintActions"
         app:layout_constraintStart_toStartOf="parent"

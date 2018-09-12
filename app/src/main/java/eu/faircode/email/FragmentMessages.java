@@ -63,10 +63,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
+    private TextView tvSupport;
     private ImageButton ibHintActions;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
+    private Group grpSupport;
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
@@ -110,17 +112,30 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
+        tvSupport = view.findViewById(R.id.tvSupport);
         ibHintActions = view.findViewById(R.id.ibHintActions);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         pbWait = view.findViewById(R.id.pbWait);
-        grpReady = view.findViewById(R.id.grpReady);
+        grpSupport = view.findViewById(R.id.grpSupport);
         grpHintActions = view.findViewById(R.id.grpHintActions);
+        grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        tvSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.commit();
+            }
+        });
+
         ibHintActions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -363,6 +378,7 @@ public class FragmentMessages extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        grpSupport.setVisibility(prefs.getBoolean("pro", false) ? View.GONE : View.VISIBLE);
         grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());

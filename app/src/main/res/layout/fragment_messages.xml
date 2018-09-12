@@ -22,6 +22,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="6dp"
+            android:text="@string/title_pro_support"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vSeparatorSupport"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSupport" />
+
+        <TextView
             android:id="@+id/tvHintActions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -31,10 +52,11 @@
             android:gravity="center_vertical"
             android:minHeight="33dp"
             android:text="@string/title_hint_message_actions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/ibHintActions"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorSupport" />
 
         <ImageButton
             android:id="@+id/ibHintActions"
@@ -75,6 +97,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpSupport"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvSupport,vSeparatorSupport" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHintActions"

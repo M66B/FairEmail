@@ -232,6 +232,7 @@
     <string name="title_pro_activated">All pro features are activated</string>
     <string name="title_pro_valid">All pro features activated</string>
     <string name="title_pro_invalid">Invalid response</string>
+    <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
 
     <string name="title_log">Log</string>
     <string name="title_debug_info">Debug info</string>
