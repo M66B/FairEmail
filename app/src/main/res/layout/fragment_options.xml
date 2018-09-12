@@ -12,36 +12,6 @@
         android:layout_height="match_parent">
 
         <CheckBox
-            android:id="@+id/cbWebView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_webview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvCustomTabs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:text="@string/title_advanced_customtabs"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbWebView" />
-
-        <CheckBox
-            android:id="@+id/cbSanitize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_sanitize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCustomTabs" />
-
-        <CheckBox
             android:id="@+id/cbCompressImap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +19,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_compress_imap"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/cbAvatars"

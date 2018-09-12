@@ -825,13 +825,13 @@ public class FragmentCompose extends FragmentEx {
                                 text.replaceAll("\\r?\\n", "<br />"),
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
-                                HtmlHelper.sanitize(context, ref.read(context), true));
+                                HtmlHelper.sanitize(ref.read(context)));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
                         body = String.format("<br><br>%s %s:<br><br>%s",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
-                                HtmlHelper.sanitize(context, ref.read(context), true));
+                                HtmlHelper.sanitize(ref.read(context)));
                     }
 
                     if (pro && !TextUtils.isEmpty(account.signature))

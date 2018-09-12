@@ -246,16 +246,6 @@ public class FragmentMessage extends FragmentEx {
                                 new Intent(ActivityView.ACTION_ACTIVATE_PRO)
                                         .putExtra("uri", uri));
 
-                    } else if (prefs.getBoolean("webview", false)) {
-                        Bundle args = new Bundle();
-                        args.putString("url", url);
-
-                        FragmentWebView fragment = new FragmentWebView();
-                        fragment.setArguments(args);
-
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
-                        fragmentTransaction.commit();
                     } else {
                         // https://developer.chrome.com/multidevice/android/customtabs
                         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
@@ -1071,7 +1061,7 @@ public class FragmentMessage extends FragmentEx {
     };
 
     private static Spanned decodeHtml(final Context context, final long id, String body, final boolean show_images) {
-        return Html.fromHtml(HtmlHelper.sanitize(context, body, false), new Html.ImageGetter() {
+        return Html.fromHtml(HtmlHelper.sanitize(body), new Html.ImageGetter() {
             @Override
             public Drawable getDrawable(String source) {
                 float scale = context.getResources().getDisplayMetrics().density;

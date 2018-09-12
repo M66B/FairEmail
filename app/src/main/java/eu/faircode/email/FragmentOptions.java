@@ -22,22 +22,17 @@ package eu.faircode.email;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentOptions extends FragmentEx {
-    private CheckBox cbWebView;
-    private TextView tvCustomTabs;
-    private CheckBox cbSanitize;
     private CheckBox cbCompressImap;
     private CheckBox cbAvatars;
     private CheckBox cbDebug;
@@ -50,9 +45,6 @@ public class FragmentOptions extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         // Get controls
-        cbWebView = view.findViewById(R.id.cbWebView);
-        tvCustomTabs = view.findViewById(R.id.tvCustomTabs);
-        cbSanitize = view.findViewById(R.id.cbSanitize);
         cbCompressImap = view.findViewById(R.id.cbCompressImap);
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbDebug = view.findViewById(R.id.cbDebug);
@@ -60,22 +52,6 @@ public class FragmentOptions extends FragmentEx {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        cbWebView.setChecked(prefs.getBoolean("webview", false));
-        cbWebView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("webview", checked).apply();
-            }
-        });
-
-        cbSanitize.setChecked(prefs.getBoolean("sanitize", false));
-        cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("sanitize", checked).apply();
-            }
-        });
 
         cbCompressImap.setChecked(prefs.getBoolean("compress", true));
         cbCompressImap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -108,8 +84,6 @@ public class FragmentOptions extends FragmentEx {
                 prefs.edit().putBoolean("debug", checked).apply();
             }
         });
-
-        tvCustomTabs.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }
