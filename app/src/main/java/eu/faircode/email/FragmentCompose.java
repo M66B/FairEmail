@@ -117,7 +117,7 @@ public class FragmentCompose extends FragmentEx {
     private long working = -1;
     private boolean free = false;
     private boolean addresses;
-    private boolean autosave = true;
+    private boolean autosave = false;
 
     @Override
     @Nullable
@@ -869,6 +869,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected void onLoaded(Bundle args, final EntityMessage draft) {
             working = draft.id;
+            autosave = true;
 
             final String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
