@@ -815,10 +815,10 @@ public class FragmentCompose extends FragmentEx {
                         if (answer > 0) {
                             text = db.answer().getAnswer(answer).text;
 
-                            String name = "";
+                            String name = null;
                             if (draft.to != null && draft.to.length > 0)
                                 name = ((InternetAddress) draft.to[0]).getPersonal();
-                            text = text.replace("$name$", name);
+                            text = text.replace("$name$", name == null ? "" : name);
                         }
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("%s<br><br>%s %s:<br><br>%s",
