@@ -253,6 +253,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (file.exists()) {
                     // Get version info
                     StringBuilder sb = new StringBuilder();
+
+                    sb.append(context.getString(R.string.title_crash_info_remark) + "\n\n\n\n");
+
                     sb.append(String.format("%s: %s\r\n", context.getString(R.string.app_name), BuildConfig.VERSION_NAME));
                     sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
                     sb.append("\r\n");
