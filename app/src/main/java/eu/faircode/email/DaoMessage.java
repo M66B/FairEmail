@@ -193,8 +193,8 @@ public interface DaoMessage {
     @Query("DELETE FROM message WHERE folder = :folder AND uid = :uid")
     int deleteMessage(long folder, long uid);
 
-    @Query("DELETE FROM message WHERE folder = :folder")
-    int deleteMessages(long folder);
+    @Query("DELETE FROM message WHERE folder = :folder AND NOT uid IS NULL")
+    int deleteLocalMessages(long folder);
 
     @Query("DELETE FROM message WHERE folder = :folder AND seen")
     int deleteSeenMessages(long folder);

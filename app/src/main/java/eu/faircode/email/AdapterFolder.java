@@ -204,7 +204,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     if (outbox)
                                         DB.getInstance(context).message().deleteSeenMessages(id);
                                     else
-                                        DB.getInstance(context).message().deleteMessages(id);
+                                        DB.getInstance(context).message().deleteLocalMessages(id);
                                     return null;
                                 }
 
