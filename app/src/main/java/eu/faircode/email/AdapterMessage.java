@@ -54,6 +54,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
@@ -153,27 +154,31 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             if (avatars && message.from != null && message.from.length > 0) {
                 final long id = message.id;
-                final String email = ((InternetAddress) message.from[0]).getAddress();
+                final Address[] froms = message.from;
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            Cursor cursor = null;
-                            try {
-                                ContentResolver resolver = context.getContentResolver();
-                                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                        new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
-                                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                        new String[]{email}, null);
-                                if (cursor.moveToNext()) {
-                                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                    long contactId = cursor.getLong(colContactId);
-                                    Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                                    DB.getInstance(context).message().setMessageAvatar(id, uri.toString());
+                            for (Address from : froms) {
+                                String email = ((InternetAddress) from).getAddress();
+                                Cursor cursor = null;
+                                try {
+                                    ContentResolver resolver = context.getContentResolver();
+                                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                            new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
+                                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                            new String[]{email}, null);
+                                    if (cursor.moveToNext()) {
+                                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                        long contactId = cursor.getLong(colContactId);
+                                        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+                                        DB.getInstance(context).message().setMessageAvatar(id, uri.toString());
+                                        break;
+                                    }
+                                } finally {
+                                    if (cursor != null)
+                                        cursor.close();
                                 }
-                            } finally {
-                                if (cursor != null)
-                                    cursor.close();
                             }
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
