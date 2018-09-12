@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
+        View vwColor;
         ImageView ivPrimary;
         TextView tvName;
         ImageView ivSync;
@@ -61,6 +63,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             super(itemView);
 
             this.itemView = itemView;
+            vwColor = itemView.findViewById(R.id.vwColor);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
             ivSync = itemView.findViewById(R.id.ivSync);
@@ -79,6 +82,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void bindTo(EntityAccount account) {
+            vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);

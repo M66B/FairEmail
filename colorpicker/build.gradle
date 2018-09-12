@@ -1,0 +1,16 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    sourceSets.main {
+        manifest.srcFile 'AndroidManifest.xml'
+        java.srcDirs = ['src']
+        res.srcDirs = ['res']
+    }
+
+    dependencies {
+        def androidx_version = "1.0.0-rc02"
+        implementation "androidx.appcompat:appcompat:$androidx_version"
+    }
+}

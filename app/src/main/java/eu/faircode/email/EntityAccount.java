@@ -49,6 +49,7 @@ public class EntityAccount {
     public Boolean primary;
     @NonNull
     public Boolean synchronize;
+    public Integer color;
     @NonNull
     public Boolean store_sent; // obsolete
     @NonNull

@@ -249,6 +249,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
+        <Button
+            android:id="@+id/btnColor"
+            style="@style/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:text="@string/title_account_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
+        <View
+            android:id="@+id/vwColor"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/btnColor"
+            app:layout_constraintTop_toTopOf="@id/btnColor" />
+
+        <ImageView
+            android:id="@+id/ibColorDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
         <!-- check -->
 
         <Button
@@ -258,7 +291,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
         <ProgressBar
             android:id="@+id/pbCheck"
@@ -278,7 +311,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
         <TextView
             android:id="@+id/tvDrafts"
@@ -429,7 +462,7 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary" />
+            app:constraint_referenced_ids="tvName,etName,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,btnColor,vwColor,ibColorDefault" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

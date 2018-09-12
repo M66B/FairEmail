@@ -85,6 +85,7 @@
     <string name="title_account_name">Account name</string>
     <string name="title_account_name_hint">Used to differentiate folders</string>
     <string name="title_account_signature">Signature text</string>
+    <string name="title_account_color">Color</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Provider</string>
@@ -235,4 +236,27 @@
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+
+    <array name="colorPicker">
+        <item>@color/red</item>
+        <item>@color/pink</item>
+        <item>@color/purple</item>
+        <item>@color/deep_purple</item>
+        <item>@color/indigo</item>
+        <item>@color/blue</item>
+        <item>@color/light_blue</item>
+        <item>@color/cyan</item>
+        <item>@color/teal</item>
+        <item>@color/green</item>
+        <item>@color/light_green</item>
+        <item>@color/lime</item>
+        <item>@color/yellow</item>
+        <item>@color/amber</item>
+        <item>@color/orange</item>
+        <item>@color/deep_orange</item>
+        <item>@color/brown</item>
+        <item>@color/blue_grey</item>
+        <item>@color/grey</item>
+        <item>@color/dark_grey</item>
+    </array>
 </resources>

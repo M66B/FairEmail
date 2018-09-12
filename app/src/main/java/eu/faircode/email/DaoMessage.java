@@ -35,7 +35,9 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
-    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
@@ -52,7 +54,9 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
 
-    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
@@ -70,7 +74,9 @@ public interface DaoMessage {
             " ORDER BY message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean found, boolean debug);
 
-    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", folder.name as folderName, folder.type as folderType" +
             ", 1 AS count" +
             ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
@@ -118,7 +124,9 @@ public interface DaoMessage {
             " ORDER BY message.received DESC, message.sent DESC")
     List<Long> getMessageIDs(long folder);
 
-    @Query("SELECT message.*, account.name AS accountName, folder.name as folderName, folder.type as folderType" +
+    @Query("SELECT message.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", folder.name as folderName, folder.type as folderType" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +

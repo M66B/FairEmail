@@ -5,6 +5,14 @@
     android:layout_height="wrap_content"
     android:background="?attr/drawableItemBackground">
 
+    <View
+        android:id="@+id/vwColor"
+        android:layout_width="6dp"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivFlagged"
         android:layout_width="21dp"
@@ -13,7 +21,7 @@
         android:src="@drawable/baseline_star_24"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/tvFrom"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toTopOf="@+id/tvFrom" />
 
     <ImageView
@@ -45,7 +53,7 @@
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="12dp"
         android:maxLines="1"
         android:text="Time"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -59,7 +67,7 @@
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_attachment_24"
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
     <TextView
@@ -102,7 +110,7 @@
         android:id="@+id/ivThread"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="12dp"
         android:src="@drawable/baseline_message_24"
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,13 +120,13 @@
         android:id="@+id/tvError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginStart="6dp"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
     <ProgressBar
@@ -134,12 +142,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/marginBottom"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+    <View
         android:id="@+id/vSeparator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
+        app:layout_constraintTop_toBottomOf="@id/marginBottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

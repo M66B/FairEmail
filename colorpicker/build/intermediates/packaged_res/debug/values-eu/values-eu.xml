@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="1248663997452044787" name="color_picker_default_title">"Hautatu kolorea"</string>
+    <string msgid="2883438431173736180" name="color_swatch_description">"<ns1:g id="COLOR_INDEX">%1$d</ns1:g>"</string>
+    <string msgid="5020921249944943124" name="color_swatch_description_selected">"<ns1:g id="COLOR_INDEX">%1$d</ns1:g> hautatu da"</string>
+</resources>

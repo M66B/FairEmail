@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -81,6 +82,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
+        View vwColor;
         ImageView ivAvatar;
         ImageView ivFlagged;
         TextView tvFrom;
@@ -100,6 +102,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             super(itemView);
 
             this.itemView = itemView;
+            vwColor = itemView.findViewById(R.id.vwColor);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             tvFrom = itemView.findViewById(R.id.tvFrom);
@@ -178,6 +181,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     }
                 });
             }
+
+            vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
 
             ivFlagged.setVisibility(message.ui_flagged ? View.VISIBLE : View.GONE);
 

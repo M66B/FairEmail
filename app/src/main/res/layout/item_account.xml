@@ -4,6 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/vwColor"
+        android:layout_width="6dp"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivPrimary"
         android:layout_width="24dp"
@@ -12,8 +27,8 @@
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_star_24"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/vwColor"
+        app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
     <TextView
         android:id="@+id/tvName"
@@ -25,10 +40,10 @@
         android:maxLines="1"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@+id/ivSync"
+        app:layout_constraintBottom_toBottomOf="@id/ivPrimary"
         app:layout_constraintEnd_toStartOf="@+id/ivSync"
-        app:layout_constraintStart_toEndOf="@+id/ivPrimary"
-        app:layout_constraintTop_toTopOf="@+id/ivSync" />
+        app:layout_constraintStart_toEndOf="@id/ivPrimary"
+        app:layout_constraintTop_toTopOf="@id/ivPrimary" />
 
     <ImageView
         android:id="@+id/ivSync"
@@ -37,7 +52,7 @@
         android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_sync_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
     <TextView
         android:id="@+id/tvUser"
@@ -58,7 +73,7 @@
         android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
         android:src="@drawable/baseline_cloud_off_24"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
     <TextView
@@ -86,16 +101,21 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toBottomOf="@id/tvHost" />
+
+    <View
+        android:id="@+id/marginBottom"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 
     <View
         android:id="@+id/vSeparator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginTop="6dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
+        app:layout_constraintTop_toBottomOf="@id/marginBottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

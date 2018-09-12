@@ -84,9 +84,9 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
     implementation "androidx.coordinatorlayout:coordinatorlayout:#androidx_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "com.google.android.material:material:$androidx_version"
     implementation "androidx.browser:browser:$androidx_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -104,4 +104,6 @@ dependencies {
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     implementation "net.freeutils:jcharset:$jcharset_version"
+
+    implementation project(path: ':colorpicker')
 }

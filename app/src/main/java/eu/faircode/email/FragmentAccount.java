@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,11 +50,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
@@ -94,6 +99,9 @@ public class FragmentAccount extends FragmentEx {
     private ImageButton ibPro;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private Button btnColor;
+    private View vwColor;
+    private ImageView ibColorDefault;
     private Button btnCheck;
     private ProgressBar pbCheck;
     private Spinner spDrafts;
@@ -111,6 +119,7 @@ public class FragmentAccount extends FragmentEx {
     private Group grpFolders;
 
     private long id = -1;
+    private int color = Color.TRANSPARENT;
     private String authorized = null;
 
     @Override
@@ -145,6 +154,10 @@ public class FragmentAccount extends FragmentEx {
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+
+        btnColor = view.findViewById(R.id.btnColor);
+        vwColor = view.findViewById(R.id.vwColor);
+        ibColorDefault = view.findViewById(R.id.ibColorDefault);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -262,6 +275,34 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 cbPrimary.setEnabled(checked);
+            }
+        });
+
+        vwColor.setBackgroundColor(color);
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+
+                ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                colorPickerDialog.initialize(
+                        R.string.title_account_color, colors, color, 4, colors.length);
+
+                colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                    @Override
+                    public void onColorSelected(int color) {
+                        setColor(color);
+                    }
+                });
+
+                colorPickerDialog.show(getFragmentManager(), "colorpicker");
+            }
+        });
+
+        ibColorDefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setColor(Color.TRANSPARENT);
             }
         });
 
@@ -491,6 +532,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("name", etName.getText().toString());
                 args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("primary", cbPrimary.isChecked());
+                args.putInt("color", color);
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
                 args.putParcelable("all", all);
@@ -509,6 +551,7 @@ public class FragmentAccount extends FragmentEx {
                         String signature = args.getString("signature");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
+                        int color = args.getInt("color");
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
                         EntityFolder all = args.getParcelable("all");
@@ -563,6 +606,7 @@ public class FragmentAccount extends FragmentEx {
                             account.auth_type = auth_type;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
+                            account.color = color;
                             account.store_sent = false;
                             account.poll_interval = 9;
 
@@ -779,6 +823,8 @@ public class FragmentAccount extends FragmentEx {
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
 
+                    color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
+
                     if (account == null)
                         new SimpleTask<Integer>() {
                             @Override
@@ -814,6 +860,7 @@ public class FragmentAccount extends FragmentEx {
                 }
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
+                setColor(color);
 
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
@@ -886,5 +933,14 @@ public class FragmentAccount extends FragmentEx {
                         break;
                     }
             }
+    }
+
+    private void setColor(int color) {
+        FragmentAccount.this.color = color;
+
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(color);
+        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
+        vwColor.setBackground(border);
     }
 }
