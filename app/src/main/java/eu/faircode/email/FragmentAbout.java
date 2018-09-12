@@ -31,7 +31,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -97,20 +103,10 @@ public class FragmentAbout extends FragmentEx {
                         sb.append(String.format("Id: %s\r\n", Build.ID));
                         sb.append("\r\n");
 
-                        // Get recent log
-                        long from = new Date().getTime() - 12 * 3600 * 1000L;
-                        DateFormat DF = SimpleDateFormat.getTimeInstance();
-                        DB db = DB.getInstance(context);
-                        for (EntityLog log : db.log().getLogs(from))
-                            sb.append(DF.format(log.time)).append(" ").append(log.data).append("\r\n");
-                        sb.append("\r\n");
-
-                        sb.append(Helper.getLogcat());
-
                         String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
 
                         EntityMessage draft;
-
+                        DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
@@ -133,6 +129,91 @@ public class FragmentAbout extends FragmentEx {
                             draft.ui_found = false;
                             draft.id = db.message().insertMessage(draft);
                             draft.write(context, body);
+
+                            // Attach recent log
+                            {
+                                EntityAttachment log = new EntityAttachment();
+                                log.message = draft.id;
+                                log.sequence = 1;
+                                log.name = "log.txt";
+                                log.type = "text/plain";
+                                log.size = null;
+                                log.progress = 0;
+                                log.id = db.attachment().insertAttachment(log);
+
+                                OutputStream os = null;
+                                File file = EntityAttachment.getFile(context, log.id);
+                                try {
+                                    os = new BufferedOutputStream(new FileOutputStream(file));
+
+                                    int size = 0;
+                                    long from = new Date().getTime() - 24 * 3600 * 1000L;
+                                    DateFormat DF = SimpleDateFormat.getTimeInstance();
+                                    for (EntityLog entry : db.log().getLogs(from)) {
+                                        String line = String.format("%s %s\r\n", DF.format(entry.time), entry.data);
+                                        byte[] bytes = line.getBytes();
+                                        os.write(bytes);
+                                        size += bytes.length;
+                                    }
+
+                                    log.size = size;
+                                    log.progress = null;
+                                    log.available = true;
+                                    db.attachment().updateAttachment(log);
+                                } finally {
+                                    if (os != null)
+                                        os.close();
+                                }
+                            }
+
+                            // Attach logcat
+                            {
+                                EntityAttachment logcat = new EntityAttachment();
+                                logcat.message = draft.id;
+                                logcat.sequence = 2;
+                                logcat.name = "logcat.txt";
+                                logcat.type = "text/plain";
+                                logcat.size = null;
+                                logcat.progress = 0;
+                                logcat.id = db.attachment().insertAttachment(logcat);
+
+                                Process proc = null;
+                                BufferedReader br = null;
+                                OutputStream os = null;
+                                File file = EntityAttachment.getFile(context, logcat.id);
+                                try {
+                                    os = new BufferedOutputStream(new FileOutputStream(file));
+
+                                    String[] cmd = new String[]{"logcat",
+                                            "-d",
+                                            "-v", "threadtime",
+                                            //"-t", "1000",
+                                            Helper.TAG + ":I"};
+                                    proc = Runtime.getRuntime().exec(cmd);
+                                    br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+                                    int size = 0;
+                                    String line;
+                                    while ((line = br.readLine()) != null) {
+                                        line += "\r\n";
+                                        byte[] bytes = line.getBytes();
+                                        os.write(bytes);
+                                        size += bytes.length;
+                                    }
+
+                                    logcat.size = size;
+                                    logcat.progress = null;
+                                    logcat.available = true;
+                                    db.attachment().updateAttachment(logcat);
+                                } finally {
+                                    if (os != null)
+                                        os.close();
+                                    if (br != null)
+                                        br.close();
+                                    if (proc != null)
+                                        proc.destroy();
+                                }
+                            }
 
                             EntityOperation.queue(db, draft, EntityOperation.ADD);
 

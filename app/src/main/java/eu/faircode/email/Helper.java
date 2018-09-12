@@ -37,13 +37,11 @@ import android.widget.Spinner;
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -124,41 +122,6 @@ public class Helper {
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
         return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
-    }
-
-    static StringBuilder getLogcat() {
-        StringBuilder sb = new StringBuilder();
-
-        Process proc = null;
-        BufferedReader br = null;
-        try {
-            String[] cmd = new String[]{"logcat",
-                    "-d",
-                    "-v", "threadtime",
-                    "-t", "1000",
-                    TAG + ":I"};
-            proc = Runtime.getRuntime().exec(cmd);
-            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            String line;
-            while ((line = br.readLine()) != null)
-                sb.append(line).append("\r\n");
-        } catch (IOException ex) {
-            Log.e(TAG, ex + "\n" + Log.getStackTraceString(ex));
-        } finally {
-            if (br != null)
-                try {
-                    br.close();
-                } catch (IOException ignored) {
-                }
-            if (proc != null)
-                try {
-                    proc.destroy();
-                } catch (Throwable ex) {
-                    Log.w(TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-        }
-
-        return sb;
     }
 
     static Address myAddress() throws UnsupportedEncodingException {
