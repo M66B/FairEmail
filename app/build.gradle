@@ -105,5 +105,6 @@ dependencies {
 
     implementation "net.freeutils:jcharset:$jcharset_version"
 
+    // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')
 }
