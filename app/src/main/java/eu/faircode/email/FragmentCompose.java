@@ -821,14 +821,14 @@ public class FragmentCompose extends FragmentEx {
                             text = text.replace("$name$", name == null ? "" : name);
                         }
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                        body = String.format("%s<br><br>%s %s:<br><br>%s",
+                        body = String.format("%s<br><br>%s %s:<br><br><blockquote>%s</blockquote>",
                                 text.replaceAll("\\r?\\n", "<br />"),
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
-                        body = String.format("<br><br>%s %s:<br><br>%s",
+                        body = String.format("<br><br>%s %s:<br><br><blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
