@@ -1549,6 +1549,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start");
+
             state = new ServiceState();
 
             main = new Thread(new Runnable() {
@@ -1556,9 +1557,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                 @Override
                 public void run() {
-                    DB db = DB.getInstance(ServiceSynchronize.this);
-
                     try {
+                        DB db = DB.getInstance(ServiceSynchronize.this);
+
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
                             EntityLog.log(ServiceSynchronize.this, "No outbox, halt");
@@ -1604,11 +1605,12 @@ public class ServiceSynchronize extends LifecycleService {
                             threads.add(t);
                         }
 
-                        EntityLog.log(ServiceSynchronize.this, "Main started " + main);
+                        EntityLog.log(ServiceSynchronize.this, "Main started");
 
                         synchronized (state) {
                             try {
-                                state.wait();
+                                if (state.running)
+                                    state.wait();
                             } catch (InterruptedException ex) {
                                 Log.w(Helper.TAG, "main wait " + ex.toString());
                             }
@@ -1638,7 +1640,8 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void stop() {
-            EntityLog.log(ServiceSynchronize.this, "Main stop " + main);
+            EntityLog.log(ServiceSynchronize.this, "Main stop");
+
             synchronized (state) {
                 state.running = false;
                 state.notifyAll();
@@ -1648,10 +1651,10 @@ public class ServiceSynchronize extends LifecycleService {
             main.interrupt();
             join(main);
 
+            EntityLog.log(ServiceSynchronize.this, "Main stopped");
+
             main = null;
             state = null;
-
-            EntityLog.log(ServiceSynchronize.this, "Main stopped " + main);
         }
 
         private void restart() {
