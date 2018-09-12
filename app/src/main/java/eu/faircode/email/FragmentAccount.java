@@ -767,6 +767,7 @@ public class FragmentAccount extends FragmentEx {
         outState.putString("authorized", authorized);
         outState.putString("password", tilPassword.getEditText().getText().toString());
         outState.putInt("advanced", grpAdvanced.getVisibility());
+        outState.putInt("color", color);
     }
 
     @Override
@@ -845,6 +846,7 @@ public class FragmentAccount extends FragmentEx {
                     authorized = savedInstanceState.getString("authorized");
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
+                    color = savedInstanceState.getInt("color");
                 }
 
                 Helper.setViewsEnabled(view, true);
