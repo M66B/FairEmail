@@ -564,15 +564,16 @@ public class FragmentMessages extends FragmentEx {
                 return true;
 
             case R.id.menu_sort_on_unread:
-                prefs.edit().putString("sort", "unread").apply();
-                item.setChecked(true);
-                loadMessages();
-                return true;
-
             case R.id.menu_sort_on_starred:
-                prefs.edit().putString("sort", "starred").apply();
-                item.setChecked(true);
-                loadMessages();
+                if (prefs.getBoolean("pro", false)) {
+                    prefs.edit().putString("sort", item.getItemId() == R.id.menu_sort_on_unread ? "unread" : "starred").apply();
+                    item.setChecked(true);
+                    loadMessages();
+                } else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
                 return true;
 
             case R.id.menu_folders:
