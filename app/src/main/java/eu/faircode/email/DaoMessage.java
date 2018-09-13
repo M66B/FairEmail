@@ -64,10 +64,10 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
-            " LEFT JOIN account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN folder f ON f.id = :folder" +
-            " WHERE (message.account IS NULL OR message.account = f.account)" +
+            " WHERE (message.account = f.account OR folder.type = '" + EntityFolder.OUTBOX + "')" +
             " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
@@ -82,7 +82,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
-            " LEFT JOIN account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE (NOT message.ui_hide OR :debug)" +
             " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
