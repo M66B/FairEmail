@@ -377,7 +377,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (newMessages) {
             newMessages = false;
             FragmentManager fm = getSupportFragmentManager();
-            fm.popBackStack("unified", 0);
+            fm.popBackStackImmediate("unified", 0);
             FragmentMessages fragment = (FragmentMessages) fm.findFragmentById(R.id.content_frame);
             fragment.onNewMessages();
         }
