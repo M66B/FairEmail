@@ -51,8 +51,12 @@ public interface DaoMessage {
             " AND (NOT message.ui_hide OR :debug)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(unified) > 0" +
-            " ORDER BY message.received DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean debug);
+            " ORDER BY CASE" +
+            "  WHEN 'unread' = :sort THEN NOT message.seen" +
+            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  ELSE 0" +
+            " END DESC, message.received DESC, message.sent DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(String sort, boolean debug);
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
@@ -72,8 +76,12 @@ public interface DaoMessage {
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " ORDER BY message.received DESC, message.sent DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean found, boolean debug);
+            " ORDER BY CASE" +
+            "  WHEN 'unread' = :sort THEN NOT message.seen" +
+            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  ELSE 0" +
+            " END DESC, message.received DESC, message.sent DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, String sort, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
@@ -87,8 +95,12 @@ public interface DaoMessage {
             " WHERE (NOT message.ui_hide OR :debug)" +
             " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
             " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
-            " ORDER BY message.received DESC, message.sent DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, boolean debug);
+            " ORDER BY CASE" +
+            "  WHEN 'unread' = :sort THEN NOT message.seen" +
+            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  ELSE 0" +
+            " END DESC, message.received DESC, message.sent DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, String sort, boolean debug);
 
     @Query("SELECT *" +
             " FROM message" +

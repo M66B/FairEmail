@@ -77,7 +77,7 @@
   <string name="title_account_name">Nazwa konta</string>
   <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
   <string name="title_account_signature">Tekst podpisu</string>
-  <string name="title_account_color">Color</string>
+  <string name="title_account_color">Kolor</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Dostawca</string>
@@ -178,6 +178,10 @@
   <string name="title_search">Szukaj</string>
   <string name="title_search_hint">Wyszukaj nadawcę/temat/tekst</string>
   <string name="title_searching">Szukam \'%1$s\'</string>
+  <string name="title_sort_on">Sort on</string>
+  <string name="title_sort_on_time">Time</string>
+  <string name="title_sort_on_unread">Unread</string>
+  <string name="title_sort_on_starred">Starred</string>
   <string name="title_answer_reply">Standardowa odpowiedź</string>
   <string name="title_answer_name">Nazwa odpowiedzi</string>
   <string name="title_answer_text">Tekst odpowiedzi</string>
@@ -202,14 +206,14 @@
   <string name="title_pro_feature">Jest to funkcja pro</string>
   <string name="title_pro_list">Lista funkcji pro</string>
   <string name="title_pro_purchase">Kup</string>
-  <string name="title_pro_hint">Kupno funkcje pro pozwoli Ci użyć wszystkie obecne i przyszłe funkcje pro i będzie utrzymywać i wspierać aplikację</string>
-  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
+  <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
+  <string name="title_pro_price">Po więcej informacji nt cen wejdź <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">w ten FAQ</a></string>
   <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
   <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
   <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
-  <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
+  <string name="title_pro_support">FairEmail potrzebuje Twojej pomocy. Dotknij, aby zakupić funkcje pro i utrzymać projekt.</string>
   <string name="title_log">Log</string>
   <string name="title_debug_info">Info debugowania</string>
   <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
-  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+  <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
 </resources>

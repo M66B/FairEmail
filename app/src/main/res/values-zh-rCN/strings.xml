@@ -166,6 +166,10 @@
   <string name="title_search">搜索</string>
   <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">搜索 “%1$s”</string>
+  <string name="title_sort_on">Sort on</string>
+  <string name="title_sort_on_time">Time</string>
+  <string name="title_sort_on_unread">Unread</string>
+  <string name="title_sort_on_starred">Starred</string>
   <string name="title_answer_reply">标准回复</string>
   <string name="title_answer_name">回复名称</string>
   <string name="title_answer_text">回复文本</string>

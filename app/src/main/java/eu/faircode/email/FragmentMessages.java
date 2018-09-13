@@ -80,6 +80,9 @@ public class FragmentMessages extends FragmentEx {
     private long primary = -1;
     private AdapterMessage adapter;
 
+    private AdapterMessage.ViewType viewType;
+    private LiveData<PagedList<TupleMessageEx>> messages = null;
+
     private SearchState searchState = SearchState.Reset;
     private BoundaryCallbackMessages searchCallback = null;
 
@@ -122,7 +125,6 @@ public class FragmentMessages extends FragmentEx {
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
 
-
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
@@ -148,7 +150,6 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
-        AdapterMessage.ViewType viewType;
         if (TextUtils.isEmpty(search))
             if (thread < 0)
                 if (folder < 0)
@@ -384,6 +385,7 @@ public class FragmentMessages extends FragmentEx {
 
         final DB db = DB.getInstance(getContext());
 
+        // Primary account
         db.account().livePrimaryAccount().observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             @Override
             public void onChanged(EntityAccount account) {
@@ -392,170 +394,55 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        LiveData<PagedList<TupleMessageEx>> messages;
+        // Folder
+        switch (viewType) {
+            case UNIFIED:
+                db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                    @Override
+                    public void onChanged(List<TupleFolderEx> folders) {
+                        int unseen = 0;
+                        if (folders != null)
+                            for (TupleFolderEx folder : folders)
+                                unseen += folder.unseen;
+                        String name = getString(R.string.title_folder_unified);
+                        if (unseen > 0)
+                            setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
+                        else
+                            setSubtitle(name);
+                    }
+                });
+                break;
 
-        // Observe folder/messages/search
-        if (TextUtils.isEmpty(search)) {
-            boolean debug = prefs.getBoolean("debug", false);
-            if (thread < 0)
-                if (folder < 0) {
-                    db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                        @Override
-                        public void onChanged(List<TupleFolderEx> folders) {
-                            int unseen = 0;
-                            if (folders != null)
-                                for (TupleFolderEx folder : folders)
-                                    unseen += folder.unseen;
-                            String name = getString(R.string.title_folder_unified);
-                            if (unseen > 0)
-                                setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
+            case FOLDER:
+                db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
+                    @Override
+                    public void onChanged(@Nullable TupleFolderEx folder) {
+                        if (folder == null)
+                            setSubtitle(null);
+                        else {
+                            String name = Helper.localizeFolderName(getContext(), folder.name);
+                            if (folder.unseen > 0)
+                                setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
                             else
                                 setSubtitle(name);
                         }
-                    });
+                    }
+                });
+                break;
 
-                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(debug), MESSAGES_PAGE_SIZE).build();
-                } else {
-                    db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
-                        @Override
-                        public void onChanged(@Nullable TupleFolderEx folder) {
-                            if (folder == null)
-                                setSubtitle(null);
-                            else {
-                                String name = Helper.localizeFolderName(getContext(), folder.name);
-                                if (folder.unseen > 0)
-                                    setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
-                                else
-                                    setSubtitle(name);
-                            }
-                        }
-                    });
-
-                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, false, debug), MESSAGES_PAGE_SIZE).build();
-                }
-            else {
+            case THREAD:
                 setSubtitle(R.string.title_folder_thread);
-                messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, debug), MESSAGES_PAGE_SIZE).build();
-            }
+                break;
 
-            messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-                @Override
-                public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                    if (messages == null) {
-                        finish();
-                        return;
-                    }
-
-                    Log.i(Helper.TAG, "Submit messages=" + messages.size());
-                    adapter.submitList(messages);
-
-                    pbWait.setVisibility(View.GONE);
-                    grpReady.setVisibility(View.VISIBLE);
-
-                    if (messages.size() == 0) {
-                        tvNoEmail.setVisibility(View.VISIBLE);
-                        rvMessage.setVisibility(View.GONE);
-                    } else {
-                        tvNoEmail.setVisibility(View.GONE);
-                        rvMessage.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
-        } else {
-            Log.i(Helper.TAG, "Search state=" + searchState);
-            setSubtitle(getString(R.string.title_searching, search));
-
-            if (searchCallback == null)
-                searchCallback = new BoundaryCallbackMessages(
-                        getContext(), FragmentMessages.this,
-                        folder, search,
-                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                            @Override
-                            public void onLoading() {
-                                pbWait.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            public void onLoaded() {
-                                pbWait.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onError(Context context, Throwable ex) {
-                                Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-            Bundle args = new Bundle();
-            args.putLong("folder", folder);
-            args.putString("search", search);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    if (searchState == SearchState.Reset) {
-                        long folder = args.getLong("folder");
-                        DB.getInstance(context).message().resetFound(folder);
-                        searchState = SearchState.Database;
-                        Log.i(Helper.TAG, "Search reset done");
-                    }
-                    return null;
-                }
-
-                @Override
-                protected void onLoaded(final Bundle args, Void data) {
-                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(db.message().pagedFolder(folder, true, false), SEARCH_PAGE_SIZE);
-                    builder.setBoundaryCallback(searchCallback);
-                    LiveData<PagedList<TupleMessageEx>> messages = builder.build();
-                    messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-                        @Override
-                        public void onChanged(PagedList<TupleMessageEx> messages) {
-                            Log.i(Helper.TAG, "Submit found messages=" + messages.size());
-                            adapter.submitList(messages);
-                            grpReady.setVisibility(View.VISIBLE);
-                        }
-                    });
-
-                    new SimpleTask<Long>() {
-                        @Override
-                        protected Long onLoad(Context context, Bundle args) throws Throwable {
-                            long last = 0;
-                            if (searchState == SearchState.Database) {
-                                last = new Date().getTime();
-                                long folder = args.getLong("folder");
-                                String search = args.getString("search").toLowerCase();
-                                DB db = DB.getInstance(context);
-                                for (long id : db.message().getMessageIDs(folder)) {
-                                    EntityMessage message = db.message().getMessage(id);
-                                    if (message != null) { // Message could be removed in the meantime
-                                        String from = MessageHelper.getFormattedAddresses(message.from, true);
-                                        if (from.toLowerCase().contains(search) ||
-                                                message.subject.toLowerCase().contains(search) ||
-                                                message.read(context).toLowerCase().contains(search)) {
-                                            Log.i(Helper.TAG, "Search found id=" + id);
-                                            db.message().setMessageFound(message.id, true);
-                                            last = message.received;
-                                        }
-                                    }
-                                }
-                                searchState = SearchState.Boundary;
-                                Log.i(Helper.TAG, "Search database done");
-                            }
-                            return last;
-                        }
-
-                        @Override
-                        protected void onLoaded(Bundle args, Long last) {
-                            pbWait.setVisibility(View.GONE);
-                            searchCallback.setEnabled(true);
-                            if (last > 0)
-                                searchCallback.load(last);
-                        }
-                    }.load(FragmentMessages.this, args);
-                }
-            }.load(this, args);
+            case SEARCH:
+                setSubtitle(getString(R.string.title_searching, search));
+                break;
         }
 
+        // Messages
+        loadMessages();
+
+        // Compose FAB
         Bundle args = new Bundle();
         args.putLong("folder", folder);
         args.putLong("thread", thread);
@@ -650,16 +537,49 @@ public class FragmentMessages extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_search).setVisible(folder >= 0 && search == null);
+        menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String sort = prefs.getString("sort", "time");
+        if ("time".equals(sort))
+            menu.findItem(R.id.menu_sort_on_time).setChecked(true);
+        else if ("unread".equals(sort))
+            menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
+        else if ("starred".equals(sort))
+            menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
+
         super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         switch (item.getItemId()) {
+            case R.id.menu_sort_on_time:
+                prefs.edit().putString("sort", "time").apply();
+                item.setChecked(true);
+                loadMessages();
+                return true;
+
+            case R.id.menu_sort_on_unread:
+                prefs.edit().putString("sort", "unread").apply();
+                item.setChecked(true);
+                loadMessages();
+                return true;
+
+            case R.id.menu_sort_on_starred:
+                prefs.edit().putString("sort", "starred").apply();
+                item.setChecked(true);
+                loadMessages();
+                return true;
+
             case R.id.menu_folders:
                 onMenuFolders();
+                loadMessages();
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -677,6 +597,148 @@ public class FragmentMessages extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void loadMessages() {
+        final DB db = DB.getInstance(getContext());
+
+        // Observe folder/messages/search
+        if (TextUtils.isEmpty(search)) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String sort = prefs.getString("sort", "time");
+            boolean debug = prefs.getBoolean("debug", false);
+
+            if (messages != null)
+                messages.removeObservers(getViewLifecycleOwner());
+
+            switch (viewType) {
+                case UNIFIED:
+                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(sort, debug), MESSAGES_PAGE_SIZE).build();
+                    break;
+                case FOLDER:
+                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, sort, false, debug), MESSAGES_PAGE_SIZE).build();
+                    break;
+                case THREAD:
+                    messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, sort, debug), MESSAGES_PAGE_SIZE).build();
+                    break;
+            }
+
+            messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+                @Override
+                public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                    if (messages == null) {
+                        finish();
+                        return;
+                    }
+
+                    Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                    adapter.submitList(messages);
+
+                    pbWait.setVisibility(View.GONE);
+                    grpReady.setVisibility(View.VISIBLE);
+
+                    if (messages.size() == 0) {
+                        tvNoEmail.setVisibility(View.VISIBLE);
+                        rvMessage.setVisibility(View.GONE);
+                    } else {
+                        tvNoEmail.setVisibility(View.GONE);
+                        rvMessage.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+        } else {
+            Log.i(Helper.TAG, "Search state=" + searchState);
+
+            if (searchCallback == null)
+                searchCallback = new BoundaryCallbackMessages(
+                        getContext(), FragmentMessages.this,
+                        folder, search,
+                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                            @Override
+                            public void onLoading() {
+                                pbWait.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            public void onLoaded() {
+                                pbWait.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onError(Context context, Throwable ex) {
+                                Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("search", search);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) {
+                    if (searchState == SearchState.Reset) {
+                        long folder = args.getLong("folder");
+                        DB.getInstance(context).message().resetFound(folder);
+                        searchState = SearchState.Database;
+                        Log.i(Helper.TAG, "Search reset done");
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onLoaded(final Bundle args, Void data) {
+                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(db.message().pagedFolder(folder, "time", true, false), SEARCH_PAGE_SIZE);
+                    builder.setBoundaryCallback(searchCallback);
+                    LiveData<PagedList<TupleMessageEx>> messages = builder.build();
+                    messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+                        @Override
+                        public void onChanged(PagedList<TupleMessageEx> messages) {
+                            Log.i(Helper.TAG, "Submit found messages=" + messages.size());
+                            adapter.submitList(messages);
+                            grpReady.setVisibility(View.VISIBLE);
+                        }
+                    });
+
+                    new SimpleTask<Long>() {
+                        @Override
+                        protected Long onLoad(Context context, Bundle args) throws Throwable {
+                            long last = 0;
+                            if (searchState == SearchState.Database) {
+                                last = new Date().getTime();
+                                long folder = args.getLong("folder");
+                                String search = args.getString("search").toLowerCase();
+                                DB db = DB.getInstance(context);
+                                for (long id : db.message().getMessageIDs(folder)) {
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message != null) { // Message could be removed in the meantime
+                                        String from = MessageHelper.getFormattedAddresses(message.from, true);
+                                        if (from.toLowerCase().contains(search) ||
+                                                message.subject.toLowerCase().contains(search) ||
+                                                message.read(context).toLowerCase().contains(search)) {
+                                            Log.i(Helper.TAG, "Search found id=" + id);
+                                            db.message().setMessageFound(message.id, true);
+                                            last = message.received;
+                                        }
+                                    }
+                                }
+                                searchState = SearchState.Boundary;
+                                Log.i(Helper.TAG, "Search database done");
+                            }
+                            return last;
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Long last) {
+                            pbWait.setVisibility(View.GONE);
+                            searchCallback.setEnabled(true);
+                            if (last > 0)
+                                searchCallback.load(last);
+                        }
+                    }.load(FragmentMessages.this, args);
+                }
+            }.load(this, args);
+        }
     }
 
     void onNewMessages() {

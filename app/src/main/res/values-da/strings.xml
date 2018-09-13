@@ -170,6 +170,10 @@
   <string name="title_search">Søg</string>
   <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Søger \'%1$s \'</string>
+  <string name="title_sort_on">Sort on</string>
+  <string name="title_sort_on_time">Time</string>
+  <string name="title_sort_on_unread">Unread</string>
+  <string name="title_sort_on_starred">Starred</string>
   <string name="title_answer_reply">Standard svar</string>
   <string name="title_answer_name">Svarnavn</string>
   <string name="title_answer_text">Svartekst</string>

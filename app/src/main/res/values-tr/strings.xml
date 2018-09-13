@@ -170,6 +170,10 @@
   <string name="title_search">Ara</string>
   <string name="title_search_hint">Gönderen/konu/metin ara</string>
   <string name="title_searching">\'%1$s\' aranıyor</string>
+  <string name="title_sort_on">Sort on</string>
+  <string name="title_sort_on_time">Time</string>
+  <string name="title_sort_on_unread">Unread</string>
+  <string name="title_sort_on_starred">Starred</string>
   <string name="title_answer_reply">Standart yanıt</string>
   <string name="title_answer_name">Yanıt adı</string>
   <string name="title_answer_text">Yanıt metni</string>

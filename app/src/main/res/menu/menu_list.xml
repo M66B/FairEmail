@@ -10,6 +10,26 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
+        android:id="@+id/menu_sort_on"
+        android:icon="@drawable/baseline_sort_24"
+        android:title="@string/title_sort_on"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_sort_on_time"
+                    android:title="@string/title_sort_on_time" />
+                <item
+                    android:id="@+id/menu_sort_on_unread"
+                    android:title="@string/title_sort_on_unread" />
+                <item
+                    android:id="@+id/menu_sort_on_starred"
+                    android:title="@string/title_sort_on_starred" />
+            </group>
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_folders"
         android:icon="@drawable/baseline_folder_24"
         android:title="@string/title_folder_primary"

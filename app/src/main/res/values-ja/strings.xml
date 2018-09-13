@@ -166,6 +166,10 @@
   <string name="title_search">Search</string>
   <string name="title_search_hint">Search sender/subject/text</string>
   <string name="title_searching">Searching \'%1$s\'</string>
+  <string name="title_sort_on">Sort on</string>
+  <string name="title_sort_on_time">Time</string>
+  <string name="title_sort_on_unread">Unread</string>
+  <string name="title_sort_on_starred">Starred</string>
   <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Answer name</string>
   <string name="title_answer_text">Answer text</string>
