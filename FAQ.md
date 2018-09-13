@@ -160,6 +160,34 @@ The option *Store sent messages* should be enabled only
 when the email server does not store sent messages in the sent folder (it should)
 or when an SMTP server not related to the account is being used.
 
+<a name="FAQ19"></a>
+**(19) Why are the pro features so expensive?**
+
+The right question is "*why are there so many taxes and fees?*":
+
+* VAT: 25% (depending on your country)
+* Google fee: 30%
+* Income tax: 50%
+
+So, what is left for the developer is just a fraction of what you pay.
+
+Note that only some convenience and advanced features need to be purchased, which means that FairEmail is basically free to use.
+
+Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
+and that free apps may have a catch, like sending privacy sensitive information to the internet.
+
+<a name="FAQ20"></a>
+**(20) Can I get a refund?**
+
+If a purchased pro feature doesn't work as intended
+and this isn't caused by a problem in the free features
+and I cannot fix the problem in a timely manner, you can get a refund.
+In all other cases there is no refund possible.
+In no circumstances there is a refund possible for any problem related to the free features,
+since there wasn't paid anything for them and because they can be evaluated without any limitation.
+I take my responsibility as seller to deliver what has been promised
+and I expect that you take responsibility for informing yourself of what you are buying.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
