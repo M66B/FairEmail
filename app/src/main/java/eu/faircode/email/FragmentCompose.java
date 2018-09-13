@@ -611,7 +611,7 @@ public class FragmentCompose extends FragmentEx {
         actionLoader.load(this, args);
     }
 
-    private EntityAttachment addAttachment(Context context, long id, Uri uri, boolean image) throws IOException {
+    private static EntityAttachment addAttachment(Context context, long id, Uri uri, boolean image) throws IOException {
         EntityAttachment attachment = new EntityAttachment();
 
         String name = null;
@@ -1195,11 +1195,13 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public Drawable getDrawable(String source) {
             if (source != null && source.startsWith("cid")) {
-                String cid = source.split(":")[1];
-                File file = EntityAttachment.getFile(getContext(), Long.parseLong(cid));
-                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                return d;
+                String[] cid = source.split(":");
+                if (cid.length > 1) {
+                    File file = EntityAttachment.getFile(getContext(), Long.parseLong(cid[1]));
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                    return d;
+                }
             }
 
             float scale = getContext().getResources().getDisplayMetrics().density;
