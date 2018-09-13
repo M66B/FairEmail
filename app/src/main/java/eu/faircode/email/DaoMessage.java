@@ -66,8 +66,9 @@ public interface DaoMessage {
             " FROM message" +
             " LEFT JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
-            " LEFT JOIN folder f ON f.id = :folder" +
-            " WHERE (NOT message.ui_hide OR :debug)" +
+            " JOIN folder f ON f.id = :folder" +
+            " WHERE (message.account IS NULL OR message.account = f.account)" +
+            " AND (NOT message.ui_hide OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
