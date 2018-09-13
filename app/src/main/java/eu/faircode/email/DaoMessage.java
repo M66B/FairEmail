@@ -78,7 +78,7 @@ public interface DaoMessage {
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name as folderName, folder.type as folderType" +
             ", 1 AS count" +
-            ", SUM(CASE WHEN message.ui_seen THEN 0 ELSE 1 END) as unseen" +
+            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " LEFT JOIN account ON account.id = message.account" +
