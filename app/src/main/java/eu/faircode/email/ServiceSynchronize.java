@@ -974,7 +974,7 @@ public class ServiceSynchronize extends LifecycleService {
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        MimeMessage imessage = MessageHelper.from(this, message, attachments, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, null, attachments, isession);
         AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
         db.message().setMessageUid(message.id, uid[0].uid);
         Log.i(Helper.TAG, "Appended uid=" + uid[0].uid);
@@ -1014,7 +1014,7 @@ public class ServiceSynchronize extends LifecycleService {
                 ifolder.expunge();
             }
 
-            MimeMessageEx icopy = MessageHelper.from(this, message, attachments, isession);
+            MimeMessageEx icopy = MessageHelper.from(this, message, null, attachments, isession);
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
@@ -1054,10 +1054,7 @@ public class ServiceSynchronize extends LifecycleService {
         MimeMessage imessage;
         EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        if (reply == null)
-            imessage = MessageHelper.from(this, message, attachments, isession);
-        else
-            imessage = MessageHelper.from(this, message, reply, attachments, isession);
+        imessage = MessageHelper.from(this, message, reply, attachments, isession);
 
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
@@ -1385,7 +1382,10 @@ public class ServiceSynchronize extends LifecycleService {
                 if (message == null) {
                     // Will fetch headers within database transaction
                     String msgid = helper.getMessageID();
-                    for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
+                    String[] refs = helper.getReferences();
+                    String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
+                    Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
+                    for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
                         EntityFolder dfolder = db.folder().getFolder(dup.folder);
                         boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
                         Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +

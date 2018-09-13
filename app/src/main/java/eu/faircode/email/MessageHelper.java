@@ -136,8 +136,15 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
+    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
+
+        if (reply == null)
+            imessage.addHeader("References", message.msgid);
+        else {
+            imessage.addHeader("In-Reply-To", reply.msgid);
+            imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
+        }
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
 
@@ -195,13 +202,6 @@ public class MessageHelper {
 
         imessage.setSentDate(new Date());
 
-        return imessage;
-    }
-
-    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
-        MimeMessageEx imessage = from(context, message, attachments, isession);
-        imessage.addHeader("In-Reply-To", reply.msgid);
-        imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
         return imessage;
     }
 
