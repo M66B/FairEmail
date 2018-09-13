@@ -191,6 +191,7 @@
   <string name="title_pro_list">专业版功能列表</string>
   <string name="title_pro_purchase">购买</string>
   <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
+  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
   <string name="title_pro_activated">专业版功能已激活</string>
   <string name="title_pro_valid">专业版功能已激活</string>
   <string name="title_pro_invalid">无效的响应</string>

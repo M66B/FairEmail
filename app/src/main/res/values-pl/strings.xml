@@ -203,6 +203,7 @@
   <string name="title_pro_list">Lista funkcji pro</string>
   <string name="title_pro_purchase">Kup</string>
   <string name="title_pro_hint">Kupno funkcje pro pozwoli Ci użyć wszystkie obecne i przyszłe funkcje pro i będzie utrzymywać i wspierać aplikację</string>
+  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
   <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
   <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
   <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>

@@ -195,6 +195,7 @@
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>
   <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera l\'utilisation de toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette appli</string>
+  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
   <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
   <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
   <string name="title_pro_invalid">Réponse non valide</string>

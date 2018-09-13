@@ -199,6 +199,7 @@
   <string name="title_pro_list">Lista de caracteristici Pro</string>
   <string name="title_pro_purchase">Cumpără</string>
   <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
+  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
   <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
   <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
   <string name="title_pro_invalid">Răspunsul nu este valid</string>

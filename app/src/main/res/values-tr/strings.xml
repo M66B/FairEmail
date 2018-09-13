@@ -195,6 +195,7 @@
   <string name="title_pro_list">Pro özelliklerin listesi</string>
   <string name="title_pro_purchase">Satın al</string>
   <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
+  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
   <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
   <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
   <string name="title_pro_invalid">Geçersiz yanıt</string>
