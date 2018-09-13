@@ -46,9 +46,20 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivContactAdd"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivContactAdd"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/baseline_import_contacts_24"
+        app:layout_constraintBottom_toBottomOf="@id/spFrom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -390,7 +401,7 @@
         android:id="@+id/grpHeader"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="ivFlagged,ivAvatar,tvFrom,tvToTitle,tvTo,tvSize,tvTime,tvSubject" />
+        app:constraint_referenced_ids="ivFlagged,ivAvatar,tvFrom,ivContactAdd,tvToTitle,tvTo,tvSize,tvTime,tvSubject" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpThread"

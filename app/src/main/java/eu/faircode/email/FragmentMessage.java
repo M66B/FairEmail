@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -79,6 +80,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -98,6 +102,7 @@ public class FragmentMessage extends FragmentEx {
     private ImageView ivFlagged;
     private ImageView ivAvatar;
     private TextView tvFrom;
+    private ImageView ivContactAdd;
     private TextView tvTime;
     private TextView tvCount;
     private TextView tvTo;
@@ -158,6 +163,7 @@ public class FragmentMessage extends FragmentEx {
         ivFlagged = view.findViewById(R.id.ivFlagged);
         ivAvatar = view.findViewById(R.id.ivAvatar);
         tvFrom = view.findViewById(R.id.tvFrom);
+        ivContactAdd = view.findViewById(R.id.ivContactAdd);
         tvTime = view.findViewById(R.id.tvTime);
         tvCount = view.findViewById(R.id.tvCount);
         tvTo = view.findViewById(R.id.tvTo);
@@ -210,6 +216,56 @@ public class FragmentMessage extends FragmentEx {
                         return null;
                     }
                 }.load(FragmentMessage.this, args);
+            }
+        });
+
+        ivContactAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (Address address : message.from) {
+                    InternetAddress ia = (InternetAddress) address;
+                    String name = ia.getPersonal();
+                    String email = ia.getAddress();
+
+                    // https://developer.android.com/training/contacts-provider/modify-data
+                    Intent edit = new Intent();
+                    if (!TextUtils.isEmpty(name))
+                        edit.putExtra(ContactsContract.Intents.Insert.NAME, name);
+                    if (!TextUtils.isEmpty(email))
+                        edit.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
+
+                    Cursor cursor = null;
+                    try {
+                        ContentResolver resolver = getContext().getContentResolver();
+                        cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                new String[]{
+                                        ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                        ContactsContract.Contacts.LOOKUP_KEY
+                                },
+                                ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                new String[]{email}, null);
+                        if (cursor.moveToNext()) {
+                            int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                            int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+
+                            long contactId = cursor.getLong(colContactId);
+                            String lookupKey = cursor.getString(colLookupKey);
+
+                            Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+
+                            edit.setAction(Intent.ACTION_EDIT);
+                            edit.setDataAndType(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
+                        } else {
+                            edit.setAction(Intent.ACTION_INSERT);
+                            edit.setType(ContactsContract.Contacts.CONTENT_TYPE);
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
+                    }
+
+                    startActivity(edit);
+                }
             }
         });
 
@@ -444,6 +500,13 @@ public class FragmentMessage extends FragmentEx {
             ContentResolver resolver = getContext().getContentResolver();
             InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
             ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+        }
+
+        if (message.from == null) {
+            ViewGroup.LayoutParams lp = ivContactAdd.getLayoutParams();
+            lp.height = 0;
+            lp.width = 0;
+            ivContactAdd.setLayoutParams(lp);
         }
 
         pbWait.setVisibility(View.GONE);
