@@ -868,10 +868,10 @@ public class ServiceSynchronize extends LifecycleService {
                                 " args=" + op.args);
 
                         EntityMessage message = db.message().getMessage(op.message);
-                        if (message == null)
-                            throw new MessageRemovedException();
-
                         try {
+                            if (message == null)
+                                throw new MessageRemovedException();
+
                             db.message().setMessageError(message.id, null);
 
                             if (message.uid == null &&
