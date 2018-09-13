@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,6 +38,7 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
@@ -399,6 +401,7 @@ public class FragmentCompose extends FragmentEx {
         menu.findItem(R.id.menu_bold).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_italic).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_link).setVisible(free && working >= 0);
+        menu.findItem(R.id.menu_image).setVisible(free && working >= 0);
         menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
@@ -411,6 +414,9 @@ public class FragmentCompose extends FragmentEx {
             case R.id.menu_italic:
             case R.id.menu_link:
                 onMenuStyle(item.getItemId());
+                return true;
+            case R.id.menu_image:
+                onMenuImage();
                 return true;
             case R.id.menu_attachment:
                 onMenuAttachment();
@@ -460,6 +466,13 @@ public class FragmentCompose extends FragmentEx {
         }
     }
 
+    private void onMenuImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(intent, ActivityCompose.REQUEST_IMAGE);
+    }
+
     private void onMenuAttachment() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -475,9 +488,12 @@ public class FragmentCompose extends FragmentEx {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i(Helper.TAG, "Compose onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
+            if (requestCode == ActivityCompose.REQUEST_IMAGE) {
                 if (data != null)
-                    handleAddAttachment(data);
+                    handleAddAttachment(data, true);
+            } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
+                if (data != null)
+                    handleAddAttachment(data, false);
             } else {
                 if (data != null)
                     handlePickContact(requestCode, data);
@@ -532,7 +548,7 @@ public class FragmentCompose extends FragmentEx {
         }
     }
 
-    private void handleAddAttachment(Intent data) {
+    private void handleAddAttachment(Intent data, final boolean image) {
         Uri uri = data.getData();
         if (uri == null)
             return;
@@ -541,13 +557,31 @@ public class FragmentCompose extends FragmentEx {
         args.putLong("id", working);
         args.putParcelable("uri", data.getData());
 
-        new SimpleTask<Void>() {
+        new SimpleTask<EntityAttachment>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws IOException {
+            protected EntityAttachment onLoad(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
-                addAttachment(context, id, uri);
-                return null;
+                return addAttachment(context, id, uri, image);
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, EntityAttachment attachment) {
+                if (image) {
+                    File file = EntityAttachment.getFile(getContext(), attachment.id);
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+                    int start = etBody.getSelectionStart();
+                    etBody.getText().insert(start, " ");
+                    SpannableString s = new SpannableString(etBody.getText());
+                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + attachment.id), ImageSpan.ALIGN_BASELINE);
+                    s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    String html = Html.toHtml(s);
+                    Log.i(Helper.TAG, "html=" + html);
+
+                    etBody.setText(Html.fromHtml(html, cidGetter, null));
+                }
             }
 
             @Override
@@ -577,7 +611,7 @@ public class FragmentCompose extends FragmentEx {
         actionLoader.load(this, args);
     }
 
-    private void addAttachment(Context context, long id, Uri uri) throws IOException {
+    private EntityAttachment addAttachment(Context context, long id, Uri uri, boolean image) throws IOException {
         EntityAttachment attachment = new EntityAttachment();
 
         String name = null;
@@ -646,6 +680,9 @@ public class FragmentCompose extends FragmentEx {
                         db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
                 }
 
+                if (image)
+                    attachment.cid = "<" + attachment.id + ">";
+
                 attachment.size = size;
                 attachment.progress = null;
                 attachment.available = true;
@@ -665,6 +702,8 @@ public class FragmentCompose extends FragmentEx {
             db.attachment().updateAttachment(attachment);
             throw ex;
         }
+
+        return attachment;
     }
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
@@ -852,7 +891,7 @@ public class FragmentCompose extends FragmentEx {
                 ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
                 if (uris != null)
                     for (Uri uri : uris)
-                        addAttachment(context, draft.id, uri);
+                        addAttachment(context, draft.id, uri, false);
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
@@ -886,9 +925,10 @@ public class FragmentCompose extends FragmentEx {
 
             new SimpleTask<Spanned>() {
                 @Override
-                protected Spanned onLoad(Context context, Bundle args) throws Throwable {
-                    String body = EntityMessage.read(context, args.getLong("id"));
-                    return Html.fromHtml(body);
+                protected Spanned onLoad(final Context context, Bundle args) throws Throwable {
+                    final long id = args.getLong("id");
+                    String body = EntityMessage.read(context, id);
+                    return Html.fromHtml(body, cidGetter, null);
                 }
 
                 @Override
@@ -1148,6 +1188,25 @@ public class FragmentCompose extends FragmentEx {
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+        }
+    };
+
+    private Html.ImageGetter cidGetter = new Html.ImageGetter() {
+        @Override
+        public Drawable getDrawable(String source) {
+            if (source != null && source.startsWith("cid")) {
+                String cid = source.split(":")[1];
+                File file = EntityAttachment.getFile(getContext(), Long.parseLong(cid));
+                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                return d;
+            }
+
+            float scale = getContext().getResources().getDisplayMetrics().density;
+            int px = (int) (24 * scale + 0.5f);
+            Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_warning_24, getContext().getTheme());
+            d.setBounds(0, 0, px, px);
+            return d;
         }
     };
 

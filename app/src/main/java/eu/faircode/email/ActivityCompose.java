@@ -35,7 +35,8 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     static final int REQUEST_CONTACT_TO = 1;
     static final int REQUEST_CONTACT_CC = 2;
     static final int REQUEST_CONTACT_BCC = 3;
-    static final int REQUEST_ATTACHMENT = 4;
+    static final int REQUEST_IMAGE = 4;
+    static final int REQUEST_ATTACHMENT = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

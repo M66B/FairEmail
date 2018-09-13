@@ -21,6 +21,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_image"
+        android:icon="@drawable/baseline_image_24"
+        android:title="@string/title_style_image"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_attachment"
         android:icon="@drawable/baseline_attachment_24"
         android:title="@string/title_add_attachment"
