@@ -294,6 +294,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setSmallIcon(R.drawable.baseline_mail_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
                 .setContentIntent(pi)
+                .setAutoCancel(true)
                 .setSound(uri)
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_DEFAULT)
