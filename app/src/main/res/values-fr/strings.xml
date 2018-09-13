@@ -170,10 +170,10 @@
   <string name="title_search">Rechercher</string>
   <string name="title_search_hint">Rechercher expéditeur / objet / texte</string>
   <string name="title_searching">Recherche de \'%1$s\'</string>
-  <string name="title_sort_on">Sort on</string>
-  <string name="title_sort_on_time">Time</string>
-  <string name="title_sort_on_unread">Unread</string>
-  <string name="title_sort_on_starred">Starred</string>
+  <string name="title_sort_on">Trier par</string>
+  <string name="title_sort_on_time">Date</string>
+  <string name="title_sort_on_unread">Non lu(s)</string>
+  <string name="title_sort_on_starred">Suivis</string>
   <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>
@@ -190,6 +190,7 @@
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_folder_actions">Appui long pour les options</string>
   <string name="title_hint_message_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu ou pour suivre/ne plus suivre</string>
+  <string name="title_open_link">Ouvrir le lien</string>
   <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
   <string name="title_issue">Avez-vous une question ou un problème ?</string>
   <string name="title_yes">Oui</string>
@@ -199,7 +200,7 @@
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>
   <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera l\'utilisation de toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette appli</string>
-  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
+  <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">cette FAQ</a> sur le prix des fonctionnalités Pro</string>
   <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
   <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
   <string name="title_pro_invalid">Réponse non valide</string>

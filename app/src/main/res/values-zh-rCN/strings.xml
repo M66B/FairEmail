@@ -186,6 +186,7 @@
   <string name="title_legend_closing">正在结束</string>
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
+  <string name="title_open_link">Open link</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>
   <string name="title_yes">Yes</string>

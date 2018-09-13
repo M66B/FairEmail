@@ -198,6 +198,7 @@
   <string name="title_legend_closing">Zamykanie</string>
   <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
   <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane lub dodać/usunąć gwiazdkę</string>
+  <string name="title_open_link">Open link</string>
   <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
   <string name="title_issue">Masz pytanie lub problem?</string>
   <string name="title_yes">Tak</string>

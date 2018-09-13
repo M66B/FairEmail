@@ -194,6 +194,7 @@
   <string name="title_legend_closing">Închidere</string>
   <string name="title_hint_folder_actions">Apasă lung pentru acțiuni</string>
   <string name="title_hint_message_actions">Glisare la stânga pentru gunoi; glisare la dreapta pentru arhivare (dacă este disponibilă); atingeți lung pentru a marca citit/necitit sau a marca</string>
+  <string name="title_open_link">Open link</string>
   <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
   <string name="title_issue">Aveți o întrebare sau problemă?</string>
   <string name="title_yes">Da</string>
