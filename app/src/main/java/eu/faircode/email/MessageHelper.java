@@ -415,10 +415,13 @@ public class MessageHelper {
 
             if (Part.ATTACHMENT.equalsIgnoreCase(disposition) || !TextUtils.isEmpty(filename)) {
                 ContentType ct = new ContentType(part.getContentType());
+                String[] cid = part.getHeader("Content-ID");
+
                 EntityAttachment attachment = new EntityAttachment();
                 attachment.name = filename;
                 attachment.type = ct.getBaseType();
                 attachment.size = part.getSize();
+                attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
                 attachment.part = part;
 
                 // Try to guess a better content type

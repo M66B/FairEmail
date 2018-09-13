@@ -41,7 +41,8 @@ import static androidx.room.ForeignKey.CASCADE;
         },
         indices = {
                 @Index(value = {"message"}),
-                @Index(value = {"message", "sequence"}, unique = true)
+                @Index(value = {"message", "sequence"}, unique = true),
+                @Index(value = {"message", "cid"}, unique = true)
         }
 )
 public class EntityAttachment {
@@ -56,7 +57,9 @@ public class EntityAttachment {
     public String name;
     @NonNull
     public String type;
+    public String cid; // Content-ID
     public Integer size;
+
     public Integer progress;
     @NonNull
     public Boolean available = false;

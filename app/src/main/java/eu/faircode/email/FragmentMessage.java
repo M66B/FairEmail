@@ -135,6 +135,7 @@ public class FragmentMessage extends FragmentEx {
     private TupleMessageEx message = null;
     private boolean free = false;
     private boolean addresses = false;
+    private boolean show_images = false;
     private boolean headers = false;
     private AdapterAttachment adapter;
 
@@ -443,6 +444,7 @@ public class FragmentMessage extends FragmentEx {
         outState.putBoolean("free", free);
         outState.putBoolean("headers", headers);
         outState.putBoolean("addresses", addresses);
+        outState.putBoolean("show_images", show_images);
     }
 
     @Override
@@ -470,13 +472,14 @@ public class FragmentMessage extends FragmentEx {
             free = savedInstanceState.getBoolean("free");
             headers = savedInstanceState.getBoolean("headers");
             addresses = savedInstanceState.getBoolean("addresses");
+            show_images = savedInstanceState.getBoolean("show_images");
         }
 
         if (tvBody.getTag() == null) {
             // Spanned text needs to be loaded after recreation too
             final Bundle args = new Bundle();
             args.putLong("id", message.id);
-            args.putBoolean("show_images", false);
+            args.putBoolean("show_images", show_images);
 
             pbBody.setVisibility(View.VISIBLE);
 
@@ -486,7 +489,8 @@ public class FragmentMessage extends FragmentEx {
                 @Override
                 public void onClick(View v) {
                     v.setEnabled(false);
-                    args.putBoolean("show_images", true);
+                    show_images = true;
+                    args.putBoolean("show_images", show_images);
                     bodyTask.load(FragmentMessage.this, args);
                 }
             });
@@ -606,6 +610,14 @@ public class FragmentMessage extends FragmentEx {
 
                         adapter.set(attachments);
                         grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", message.id);
+                        args.putBoolean("show_images", show_images);
+
+                        pbBody.setVisibility(View.VISIBLE);
+
+                        bodyTask.load(FragmentMessage.this, args);
                     }
                 });
 
@@ -1152,6 +1164,21 @@ public class FragmentMessage extends FragmentEx {
             public Drawable getDrawable(String source) {
                 float scale = context.getResources().getDisplayMetrics().density;
                 int px = (int) (24 * scale + 0.5f);
+
+                if (source != null && source.startsWith("cid")) {
+                    String cid = "<" + source.split(":")[1] + ">";
+                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                    if (attachment == null || !attachment.available) {
+                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    } else {
+                        File file = EntityAttachment.getFile(context, attachment.id);
+                        Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                        return d;
+                    }
+                }
 
                 if (show_images) {
                     // Get cache folder
