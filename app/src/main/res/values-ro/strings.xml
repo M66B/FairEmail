@@ -160,11 +160,12 @@
   <string name="title_save">Salvează</string>
   <string name="title_send">Trimite</string>
   <string name="title_clipboard_empty">Clipboardul este gol</string>
-  <string name="title_style_link">Inserare legătură</string>
   <string name="title_style_bold">Îngroșat</string>
   <string name="title_style_italic">Cursiv</string>
-  <string name="title_show_addresses">Arată CC/BCC</string>
+  <string name="title_style_link">Inserare legătură</string>
+  <string name="title_style_image">Insert image</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
+  <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>

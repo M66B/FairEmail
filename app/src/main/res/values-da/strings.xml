@@ -156,11 +156,12 @@
   <string name="title_save">Gem</string>
   <string name="title_send">Send</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
-  <string name="title_style_link">Insert link</string>
   <string name="title_style_bold">Bold</string>
   <string name="title_style_italic">Italic</string>
-  <string name="title_show_addresses">Vis CC/BCC</string>
+  <string name="title_style_link">Insert link</string>
+  <string name="title_style_image">Insert image</string>
   <string name="title_add_attachment">Vedhæft fil</string>
+  <string name="title_show_addresses">Vis CC/BCC</string>
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>

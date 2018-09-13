@@ -156,11 +156,12 @@
   <string name="title_save">Kaydet</string>
   <string name="title_send">Gönder</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
-  <string name="title_style_link">Insert link</string>
   <string name="title_style_bold">Bold</string>
   <string name="title_style_italic">Italic</string>
-  <string name="title_show_addresses">CC/BCC göster</string>
+  <string name="title_style_link">Insert link</string>
+  <string name="title_style_image">Insert image</string>
   <string name="title_add_attachment">Ek ekle</string>
+  <string name="title_show_addresses">CC/BCC göster</string>
   <string name="title_from_missing">Gönderici Eksik</string>
   <string name="title_to_missing">Alıcı eksik</string>
   <string name="title_attachments_missing">Ekler hala yükleniyor</string>
