@@ -637,8 +637,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (faq.resolveActivity(getPackageManager()) == null)
             startActivity(getIntentRate());
         else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder
+            new AlertDialog.Builder(this)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override

@@ -52,6 +52,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -247,12 +248,26 @@ public class FragmentMessage extends FragmentEx {
                                         .putExtra("uri", uri));
 
                     } else {
-                        // https://developer.chrome.com/multidevice/android/customtabs
-                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
+                        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
+                        final EditText etLink = view.findViewById(R.id.etLink);
+                        etLink.setText(url);
+                        new AlertDialog.Builder(getContext())
+                                .setView(view)
+                                .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Uri uri = Uri.parse(etLink.getText().toString());
 
-                        CustomTabsIntent customTabsIntent = builder.build();
-                        customTabsIntent.launchUrl(getContext(), Uri.parse(url));
+                                        // https://developer.chrome.com/multidevice/android/customtabs
+                                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
+
+                                        CustomTabsIntent customTabsIntent = builder.build();
+                                        customTabsIntent.launchUrl(getContext(), uri);
+                                    }
+                                })
+                                .setNegativeButton(R.string.title_no, null)
+                                .show();
                     }
                 }
 
@@ -712,8 +727,7 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onActionSpam() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder
+        new AlertDialog.Builder(getContext())
                 .setMessage(R.string.title_ask_spam)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -761,15 +775,15 @@ public class FragmentMessage extends FragmentEx {
                         }.load(FragmentMessage.this, args);
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, null).show();
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void onActionDelete() {
         boolean delete = (Boolean) bottom_navigation.getTag();
         if (delete) {
             // No trash or is trash
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder
+            new AlertDialog.Builder(getContext())
                     .setMessage(R.string.title_ask_delete)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -819,7 +833,8 @@ public class FragmentMessage extends FragmentEx {
                             }.load(FragmentMessage.this, args);
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null).show();
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         } else {
             Helper.setViewsEnabled(view, false);
 

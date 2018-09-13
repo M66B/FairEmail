@@ -235,8 +235,7 @@ public class FragmentCompose extends FragmentEx {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
                 if (action == R.id.action_delete) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder
+                    new AlertDialog.Builder(getContext())
                             .setMessage(R.string.title_ask_delete)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
@@ -244,7 +243,8 @@ public class FragmentCompose extends FragmentEx {
                                     onAction(R.id.action_delete);
                                 }
                             })
-                            .setNegativeButton(android.R.string.cancel, null).show();
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
 
                 } else
                     onAction(action);

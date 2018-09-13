@@ -699,8 +699,7 @@ public class FragmentAccount extends FragmentEx {
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder
+                new AlertDialog.Builder(getContext())
                         .setMessage(R.string.title_account_delete)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
@@ -735,7 +734,8 @@ public class FragmentAccount extends FragmentEx {
                                 }.load(FragmentAccount.this, args);
                             }
                         })
-                        .setNegativeButton(android.R.string.cancel, null).show();
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
             }
         });
 
