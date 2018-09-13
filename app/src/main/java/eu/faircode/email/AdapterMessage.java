@@ -145,12 +145,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
-            if (message.avatar != null) {
+            if (avatars && message.avatar != null) {
                 ContentResolver resolver = context.getContentResolver();
                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
                 ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
             }
-            ivAvatar.setVisibility(message.avatar == null ? View.GONE : View.VISIBLE);
+            ivAvatar.setVisibility(!avatars || message.avatar == null ? View.GONE : View.VISIBLE);
 
             if (avatars && message.from != null && message.from.length > 0) {
                 final long id = message.id;
@@ -351,7 +351,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         this.avatars = (prefs.getBoolean("avatars", true) &&
-                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
+                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED);
         this.debug = prefs.getBoolean("debug", false);
     }
 

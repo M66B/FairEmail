@@ -19,11 +19,13 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -89,6 +91,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -491,7 +494,9 @@ public class FragmentMessage extends FragmentEx {
 
         setSeen();
 
-        if (message.avatar == null) {
+        if (message.avatar == null ||
+                ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
+                        != PackageManager.PERMISSION_GRANTED) {
             ViewGroup.LayoutParams lp = ivAvatar.getLayoutParams();
             lp.height = 0;
             lp.width = 0;
@@ -502,7 +507,9 @@ public class FragmentMessage extends FragmentEx {
             ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
         }
 
-        if (message.from == null) {
+        if (message.from == null ||
+                ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
+                        != PackageManager.PERMISSION_GRANTED) {
             ViewGroup.LayoutParams lp = ivContactAdd.getLayoutParams();
             lp.height = 0;
             lp.width = 0;
