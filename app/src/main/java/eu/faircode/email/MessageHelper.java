@@ -193,6 +193,8 @@ public class MessageHelper {
                         }
                     });
                     bpAttachment.setDataHandler(new DataHandler(dataSource));
+                    if (attachment.cid != null)
+                        bpAttachment.setHeader("Content-ID", attachment.cid);
 
                     multipart.addBodyPart(bpAttachment);
                 }
