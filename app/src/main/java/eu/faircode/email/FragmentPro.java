@@ -39,6 +39,7 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
     private TextView tvActivated;
     private TextView tvList;
     private Button btnPurchase;
+    private TextView tvPrice;
 
     @Override
     @Nullable
@@ -50,6 +51,7 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
         tvActivated = view.findViewById(R.id.tvActivated);
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
+        tvPrice = view.findViewById(R.id.tvPrice);
 
         tvList.setText(Html.fromHtml("<a href=\"https://email.faircode.eu/#pro\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
         tvList.setMovementMethod(LinkMovementMethod.getInstance());
@@ -64,6 +66,8 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
                 lbm.sendBroadcast(new Intent(ActivityView.ACTION_PURCHASE));
             }
         });
+
+        tvPrice.setMovementMethod(LinkMovementMethod.getInstance());
 
         return view;
     }
