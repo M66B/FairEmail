@@ -69,7 +69,7 @@
   <string name="title_account_name">Nom du compte</string>
   <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
   <string name="title_account_signature">Texte de la signature</string>
-  <string name="title_account_color">Color</string>
+  <string name="title_account_color">Couleur</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Fournisseur</string>
@@ -198,9 +198,9 @@
   <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
   <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
   <string name="title_pro_invalid">Réponse non valide</string>
-  <string name="title_pro_support">FairEmail needs your help. Tap to purchase pro features to keep the project going.</string>
+  <string name="title_pro_support">FairEmail a besoin de votre aide. Appuyez pour acheter des fonctionnalités Pro pour continuer à faire avancer le projet.</string>
   <string name="title_log">Journal</string>
   <string name="title_debug_info">Information de débogage</string>
   <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
-  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+  <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
 </resources>
