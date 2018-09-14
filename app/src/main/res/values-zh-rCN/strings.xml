@@ -38,6 +38,10 @@
   <string name="title_edit_identity">编辑身份</string>
   <string name="title_edit_folder">编辑文件夹</string>
   <string name="title_setup">设置</string>
+  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_import">Import settings</string>
+  <string name="title_setup_exported">Settings exported</string>
+  <string name="title_setup_imported">Settings imported</string>
   <string name="title_setup_account">管理账户</string>
   <string name="title_setup_account_remark">用于接收电子邮件</string>
   <string name="title_setup_identity">管理身份</string>
@@ -98,12 +102,15 @@
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
-  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
+  <string name="title_edit_properties">Edit properties</string>
+  <string name="title_folder_name">Folder name</string>
   <string name="title_synchronize_folder">同步文件夹（接收）</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">同步天数</string>
+  <string name="title_folder_exists">Folder %1$s exists</string>
+  <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">聚合收件箱</string>
   <string name="title_folder_inbox">收件箱</string>
   <string name="title_folder_outbox">发件箱</string>
@@ -186,6 +193,7 @@
   <string name="title_legend_synchronizing">正在同步</string>
   <string name="title_legend_closing">正在结束</string>
   <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_open_link">Open link</string>
   <string name="title_updated">There is an update to version %1$s available</string>

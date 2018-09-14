@@ -42,6 +42,10 @@
   <string name="title_edit_identity">Rediger identitet</string>
   <string name="title_edit_folder">Rediger mappe</string>
   <string name="title_setup">Opsætning</string>
+  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_import">Import settings</string>
+  <string name="title_setup_exported">Settings exported</string>
+  <string name="title_setup_imported">Settings imported</string>
   <string name="title_setup_account">Administrer konti</string>
   <string name="title_setup_account_remark">Til at modtage email</string>
   <string name="title_setup_identity">Håndter identiteter</string>
@@ -102,12 +106,15 @@
   <string name="title_identity_delete">Slet denne identitet permanent?</string>
   <string name="title_pop">POP is not supported</string>
   <string name="title_insecure">Insecure connections are not supported</string>
-  <string name="title_edit_properties">Edit properties</string>
   <string name="title_synchronize_now">Synchronize now</string>
   <string name="title_delete_local">Delete local messages</string>
+  <string name="title_edit_properties">Edit properties</string>
+  <string name="title_folder_name">Folder name</string>
   <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synkronisér (dage)</string>
+  <string name="title_folder_exists">Folder %1$s exists</string>
+  <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">Samlet indbakke</string>
   <string name="title_folder_inbox">Indbakke</string>
   <string name="title_folder_outbox">Udbakke</string>
@@ -190,6 +197,7 @@
   <string name="title_legend_synchronizing">Synkroniserer</string>
   <string name="title_legend_closing">Lukker</string>
   <string name="title_hint_folder_actions">Long press for options</string>
+  <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
   <string name="title_open_link">Open link</string>
   <string name="title_updated">There is an update to version %1$s available</string>

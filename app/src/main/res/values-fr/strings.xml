@@ -42,6 +42,10 @@
   <string name="title_edit_identity">Modifier l’identité</string>
   <string name="title_edit_folder">Modifier le dossier</string>
   <string name="title_setup">Configuration</string>
+  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_import">Import settings</string>
+  <string name="title_setup_exported">Settings exported</string>
+  <string name="title_setup_imported">Settings imported</string>
   <string name="title_setup_account">Gérer les comptes</string>
   <string name="title_setup_account_remark">Recevoir des e-mails</string>
   <string name="title_setup_identity">Gérer les identités</string>
@@ -102,12 +106,15 @@
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
   <string name="title_pop">POP n\'est pas supporté</string>
   <string name="title_insecure">Les connexions non sécurisées ne sont pas supportées</string>
-  <string name="title_edit_properties">Éditer les propriétés</string>
   <string name="title_synchronize_now">Synchroniser maintenant</string>
   <string name="title_delete_local">Supprimer les messages locaux</string>
+  <string name="title_edit_properties">Éditer les propriétés</string>
+  <string name="title_folder_name">Folder name</string>
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>
+  <string name="title_folder_exists">Folder %1$s exists</string>
+  <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">Boite de réception unifiée</string>
   <string name="title_folder_inbox">Boîte de réception</string>
   <string name="title_folder_outbox">Boîte d\'envoi</string>
@@ -159,7 +166,7 @@
   <string name="title_style_bold">Gras</string>
   <string name="title_style_italic">Italique</string>
   <string name="title_style_link">Insérer un lien</string>
-  <string name="title_style_image">Insert image</string>
+  <string name="title_style_image">Insérer une image</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
   <string name="title_show_addresses">Afficher Cc/Cci</string>
   <string name="title_from_missing">Expéditeur manquant</string>
@@ -190,6 +197,7 @@
   <string name="title_legend_synchronizing">Synchronisation en cours</string>
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_folder_actions">Appui long pour les options</string>
+  <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu ou pour suivre/ne plus suivre</string>
   <string name="title_open_link">Ouvrir le lien</string>
   <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>

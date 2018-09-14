@@ -46,6 +46,10 @@
   <string name="title_edit_identity">Editare identitate</string>
   <string name="title_edit_folder">Editare dosar</string>
   <string name="title_setup">Setări</string>
+  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_import">Import settings</string>
+  <string name="title_setup_exported">Settings exported</string>
+  <string name="title_setup_imported">Settings imported</string>
   <string name="title_setup_account">Gestionarea conturilor</string>
   <string name="title_setup_account_remark">Pentru a primi e-mail</string>
   <string name="title_setup_identity">Gestionarea identităţilor</string>
@@ -73,7 +77,7 @@
   <string name="title_account_name">Nume cont</string>
   <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
   <string name="title_account_signature">Text semnătură</string>
-  <string name="title_account_color">Color</string>
+  <string name="title_account_color">Culoare</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Furnizor</string>
@@ -106,12 +110,15 @@
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
   <string name="title_pop">POP nu este acceptat</string>
   <string name="title_insecure">Conexiunile nesecurizate nu sunt acceptate</string>
-  <string name="title_edit_properties">Editează proprietăți</string>
   <string name="title_synchronize_now">Sincronizează acum</string>
   <string name="title_delete_local">Șterge mesajul local</string>
+  <string name="title_edit_properties">Editează proprietăți</string>
+  <string name="title_folder_name">Folder name</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
   <string name="title_unified_folder">Arată în căsuța poștală comună</string>
   <string name="title_after">Sincronizare (zile)</string>
+  <string name="title_folder_exists">Folder %1$s exists</string>
+  <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">Căsuță poștală comună</string>
   <string name="title_folder_inbox">Mesaje primite</string>
   <string name="title_folder_outbox">Mesaje de trimis</string>
@@ -163,7 +170,7 @@
   <string name="title_style_bold">Îngroșat</string>
   <string name="title_style_italic">Cursiv</string>
   <string name="title_style_link">Inserare legătură</string>
-  <string name="title_style_image">Insert image</string>
+  <string name="title_style_image">Inserare imagine</string>
   <string name="title_add_attachment">Adaugă ataşament</string>
   <string name="title_show_addresses">Arată CC/BCC</string>
   <string name="title_from_missing">Expeditor lipsă</string>
@@ -175,10 +182,10 @@
   <string name="title_search">Caută</string>
   <string name="title_search_hint">Căutare expeditor/subiect/text</string>
   <string name="title_searching">Se caută \'%1$s\'</string>
-  <string name="title_sort_on">Sort on</string>
-  <string name="title_sort_on_time">Time</string>
-  <string name="title_sort_on_unread">Unread</string>
-  <string name="title_sort_on_starred">Starred</string>
+  <string name="title_sort_on">Sortare</string>
+  <string name="title_sort_on_time">Dată</string>
+  <string name="title_sort_on_unread">Necitit</string>
+  <string name="title_sort_on_starred">Marcat</string>
   <string name="title_answer_reply">Răspuns standard</string>
   <string name="title_answer_name">Titlu răspuns</string>
   <string name="title_answer_text">Text răspuns</string>
@@ -194,8 +201,9 @@
   <string name="title_legend_synchronizing">Sincronizare</string>
   <string name="title_legend_closing">Închidere</string>
   <string name="title_hint_folder_actions">Apasă lung pentru acțiuni</string>
+  <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Glisare la stânga pentru gunoi; glisare la dreapta pentru arhivare (dacă este disponibilă); atingeți lung pentru a marca citit/necitit sau a marca</string>
-  <string name="title_open_link">Open link</string>
+  <string name="title_open_link">Deschide legătura</string>
   <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
   <string name="title_issue">Aveți o întrebare sau problemă?</string>
   <string name="title_yes">Da</string>
@@ -205,7 +213,7 @@
   <string name="title_pro_list">Lista de caracteristici Pro</string>
   <string name="title_pro_purchase">Cumpără</string>
   <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
-  <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
+  <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">acestă pagină</a> pentru a afla prețurile caracteristicilor Pro</string>
   <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
   <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
   <string name="title_pro_invalid">Răspunsul nu este valid</string>

@@ -42,6 +42,10 @@
   <string name="title_edit_identity">Identität bearbeiten</string>
   <string name="title_edit_folder">Ordner bearbeiten</string>
   <string name="title_setup">Einstellungen</string>
+  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_import">Import settings</string>
+  <string name="title_setup_exported">Settings exported</string>
+  <string name="title_setup_imported">Settings imported</string>
   <string name="title_setup_account">Konten verwalten</string>
   <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
   <string name="title_setup_identity">Identitäten verwalten</string>
@@ -102,12 +106,15 @@
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_pop">POP wird nicht unterstützt</string>
   <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
-  <string name="title_edit_properties">Eigenschaften bearbeiten</string>
   <string name="title_synchronize_now">Jetzt synchronisieren</string>
   <string name="title_delete_local">Lösche lokale Nachrichten</string>
+  <string name="title_edit_properties">Eigenschaften bearbeiten</string>
+  <string name="title_folder_name">Folder name</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
+  <string name="title_folder_exists">Folder %1$s exists</string>
+  <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
   <string name="title_folder_inbox">Posteingang</string>
   <string name="title_folder_outbox">Postausgang</string>
@@ -159,7 +166,7 @@
   <string name="title_style_bold">Fett</string>
   <string name="title_style_italic">Kursiv</string>
   <string name="title_style_link">Link einfügen</string>
-  <string name="title_style_image">Insert image</string>
+  <string name="title_style_image">Bild einfügen</string>
   <string name="title_add_attachment">Anhang hinzufügen</string>
   <string name="title_show_addresses">CC/BCC anzeigen</string>
   <string name="title_from_missing">Absender fehlt</string>
@@ -190,6 +197,7 @@
   <string name="title_legend_synchronizing">Synchronisiere</string>
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
+  <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Nach links wischen zum Löschen; nach rechts wischen zum Archivieren (falls verfügbar); gedrückt halten, um als gelesen/ungelesen zu markieren oder um zu favorisieren/entfavorisieren</string>
   <string name="title_open_link">Link öffnen</string>
   <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
