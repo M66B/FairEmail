@@ -42,34 +42,23 @@ public class ApplicationEx extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                if (!(ex instanceof RemoteException) /* DeadSystemException */) {
+                if (ownFault(ex)) {
                     Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
+                    writeCrashLog(ex);
 
-                    File file = new File(getCacheDir(), "crash.log");
-                    Log.w(Helper.TAG, "Writing exception to " + file);
-
-                    FileWriter out = null;
-                    try {
-                        out = new FileWriter(file);
-                        out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
-                    } catch (IOException e) {
-                        Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                    } finally {
-                        if (out != null) {
-                            try {
-                                out.close();
-                            } catch (IOException e) {
-                                Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                            }
-                        }
-                    }
+                    if (prev != null)
+                        prev.uncaughtException(thread, ex);
+                } else {
+                    Log.w(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
+                    System.exit(1);
                 }
-
-                if (prev != null)
-                    prev.uncaughtException(thread, ex);
             }
         });
 
+        createNotificationChannels();
+    }
+
+    private void createNotificationChannels() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationManager nm = getSystemService(NotificationManager.class);
 
@@ -91,6 +80,41 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
             nm.createNotificationChannel(error);
+        }
+    }
+
+    public boolean ownFault(Throwable ex) {
+        if (ex instanceof OutOfMemoryError)
+            return false;
+        if (ex instanceof RemoteException)
+            return false;
+        while (ex != null) {
+            for (StackTraceElement ste : ex.getStackTrace())
+                if (ste.getClassName().startsWith(getPackageName()))
+                    return true;
+            ex = ex.getCause();
+        }
+        return false;
+    }
+
+    private void writeCrashLog(Throwable ex) {
+        File file = new File(getCacheDir(), "crash.log");
+        Log.w(Helper.TAG, "Writing exception to " + file);
+
+        FileWriter out = null;
+        try {
+            out = new FileWriter(file);
+            out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
+        } catch (IOException e) {
+            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                }
+            }
         }
     }
 }
