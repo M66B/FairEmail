@@ -1,6 +1,6 @@
 # FairEmail
 
-If you have a feature request or found a bug, you can report it [as an issue](https://github.com/M66B/open-source-email/issues).
+If you have a feature request or found a bug, you can rquest or report it [as an issue](https://github.com/M66B/open-source-email/issues).
 
 If you have a question, please check the frequently asked questions below first. At the bottom you can find how to ask other questions.
 
