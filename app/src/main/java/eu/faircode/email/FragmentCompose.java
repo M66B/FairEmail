@@ -784,7 +784,7 @@ public class FragmentCompose extends FragmentEx {
                 draft = new EntityMessage();
                 draft.account = account.id;
                 draft.folder = drafts.id;
-                draft.msgid = EntityMessage.generateMessageId(); // for multiple appends
+                draft.msgid = EntityMessage.generateMessageId();
 
                 if (ref == null) {
                     try {
@@ -888,10 +888,32 @@ public class FragmentCompose extends FragmentEx {
                 draft.id = db.message().insertMessage(draft);
                 draft.write(context, body == null ? "" : body);
 
-                ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
-                if (uris != null)
-                    for (Uri uri : uris)
-                        addAttachment(context, draft.id, uri, false);
+                if ("new".equals(action)) {
+                    ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                    if (uris != null)
+                        for (Uri uri : uris)
+                            addAttachment(context, draft.id, uri, false);
+                } else if ("forward".equals(action)) {
+                    int sequence = 0;
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.available) {
+                            EntityAttachment copy = new EntityAttachment();
+                            copy.message = draft.id;
+                            copy.sequence = ++sequence;
+                            copy.name = attachment.name;
+                            copy.type = attachment.type;
+                            copy.cid = attachment.cid;
+                            copy.size = attachment.size;
+                            copy.progress = attachment.progress;
+                            copy.available = attachment.available;
+                            copy.id = db.attachment().insertAttachment(copy);
+
+                            File source = EntityAttachment.getFile(context, attachment.id);
+                            File target = EntityAttachment.getFile(context, copy.id);
+                            Helper.copy(source, target);
+                        }
+                }
 
                 EntityOperation.queue(db, draft, EntityOperation.ADD);
 
