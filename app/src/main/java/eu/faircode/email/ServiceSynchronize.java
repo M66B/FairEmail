@@ -941,7 +941,8 @@ public class ServiceSynchronize extends LifecycleService {
                             if (ex instanceof SendFailedException)
                                 reportError(null, folder.name, ex);
 
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                            if (message != null)
+                                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                             if (ex instanceof MessageRemovedException ||
                                     ex instanceof FolderNotFoundException ||
