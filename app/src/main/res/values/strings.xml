@@ -125,9 +125,12 @@
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_edit_properties">Edit properties</string>
 
+    <string name="title_folder_name">Folder name</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_after">Synchronize (days)</string>
+    <string name="title_folder_exists">Folder %1$s exists</string>
+    <string name="title_folder_delete">Delete folder permanently?</string>
 
     <string name="title_folder_unified">Unified inbox</string>
     <string name="title_folder_inbox">Inbox</string>
