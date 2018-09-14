@@ -554,14 +554,16 @@ public class FragmentSetup extends FragmentEx {
                         for (int s = 0; s < jsettings.length(); s++) {
                             JSONObject jsetting = (JSONObject) jsettings.get(s);
                             String key = jsetting.getString("key");
-                            Object value = jsetting.get("value");
-                            if (value instanceof Boolean)
-                                editor.putBoolean(key, (Boolean) value);
-                            else if (value instanceof String)
-                                editor.putString(key, (String) value);
-                            else
-                                throw new IllegalArgumentException("Unknown settings type key=" + key);
-                            Log.i(Helper.TAG, "Imported setting=" + key);
+                            if (EXPORT_SETTINGS.contains(key)) {
+                                Object value = jsetting.get("value");
+                                if (value instanceof Boolean)
+                                    editor.putBoolean(key, (Boolean) value);
+                                else if (value instanceof String)
+                                    editor.putString(key, (String) value);
+                                else
+                                    throw new IllegalArgumentException("Unknown settings type key=" + key);
+                                Log.i(Helper.TAG, "Imported setting=" + key);
+                            }
                         }
                         editor.apply();
 
