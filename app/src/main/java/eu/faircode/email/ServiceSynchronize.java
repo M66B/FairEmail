@@ -440,17 +440,32 @@ public class ServiceSynchronize extends LifecycleService {
                 istore.addFolderListener(new FolderAdapter() {
                     @Override
                     public void folderCreated(FolderEvent e) {
-                        // TODO: folder created
+                        Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
+                        synchronized (state) {
+                            state.notifyAll();
+                        }
                     }
 
                     @Override
                     public void folderRenamed(FolderEvent e) {
-                        // TODO: folder renamed
+                        Log.i(Helper.TAG, "Folder renamed=" + e.getFolder());
+
+                        String old = e.getFolder().getFullName();
+                        String name = e.getNewFolder().getFullName();
+                        int count = db.folder().renameFolder(account.id, old, name);
+                        Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
+
+                        synchronized (state) {
+                            state.notifyAll();
+                        }
                     }
 
                     @Override
                     public void folderDeleted(FolderEvent e) {
-                        // TODO: folder deleted
+                        Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
+                        synchronized (state) {
+                            state.notifyAll();
+                        }
                     }
                 });
 

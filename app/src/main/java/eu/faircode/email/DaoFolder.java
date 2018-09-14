@@ -117,6 +117,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET synchronize = :synchronize, unified = :unified, after = :after WHERE id = :id")
     int setFolderProperties(long id, boolean synchronize, boolean unified, int after);
 
+    @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
+    int renameFolder(long account, String old, String name);
+
     @Query("DELETE FROM folder WHERE account= :account AND name = :name")
     void deleteFolder(Long account, String name);
 }
