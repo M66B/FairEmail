@@ -128,11 +128,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (folder.account == null) {
                 tvAfter.setText(null);
-                ivSync.setVisibility(View.GONE);
+                ivSync.setImageResource(R.drawable.baseline_sync_24);
             } else {
                 tvAfter.setText(Integer.toString(folder.after));
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
-                ivSync.setVisibility(View.VISIBLE);
             }
 
             tvError.setText(folder.error);
