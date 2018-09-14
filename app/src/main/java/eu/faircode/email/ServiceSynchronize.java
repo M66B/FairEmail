@@ -305,7 +305,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setDeleteIntent(pid);
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O &&
-                prefs.getBoolean("light", true)) {
+                prefs.getBoolean("light", false)) {
             builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
             builder.setLights(0xff00ff00, 1000, 1000);
         }
