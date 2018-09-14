@@ -182,12 +182,14 @@
   <string name="title_answer_reply">标准回复</string>
   <string name="title_answer_name">回复名称</string>
   <string name="title_answer_text">回复文本</string>
+  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_unified">Unified inbox</string>
+  <string name="title_legend_archive">Archive</string>
   <string name="title_legend_cc">抄送或密送</string>
   <string name="title_legend_attachment">附件</string>
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">同步</string>
   <string name="title_legend_primary">首选</string>
-  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">未连接</string>
   <string name="title_legend_connecting">正在连接</string>
   <string name="title_legend_connected">已连接</string>

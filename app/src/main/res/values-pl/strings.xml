@@ -194,12 +194,14 @@
   <string name="title_answer_reply">Standardowa odpowiedź</string>
   <string name="title_answer_name">Nazwa odpowiedzi</string>
   <string name="title_answer_text">Tekst odpowiedzi</string>
+  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
+  <string name="title_legend_archive">Archive</string>
   <string name="title_legend_cc">DW/UDW</string>
   <string name="title_legend_attachment">Załącznik</string>
   <string name="title_legend_thread">Konwersacja</string>
   <string name="title_legend_synchronize">Synchronizuj</string>
   <string name="title_legend_primary">Podstawowe</string>
-  <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
   <string name="title_legend_disconnected">Rozłączony</string>
   <string name="title_legend_connecting">‎Łączenie</string>
   <string name="title_legend_connected">Połączony</string>

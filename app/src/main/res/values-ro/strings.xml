@@ -190,12 +190,14 @@
   <string name="title_answer_reply">Răspuns standard</string>
   <string name="title_answer_name">Titlu răspuns</string>
   <string name="title_answer_text">Text răspuns</string>
+  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_unified">Căsuță poștală comună</string>
+  <string name="title_legend_archive">Archive</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
   <string name="title_legend_thread">Conversație</string>
   <string name="title_legend_synchronize">Sincronizare</string>
   <string name="title_legend_primary">Primar</string>
-  <string name="title_legend_unified">Căsuță poștală comună</string>
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>

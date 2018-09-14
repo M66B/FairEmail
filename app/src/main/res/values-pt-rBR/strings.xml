@@ -186,12 +186,14 @@
   <string name="title_answer_reply">Standard reply</string>
   <string name="title_answer_name">Answer name</string>
   <string name="title_answer_text">Answer text</string>
+  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_unified">Unified inbox</string>
+  <string name="title_legend_archive">Archive</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Attachment</string>
   <string name="title_legend_thread">Conversation</string>
   <string name="title_legend_synchronize">Synchronize</string>
   <string name="title_legend_primary">Primary</string>
-  <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_disconnected">Disconnected</string>
   <string name="title_legend_connecting">Connecting</string>
   <string name="title_legend_connected">Connected</string>
