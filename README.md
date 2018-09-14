@@ -6,7 +6,7 @@ FairEmail
 This email app might be for you if your current email app:
 
 * takes long to receive or show messages
-* can manage only one mailbox
+* can manage only one email address
 * cannot show conversations
 * cannot work offline
 * looks outdated
@@ -43,7 +43,7 @@ Simple
 ------
 
 * Easy navigation
-* No settings
+* No unnecessary settings
 * No bells and whistles
 
 Secure
@@ -52,7 +52,7 @@ Secure
 * Allow encrypted connections only
 * Accept valid security certificates only
 * Authentication required
-* Optional text view only (converted [HTML](https://en.wikipedia.org/wiki/HTML))
+* Safe message view (styling, scripting and unsafe HTML removed)
 * No special permissions required
 * No advertisements
 * No analytics and no tracking
