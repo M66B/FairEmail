@@ -67,6 +67,7 @@
   <string name="title_advanced">Opțiuni avansate</string>
   <string name="title_advanced_compress_imap">Comprimă datele IMAP</string>
   <string name="title_advanced_avatars">Arată pozele contactelor</string>
+  <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>

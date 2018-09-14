@@ -71,6 +71,7 @@
   <string name="title_advanced">Opcje zaawansowane</string>
   <string name="title_advanced_compress_imap">Kompresuj dane IMAP</string>
   <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
+  <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_debug">Debuguj</string>
   <string name="title_select">Wybierz &#8230;</string>
   <string name="title_identity_name">Twoja nazwa</string>

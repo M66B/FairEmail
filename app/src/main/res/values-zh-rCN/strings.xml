@@ -59,6 +59,7 @@
   <string name="title_advanced">高级选项</string>
   <string name="title_advanced_compress_imap">压缩 IMAP 数据</string>
   <string name="title_advanced_avatars">Show contact photos</string>
+  <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_debug">调试模式</string>
   <string name="title_select">选择 &#8230;</string>
   <string name="title_identity_name">姓名</string>
