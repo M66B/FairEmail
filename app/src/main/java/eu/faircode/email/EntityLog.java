@@ -49,7 +49,7 @@ public class EntityLog {
     @NonNull
     public String data;
 
-    private static ExecutorService executor = Executors.newSingleThreadExecutor();
+    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static void log(Context context, String data) {
         Log.i(Helper.TAG, data);

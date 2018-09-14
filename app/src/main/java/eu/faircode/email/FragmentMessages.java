@@ -88,7 +88,7 @@ public class FragmentMessages extends FragmentEx {
     private SearchState searchState = SearchState.Reset;
     private BoundaryCallbackMessages searchCallback = null;
 
-    private ExecutorService executor = Executors.newCachedThreadPool();
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     private static final int MESSAGES_PAGE_SIZE = 50;
     private static final int SEARCH_PAGE_SIZE = 10;
