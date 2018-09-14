@@ -133,8 +133,15 @@ Possible causes of messages not being synchronized (sent or received) are:
 * The number of days to synchronize is set to low
 * There is no usable internet connection
 * The email server is temporarily not available
+* Android stopped the synchronization service
 
 So, check your account and folder settings and check if the accounts/folders are connected (see the legend menu for the meaning of the icons).
+
+On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
+Some Android versions,
+in particular of Huawei (see [here](https://www.forbes.com/sites/bensin/2016/07/04/push-notifications-not-coming-through-to-your-huawei-phone-heres-how-to-fix-it/) for a fix)
+or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-push-notifications-on-xiaomis-miui-8-for-real/) for a fix)
+stop apps and services too aggressively.
 
 <a name="FAQ17"></a>
 **(17) Why does manual synchronize not work?**
