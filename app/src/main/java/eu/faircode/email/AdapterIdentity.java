@@ -93,7 +93,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             else if ("connecting".equals(identity.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
             else
-                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                ivState.setImageDrawable(null);
             ivState.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
 
             tvError.setText(identity.error);
