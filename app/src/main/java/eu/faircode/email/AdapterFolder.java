@@ -67,9 +67,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         ImageView ivSync;
         TextView tvError;
 
-        private final static int action_edit = 1;
-        private final static int action_sync = 2;
-        private final static int action_delete = 3;
+        private final static int action_synchronize_now = 1;
+        private final static int action_delete_local = 2;
+        private final static int action_edit_properties = 3;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -163,26 +163,21 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
-            popupMenu.getMenu().add(Menu.NONE, action_sync, 1, R.string.title_synchronize_now);
-            popupMenu.getMenu().findItem(action_sync).setEnabled("connected".equals(accountState));
+            popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
+            popupMenu.getMenu().findItem(action_synchronize_now).setEnabled("connected".equals(accountState));
 
             if (!EntityFolder.DRAFTS.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, action_delete, 2, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
 
             if (folder.account != null)
-                popupMenu.getMenu().add(Menu.NONE, action_edit, 3, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 3, R.string.title_edit_properties);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     switch (target.getItemId()) {
-                        case action_edit:
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                            .putExtra("id", folder.id));
-                            break;
-                        case action_sync:
+                        case action_synchronize_now:
                             Log.i(Helper.TAG, folder.name + " requesting sync");
                             lbm.sendBroadcast(
                                     new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
@@ -190,7 +185,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                             .putExtra("folder", folder.id));
                             break;
 
-                        case action_delete:
+                        case action_delete_local:
                             Bundle args = new Bundle();
                             args.putLong("id", folder.id);
                             args.putBoolean("outbox", folder.account == null);
@@ -214,6 +209,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 }
                             }.load(context, owner, args);
 
+                            break;
+
+                        case action_edit_properties:
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                            .putExtra("id", folder.id));
                             break;
                     }
                     return true;
