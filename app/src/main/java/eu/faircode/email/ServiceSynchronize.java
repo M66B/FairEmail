@@ -26,6 +26,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -270,6 +271,8 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private Notification.Builder getNotificationUnseen(List<EntityMessage> messages) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setAction("unseen");
@@ -301,7 +304,13 @@ public class ServiceSynchronize extends LifecycleService {
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
                 .setDeleteIntent(pid);
 
-        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("pro", false)) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O &&
+                prefs.getBoolean("light", true)) {
+            builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
+            builder.setLights(0xff00ff00, 1000, 1000);
+        }
+
+        if (prefs.getBoolean("pro", false)) {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {

@@ -35,6 +35,7 @@ import androidx.annotation.Nullable;
 public class FragmentOptions extends FragmentEx {
     private CheckBox cbCompressImap;
     private CheckBox cbAvatars;
+    private CheckBox cbLight;
     private CheckBox cbDebug;
 
     @Override
@@ -47,6 +48,7 @@ public class FragmentOptions extends FragmentEx {
         // Get controls
         cbCompressImap = view.findViewById(R.id.cbCompressImap);
         cbAvatars = view.findViewById(R.id.cbAvatars);
+        cbLight = view.findViewById(R.id.cbLight);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -77,6 +79,14 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
+        cbLight.setChecked(prefs.getBoolean("light", false));
+        cbLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("light", checked).apply();
+            }
+        });
+
         cbDebug.setChecked(prefs.getBoolean("debug", false));
         cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -84,6 +94,8 @@ public class FragmentOptions extends FragmentEx {
                 prefs.edit().putBoolean("debug", checked).apply();
             }
         });
+
+        cbLight.setVisibility(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         return view;
     }
