@@ -49,6 +49,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
+import javax.mail.FolderClosedException;
 import javax.mail.internet.InternetAddress;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -106,6 +107,11 @@ public class Helper {
     }
 
     static String formatThrowable(Throwable ex) {
+        if (ex instanceof FolderClosedException)
+            return null;
+        if (ex instanceof IllegalStateException)
+            return null;
+
         StringBuilder sb = new StringBuilder();
         sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
         Throwable cause = ex.getCause();
