@@ -120,7 +120,6 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 **(15) Can you add ... ?**
 
 * More themes: the goal is to keep the app as simple as possible, so this will not be added.
-* LED notifications/vibrations: there are less and less devices with a notification light and if there is one, it can mostly be managed by Android, so there is little point in adding support for this.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justifiy putting effort into this.
 * POP/poll support: besides that any decent provider is supporting / should support IMAP, polling does consume extra battery power and will delay notification of new messages, so this will not be added.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
@@ -178,6 +177,13 @@ In no circumstances there is a refund possible for any problem related to the fr
 since there wasn't paid anything for them and because they can be evaluated without any limitation.
 I take my responsibility as seller to deliver what has been promised
 and I expect that you take responsibility for informing yourself of what you are buying.
+
+<a name="FAQ21"></a>
+**(21) How do I enable the notification light?**
+
+Before Android 8 Oreo: there is an advanced option in the setup for this.
+
+Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 
 <br>
 
