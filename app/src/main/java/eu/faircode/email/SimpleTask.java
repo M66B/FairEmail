@@ -43,9 +43,9 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private LifecycleOwner owner;
-    private boolean paused = false;
-    private Bundle args = null;
-    private Result stored = null;
+    private boolean paused;
+    private Bundle args;
+    private Result stored;
 
     private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
@@ -113,6 +113,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private void run(final Context context, LifecycleOwner owner, final Bundle args) {
         this.owner = owner;
+        this.paused = false;
+        this.args = null;
+        this.stored = null;
         owner.getLifecycle().addObserver(this);
 
         // Run in background thread
