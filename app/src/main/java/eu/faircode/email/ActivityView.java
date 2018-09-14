@@ -32,6 +32,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -503,14 +504,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         prefs.edit().putLong("last_update_check", now).apply();
 
                         UpdateInfo info = new UpdateInfo();
+                        info.tag_name = jroot.getString("tag_name");
                         info.html_url = jroot.getString("html_url");
+                        if (TextUtils.isEmpty(info.html_url))
+                            return null;
+
                         JSONArray jassets = jroot.getJSONArray("assets");
                         for (int i = 0; i < jassets.length(); i++) {
                             JSONObject jasset = jassets.getJSONObject(i);
                             if (jasset.has("name")) {
                                 String name = jasset.getString("name");
                                 if (name != null && name.endsWith(".apk")) {
-                                    info.tag_name = jroot.getString("tag_name");
+                                    if (TextUtils.isEmpty(info.tag_name))
+                                        info.tag_name = name;
+
                                     Log.i(Helper.TAG, "Latest version=" + info.tag_name);
                                     if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                         break;
