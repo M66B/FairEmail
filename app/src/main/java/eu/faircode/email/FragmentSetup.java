@@ -21,11 +21,13 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -36,6 +38,9 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -44,6 +49,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -53,7 +70,11 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentSetup extends FragmentEx {
+    private ViewGroup view;
+
     private Button btnAccount;
     private TextView tvAccountDone;
 
@@ -78,14 +99,21 @@ public class FragmentSetup extends FragmentEx {
             Manifest.permission.READ_CONTACTS
     };
 
+    static final List<String> EXPORT_SETTINGS = Arrays.asList(
+            "compress",
+            "avatars",
+            "theme"
+    );
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_setup);
+        setHasOptionsMenu(true);
 
         check = getResources().getDrawable(R.drawable.baseline_check_24, getContext().getTheme());
 
-        View view = inflater.inflate(R.layout.fragment_setup, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
         btnAccount = view.findViewById(R.id.btnAccount);
@@ -295,6 +323,43 @@ public class FragmentSetup extends FragmentEx {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_setup, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_export).setEnabled(getIntentExport().resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_import).setEnabled(getIntentImport().resolveActivity(pm) != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_export:
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if (prefs.getBoolean("pro", false))
+                    startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
+                else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
+                return true;
+
+            case R.id.menu_import:
+                startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         boolean has = (grantResults.length > 0);
         for (int result : grantResults)
@@ -306,5 +371,224 @@ public class FragmentSetup extends FragmentEx {
         btnPermissions.setEnabled(!has);
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(Helper.TAG, "Request=" + requestCode + " result=" + resultCode + " data=" + data);
+
+        if (requestCode == ActivitySetup.REQUEST_EXPORT) {
+            if (resultCode == RESULT_OK && data != null)
+                handleExport(data);
+
+        } else if (requestCode == ActivitySetup.REQUEST_IMPORT) {
+            if (resultCode == RESULT_OK && data != null)
+                handleImport(data);
+        }
+    }
+
+    private static Intent getIntentExport() {
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_backup_" +
+                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".json");
+        return intent;
+    }
+
+    private static Intent getIntentImport() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        return intent;
+    }
+
+    private void handleExport(Intent data) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                OutputStream out = null;
+                try {
+                    Log.i(Helper.TAG, "Writing URI=" + uri);
+                    out = getContext().getContentResolver().openOutputStream(uri);
+
+                    DB db = DB.getInstance(context);
+
+                    // Accounts
+                    JSONArray jaccounts = new JSONArray();
+                    for (EntityAccount account : db.account().getAccounts()) {
+                        // Account
+                        JSONObject jaccount = account.toJSON();
+
+                        // Identities
+                        JSONArray jidentities = new JSONArray();
+                        for (EntityIdentity identity : db.identity().getIdentities(account.id))
+                            jidentities.put(identity.toJSON());
+                        jaccount.put("identities", jidentities);
+
+                        // Folders
+                        JSONArray jfolders = new JSONArray();
+                        for (EntityFolder folder : db.folder().getFolders(account.id))
+                            jfolders.put(folder.toJSON());
+                        jaccount.put("folders", jfolders);
+
+                        jaccounts.put(jaccount);
+                    }
+
+                    // Answers
+                    JSONArray janswers = new JSONArray();
+                    for (EntityAnswer answer : db.answer().getAnswers())
+                        janswers.put(answer.toJSON());
+
+                    // Settings
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    JSONArray jsettings = new JSONArray();
+                    for (String key : prefs.getAll().keySet())
+                        if (EXPORT_SETTINGS.contains(key)) {
+                            JSONObject jsetting = new JSONObject();
+                            jsetting.put("key", key);
+                            jsetting.put("value", prefs.getAll().get(key));
+                            jsettings.put(jsetting);
+                        }
+
+                    JSONObject jexport = new JSONObject();
+                    jexport.put("accounts", jaccounts);
+                    jexport.put("answers", janswers);
+                    jexport.put("settings", jsettings);
+
+                    out.write(jexport.toString(2).getBytes());
+
+                    Log.i(Helper.TAG, "Exported data");
+                } finally {
+                    if (out != null)
+                        out.close();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void data) {
+                Snackbar.make(view, R.string.title_setup_exported, Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, args);
+    }
+
+    private void handleImport(Intent data) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                InputStream in = null;
+                try {
+                    Log.i(Helper.TAG, "Reading URI=" + uri);
+                    ContentResolver resolver = getContext().getContentResolver();
+                    AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
+                    in = descriptor.createInputStream();
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null)
+                        response.append(line);
+                    Log.i(Helper.TAG, "Importing " + resolver.toString());
+
+                    JSONObject jimport = new JSONObject(response.toString());
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        JSONArray jaccounts = jimport.getJSONArray("accounts");
+                        for (int a = 0; a < jaccounts.length(); a++) {
+                            JSONObject jaccount = (JSONObject) jaccounts.get(a);
+                            EntityAccount account = EntityAccount.fromJSON(jaccount);
+                            account.store_sent = false;
+                            account.id = db.account().insertAccount(account);
+                            Log.i(Helper.TAG, "Imported account=" + account.name);
+
+                            JSONArray jidentities = (JSONArray) jaccount.get("identities");
+                            for (int i = 0; i < jidentities.length(); i++) {
+                                JSONObject jidentity = (JSONObject) jidentities.get(i);
+                                EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
+                                identity.account = account.id;
+                                identity.id = db.identity().insertIdentity(identity);
+                                Log.i(Helper.TAG, "Imported identity=" + identity.email);
+                            }
+
+                            JSONArray jfolders = (JSONArray) jaccount.get("folders");
+                            for (int f = 0; f < jfolders.length(); f++) {
+                                JSONObject jfolder = (JSONObject) jfolders.get(f);
+                                EntityFolder folder = EntityFolder.fromJSON(jfolder);
+                                folder.account = account.id;
+                                folder.id = db.folder().insertFolder(folder);
+                                Log.i(Helper.TAG, "Imported folder=" + folder.name);
+                            }
+                        }
+
+                        JSONArray janswers = jimport.getJSONArray("answers");
+                        for (int a = 0; a < janswers.length(); a++) {
+                            JSONObject janswer = (JSONObject) janswers.get(a);
+                            EntityAnswer answer = EntityAnswer.fromJSON(janswer);
+                            answer.id = db.answer().insertAnswer(answer);
+                            Log.i(Helper.TAG, "Imported answer=" + answer.name);
+                        }
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        JSONArray jsettings = jimport.getJSONArray("settings");
+                        for (int s = 0; s < jsettings.length(); s++) {
+                            JSONObject jsetting = (JSONObject) jsettings.get(s);
+                            String key = jsetting.getString("key");
+                            Object value = jsetting.get("value");
+                            if (value instanceof Boolean)
+                                editor.putBoolean(key, (Boolean) value);
+                            else if (value instanceof String)
+                                editor.putString(key, (String) value);
+                            else
+                                throw new IllegalArgumentException("Unknown settings type key=" + key);
+                            Log.i(Helper.TAG, "Imported setting=" + key);
+                        }
+                        editor.apply();
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    Log.i(Helper.TAG, "Imported data");
+                } finally {
+                    if (in != null)
+                        in.close();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void data) {
+                Snackbar.make(view, R.string.title_setup_imported, Snackbar.LENGTH_LONG).show();
+                ServiceSynchronize.reload(getContext(), "import");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }.load(this, args);
     }
 }

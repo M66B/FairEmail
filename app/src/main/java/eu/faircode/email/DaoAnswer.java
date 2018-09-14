@@ -29,6 +29,9 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoAnswer {
+    @Query("SELECT * FROM answer")
+    List<EntityAnswer> getAnswers();
+
     @Query("SELECT * FROM answer WHERE id = :id")
     EntityAnswer getAnswer(long id);
 

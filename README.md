@@ -37,6 +37,7 @@ Pro features
 * Sort on time, unread or starred
 * Progressive search (first local, then server)
 * Preview sender/subject in new messages status bar notification
+* Export settings
 
 Simple
 ------

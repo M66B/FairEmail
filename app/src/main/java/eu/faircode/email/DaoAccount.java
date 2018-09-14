@@ -29,6 +29,9 @@ import androidx.room.Update;
 
 @Dao
 public interface DaoAccount {
+    @Query("SELECT * FROM account")
+    List<EntityAccount> getAccounts();
+
     @Query("SELECT * FROM account WHERE synchronize = :synchronize")
     List<EntityAccount> getAccounts(boolean synchronize);
 

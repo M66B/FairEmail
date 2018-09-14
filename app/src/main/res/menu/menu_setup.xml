@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_export"
+        android:title="@string/title_setup_export" />
+    <item
+        android:id="@+id/menu_import"
+        android:title="@string/title_setup_import" />
+</menu>

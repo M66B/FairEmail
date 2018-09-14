@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -203,4 +206,24 @@ public class EntityFolder implements Parcelable {
             return new EntityFolder[size];
         }
     };
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("type", type);
+        json.put("unified", unified);
+        json.put("synchronize", synchronize);
+        json.put("after", after);
+        return json;
+    }
+
+    public static EntityFolder fromJSON(JSONObject json) throws JSONException {
+        EntityFolder folder = new EntityFolder();
+        folder.name = json.getString("name");
+        folder.type = json.getString("type");
+        folder.unified = json.getBoolean("unified");
+        folder.synchronize = json.getBoolean("synchronize");
+        folder.after = json.getInt("after");
+        return folder;
+    }
 }

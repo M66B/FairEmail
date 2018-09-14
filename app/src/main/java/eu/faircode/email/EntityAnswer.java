@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 import androidx.annotation.NonNull;
@@ -44,6 +47,19 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public String text;
 
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("text", text);
+        return json;
+    }
+
+    public static EntityAnswer fromJSON(JSONObject json) throws JSONException {
+        EntityAnswer answer = new EntityAnswer();
+        answer.name = json.getString("name");
+        answer.text = json.getString("text");
+        return answer;
+    }
 
     @Override
     public boolean equals(Object obj) {

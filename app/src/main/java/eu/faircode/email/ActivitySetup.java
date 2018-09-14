@@ -40,6 +40,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     static final int REQUEST_PERMISSION = 1;
     static final int REQUEST_CHOOSE_ACCOUNT = 2;
 
+    static final int REQUEST_EXPORT = 3;
+    static final int REQUEST_IMPORT = 4;
+
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
 

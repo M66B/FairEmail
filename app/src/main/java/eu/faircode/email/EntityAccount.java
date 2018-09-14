@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -75,6 +78,42 @@ public class EntityAccount {
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
+    }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("signature", signature);
+        json.put("host", host);
+        json.put("port", port);
+        json.put("user", user);
+        json.put("password", password);
+        json.put("auth_type", auth_type);
+        json.put("primary", primary);
+        json.put("synchronize", synchronize);
+        if (color != null)
+            json.put("color", color);
+        json.put("poll_interval", poll_interval);
+        return json;
+    }
+
+    public static EntityAccount fromJSON(JSONObject json) throws JSONException {
+        EntityAccount account = new EntityAccount();
+        if (json.has("name"))
+            account.name = json.getString("name");
+        if (json.has("signature"))
+            account.signature = json.getString("signature");
+        account.host = json.getString("host");
+        account.port = json.getInt("port");
+        account.user = json.getString("user");
+        account.password = json.getString("password");
+        account.auth_type = json.getInt("auth_type");
+        account.primary = json.getBoolean("primary");
+        account.synchronize = json.getBoolean("synchronize");
+        if (json.has("color"))
+            account.color = json.getInt("color");
+        account.poll_interval = json.getInt("poll_interval");
+        return account;
     }
 
     @Override

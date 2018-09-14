@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -68,6 +71,41 @@ public class EntityIdentity {
     public Boolean store_sent;
     public String state;
     public String error;
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("email", email);
+        json.put("replyto", replyto);
+        json.put("host", host);
+        json.put("port", port);
+        json.put("starttls", starttls);
+        json.put("user", user);
+        json.put("password", password);
+        json.put("auth_type", auth_type);
+        json.put("primary", primary);
+        json.put("synchronize", synchronize);
+        json.put("store_sent", store_sent);
+        return json;
+    }
+
+    public static EntityIdentity fromJSON(JSONObject json) throws JSONException {
+        EntityIdentity identity = new EntityIdentity();
+        identity.name = json.getString("name");
+        identity.email = json.getString("email");
+        if (json.has("replyto"))
+            identity.replyto = json.getString("replyto");
+        identity.host = json.getString("host");
+        identity.port = json.getInt("port");
+        identity.starttls = json.getBoolean("starttls");
+        identity.user = json.getString("user");
+        identity.password = json.getString("password");
+        identity.auth_type = json.getInt("auth_type");
+        identity.primary = json.getBoolean("primary");
+        identity.synchronize = json.getBoolean("synchronize");
+        identity.store_sent = json.getBoolean("store_sent");
+        return identity;
+    }
 
     @Override
     public boolean equals(Object obj) {

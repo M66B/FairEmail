@@ -42,6 +42,9 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity")
     List<EntityIdentity> getIdentities();
 
+    @Query("SELECT * FROM identity WHERE account = :account")
+    List<EntityIdentity> getIdentities(long account);
+
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
