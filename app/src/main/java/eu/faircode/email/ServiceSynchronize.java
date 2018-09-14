@@ -1576,7 +1576,7 @@ public class ServiceSynchronize extends LifecycleService {
             state = new ServiceState();
 
             main = new Thread(new Runnable() {
-                private List<Thread> threads = new ArrayList<>();
+                private Map<Thread, ServiceState> threadState = new HashMap<>();
 
                 @Override
                 public void run() {
@@ -1613,11 +1613,12 @@ public class ServiceSynchronize extends LifecycleService {
                         // Start monitoring accounts
                         for (final EntityAccount account : accounts) {
                             Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+                            final ServiceState astate = new ServiceState();
                             Thread t = new Thread(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
-                                        monitorAccount(account, state);
+                                        monitorAccount(account, astate);
                                     } catch (Throwable ex) {
                                         // Fall-safe
                                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -1625,7 +1626,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             }, "sync.account." + account.id);
                             t.start();
-                            threads.add(t);
+                            threadState.put(t, astate);
                         }
 
                         EntityLog.log(ServiceSynchronize.this, "Main started");
@@ -1640,11 +1641,16 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
                         // Stop monitoring accounts
-                        for (Thread t : threads) {
+                        for (Thread t : threadState.keySet()) {
+                            ServiceState astate = threadState.get(t);
+                            synchronized (astate) {
+                                astate.running = false;
+                                astate.notifyAll();
+                            }
                             t.interrupt();
                             join(t);
                         }
-                        threads.clear();
+                        threadState.clear();
 
                         // Stop monitoring outbox
                         lbm.unregisterReceiver(outboxReceiver);
