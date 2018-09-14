@@ -23,6 +23,7 @@ import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.os.RemoteException;
 import android.util.Log;
 
 import java.io.File;
@@ -41,23 +42,25 @@ public class ApplicationEx extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
+                if (!(ex instanceof RemoteException) /* DeadSystemException */) {
+                    Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
 
-                File file = new File(getCacheDir(), "crash.log");
-                Log.w(Helper.TAG, "Writing exception to " + file);
+                    File file = new File(getCacheDir(), "crash.log");
+                    Log.w(Helper.TAG, "Writing exception to " + file);
 
-                FileWriter out = null;
-                try {
-                    out = new FileWriter(file);
-                    out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
-                } catch (IOException e) {
-                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                } finally {
-                    if (out != null) {
-                        try {
-                            out.close();
-                        } catch (IOException e) {
-                            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                    FileWriter out = null;
+                    try {
+                        out = new FileWriter(file);
+                        out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
+                    } catch (IOException e) {
+                        Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                    } finally {
+                        if (out != null) {
+                            try {
+                                out.close();
+                            } catch (IOException e) {
+                                Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                            }
                         }
                     }
                 }
