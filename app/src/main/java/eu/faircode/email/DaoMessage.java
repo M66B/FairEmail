@@ -160,23 +160,6 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<EntityMessage>> liveUnseenUnified();
 
-    @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.type as folderType" +
-            ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
-            ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            " FROM message related" +
-            " JOIN message ON message.folder = related.folder" +
-            " JOIN account ON account.id = message.account" +
-            " JOIN folder ON folder.id = message.folder" +
-            " WHERE related.id = :id" +
-            " ORDER BY" +
-            "  CASE WHEN :next OR message.sent IS NULL THEN message.sent ELSE -message.sent END, " +
-            "  CASE WHEN :next OR message.received IS NULL THEN message.received ELSE -message.received END" +
-            " LIMIT 1")
-    TupleMessageEx getMessage(long id, boolean next);
-
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
             " AND received >= :received" +

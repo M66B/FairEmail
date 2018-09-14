@@ -100,7 +100,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessage extends FragmentEx {
-    private ConstraintLayoutTouch view;
+    private ViewGroup view;
     private View vwAnswerAnchor;
     private ImageView ivFlagged;
     private ImageView ivAvatar;
@@ -157,7 +157,7 @@ public class FragmentMessage extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = (ConstraintLayoutTouch) inflater.inflate(R.layout.fragment_message, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_message, container, false);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         debug = prefs.getBoolean("debug", false);
@@ -402,38 +402,6 @@ public class FragmentMessage extends FragmentEx {
                         return true;
                 }
                 return false;
-            }
-        });
-
-        view.setGestureListener(new ConstraintLayoutTouch.IGestureListener() {
-            @Override
-            public void onSwipe(ConstraintLayoutTouch.Direction direction) {
-                if (message == null)
-                    return;
-
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-                args.putBoolean("next",
-                        direction == ConstraintLayoutTouch.Direction.Down ||
-                                direction == ConstraintLayoutTouch.Direction.Right);
-                new SimpleTask<TupleMessageEx>() {
-                    @Override
-                    protected TupleMessageEx onLoad(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        boolean next = args.getBoolean("next");
-                        return DB.getInstance(context).message().getMessage(id, next);
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, TupleMessageEx message) {
-                        if (message != null) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_MESSAGE)
-                                            .putExtra("message", message));
-                        }
-                    }
-                }.load(FragmentMessage.this, args);
             }
         });
 
