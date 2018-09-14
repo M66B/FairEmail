@@ -43,6 +43,40 @@
             app:layout_constraintTop_toBottomOf="@id/tvSupport" />
 
         <TextView
+            android:id="@+id/tvHintSupport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:minHeight="33dp"
+            android:text="@string/title_hint_support"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/ibHintSupport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorSupport" />
+
+        <ImageButton
+            android:id="@+id/ibHintSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="@id/tvHintSupport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvHintSupport" />
+
+        <View
+            android:id="@+id/vSeparatorHintSupport"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ibHintSupport" />
+
+        <TextView
             android:id="@+id/tvHintActions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -56,7 +90,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/ibHintActions"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorSupport" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSupport" />
 
         <ImageButton
             android:id="@+id/ibHintActions"
@@ -68,7 +102,7 @@
             app:layout_constraintTop_toTopOf="@id/tvHintActions" />
 
         <View
-            android:id="@+id/vSeparator"
+            android:id="@+id/vSeparatorHintActions"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
@@ -85,7 +119,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHintActions" />
 
         <ProgressBar
             android:id="@+id/pbWait"
@@ -105,10 +139,16 @@
             app:constraint_referenced_ids="tvSupport,vSeparatorSupport" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpHintSupport"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvHintSupport,ibHintSupport,vSeparatorHintSupport" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHintActions"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvHintActions,ibHintActions,vSeparator" />
+            app:constraint_referenced_ids="tvHintActions,ibHintActions,vSeparatorHintActions" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpReady"

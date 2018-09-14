@@ -64,11 +64,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
     private TextView tvSupport;
+    private ImageButton ibHintSupport;
     private ImageButton ibHintActions;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
     private ProgressBar pbWait;
     private Group grpSupport;
+    private Group grpHintSupport;
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
@@ -116,11 +118,13 @@ public class FragmentMessages extends FragmentEx {
 
         // Get controls
         tvSupport = view.findViewById(R.id.tvSupport);
+        ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintActions = view.findViewById(R.id.ibHintActions);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
+        grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintActions = view.findViewById(R.id.grpHintActions);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
@@ -143,6 +147,14 @@ public class FragmentMessages extends FragmentEx {
             public void onClick(View v) {
                 prefs.edit().putBoolean("message_actions", true).apply();
                 grpHintActions.setVisibility(View.GONE);
+            }
+        });
+
+        ibHintSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("app_support", true).apply();
+                grpHintSupport.setVisibility(View.GONE);
             }
         });
 
@@ -381,6 +393,7 @@ public class FragmentMessages extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) ? View.GONE : View.VISIBLE);
         grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());

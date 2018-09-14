@@ -226,6 +226,7 @@
     <string name="title_legend_closing">Closing</string>
 
     <string name="title_hint_folder_actions">Long press for options</string>
+    <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
 
     <string name="title_open_link">Open link</string>
