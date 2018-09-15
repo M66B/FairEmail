@@ -61,6 +61,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
 
+    private static final int SEARCH_PAGE_SIZE = 5;
+
     interface IBoundaryCallbackMessages {
         void onLoading();
 
@@ -153,13 +155,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
                     }
 
+                    int count = 0;
                     int index = imessages.length - 1;
                     while (index >= 0) {
                         if (imessages[index].getReceivedDate().getTime() < before)
                             try {
                                 Log.i(Helper.TAG, "Boundary sync uid=" + ifolder.getUID(imessages[index]));
                                 ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], true);
-                                break;
+                                if (++count >= SEARCH_PAGE_SIZE)
+                                    break;
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                             }
