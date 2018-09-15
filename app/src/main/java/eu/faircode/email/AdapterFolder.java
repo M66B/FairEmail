@@ -31,7 +31,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -204,7 +203,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                                 @Override
                                 public void onException(Bundle args, Throwable ex) {
-                                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                    Helper.unexpectedError(context, ex);
                                 }
                             }.load(context, owner, args);
 

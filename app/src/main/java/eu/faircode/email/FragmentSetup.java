@@ -46,7 +46,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -273,7 +272,7 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, new Bundle());
 
@@ -480,7 +479,7 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }
@@ -590,7 +589,7 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }

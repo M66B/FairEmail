@@ -44,7 +44,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -328,7 +327,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                         @Override
                         public void onException(Bundle args, Throwable ex) {
-                            Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                            Helper.unexpectedError(context, ex);
                         }
                     }.load(context, owner, args);
 

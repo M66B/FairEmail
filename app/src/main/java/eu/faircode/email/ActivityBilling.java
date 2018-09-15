@@ -12,7 +12,6 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -144,7 +143,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             setIntent(intent);
         } catch (NoSuchAlgorithmException ex) {
             Log.e(Helper.TAG, Log.getStackTraceString(ex));
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+            Helper.unexpectedError(this, ex);
         }
     }
 

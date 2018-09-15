@@ -52,6 +52,8 @@ import javax.mail.Address;
 import javax.mail.FolderClosedException;
 import javax.mail.internet.InternetAddress;
 
+import androidx.appcompat.app.AlertDialog;
+
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class Helper {
@@ -120,6 +122,14 @@ public class Helper {
             cause = cause.getCause();
         }
         return sb.toString();
+    }
+
+    static void unexpectedError(Context context, Throwable ex) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.title_unexpected_error)
+                .setMessage(ex.toString())
+                .setPositiveButton(android.R.string.cancel, null)
+                .show();
     }
 
     static String humanReadableByteCount(long bytes, boolean si) {

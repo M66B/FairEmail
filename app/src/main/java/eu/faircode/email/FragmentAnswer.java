@@ -28,7 +28,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -130,7 +129,7 @@ public class FragmentAnswer extends FragmentEx {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.setViewsEnabled(view, true);
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }
@@ -174,7 +173,7 @@ public class FragmentAnswer extends FragmentEx {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.setViewsEnabled(view, true);
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }

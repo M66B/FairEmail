@@ -54,7 +54,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -492,7 +491,7 @@ public class FragmentAccount extends FragmentEx {
 
                         new AlertDialog.Builder(getContext())
                                 .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.ok, null)
+                                .setPositiveButton(android.R.string.cancel, null)
                                 .create()
                                 .show();
                     }
@@ -697,7 +696,7 @@ public class FragmentAccount extends FragmentEx {
 
                         new AlertDialog.Builder(getContext())
                                 .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.ok, null)
+                                .setPositiveButton(android.R.string.cancel, null)
                                 .create()
                                 .show();
                     }
@@ -738,7 +737,7 @@ public class FragmentAccount extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                        Helper.unexpectedError(getContext(), ex);
                                     }
                                 }.load(FragmentAccount.this, args);
                             }
@@ -936,7 +935,7 @@ public class FragmentAccount extends FragmentEx {
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                            Helper.unexpectedError(getContext(), ex);
                                         } finally {
                                             snackbar.dismiss();
                                         }

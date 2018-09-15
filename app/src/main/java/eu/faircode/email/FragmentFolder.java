@@ -32,7 +32,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
@@ -193,7 +192,7 @@ public class FragmentFolder extends FragmentEx {
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
-                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                            Helper.unexpectedError(getContext(), ex);
                     }
                 }.load(FragmentFolder.this, args);
             }
@@ -266,7 +265,7 @@ public class FragmentFolder extends FragmentEx {
                                         if (ex instanceof IllegalArgumentException)
                                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                                         else
-                                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                            Helper.unexpectedError(getContext(), ex);
                                     }
                                 }.load(FragmentFolder.this, args);
                             }

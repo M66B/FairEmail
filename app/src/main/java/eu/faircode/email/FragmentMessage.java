@@ -852,7 +852,7 @@ public class FragmentMessage extends FragmentEx {
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.setViewsEnabled(view, true);
-                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                Helper.unexpectedError(getContext(), ex);
                             }
                         }.load(FragmentMessage.this, args);
                     }
@@ -910,7 +910,7 @@ public class FragmentMessage extends FragmentEx {
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.setViewsEnabled(view, true);
-                                    Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                    Helper.unexpectedError(getContext(), ex);
                                 }
                             }.load(FragmentMessage.this, args);
                         }
@@ -955,7 +955,7 @@ public class FragmentMessage extends FragmentEx {
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.setViewsEnabled(view, true);
-                    Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                    Helper.unexpectedError(getContext(), ex);
                 }
             }.load(FragmentMessage.this, args);
         }
@@ -1068,7 +1068,7 @@ public class FragmentMessage extends FragmentEx {
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.setViewsEnabled(view, true);
-                                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                Helper.unexpectedError(getContext(), ex);
                             }
                         }.load(FragmentMessage.this, args);
 
@@ -1121,7 +1121,7 @@ public class FragmentMessage extends FragmentEx {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.setViewsEnabled(view, true);
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(FragmentMessage.this, args);
     }

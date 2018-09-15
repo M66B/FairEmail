@@ -35,7 +35,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -340,7 +339,7 @@ public class FragmentIdentity extends FragmentEx {
 
                         new AlertDialog.Builder(getContext())
                                 .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.ok, null)
+                                .setPositiveButton(android.R.string.cancel, null)
                                 .create()
                                 .show();
                     }
@@ -379,7 +378,7 @@ public class FragmentIdentity extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                                        Helper.unexpectedError(getContext(), ex);
                                     }
                                 }.load(FragmentIdentity.this, args);
                             }

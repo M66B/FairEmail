@@ -38,7 +38,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -363,7 +362,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        Helper.unexpectedError(getContext(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -495,7 +494,7 @@ public class FragmentMessages extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }
@@ -680,7 +679,7 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             public void onError(Context context, Throwable ex) {
-                                Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                Helper.unexpectedError(context, ex);
                             }
                         });
 

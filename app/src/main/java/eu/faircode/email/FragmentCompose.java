@@ -541,7 +541,7 @@ public class FragmentCompose extends FragmentEx {
             }
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            Helper.unexpectedError(getContext(), ex);
         } finally {
             if (cursor != null)
                 cursor.close();
@@ -586,7 +586,7 @@ public class FragmentCompose extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }
@@ -1058,7 +1058,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            Helper.unexpectedError(getContext(), ex);
         }
     };
 
@@ -1209,7 +1209,7 @@ public class FragmentCompose extends FragmentEx {
             if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
-                Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                Helper.unexpectedError(getContext(), ex);
         }
     };
 

@@ -29,7 +29,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -242,7 +241,7 @@ public class FragmentAbout extends FragmentEx {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         btnDebugInfo.setEnabled(true);
-                        Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
+                        Helper.unexpectedError(getContext(), ex);
                     }
                 }.load(FragmentAbout.this, new Bundle());
             }
