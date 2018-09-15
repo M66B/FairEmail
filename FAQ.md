@@ -37,6 +37,7 @@ The low priority status bar notification shows the number of pending operations,
 * send: send message
 * attachment: download attachment
 * headers: download message headers
+* body: download message body
 * flag: star/unstar remote message
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.

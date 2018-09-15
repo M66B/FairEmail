@@ -757,6 +757,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 try {
                     db.beginTransaction();
 
+                    if (!message.downloaded)
+                        EntityOperation.queue(db, message, EntityOperation.BODY);
+
                     for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {
                         db.message().setMessageUiSeen(tmessage.id, true);
                         EntityOperation.queue(db, tmessage, EntityOperation.SEEN, true);

@@ -483,7 +483,8 @@ public class FragmentMessage extends FragmentEx {
 
             pbBody.setVisibility(View.VISIBLE);
 
-            bodyTask.load(FragmentMessage.this, args);
+            if (message.downloaded)
+                bodyTask.load(FragmentMessage.this, args);
 
             btnImages.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -553,6 +554,17 @@ public class FragmentMessage extends FragmentEx {
                 tvRawHeaders.setText(message.headers);
                 pbRawHeaders.setVisibility(!free && headers && message.headers == null ? View.VISIBLE : View.GONE);
 
+                // Body can be downloaded
+                if (message.downloaded) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+                    args.putBoolean("show_images", show_images);
+
+                    pbBody.setVisibility(View.VISIBLE);
+
+                    bodyTask.load(FragmentMessage.this, args);
+                }
+
                 // Message count can be changed
                 getActivity().invalidateOptionsMenu();
 
@@ -593,7 +605,7 @@ public class FragmentMessage extends FragmentEx {
                         bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
                         bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
                         bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(message.downloaded && !inOutbox);
                         bottom_navigation.setVisibility(View.VISIBLE);
                     }
                 });
@@ -611,13 +623,15 @@ public class FragmentMessage extends FragmentEx {
                         adapter.set(attachments);
                         grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-                        Bundle args = new Bundle();
-                        args.putLong("id", message.id);
-                        args.putBoolean("show_images", show_images);
+                        if (message.downloaded) {
+                            Bundle args = new Bundle();
+                            args.putLong("id", message.id);
+                            args.putBoolean("show_images", show_images);
 
-                        pbBody.setVisibility(View.VISIBLE);
+                            pbBody.setVisibility(View.VISIBLE);
 
-                        bodyTask.load(FragmentMessage.this, args);
+                            bodyTask.load(FragmentMessage.this, args);
+                        }
                     }
                 });
 
@@ -650,12 +664,12 @@ public class FragmentMessage extends FragmentEx {
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
         menu.findItem(R.id.menu_thread).setVisible(message.count > 1);
-        menu.findItem(R.id.menu_forward).setVisible(!inOutbox);
+        menu.findItem(R.id.menu_forward).setVisible(message.downloaded && !inOutbox);
         menu.findItem(R.id.menu_show_headers).setChecked(headers);
         menu.findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
         menu.findItem(R.id.menu_show_headers).setVisible(!free);
-        menu.findItem(R.id.menu_show_html).setEnabled(Helper.classExists("android.webkit.WebView"));
-        menu.findItem(R.id.menu_reply_all).setVisible(!inOutbox);
+        menu.findItem(R.id.menu_show_html).setEnabled(message.downloaded && Helper.classExists("android.webkit.WebView"));
+        menu.findItem(R.id.menu_reply_all).setVisible(message.downloaded && !inOutbox);
     }
 
     @Override

@@ -547,7 +547,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.i(Helper.TAG, folder.name + " messages added");
                                                 for (Message imessage : e.getMessages())
                                                     try {
-                                                        synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                        synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, true, false);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     } catch (IOException ex) {
@@ -613,7 +613,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             try {
                                                 try {
                                                     Log.i(Helper.TAG, folder.name + " message changed");
-                                                    synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
+                                                    synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), true, false);
                                                     EntityOperation.process(ServiceSynchronize.this); // download small attachments
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -931,6 +931,9 @@ public class ServiceSynchronize extends LifecycleService {
                             else if (EntityOperation.HEADERS.equals(op.name))
                                 doHeaders(folder, ifolder, message, db);
 
+                            else if (EntityOperation.BODY.equals(op.name))
+                                doBody(folder, ifolder, message, db);
+
                             else
                                 throw new MessagingException("Unknown operation name=" + op.name);
 
@@ -1212,6 +1215,13 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().setMessageHeaders(message.id, sb.toString());
     }
 
+    private void doBody(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+        message.write(this, helper.getHtml());
+        db.message().setMessageDownloaded(message.id, true);
+    }
+
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
         DB db = DB.getInstance(this);
         try {
@@ -1343,7 +1353,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i--)
                 try {
-                    int status = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], false);
+                    int status = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], true, false);
                     if (status > 0)
                         added++;
                     else if (status < 0)
@@ -1368,7 +1378,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    static int synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean found) throws MessagingException, IOException {
+    static int synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean download, boolean found) throws MessagingException, IOException {
         long uid;
         try {
             FetchProfile fp = new FetchProfile();
@@ -1458,7 +1468,8 @@ public class ServiceSynchronize extends LifecycleService {
                     fp1.add(FetchProfile.Item.ENVELOPE);
                     fp1.add(FetchProfile.Item.CONTENT_INFO);
                     fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
-                    fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                    if (download)
+                        fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
                     ifolder.fetch(new Message[]{imessage}, fp1);
 
                     message = new EntityMessage();
@@ -1481,6 +1492,7 @@ public class ServiceSynchronize extends LifecycleService {
                     message.bcc = helper.getBcc();
                     message.reply = helper.getReply();
                     message.subject = imessage.getSubject();
+                    message.downloaded = download;
                     message.received = imessage.getReceivedDate().getTime();
                     message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
                     message.seen = seen;
@@ -1491,7 +1503,10 @@ public class ServiceSynchronize extends LifecycleService {
                     message.ui_found = found;
 
                     message.id = db.message().insertMessage(message);
-                    message.write(context, helper.getHtml());
+
+                    if (download)
+                        message.write(context, helper.getHtml());
+
                     Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                     int sequence = 0;

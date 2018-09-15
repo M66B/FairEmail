@@ -90,6 +90,8 @@ public class EntityMessage implements Serializable {
     public Address[] reply;
     public String headers;
     public String subject;
+    @NonNull
+    public Boolean downloaded = false;
     public Long sent; // compose = null
     @NonNull
     public Long received; // compose = stored
@@ -135,6 +137,7 @@ public class EntityMessage implements Serializable {
             this.body = (body == null ? "" : body);
             out = new BufferedWriter(new FileWriter(file));
             out.write(this.body);
+            this.downloaded = true;
         } finally {
             if (out != null)
                 try {
