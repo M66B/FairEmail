@@ -489,7 +489,12 @@ public class FragmentAccount extends FragmentEx {
                         pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
-                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+
+                        new AlertDialog.Builder(getContext())
+                                .setMessage(Helper.formatThrowable(ex))
+                                .setPositiveButton(android.R.string.ok, null)
+                                .create()
+                                .show();
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -690,7 +695,11 @@ public class FragmentAccount extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                        new AlertDialog.Builder(getContext())
+                                .setMessage(Helper.formatThrowable(ex))
+                                .setPositiveButton(android.R.string.ok, null)
+                                .create()
+                                .show();
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -927,7 +936,7 @@ public class FragmentAccount extends FragmentEx {
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                            Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getContext(), ex.toString(), Toast.LENGTH_LONG).show();
                                         } finally {
                                             snackbar.dismiss();
                                         }

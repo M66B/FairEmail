@@ -338,7 +338,11 @@ public class FragmentIdentity extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        Toast.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                        new AlertDialog.Builder(getContext())
+                                .setMessage(Helper.formatThrowable(ex))
+                                .setPositiveButton(android.R.string.ok, null)
+                                .create()
+                                .show();
                     }
                 }.load(FragmentIdentity.this, args);
             }
