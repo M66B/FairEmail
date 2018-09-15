@@ -462,17 +462,23 @@ public class FragmentMessages extends FragmentEx {
         new SimpleTask<Long>() {
             @Override
             protected Long onLoad(Context context, Bundle args) {
-                long folder = args.getLong("folder", -1);
+                long fid = args.getLong("folder", -1);
                 long thread = args.getLong("thread", -1); // message ID
 
                 DB db = DB.getInstance(context);
 
                 Long account = null;
                 if (thread < 0) {
-                    if (folder >= 0)
-                        account = db.folder().getFolder(folder).account;
-                } else
-                    account = db.message().getMessage(thread).account;
+                    if (folder >= 0) {
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder != null)
+                            account = folder.account;
+                    }
+                } else {
+                    EntityMessage threaded = db.message().getMessage(thread);
+                    if (threaded != null)
+                        account = threaded.account;
+                }
 
                 if (account == null) {
                     // outbox
