@@ -59,6 +59,8 @@ Almost all email providers offer IMAP IDLE, with as notable exception Yahoo!
 <a name="FAQ6"></a>
 **(6) How can I login to Gmail / G suite?**
 
+Preferably select Gmail as provider and select an account on your device.
+
 To login to Gmail / G suite you'll often need an app password, for example when two factor authentication is enabled.
 See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
 
