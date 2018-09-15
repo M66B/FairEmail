@@ -225,6 +225,7 @@
   <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
   <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
   <string name="title_pro_support">FairEmail potrzebuje Twojej pomocy. Dotknij, aby zakupić funkcje pro i utrzymać projekt.</string>
+  <string name="title_unexpected_error">Unexpected error</string>
   <string name="title_log">Log</string>
   <string name="title_debug_info">Info debugowania</string>
   <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>

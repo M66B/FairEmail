@@ -186,9 +186,9 @@
   <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>
-  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_inbox">Boîte de réception</string>
   <string name="title_legend_unified">Boite de réception unifiée</string>
-  <string name="title_legend_archive">Archive</string>
+  <string name="title_legend_archive">Archives</string>
   <string name="title_legend_cc">Cc/Cci</string>
   <string name="title_legend_attachment">Pièce jointe</string>
   <string name="title_legend_thread">Fil de discussion</string>
@@ -217,6 +217,7 @@
   <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
   <string name="title_pro_invalid">Réponse non valide</string>
   <string name="title_pro_support">FairEmail a besoin de votre aide. Appuyez pour acheter des fonctionnalités Pro pour continuer à faire avancer le projet.</string>
+  <string name="title_unexpected_error">Unexpected error</string>
   <string name="title_log">Journal</string>
   <string name="title_debug_info">Information de débogage</string>
   <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>

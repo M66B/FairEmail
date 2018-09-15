@@ -186,9 +186,9 @@
   <string name="title_answer_reply">Standardantworten</string>
   <string name="title_answer_name">Antwort Name</string>
   <string name="title_answer_text">Antworttext</string>
-  <string name="title_legend_inbox">Inbox</string>
+  <string name="title_legend_inbox">Posteingang</string>
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
-  <string name="title_legend_archive">Archive</string>
+  <string name="title_legend_archive">Archiv</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>
@@ -217,6 +217,7 @@
   <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
   <string name="title_pro_invalid">Ungültige Antwort</string>
   <string name="title_pro_support">FairEmail benötigt Ihre Unterstützung. Erwerben Sie die Pro-Funktionen, um das Projekt am laufen zu halten.</string>
+  <string name="title_unexpected_error">Unexpected error</string>
   <string name="title_log">Protokoll</string>
   <string name="title_debug_info">Debuginformationen</string>
   <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt dieses aufgetreten ist:</string>

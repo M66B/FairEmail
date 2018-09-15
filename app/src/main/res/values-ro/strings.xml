@@ -221,6 +221,7 @@
   <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
   <string name="title_pro_invalid">Răspunsul nu este valid</string>
   <string name="title_pro_support">FairEmail are nevoie de ajutorul dumneavoastră. Atingeți pentru a achiziționa caracteristici pro și a putea dezvolta proiectul în continuare.</string>
+  <string name="title_unexpected_error">Unexpected error</string>
   <string name="title_log">Raport</string>
   <string name="title_debug_info">Depanare</string>
   <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
