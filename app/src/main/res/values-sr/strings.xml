@@ -128,6 +128,7 @@
   <string name="title_folder_trash">Trash</string>
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Sent</string>
+  <string name="title_folder_system">System</string>
   <string name="title_folder_user">User</string>
   <string name="title_folder_primary">Folders primary account</string>
   <string name="title_folder_thread">Conversation</string>
@@ -202,6 +203,7 @@
   <string name="title_legend_connecting">Connecting</string>
   <string name="title_legend_connected">Connected</string>
   <string name="title_legend_synchronizing">Synchronizing</string>
+  <string name="title_legend_downloading">Downloading</string>
   <string name="title_legend_closing">Closing</string>
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>

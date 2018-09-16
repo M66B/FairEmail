@@ -124,6 +124,7 @@
   <string name="title_folder_trash">Papirkurv</string>
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Sendt</string>
+  <string name="title_folder_system">System</string>
   <string name="title_folder_user">Bruger</string>
   <string name="title_folder_primary">Mapper primærkonto</string>
   <string name="title_folder_thread">Conversation</string>
@@ -198,6 +199,7 @@
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>
   <string name="title_legend_synchronizing">Synkroniserer</string>
+  <string name="title_legend_downloading">Downloading</string>
   <string name="title_legend_closing">Lukker</string>
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>

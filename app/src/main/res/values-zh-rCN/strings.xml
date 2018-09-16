@@ -120,6 +120,7 @@
   <string name="title_folder_trash">回收站</string>
   <string name="title_folder_junk">垃圾邮件</string>
   <string name="title_folder_sent">已发送邮件</string>
+  <string name="title_folder_system">System</string>
   <string name="title_folder_user">用户</string>
   <string name="title_folder_primary">文件夹主账户</string>
   <string name="title_folder_thread">Conversation</string>
@@ -194,6 +195,7 @@
   <string name="title_legend_connecting">正在连接</string>
   <string name="title_legend_connected">已连接</string>
   <string name="title_legend_synchronizing">正在同步</string>
+  <string name="title_legend_downloading">Downloading</string>
   <string name="title_legend_closing">正在结束</string>
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>

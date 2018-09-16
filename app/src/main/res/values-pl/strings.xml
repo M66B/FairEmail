@@ -132,6 +132,7 @@
   <string name="title_folder_trash">Kosz</string>
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Wysłane</string>
+  <string name="title_folder_system">System</string>
   <string name="title_folder_user">Użytkownik</string>
   <string name="title_folder_primary">Podstawowe konto folderów</string>
   <string name="title_folder_thread">Konwersacja</string>
@@ -206,6 +207,7 @@
   <string name="title_legend_connecting">‎Łączenie</string>
   <string name="title_legend_connected">Połączony</string>
   <string name="title_legend_synchronizing">Synchronizowanie</string>
+  <string name="title_legend_downloading">Downloading</string>
   <string name="title_legend_closing">Zamykanie</string>
   <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>

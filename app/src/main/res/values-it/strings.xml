@@ -124,6 +124,7 @@
   <string name="title_folder_trash">Cestino</string>
   <string name="title_folder_junk">Posta indesiderata</string>
   <string name="title_folder_sent">Inviato</string>
+  <string name="title_folder_system">System</string>
   <string name="title_folder_user">Utente</string>
   <string name="title_folder_primary">Cartelle account principale</string>
   <string name="title_folder_thread">Conversation</string>
@@ -198,6 +199,7 @@
   <string name="title_legend_connecting">Connessione in corso</string>
   <string name="title_legend_connected">Connesso</string>
   <string name="title_legend_synchronizing">Synchronizing</string>
+  <string name="title_legend_downloading">Downloading</string>
   <string name="title_legend_closing">Chiusura</string>
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
