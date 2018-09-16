@@ -35,7 +35,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(Helper.TAG, "Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = prefs.getString("theme", "light");
+        boolean pro = prefs.getBoolean("pro", false);
+        String theme = (pro ? prefs.getString("theme", "light") : "light");
         setTheme("light".equals(theme) ? R.style.AppThemeLight : R.style.AppThemeDark);
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         super.onCreate(savedInstanceState);

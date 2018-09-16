@@ -26,12 +26,12 @@ Features
 * Two way synchronization
 * Offline storage and operations
 * Material design
-* Dark theme
 
 Pro features
 ------------
 
 * Signatures
+* Dark theme
 * Account colors
 * Standard replies
 * Sort on time, unread or starred

@@ -203,10 +203,16 @@ public class FragmentSetup extends FragmentEx {
         tbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton button, boolean checked) {
-                if (checked != (Boolean) button.getTag()) {
-                    button.setTag(checked);
-                    tbDarkTheme.setChecked(checked);
-                    prefs.edit().putString("theme", checked ? "dark" : "light").apply();
+                if (prefs.getBoolean("pro", false)) {
+                    if (checked != (Boolean) button.getTag()) {
+                        button.setTag(checked);
+                        tbDarkTheme.setChecked(checked);
+                        prefs.edit().putString("theme", checked ? "dark" : "light").apply();
+                    }
+                } else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
                 }
             }
         });
