@@ -1353,7 +1353,7 @@ public class ServiceSynchronize extends LifecycleService {
             Long[] ids = new Long[imessages.length];
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
-                int from = Math.max(0, i - SYNC_BATCH_SIZE) + 1;
+                int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                 Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
@@ -1382,7 +1382,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Download messages/attachments
             Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
-                int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE) + 1;
+                int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
                 Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
