@@ -129,6 +129,17 @@ public class MessageHelper {
         props.put("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         props.put("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
+        // The documentation is unclear/inconsistent whether this are system or session properties:
+        System.setProperty("mail.mime.address.strict", "false");
+        System.setProperty("mail.mime.decodetext.strict", "false");
+
+        System.setProperty("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
+        System.setProperty("mail.mime.decodefilename", "true");
+        System.setProperty("mail.mime.encodefilename", "true");
+
+        System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
+        System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
+
         // https://javaee.github.io/javamail/OAuth2
         Log.i(Helper.TAG, "Auth type=" + auth_type);
         if (auth_type == Helper.AUTH_TYPE_GMAIL) {
