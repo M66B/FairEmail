@@ -1312,6 +1312,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             FetchProfile fp = new FetchProfile();
             fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(FetchProfile.Item.FLAGS);
             ifolder.fetch(imessages, fp);
 
             long fetch = SystemClock.elapsedRealtime();
@@ -1341,7 +1342,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
+            // fp.add(FetchProfile.Item.FLAGS);
             fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
             // fp.add(UIDFolder.FetchProfileItem.UID);
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
@@ -1357,7 +1358,17 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
-                ifolder.fetch(isub, fp);
+
+                // Full fetch new/changed messages only
+                List<Message> full = new ArrayList<>();
+                for (Message imessage : isub) {
+                    long uid = ifolder.getUID(imessage);
+                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                    if (message == null)
+                        full.add(imessage);
+                }
+                Log.i(Helper.TAG, folder.name + " fetch headers=" + full.size());
+                ifolder.fetch(full.toArray(new Message[0]), fp);
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
@@ -1371,7 +1382,9 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
-                        ((IMAPMessage) isub[j]).invalidateHeaders();
+                        // Reduce memory usage
+                        if (full.contains(isub[j]))
+                            ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
             }
 
@@ -1386,7 +1399,7 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
-                ifolder.fetch(isub, fp);
+                // Fetch on demand
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
