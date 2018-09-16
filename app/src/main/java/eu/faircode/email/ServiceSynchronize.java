@@ -49,6 +49,7 @@ import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
@@ -1329,6 +1330,8 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 } catch (FolderClosedException ex) {
                     throw ex;
+                } catch (FolderClosedIOException ex) {
+                    throw ex;
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
@@ -1340,6 +1343,8 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         downloadMessage(this, folder, ids[i], (IMAPMessage) imessages[i]);
                     } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (FolderClosedIOException ex) {
                         throw ex;
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1506,7 +1511,7 @@ public class ServiceSynchronize extends LifecycleService {
         MessageHelper helper = new MessageHelper(imessage);
 
         ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
-        boolean metered = cm.isActiveNetworkMetered();
+        boolean metered = (cm == null || cm.isActiveNetworkMetered());
 
         if (!message.content)
             if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
