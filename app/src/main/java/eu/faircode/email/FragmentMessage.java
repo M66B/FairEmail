@@ -318,6 +318,11 @@ public class FragmentMessage extends FragmentEx {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Uri uri = Uri.parse(etLink.getText().toString());
 
+                                        if (!"http".equals(uri.getScheme()) && !"https".equals(uri.getScheme())) {
+                                            Toast.makeText(getContext(), getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                                            return;
+                                        }
+
                                         // https://developer.chrome.com/multidevice/android/customtabs
                                         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                                         builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
