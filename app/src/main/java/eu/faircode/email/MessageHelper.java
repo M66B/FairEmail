@@ -92,7 +92,7 @@ public class MessageHelper {
             //props.put("mail.imaps.compress.strategy", "0");
         }
 
-        props.put("mail.imaps.fetchsize", Integer.toString(64 * 1024)); // default 16K
+        props.put("mail.imaps.fetchsize", Integer.toString(48 * 1024)); // default 16K
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");
