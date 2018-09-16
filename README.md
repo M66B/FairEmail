@@ -73,6 +73,7 @@ Downloads
 
 * [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
+* [F-Droid](https://f-droid.org/packages/eu.faircode.email/)
 
 Frequently asked questions
 --------------------------
