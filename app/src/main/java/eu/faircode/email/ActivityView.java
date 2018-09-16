@@ -538,6 +538,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onLoaded(Bundle args, UpdateInfo info) {
+                if (info == null)
+                    return;
+
                 final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null)
                     new AlertDialog.Builder(ActivityView.this)
