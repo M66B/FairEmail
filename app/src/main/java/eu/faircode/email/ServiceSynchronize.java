@@ -543,7 +543,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 Log.i(Helper.TAG, folder.name + " messages added");
                                                 for (Message imessage : e.getMessages())
                                                     try {
-                                                        synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, true, false);
+                                                        long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                        downloadMessage(ServiceSynchronize.this, folder, id, (IMAPMessage) imessage);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     } catch (IOException ex) {
@@ -609,8 +610,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             try {
                                                 try {
                                                     Log.i(Helper.TAG, folder.name + " message changed");
-                                                    synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), true, false);
-                                                    EntityOperation.process(ServiceSynchronize.this); // download small attachments
+                                                    long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
+                                                    downloadMessage(ServiceSynchronize.this, folder, id, (IMAPMessage) e.getMessage());
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 } catch (IOException ex) {
@@ -676,9 +677,9 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 Log.i(Helper.TAG, folder.name + " start idle");
                                 while (state.running && ifolder.isOpen()) {
-                                    Log.i(Helper.TAG, folder.name + " do idle");
+                                    //Log.i(Helper.TAG, folder.name + " do idle");
                                     ifolder.idle(false);
-                                    Log.i(Helper.TAG, folder.name + " done idle");
+                                    //Log.i(Helper.TAG, folder.name + " done idle");
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1319,38 +1320,38 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             // Add/update local messages
-            int added = 0;
-            int updated = 0;
-            int unchanged = 0;
+            Long[] ids = new Long[imessages.length];
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i--)
                 try {
-                    int status = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], true, false);
-                    if (status > 0)
-                        added++;
-                    else if (status < 0)
-                        updated++;
-                    else
-                        unchanged++;
+                    ids[i] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], false);
                 } catch (MessageRemovedException ex) {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                } catch (IOException ex) {
-                    // Getting attachments
-                    if (ex.getCause() instanceof MessageRemovedException)
-                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    else
-                        throw ex;
+                } catch (FolderClosedException ex) {
+                    throw ex;
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 }
-            EntityOperation.process(this); // download small attachments
 
-            Log.w(Helper.TAG, folder.name + " statistics added=" + added + " updated=" + updated + " unchanged=" + unchanged);
+            // Download messages/attachments
+            Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
+            for (int i = imessages.length - 1; i >= 0; i--)
+                if (ids[i] != null)
+                    try {
+                        downloadMessage(this, folder, ids[i], (IMAPMessage) imessages[i]);
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    }
+
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync");
             db.folder().setFolderState(folder.id, ifolder.isOpen() ? "connected" : "disconnected");
         }
     }
 
-    static int synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean download, boolean found) throws MessagingException, IOException {
+    static Long synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean found) throws MessagingException, IOException {
         long uid;
         try {
             FetchProfile fp = new FetchProfile();
@@ -1363,11 +1364,11 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (imessage.isExpunged()) {
                 Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
-                return 0;
+                return null;
             }
             if (imessage.isSet(Flags.Flag.DELETED)) {
                 Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
-                return 0;
+                return null;
             }
 
             MessageHelper helper = new MessageHelper(imessage);
@@ -1376,8 +1377,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             DB db = DB.getInstance(context);
             try {
-                int result = 0;
-
                 db.beginTransaction();
 
                 // Find message by uid (fast, no headers required)
@@ -1406,42 +1405,15 @@ public class ServiceSynchronize extends LifecycleService {
                                 dup.thread = helper.getThreadId(uid);
                             db.message().updateMessage(dup);
                             message = dup;
-                            result = -1;
                         }
                     }
                 }
 
-                if (message != null) {
-                    if (message.seen != seen || message.seen != message.ui_seen) {
-                        message.seen = seen;
-                        message.ui_seen = seen;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
-                        result = -1;
-                    }
-                    if (message.flagged != flagged || message.flagged != message.ui_flagged) {
-                        message.flagged = flagged;
-                        message.ui_flagged = flagged;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
-                        result = -1;
-                    }
-                    if (message.ui_hide) {
-                        message.ui_hide = false;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
-                        result = -1;
-                    }
-                }
-
                 if (message == null) {
-                    // Will fetch message within database transaction
                     FetchProfile fp1 = new FetchProfile();
                     fp1.add(FetchProfile.Item.ENVELOPE);
                     fp1.add(FetchProfile.Item.CONTENT_INFO);
                     fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
-                    if (download)
-                        fp1.add(IMAPFolder.FetchProfileItem.MESSAGE);
                     ifolder.fetch(new Message[]{imessage}, fp1);
 
                     message = new EntityMessage();
@@ -1477,36 +1449,46 @@ public class ServiceSynchronize extends LifecycleService {
 
                     message.id = db.message().insertMessage(message);
 
-                    if (download) {
-                        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
-                        boolean metered = cm.isActiveNetworkMetered();
-                        if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
-                            message.write(context, helper.getHtml());
-                            db.message().setMessageContent(message.id, true);
-                        }
-                    }
-
                     Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
-                    int sequence = 0;
+                    int sequence = 1;
                     for (EntityAttachment attachment : helper.getAttachments()) {
-                        sequence++;
                         Log.i(Helper.TAG, folder.name + " attachment" +
                                 " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
                         attachment.message = message.id;
-                        attachment.sequence = sequence;
+                        attachment.sequence = sequence++;
                         attachment.id = db.attachment().insertAttachment(attachment);
 
-                        if (download)
-                            if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)
-                                attachment.download(context, db);
+                        if (message.size != null && attachment.size != null)
+                            message.size -= attachment.size;
                     }
 
-                    result = 1;
+                    db.message().updateMessage(message);
+                } else {
+                    if (message.seen != seen || message.seen != message.ui_seen) {
+                        message.seen = seen;
+                        message.ui_seen = seen;
+                        db.message().updateMessage(message);
+                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
+                    }
+
+                    if (message.flagged != flagged || message.flagged != message.ui_flagged) {
+                        message.flagged = flagged;
+                        message.ui_flagged = flagged;
+                        db.message().updateMessage(message);
+                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                    }
+
+                    if (message.ui_hide) {
+                        message.ui_hide = false;
+                        db.message().updateMessage(message);
+                        Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
+                    }
                 }
 
                 db.setTransactionSuccessful();
-                return result;
+
+                return message.id;
             } finally {
                 db.endTransaction();
             }
@@ -1515,6 +1497,33 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Free memory
             imessage.invalidateHeaders();
+        }
+    }
+
+    private static void downloadMessage(Context context, EntityFolder folder, long id, IMAPMessage imessage) throws MessagingException, IOException {
+        DB db = DB.getInstance(context);
+        EntityMessage message = db.message().getMessage(id);
+        MessageHelper helper = new MessageHelper(imessage);
+
+        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+        boolean metered = cm.isActiveNetworkMetered();
+
+        if (!message.content)
+            if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
+                message.write(context, helper.getHtml());
+                db.message().setMessageContent(message.id, true);
+                Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+            }
+
+        int sequence = 1;
+        for (EntityAttachment a : helper.getAttachments()) {
+            EntityAttachment attachment = db.attachment().getAttachment(id, sequence++);
+            if (!attachment.available)
+                if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
+                    attachment.part = a.part;
+                    attachment.download(context, db);
+                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                }
         }
     }
 

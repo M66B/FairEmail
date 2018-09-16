@@ -124,6 +124,8 @@ public class MessageHelper {
         props.put("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
         props.put("mail.mime.decodefilename", "true");
         props.put("mail.mime.encodefilename", "true");
+
+        // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         props.put("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         props.put("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 

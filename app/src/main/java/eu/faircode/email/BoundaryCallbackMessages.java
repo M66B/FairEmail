@@ -161,7 +161,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         if (imessages[index].getReceivedDate().getTime() < before)
                             try {
                                 Log.i(Helper.TAG, "Boundary sync uid=" + ifolder.getUID(imessages[index]));
-                                ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], false, true);
+                                ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], true);
                                 if (++count >= SEARCH_PAGE_SIZE)
                                     break;
                             } catch (Throwable ex) {
