@@ -424,7 +424,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Create session
             Properties props = MessageHelper.getSessionProperties(this, account.auth_type);
             final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug || BuildConfig.DEBUG);
+            isession.setDebug(debug);
             // adb -t 1 logcat | grep "fairemail\|System.out"
 
             final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
