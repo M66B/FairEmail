@@ -575,7 +575,7 @@ public class FragmentCompose extends FragmentEx {
                     int start = etBody.getSelectionStart();
                     etBody.getText().insert(start, " ");
                     SpannableString s = new SpannableString(etBody.getText());
-                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + attachment.id), ImageSpan.ALIGN_BASELINE);
+                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
                     s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     String html = Html.toHtml(s);
                     Log.i(Helper.TAG, "html=" + html);
@@ -681,7 +681,7 @@ public class FragmentCompose extends FragmentEx {
                 }
 
                 if (image)
-                    attachment.cid = "<" + attachment.id + ">";
+                    attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
 
                 attachment.size = size;
                 attachment.progress = null;
@@ -1219,8 +1219,9 @@ public class FragmentCompose extends FragmentEx {
         public Drawable getDrawable(String source) {
             if (source != null && source.startsWith("cid")) {
                 String[] cid = source.split(":");
-                if (cid.length > 1) {
-                    File file = EntityAttachment.getFile(getContext(), Long.parseLong(cid[1]));
+                if (cid.length == 2 && cid[1].startsWith(BuildConfig.APPLICATION_ID)) {
+                    long id = Long.parseLong(cid[1].replace(BuildConfig.APPLICATION_ID + ".", ""));
+                    File file = EntityAttachment.getFile(getContext(), id);
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                     return d;
