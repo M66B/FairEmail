@@ -273,6 +273,19 @@ public class FragmentMessage extends FragmentEx {
             }
         });
 
+        btnImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnImages.setEnabled(false);
+                show_images = true;
+
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
+                args.putBoolean("show_images", show_images);
+                bodyTask.load(FragmentMessage.this, args);
+            }
+        });
+
         tvBody.setMovementMethod(new LinkMovementMethod() {
             public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
                 if (event.getAction() != MotionEvent.ACTION_UP)
@@ -480,28 +493,6 @@ public class FragmentMessage extends FragmentEx {
             show_images = savedInstanceState.getBoolean("show_images");
         }
 
-        if (tvBody.getTag() == null) {
-            // Spanned text needs to be loaded after recreation too
-            final Bundle args = new Bundle();
-            args.putLong("id", message.id);
-            args.putBoolean("show_images", show_images);
-
-            pbBody.setVisibility(View.VISIBLE);
-
-            if (message.content)
-                bodyTask.load(FragmentMessage.this, args);
-
-            btnImages.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    v.setEnabled(false);
-                    show_images = true;
-                    args.putBoolean("show_images", show_images);
-                    bodyTask.load(FragmentMessage.this, args);
-                }
-            });
-        }
-
         setSeen();
 
         if (message.avatar == null ||
@@ -541,6 +532,7 @@ public class FragmentMessage extends FragmentEx {
 
         // Observe message
         db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+            private boolean loaded = false;
             private boolean observing = false;
 
             @Override
@@ -561,7 +553,9 @@ public class FragmentMessage extends FragmentEx {
                 pbRawHeaders.setVisibility(!free && headers && message.headers == null ? View.VISIBLE : View.GONE);
 
                 // Body can be downloaded
-                if (message.content) {
+                if (!loaded && message.content) {
+                    loaded = true;
+
                     Bundle args = new Bundle();
                     args.putLong("id", message.id);
                     args.putBoolean("show_images", show_images);
@@ -1172,7 +1166,6 @@ public class FragmentMessage extends FragmentEx {
             boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
 
             tvBody.setText(body);
-            tvBody.setTag(true);
             btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
             grpMessage.setVisibility(View.VISIBLE);
             fab.setVisibility(free ? View.GONE : View.VISIBLE);
