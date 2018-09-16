@@ -310,6 +310,7 @@ public class FragmentFolder extends FragmentEx {
                 // Consider previous save as cancelled
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
+                etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 btnSave.setEnabled(true);
                 ibDelete.setEnabled(true);
                 ibDelete.setVisibility(folder == null ? View.GONE : View.VISIBLE);

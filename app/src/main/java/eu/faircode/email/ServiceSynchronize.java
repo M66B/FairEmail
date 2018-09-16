@@ -1239,17 +1239,23 @@ public class ServiceSynchronize extends LifecycleService {
 
             for (Folder ifolder : ifolders) {
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                boolean system = false;
                 boolean selectable = true;
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr)) { // TODO: is this attribute correct?
                         selectable = false;
                         break;
                     }
-                    if (attr.startsWith("\\"))
-                        if (EntityFolder.SYSTEM_FOLDER_ATTR.contains(attr.substring(1))) {
-                            selectable = false;
+                    if (attr.startsWith("\\")) {
+                        attr = attr.substring(1);
+                        if (EntityFolder.SYSTEM_FOLDER_ATTR.contains(attr)) {
+                            int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
+                            system = EntityFolder.SYSTEM.equals(EntityFolder.SYSTEM_FOLDER_TYPE.get(index));
+                            if (!system)
+                                selectable = false;
                             break;
                         }
+                    }
                 }
 
                 if (selectable) {
@@ -1259,13 +1265,16 @@ public class ServiceSynchronize extends LifecycleService {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = ifolder.getFullName();
-                        folder.type = EntityFolder.USER;
+                        folder.type = (system ? EntityFolder.SYSTEM : EntityFolder.USER);
                         folder.synchronize = false;
                         folder.after = EntityFolder.DEFAULT_USER_SYNC;
                         db.folder().insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
-                    } else
+                    } else {
+                        if (system)
+                            db.folder().setFolderType(folder.id, EntityFolder.SYSTEM);
                         names.remove(folder.name);
+                    }
                 }
             }
 

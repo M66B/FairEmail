@@ -76,6 +76,7 @@ public class EntityFolder implements Parcelable {
     static final String TRASH = "Trash";
     static final String JUNK = "Junk";
     static final String SENT = "Sent";
+    static final String SYSTEM = "System";
     static final String USER = "User";
 
     static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
@@ -83,14 +84,18 @@ public class EntityFolder implements Parcelable {
             "Drafts",
             "Trash",
             "Junk",
-            "Sent"
+            "Sent",
+            "Important",
+            "Flagged"
     );
     static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
             ARCHIVE,
             DRAFTS,
             TRASH,
             JUNK,
-            SENT
+            SENT,
+            SYSTEM,
+            SYSTEM
     ); // MUST match SYSTEM_FOLDER_ATTR
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
@@ -101,6 +106,7 @@ public class EntityFolder implements Parcelable {
             ARCHIVE,
             TRASH,
             JUNK,
+            SYSTEM,
             USER
     );
 
