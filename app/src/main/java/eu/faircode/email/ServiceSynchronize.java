@@ -1600,6 +1600,7 @@ public class ServiceSynchronize extends LifecycleService {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.registerReceiver(outboxReceiver, f);
                         db.folder().setFolderState(outbox.id, "connected");
+                        db.folder().setFolderError(outbox.id, null);
 
                         lbm.sendBroadcast(new Intent(ACTION_PROCESS_OPERATIONS)
                                 .setType("account/outbox")
