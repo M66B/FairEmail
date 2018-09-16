@@ -46,6 +46,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*, account.name AS accountName" +
             ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -56,6 +57,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*, account.name AS accountName" +
             ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -70,6 +72,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*, account.name AS accountName" +
             ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +

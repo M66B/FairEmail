@@ -249,13 +249,33 @@
             app:layout_constraintTop_toTopOf="@id/ivSynchronizing" />
 
         <ImageView
+            android:id="@+id/ivDownloading"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_get_app_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSynchronizing" />
+
+        <TextView
+            android:id="@+id/tvDownloading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_downloading"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivDownloading"
+            app:layout_constraintStart_toEndOf="@id/ivDownloading"
+            app:layout_constraintTop_toTopOf="@id/ivDownloading" />
+
+        <ImageView
             android:id="@+id/ivClosing"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_close_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSynchronizing" />
+            app:layout_constraintTop_toBottomOf="@id/tvDownloading" />
 
         <TextView
             android:id="@+id/tvClosing"

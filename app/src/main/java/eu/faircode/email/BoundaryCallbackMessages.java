@@ -32,9 +32,11 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.mail.FetchProfile;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.Session;
+import javax.mail.UIDFolder;
 import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.ComparisonTerm;
@@ -153,6 +155,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                                         new SubjectTerm(search),
                                                         new BodyTerm(search)))));
                         Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
+
+                        FetchProfile fp = new FetchProfile();
+                        fp.add(FetchProfile.Item.ENVELOPE);
+                        fp.add(FetchProfile.Item.FLAGS);
+                        fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                        fp.add(UIDFolder.FetchProfileItem.UID);
+                        fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                        fp.add(FetchProfile.Item.SIZE);
+                        fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                        ifolder.fetch(imessages, fp);
                     }
 
                     int count = 0;

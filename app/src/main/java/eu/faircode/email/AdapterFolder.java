@@ -103,6 +103,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivState.setImageResource(R.drawable.baseline_close_24);
             else if ("syncing".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
+            else if ("downloading".equals(folder.state))
+                ivState.setImageResource(R.drawable.baseline_get_app_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(folder.synchronize || folder.state != null ? View.VISIBLE : View.INVISIBLE);
@@ -115,7 +117,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
 
-            tvMessages.setText(Integer.toString(folder.messages));
+            tvMessages.setText(String.format("%d/%d", folder.content, folder.messages));
 
             ivUnified.setVisibility(folder.unified ? View.VISIBLE : View.INVISIBLE);
 

@@ -41,6 +41,12 @@ public interface DaoAttachment {
 
     @Query("SELECT COUNT(id)" +
             " FROM attachment" +
+            " WHERE message = :message" +
+            " AND NOT available")
+    int getAttachmentDownloadCount(long message);
+
+    @Query("SELECT COUNT(id)" +
+            " FROM attachment" +
             " WHERE id = :id")
     int countAttachment(long id);
 

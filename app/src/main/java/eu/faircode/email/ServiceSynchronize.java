@@ -62,6 +62,7 @@ import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
@@ -123,6 +124,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
+    private static final int SYNC_BATCH_SIZE = 20;
+    private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
 
@@ -421,7 +424,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Create session
             Properties props = MessageHelper.getSessionProperties(this, account.auth_type);
             final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
+            isession.setDebug(debug || BuildConfig.DEBUG);
             // adb -t 1 logcat | grep "fairemail\|System.out"
 
             final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
@@ -542,6 +545,18 @@ public class ServiceSynchronize extends LifecycleService {
                                         synchronized (lock) {
                                             try {
                                                 Log.i(Helper.TAG, folder.name + " messages added");
+
+                                                FetchProfile fp = new FetchProfile();
+                                                fp.add(FetchProfile.Item.ENVELOPE);
+                                                fp.add(FetchProfile.Item.FLAGS);
+                                                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                                                fp.add(UIDFolder.FetchProfileItem.UID);
+                                                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                                                fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                                                fp.add(FetchProfile.Item.SIZE);
+                                                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                                                ifolder.fetch(e.getMessages(), fp);
+
                                                 for (Message imessage : e.getMessages())
                                                     try {
                                                         long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
@@ -611,6 +626,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             try {
                                                 try {
                                                     Log.i(Helper.TAG, folder.name + " message changed");
+
+                                                    FetchProfile fp = new FetchProfile();
+                                                    fp.add(UIDFolder.FetchProfileItem.UID);
+                                                    fp.add(IMAPFolder.FetchProfileItem.FLAGS);
+                                                    ifolder.fetch(new Message[]{e.getMessage()}, fp);
+
                                                     long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
                                                     downloadMessage(ServiceSynchronize.this, folder, id, (IMAPMessage) e.getMessage());
                                                 } catch (MessageRemovedException ex) {
@@ -1291,7 +1312,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             FetchProfile fp = new FetchProfile();
             fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.FLAGS);
             ifolder.fetch(imessages, fp);
 
             long fetch = SystemClock.elapsedRealtime();
@@ -1320,35 +1340,70 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " delete local uid=" + uid + " count=" + count);
             }
 
+            fp.add(FetchProfile.Item.ENVELOPE);
+            fp.add(FetchProfile.Item.FLAGS);
+            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            // fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            // fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            fp.add(FetchProfile.Item.SIZE);
+            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0; i--)
-                try {
-                    ids[i] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) imessages[i], false);
-                } catch (MessageRemovedException ex) {
-                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                } catch (FolderClosedException ex) {
-                    throw ex;
-                } catch (FolderClosedIOException ex) {
-                    throw ex;
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                }
+            for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
+                int from = Math.max(0, i - SYNC_BATCH_SIZE) + 1;
+                Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
-            // Download messages/attachments
-            Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0; i--)
-                if (ids[i] != null)
+                Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
+                ifolder.fetch(isub, fp);
+
+                for (int j = isub.length - 1; j >= 0; j--)
                     try {
-                        downloadMessage(this, folder, ids[i], (IMAPMessage) imessages[i]);
+                        ids[from + j] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) isub[j], false);
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (FolderClosedIOException ex) {
                         throw ex;
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
+            }
+
+            db.folder().setFolderState(folder.id, "downloading");
+
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+
+            // Download messages/attachments
+            Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
+            for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
+                int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE) + 1;
+                Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
+
+                Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
+                ifolder.fetch(isub, fp);
+
+                for (int j = isub.length - 1; j >= 0; j--)
+                    try {
+                        Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
+                        if (ids[i - j] != null)
+                            downloadMessage(this, folder, ids[i - j], (IMAPMessage) isub[j]);
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (FolderClosedIOException ex) {
+                        throw ex;
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        // Free memory
+                        ((IMAPMessage) isub[j]).invalidateHeaders();
+                    }
+            }
 
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync");
@@ -1357,151 +1412,131 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     static Long synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean found) throws MessagingException, IOException {
-        long uid;
+        long uid = ifolder.getUID(imessage);
+
+        if (imessage.isExpunged()) {
+            Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
+            throw new MessageRemovedException();
+        }
+        if (imessage.isSet(Flags.Flag.DELETED)) {
+            Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
+            throw new MessageRemovedException();
+        }
+
+        MessageHelper helper = new MessageHelper(imessage);
+        boolean seen = helper.getSeen();
+        boolean flagged = helper.getFlagged();
+
+        DB db = DB.getInstance(context);
         try {
-            FetchProfile fp = new FetchProfile();
-            fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.FLAGS);
-            ifolder.fetch(new Message[]{imessage}, fp);
+            db.beginTransaction();
 
-            uid = ifolder.getUID(imessage);
-            //Log.v(Helper.TAG, folder.name + " start sync uid=" + uid);
+            // Find message by uid (fast, no headers required)
+            EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
-            if (imessage.isExpunged()) {
-                Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
-                throw new MessageRemovedException();
-            }
-            if (imessage.isSet(Flags.Flag.DELETED)) {
-                Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
-                throw new MessageRemovedException();
-            }
+            // Find message by Message-ID (slow, headers required)
+            // - messages in inbox have same id as message sent to self
+            // - messages in archive have same id as original
+            if (message == null) {
+                // Will fetch headers within database transaction
+                String msgid = helper.getMessageID();
+                String[] refs = helper.getReferences();
+                String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
+                Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
+                for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
+                    EntityFolder dfolder = db.folder().getFolder(dup.folder);
+                    boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
+                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
+                            " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
 
-            MessageHelper helper = new MessageHelper(imessage);
-            boolean seen = helper.getSeen();
-            boolean flagged = helper.getFlagged();
-
-            DB db = DB.getInstance(context);
-            try {
-                db.beginTransaction();
-
-                // Find message by uid (fast, no headers required)
-                EntityMessage message = db.message().getMessageByUid(folder.id, uid);
-
-                // Find message by Message-ID (slow, headers required)
-                // - messages in inbox have same id as message sent to self
-                // - messages in archive have same id as original
-                if (message == null) {
-                    // Will fetch headers within database transaction
-                    String msgid = helper.getMessageID();
-                    String[] refs = helper.getReferences();
-                    String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
-                    Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
-                    for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
-                        EntityFolder dfolder = db.folder().getFolder(dup.folder);
-                        boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
-                        Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
-                                " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
-
-                        if (dup.folder.equals(folder.id) || outbox) {
-                            Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
-                            dup.folder = folder.id;
-                            dup.uid = uid;
-                            if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
-                                dup.thread = helper.getThreadId(uid);
-                            db.message().updateMessage(dup);
-                            message = dup;
-                        }
+                    if (dup.folder.equals(folder.id) || outbox) {
+                        Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
+                        dup.folder = folder.id;
+                        dup.uid = uid;
+                        if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
+                            dup.thread = helper.getThreadId(uid);
+                        db.message().updateMessage(dup);
+                        message = dup;
                     }
                 }
+            }
 
-                if (message == null) {
-                    FetchProfile fp1 = new FetchProfile();
-                    fp1.add(FetchProfile.Item.ENVELOPE);
-                    fp1.add(FetchProfile.Item.CONTENT_INFO);
-                    fp1.add(IMAPFolder.FetchProfileItem.HEADERS);
-                    ifolder.fetch(new Message[]{imessage}, fp1);
+            if (message == null) {
+                message = new EntityMessage();
+                message.account = folder.account;
+                message.folder = folder.id;
+                message.uid = uid;
 
-                    message = new EntityMessage();
-                    message.account = folder.account;
-                    message.folder = folder.id;
-                    message.uid = uid;
+                if (!EntityFolder.ARCHIVE.equals(folder.type)) {
+                    message.msgid = helper.getMessageID();
+                    if (TextUtils.isEmpty(message.msgid))
+                        Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+                }
 
-                    if (!EntityFolder.ARCHIVE.equals(folder.type)) {
-                        message.msgid = helper.getMessageID();
-                        if (TextUtils.isEmpty(message.msgid))
-                            Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
-                    }
+                message.references = TextUtils.join(" ", helper.getReferences());
+                message.inreplyto = helper.getInReplyTo();
+                message.thread = helper.getThreadId(uid);
+                message.from = helper.getFrom();
+                message.to = helper.getTo();
+                message.cc = helper.getCc();
+                message.bcc = helper.getBcc();
+                message.reply = helper.getReply();
+                message.subject = imessage.getSubject();
+                message.size = helper.getSize();
+                message.content = false;
+                message.received = imessage.getReceivedDate().getTime();
+                message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+                message.seen = seen;
+                message.ui_seen = seen;
+                message.flagged = false;
+                message.ui_flagged = false;
+                message.ui_hide = false;
+                message.ui_found = found;
 
-                    message.references = TextUtils.join(" ", helper.getReferences());
-                    message.inreplyto = helper.getInReplyTo();
-                    message.thread = helper.getThreadId(uid);
-                    message.from = helper.getFrom();
-                    message.to = helper.getTo();
-                    message.cc = helper.getCc();
-                    message.bcc = helper.getBcc();
-                    message.reply = helper.getReply();
-                    message.subject = imessage.getSubject();
-                    message.size = helper.getSize();
-                    message.content = false;
-                    message.received = imessage.getReceivedDate().getTime();
-                    message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+                message.id = db.message().insertMessage(message);
+
+                Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+                int sequence = 1;
+                for (EntityAttachment attachment : helper.getAttachments()) {
+                    Log.i(Helper.TAG, folder.name + " attachment" +
+                            " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
+                    attachment.message = message.id;
+                    attachment.sequence = sequence++;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    if (message.size != null && attachment.size != null)
+                        message.size -= attachment.size;
+                }
+
+                db.message().updateMessage(message);
+            } else {
+                if (message.seen != seen || message.seen != message.ui_seen) {
                     message.seen = seen;
                     message.ui_seen = seen;
-                    message.flagged = false;
-                    message.ui_flagged = false;
-                    message.ui_hide = false;
-                    message.ui_found = found;
-
-                    message.id = db.message().insertMessage(message);
-
-                    Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
-
-                    int sequence = 1;
-                    for (EntityAttachment attachment : helper.getAttachments()) {
-                        Log.i(Helper.TAG, folder.name + " attachment" +
-                                " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
-                        attachment.message = message.id;
-                        attachment.sequence = sequence++;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-
-                        if (message.size != null && attachment.size != null)
-                            message.size -= attachment.size;
-                    }
-
                     db.message().updateMessage(message);
-                } else {
-                    if (message.seen != seen || message.seen != message.ui_seen) {
-                        message.seen = seen;
-                        message.ui_seen = seen;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
-                    }
-
-                    if (message.flagged != flagged || message.flagged != message.ui_flagged) {
-                        message.flagged = flagged;
-                        message.ui_flagged = flagged;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
-                    }
-
-                    if (message.ui_hide) {
-                        message.ui_hide = false;
-                        db.message().updateMessage(message);
-                        Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
-                    }
+                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
                 }
 
-                db.setTransactionSuccessful();
+                if (message.flagged != flagged || message.flagged != message.ui_flagged) {
+                    message.flagged = flagged;
+                    message.ui_flagged = flagged;
+                    db.message().updateMessage(message);
+                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                }
 
-                return message.id;
-            } finally {
-                db.endTransaction();
+                if (message.ui_hide) {
+                    message.ui_hide = false;
+                    db.message().updateMessage(message);
+                    Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
+                }
             }
-        } finally {
-            //Log.v(Helper.TAG, folder.name + " end sync uid=" + uid);
 
-            // Free memory
-            imessage.invalidateHeaders();
+            db.setTransactionSuccessful();
+
+            return message.id;
+        } finally {
+            db.endTransaction();
         }
     }
 
@@ -1520,15 +1555,17 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
             }
 
-        int sequence = 1;
-        for (EntityAttachment a : helper.getAttachments()) {
-            EntityAttachment attachment = db.attachment().getAttachment(id, sequence++);
-            if (!attachment.available)
-                if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
-                    attachment.part = a.part;
-                    attachment.download(context, db);
-                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
-                }
+        if (db.attachment().getAttachmentDownloadCount(id) > 0) {
+            int sequence = 1;
+            for (EntityAttachment a : helper.getAttachments()) {
+                EntityAttachment attachment = db.attachment().getAttachment(id, sequence++);
+                if (!attachment.available)
+                    if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
+                        attachment.part = a.part;
+                        attachment.download(context, db);
+                        Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                    }
+            }
         }
     }
 
