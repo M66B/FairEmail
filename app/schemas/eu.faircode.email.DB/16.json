@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 16,
-    "identityHash": "bac90fa06592121fae18c1305a2e5b25",
+    "identityHash": "95bd1e083056fa7625f21430f7d53e2d",
     "entities": [
       {
         "tableName": "identity",
@@ -369,7 +369,7 @@
       },
       {
         "tableName": "message",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `avatar` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `headers` TEXT, `subject` TEXT, `downloaded` INTEGER NOT NULL, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `flagged` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_flagged` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `ui_found` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `account` INTEGER, `folder` INTEGER NOT NULL, `identity` INTEGER, `replying` INTEGER, `uid` INTEGER, `msgid` TEXT, `references` TEXT, `inreplyto` TEXT, `thread` TEXT, `avatar` TEXT, `from` TEXT, `to` TEXT, `cc` TEXT, `bcc` TEXT, `reply` TEXT, `headers` TEXT, `subject` TEXT, `size` INTEGER, `content` INTEGER NOT NULL, `sent` INTEGER, `received` INTEGER NOT NULL, `stored` INTEGER NOT NULL, `seen` INTEGER NOT NULL, `flagged` INTEGER NOT NULL, `ui_seen` INTEGER NOT NULL, `ui_flagged` INTEGER NOT NULL, `ui_hide` INTEGER NOT NULL, `ui_found` INTEGER NOT NULL, `error` TEXT, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -480,8 +480,14 @@
             "notNull": false
           },
           {
-            "fieldPath": "downloaded",
-            "columnName": "downloaded",
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -964,7 +970,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"bac90fa06592121fae18c1305a2e5b25\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"95bd1e083056fa7625f21430f7d53e2d\")"
     ]
   }
 }

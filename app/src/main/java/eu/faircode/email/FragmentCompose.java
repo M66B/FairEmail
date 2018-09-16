@@ -670,7 +670,7 @@ public class FragmentCompose extends FragmentEx {
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
                 int size = 0;
-                byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
+                byte[] buffer = new byte[EntityAttachment.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
                     os.write(buffer, 0, len);
@@ -877,6 +877,7 @@ public class FragmentCompose extends FragmentEx {
                         body = "<br />" + account.signature + body;
                 }
 
+                draft.content = true;
                 draft.received = new Date().getTime();
                 draft.seen = false;
                 draft.ui_seen = false;

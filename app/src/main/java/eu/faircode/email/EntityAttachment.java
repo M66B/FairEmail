@@ -20,10 +20,17 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.util.Log;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.mail.BodyPart;
+import javax.mail.MessagingException;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -47,6 +54,7 @@ import static androidx.room.ForeignKey.CASCADE;
 )
 public class EntityAttachment {
     static final String TABLE_NAME = "attachment";
+    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
@@ -71,6 +79,54 @@ public class EntityAttachment {
         File dir = new File(context.getFilesDir(), "attachments");
         dir.mkdir();
         return new File(dir, Long.toString(id));
+    }
+
+    void download(Context context, DB db) throws MessagingException, IOException {
+        // Build filename
+        File file = EntityAttachment.getFile(context, this.id);
+
+        // Download attachment
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            this.progress = null;
+            db.attachment().updateAttachment(this);
+
+            is = this.part.getInputStream();
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            int size = 0;
+            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+            for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                size += len;
+                os.write(buffer, 0, len);
+
+                // Update progress
+                if (this.size != null)
+                    db.attachment().setProgress(this.id, size * 100 / this.size);
+            }
+
+            // Store attachment data
+            this.size = size;
+            this.progress = null;
+            this.available = true;
+            db.attachment().updateAttachment(this);
+
+            Log.i(Helper.TAG, "Downloaded attachment size=" + this.size);
+        } catch (IOException ex) {
+            // Reset progress on failure
+            this.progress = null;
+            db.attachment().updateAttachment(this);
+            throw ex;
+        } finally {
+            try {
+                if (is != null)
+                    is.close();
+            } finally {
+                if (os != null)
+                    os.close();
+            }
+        }
     }
 
     @Override

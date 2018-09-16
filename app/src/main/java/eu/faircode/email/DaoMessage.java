@@ -200,8 +200,8 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_found = 0 WHERE folder = :folder")
     int resetFound(long folder);
 
-    @Query("UPDATE message SET downloaded = :downloaded WHERE id = :id")
-    int setMessageDownloaded(long id, boolean downloaded);
+    @Query("UPDATE message SET content = :content WHERE id = :id")
+    int setMessageContent(long id, boolean content);
 
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);

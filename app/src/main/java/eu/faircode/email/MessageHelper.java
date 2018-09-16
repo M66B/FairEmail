@@ -92,6 +92,8 @@ public class MessageHelper {
             //props.put("mail.imaps.compress.strategy", "0");
         }
 
+        props.put("mail.imaps.fetchsize", Integer.toString(64 * 1024)); // default 16K
+
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");
         props.put("mail.smtps.ssl.trust", "*");
@@ -268,6 +270,11 @@ public class MessageHelper {
             return imessage.getReplyTo();
         else
             return null;
+    }
+
+    Integer getSize() throws MessagingException {
+        int size = imessage.getSize();
+        return (size < 0 ? null : size);
     }
 
     static String getFormattedAddresses(Address[] addresses, boolean full) {

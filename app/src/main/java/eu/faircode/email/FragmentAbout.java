@@ -119,6 +119,7 @@ public class FragmentAbout extends FragmentEx {
                             draft.msgid = EntityMessage.generateMessageId();
                             draft.to = new Address[]{Helper.myAddress()};
                             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
+                            draft.content = true;
                             draft.received = new Date().getTime();
                             draft.seen = false;
                             draft.ui_seen = false;

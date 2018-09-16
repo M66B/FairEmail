@@ -86,6 +86,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         ImageView ivAvatar;
         ImageView ivFlagged;
         TextView tvFrom;
+        TextView tvSize;
         TextView tvTime;
         ImageView ivAttachments;
         TextView tvSubject;
@@ -103,9 +104,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             this.itemView = itemView;
             vwColor = itemView.findViewById(R.id.vwColor);
-            ivAvatar = itemView.findViewById(R.id.ivAvatar);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvFrom = itemView.findViewById(R.id.tvFrom);
+            tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -130,8 +132,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
+            tvSize.setText(null);
             tvTime.setText(null);
-            tvSubject.setText(null);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
             tvFolder.setText(null);
@@ -201,8 +203,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
             }
 
-            tvSubject.setText(message.subject);
+            tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
+            tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
+
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            tvSubject.setText(message.subject);
 
             if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);

@@ -30,15 +30,15 @@ Most, if not all, other email apps don't show a notification with the "side effe
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* seen: mark message as seen/unseen in remote folder
 * add: add message to remote folder
 * move: move message to another remote folder
 * delete: delete message from remote folder
 * send: send message
-* attachment: download attachment
-* headers: download message headers
-* body: download message body
+* seen: mark message as seen/unseen in remote folder
 * flag: star/unstar remote message
+* headers: download message headers
+* body: download message text
+* attachment: download attachment
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#FAQ16).

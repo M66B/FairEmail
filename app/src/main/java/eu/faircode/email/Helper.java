@@ -46,6 +46,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
@@ -63,8 +64,6 @@ public class Helper {
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
-
-    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         @Override
@@ -137,7 +136,7 @@ public class Helper {
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
+        return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
     static boolean classExists(String className) {

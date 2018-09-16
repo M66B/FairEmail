@@ -301,6 +301,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.msgid = EntityMessage.generateMessageId();
                             draft.to = new Address[]{Helper.myAddress()};
                             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " crash log";
+                            draft.content = true;
                             draft.received = new Date().getTime();
                             draft.seen = false;
                             draft.ui_seen = false;
@@ -757,7 +758,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 try {
                     db.beginTransaction();
 
-                    if (!message.downloaded)
+                    if (!message.content)
                         EntityOperation.queue(db, message, EntityOperation.BODY);
 
                     for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread)) {

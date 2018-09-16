@@ -54,12 +54,7 @@ import com.sun.mail.util.MailConnectException;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -127,6 +122,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
+    private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
@@ -925,14 +921,14 @@ public class ServiceSynchronize extends LifecycleService {
                             else if (EntityOperation.SEND.equals(op.name))
                                 doSend(message, db);
 
-                            else if (EntityOperation.ATTACHMENT.equals(op.name))
-                                doAttachment(folder, op, ifolder, message, jargs, db);
-
                             else if (EntityOperation.HEADERS.equals(op.name))
                                 doHeaders(folder, ifolder, message, db);
 
                             else if (EntityOperation.BODY.equals(op.name))
                                 doBody(folder, ifolder, message, db);
+
+                            else if (EntityOperation.ATTACHMENT.equals(op.name))
+                                doAttachment(folder, op, ifolder, message, jargs, db);
 
                             else
                                 throw new MessagingException("Unknown operation name=" + op.name);
@@ -1142,68 +1138,6 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
-        // Download attachment
-        int sequence = jargs.getInt(0);
-
-        EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
-        if (attachment == null)
-            return;
-
-        try {
-            // Get message
-            Message imessage = ifolder.getMessageByUID(message.uid);
-            if (imessage == null)
-                throw new MessageRemovedException();
-
-            // Get attachment
-            MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-            EntityAttachment a = helper.getAttachments().get(sequence - 1);
-
-            // Build filename
-            File file = EntityAttachment.getFile(this, attachment.id);
-
-            // Download attachment
-            InputStream is = null;
-            OutputStream os = null;
-            try {
-                is = a.part.getInputStream();
-                os = new BufferedOutputStream(new FileOutputStream(file));
-
-                int size = 0;
-                byte[] buffer = new byte[Helper.ATTACHMENT_BUFFER_SIZE];
-                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                    size += len;
-                    os.write(buffer, 0, len);
-
-                    // Update progress
-                    if (attachment.size != null)
-                        db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
-                }
-
-                // Store attachment data
-                attachment.size = size;
-                attachment.progress = null;
-                attachment.available = true;
-                db.attachment().updateAttachment(attachment);
-            } finally {
-                try {
-                    if (is != null)
-                        is.close();
-                } finally {
-                    if (os != null)
-                        os.close();
-                }
-            }
-            Log.i(Helper.TAG, folder.name + " downloaded bytes=" + attachment.size);
-        } catch (Throwable ex) {
-            // Reset progress on failure
-            attachment.progress = null;
-            db.attachment().updateAttachment(attachment);
-            throw ex;
-        }
-    }
-
     private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
         Message imessage = ifolder.getMessageByUID(message.uid);
         Enumeration<Header> headers = imessage.getAllHeaders();
@@ -1216,10 +1150,39 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void doBody(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException, IOException {
+        // Download message body
+        if (message.content)
+            return;
+
+        // Get message
         Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         message.write(this, helper.getHtml());
-        db.message().setMessageDownloaded(message.id, true);
+        db.message().setMessageContent(message.id, true);
+    }
+
+    private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
+        // Download attachment
+        int sequence = jargs.getInt(0);
+
+        // Get attachment
+        EntityAttachment attachment = db.attachment().getAttachment(op.message, sequence);
+        if (attachment.available)
+            return;
+
+        // Get message
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        // Download attachment
+        MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+        EntityAttachment a = helper.getAttachments().get(sequence - 1);
+        attachment.part = a.part;
+        attachment.download(this, db);
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
@@ -1501,7 +1464,8 @@ public class ServiceSynchronize extends LifecycleService {
                     message.bcc = helper.getBcc();
                     message.reply = helper.getReply();
                     message.subject = imessage.getSubject();
-                    message.downloaded = download;
+                    message.size = helper.getSize();
+                    message.content = false;
                     message.received = imessage.getReceivedDate().getTime();
                     message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
                     message.seen = seen;
@@ -1513,22 +1477,29 @@ public class ServiceSynchronize extends LifecycleService {
 
                     message.id = db.message().insertMessage(message);
 
-                    if (download)
-                        message.write(context, helper.getHtml());
+                    if (download) {
+                        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+                        boolean metered = cm.isActiveNetworkMetered();
+                        if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
+                            message.write(context, helper.getHtml());
+                            db.message().setMessageContent(message.id, true);
+                        }
+                    }
 
                     Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                     int sequence = 0;
                     for (EntityAttachment attachment : helper.getAttachments()) {
                         sequence++;
-                        Log.i(Helper.TAG, "attachment seq=" + sequence +
-                                " name=" + attachment.name + " type=" + attachment.type);
+                        Log.i(Helper.TAG, folder.name + " attachment" +
+                                " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
                         attachment.message = message.id;
                         attachment.sequence = sequence;
                         attachment.id = db.attachment().insertAttachment(attachment);
 
-                        if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)
-                            EntityOperation.queue(db, message, EntityOperation.ATTACHMENT, sequence);
+                        if (download)
+                            if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)
+                                attachment.download(context, db);
                     }
 
                     result = 1;

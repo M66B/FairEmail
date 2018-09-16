@@ -483,7 +483,7 @@ public class FragmentMessage extends FragmentEx {
 
             pbBody.setVisibility(View.VISIBLE);
 
-            if (message.downloaded)
+            if (message.content)
                 bodyTask.load(FragmentMessage.this, args);
 
             btnImages.setOnClickListener(new View.OnClickListener() {
@@ -536,6 +536,7 @@ public class FragmentMessage extends FragmentEx {
 
         // Observe message
         db.message().liveMessage(message.id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+            private boolean observing = false;
 
             @Override
             public void onChanged(@Nullable final TupleMessageEx message) {
@@ -555,7 +556,7 @@ public class FragmentMessage extends FragmentEx {
                 pbRawHeaders.setVisibility(!free && headers && message.headers == null ? View.VISIBLE : View.GONE);
 
                 // Body can be downloaded
-                if (message.downloaded) {
+                if (message.content) {
                     Bundle args = new Bundle();
                     args.putLong("id", message.id);
                     args.putBoolean("show_images", show_images);
@@ -572,7 +573,9 @@ public class FragmentMessage extends FragmentEx {
                 setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
 
                 // Observe folders
-                db.folder().liveFolders(message.account).removeObservers(getViewLifecycleOwner());
+                if (observing)
+                    return;
+                observing = true;
                 db.folder().liveFolders(message.account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
                     public void onChanged(@Nullable List<TupleFolderEx> folders) {
@@ -605,7 +608,7 @@ public class FragmentMessage extends FragmentEx {
                         bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
                         bottom_navigation.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
                         bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(message.downloaded && !inOutbox);
+                        bottom_navigation.getMenu().findItem(R.id.action_reply).setVisible(message.content && !inOutbox);
                         bottom_navigation.setVisibility(View.VISIBLE);
                     }
                 });
@@ -623,7 +626,7 @@ public class FragmentMessage extends FragmentEx {
                         adapter.set(attachments);
                         grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-                        if (message.downloaded) {
+                        if (message.content) {
                             Bundle args = new Bundle();
                             args.putLong("id", message.id);
                             args.putBoolean("show_images", show_images);
@@ -664,12 +667,12 @@ public class FragmentMessage extends FragmentEx {
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
         menu.findItem(R.id.menu_thread).setVisible(message.count > 1);
-        menu.findItem(R.id.menu_forward).setVisible(message.downloaded && !inOutbox);
+        menu.findItem(R.id.menu_forward).setVisible(message.content && !inOutbox);
         menu.findItem(R.id.menu_show_headers).setChecked(headers);
         menu.findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
         menu.findItem(R.id.menu_show_headers).setVisible(!free);
-        menu.findItem(R.id.menu_show_html).setEnabled(message.downloaded && Helper.classExists("android.webkit.WebView"));
-        menu.findItem(R.id.menu_reply_all).setVisible(message.downloaded && !inOutbox);
+        menu.findItem(R.id.menu_show_html).setEnabled(message.content && Helper.classExists("android.webkit.WebView"));
+        menu.findItem(R.id.menu_reply_all).setVisible(message.content && !inOutbox);
     }
 
     @Override

@@ -225,7 +225,8 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
-                        db.execSQL("ALTER TABLE `message` ADD COLUMN `downloaded` INTEGER NOT NULL DEFAULT 1");
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `size` INTEGER");
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `content` INTEGER NOT NULL DEFAULT 1");
                     }
                 })
                 .build();

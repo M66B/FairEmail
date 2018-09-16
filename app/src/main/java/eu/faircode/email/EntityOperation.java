@@ -70,9 +70,9 @@ public class EntityOperation {
     public static final String MOVE = "move";
     public static final String DELETE = "delete";
     public static final String SEND = "send";
-    public static final String ATTACHMENT = "attachment";
     public static final String HEADERS = "headers";
     public static final String BODY = "body";
+    public static final String ATTACHMENT = "attachment";
     public static final String FLAG = "flag";
 
     private static List<Intent> queue = new ArrayList<>();
