@@ -1364,11 +1364,11 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (imessage.isExpunged()) {
                 Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
-                return null;
+                throw new MessageRemovedException();
             }
             if (imessage.isSet(Flags.Flag.DELETED)) {
                 Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
-                return null;
+                throw new MessageRemovedException();
             }
 
             MessageHelper helper = new MessageHelper(imessage);
