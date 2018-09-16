@@ -441,7 +441,7 @@ public class MessageHelper {
 
                 EntityAttachment attachment = new EntityAttachment();
                 attachment.name = filename;
-                attachment.type = ct.getBaseType();
+                attachment.type = ct.getBaseType().toLowerCase();
                 attachment.size = part.getSize();
                 attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
                 attachment.part = part;
