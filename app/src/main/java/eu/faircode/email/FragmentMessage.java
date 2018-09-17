@@ -517,6 +517,8 @@ public class FragmentMessage extends FragmentEx {
             ivContactAdd.setLayoutParams(lp);
         }
 
+        pbBody.setVisibility(View.VISIBLE);
+
         pbWait.setVisibility(View.GONE);
 
         grpHeader.setVisibility(free ? View.GONE : View.VISIBLE);
