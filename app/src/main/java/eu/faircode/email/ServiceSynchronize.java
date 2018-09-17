@@ -310,7 +310,7 @@ public class ServiceSynchronize extends LifecycleService {
             builder.setLights(0xff00ff00, 1000, 1000);
         }
 
-        if (prefs.getBoolean("pro", false)) {
+        if (Helper.isPro(this)) {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {

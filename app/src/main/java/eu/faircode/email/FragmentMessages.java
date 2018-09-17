@@ -508,8 +508,7 @@ public class FragmentMessages extends FragmentEx {
     @Override
     public void onResume() {
         super.onResume();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        grpSupport.setVisibility(prefs.getBoolean("pro", false) ? View.GONE : View.VISIBLE);
+        grpSupport.setVisibility(Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
     }
 
     @Override
@@ -524,7 +523,7 @@ public class FragmentMessages extends FragmentEx {
             public boolean onQueryTextSubmit(String query) {
                 menuSearch.collapseActionView();
 
-                if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                if (Helper.isPro(getContext())) {
                     Intent intent = new Intent();
                     intent.putExtra("folder", folder);
                     intent.putExtra("search", query);
@@ -583,7 +582,7 @@ public class FragmentMessages extends FragmentEx {
 
             case R.id.menu_sort_on_unread:
             case R.id.menu_sort_on_starred:
-                if (prefs.getBoolean("pro", false)) {
+                if (Helper.isPro(getContext())) {
                     prefs.edit().putString("sort", item.getItemId() == R.id.menu_sort_on_unread ? "unread" : "starred").apply();
                     item.setChecked(true);
                     loadMessages();

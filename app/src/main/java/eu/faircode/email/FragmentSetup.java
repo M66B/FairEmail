@@ -203,7 +203,7 @@ public class FragmentSetup extends FragmentEx {
         tbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton button, boolean checked) {
-                if (prefs.getBoolean("pro", false)) {
+                if (Helper.isPro(getContext())) {
                     if (checked != (Boolean) button.getTag()) {
                         button.setTag(checked);
                         tbDarkTheme.setChecked(checked);
@@ -346,8 +346,7 @@ public class FragmentSetup extends FragmentEx {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_export:
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                if (prefs.getBoolean("pro", false))
+                if (Helper.isPro(getContext()))
                     startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
                 else {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

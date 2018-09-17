@@ -23,6 +23,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
@@ -272,5 +273,11 @@ public class Helper {
             default:
                 return Integer.toString(responseCode);
         }
+    }
+
+    static boolean isPro(Context context) {
+        if (false && BuildConfig.DEBUG)
+            return true;
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }
 }

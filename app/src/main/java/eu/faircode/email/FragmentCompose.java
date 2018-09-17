@@ -31,7 +31,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -713,7 +712,7 @@ public class FragmentCompose extends FragmentEx {
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
             long answer = args.getLong("answer", -1);
-            boolean pro = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
+            boolean pro = Helper.isPro(getContext());
 
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " reference=" + reference);
 

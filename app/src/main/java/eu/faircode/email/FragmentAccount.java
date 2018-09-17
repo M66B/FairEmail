@@ -861,7 +861,7 @@ public class FragmentAccount extends FragmentEx {
 
                 Helper.setViewsEnabled(view, true);
 
-                boolean pro = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false);
+                boolean pro = Helper.isPro(getContext());
                 etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
                 etSignature.setEnabled(pro);
                 if (pro) {

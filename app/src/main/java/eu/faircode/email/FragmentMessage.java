@@ -807,7 +807,7 @@ public class FragmentMessage extends FragmentEx {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem target) {
-                        if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                        if (Helper.isPro(getContext())) {
                             startActivity(new Intent(getContext(), ActivityCompose.class)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
