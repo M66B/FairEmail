@@ -138,9 +138,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 Log.i(Helper.TAG, "Response invalid");
                 Snackbar.make(getView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
             }
-
-            intent.setData(null);
-            setIntent(intent);
         } catch (NoSuchAlgorithmException ex) {
             Log.e(Helper.TAG, Log.getStackTraceString(ex));
             Helper.unexpectedError(this, ex);
