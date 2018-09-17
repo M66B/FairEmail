@@ -199,7 +199,7 @@
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>
   <string name="title_legend_synchronizing">Synchronisiere</string>
-  <string name="title_legend_downloading">Downloading</string>
+  <string name="title_legend_downloading">Lade herunter</string>
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
   <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
