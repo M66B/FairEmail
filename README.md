@@ -1,5 +1,4 @@
-FairEmail
-=========
+# FairEmail
 
 *Open source, privacy friendly email app*
 
@@ -14,21 +13,20 @@ This email app might be for you if your current email app:
 * stores your email on their servers
 * is closed source, potentially violating your privacy
 
-Features
---------
+## Features
 
 * 100 % open source
 * Multiple accounts (inboxes)
 * Multiple identities (outboxes)
 * Unified inbox
-* Distraction free reading and writing
 * Message threading
+* Distraction free reading and writing
 * Two way synchronization
 * Offline storage and operations
+* Folder management
 * Material design
 
-Pro features
-------------
+## Pro features
 
 * Signatures
 * Dark theme
@@ -39,15 +37,13 @@ Pro features
 * Preview sender/subject in new messages status bar notification
 * Export settings
 
-Simple
-------
+## Simple
 
 * Easy navigation
 * No unnecessary settings
 * No bells and whistles
 
-Secure
-------
+## Secure
 
 * Allow encrypted connections only
 * Accept valid security certificates only
@@ -57,8 +53,7 @@ Secure
 * No advertisements
 * No analytics and no tracking
 
-Efficient
----------
+## Efficient
 
 * [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
 * Built with latest development tools and libraries
@@ -68,24 +63,20 @@ This app is minimalistic by design, so you can concentrate on reading and writin
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
-Downloads
----------
+## Downloads
 
 * [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
 
-Frequently asked questions
---------------------------
+## Frequently asked questions
 
 See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions.
 
-Support
--------
+## Support
 
 * For support on FairEmail, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 
-Contributing
-------------
+## Contributing
 
 *Documentation*
 
@@ -107,8 +98,7 @@ Please [contact me](https://contact.faircode.eu/) first to tell me what your pla
 
 Please note that you agree to the license below by contributing, including the copyright.
 
-Attribution
------------
+## Attribution
 
 FairEmail uses:
 
@@ -118,8 +108,7 @@ FairEmail uses:
 * [Android Support Library](https://developer.android.com/tools/support-library/). Copyright (C) 2011 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/support/+/master/LICENSE.txt).
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/). Copyright 2018 The Android Open Source Project, Inc. [Apache license](https://github.com/googlesamples/android-architecture-components/blob/master/LICENSE).
 
-License
--------
+## License
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
