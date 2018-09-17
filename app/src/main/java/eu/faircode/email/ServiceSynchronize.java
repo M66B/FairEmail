@@ -560,7 +560,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 for (Message imessage : e.getMessages())
                                                     try {
                                                         long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
-                                                        downloadMessage(ServiceSynchronize.this, folder, id, (IMAPMessage) imessage);
+                                                        downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     } catch (IOException ex) {
@@ -633,7 +633,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     ifolder.fetch(new Message[]{e.getMessage()}, fp);
 
                                                     long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
-                                                    downloadMessage(ServiceSynchronize.this, folder, id, (IMAPMessage) e.getMessage());
+                                                    downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 } catch (IOException ex) {
@@ -1386,8 +1386,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
                         // Reduce memory usage
-                        if (full.contains(isub[j]))
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
+                        ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
             }
 
@@ -1408,7 +1407,7 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
                         if (ids[from + j] != null)
-                            downloadMessage(this, folder, ids[from + j], (IMAPMessage) isub[j]);
+                            downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (FolderClosedIOException ex) {
@@ -1556,13 +1555,41 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private static void downloadMessage(Context context, EntityFolder folder, long id, IMAPMessage imessage) throws MessagingException, IOException {
+    private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         MessageHelper helper = new MessageHelper(imessage);
 
         ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
         boolean metered = (cm == null || cm.isActiveNetworkMetered());
+
+        boolean fetch = false;
+        if (!message.content)
+            if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE))
+                fetch = true;
+
+        if (!fetch)
+            for (EntityAttachment attachment : attachments)
+                if (!attachment.available)
+                    if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
+                        fetch = true;
+                        break;
+                    }
+
+        if (fetch) {
+            Log.i(Helper.TAG, folder.name + " fetching message id=" + message.id);
+            FetchProfile fp = new FetchProfile();
+            fp.add(FetchProfile.Item.ENVELOPE);
+            fp.add(FetchProfile.Item.FLAGS);
+            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            fp.add(FetchProfile.Item.SIZE);
+            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            ifolder.fetch(new Message[]{imessage}, fp);
+        }
 
         if (!message.content)
             if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
@@ -1571,17 +1598,17 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
             }
 
-        if (db.attachment().getAttachmentDownloadCount(id) > 0) {
-            int sequence = 1;
-            for (EntityAttachment a : helper.getAttachments()) {
-                EntityAttachment attachment = db.attachment().getAttachment(id, sequence++);
-                if (!attachment.available)
-                    if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
-                        attachment.part = a.part;
-                        attachment.download(context, db);
-                        Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
-                    }
-            }
+        List<EntityAttachment> iattachments = null;
+        for (int i = 0; i < attachments.size(); i++) {
+            EntityAttachment attachment = attachments.get(i);
+            if (!attachment.available)
+                if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
+                    if (iattachments == null)
+                        iattachments = helper.getAttachments();
+                    attachment.part = iattachments.get(i).part;
+                    attachment.download(context, db);
+                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                }
         }
     }
 
