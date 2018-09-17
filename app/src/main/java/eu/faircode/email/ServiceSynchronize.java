@@ -1404,8 +1404,8 @@ public class ServiceSynchronize extends LifecycleService {
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
                         Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
-                        if (ids[i - j] != null)
-                            downloadMessage(this, folder, ids[i - j], (IMAPMessage) isub[j]);
+                        if (ids[from + j] != null)
+                            downloadMessage(this, folder, ids[from + j], (IMAPMessage) isub[j]);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (FolderClosedIOException ex) {
