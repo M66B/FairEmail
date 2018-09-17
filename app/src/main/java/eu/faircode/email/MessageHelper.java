@@ -140,6 +140,8 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
+        //System.setProperty("java.net.preferIPv4Stack", "true");
+
         // https://javaee.github.io/javamail/OAuth2
         Log.i(Helper.TAG, "Auth type=" + auth_type);
         if (auth_type == Helper.AUTH_TYPE_GMAIL) {
