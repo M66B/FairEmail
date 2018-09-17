@@ -997,6 +997,9 @@ public class ServiceSynchronize extends LifecycleService {
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
         boolean seen = jargs.getBoolean(0);
+        if (message.seen == seen)
+            return;
+
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
