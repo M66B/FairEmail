@@ -84,14 +84,14 @@ public class ApplicationEx extends Application {
     }
 
     public boolean ownFault(Throwable ex) {
+        if (!Helper.isPlayStoreInstall(this))
+            return true;
+
         if (ex instanceof OutOfMemoryError)
             return false;
 
         if (ex instanceof RemoteException)
             return false;
-
-        if (!Helper.isPlayStoreInstall(this))
-            return true;
 
         while (ex != null) {
             for (StackTraceElement ste : ex.getStackTrace())
