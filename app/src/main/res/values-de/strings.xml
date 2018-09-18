@@ -64,6 +64,7 @@
   <string name="title_advanced_compress_imap">IMAP-Daten komprimieren</string>
   <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
+  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -101,8 +102,8 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">IMAP IDLE wird nicht unterstützt</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_pop">POP wird nicht unterstützt</string>
@@ -190,11 +191,14 @@
   <string name="title_legend_inbox">Posteingang</string>
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
   <string name="title_legend_archive">Archiv</string>
+  <string name="title_legend_trash">Trash</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>
-  <string name="title_legend_synchronize">Synchronisieren</string>
-  <string name="title_legend_primary">Hauptkonto</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronize on</string>
+  <string name="title_legend_synchronize_off">Synchronize off</string>
+  <string name="title_legend_primary">Primary/starred</string>
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>

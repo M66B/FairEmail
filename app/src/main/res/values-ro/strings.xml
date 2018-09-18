@@ -68,6 +68,7 @@
   <string name="title_advanced_compress_imap">Comprimă datele IMAP</string>
   <string name="title_advanced_avatars">Arată pozele contactelor</string>
   <string name="title_advanced_light">Folosire LED de notificare</string>
+  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
@@ -105,8 +106,8 @@
   <string name="title_no_user">Lipsește numele de utilizator</string>
   <string name="title_no_password">Lipsește parola</string>
   <string name="title_no_drafts">Lipsește dosarul de ciorne</string>
-  <string name="title_no_idle">IMAP IDLE nu este acceptat</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS nu este acceptat</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
   <string name="title_pop">POP nu este acceptat</string>
@@ -194,11 +195,14 @@
   <string name="title_legend_inbox">Primite</string>
   <string name="title_legend_unified">Căsuță poștală comună</string>
   <string name="title_legend_archive">Arhivă</string>
+  <string name="title_legend_trash">Trash</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
   <string name="title_legend_thread">Conversație</string>
-  <string name="title_legend_synchronize">Sincronizare</string>
-  <string name="title_legend_primary">Primar</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronize on</string>
+  <string name="title_legend_synchronize_off">Synchronize off</string>
+  <string name="title_legend_primary">Primary/starred</string>
   <string name="title_legend_disconnected">Deconectat</string>
   <string name="title_legend_connecting">Conectare</string>
   <string name="title_legend_connected">Conectat</string>

@@ -64,6 +64,7 @@
   <string name="title_advanced_compress_imap">Komprimér IMAP data</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_light">Use notification light</string>
+  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Vælg &#8230;</string>
   <string name="title_identity_name">Dit navn</string>
@@ -101,8 +102,8 @@
   <string name="title_no_user">Brugernavn mangler</string>
   <string name="title_no_password">Adgangskode mangler</string>
   <string name="title_no_drafts">Kladdemappe mangler</string>
-  <string name="title_no_idle">IMAP IDLE not supported</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Slet denne konto permanent?</string>
   <string name="title_identity_delete">Slet denne identitet permanent?</string>
   <string name="title_pop">POP is not supported</string>
@@ -190,11 +191,14 @@
   <string name="title_legend_inbox">Inbox</string>
   <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_archive">Archive</string>
+  <string name="title_legend_trash">Trash</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Vedhæftning</string>
   <string name="title_legend_thread">Conversation</string>
-  <string name="title_legend_synchronize">Synkronisér</string>
-  <string name="title_legend_primary">Primær</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronize on</string>
+  <string name="title_legend_synchronize_off">Synchronize off</string>
+  <string name="title_legend_primary">Primary/starred</string>
   <string name="title_legend_disconnected">Afbrudt</string>
   <string name="title_legend_connecting">Tilslutter</string>
   <string name="title_legend_connected">Tilsluttet</string>

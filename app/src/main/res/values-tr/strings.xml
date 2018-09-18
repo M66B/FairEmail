@@ -64,6 +64,7 @@
   <string name="title_advanced_compress_imap">IMAP verilerini sıkıştır</string>
   <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
   <string name="title_advanced_light">Bildirim ışığını kullan</string>
+  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Hata ayıklama</string>
   <string name="title_select">Seçin &#8230;</string>
   <string name="title_identity_name">Adınız</string>
@@ -101,8 +102,8 @@
   <string name="title_no_user">Kullanıcı adı eksik</string>
   <string name="title_no_password">Parola Eksik</string>
   <string name="title_no_drafts">Taslaklar klasörü eksik</string>
-  <string name="title_no_idle">IMAP IDLE desteklenmiyor</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS desteklenmiyor</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>
   <string name="title_pop">POP desteklenmiyor</string>
@@ -190,11 +191,14 @@
   <string name="title_legend_inbox">Gelen kutusu</string>
   <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
   <string name="title_legend_archive">Arşiv</string>
+  <string name="title_legend_trash">Trash</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Ek</string>
   <string name="title_legend_thread">Sohbet</string>
-  <string name="title_legend_synchronize">Senkronize et</string>
-  <string name="title_legend_primary">Birincil</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronize on</string>
+  <string name="title_legend_synchronize_off">Synchronize off</string>
+  <string name="title_legend_primary">Primary/starred</string>
   <string name="title_legend_disconnected">Bağlantı kesildi</string>
   <string name="title_legend_connecting">Bağlanıyor</string>
   <string name="title_legend_connected">Bağlandı</string>

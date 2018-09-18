@@ -64,6 +64,7 @@
   <string name="title_advanced_compress_imap">Compresser les données IMAP</string>
   <string name="title_advanced_avatars">Afficher les photos des contacts</string>
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
+  <string name="title_advanced_ipv4">Préférer les connexions IPv4</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -101,8 +102,8 @@
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Répertoire Brouillons manquant</string>
-  <string name="title_no_idle">IMAP IDLE non supporté</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS non supporté</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
   <string name="title_pop">POP n\'est pas supporté</string>
@@ -190,11 +191,14 @@
   <string name="title_legend_inbox">Boîte de réception</string>
   <string name="title_legend_unified">Boite de réception unifiée</string>
   <string name="title_legend_archive">Archives</string>
+  <string name="title_legend_trash">Corbeille</string>
   <string name="title_legend_cc">Cc/Cci</string>
   <string name="title_legend_attachment">Pièce jointe</string>
   <string name="title_legend_thread">Fil de discussion</string>
-  <string name="title_legend_synchronize">Synchroniser</string>
-  <string name="title_legend_primary">Principal</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronisation activée</string>
+  <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
+  <string name="title_legend_primary">Primaire / favori</string>
   <string name="title_legend_disconnected">Déconnecté</string>
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>

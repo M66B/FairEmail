@@ -72,6 +72,7 @@
   <string name="title_advanced_compress_imap">Kompresuj dane IMAP</string>
   <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
   <string name="title_advanced_light">Użyj diody powiadomień</string>
+  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Debuguj</string>
   <string name="title_select">Wybierz &#8230;</string>
   <string name="title_identity_name">Twoja nazwa</string>
@@ -109,8 +110,8 @@
   <string name="title_no_user">Brak nazwy użytkownika</string>
   <string name="title_no_password">Brak hasła</string>
   <string name="title_no_drafts">Brakuje folderu Szkice</string>
-  <string name="title_no_idle">IMAP IDLE nie obsługiwane</string>
-  <string name="title_no_uidplus">IMAP IDLE nie obsługiwane</string>
+  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
   <string name="title_pop">POP nie jest wspierane</string>
@@ -198,11 +199,14 @@
   <string name="title_legend_inbox">Odebrane</string>
   <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
   <string name="title_legend_archive">Archiwum</string>
+  <string name="title_legend_trash">Trash</string>
   <string name="title_legend_cc">DW/UDW</string>
   <string name="title_legend_attachment">Załącznik</string>
   <string name="title_legend_thread">Konwersacja</string>
-  <string name="title_legend_synchronize">Synchronizuj</string>
-  <string name="title_legend_primary">Podstawowe</string>
+  <string name="title_legend_contacts">Contacts</string>
+  <string name="title_legend_synchronize_on">Synchronize on</string>
+  <string name="title_legend_synchronize_off">Synchronize off</string>
+  <string name="title_legend_primary">Primary/starred</string>
   <string name="title_legend_disconnected">Rozłączony</string>
   <string name="title_legend_connecting">‎Łączenie</string>
   <string name="title_legend_connected">Połączony</string>
