@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,13 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.xbill.DNS.Lookup;
+import org.xbill.DNS.Record;
+import org.xbill.DNS.SRVRecord;
+import org.xbill.DNS.Type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +66,8 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etEmail;
     private EditText etReplyTo;
     private Spinner spProvider;
+    private EditText etDomain;
+    private Button btnAutoConfig;
     private EditText etHost;
     private CheckBox cbStartTls;
     private EditText etPort;
@@ -94,18 +103,27 @@ public class FragmentIdentity extends FragmentEx {
         // Get controls
         etName = view.findViewById(R.id.etName);
         spAccount = view.findViewById(R.id.spAccount);
+
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
+
         spProvider = view.findViewById(R.id.spProvider);
+
+        etDomain = view.findViewById(R.id.etDomain);
+        btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
+
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
         etPort = view.findViewById(R.id.etPort);
+
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbStoreSent = view.findViewById(R.id.cbStoreSent);
+
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         ibDelete = view.findViewById(R.id.ibDelete);
@@ -194,6 +212,51 @@ public class FragmentIdentity extends FragmentEx {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        btnAutoConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnAutoConfig.setEnabled(false);
+
+                Bundle args = new Bundle();
+                args.putString("domain", etDomain.getText().toString());
+
+                new SimpleTask<SRVRecord>() {
+                    @Override
+                    protected SRVRecord onLoad(Context context, Bundle args) throws Throwable {
+                        String domain = args.getString("domain");
+                        Record[] records = new Lookup("_submission._tcp." + domain, Type.SRV).run();
+                        if (records != null)
+                            for (int i = 0; i < records.length; i++) {
+                                SRVRecord srv = (SRVRecord) records[i];
+                                Log.i(Helper.TAG, "SRV=" + srv);
+                                return srv;
+                            }
+
+                        throw new IllegalArgumentException(getString(R.string.title_no_settings));
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, SRVRecord srv) {
+                        btnAutoConfig.setEnabled(true);
+                        if (srv != null) {
+                            etHost.setText(srv.getTarget().toString(true));
+                            etPort.setText(Integer.toString(srv.getPort()));
+                            cbStartTls.setChecked(srv.getPort() == 587);
+                        }
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        btnAutoConfig.setEnabled(true);
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(getContext(), ex);
+                    }
+                }.load(FragmentIdentity.this, args);
             }
         });
 

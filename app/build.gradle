@@ -80,6 +80,7 @@ dependencies {
     def javamail_version = "1.6.2"
     def jsoup_version = "1.11.3"
     def jcharset_version = "2.0"
+    def dnsjava_version = "2.1.8"
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
@@ -104,6 +105,9 @@ dependencies {
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     implementation "net.freeutils:jcharset:$jcharset_version"
+
+    // http://www.xbill.org/dnsjava/
+    implementation "dnsjava:dnsjava:$dnsjava_version"
 
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')

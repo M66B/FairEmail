@@ -62,6 +62,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
+import org.xbill.DNS.Lookup;
+import org.xbill.DNS.Record;
+import org.xbill.DNS.SRVRecord;
+import org.xbill.DNS.Type;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -88,6 +93,8 @@ public class FragmentAccount extends FragmentEx {
     private ViewGroup view;
     private Spinner spProvider;
     private EditText etHost;
+    private EditText etDomain;
+    private Button btnAutoConfig;
     private EditText etPort;
     private Button btnAuthorize;
     private EditText etUser;
@@ -139,6 +146,10 @@ public class FragmentAccount extends FragmentEx {
 
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
+
+        etDomain = view.findViewById(R.id.etDomain);
+        btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
+
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
 
@@ -214,6 +225,50 @@ public class FragmentAccount extends FragmentEx {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        btnAutoConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnAutoConfig.setEnabled(false);
+
+                Bundle args = new Bundle();
+                args.putString("domain", etDomain.getText().toString());
+
+                new SimpleTask<SRVRecord>() {
+                    @Override
+                    protected SRVRecord onLoad(Context context, Bundle args) throws Throwable {
+                        String domain = args.getString("domain");
+                        Record[] records = new Lookup("_imaps._tcp." + domain, Type.SRV).run();
+                        if (records != null)
+                            for (int i = 0; i < records.length; i++) {
+                                SRVRecord srv = (SRVRecord) records[i];
+                                Log.i(Helper.TAG, "SRV=" + srv);
+                                return srv;
+                            }
+
+                        throw new IllegalArgumentException(getString(R.string.title_no_settings));
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, SRVRecord srv) {
+                        btnAutoConfig.setEnabled(true);
+                        if (srv != null) {
+                            etHost.setText(srv.getTarget().toString(true));
+                            etPort.setText(Integer.toString(srv.getPort()));
+                        }
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        btnAutoConfig.setEnabled(true);
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(getContext(), ex);
+                    }
+                }.load(FragmentAccount.this, args);
             }
         });
 
