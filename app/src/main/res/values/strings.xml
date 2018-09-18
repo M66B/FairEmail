@@ -80,7 +80,7 @@
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
-    <string name="title_advanced_debug">Debug</string>
+    <string name="title_advanced_debug">Debug mode</string>
 
     <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Your name</string>
@@ -118,8 +118,8 @@
     <string name="title_no_user">User name missing</string>
     <string name="title_no_password">Password missing</string>
     <string name="title_no_drafts">Drafts folder missing</string>
-    <string name="title_no_idle">IMAP IDLE not supported</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS not supported</string>
+    <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
+    <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_pop">POP is not supported</string>
