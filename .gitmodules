@@ -1,0 +1,3 @@
+[submodule "colorpicker"]
+	path = colorpicker
+	url = https://github.com/M66B/colorpicker.git
