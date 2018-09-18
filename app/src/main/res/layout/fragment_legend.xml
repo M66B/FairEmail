@@ -69,13 +69,33 @@
             app:layout_constraintTop_toTopOf="@id/ivArchive" />
 
         <ImageView
+            android:id="@+id/ivTrash"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArchive" />
+
+        <TextView
+            android:id="@+id/tvTrash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_trash"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivTrash"
+            app:layout_constraintStart_toEndOf="@id/ivTrash"
+            app:layout_constraintTop_toTopOf="@id/ivTrash" />
+
+        <ImageView
             android:id="@+id/ivCC"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_people_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivArchive" />
+            app:layout_constraintTop_toBottomOf="@id/ivTrash" />
 
         <TextView
             android:id="@+id/tvCC"
@@ -129,24 +149,64 @@
             app:layout_constraintTop_toTopOf="@id/ivThread" />
 
         <ImageView
+            android:id="@+id/ivContacts"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_import_contacts_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivThread" />
+
+        <TextView
+            android:id="@+id/tvContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_contacts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivContacts"
+            app:layout_constraintStart_toEndOf="@id/ivContacts"
+            app:layout_constraintTop_toTopOf="@id/ivContacts" />
+
+        <ImageView
             android:id="@+id/ivSynchronize"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_sync_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivThread" />
+            app:layout_constraintTop_toBottomOf="@id/ivContacts" />
 
         <TextView
             android:id="@+id/tvSynchronize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="@string/title_legend_synchronize"
+            android:text="@string/title_legend_synchronize_on"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@id/ivSynchronize"
             app:layout_constraintStart_toEndOf="@id/ivSynchronize"
             app:layout_constraintTop_toTopOf="@id/ivSynchronize" />
+
+        <ImageView
+            android:id="@+id/ivSynchronizeOff"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_sync_disabled_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
+
+        <TextView
+            android:id="@+id/tvSynchronizeOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_synchronize_off"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSynchronizeOff"
+            app:layout_constraintStart_toEndOf="@id/ivSynchronizeOff"
+            app:layout_constraintTop_toTopOf="@id/ivSynchronizeOff" />
 
         <ImageView
             android:id="@+id/ivPrimary"
@@ -155,7 +215,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_star_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
+            app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff" />
 
         <TextView
             android:id="@+id/tvPrimary"

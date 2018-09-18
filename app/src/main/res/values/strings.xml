@@ -222,11 +222,14 @@
     <string name="title_legend_inbox">Inbox</string>
     <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_archive">Archive</string>
+    <string name="title_legend_trash">Trash</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Attachment</string>
     <string name="title_legend_thread">Conversation</string>
-    <string name="title_legend_synchronize">Synchronize</string>
-    <string name="title_legend_primary">Primary</string>
+    <string name="title_legend_contacts">Contacts</string>
+    <string name="title_legend_synchronize_on">Synchronize on</string>
+    <string name="title_legend_synchronize_off">Synchronize off</string>
+    <string name="title_legend_primary">Primary/starred</string>
     <string name="title_legend_disconnected">Disconnected</string>
     <string name="title_legend_connecting">Connecting</string>
     <string name="title_legend_connected">Connected</string>
