@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +35,7 @@ public class FragmentOptions extends FragmentEx {
     private CheckBox cbCompressImap;
     private CheckBox cbAvatars;
     private CheckBox cbLight;
+    private CheckBox cbIpV4;
     private CheckBox cbDebug;
 
     @Override
@@ -49,6 +49,7 @@ public class FragmentOptions extends FragmentEx {
         cbCompressImap = view.findViewById(R.id.cbCompressImap);
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbLight = view.findViewById(R.id.cbLight);
+        cbIpV4 = view.findViewById(R.id.cbIpV4);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -60,6 +61,7 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("compress", checked).apply();
+                ServiceSynchronize.reload(getContext(), "compress=" + checked);
             }
         });
 
@@ -68,14 +70,6 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
-                if (!checked)
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.i(Helper.TAG, "Clearing avatars");
-                            DB.getInstance(getContext()).message().clearMessageAvatars();
-                        }
-                    }).start();
             }
         });
 
@@ -87,11 +81,21 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
+        cbIpV4.setChecked(prefs.getBoolean("ipv4", false));
+        cbIpV4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ipv4", checked).apply();
+                ServiceSynchronize.reload(getContext(), "IPv4=" + checked);
+            }
+        });
+
         cbDebug.setChecked(prefs.getBoolean("debug", false));
         cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
+                ServiceSynchronize.reload(getContext(), "debug=" + checked);
             }
         });
 
