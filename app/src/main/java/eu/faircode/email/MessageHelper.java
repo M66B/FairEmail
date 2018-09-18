@@ -441,7 +441,9 @@ public class MessageHelper {
                 filename = null;
             }
 
-            if (Part.ATTACHMENT.equalsIgnoreCase(disposition) || !TextUtils.isEmpty(filename)) {
+            if (Part.ATTACHMENT.equalsIgnoreCase(disposition) ||
+                    part.isMimeType("image/*") ||
+                    !TextUtils.isEmpty(filename)) {
                 ContentType ct = new ContentType(part.getContentType());
                 String[] cid = part.getHeader("Content-ID");
 
