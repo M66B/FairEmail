@@ -210,10 +210,12 @@ public class FragmentSetup extends FragmentEx {
                         prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                     }
                 } else {
-                    tbDarkTheme.setChecked(false);
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                    fragmentTransaction.commit();
+                    if (checked) {
+                        tbDarkTheme.setChecked(false);
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                        fragmentTransaction.commit();
+                    }
                 }
             }
         });
