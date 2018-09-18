@@ -314,8 +314,7 @@ public class FragmentFolder extends FragmentEx {
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbSynchronize.setEnabled(false);
                 btnSave.setEnabled(true);
-                ibDelete.setEnabled(true);
-                ibDelete.setVisibility(folder == null ? View.GONE : View.VISIBLE);
+                ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
 
                 Bundle args = new Bundle();
                 args.putLong("account", folder == null ? account : folder.account);
