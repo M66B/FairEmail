@@ -124,7 +124,7 @@
   <string name="title_folder_trash">Corbeille</string>
   <string name="title_folder_junk">Spam</string>
   <string name="title_folder_sent">Envoyés</string>
-  <string name="title_folder_system">System</string>
+  <string name="title_folder_system">Système</string>
   <string name="title_folder_user">Utilisateur</string>
   <string name="title_folder_primary">Dossiers du compte principal</string>
   <string name="title_folder_thread">Fil de discussion</string>
@@ -199,7 +199,7 @@
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>
   <string name="title_legend_synchronizing">Synchronisation en cours</string>
-  <string name="title_legend_downloading">Downloading</string>
+  <string name="title_legend_downloading">Téléchargement en cours</string>
   <string name="title_legend_closing">Fermeture en cours</string>
   <string name="title_hint_folder_actions">Appui long pour les options</string>
   <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l’aide</string>
