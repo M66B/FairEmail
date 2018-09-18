@@ -251,6 +251,10 @@ public class MessageHelper {
         return (refs == null ? new String[0] : refs.split("\\s+"));
     }
 
+    String getDeliveredTo() throws MessagingException {
+        return imessage.getHeader("Delivered-To", imessage.getHeader("X-Delivered-To", null));
+    }
+
     String getInReplyTo() throws MessagingException {
         return imessage.getHeader("In-Reply-To", null);
     }

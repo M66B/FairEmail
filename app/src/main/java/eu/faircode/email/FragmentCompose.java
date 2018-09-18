@@ -756,6 +756,15 @@ public class FragmentCompose extends FragmentEx {
                         }
                     }
 
+                    if (ref.deliveredto != null) {
+                        try {
+                            Log.i(Helper.TAG, "Setting delivered to=" + ref.deliveredto);
+                            ref.to = InternetAddress.parse(ref.deliveredto);
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+                    }
+
                     if (ref.from != null && ref.from.length > 0) {
                         String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
                         for (EntityIdentity identity : identities) {

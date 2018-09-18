@@ -80,6 +80,7 @@ public class EntityMessage implements Serializable {
     public Long uid; // compose = null
     public String msgid;
     public String references;
+    public String deliveredto;
     public String inreplyto;
     public String thread; // compose = null
     public String avatar; // URI
