@@ -40,6 +40,7 @@ public interface DaoMessage {
             ", folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen" +
+            "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
             "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
             "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
@@ -63,6 +64,7 @@ public interface DaoMessage {
             ", folder.name as folderName, folder.type as folderType" +
             ", COUNT(message.id) as count" +
             ", SUM(CASE WHEN message.ui_seen" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) as unseen" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
