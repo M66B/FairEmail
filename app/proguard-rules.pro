@@ -21,21 +21,25 @@
 -renamesourcefileattribute SourceFile
 
 #App
--keep class eu.faircode.email.**
--keepnames class eu.faircode.email.** { *; }
+-keep class eu.faircode.email.** {*;}
+-keepnames class eu.faircode.email.** {*;}
 
 #AndroidX
--keep class androidx.appcompat.app.AppCompatViewInflater { <init>(...); }
+-keep class androidx.appcompat.widget.** {*;}
+-keep class androidx.appcompat.app.AppCompatViewInflater {<init>(...);}
 
 #IAB
--keep class com.android.vending.billing.**
+-keep class com.android.vending.billing.** {*;}
 
 #JavaMail
--dontshrink
+#-dontshrink
 -keep class javax.** {*;}
 -keep class com.sun.** {*;}
 -keep class myjava.** {*;}
 -keep class org.apache.harmony.** {*;}
+-keep class mailcap.** {*;}
+-keep class mimetypes.** {*;}
+
 -dontwarn java.awt.**
 -dontwarn java.beans.Beans
 -dontwarn javax.activation.**
@@ -45,7 +49,8 @@
 -keeppackagenames org.jsoup.nodes
 
 #JCharset
--keep class net.freeutils.charset.**
+-keep class net.freeutils.charset.** {*;}
 
-#OpenPGP
--keep class org.openintents.openpgp.**
+#dnsjava
+-keep class org.xbill.DNS.** {*;}
+-dontwarn sun.net.spi.nameservice.**
