@@ -76,6 +76,9 @@
   <string name="title_account_name_hint">Klasörleri ayırt etmek için kullanılır</string>
   <string name="title_account_signature">İmza Metni</string>
   <string name="title_account_color">Renk</string>
+  <string name="title_domain">Domain name</string>
+  <string name="title_autoconfig">Get settings</string>
+  <string name="title_no_settings">Settings not found</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Sağlayıcı</string>

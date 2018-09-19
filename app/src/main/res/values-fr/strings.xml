@@ -76,6 +76,9 @@
   <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
   <string name="title_account_signature">Texte de la signature</string>
   <string name="title_account_color">Couleur</string>
+  <string name="title_domain">Nom de domaine</string>
+  <string name="title_autoconfig">Obtenir les paramètres</string>
+  <string name="title_no_settings">Paramètres non trouvés</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Fournisseur</string>
@@ -102,8 +105,8 @@
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Répertoire Brouillons manquant</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
+  <string name="title_no_idle">IMAP IDLE non pris en charge, consulter la FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
   <string name="title_pop">POP n\'est pas supporté</string>

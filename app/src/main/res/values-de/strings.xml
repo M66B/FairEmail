@@ -64,7 +64,7 @@
   <string name="title_advanced_compress_imap">IMAP-Daten komprimieren</string>
   <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
-  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
+  <string name="title_advanced_ipv4">Bevorzuge IPv4-Verbindungen</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -76,6 +76,9 @@
   <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
   <string name="title_account_signature">Signaturtext</string>
   <string name="title_account_color">Farbe</string>
+  <string name="title_domain">Domainname</string>
+  <string name="title_autoconfig">Einstellungen abrufen</string>
+  <string name="title_no_settings">Einstellungen nicht gefunden</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Anbieter</string>
@@ -102,8 +105,8 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
+  <string name="title_no_idle">IMAP IDLE wird nicht unterstützt, lesen Sie die FAQ</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
   <string name="title_pop">POP wird nicht unterstützt</string>
@@ -116,7 +119,7 @@
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
   <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
-  <string name="title_folder_delete">Ordner endgültig löschen?</string>
+  <string name="title_folder_delete">Ordner dauerhaft löschen?</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
   <string name="title_folder_inbox">Posteingang</string>
   <string name="title_folder_outbox">Postausgang</string>
@@ -153,7 +156,7 @@
   <string name="title_moving">Verschiebe Nachrichten nach %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
-  <string name="title_ask_delete">E-Mail endgültig löschen?</string>
+  <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
   <string name="title_compose">Verfassen</string>
   <string name="title_from">Von:</string>
@@ -191,14 +194,14 @@
   <string name="title_legend_inbox">Posteingang</string>
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
   <string name="title_legend_archive">Archiv</string>
-  <string name="title_legend_trash">Trash</string>
+  <string name="title_legend_trash">Papierkorb</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>
-  <string name="title_legend_contacts">Contacts</string>
-  <string name="title_legend_synchronize_on">Synchronize on</string>
-  <string name="title_legend_synchronize_off">Synchronize off</string>
-  <string name="title_legend_primary">Primary/starred</string>
+  <string name="title_legend_contacts">Kontakte</string>
+  <string name="title_legend_synchronize_on">Synchronisierung an</string>
+  <string name="title_legend_synchronize_off">Synchronisierung aus</string>
+  <string name="title_legend_primary">Hauptkonto/favorisierte E-Mail</string>
   <string name="title_legend_disconnected">Keine Verbindung</string>
   <string name="title_legend_connecting">Verbinde</string>
   <string name="title_legend_connected">Verbunden</string>
