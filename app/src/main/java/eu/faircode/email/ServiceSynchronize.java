@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -107,6 +108,7 @@ import javax.mail.search.ReceivedDateTerm;
 import javax.net.ssl.SSLException;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
@@ -229,8 +231,38 @@ public class ServiceSynchronize extends LifecycleService {
                     protected void onLoaded(Bundle args, Void data) {
                         Log.i(Helper.TAG, "Updated seen until");
                     }
-                }.load(ServiceSynchronize.this, args);
+                }.load(this, args);
 
+            } else if ("seen".equals(intent.getAction())) {
+                Bundle args = new Bundle();
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (EntityMessage message : db.message().getUnseenUnifiedMessages()) {
+                                db.message().setMessageUiSeen(message.id, true);
+                                EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        EntityOperation.process(context);
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        Log.i(Helper.TAG, "Set seen");
+                    }
+                }.load(this, args);
             }
 
         return START_STICKY;
@@ -284,6 +316,15 @@ public class ServiceSynchronize extends LifecycleService {
         delete.setAction("unseen");
         PendingIntent pid = PendingIntent.getService(this, 1, delete, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Intent seen = new Intent(this, ServiceSynchronize.class);
+        seen.setAction("seen");
+        PendingIntent pis = PendingIntent.getService(this, 2, seen, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification.Action.Builder actionBuilder = new Notification.Action.Builder(
+                Icon.createWithResource(this, R.drawable.baseline_mail_outline_24),
+                getString(R.string.title_seen),
+                pis);
+
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         // Build notification
@@ -302,7 +343,8 @@ public class ServiceSynchronize extends LifecycleService {
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PUBLIC)
-                .setDeleteIntent(pid);
+                .setDeleteIntent(pid)
+                .addAction(actionBuilder.build());
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O &&
                 prefs.getBoolean("light", false)) {
