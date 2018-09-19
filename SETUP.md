@@ -1,6 +1,6 @@
 # Setup help
 
-Mostly setting up FairEmail is fairly simple.
+Setting up FairEmail is fairly simple.
 You'll need to add at least one account to receive email and at least one identity if you want to send email.
 
 ## Requirements
