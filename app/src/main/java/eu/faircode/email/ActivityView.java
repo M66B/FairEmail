@@ -758,6 +758,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (!message.content)
                         EntityOperation.queue(db, message, EntityOperation.BODY);
 
+                    db.message().setMessageUiSeen(message.id, true);
                     EntityOperation.queue(db, message, EntityOperation.SEEN, true);
 
                     db.setTransactionSuccessful();

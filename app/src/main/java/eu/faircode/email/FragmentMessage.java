@@ -937,7 +937,7 @@ public class FragmentMessage extends FragmentEx {
                                         if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
                                             db.message().deleteMessage(id);
                                         else {
-                                            db.message().setMessageUiHide(id, true);
+                                            db.message().setMessageUiHide(message.id, true);
                                             EntityOperation.queue(db, message, EntityOperation.DELETE);
                                         }
 
