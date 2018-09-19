@@ -432,7 +432,9 @@ public class FragmentMessages extends FragmentEx {
                         if (folder == null)
                             setSubtitle(null);
                         else {
-                            String name = Helper.localizeFolderName(getContext(), folder.name);
+                            String name = (folder.display == null
+                                    ? Helper.localizeFolderName(getContext(), folder.name)
+                                    : folder.display);
                             if (folder.unseen > 0)
                                 setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
                             else

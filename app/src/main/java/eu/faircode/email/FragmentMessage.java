@@ -464,7 +464,10 @@ public class FragmentMessage extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState == null) {
-            setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+            String name = (message.folderDisplay == null
+                    ? Helper.localizeFolderName(getContext(), message.folderName)
+                    : message.folderDisplay);
+            setSubtitle(name);
 
             ivFlagged.setImageResource(message.ui_flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, true));
@@ -565,7 +568,10 @@ public class FragmentMessage extends FragmentEx {
                 getActivity().invalidateOptionsMenu();
 
                 // Messages can be moved to another folder
-                setSubtitle(Helper.localizeFolderName(getContext(), message.folderName));
+                String name = (message.folderDisplay == null
+                        ? Helper.localizeFolderName(getContext(), message.folderName)
+                        : message.folderDisplay);
+                setSubtitle(name);
 
                 // Observe folders
                 if (observing)
@@ -832,8 +838,7 @@ public class FragmentMessage extends FragmentEx {
 
                 int order = 0;
                 for (EntityAnswer answer : answers)
-                    popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++,
-                            Helper.localizeFolderName(getContext(), answer.name));
+                    popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -1065,9 +1070,12 @@ public class FragmentMessage extends FragmentEx {
                 PopupMenu popupMenu = new PopupMenu(getContext(), anchor);
 
                 int order = 0;
-                for (EntityFolder folder : folders)
-                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++,
-                            Helper.localizeFolderName(getContext(), folder.name));
+                for (EntityFolder folder : folders) {
+                    String name = (folder.display == null
+                            ? Helper.localizeFolderName(getContext(), folder.name)
+                            : folder.display);
+                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
+                }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override

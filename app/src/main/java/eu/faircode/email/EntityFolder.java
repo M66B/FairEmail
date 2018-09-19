@@ -58,6 +58,7 @@ public class EntityFolder implements Parcelable {
     public Long account; // Outbox = null
     @NonNull
     public String name;
+    public String display;
     @NonNull
     public String type;
     @NonNull

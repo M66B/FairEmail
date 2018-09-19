@@ -50,6 +50,7 @@ import androidx.lifecycle.Observer;
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
     private EditText etRename;
+    private EditText etDisplay;
     private CheckBox cbSynchronize;
     private CheckBox cbUnified;
     private EditText etAfter;
@@ -82,6 +83,7 @@ public class FragmentFolder extends FragmentEx {
 
         // Get controls
         etRename = view.findViewById(R.id.etRename);
+        etDisplay = view.findViewById(R.id.etDisplay);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbUnified = view.findViewById(R.id.cbUnified);
         etAfter = view.findViewById(R.id.etAfter);
@@ -102,6 +104,7 @@ public class FragmentFolder extends FragmentEx {
                 args.putLong("id", id);
                 args.putLong("account", account);
                 args.putString("name", etRename.getText().toString());
+                args.putString("display", etDisplay.getText().toString());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putString("after", etAfter.getText().toString());
@@ -112,9 +115,13 @@ public class FragmentFolder extends FragmentEx {
                         long id = args.getLong("id");
                         long aid = args.getLong("account");
                         String name = args.getString("name");
+                        String display = args.getString("display");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean unified = args.getBoolean("unified");
                         String after = args.getString("after");
+
+                        if (TextUtils.isEmpty(display))
+                            display = null;
                         int days = (TextUtils.isEmpty(after) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(after));
 
                         IMAPStore istore = null;
@@ -143,6 +150,7 @@ public class FragmentFolder extends FragmentEx {
                                     EntityFolder create = new EntityFolder();
                                     create.account = aid;
                                     create.name = name;
+                                    create.display = display;
                                     create.type = EntityFolder.USER;
                                     create.unified = unified;
                                     create.synchronize = synchronize;
@@ -161,7 +169,7 @@ public class FragmentFolder extends FragmentEx {
 
                             if (folder != null) {
                                 Log.i(Helper.TAG, "Updating folder=" + name);
-                                db.folder().setFolderProperties(id, name, synchronize, unified, days);
+                                db.folder().setFolderProperties(id, name, display, synchronize, unified, days);
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
                             }
@@ -304,6 +312,8 @@ public class FragmentFolder extends FragmentEx {
 
                 if (savedInstanceState == null) {
                     etRename.setText(folder == null ? null : folder.name);
+                    etDisplay.setText(folder == null ? null : folder.display);
+                    etDisplay.setHint(folder == null ? null : folder.name);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
                 }

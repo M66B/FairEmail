@@ -37,7 +37,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.type as folderType" +
+            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -66,7 +66,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.type as folderType" +
+            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -97,7 +97,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.type as folderType" +
+            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
             ", 0 AS threaded" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END as unseen" +
@@ -159,7 +159,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.type as folderType" +
+            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
             ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +

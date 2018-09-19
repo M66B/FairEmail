@@ -216,8 +216,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvFolder.setText(message.accountName);
             else if (viewType == ViewType.FOLDER)
                 tvFolder.setVisibility(View.GONE);
-            else
-                tvFolder.setText(Helper.localizeFolderName(context, message.folderName));
+            else {
+                String name = (message.folderDisplay == null
+                        ? Helper.localizeFolderName(context, message.folderName)
+                        : message.folderDisplay);
+                tvFolder.setText(name);
+            }
 
             if (viewType == ViewType.THREAD) {
                 tvCount.setVisibility(View.GONE);
