@@ -26,7 +26,7 @@
   <string name="menu_answers">Réponses standard</string>
   <string name="menu_operations">Opérations</string>
   <string name="menu_legend">Légende</string>
-  <string name="menu_faq">FAQ/aide</string>
+  <string name="menu_faq">FAQ/Aide</string>
   <string name="menu_pro">Fonctionnalités Pro</string>
   <string name="menu_privacy">Confidentialité</string>
   <string name="menu_about">À propos</string>
@@ -201,7 +201,7 @@
   <string name="title_legend_contacts">Contacts</string>
   <string name="title_legend_synchronize_on">Synchronisation activée</string>
   <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
-  <string name="title_legend_primary">Primaire / favori</string>
+  <string name="title_legend_primary">Primaire / Favori</string>
   <string name="title_legend_disconnected">Déconnecté</string>
   <string name="title_legend_connecting">Connexion en cours</string>
   <string name="title_legend_connected">Connecté</string>

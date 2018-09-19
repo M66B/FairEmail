@@ -76,9 +76,9 @@
   <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
   <string name="title_account_signature">Testo della firma</string>
   <string name="title_account_color">Colore</string>
-  <string name="title_domain">Domain name</string>
-  <string name="title_autoconfig">Get settings</string>
-  <string name="title_no_settings">Settings not found</string>
+  <string name="title_domain">Nome dominio</string>
+  <string name="title_autoconfig">Ottieni impostazioni</string>
+  <string name="title_no_settings">Impostazioni non trovate</string>
   <string name="title_imap">IMAP</string>
   <string name="title_smtp">SMTP</string>
   <string name="title_provider">Fornitore</string>
