@@ -395,7 +395,7 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            throw new Throwable(getContext().getString(R.string.title_no_port));
+                            port = "993";
                         if (TextUtils.isEmpty(user))
                             throw new Throwable(getContext().getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password))
@@ -622,7 +622,7 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            throw new Throwable(getContext().getString(R.string.title_no_port));
+                            port = "993";
                         if (TextUtils.isEmpty(user))
                             throw new Throwable(getContext().getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password))

@@ -324,7 +324,7 @@ public class FragmentIdentity extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_port));
+                            port = "465";
                         if (TextUtils.isEmpty(user))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password))
