@@ -84,7 +84,7 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
-    implementation "androidx.coordinatorlayout:coordinatorlayout:#androidx_version"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "com.google.android.material:material:$androidx_version"
     implementation "androidx.browser:browser:$androidx_version"
