@@ -195,6 +195,20 @@ Before Android 8 Oreo: there is an advanced option in the setup for this.
 
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 
+<a name="FAQ22"></a>
+**(22) Why do I get 'Couldn't connect to host' ?**
+
+The message *Couldn't connect to host ...* means that FairEmail was not able to connect to the email server.
+
+Possible causes are:
+
+* A firewall is blocking connections to the server
+* The email server is refusing to accept the connection
+* The host name or port number is invalid
+* The are problems with the internet connection
+
+If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
