@@ -697,6 +697,9 @@ public class FragmentMessage extends FragmentEx {
             case R.id.menu_show_headers:
                 onMenuShowHeaders();
                 return true;
+            case R.id.menu_unseen:
+                onMenuUnseen();
+                return true;
             case R.id.menu_answer:
                 onMenuAnswer();
                 return true;
@@ -781,6 +784,40 @@ public class FragmentMessage extends FragmentEx {
                 fragmentTransaction.commit();
             }
         }.load(this, new Bundle());
+    }
+
+    private void onMenuUnseen() {
+        Bundle args = new Bundle();
+        args.putLong("id", message.id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    db.message().setMessageUiSeen(message.id, false);
+                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Void data) {
+                finish();
+            }
+        }.load(this, args);
     }
 
     private void onMenuAnswer() {

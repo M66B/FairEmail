@@ -40,6 +40,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_unseen"
+        android:icon="@drawable/baseline_mail_24"
+        android:title="@string/title_unseen"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_answer"
         android:icon="@drawable/baseline_reply_24"
         android:title="@string/title_answer_reply"
