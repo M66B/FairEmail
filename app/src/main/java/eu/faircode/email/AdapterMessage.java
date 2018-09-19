@@ -23,6 +23,7 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -57,6 +58,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -96,8 +98,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         TextView tvError;
         ProgressBar pbLoading;
 
-        private static final int action_seen = 1;
-        private static final int action_flag = 2;
+        private static final int action_flag = 1;
+        private static final int action_seen = 2;
+        private static final int action_delete = 3;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -293,6 +296,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             PopupMenu popupMenu = new PopupMenu(context, itemView);
             popupMenu.getMenu().add(Menu.NONE, action_flag, 1, message.ui_flagged ? R.string.title_unflag : R.string.title_flag);
             popupMenu.getMenu().add(Menu.NONE, action_seen, 2, message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+            if (EntityFolder.TRASH.equals(message.folderType))
+                popupMenu.getMenu().add(Menu.NONE, action_delete, 3, R.string.title_delete);
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
@@ -300,41 +305,83 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     args.putLong("id", message.id);
                     args.putInt("action", target.getItemId());
 
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onLoad(Context context, Bundle args) {
-                            long id = args.getLong("id");
-                            int action = args.getInt("action");
+                    if (target.getItemId() == action_delete) {
+                        new AlertDialog.Builder(context)
+                                .setMessage(R.string.title_ask_delete)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Bundle args = new Bundle();
+                                        args.putLong("id", message.id);
 
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
+                                        new SimpleTask<Void>() {
+                                            @Override
+                                            protected Void onLoad(Context context, Bundle args) {
+                                                long id = args.getLong("id");
 
-                                EntityMessage message = db.message().getMessage(id);
-                                for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
-                                    if (action == action_flag) {
-                                        db.message().setMessageUiFlagged(tmessage.id, !message.ui_flagged);
-                                        EntityOperation.queue(db, tmessage, EntityOperation.FLAG, !tmessage.ui_flagged);
-                                    } else if (action == action_seen) {
-                                        db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
-                                        EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
+                                                DB db = DB.getInstance(context);
+                                                try {
+                                                    db.beginTransaction();
+
+                                                    EntityMessage message = db.message().getMessage(id);
+                                                    db.message().setMessageUiHide(id, true);
+                                                    EntityOperation.queue(db, message, EntityOperation.DELETE);
+
+                                                    db.setTransactionSuccessful();
+                                                } finally {
+                                                    db.endTransaction();
+                                                }
+
+                                                EntityOperation.process(context);
+
+                                                return null;
+                                            }
+
+                                            @Override
+                                            protected void onException(Bundle args, Throwable ex) {
+                                                Helper.unexpectedError(context, ex);
+                                            }
+                                        }.load(context, owner, args);
                                     }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                    } else
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(final Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                int action = args.getInt("action");
 
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
+                                        if (action == action_flag) {
+                                            db.message().setMessageUiFlagged(tmessage.id, !message.ui_flagged);
+                                            EntityOperation.queue(db, tmessage, EntityOperation.FLAG, !tmessage.ui_flagged);
+                                        } else if (action == action_seen) {
+                                            db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
+                                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
+                                        }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                EntityOperation.process(context);
+
+                                return null;
                             }
 
-                            EntityOperation.process(context);
-
-                            return null;
-                        }
-
-                        @Override
-                        public void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, ex);
-                        }
-                    }.load(context, owner, args);
+                            @Override
+                            public void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(context, ex);
+                            }
+                        }.load(context, owner, args);
 
                     return true;
                 }
