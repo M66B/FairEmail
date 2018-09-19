@@ -89,7 +89,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -336,12 +335,7 @@ public class FragmentMessage extends FragmentEx {
                                             return;
                                         }
 
-                                        // https://developer.chrome.com/multidevice/android/customtabs
-                                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                                        builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
-
-                                        CustomTabsIntent customTabsIntent = builder.build();
-                                        customTabsIntent.launchUrl(getContext(), uri);
+                                        Helper.view(getContext(), uri);
                                     }
                                 })
                                 .setNegativeButton(R.string.title_no, null)

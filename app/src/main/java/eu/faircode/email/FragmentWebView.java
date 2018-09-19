@@ -34,7 +34,6 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.browser.customtabs.CustomTabsIntent;
 
 // https://developer.android.com/reference/android/webkit/WebView
 
@@ -64,11 +63,7 @@ public class FragmentWebView extends FragmentEx {
                     setSubtitle(url);
                     return false;
                 } else {
-                    CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                    builder.setToolbarColor(Helper.resolveColor(getContext(), R.attr.colorPrimary));
-
-                    CustomTabsIntent customTabsIntent = builder.build();
-                    customTabsIntent.launchUrl(getContext(), Uri.parse(url));
+                    Helper.view(getContext(), Uri.parse(url));
                     return true;
                 }
             }

@@ -23,6 +23,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -55,6 +56,7 @@ import javax.mail.FolderClosedException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -74,6 +76,15 @@ public class Helper {
             return thread;
         }
     };
+
+    static void view(Context context, Uri uri) {
+        // https://developer.chrome.com/multidevice/android/customtabs
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));
+
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(context, uri);
+    }
 
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
