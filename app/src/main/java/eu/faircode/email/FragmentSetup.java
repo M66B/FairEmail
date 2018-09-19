@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -73,6 +74,8 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentSetup extends FragmentEx {
     private ViewGroup view;
+
+    private ImageButton ibHelp;
 
     private Button btnAccount;
     private TextView tvAccountDone;
@@ -116,6 +119,8 @@ public class FragmentSetup extends FragmentEx {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
+        ibHelp = view.findViewById(R.id.ibHelp);
+
         btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
 
@@ -134,6 +139,13 @@ public class FragmentSetup extends FragmentEx {
         btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
+
+        ibHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(getIntentHelp());
+            }
+        });
 
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,6 +242,7 @@ public class FragmentSetup extends FragmentEx {
         });
 
         // Initialize
+        ibHelp.setVisibility(View.GONE);
 
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
@@ -291,6 +304,9 @@ public class FragmentSetup extends FragmentEx {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        PackageManager pm = getContext().getPackageManager();
+        ibHelp.setVisibility(getIntentHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
 
         DB db = DB.getInstance(getContext());
 
@@ -393,6 +409,12 @@ public class FragmentSetup extends FragmentEx {
             if (resultCode == RESULT_OK && data != null)
                 handleImport(data);
         }
+    }
+
+    private Intent getIntentHelp() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md"));
+        return intent;
     }
 
     private static Intent getIntentExport() {
