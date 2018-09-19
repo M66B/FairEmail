@@ -215,7 +215,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (pro == null || pro.resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_monetization_on_24, R.string.menu_pro));
 
-                if (getIntentPrivacy().resolveActivity(getPackageManager()) != null)
+                if (Helper.getIntentPrivacy().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_account_box_24, R.string.menu_privacy));
 
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
@@ -562,12 +562,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.load(this, new Bundle());
     }
 
-    private Intent getIntentPrivacy() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://email.faircode.eu/privacy/"));
-        return intent;
-    }
-
     private Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md"));
@@ -634,7 +628,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, getIntentPrivacy());
+        Helper.view(this, Helper.getIntentPrivacy());
     }
 
     private void onMenuAbout() {

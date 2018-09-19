@@ -97,6 +97,12 @@ public class Helper {
         customTabsIntent.launchUrl(context, uri);
     }
 
+    static Intent getIntentPrivacy() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://email.faircode.eu/privacy/"));
+        return intent;
+    }
+
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);

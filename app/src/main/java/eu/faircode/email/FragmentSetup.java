@@ -364,6 +364,10 @@ public class FragmentSetup extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_legend:
+                onMenuLegend();
+                return true;
+
             case R.id.menu_export:
                 if (Helper.isPro(getContext()))
                     startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
@@ -376,6 +380,14 @@ public class FragmentSetup extends FragmentEx {
 
             case R.id.menu_import:
                 startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+                return true;
+
+            case R.id.menu_privacy:
+                onMenuPrivacy();
+                return true;
+
+            case R.id.menu_about:
+                onMenuAbout();
                 return true;
 
             default:
@@ -409,6 +421,22 @@ public class FragmentSetup extends FragmentEx {
             if (resultCode == RESULT_OK && data != null)
                 handleImport(data);
         }
+    }
+
+    private void onMenuPrivacy() {
+        Helper.view(getContext(), Helper.getIntentPrivacy());
+    }
+
+    private void onMenuLegend() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentLegend()).addToBackStack("legend");
+        fragmentTransaction.commit();
+    }
+
+    private void onMenuAbout() {
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
+        fragmentTransaction.commit();
     }
 
     private Intent getIntentHelp() {
