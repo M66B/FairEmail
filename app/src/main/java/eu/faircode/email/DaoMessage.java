@@ -133,6 +133,11 @@ public interface DaoMessage {
             " AND folder.type <> '" + EntityFolder.DRAFTS + "'")
     List<EntityMessage> getMessageByThread(long account, String thread);
 
+    @Query("SELECT *" +
+            " FROM message" +
+            " WHERE folder = :folder")
+    List<EntityMessage> getMessageByFolder(long folder);
+
     @Query("SELECT id FROM message" +
             " WHERE folder = :folder" +
             " ORDER BY message.received DESC, message.sent DESC")

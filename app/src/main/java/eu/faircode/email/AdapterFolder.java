@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -68,7 +70,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private final static int action_synchronize_now = 1;
         private final static int action_delete_local = 2;
-        private final static int action_edit_properties = 3;
+        private final static int action_empty_trash = 3;
+        private final static int action_edit_properties = 4;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -168,9 +171,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (!EntityFolder.DRAFTS.equals(folder.type))
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
+            if (EntityFolder.TRASH.equals(folder.type))
+                popupMenu.getMenu().add(Menu.NONE, action_empty_trash, 3, R.string.title_empty_trash);
 
             if (folder.account != null)
-                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 3, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -209,6 +214,51 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 }
                             }.load(context, owner, args);
 
+                            break;
+
+                        case action_empty_trash:
+                            new AlertDialog.Builder(context)
+                                    .setMessage(R.string.title_empty_trash_ask)
+                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                            Bundle args = new Bundle();
+                                            args.putLong("id", folder.id);
+
+                                            new SimpleTask<Void>() {
+                                                @Override
+                                                protected Void onLoad(Context context, Bundle args) {
+                                                    long id = args.getLong("id");
+
+                                                    DB db = DB.getInstance(context);
+                                                    try {
+                                                        db.beginTransaction();
+
+                                                        for (EntityMessage message : db.message().getMessageByFolder(id)) {
+                                                            db.message().setMessageUiHide(message.id, true);
+                                                            EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                                        }
+
+                                                        db.setTransactionSuccessful();
+                                                    } finally {
+                                                        db.endTransaction();
+                                                    }
+
+                                                    EntityOperation.process(context);
+
+                                                    return null;
+                                                }
+
+                                                @Override
+                                                protected void onException(Bundle args, Throwable ex) {
+                                                    Helper.unexpectedError(context, ex);
+                                                }
+                                            }.load(context, owner, args);
+                                        }
+                                    })
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show();
                             break;
 
                         case action_edit_properties:
