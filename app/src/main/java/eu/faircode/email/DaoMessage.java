@@ -38,11 +38,16 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name as folderName, folder.type as folderType" +
-            ", COUNT(message.id) as count" +
+            ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
+            ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
             "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) as unseen" +
+            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unseen" +
+            ", SUM(CASE WHEN message.ui_flagged" +
+            "    AND NOT folder.type = '" + EntityFolder.ARCHIVE + "'" +
+            "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
+            "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
@@ -53,8 +58,8 @@ public interface DaoMessage {
             " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(unified) > 0" +
             " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.seen" +
-            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
+            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(String sort, boolean debug);
@@ -62,11 +67,16 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name as folderName, folder.type as folderType" +
-            ", COUNT(message.id) as count" +
+            ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
+            ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) as unseen" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unseen" +
+            ", SUM(CASE WHEN message.ui_flagged" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
             " FROM message" +
@@ -79,8 +89,8 @@ public interface DaoMessage {
             " GROUP BY CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.seen" +
-            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
+            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, String sort, boolean found, boolean debug);
@@ -88,8 +98,10 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name as folderName, folder.type as folderType" +
+            ", 0 AS threaded" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END as unseen" +
+            ", CASE WHEN  message.ui_flagged THEN 0 ELSE 1 END as unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -98,8 +110,8 @@ public interface DaoMessage {
             " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
             " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
             " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.seen" +
-            "  WHEN 'starred' = :sort THEN message.flagged" +
+            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
+            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, String sort, boolean debug);
@@ -148,8 +160,10 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name as folderName, folder.type as folderType" +
+            ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
+            ", (SELECT COUNT(m3.id) FROM message m3 WHERE m3.account = message.account AND m3.thread = message.thread AND NOT m3.ui_hide AND NOT m3.ui_flagged) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " LEFT JOIN account ON account.id = message.account" +

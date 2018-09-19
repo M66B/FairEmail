@@ -773,11 +773,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onLoaded(Bundle args, Void result) {
-                FragmentMessage fragment = new FragmentMessage();
-                fragment.setArguments(args);
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
-                fragmentTransaction.commit();
+                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+
+                if (message.threaded) {
+                    Bundle targs = new Bundle();
+                    targs.putLong("thread", message.id);
+
+                    FragmentMessages fragment = new FragmentMessages();
+                    fragment.setArguments(targs);
+
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+                    fragmentTransaction.commit();
+
+                } else {
+                    FragmentMessage fragment = new FragmentMessage();
+                    fragment.setArguments(args);
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
+                    fragmentTransaction.commit();
+                }
             }
 
             @Override

@@ -24,8 +24,10 @@ public class TupleMessageEx extends EntityMessage {
     public Integer accountColor;
     public String folderName;
     public String folderType;
+    public boolean threaded;
     public int count;
     public int unseen;
+    public int unflagged;
     public int attachments;
 
     @Override
@@ -37,8 +39,10 @@ public class TupleMessageEx extends EntityMessage {
                     (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
                     this.folderName.equals(other.folderName) &&
                     this.folderType.equals(other.folderType) &&
+                    this.threaded == other.threaded &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
+                    this.unflagged == other.unflagged &&
                     this.attachments == other.attachments);
         }
         return super.equals(obj);
