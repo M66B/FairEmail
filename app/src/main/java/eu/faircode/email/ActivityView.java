@@ -548,7 +548,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    startActivity(update);
+                                    Helper.view(ActivityView.this, update);
                                 }
                             })
                             .show();
@@ -624,7 +624,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFAQ() {
-        startActivity(getIntentFAQ());
+        Helper.view(this, getIntentFAQ());
     }
 
     private void onMenuPro() {
@@ -634,7 +634,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        startActivity(getIntentPrivacy());
+        Helper.view(this, getIntentPrivacy());
     }
 
     private void onMenuAbout() {
@@ -646,20 +646,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onMenuRate() {
         Intent faq = getIntentFAQ();
         if (faq.resolveActivity(getPackageManager()) == null)
-            startActivity(getIntentRate());
+            Helper.view(this, getIntentRate());
         else {
             new AlertDialog.Builder(this)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(getIntentFAQ());
+                            Helper.view(ActivityView.this, getIntentFAQ());
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(getIntentRate());
+                            Helper.view(ActivityView.this, getIntentRate());
                         }
                     })
                     .show();
@@ -667,7 +667,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuOtherApps() {
-        startActivity(getIntentOtherApps());
+        Helper.view(this, getIntentOtherApps());
     }
 
     private class DrawerItem {

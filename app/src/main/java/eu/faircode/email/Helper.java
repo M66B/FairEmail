@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -77,7 +78,17 @@ public class Helper {
         }
     };
 
+    static void view(Context context, Intent intent) {
+        Uri uri = intent.getData();
+        if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+            view(context, intent.getData());
+        else
+            context.startActivity(intent);
+    }
+
     static void view(Context context, Uri uri) {
+        Log.i(Helper.TAG, "Custom tab=" + uri);
+
         // https://developer.chrome.com/multidevice/android/customtabs
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));

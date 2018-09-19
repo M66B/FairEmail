@@ -118,7 +118,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (responseCode != BillingClient.BillingResponse.OK)
                 Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
         } else
-            startActivity(getIntentPro());
+            Helper.view(this, getIntentPro());
     }
 
     private void onActivatePro(Intent intent) {

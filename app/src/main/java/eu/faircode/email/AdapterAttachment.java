@@ -180,7 +180,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         return;
                     }
 
-                    context.startActivity(intent);
+                    Helper.view(context, intent);
                 } else {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
