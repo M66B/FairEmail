@@ -358,14 +358,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(id);
-                                    for (EntityMessage tmessage : db.message().getMessageByThread(message.account, message.thread))
-                                        if (action == action_flag) {
-                                            db.message().setMessageUiFlagged(tmessage.id, !message.ui_flagged);
-                                            EntityOperation.queue(db, tmessage, EntityOperation.FLAG, !tmessage.ui_flagged);
-                                        } else if (action == action_seen) {
-                                            db.message().setMessageUiSeen(tmessage.id, !message.ui_seen);
-                                            EntityOperation.queue(db, tmessage, EntityOperation.SEEN, !tmessage.ui_seen);
-                                        }
+                                    if (action == action_flag) {
+                                        db.message().setMessageUiFlagged(message.id, !message.ui_flagged);
+                                        EntityOperation.queue(db, message, EntityOperation.FLAG, !message.ui_flagged);
+                                    } else if (action == action_seen) {
+                                        db.message().setMessageUiSeen(message.id, !message.ui_seen);
+                                        EntityOperation.queue(db, message, EntityOperation.SEEN, !message.ui_seen);
+                                    }
 
                                     db.setTransactionSuccessful();
                                 } finally {
