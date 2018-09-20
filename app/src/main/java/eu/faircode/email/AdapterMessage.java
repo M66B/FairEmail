@@ -151,12 +151,16 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             itemView.setAlpha(viewType == ViewType.THREAD && EntityFolder.ARCHIVE.equals(message.folderType) ? 0.5f : 1.0f);
 
+            boolean photo = false;
             if (avatars && message.avatar != null) {
                 ContentResolver resolver = context.getContentResolver();
                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
-                ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+                if (is != null) {
+                    photo = true;
+                    ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+                }
             }
-            ivAvatar.setVisibility(!avatars || message.avatar == null ? View.GONE : View.VISIBLE);
+            ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
 
             if (avatars && message.from != null && message.from.length > 0) {
                 final long id = message.id;
