@@ -37,7 +37,7 @@
     <item quantity="many">%1$d unsent messages</item>
     <item quantity="other">رسائل غير مرسله</item>
   </plurals>
-  <string name="title_notification_failed">فشل</string>
+  <string name="title_notification_failed">\'%1$s\' فشل</string>
   <string name="menu_setup">اعداد</string>
   <string name="menu_answers">ردود موحدة</string>
   <string name="menu_operations">عمليات</string>
