@@ -87,6 +87,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -253,6 +254,14 @@ public class FragmentCompose extends FragmentEx {
             }
         });
 
+        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                handleExit();
+                return true;
+            }
+        });
+
         setHasOptionsMenu(true);
 
         // Initialize
@@ -409,6 +418,9 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                handleExit();
+                return true;
             case R.id.menu_bold:
             case R.id.menu_italic:
             case R.id.menu_link:
@@ -498,6 +510,25 @@ public class FragmentCompose extends FragmentEx {
                     handlePickContact(requestCode, data);
             }
         }
+    }
+
+    private void handleExit() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.title_ask_delete)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onAction(R.id.action_delete);
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
     }
 
     private void handlePickContact(int requestCode, Intent data) {
