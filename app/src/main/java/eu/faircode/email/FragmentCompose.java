@@ -756,7 +756,7 @@ public class FragmentCompose extends FragmentEx {
                         }
                     }
 
-                    if (ref.deliveredto != null) {
+                    if (ref.deliveredto != null && (ref.to == null || ref.to.length == 0)) {
                         try {
                             Log.i(Helper.TAG, "Setting delivered to=" + ref.deliveredto);
                             ref.to = InternetAddress.parse(ref.deliveredto);
@@ -767,6 +767,7 @@ public class FragmentCompose extends FragmentEx {
 
                     if (ref.from != null && ref.from.length > 0) {
                         String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
+                        Log.i(Helper.TAG, "From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
                         for (EntityIdentity identity : identities) {
                             String email = Helper.canonicalAddress(identity.email);
                             if (from.equals(email)) {
