@@ -31,6 +31,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -1106,7 +1107,7 @@ public class FragmentCompose extends FragmentEx {
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
-        protected EntityMessage onLoad(Context context, Bundle args) throws Throwable {
+        protected EntityMessage onLoad(final Context context, Bundle args) throws Throwable {
             // Get data
             long id = args.getLong("id");
             int action = args.getInt("action");
@@ -1156,11 +1157,24 @@ public class FragmentCompose extends FragmentEx {
 
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 } else if (action == R.id.action_save) {
                     db.message().updateMessage(draft);
                     draft.write(context, body);
 
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                        }
+                    });
 
                 } else if (action == R.id.action_send) {
                     db.message().updateMessage(draft);
@@ -1230,11 +1244,9 @@ public class FragmentCompose extends FragmentEx {
             if (action == R.id.action_delete) {
                 autosave = false;
                 getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
 
             } else if (action == R.id.action_save) {
-                if (draft != null)
-                    Toast.makeText(getContext(), R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                // Do nothing
 
             } else if (action == R.id.action_send) {
                 autosave = false;
