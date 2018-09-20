@@ -87,7 +87,7 @@ public class EntityAccount {
         json.put("host", host);
         json.put("port", port);
         json.put("user", user);
-        json.put("password", password);
+        json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
         json.put("synchronize", synchronize);
