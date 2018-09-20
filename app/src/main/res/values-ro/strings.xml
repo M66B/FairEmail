@@ -46,7 +46,7 @@
   <string name="title_edit_identity">Editare identitate</string>
   <string name="title_edit_folder">Editare dosar</string>
   <string name="title_setup">Setări</string>
-  <string name="title_setup_export">Exportă setări</string>
+  <string name="title_setup_export">Export settings (no passwords)</string>
   <string name="title_setup_import">Importă setări</string>
   <string name="title_setup_exported">Setări exportate</string>
   <string name="title_setup_imported">Setări importate</string>
@@ -218,6 +218,7 @@
   <string name="title_hint_folder_actions">Apasă lung pentru acțiuni</string>
   <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
   <string name="title_hint_message_actions">Glisare la stânga pentru gunoi; glisare la dreapta pentru arhivare (dacă este disponibilă); atingeți lung pentru a marca citit/necitit sau a marca</string>
+  <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
   <string name="title_open_link">Deschide legătura</string>
   <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
   <string name="title_issue">Aveți o întrebare sau problemă?</string>

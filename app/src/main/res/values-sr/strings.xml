@@ -46,7 +46,7 @@
   <string name="title_edit_identity">Edit identity</string>
   <string name="title_edit_folder">Edit folder</string>
   <string name="title_setup">Setup</string>
-  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_export">Export settings (no passwords)</string>
   <string name="title_setup_import">Import settings</string>
   <string name="title_setup_exported">Settings exported</string>
   <string name="title_setup_imported">Settings imported</string>
@@ -218,6 +218,7 @@
   <string name="title_hint_folder_actions">Long press for options</string>
   <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
+  <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
   <string name="title_open_link">Open link</string>
   <string name="title_updated">There is an update to version %1$s available</string>
   <string name="title_issue">Do you have a question or problem?</string>

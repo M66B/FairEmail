@@ -42,7 +42,7 @@
   <string name="title_edit_identity">Modifier l’identité</string>
   <string name="title_edit_folder">Modifier le dossier</string>
   <string name="title_setup">Configuration</string>
-  <string name="title_setup_export">Exporter les paramètres</string>
+  <string name="title_setup_export">Export settings (no passwords)</string>
   <string name="title_setup_import">Importer les paramètres</string>
   <string name="title_setup_exported">Paramètres exportés</string>
   <string name="title_setup_imported">Paramètres importés</string>
@@ -214,6 +214,7 @@
   <string name="title_hint_folder_actions">Appui long pour les options</string>
   <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l’aide</string>
   <string name="title_hint_message_actions">Balayer vers la gauche pour supprimer ; balayer vers la droite pour archiver (si disponible) ; appuyer longtemps pour marquer lu/non lu ou pour suivre/ne plus suivre</string>
+  <string name="title_hint_sync">Le téléchargement des messages peut prendre du temps, selon le nombre de messages, la vitesse de votre connexion internet et votre fournisseur de messagerie</string>
   <string name="title_open_link">Ouvrir le lien</string>
   <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
   <string name="title_issue">Avez-vous une question ou un problème ?</string>

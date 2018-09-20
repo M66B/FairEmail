@@ -50,7 +50,7 @@
   <string name="title_edit_identity">Edytcja tożsamość</string>
   <string name="title_edit_folder">Edytuj folder</string>
   <string name="title_setup">Ustawienia</string>
-  <string name="title_setup_export">Eksport ustawień</string>
+  <string name="title_setup_export">Export settings (no passwords)</string>
   <string name="title_setup_import">Import ustawień</string>
   <string name="title_setup_exported">Ustawienia wyeksportowane</string>
   <string name="title_setup_imported">Ustawienia zaimportowane</string>
@@ -121,11 +121,11 @@
   <string name="title_insecure">Niezabezpieczone połączenia nie są obsługiwane</string>
   <string name="title_synchronize_now">Synchronizuj teraz</string>
   <string name="title_delete_local">Usuń wiadomości lokalne</string>
-  <string name="title_empty_trash">Empty trash</string>
+  <string name="title_empty_trash">Opróżnij kosz</string>
   <string name="title_edit_properties">Edytuj właściwości</string>
-  <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
+  <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
   <string name="title_folder_name">Nazwa folderu</string>
-  <string name="title_display_name">Display name</string>
+  <string name="title_display_name">Nazwa wyświetlana</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
   <string name="title_after">Synchronizuj (dni)</string>
@@ -222,6 +222,7 @@
   <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
   <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
   <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli są dostępne); długie naciśnięcie, aby oznaczyć przeczytane/nieprzeczytane lub dodać/usunąć gwiazdkę</string>
+  <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
   <string name="title_open_link">Otwórz link</string>
   <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
   <string name="title_issue">Masz pytanie lub problem?</string>
