@@ -149,6 +149,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
+            itemView.setAlpha(viewType == ViewType.THREAD && EntityFolder.ARCHIVE.equals(message.folderType) ? 0.5f : 1.0f);
+
             if (avatars && message.avatar != null) {
                 ContentResolver resolver = context.getContentResolver();
                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
