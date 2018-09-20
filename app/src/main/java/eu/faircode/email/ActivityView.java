@@ -247,6 +247,117 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
 
+        checkFirst();
+        checkIntent(getIntent());
+        checkCrash();
+        if (!Helper.isPlayStoreInstall(this))
+            checkUpdate();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("toggle", drawerToggle.isDrawerIndicatorEnabled());
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        checkIntent(intent);
+        super.onNewIntent(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_VIEW_MESSAGES);
+        iff.addAction(ACTION_VIEW_MESSAGE);
+        iff.addAction(ACTION_EDIT_FOLDER);
+        iff.addAction(ACTION_EDIT_ANSWER);
+        iff.addAction(ACTION_STORE_ATTACHMENT);
+        lbm.registerReceiver(receiver, iff);
+
+        if (newMessages) {
+            newMessages = false;
+            FragmentManager fm = getSupportFragmentManager();
+            fm.popBackStackImmediate("unified", 0);
+            FragmentMessages fragment = (FragmentMessages) fm.findFragmentById(R.id.content_frame);
+            fragment.onNewMessages();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.unregisterReceiver(receiver);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(drawerList))
+            drawerLayout.closeDrawer(drawerList);
+        else
+            super.onBackPressed();
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count == 0)
+            finish();
+        else {
+            if (drawerLayout.isDrawerOpen(drawerList))
+                drawerLayout.closeDrawer(drawerList);
+            drawerToggle.setDrawerIndicatorEnabled(count == 1);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item))
+            return true;
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getSupportFragmentManager().popBackStack();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void checkFirst() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("first", true)) {
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.title_hint_sync))
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            prefs.edit().putBoolean("first", false).apply();
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    private void checkCrash() {
         new SimpleTask<Long>() {
             @Override
             protected Long onLoad(Context context, Bundle args) throws Throwable {
@@ -338,99 +449,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             }
         }.load(this, new Bundle());
-
-        checkIntent(getIntent());
-
-        if (!Helper.isPlayStoreInstall(this))
-            checkUpdate();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean("toggle", drawerToggle.isDrawerIndicatorEnabled());
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        checkIntent(intent);
-        super.onNewIntent(intent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-        IntentFilter iff = new IntentFilter();
-        iff.addAction(ACTION_VIEW_MESSAGES);
-        iff.addAction(ACTION_VIEW_MESSAGE);
-        iff.addAction(ACTION_EDIT_FOLDER);
-        iff.addAction(ACTION_EDIT_ANSWER);
-        iff.addAction(ACTION_STORE_ATTACHMENT);
-        lbm.registerReceiver(receiver, iff);
-
-        if (newMessages) {
-            newMessages = false;
-            FragmentManager fm = getSupportFragmentManager();
-            fm.popBackStackImmediate("unified", 0);
-            FragmentMessages fragment = (FragmentMessages) fm.findFragmentById(R.id.content_frame);
-            fragment.onNewMessages();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-        lbm.unregisterReceiver(receiver);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        drawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(drawerList))
-            drawerLayout.closeDrawer(drawerList);
-        else
-            super.onBackPressed();
-    }
-
-    @Override
-    public void onBackStackChanged() {
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        if (count == 0)
-            finish();
-        else {
-            if (drawerLayout.isDrawerOpen(drawerList))
-                drawerLayout.closeDrawer(drawerList);
-            drawerToggle.setDrawerIndicatorEnabled(count == 1);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item))
-            return true;
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    getSupportFragmentManager().popBackStack();
-                return true;
-            default:
-                return false;
-        }
     }
 
     private void checkIntent(Intent intent) {
