@@ -323,7 +323,8 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.hide(FragmentAccount.this);
+                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
                 fragmentTransaction.commit();
             }
         });
