@@ -489,17 +489,22 @@ public class FragmentMessage extends FragmentEx {
 
         setSeen();
 
-        if (message.avatar == null ||
+        boolean photo = false;
+        if (message.avatar != null &&
                 ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
-                        != PackageManager.PERMISSION_GRANTED) {
+                        == PackageManager.PERMISSION_GRANTED) {
+            ContentResolver resolver = getContext().getContentResolver();
+            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
+            if (is != null) {
+                photo = true;
+                ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+            }
+        }
+        if (!photo) {
             ViewGroup.LayoutParams lp = ivAvatar.getLayoutParams();
             lp.height = 0;
             lp.width = 0;
             ivAvatar.setLayoutParams(lp);
-        } else {
-            ContentResolver resolver = getContext().getContentResolver();
-            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
-            ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
         }
 
         if (message.from == null ||
