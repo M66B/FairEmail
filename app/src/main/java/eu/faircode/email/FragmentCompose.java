@@ -640,11 +640,9 @@ public class FragmentCompose extends FragmentEx {
             attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
             attachment.name = name;
 
-            String extension = null;
-            if (attachment.name != null) // External attach
-                extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+            String extension = Helper.getExtension(attachment.name);
             if (extension != null)
-                attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
             if (attachment.type == null)
                 attachment.type = "application/octet-stream";
 

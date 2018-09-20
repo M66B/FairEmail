@@ -459,10 +459,10 @@ public class MessageHelper {
 
                 // Try to guess a better content type
                 // Sometimes PDF files are sent using the wrong type
-                if ("application/octet-stream".equals(attachment.type) && attachment.name != null) {
-                    String extension = MimeTypeMap.getFileExtensionFromUrl(attachment.name.toLowerCase());
+                if ("application/octet-stream".equals(attachment.type)) {
+                    String extension = Helper.getExtension(attachment.name);
                     if (extension != null) {
-                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
                         if (type != null) {
                             Log.w(Helper.TAG, "Guessing file=" + attachment.name + " type=" + type);
                             attachment.type = type;

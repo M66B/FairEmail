@@ -205,6 +205,15 @@ public class Helper {
         }
     }
 
+    static String getExtension(String filename) {
+        if (filename == null)
+            return null;
+        int index = filename.lastIndexOf(".");
+        if (index < 0)
+            return null;
+        return filename.substring(index + 1);
+    }
+
     static String refreshToken(Context context, String type, String name, String current) {
         try {
             AccountManager am = AccountManager.get(context);
