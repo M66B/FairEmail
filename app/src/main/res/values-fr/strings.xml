@@ -113,8 +113,11 @@
   <string name="title_insecure">Les connexions non sécurisées ne sont pas supportées</string>
   <string name="title_synchronize_now">Synchroniser maintenant</string>
   <string name="title_delete_local">Supprimer les messages locaux</string>
+  <string name="title_empty_trash">Vider la corbeille</string>
   <string name="title_edit_properties">Éditer les propriétés</string>
+  <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
   <string name="title_folder_name">Nom du dossier</string>
+  <string name="title_display_name">Nom</string>
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>

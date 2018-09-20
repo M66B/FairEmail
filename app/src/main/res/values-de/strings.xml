@@ -113,8 +113,11 @@
   <string name="title_insecure">Unsichere Verbindungen werden nicht unterstützt</string>
   <string name="title_synchronize_now">Jetzt synchronisieren</string>
   <string name="title_delete_local">Lösche lokale Nachrichten</string>
+  <string name="title_empty_trash">Papierkorb leeren</string>
   <string name="title_edit_properties">Eigenschaften bearbeiten</string>
+  <string name="title_empty_trash_ask">Alle ausgewählten Dateien dauerhaft löschen?</string>
   <string name="title_folder_name">Ordnername</string>
+  <string name="title_display_name">Name</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>

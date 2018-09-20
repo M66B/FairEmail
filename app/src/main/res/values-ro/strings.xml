@@ -117,8 +117,11 @@
   <string name="title_insecure">Conexiunile nesecurizate nu sunt acceptate</string>
   <string name="title_synchronize_now">Sincronizează acum</string>
   <string name="title_delete_local">Șterge mesajul local</string>
+  <string name="title_empty_trash">Empty trash</string>
   <string name="title_edit_properties">Editează proprietăți</string>
+  <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
   <string name="title_folder_name">Nume dosar</string>
+  <string name="title_display_name">Display name</string>
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
   <string name="title_unified_folder">Arată în căsuța poștală comună</string>
   <string name="title_after">Sincronizare (zile)</string>

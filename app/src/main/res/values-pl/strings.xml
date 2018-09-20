@@ -121,8 +121,11 @@
   <string name="title_insecure">Niezabezpieczone połączenia nie są obsługiwane</string>
   <string name="title_synchronize_now">Synchronizuj teraz</string>
   <string name="title_delete_local">Usuń wiadomości lokalne</string>
+  <string name="title_empty_trash">Empty trash</string>
   <string name="title_edit_properties">Edytuj właściwości</string>
+  <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
   <string name="title_folder_name">Nazwa folderu</string>
+  <string name="title_display_name">Display name</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
   <string name="title_after">Synchronizuj (dni)</string>

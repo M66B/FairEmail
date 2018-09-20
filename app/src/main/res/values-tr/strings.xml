@@ -113,8 +113,11 @@
   <string name="title_insecure">Güvenli olmayan bağlantılar desteklenmiyor</string>
   <string name="title_synchronize_now">Şimdi senkronize et</string>
   <string name="title_delete_local">Yerel mesajları sil</string>
+  <string name="title_empty_trash">Empty trash</string>
   <string name="title_edit_properties">Özellikleri düzenle</string>
+  <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
   <string name="title_folder_name">Klasör adı</string>
+  <string name="title_display_name">Display name</string>
   <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
   <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
   <string name="title_after">Senkronize (günler)</string>
