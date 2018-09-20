@@ -199,22 +199,19 @@ public class FragmentMessage extends FragmentEx {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putLong("account", message.account);
-                args.putString("thread", message.thread);
+                args.putLong("id", message.id);
                 args.putBoolean("flagged", !message.ui_flagged);
                 Log.i(Helper.TAG, "Set message id=" + message.id + " flagged=" + !message.ui_flagged);
 
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
-                        long account = args.getLong("account");
-                        String thread = args.getString("thread");
+                        long id = args.getLong("id");
                         boolean flagged = args.getBoolean("flagged");
                         DB db = DB.getInstance(context);
-                        for (EntityMessage message : db.message().getMessageByThread(account, thread)) {
-                            db.message().setMessageUiFlagged(message.id, flagged);
-                            EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
-                        }
+                        EntityMessage message = db.message().getMessage(id);
+                        db.message().setMessageUiFlagged(message.id, flagged);
+                        EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
                         EntityOperation.process(context);
                         return null;
                     }
