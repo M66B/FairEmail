@@ -218,6 +218,7 @@ public class FragmentIdentity extends FragmentEx {
         btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etDomain.setEnabled(false);
                 btnAutoConfig.setEnabled(false);
 
                 Bundle args = new Bundle();
@@ -240,6 +241,7 @@ public class FragmentIdentity extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, SRVRecord srv) {
+                        etDomain.setEnabled(true);
                         btnAutoConfig.setEnabled(true);
                         if (srv != null) {
                             etHost.setText(srv.getTarget().toString(true));
@@ -250,6 +252,7 @@ public class FragmentIdentity extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
+                        etDomain.setEnabled(true);
                         btnAutoConfig.setEnabled(true);
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
