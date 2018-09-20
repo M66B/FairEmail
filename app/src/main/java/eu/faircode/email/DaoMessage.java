@@ -188,12 +188,6 @@ public interface DaoMessage {
             " AND NOT ui_found" /* keep found messages */)
     List<Long> getUids(long folder, long received);
 
-    @Query("SELECT message.* FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
-            " WHERE NOT message.ui_seen" +
-            " AND folder.unified")
-    List<EntityMessage> getUnseenUnifiedMessages();
-
     @Insert
     long insertMessage(EntityMessage message);
 

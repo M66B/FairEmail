@@ -436,7 +436,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void checkIntent(Intent intent) {
         Log.i(Helper.TAG, "View intent=" + intent + " action=" + intent.getAction());
         String action = intent.getAction();
-        if ("unseen".equals(action)) {
+        if ("notification".equals(action)) {
             intent.setAction(null);
             setIntent(intent);
 

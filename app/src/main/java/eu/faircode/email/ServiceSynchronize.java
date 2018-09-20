@@ -120,7 +120,6 @@ public class ServiceSynchronize extends LifecycleService {
     private ServiceManager serviceManager = new ServiceManager();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
-    private static final int NOTIFICATION_UNSEEN = 2;
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
@@ -129,6 +128,10 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
+
+    static final int PI_UNSEEN = 1;
+    static final int PI_SEEN = 2;
+    static final int PI_TRASH = 3;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -159,20 +162,40 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         db.message().liveUnseenUnified().observe(this, new Observer<List<EntityMessage>>() {
-            private int prev_unseen = -1;
+            private List<Integer> notifying = new ArrayList<>();
 
             @Override
             public void onChanged(List<EntityMessage> messages) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
-                if (messages.size() > 0) {
-                    if (messages.size() > prev_unseen) {
-                        nm.cancel(NOTIFICATION_UNSEEN);
-                        nm.notify(NOTIFICATION_UNSEEN, getNotificationUnseen(messages).build());
-                    }
-                } else
-                    nm.cancel(NOTIFICATION_UNSEEN);
+                List<Notification> notifications = getNotificationUnseen(messages);
 
-                prev_unseen = messages.size();
+                List<Integer> all = new ArrayList<>();
+                List<Integer> added = new ArrayList<>();
+                List<Integer> removed = new ArrayList<>(notifying);
+                for (Notification notification : notifications) {
+                    Integer id = (int) notification.extras.getLong("id", 0);
+                    if (id > 0) {
+                        all.add(id);
+                        if (removed.contains(id))
+                            removed.remove(id);
+                        else
+                            added.add(id);
+                    }
+                }
+
+                if (notifications.size() == 0)
+                    nm.cancel("unseen", 0);
+
+                for (Integer id : removed)
+                    nm.cancel("unseen", id);
+
+                for (Notification notification : notifications) {
+                    Integer id = (int) notification.extras.getLong("id", 0);
+                    if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                        nm.notify("unseen", id, notification);
+                }
+
+                notifying = all;
             }
         });
     }
@@ -199,10 +222,11 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Service command intent=" + intent);
         super.onStartCommand(intent, flags, startId);
 
-        if (intent != null)
-            if ("reload".equals(intent.getAction()))
+        if (intent != null) {
+            String action = intent.getAction();
+            if ("reload".equals(action))
                 serviceManager.restart();
-            else if ("unseen".equals(intent.getAction())) {
+            else if ("until".equals(action)) {
                 Bundle args = new Bundle();
                 args.putLong("time", new Date().getTime());
 
@@ -232,19 +256,31 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }.load(this, args);
 
-            } else if ("seen".equals(intent.getAction())) {
+            } else if (action != null &&
+                    (action.startsWith("seen:") || action.startsWith("trash:"))) {
                 Bundle args = new Bundle();
+                args.putLong("id", Long.parseLong(action.split(":")[1]));
+                args.putString("action", action.split(":")[0]);
 
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        String action = args.getString("action");
+
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
-                            for (EntityMessage message : db.message().getUnseenUnifiedMessages()) {
+                            EntityMessage message = db.message().getMessage(id);
+                            if ("seen".equals(action)) {
                                 db.message().setMessageUiSeen(message.id, true);
                                 EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                            } else if ("trash".equals(action)) {
+                                db.message().setMessageUiHide(message.id, true);
+                                EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                if (trash != null)
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
                             }
 
                             db.setTransactionSuccessful();
@@ -263,6 +299,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }.load(this, args);
             }
+        }
 
         return START_STICKY;
     }
@@ -301,49 +338,53 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private Notification.Builder getNotificationUnseen(List<EntityMessage> messages) {
+    private List<Notification> getNotificationUnseen(List<EntityMessage> messages) {
+        // https://developer.android.com/training/notify-user/group
+        List<Notification> notifications = new ArrayList<>();
+
+        if (messages.size() == 0)
+            return notifications;
+
+        boolean pro = Helper.isPro(this);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Build pending intent
-        Intent intent = new Intent(this, ActivityView.class);
-        intent.setAction("unseen");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_UNSEEN, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent view = new Intent(this, ActivityView.class);
+        view.setAction("notification");
+        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent piView = PendingIntent.getActivity(
+                this, ActivityView.REQUEST_UNSEEN, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent delete = new Intent(this, ServiceSynchronize.class);
-        delete.setAction("unseen");
-        PendingIntent pid = PendingIntent.getService(this, 1, delete, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Intent seen = new Intent(this, ServiceSynchronize.class);
-        seen.setAction("seen");
-        PendingIntent pis = PendingIntent.getService(this, 2, seen, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Notification.Action.Builder actionBuilder = new Notification.Action.Builder(
-                Icon.createWithResource(this, R.drawable.baseline_mail_outline_24),
-                getString(R.string.title_seen),
-                pis);
-
-        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Intent until = new Intent(this, ServiceSynchronize.class);
+        until.setAction("until");
+        PendingIntent piUntil = PendingIntent.getService(
+                this, PI_UNSEEN, until, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            builder = new Notification.Builder(this, "notification");
-        else
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             builder = new Notification.Builder(this);
+        else
+            builder = new Notification.Builder(this, "notification");
 
         builder
                 .setSmallIcon(R.drawable.baseline_mail_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
-                .setContentIntent(pi)
-                .setSound(uri)
+                .setContentText("")
+                .setContentIntent(piView)
+                .setNumber(messages.size())
                 .setShowWhen(false)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
-                .setVisibility(Notification.VISIBILITY_PUBLIC)
-                .setDeleteIntent(pid)
-                .addAction(actionBuilder.build());
+                .setVisibility(Notification.VISIBILITY_PRIVATE)
+                .setDeleteIntent(piUntil)
+                .setGroup(BuildConfig.APPLICATION_ID)
+                .setGroupSummary(true);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            builder.setSound(null);
+        else
+            builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O &&
                 prefs.getBoolean("light", false)) {
@@ -351,7 +392,7 @@ public class ServiceSynchronize extends LifecycleService {
             builder.setLights(0xff00ff00, 1000, 1000);
         }
 
-        if (Helper.isPro(this)) {
+        if (pro) {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
@@ -365,7 +406,64 @@ public class ServiceSynchronize extends LifecycleService {
             builder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
         }
 
-        return builder;
+        notifications.add(builder.build());
+
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        for (EntityMessage message : messages) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            Intent seen = new Intent(this, ServiceSynchronize.class);
+            seen.setAction("seen:" + message.id);
+            PendingIntent piSeen = PendingIntent.getService(this, PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Intent trash = new Intent(this, ServiceSynchronize.class);
+            trash.setAction("trash:" + message.id);
+            PendingIntent piTrash = PendingIntent.getService(this, PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Notification.Action.Builder actionSeen = new Notification.Action.Builder(
+                    Icon.createWithResource(this, R.drawable.baseline_visibility_24),
+                    getString(R.string.title_seen),
+                    piSeen);
+
+            Notification.Action.Builder actionTrash = new Notification.Action.Builder(
+                    Icon.createWithResource(this, R.drawable.baseline_delete_24),
+                    getString(R.string.title_trash),
+                    piTrash);
+
+            Notification.Builder mbuilder;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                mbuilder = new Notification.Builder(this);
+            else
+                mbuilder = new Notification.Builder(this, "notification");
+
+            mbuilder
+                    .addExtras(args)
+                    .setSmallIcon(R.drawable.baseline_mail_24)
+                    .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
+                    .setContentIntent(piView)
+                    .setSound(uri)
+                    .setWhen(message.sent == null ? message.received : message.sent)
+                    .setPriority(Notification.PRIORITY_DEFAULT)
+                    .setCategory(Notification.CATEGORY_STATUS)
+                    .setVisibility(Notification.VISIBILITY_PRIVATE)
+                    .setGroup(BuildConfig.APPLICATION_ID)
+                    .setGroupSummary(false)
+                    .addAction(actionSeen.build())
+                    .addAction(actionTrash.build());
+
+            if (pro)
+                if (!TextUtils.isEmpty(message.subject))
+                    mbuilder.setContentText(message.subject);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                mbuilder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
+
+            notifications.add(mbuilder.build());
+        }
+
+        return notifications;
     }
 
     private Notification.Builder getNotificationError(String action, Throwable ex) {
@@ -1399,7 +1497,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
                 int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
-                Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
+                //Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
 
@@ -1411,8 +1509,10 @@ public class ServiceSynchronize extends LifecycleService {
                     if (message == null)
                         full.add(imessage);
                 }
-                Log.i(Helper.TAG, folder.name + " fetch headers=" + full.size());
+                long headers = SystemClock.elapsedRealtime();
                 ifolder.fetch(full.toArray(new Message[0]), fp);
+                Log.i(Helper.TAG, folder.name + " fetched headers=" + full.size() +
+                        " " + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
@@ -1439,14 +1539,14 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
                 int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
-                Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
+                //Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                 // Fetch on demand
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
-                        Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
+                        //Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
                         if (ids[from + j] != null)
                             downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
                     } catch (FolderClosedException ex) {
