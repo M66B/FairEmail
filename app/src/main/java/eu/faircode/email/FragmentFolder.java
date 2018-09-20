@@ -120,7 +120,7 @@ public class FragmentFolder extends FragmentEx {
                         boolean unified = args.getBoolean("unified");
                         String after = args.getString("after");
 
-                        if (TextUtils.isEmpty(display))
+                        if (TextUtils.isEmpty(display) || display.equals(name))
                             display = null;
                         int days = (TextUtils.isEmpty(after) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(after));
 
@@ -312,7 +312,7 @@ public class FragmentFolder extends FragmentEx {
 
                 if (savedInstanceState == null) {
                     etRename.setText(folder == null ? null : folder.name);
-                    etDisplay.setText(folder == null ? null : folder.display);
+                    etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
