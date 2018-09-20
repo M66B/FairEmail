@@ -1660,21 +1660,29 @@ public class ServiceSynchronize extends LifecycleService {
                         == PackageManager.PERMISSION_GRANTED) {
                     try {
                         if (message.from != null)
-                            for (Address from : message.from) {
-                                String email = ((InternetAddress) from).getAddress();
+                            for (int i = 0; i < message.from.length; i++) {
+                                String email = ((InternetAddress) message.from[i]).getAddress();
                                 Cursor cursor = null;
                                 try {
                                     ContentResolver resolver = context.getContentResolver();
                                     cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                            new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
+                                            new String[]{
+                                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                                    ContactsContract.Contacts.DISPLAY_NAME
+                                            },
                                             ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
                                             new String[]{email}, null);
                                     if (cursor.moveToNext()) {
                                         int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                        int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
                                         long contactId = cursor.getLong(colContactId);
+                                        String displayName = cursor.getString(colDisplayName);
+
                                         Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
                                         message.avatar = uri.toString();
-                                        break;
+
+                                        if (!TextUtils.isEmpty(displayName))
+                                            ((InternetAddress) message.from[i]).setPersonal(displayName);
                                     }
                                 } finally {
                                     if (cursor != null)
