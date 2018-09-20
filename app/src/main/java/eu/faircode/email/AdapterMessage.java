@@ -21,13 +21,11 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -36,7 +34,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,9 +50,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -161,41 +155,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 }
             }
             ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
-
-            if (avatars && message.from != null && message.from.length > 0) {
-                final long id = message.id;
-                final Address[] froms = message.from;
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            for (Address from : froms) {
-                                String email = ((InternetAddress) from).getAddress();
-                                Cursor cursor = null;
-                                try {
-                                    ContentResolver resolver = context.getContentResolver();
-                                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                            new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
-                                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                            new String[]{email}, null);
-                                    if (cursor.moveToNext()) {
-                                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                        long contactId = cursor.getLong(colContactId);
-                                        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                                        DB.getInstance(context).message().setMessageAvatar(id, uri.toString());
-                                        break;
-                                    }
-                                } finally {
-                                    if (cursor != null)
-                                        cursor.close();
-                                }
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                    }
-                });
-            }
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(viewType == ViewType.UNIFIED ? View.VISIBLE : View.GONE);

@@ -19,14 +19,19 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
@@ -39,6 +44,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -1649,6 +1655,36 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_flagged = false;
                 message.ui_hide = false;
                 message.ui_found = found;
+
+                if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    try {
+                        if (message.from != null)
+                            for (Address from : message.from) {
+                                String email = ((InternetAddress) from).getAddress();
+                                Cursor cursor = null;
+                                try {
+                                    ContentResolver resolver = context.getContentResolver();
+                                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                            new String[]{ContactsContract.CommonDataKinds.Photo.CONTACT_ID},
+                                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                            new String[]{email}, null);
+                                    if (cursor.moveToNext()) {
+                                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                        long contactId = cursor.getLong(colContactId);
+                                        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+                                        message.avatar = uri.toString();
+                                        break;
+                                    }
+                                } finally {
+                                    if (cursor != null)
+                                        cursor.close();
+                                }
+                            }
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+                }
 
                 message.id = db.message().insertMessage(message);
 
