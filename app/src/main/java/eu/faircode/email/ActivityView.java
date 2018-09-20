@@ -87,8 +87,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
-    static final int REQUEST_VIEW = 1;
+    static final int REQUEST_SERVICE = 1;
     static final int REQUEST_UNSEEN = 2;
+    static final int REQUEST_ERROR = 3;
 
     static final int REQUEST_ATTACHMENT = 1;
 
@@ -456,37 +457,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if ("notification".equals(action)) {
             intent.setAction(null);
             setIntent(intent);
-
             newMessages = true;
-
-            Bundle args = new Bundle();
-            args.putLong("time", new Date().getTime());
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    long time = args.getLong("time");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        for (EntityAccount account : db.account().getAccounts(true))
-                            db.account().setAccountSeenUntil(account.id, time);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(ActivityView.this, ex);
-                }
-            }.load(this, args);
         }
     }
 

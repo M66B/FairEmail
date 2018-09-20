@@ -315,7 +315,7 @@ public class ServiceSynchronize extends LifecycleService {
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_VIEW, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityView.REQUEST_SERVICE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;
@@ -477,7 +477,7 @@ public class ServiceSynchronize extends LifecycleService {
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_VIEW, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;

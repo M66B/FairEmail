@@ -511,6 +511,37 @@ public class FragmentMessages extends FragmentEx {
     public void onResume() {
         super.onResume();
         grpSupport.setVisibility(Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
+
+        if (viewType == AdapterMessage.ViewType.UNIFIED) {
+            Bundle args = new Bundle();
+            args.putLong("time", new Date().getTime());
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) {
+                    long time = args.getLong("time");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        for (EntityAccount account : db.account().getAccounts(true))
+                            db.account().setAccountSeenUntil(account.id, time);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), ex);
+                }
+            }.load(this, args);
+        }
     }
 
     @Override
