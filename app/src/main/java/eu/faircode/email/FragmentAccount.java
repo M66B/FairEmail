@@ -81,7 +81,6 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -548,7 +547,7 @@ public class FragmentAccount extends FragmentEx {
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
 
-                        new AlertDialog.Builder(getContext())
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(Helper.formatThrowable(ex))
                                 .setPositiveButton(android.R.string.cancel, null)
                                 .create()
@@ -753,7 +752,7 @@ public class FragmentAccount extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        new AlertDialog.Builder(getContext())
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(Helper.formatThrowable(ex))
                                 .setPositiveButton(android.R.string.cancel, null)
                                 .create()
@@ -766,7 +765,7 @@ public class FragmentAccount extends FragmentEx {
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setMessage(R.string.title_account_delete)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override

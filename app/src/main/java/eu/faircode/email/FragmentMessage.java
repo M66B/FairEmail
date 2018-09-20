@@ -87,7 +87,6 @@ import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
@@ -320,7 +319,7 @@ public class FragmentMessage extends FragmentEx {
                         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
                         final EditText etLink = view.findViewById(R.id.etLink);
                         etLink.setText(url);
-                        new AlertDialog.Builder(getContext())
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setView(view)
                                 .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                                     @Override
@@ -865,7 +864,7 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onActionSpam() {
-        new AlertDialog.Builder(getContext())
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                 .setMessage(R.string.title_ask_spam)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -921,7 +920,7 @@ public class FragmentMessage extends FragmentEx {
         boolean delete = (Boolean) bottom_navigation.getTag();
         if (delete) {
             // No trash or is trash
-            new AlertDialog.Builder(getContext())
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                     .setMessage(R.string.title_ask_delete)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

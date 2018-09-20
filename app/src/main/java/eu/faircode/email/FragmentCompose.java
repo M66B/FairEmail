@@ -82,7 +82,6 @@ import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -237,7 +236,7 @@ public class FragmentCompose extends FragmentEx {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
                 if (action == R.id.action_delete) {
-                    new AlertDialog.Builder(getContext())
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                             .setMessage(R.string.title_ask_delete)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
@@ -419,7 +418,8 @@ public class FragmentCompose extends FragmentEx {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                handleExit();
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    handleExit();
                 return true;
             case R.id.menu_bold:
             case R.id.menu_italic:
@@ -513,22 +513,21 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void handleExit() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.title_ask_delete)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            onAction(R.id.action_delete);
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .show();
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_ask_delete)
+                .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onAction(R.id.action_delete);
+                    }
+                })
+                .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .show();
     }
 
     private void handlePickContact(int requestCode, Intent data) {

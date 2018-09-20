@@ -54,7 +54,6 @@ import javax.mail.Transport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 
@@ -403,7 +402,7 @@ public class FragmentIdentity extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        new AlertDialog.Builder(getContext())
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(Helper.formatThrowable(ex))
                                 .setPositiveButton(android.R.string.cancel, null)
                                 .create()
@@ -416,7 +415,7 @@ public class FragmentIdentity extends FragmentEx {
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setMessage(R.string.title_identity_delete)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override

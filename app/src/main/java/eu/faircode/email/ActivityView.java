@@ -69,7 +69,6 @@ import javax.net.ssl.HttpsURLConnection;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -345,7 +344,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void checkFirst() {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("first", true)) {
-            new AlertDialog.Builder(this)
+            new DialogBuilderLifecycle(this, this)
                     .setMessage(getString(R.string.title_hint_sync))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -561,7 +560,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 final Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url));
                 if (update.resolveActivity(getPackageManager()) != null)
-                    new AlertDialog.Builder(ActivityView.this)
+                    new DialogBuilderLifecycle(ActivityView.this, ActivityView.this)
                             .setMessage(getString(R.string.title_updated, info.tag_name))
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
@@ -660,7 +659,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (faq.resolveActivity(getPackageManager()) == null)
             Helper.view(this, getIntentRate());
         else {
-            new AlertDialog.Builder(this)
+            new DialogBuilderLifecycle(this, this)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override

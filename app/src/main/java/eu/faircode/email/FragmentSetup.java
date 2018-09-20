@@ -65,7 +65,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -176,7 +175,7 @@ public class FragmentSetup extends FragmentEx {
         btnDoze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setMessage(R.string.title_setup_doze_instructions)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override

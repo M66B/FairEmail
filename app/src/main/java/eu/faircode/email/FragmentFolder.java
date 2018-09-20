@@ -44,7 +44,6 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 
 public class FragmentFolder extends FragmentEx {
@@ -211,7 +210,7 @@ public class FragmentFolder extends FragmentEx {
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                         .setMessage(R.string.title_folder_delete)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override

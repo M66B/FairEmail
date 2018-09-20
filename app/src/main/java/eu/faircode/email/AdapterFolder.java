@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -219,7 +218,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             break;
 
                         case action_empty_trash:
-                            new AlertDialog.Builder(context)
+                            new DialogBuilderLifecycle(context, owner)
                                     .setMessage(R.string.title_empty_trash_ask)
                                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                         @Override

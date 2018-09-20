@@ -52,7 +52,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
@@ -275,7 +274,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     args.putInt("action", target.getItemId());
 
                     if (target.getItemId() == action_delete) {
-                        new AlertDialog.Builder(context)
+                        new DialogBuilderLifecycle(context, owner)
                                 .setMessage(R.string.title_ask_delete)
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
