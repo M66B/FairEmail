@@ -646,7 +646,8 @@ public class FragmentMessages extends FragmentEx {
             messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
                 @Override
                 public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                    if (messages == null) {
+                    if (messages == null ||
+                            (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0)) {
                         finish();
                         return;
                     }
