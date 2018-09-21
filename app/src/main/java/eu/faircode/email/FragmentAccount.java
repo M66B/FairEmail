@@ -90,6 +90,7 @@ import static android.accounts.AccountManager.newChooseAccountIntent;
 
 public class FragmentAccount extends FragmentEx {
     private ViewGroup view;
+
     private Spinner spProvider;
     private EditText etHost;
     private EditText etDomain;
@@ -98,26 +99,31 @@ public class FragmentAccount extends FragmentEx {
     private Button btnAuthorize;
     private EditText etUser;
     private TextInputLayout tilPassword;
+
     private Button btnAdvanced;
     private EditText etName;
+    private Button btnColor;
+    private View vwColor;
+    private ImageView ibColorDefault;
     private EditText etSignature;
     private ImageButton ibPro;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
-    private Button btnColor;
-    private View vwColor;
-    private ImageView ibColorDefault;
     private Button btnCheck;
+
     private ProgressBar pbCheck;
+
     private Spinner spDrafts;
     private Spinner spSent;
     private Spinner spAll;
     private Spinner spTrash;
     private Spinner spJunk;
+
     private Button btnSave;
     private ProgressBar pbSave;
     private ImageButton ibDelete;
     private ProgressBar pbWait;
+
     private Group grpServer;
     private Group grpAuthorize;
     private Group grpAdvanced;
@@ -158,15 +164,14 @@ public class FragmentAccount extends FragmentEx {
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etName = view.findViewById(R.id.etName);
+        btnColor = view.findViewById(R.id.btnColor);
+        vwColor = view.findViewById(R.id.vwColor);
+        ibColorDefault = view.findViewById(R.id.ibColorDefault);
         etSignature = view.findViewById(R.id.etSignature);
         ibPro = view.findViewById(R.id.ibPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-
-        btnColor = view.findViewById(R.id.btnColor);
-        vwColor = view.findViewById(R.id.vwColor);
-        ibColorDefault = view.findViewById(R.id.ibColorDefault);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -318,23 +323,6 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
-        ibPro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.hide(FragmentAccount.this);
-                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                fragmentTransaction.commit();
-            }
-        });
-
-        cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                cbPrimary.setEnabled(checked);
-            }
-        });
-
         vwColor.setBackgroundColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -366,6 +354,23 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        ibPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.hide(FragmentAccount.this);
+                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.commit();
+            }
+        });
+
+        cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbPrimary.setEnabled(checked);
+            }
+        });
+
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -386,6 +391,12 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
+                args.putString("name", etName.getText().toString());
+                args.putInt("color", color);
+                args.putString("signature", Html.toHtml(etSignature.getText()));
+                args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("primary", cbPrimary.isChecked());
+
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
                     protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
@@ -395,6 +406,54 @@ public class FragmentAccount extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
+
+                        String name = args.getString("name");
+                        int color = args.getInt("color");
+                        String signature = args.getString("signature");
+                        boolean synchronize = args.getBoolean("synchronize");
+                        boolean primary = args.getBoolean("primary");
+
+                        boolean check = true;
+                        boolean restart = false;
+                        DB db = DB.getInstance(getContext());
+                        try {
+                            db.beginTransaction();
+
+                            EntityAccount account = db.account().getAccount(args.getLong("id"));
+                            if (account != null) {
+                                if (host.equals(account.host) &&
+                                        port.equals(Integer.toString(account.port)) &&
+                                        user.equals(account.user) &&
+                                        password.equals(account.password) &&
+                                        auth_type == account.auth_type) {
+                                    check = false;
+                                    restart = (synchronize != account.synchronize);
+
+                                    account.name = name;
+                                    account.color = color;
+                                    account.signature = signature;
+                                    account.synchronize = synchronize;
+                                    account.primary = primary;
+
+                                    if (!synchronize)
+                                        account.error = null;
+
+                                    if (account.primary)
+                                        db.account().resetPrimary();
+
+                                    db.account().updateAccount(account);
+                                }
+                            }
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        if (!check) {
+                            if (restart)
+                                ServiceSynchronize.reload(getContext(), "save account");
+                            return null;
+                        }
 
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
@@ -452,7 +511,6 @@ public class FragmentAccount extends FragmentEx {
                                     }
 
                                     // Create entry
-                                    DB db = DB.getInstance(getContext());
                                     EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
                                     if (folder == null) {
                                         folder = new EntityFolder();
@@ -482,6 +540,11 @@ public class FragmentAccount extends FragmentEx {
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
+
+                        if (folders == null) {
+                            getFragmentManager().popBackStack();
+                            return;
+                        }
 
                         final Collator collator = Collator.getInstance(Locale.getDefault());
                         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -593,11 +656,13 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
+
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("name", etName.getText().toString());
+                args.putInt("color", color);
                 args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("primary", cbPrimary.isChecked());
-                args.putInt("color", color);
+
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
                 args.putParcelable("all", all);
@@ -612,11 +677,13 @@ public class FragmentAccount extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
+
                         String name = args.getString("name");
+                        int color = args.getInt("color");
                         String signature = args.getString("signature");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
-                        int color = args.getInt("color");
+
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
                         EntityFolder all = args.getParcelable("all");
@@ -663,6 +730,7 @@ public class FragmentAccount extends FragmentEx {
                             if (account == null)
                                 account = new EntityAccount();
                             account.name = name;
+                            account.color = color;
                             account.signature = signature;
                             account.host = host;
                             account.port = Integer.parseInt(port);
@@ -671,7 +739,6 @@ public class FragmentAccount extends FragmentEx {
                             account.auth_type = auth_type;
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
-                            account.color = color;
                             account.store_sent = false;
                             account.poll_interval = 9;
 
@@ -920,6 +987,8 @@ public class FragmentAccount extends FragmentEx {
 
                 Helper.setViewsEnabled(view, true);
 
+                setColor(color);
+
                 boolean pro = Helper.isPro(getContext());
                 etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
                 etSignature.setEnabled(pro);
@@ -931,7 +1000,6 @@ public class FragmentAccount extends FragmentEx {
                 }
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
-                setColor(color);
 
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
