@@ -88,8 +88,8 @@ public class FragmentMessages extends FragmentEx {
 
     private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
-    private static final int MESSAGES_PAGE_SIZE = 50;
-    private static final int SEARCH_PAGE_SIZE = 10;
+    private static final int LOCAL_PAGE_SIZE = 50;
+    private static final int REMOTE_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
     @Override
@@ -661,13 +661,13 @@ public class FragmentMessages extends FragmentEx {
 
             switch (viewType) {
                 case UNIFIED:
-                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(sort, debug), MESSAGES_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
                 case FOLDER:
                     if (searchCallback == null)
                         searchCallback = new BoundaryCallbackMessages(
                                 getContext(), FragmentMessages.this,
-                                folder, null, MESSAGES_PAGE_SIZE,
+                                folder, null, REMOTE_PAGE_SIZE,
                                 new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                     @Override
                                     public void onLoading() {
@@ -686,25 +686,21 @@ public class FragmentMessages extends FragmentEx {
                                     }
                                 });
 
-                    PagedList.Config config = new PagedList.Config.Builder()
-                            .setPageSize(MESSAGES_PAGE_SIZE)
-                            .setPrefetchDistance(MESSAGES_PAGE_SIZE)
-                            .build();
                     LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, sort, false, debug), config);
+                            db.message().pagedFolder(folder, sort, false, debug), LOCAL_PAGE_SIZE);
                     builder.setBoundaryCallback(searchCallback);
                     messages = builder.build();
 
                     break;
                 case THREAD:
-                    messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, sort, debug), MESSAGES_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {
             if (searchCallback == null)
                 searchCallback = new BoundaryCallbackMessages(
                         getContext(), FragmentMessages.this,
-                        folder, search, SEARCH_PAGE_SIZE,
+                        folder, search, REMOTE_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
@@ -726,12 +722,8 @@ public class FragmentMessages extends FragmentEx {
                             }
                         });
 
-            PagedList.Config config = new PagedList.Config.Builder()
-                    .setPageSize(SEARCH_PAGE_SIZE)
-                    .setPrefetchDistance(SEARCH_PAGE_SIZE)
-                    .build();
             LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                    db.message().pagedFolder(folder, "time", true, false), config);
+                    db.message().pagedFolder(folder, "time", true, false), LOCAL_PAGE_SIZE);
             builder.setBoundaryCallback(searchCallback);
             messages = builder.build();
         }
