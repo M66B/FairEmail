@@ -135,8 +135,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             }
         });
 
-        all.clear();
-        all.addAll(accounts);
+        all = accounts;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 

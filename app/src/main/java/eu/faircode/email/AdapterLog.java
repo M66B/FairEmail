@@ -72,8 +72,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     public void set(@NonNull List<EntityLog> logs) {
         Log.i(Helper.TAG, "Set logs=" + logs.size());
 
-        all.clear();
-        all.addAll(logs);
+        all = logs;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 

@@ -98,7 +98,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);

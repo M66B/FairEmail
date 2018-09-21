@@ -238,8 +238,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             }
         });
 
-        all.clear();
-        all.addAll(attachments);
+        all = attachments;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 

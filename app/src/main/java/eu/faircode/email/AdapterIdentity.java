@@ -132,8 +132,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             }
         });
 
-        all.clear();
-        all.addAll(identities);
+        all = identities;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 

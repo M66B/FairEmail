@@ -102,8 +102,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             }
         });
 
-        all.clear();
-        all.addAll(answers);
+        all = answers;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 

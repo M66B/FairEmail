@@ -110,8 +110,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     public void set(@NonNull List<EntityOperation> operations) {
         Log.i(Helper.TAG, "Set operations=" + operations.size());
 
-        all.clear();
-        all.addAll(operations);
+        all = operations;
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
 
