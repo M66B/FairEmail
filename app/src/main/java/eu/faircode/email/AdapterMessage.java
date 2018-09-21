@@ -171,6 +171,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
+            tvSize.setTypeface(null, message.content ? Typeface.NORMAL : Typeface.BOLD);
             tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
 
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
