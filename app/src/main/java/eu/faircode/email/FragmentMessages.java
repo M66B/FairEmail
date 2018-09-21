@@ -708,12 +708,15 @@ public class FragmentMessages extends FragmentEx {
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
+                                tvNoEmail.setVisibility(View.GONE);
                                 pbWait.setVisibility(View.VISIBLE);
                             }
 
                             @Override
                             public void onLoaded() {
                                 pbWait.setVisibility(View.GONE);
+                                if (searchCallback.getLoaded() == 0)
+                                    tvNoEmail.setVisibility(View.VISIBLE);
                             }
 
                             @Override
@@ -751,8 +754,9 @@ public class FragmentMessages extends FragmentEx {
                     pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
 
-                if (messages.size() == 0 && !searching) {
-                    tvNoEmail.setVisibility(View.VISIBLE);
+                if (messages.size() == 0) {
+                    if (searchCallback == null)
+                        tvNoEmail.setVisibility(View.VISIBLE);
                     rvMessage.setVisibility(View.GONE);
                 } else {
                     tvNoEmail.setVisibility(View.GONE);

@@ -64,6 +64,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private Message[] imessages = null;
     private int index;
     private boolean searching = false;
+    private int loaded = 0;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -109,6 +110,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     boolean isSearching() {
         return searching;
+    }
+
+    int getLoaded() {
+        return loaded;
     }
 
     @Override
@@ -196,6 +201,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     if (db.message().getMessageByUid(fid, uid) == null) {
                                         ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], true);
                                         count++;
+                                        loaded++;
                                     }
                                 } catch (MessageRemovedException ex) {
                                     Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
