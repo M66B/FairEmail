@@ -20,8 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -63,10 +61,8 @@ public class MessageHelper {
 
     final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
 
-    static Properties getSessionProperties(Context context, int auth_type) {
+    static Properties getSessionProperties(int auth_type) {
         Properties props = new Properties();
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
         props.put("mail.imaps.ssl.checkserveridentity", "true");
@@ -85,7 +81,7 @@ public class MessageHelper {
 
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
-        if (prefs.getBoolean("compress", true)) {
+        if (false) {
             Log.i(Helper.TAG, "IMAP compress enabled");
             props.put("mail.imaps.compress.enable", "true");
             //props.put("mail.imaps.compress.level", "-1");
@@ -140,7 +136,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
-        if (prefs.getBoolean("ipv4", false)) {
+        if (false) {
             Log.i(Helper.TAG, "Prefering IPv4");
             System.setProperty("java.net.preferIPv4Stack", "true");
         }

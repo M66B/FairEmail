@@ -12,16 +12,6 @@
         android:layout_height="match_parent">
 
         <CheckBox
-            android:id="@+id/cbCompressImap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_compress_imap"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
             android:id="@+id/cbAvatars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +19,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_avatars"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbCompressImap" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
             android:id="@+id/cbLight"
@@ -42,16 +32,6 @@
             app:layout_constraintTop_toBottomOf="@id/cbAvatars" />
 
         <CheckBox
-            android:id="@+id/cbIpV4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_ipv4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbLight" />
-
-        <CheckBox
             android:id="@+id/cbDebug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +39,6 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbIpV4" />
+            app:layout_constraintTop_toBottomOf="@id/cbLight" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

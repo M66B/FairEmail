@@ -133,7 +133,7 @@ public class FragmentFolder extends FragmentEx {
                             if (folder == null || !folder.name.equals(name)) {
                                 EntityAccount account = db.account().getAccount(folder == null ? aid : folder.account);
 
-                                Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
+                                Properties props = MessageHelper.getSessionProperties(account.auth_type);
                                 Session isession = Session.getInstance(props, null);
                                 istore = (IMAPStore) isession.getStore("imaps");
                                 Helper.connect(context, istore, account);
@@ -236,7 +236,7 @@ public class FragmentFolder extends FragmentEx {
                                             EntityFolder folder = db.folder().getFolder(id);
                                             EntityAccount account = db.account().getAccount(folder.account);
 
-                                            Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
+                                            Properties props = MessageHelper.getSessionProperties(account.auth_type);
                                             Session isession = Session.getInstance(props, null);
                                             istore = (IMAPStore) isession.getStore("imaps");
                                             Helper.connect(context, istore, account);

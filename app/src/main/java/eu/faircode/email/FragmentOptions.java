@@ -32,10 +32,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentOptions extends FragmentEx {
-    private CheckBox cbCompressImap;
     private CheckBox cbAvatars;
     private CheckBox cbLight;
-    private CheckBox cbIpV4;
     private CheckBox cbDebug;
 
     @Override
@@ -46,24 +44,13 @@ public class FragmentOptions extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         // Get controls
-        cbCompressImap = view.findViewById(R.id.cbCompressImap);
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbLight = view.findViewById(R.id.cbLight);
-        cbIpV4 = view.findViewById(R.id.cbIpV4);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        cbCompressImap.setChecked(prefs.getBoolean("compress", true));
-        cbCompressImap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("compress", checked).apply();
-                ServiceSynchronize.reload(getContext(), "compress=" + checked);
-            }
-        });
 
         cbAvatars.setChecked(prefs.getBoolean("avatars", true));
         cbAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -78,15 +65,6 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("light", checked).apply();
-            }
-        });
-
-        cbIpV4.setChecked(prefs.getBoolean("ipv4", false));
-        cbIpV4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("ipv4", checked).apply();
-                ServiceSynchronize.reload(getContext(), "IPv4=" + checked);
             }
         });
 

@@ -561,7 +561,7 @@ public class ServiceSynchronize extends LifecycleService {
             System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
             // Create session
-            Properties props = MessageHelper.getSessionProperties(this, account.auth_type);
+            Properties props = MessageHelper.getSessionProperties(account.auth_type);
             final Session isession = Session.getInstance(props, null);
             isession.setDebug(debug);
             // adb -t 1 logcat | grep "fairemail\|System.out"
@@ -1243,7 +1243,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         // Create session
-        Properties props = MessageHelper.getSessionProperties(this, ident.auth_type);
+        Properties props = MessageHelper.getSessionProperties(ident.auth_type);
         final Session isession = Session.getInstance(props, null);
 
         // Create message

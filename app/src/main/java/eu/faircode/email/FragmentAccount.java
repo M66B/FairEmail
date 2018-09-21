@@ -467,7 +467,7 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server / get folders
                         List<EntityFolder> folders = new ArrayList<>();
-                        Properties props = MessageHelper.getSessionProperties(context, auth_type);
+                        Properties props = MessageHelper.getSessionProperties(auth_type);
                         Session isession = Session.getInstance(props, null);
                         isession.setDebug(true);
                         IMAPStore istore = null;
@@ -712,7 +712,7 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server
                         if (synchronize) {
-                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(context, auth_type), null);
+                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type), null);
                             isession.setDebug(true);
                             IMAPStore istore = null;
                             try {
