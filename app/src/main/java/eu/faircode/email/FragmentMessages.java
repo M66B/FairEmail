@@ -686,8 +686,13 @@ public class FragmentMessages extends FragmentEx {
                                     }
                                 });
 
+                    PagedList.Config config = new PagedList.Config.Builder()
+                            .setPageSize(LOCAL_PAGE_SIZE)
+                            .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
+                            .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                            .build();
                     LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, sort, false, debug), LOCAL_PAGE_SIZE);
+                            db.message().pagedFolder(folder, sort, false, debug), config);
                     builder.setBoundaryCallback(searchCallback);
                     messages = builder.build();
 
@@ -722,8 +727,13 @@ public class FragmentMessages extends FragmentEx {
                             }
                         });
 
+            PagedList.Config config = new PagedList.Config.Builder()
+                    .setPageSize(LOCAL_PAGE_SIZE)
+                    .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
+                    .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                    .build();
             LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                    db.message().pagedFolder(folder, "time", true, false), LOCAL_PAGE_SIZE);
+                    db.message().pagedFolder(folder, "time", true, false), config);
             builder.setBoundaryCallback(searchCallback);
             messages = builder.build();
         }
