@@ -497,59 +497,8 @@ public class FragmentAccount extends FragmentEx {
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
 
-                        if (folders == null) {
-                            getFragmentManager().popBackStack();
-                            return;
-                        }
+                        setFolders(folders);
 
-                        final Collator collator = Collator.getInstance(Locale.getDefault());
-                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                        Collections.sort(folders, new Comparator<EntityFolder>() {
-                            @Override
-                            public int compare(EntityFolder f1, EntityFolder f2) {
-                                int s = Integer.compare(
-                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                                if (s != 0)
-                                    return s;
-                                int c = -f1.synchronize.compareTo(f2.synchronize);
-                                if (c != 0)
-                                    return c;
-                                return collator.compare(
-                                        f1.name == null ? "" : f1.name,
-                                        f2.name == null ? "" : f2.name);
-                            }
-                        });
-
-                        EntityFolder none = new EntityFolder();
-                        none.name = "";
-                        folders.add(0, none);
-
-                        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
-                        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-                        spDrafts.setAdapter(adapter);
-                        spSent.setAdapter(adapter);
-                        spAll.setAdapter(adapter);
-                        spTrash.setAdapter(adapter);
-                        spJunk.setAdapter(adapter);
-
-                        for (int pos = 0; pos < folders.size(); pos++) {
-                            if (EntityFolder.DRAFTS.equals(folders.get(pos).type))
-                                spDrafts.setSelection(pos);
-                            else if (EntityFolder.SENT.equals(folders.get(pos).type))
-                                spSent.setSelection(pos);
-                            else if (EntityFolder.ARCHIVE.equals(folders.get(pos).type))
-                                spAll.setSelection(pos);
-                            else if (EntityFolder.TRASH.equals(folders.get(pos).type))
-                                spTrash.setSelection(pos);
-                            else if (EntityFolder.JUNK.equals(folders.get(pos).type))
-                                spJunk.setSelection(pos);
-                        }
-
-                        grpFolders.setVisibility(View.VISIBLE);
-                        btnSave.setVisibility(View.VISIBLE);
                         new Handler().post(new Runnable() {
                             @Override
                             public void run() {
@@ -874,8 +823,10 @@ public class FragmentAccount extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        final DB db = DB.getInstance(getContext());
+
         // Observe
-        DB.getInstance(getContext()).account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+        db.account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
             private boolean once = false;
 
             @Override
@@ -968,6 +919,23 @@ public class FragmentAccount extends FragmentEx {
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
+
+                if (account != null) {
+                    db.folder().liveFolders(account.id).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                        @Override
+                        public void onChanged(final List<TupleFolderEx> _folders) {
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    List<EntityFolder> folders = new ArrayList<>();
+                                    if (_folders != null)
+                                        folders.addAll(_folders);
+                                    setFolders(folders);
+                                }
+                            });
+                        }
+                    });
+                }
             }
         });
     }
@@ -1045,5 +1013,56 @@ public class FragmentAccount extends FragmentEx {
         border.setColor(color);
         border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
         vwColor.setBackground(border);
+    }
+
+    private void setFolders(List<EntityFolder> folders) {
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(folders, new Comparator<EntityFolder>() {
+            @Override
+            public int compare(EntityFolder f1, EntityFolder f2) {
+                int s = Integer.compare(
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                if (s != 0)
+                    return s;
+                int c = -f1.synchronize.compareTo(f2.synchronize);
+                if (c != 0)
+                    return c;
+                return collator.compare(
+                        f1.name == null ? "" : f1.name,
+                        f2.name == null ? "" : f2.name);
+            }
+        });
+
+        EntityFolder none = new EntityFolder();
+        none.name = "";
+        folders.add(0, none);
+
+        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
+        spDrafts.setAdapter(adapter);
+        spSent.setAdapter(adapter);
+        spAll.setAdapter(adapter);
+        spTrash.setAdapter(adapter);
+        spJunk.setAdapter(adapter);
+
+        for (int pos = 0; pos < folders.size(); pos++) {
+            if (EntityFolder.DRAFTS.equals(folders.get(pos).type))
+                spDrafts.setSelection(pos);
+            else if (EntityFolder.SENT.equals(folders.get(pos).type))
+                spSent.setSelection(pos);
+            else if (EntityFolder.ARCHIVE.equals(folders.get(pos).type))
+                spAll.setSelection(pos);
+            else if (EntityFolder.TRASH.equals(folders.get(pos).type))
+                spTrash.setSelection(pos);
+            else if (EntityFolder.JUNK.equals(folders.get(pos).type))
+                spJunk.setSelection(pos);
+        }
+
+        grpFolders.setVisibility(View.VISIBLE);
+        btnSave.setVisibility(View.VISIBLE);
     }
 }
