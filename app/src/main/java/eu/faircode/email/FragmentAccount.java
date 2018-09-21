@@ -110,6 +110,7 @@ public class FragmentAccount extends FragmentEx {
     private ImageButton ibPro;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private EditText etInterval;
     private Button btnCheck;
 
     private ProgressBar pbCheck;
@@ -173,6 +174,7 @@ public class FragmentAccount extends FragmentEx {
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        etInterval = view.findViewById(R.id.etInterval);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -429,9 +431,6 @@ public class FragmentAccount extends FragmentEx {
                                     throw ex;
                             }
 
-                            if (!istore.hasCapability("IDLE"))
-                                throw new MessagingException(getContext().getString(R.string.title_no_idle));
-
                             if (!istore.hasCapability("UIDPLUS"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
 
@@ -567,6 +566,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putInt("color", color);
                 args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("primary", cbPrimary.isChecked());
+                args.putString("interval", etInterval.getText().toString());
 
                 args.putParcelable("drafts", drafts);
                 args.putParcelable("sent", sent);
@@ -588,6 +588,7 @@ public class FragmentAccount extends FragmentEx {
                         String signature = args.getString("signature");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
+                        String interval = args.getString("interval");
 
                         EntityFolder drafts = args.getParcelable("drafts");
                         EntityFolder sent = args.getParcelable("sent");
@@ -603,6 +604,8 @@ public class FragmentAccount extends FragmentEx {
                             throw new Throwable(getContext().getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
+                        if (TextUtils.isEmpty(interval))
+                            interval = "9";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
 
@@ -653,7 +656,7 @@ public class FragmentAccount extends FragmentEx {
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
                             account.store_sent = false;
-                            account.poll_interval = 9;
+                            account.poll_interval = Integer.parseInt(interval);
 
                             if (!synchronize)
                                 account.error = null;
@@ -874,6 +877,7 @@ public class FragmentAccount extends FragmentEx {
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
+                    etInterval.setText(Long.toString(account == null ? 9 : account.poll_interval));
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
 

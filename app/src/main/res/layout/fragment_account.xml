@@ -173,7 +173,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
-
         <!-- password -->
 
         <TextView
@@ -318,6 +317,29 @@
             android:text="@string/title_primary_account"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
+
+        <!-- port -->
+
+        <TextView
+            android:id="@+id/tvInterval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_poll_interval"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
+        <EditText
+            android:id="@+id/etInterval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="9"
+            android:inputType="number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInterval" />
+
         <!-- check -->
 
         <Button
@@ -327,7 +349,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
         <ProgressBar
             android:id="@+id/pbCheck"
@@ -347,7 +369,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
         <TextView
             android:id="@+id/tvDrafts"
@@ -498,7 +520,7 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary" />
+            app:constraint_referenced_ids="tvName,etName,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvInterval,etInterval" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

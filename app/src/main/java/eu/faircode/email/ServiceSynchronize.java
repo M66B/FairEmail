@@ -642,6 +642,8 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderState(folder.id, null);
                 db.account().setAccountState(account.id, "connecting");
                 Helper.connect(this, istore, account);
+                final boolean capIdle = istore.hasCapability("IDLE");
+                Log.i(Helper.TAG, account.name + " idle=" + capIdle);
                 db.account().setAccountState(account.id, "connected");
                 db.account().setAccountError(account.id, null);
 
@@ -813,15 +815,18 @@ public class ServiceSynchronize extends LifecycleService {
                                     try {
                                         Thread.sleep(account.poll_interval * 60 * 1000L);
 
-                                        Log.i(Helper.TAG, folder.name + " request NOOP");
-                                        ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                                            public Object doCommand(IMAPProtocol p) throws ProtocolException {
-                                                Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
-                                                p.simpleCommand("NOOP", null);
-                                                Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
-                                                return null;
-                                            }
-                                        });
+                                        if (capIdle) {
+                                            Log.i(Helper.TAG, folder.name + " request NOOP");
+                                            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                                                public Object doCommand(IMAPProtocol p) throws ProtocolException {
+                                                    Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
+                                                    p.simpleCommand("NOOP", null);
+                                                    Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
+                                                    return null;
+                                                }
+                                            });
+                                        } else
+                                            synchronizeMessages(account, folder, ifolder, state);
 
                                     } catch (InterruptedException ex) {
                                         Log.w(Helper.TAG, folder.name + " noop " + ex.toString());
@@ -845,32 +850,34 @@ public class ServiceSynchronize extends LifecycleService {
                     noops.add(noop);
 
                     // Receive folder events
-                    Thread idle = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Log.i(Helper.TAG, folder.name + " start idle");
-                                while (state.running && ifolder.isOpen()) {
-                                    //Log.i(Helper.TAG, folder.name + " do idle");
-                                    ifolder.idle(false);
-                                    //Log.i(Helper.TAG, folder.name + " done idle");
-                                }
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(account.name, folder.name, ex);
+                    if (capIdle) {
+                        Thread idle = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Log.i(Helper.TAG, folder.name + " start idle");
+                                    while (state.running && ifolder.isOpen()) {
+                                        Log.i(Helper.TAG, folder.name + " do idle");
+                                        ifolder.idle(false);
+                                        //Log.i(Helper.TAG, folder.name + " done idle");
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
 
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                synchronized (state) {
-                                    state.notifyAll();
+                                    synchronized (state) {
+                                        state.notifyAll();
+                                    }
+                                } finally {
+                                    Log.i(Helper.TAG, folder.name + " end idle");
                                 }
-                            } finally {
-                                Log.i(Helper.TAG, folder.name + " end idle");
                             }
-                        }
-                    }, "sync.idle." + folder.id);
-                    idle.start();
-                    idlers.add(idle);
+                        }, "sync.idle." + folder.id);
+                        idle.start();
+                        idlers.add(idle);
+                    }
                 }
 
                 backoff = CONNECT_BACKOFF_START;

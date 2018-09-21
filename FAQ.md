@@ -49,13 +49,13 @@ See also [this FAQ](#FAQ16).
 Valid security certificates are officially signed (not self signed) and have matching a host name.
 
 <a name="FAQ5"></a>
-**(5) What does 'no IDLE support' mean?**
+~~**(5) What does 'no IDLE support' mean?**~~
 
-Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,
-which is a waste of battery power and internet bandwidth and will delay notification of new emails.
-Since the goal of FairEmail is to offer safe and fast email, providers without IMAP IDLE are not supported.
-You should consider this a problem of the provider, not of the app.
-Almost all email providers offer IMAP IDLE, with as notable exception Yahoo!
+~~Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,~~
+~~which is a waste of battery power and internet bandwidth and will delay notification of new emails.~~
+~~Since the goal of FairEmail is to offer safe and fast email, providers without IMAP IDLE are not supported.~~
+~~You should consider this a problem of the provider, not of the app.~~
+~~Almost all email providers offer IMAP IDLE, with as notable exception Yahoo!~~
 
 <a name="FAQ6"></a>
 **(6) How can I login to Gmail / G suite?**

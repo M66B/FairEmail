@@ -7,11 +7,6 @@ You'll need to add at least one account to receive email and at least one identi
 
 An internet connection is required to add accounts and identities.
 
-Your email provider should support IMAP with the IDLE and UIDPLUS extensions.
-All up-to-date email providers do, with as notable exception Yahoo!
-IMAP IDLE is required to limit battery usage,
-see [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ5) for more details.
-
 Your email provider should support secure connections.
 If your provider doesn't support secure connections and you care at least a little about your privacy,
 you are strongly advised to switch to another provider.

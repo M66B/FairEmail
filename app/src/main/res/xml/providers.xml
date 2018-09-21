@@ -36,7 +36,7 @@
             starttls="false" />
     </provider>
     <!-- no IMAP IDLE -->
-    <!--provider
+    <provider
         name="Yahoo!"
         link="https://help.yahoo.com/kb/SLN4075.html">
         <imap
@@ -46,7 +46,7 @@
             host="smtp.mail.yahoo.com"
             port="465"
             starttls="false" />
-    </provider-->
+    </provider>
     <provider
         name="Posteo.de"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
@@ -81,7 +81,7 @@
             starttls="false" />
     </provider>
     <!-- no IMAP IDLE -->
-    <!--provider
+    <provider
         name="SFR.fr"
         link="https://assistance.sfr.fr/service-et-accessoire/sfr-mail/serveurs-messagerie-sfr.html">
         <imap
@@ -91,7 +91,7 @@
             host="smtp.sfr.fr"
             port="465"
             starttls="false" />
-    </provider-->
+    </provider>
     <provider
         name="infomaniak"
         link="https://www.infomaniak.com/fr/support/faq/1075/configurer-une-adresse-email-configuration-logiciel-de-messagerie-parametres-courrier">
