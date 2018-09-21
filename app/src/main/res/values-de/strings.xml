@@ -94,6 +94,7 @@
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primäres Konto</string>
   <string name="title_primary_identity">Primäre Identität</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Prüfen</string>
   <string name="title_no_name">Name fehlt</string>
   <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -103,7 +104,6 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">IMAP IDLE wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>

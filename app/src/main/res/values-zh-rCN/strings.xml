@@ -90,6 +90,7 @@
   <string name="title_synchronize_identity">同步（发送）</string>
   <string name="title_primary_account">默认账户</string>
   <string name="title_primary_identity">默认身份</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">检查</string>
   <string name="title_no_name">缺少名称</string>
   <string name="title_no_email">缺少邮箱地址</string>
@@ -99,7 +100,6 @@
   <string name="title_no_user">缺少用户名</string>
   <string name="title_no_password">缺少密码</string>
   <string name="title_no_drafts">缺少草稿箱</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>

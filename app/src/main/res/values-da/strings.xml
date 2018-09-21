@@ -94,6 +94,7 @@
   <string name="title_synchronize_identity">Synkronisér (send meddelelser)</string>
   <string name="title_primary_account">Primær (standard konto)</string>
   <string name="title_primary_identity">Primær (standard identitet)</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Check</string>
   <string name="title_no_name">Navn mangler</string>
   <string name="title_no_email">Emailadresse mangler</string>
@@ -103,7 +104,6 @@
   <string name="title_no_user">Brugernavn mangler</string>
   <string name="title_no_password">Adgangskode mangler</string>
   <string name="title_no_drafts">Kladdemappe mangler</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Slet denne konto permanent?</string>
   <string name="title_identity_delete">Slet denne identitet permanent?</string>

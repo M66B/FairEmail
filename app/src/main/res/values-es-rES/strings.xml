@@ -94,6 +94,7 @@
   <string name="title_synchronize_identity">Sincronizar (enviar mensajes)</string>
   <string name="title_primary_account">Primaria (cuenta por defecto)</string>
   <string name="title_primary_identity">Primaria (identidad por defecto)</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Verificar</string>
   <string name="title_no_name">Falta nombre</string>
   <string name="title_no_email">Falta dirección de correo electrónico</string>
@@ -103,7 +104,6 @@
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
   <string name="title_no_drafts">Falta carpeta de Borradores</string>
-  <string name="title_no_idle">IMAP IDLE no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
   <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>

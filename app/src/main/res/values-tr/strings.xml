@@ -94,6 +94,7 @@
   <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
   <string name="title_primary_account">Birincil (varsayılan hesap)</string>
   <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Kontrol et</string>
   <string name="title_no_name">İsim eksik</string>
   <string name="title_no_email">E-posta adresi eksik</string>
@@ -103,7 +104,6 @@
   <string name="title_no_user">Kullanıcı adı eksik</string>
   <string name="title_no_password">Parola Eksik</string>
   <string name="title_no_drafts">Taslaklar klasörü eksik</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>

@@ -98,6 +98,7 @@
   <string name="title_synchronize_identity">Synchronize (send messages)</string>
   <string name="title_primary_account">Primary (default account)</string>
   <string name="title_primary_identity">Primary (default identity)</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Check</string>
   <string name="title_no_name">Name missing</string>
   <string name="title_no_email">Email address missing</string>
@@ -107,7 +108,6 @@
   <string name="title_no_user">User name missing</string>
   <string name="title_no_password">Password missing</string>
   <string name="title_no_drafts">Drafts folder missing</string>
-  <string name="title_no_idle">IMAP IDLE not supported, see the FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Delete this account permanently?</string>
   <string name="title_identity_delete">Delete this identity permanently?</string>

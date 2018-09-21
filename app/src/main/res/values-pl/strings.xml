@@ -102,6 +102,7 @@
   <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
   <string name="title_primary_account">Podstawowe (domyślne konto)</string>
   <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
+  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_check">Sprawdź</string>
   <string name="title_no_name">Brak nazwy</string>
   <string name="title_no_email">Brak adresu e-mail</string>
@@ -111,7 +112,6 @@
   <string name="title_no_user">Brak nazwy użytkownika</string>
   <string name="title_no_password">Brak hasła</string>
   <string name="title_no_drafts">Brakuje folderu Szkice</string>
-  <string name="title_no_idle">IMAP IDLE nie jest wspierane, zobacz FAQ</string>
   <string name="title_no_uidplus">IMAP UIDPLUS nie jest wspierane, zobacz FAQ</string>
   <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
