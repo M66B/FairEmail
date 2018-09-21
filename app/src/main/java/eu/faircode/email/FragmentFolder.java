@@ -136,7 +136,7 @@ public class FragmentFolder extends FragmentEx {
                                 Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
                                 Session isession = Session.getInstance(props, null);
                                 istore = (IMAPStore) isession.getStore("imaps");
-                                istore.connect(account.host, account.port, account.user, account.password);
+                                Helper.connect(context, istore, account);
 
                                 if (folder == null) {
                                     Log.i(Helper.TAG, "Creating folder=" + name);
@@ -239,7 +239,7 @@ public class FragmentFolder extends FragmentEx {
                                             Properties props = MessageHelper.getSessionProperties(context, account.auth_type);
                                             Session isession = Session.getInstance(props, null);
                                             istore = (IMAPStore) isession.getStore("imaps");
-                                            istore.connect(account.host, account.port, account.user, account.password);
+                                            Helper.connect(context, istore, account);
 
                                             IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                                             ifolder.delete(false);

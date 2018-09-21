@@ -39,6 +39,7 @@ import android.widget.Spinner;
 
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sun.mail.imap.IMAPStore;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,7 +54,9 @@ import java.text.DecimalFormat;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
+import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
+import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.appcompat.app.AlertDialog;
@@ -214,7 +217,20 @@ public class Helper {
         return filename.substring(index + 1);
     }
 
-    static String refreshToken(Context context, String type, String name, String current) {
+    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+        try {
+            istore.connect(account.host, account.port, account.user, account.password);
+        } catch (AuthenticationFailedException ex) {
+            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
+                account.password = Helper.refreshToken(context, "com.google", account.user, account.password);
+                DB.getInstance(context).account().setAccountPassword(account.id, account.password);
+                istore.connect(account.host, account.port, account.user, account.password);
+            } else
+                throw ex;
+        }
+    }
+
+    private static String refreshToken(Context context, String type, String name, String current) {
         try {
             AccountManager am = AccountManager.get(context);
             Account[] accounts = am.getAccountsByType(type);
@@ -313,7 +329,7 @@ public class Helper {
     }
 
     static boolean isPro(Context context) {
-        if (false && BuildConfig.DEBUG)
+        if (true && BuildConfig.DEBUG)
             return true;
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }

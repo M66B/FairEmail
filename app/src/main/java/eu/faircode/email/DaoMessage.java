@@ -218,9 +218,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_found = :found WHERE id = :id")
     int setMessageFound(long id, boolean found);
 
-    @Query("UPDATE message SET ui_found = 0 WHERE folder = :folder")
-    int resetFound(long folder);
-
     @Query("UPDATE message SET content = :content WHERE id = :id")
     int setMessageContent(long id, boolean content);
 

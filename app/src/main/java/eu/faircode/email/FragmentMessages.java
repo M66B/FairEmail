@@ -84,7 +84,6 @@ public class FragmentMessages extends FragmentEx {
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
 
-    private SearchState searchState = SearchState.Reset;
     private BoundaryCallbackMessages searchCallback = null;
 
     private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
@@ -92,8 +91,6 @@ public class FragmentMessages extends FragmentEx {
     private static final int MESSAGES_PAGE_SIZE = 50;
     private static final int SEARCH_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
-
-    private enum SearchState {Reset, Database, Boundary}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -667,44 +664,47 @@ public class FragmentMessages extends FragmentEx {
                     messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(sort, debug), MESSAGES_PAGE_SIZE).build();
                     break;
                 case FOLDER:
-                    messages = new LivePagedListBuilder<>(db.message().pagedFolder(folder, sort, false, debug), MESSAGES_PAGE_SIZE).build();
+                    if (searchCallback == null)
+                        searchCallback = new BoundaryCallbackMessages(
+                                getContext(), FragmentMessages.this,
+                                folder, null, MESSAGES_PAGE_SIZE,
+                                new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                                    @Override
+                                    public void onLoading() {
+                                        pbWait.setVisibility(View.VISIBLE);
+                                    }
+
+                                    @Override
+                                    public void onLoaded() {
+                                        pbWait.setVisibility(View.GONE);
+                                    }
+
+                                    @Override
+                                    public void onError(Context context, Throwable ex) {
+                                        pbWait.setVisibility(View.GONE);
+                                        Helper.unexpectedError(context, ex);
+                                    }
+                                });
+
+                    PagedList.Config config = new PagedList.Config.Builder()
+                            .setPageSize(MESSAGES_PAGE_SIZE)
+                            .setPrefetchDistance(MESSAGES_PAGE_SIZE)
+                            .build();
+                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
+                            db.message().pagedFolder(folder, sort, false, debug), config);
+                    builder.setBoundaryCallback(searchCallback);
+                    messages = builder.build();
+
                     break;
                 case THREAD:
                     messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, sort, debug), MESSAGES_PAGE_SIZE).build();
                     break;
             }
-
-            messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-                @Override
-                public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
-                    if (messages == null ||
-                            (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0)) {
-                        finish();
-                        return;
-                    }
-
-                    Log.i(Helper.TAG, "Submit messages=" + messages.size());
-                    adapter.submitList(messages);
-
-                    pbWait.setVisibility(View.GONE);
-                    grpReady.setVisibility(View.VISIBLE);
-
-                    if (messages.size() == 0) {
-                        tvNoEmail.setVisibility(View.VISIBLE);
-                        rvMessage.setVisibility(View.GONE);
-                    } else {
-                        tvNoEmail.setVisibility(View.GONE);
-                        rvMessage.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
         } else {
-            Log.i(Helper.TAG, "Search state=" + searchState);
-
             if (searchCallback == null)
                 searchCallback = new BoundaryCallbackMessages(
                         getContext(), FragmentMessages.this,
-                        folder, search,
+                        folder, search, SEARCH_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
@@ -718,79 +718,49 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             public void onError(Context context, Throwable ex) {
+                                pbWait.setVisibility(View.GONE);
                                 Helper.unexpectedError(context, ex);
                             }
                         });
 
-            Bundle args = new Bundle();
-            args.putLong("folder", folder);
-            args.putString("search", search);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    if (searchState == SearchState.Reset) {
-                        long folder = args.getLong("folder");
-                        DB.getInstance(context).message().resetFound(folder);
-                        searchState = SearchState.Database;
-                        Log.i(Helper.TAG, "Search reset done");
-                    }
-                    return null;
-                }
-
-                @Override
-                protected void onLoaded(final Bundle args, Void data) {
-                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(db.message().pagedFolder(folder, "time", true, false), SEARCH_PAGE_SIZE);
-                    builder.setBoundaryCallback(searchCallback);
-                    LiveData<PagedList<TupleMessageEx>> messages = builder.build();
-                    messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
-                        @Override
-                        public void onChanged(PagedList<TupleMessageEx> messages) {
-                            Log.i(Helper.TAG, "Submit found messages=" + messages.size());
-                            adapter.submitList(messages);
-                            grpReady.setVisibility(View.VISIBLE);
-                        }
-                    });
-
-                    new SimpleTask<Long>() {
-                        @Override
-                        protected Long onLoad(Context context, Bundle args) throws Throwable {
-                            long last = 0;
-                            if (searchState == SearchState.Database) {
-                                last = new Date().getTime();
-                                long folder = args.getLong("folder");
-                                String search = args.getString("search").toLowerCase();
-                                DB db = DB.getInstance(context);
-                                for (long id : db.message().getMessageIDs(folder)) {
-                                    EntityMessage message = db.message().getMessage(id);
-                                    if (message != null) { // Message could be removed in the meantime
-                                        String from = MessageHelper.getFormattedAddresses(message.from, true);
-                                        if (from.toLowerCase().contains(search) ||
-                                                message.subject.toLowerCase().contains(search) ||
-                                                message.read(context).toLowerCase().contains(search)) {
-                                            Log.i(Helper.TAG, "Search found id=" + id);
-                                            db.message().setMessageFound(message.id, true);
-                                            last = message.received;
-                                        }
-                                    }
-                                }
-                                searchState = SearchState.Boundary;
-                                Log.i(Helper.TAG, "Search database done");
-                            }
-                            return last;
-                        }
-
-                        @Override
-                        protected void onLoaded(Bundle args, Long last) {
-                            pbWait.setVisibility(View.GONE);
-                            searchCallback.setEnabled(true);
-                            if (last > 0)
-                                searchCallback.load(last);
-                        }
-                    }.load(FragmentMessages.this, args);
-                }
-            }.load(this, args);
+            PagedList.Config config = new PagedList.Config.Builder()
+                    .setPageSize(SEARCH_PAGE_SIZE)
+                    .setPrefetchDistance(SEARCH_PAGE_SIZE)
+                    .build();
+            LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
+                    db.message().pagedFolder(folder, "time", true, false), config);
+            builder.setBoundaryCallback(searchCallback);
+            messages = builder.build();
         }
+
+        messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
+            @Override
+            public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
+                if (messages == null ||
+                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0)) {
+                    finish();
+                    return;
+                }
+
+                Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                adapter.submitList(messages);
+
+                boolean searching = (searchCallback != null && searchCallback.isSearching());
+
+                if (!searching)
+                    pbWait.setVisibility(View.GONE);
+                grpReady.setVisibility(View.VISIBLE);
+
+                if (messages.size() == 0 && !searching) {
+                    tvNoEmail.setVisibility(View.VISIBLE);
+                    rvMessage.setVisibility(View.GONE);
+                } else {
+                    tvNoEmail.setVisibility(View.GONE);
+                    rvMessage.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
     }
 
     void onNewMessages() {

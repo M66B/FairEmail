@@ -26,23 +26,23 @@ import android.util.Log;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.util.FolderClosedIOException;
 
-import java.util.Date;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.mail.FetchProfile;
 import javax.mail.Folder;
+import javax.mail.FolderClosedException;
 import javax.mail.Message;
+import javax.mail.MessageRemovedException;
 import javax.mail.Session;
 import javax.mail.UIDFolder;
-import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
-import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
-import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SubjectTerm;
 
 import androidx.lifecycle.GenericLifecycleObserver;
@@ -54,16 +54,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private Context context;
     private long fid;
     private String search;
+    private int pageSize;
     private Handler mainHandler;
     private IBoundaryCallbackMessages intf;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    private boolean enabled = false;
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
-
-    private static final int SEARCH_PAGE_SIZE = 5;
+    private int index;
+    private boolean searching = false;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -73,11 +73,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         void onError(Context context, Throwable ex);
     }
 
-    BoundaryCallbackMessages(Context context, LifecycleOwner owner, long folder, String search, IBoundaryCallbackMessages intf) {
-        this.context = context;
+    BoundaryCallbackMessages(Context _context, LifecycleOwner owner, long folder, String search, int pageSize, IBoundaryCallbackMessages intf) {
+        this.context = _context;
         this.fid = folder;
         this.search = search;
-        this.mainHandler = new Handler(context.getMainLooper());
+        this.pageSize = pageSize;
+        this.mainHandler = new Handler(_context.getMainLooper());
         this.intf = intf;
 
         owner.getLifecycle().addObserver(new GenericLifecycleObserver() {
@@ -88,12 +89,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         @Override
                         public void run() {
                             Log.i(Helper.TAG, "Boundary close");
+                            DB.getInstance(context).message().deleteFoundMessages();
                             try {
                                 if (istore != null)
                                     istore.close();
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                             } finally {
+                                context = null;
                                 istore = null;
                                 ifolder = null;
                                 imessages = null;
@@ -104,23 +107,29 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         });
     }
 
-    void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    boolean isSearching() {
+        return searching;
+    }
+
+    @Override
+    public void onZeroItemsLoaded() {
+        Log.i(Helper.TAG, "onZeroItemsLoaded");
+        load();
     }
 
     @Override
     public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
-        Log.i(Helper.TAG, "onItemAtEndLoaded enabled=" + enabled);
-        if (!enabled)
-            return;
-        load(itemAtEnd.received);
+        Log.i(Helper.TAG, "onItemAtEndLoaded");
+        load();
     }
 
-    void load(final long before) {
+    private void load() {
         executor.submit(new Runnable() {
             @Override
             public void run() {
                 try {
+                    searching = true;
+
                     mainHandler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -139,22 +148,33 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                         Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
                         istore = (IMAPStore) isession.getStore("imaps");
-                        istore.connect(account.host, account.port, account.user, account.password);
+                        Helper.connect(context, istore, account);
 
                         Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
                         ifolder = (IMAPFolder) istore.getFolder(folder.name);
                         ifolder.open(Folder.READ_WRITE);
 
-                        Log.i(Helper.TAG, "Boundary searching=" + search + " before=" + new Date(before));
-                        imessages = ifolder.search(
-                                new AndTerm(
-                                        new ReceivedDateTerm(ComparisonTerm.LT, new Date(before)),
-                                        new OrTerm(
-                                                new FromStringTerm(search),
-                                                new OrTerm(
-                                                        new SubjectTerm(search),
-                                                        new BodyTerm(search)))));
+                        Log.i(Helper.TAG, "Boundary searching=" + search);
+                        if (search == null)
+                            imessages = ifolder.getMessages();
+                        else
+                            imessages = ifolder.search(
+                                    new OrTerm(
+                                            new FromStringTerm(search),
+                                            new OrTerm(
+                                                    new SubjectTerm(search),
+                                                    new BodyTerm(search))));
                         Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
+
+                        index = imessages.length - 1;
+                    }
+
+                    int count = 0;
+                    while (index >= 0 && count < pageSize) {
+                        Log.i(Helper.TAG, "Boundary index=" + index);
+                        int from = Math.max(0, index - (pageSize - count) + 1);
+                        Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
+                        index -= (pageSize - count);
 
                         FetchProfile fp = new FetchProfile();
                         fp.add(FetchProfile.Item.ENVELOPE);
@@ -164,25 +184,43 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         fp.add(IMAPFolder.FetchProfileItem.HEADERS);
                         fp.add(FetchProfile.Item.SIZE);
                         fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                        ifolder.fetch(imessages, fp);
+                        ifolder.fetch(isub, fp);
+
+                        try {
+                            db.beginTransaction();
+
+                            for (int j = isub.length - 1; j >= 0; j--)
+                                try {
+                                    long uid = ifolder.getUID(isub[j]);
+                                    Log.i(Helper.TAG, "Boundary sync uid=" + uid);
+                                    if (db.message().getMessageByUid(fid, uid) == null) {
+                                        ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], true);
+                                        count++;
+                                    }
+                                } catch (MessageRemovedException ex) {
+                                    Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                                } catch (FolderClosedException ex) {
+                                    throw ex;
+                                } catch (FolderClosedIOException ex) {
+                                    throw ex;
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                                } finally {
+                                    ((IMAPMessage) isub[j]).invalidateHeaders();
+                                }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
                     }
 
-                    int count = 0;
-                    int index = imessages.length - 1;
-                    while (index >= 0) {
-                        if (imessages[index].getReceivedDate().getTime() < before)
-                            try {
-                                Log.i(Helper.TAG, "Boundary sync uid=" + ifolder.getUID(imessages[index]));
-                                ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) imessages[index], true);
-                                if (++count >= SEARCH_PAGE_SIZE)
-                                    break;
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                            }
-                        index--;
-                    }
-
-                    EntityOperation.process(context); // download small attachments
+                    mainHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            intf.onLoaded();
+                        }
+                    });
 
                     Log.i(Helper.TAG, "Boundary done");
                 } catch (final Throwable ex) {
@@ -194,12 +232,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     });
                 } finally {
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoaded();
-                        }
-                    });
+                    searching = false;
                 }
             }
         });

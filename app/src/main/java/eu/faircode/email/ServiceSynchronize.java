@@ -560,12 +560,6 @@ public class ServiceSynchronize extends LifecycleService {
             boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
             System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-            // Refresh token
-            if (account.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                account.password = Helper.refreshToken(this, "com.google", account.user, account.password);
-                db.account().setAccountPassword(account.id, account.password);
-            }
-
             // Create session
             Properties props = MessageHelper.getSessionProperties(this, account.auth_type);
             final Session isession = Session.getInstance(props, null);
@@ -647,8 +641,7 @@ public class ServiceSynchronize extends LifecycleService {
                 for (EntityFolder folder : db.folder().getFolders(account.id))
                     db.folder().setFolderState(folder.id, null);
                 db.account().setAccountState(account.id, "connecting");
-                istore.connect(account.host, account.port, account.user, account.password);
-
+                Helper.connect(this, istore, account);
                 db.account().setAccountState(account.id, "connected");
                 db.account().setAccountError(account.id, null);
 
@@ -704,7 +697,14 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                 for (Message imessage : e.getMessages())
                                                     try {
-                                                        long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                        long id;
+                                                        try {
+                                                            db.beginTransaction();
+                                                            id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                            db.setTransactionSuccessful();
+                                                        } finally {
+                                                            db.endTransaction();
+                                                        }
                                                         downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -777,7 +777,14 @@ public class ServiceSynchronize extends LifecycleService {
                                                     fp.add(IMAPFolder.FetchProfileItem.FLAGS);
                                                     ifolder.fetch(new Message[]{e.getMessage()}, fp);
 
-                                                    long id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
+                                                    long id;
+                                                    try {
+                                                        db.beginTransaction();
+                                                        id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
+                                                        db.setTransactionSuccessful();
+                                                    } finally {
+                                                        db.endTransaction();
+                                                    }
                                                     downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
                                                 } catch (MessageRemovedException ex) {
                                                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1235,12 +1242,6 @@ public class ServiceSynchronize extends LifecycleService {
             return;
         }
 
-        // Refresh token
-        if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
-            ident.password = Helper.refreshToken(this, "com.google", ident.user, ident.password);
-            db.identity().setIdentityPassword(ident.id, ident.password);
-        }
-
         // Create session
         Properties props = MessageHelper.getSessionProperties(this, ident.auth_type);
         final Session isession = Session.getInstance(props, null);
@@ -1518,11 +1519,13 @@ public class ServiceSynchronize extends LifecycleService {
                 long headers = SystemClock.elapsedRealtime();
                 ifolder.fetch(full.toArray(new Message[0]), fp);
                 Log.i(Helper.TAG, folder.name + " fetched headers=" + full.size() +
-                        " " + (SystemClock.elapsedRealtime() - fetch) + " ms");
+                        " " + (SystemClock.elapsedRealtime() - headers) + " ms");
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
+                        db.beginTransaction();
                         ids[from + j] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) isub[j], false);
+                        db.setTransactionSuccessful();
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
@@ -1532,6 +1535,7 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
+                        db.endTransaction();
                         // Reduce memory usage
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
@@ -1590,155 +1594,148 @@ public class ServiceSynchronize extends LifecycleService {
         boolean flagged = helper.getFlagged();
 
         DB db = DB.getInstance(context);
-        try {
-            db.beginTransaction();
 
-            // Find message by uid (fast, no headers required)
-            EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+        // Find message by uid (fast, no headers required)
+        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
-            // Find message by Message-ID (slow, headers required)
-            // - messages in inbox have same id as message sent to self
-            // - messages in archive have same id as original
-            if (message == null) {
-                // Will fetch headers within database transaction
-                String msgid = helper.getMessageID();
-                String[] refs = helper.getReferences();
-                String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
-                Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
-                for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
-                    EntityFolder dfolder = db.folder().getFolder(dup.folder);
-                    boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
-                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
-                            " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
+        // Find message by Message-ID (slow, headers required)
+        // - messages in inbox have same id as message sent to self
+        // - messages in archive have same id as original
+        if (message == null) {
+            // Will fetch headers within database transaction
+            String msgid = helper.getMessageID();
+            String[] refs = helper.getReferences();
+            String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
+            Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
+            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
+                EntityFolder dfolder = db.folder().getFolder(dup.folder);
+                boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
+                Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
+                        " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
 
-                    if (dup.folder.equals(folder.id) || outbox) {
-                        Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
-                        dup.folder = folder.id;
-                        dup.uid = uid;
-                        if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
-                            dup.thread = helper.getThreadId(uid);
-                        db.message().updateMessage(dup);
-                        message = dup;
-                    }
+                if (dup.folder.equals(folder.id) || outbox) {
+                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
+                    dup.folder = folder.id;
+                    dup.uid = uid;
+                    if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
+                        dup.thread = helper.getThreadId(uid);
+                    db.message().updateMessage(dup);
+                    message = dup;
+                }
+            }
+        }
+
+        if (message == null) {
+            message = new EntityMessage();
+            message.account = folder.account;
+            message.folder = folder.id;
+            message.uid = uid;
+
+            if (!EntityFolder.ARCHIVE.equals(folder.type)) {
+                message.msgid = helper.getMessageID();
+                if (TextUtils.isEmpty(message.msgid))
+                    Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+            }
+
+            message.references = TextUtils.join(" ", helper.getReferences());
+            message.inreplyto = helper.getInReplyTo();
+            message.deliveredto = helper.getDeliveredTo();
+            message.thread = helper.getThreadId(uid);
+            message.from = helper.getFrom();
+            message.to = helper.getTo();
+            message.cc = helper.getCc();
+            message.bcc = helper.getBcc();
+            message.reply = helper.getReply();
+            message.subject = imessage.getSubject();
+            message.size = helper.getSize();
+            message.content = false;
+            message.received = imessage.getReceivedDate().getTime();
+            message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+            message.seen = seen;
+            message.ui_seen = seen;
+            message.flagged = false;
+            message.ui_flagged = false;
+            message.ui_hide = false;
+            message.ui_found = found;
+
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                    == PackageManager.PERMISSION_GRANTED) {
+                try {
+                    if (message.from != null)
+                        for (int i = 0; i < message.from.length; i++) {
+                            String email = ((InternetAddress) message.from[i]).getAddress();
+                            Cursor cursor = null;
+                            try {
+                                ContentResolver resolver = context.getContentResolver();
+                                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                                ContactsContract.Contacts.DISPLAY_NAME
+                                        },
+                                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                        new String[]{email}, null);
+                                if (cursor.moveToNext()) {
+                                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                    int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                                    long contactId = cursor.getLong(colContactId);
+                                    String displayName = cursor.getString(colDisplayName);
+
+                                    Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+                                    message.avatar = uri.toString();
+
+                                    if (!TextUtils.isEmpty(displayName))
+                                        ((InternetAddress) message.from[i]).setPersonal(displayName);
+                                }
+                            } finally {
+                                if (cursor != null)
+                                    cursor.close();
+                            }
+                        }
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
             }
 
-            if (message == null) {
-                message = new EntityMessage();
-                message.account = folder.account;
-                message.folder = folder.id;
-                message.uid = uid;
+            message.id = db.message().insertMessage(message);
 
-                if (!EntityFolder.ARCHIVE.equals(folder.type)) {
-                    message.msgid = helper.getMessageID();
-                    if (TextUtils.isEmpty(message.msgid))
-                        Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
-                }
+            Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
 
-                message.references = TextUtils.join(" ", helper.getReferences());
-                message.inreplyto = helper.getInReplyTo();
-                message.deliveredto = helper.getDeliveredTo();
-                message.thread = helper.getThreadId(uid);
-                message.from = helper.getFrom();
-                message.to = helper.getTo();
-                message.cc = helper.getCc();
-                message.bcc = helper.getBcc();
-                message.reply = helper.getReply();
-                message.subject = imessage.getSubject();
-                message.size = helper.getSize();
-                message.content = false;
-                message.received = imessage.getReceivedDate().getTime();
-                message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
+            int sequence = 1;
+            for (EntityAttachment attachment : helper.getAttachments()) {
+                Log.i(Helper.TAG, folder.name + " attachment" +
+                        " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
+                attachment.message = message.id;
+                attachment.sequence = sequence++;
+                attachment.id = db.attachment().insertAttachment(attachment);
+
+                if (message.size != null && attachment.size != null)
+                    message.size -= attachment.size;
+            }
+
+            db.message().updateMessage(message);
+        } else {
+            if (message.seen != seen || message.seen != message.ui_seen) {
                 message.seen = seen;
                 message.ui_seen = seen;
-                message.flagged = false;
-                message.ui_flagged = false;
-                message.ui_hide = false;
-                message.ui_found = found;
-
-                if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    try {
-                        if (message.from != null)
-                            for (int i = 0; i < message.from.length; i++) {
-                                String email = ((InternetAddress) message.from[i]).getAddress();
-                                Cursor cursor = null;
-                                try {
-                                    ContentResolver resolver = context.getContentResolver();
-                                    cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                            new String[]{
-                                                    ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                                    ContactsContract.Contacts.DISPLAY_NAME
-                                            },
-                                            ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                            new String[]{email}, null);
-                                    if (cursor.moveToNext()) {
-                                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                        int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                                        long contactId = cursor.getLong(colContactId);
-                                        String displayName = cursor.getString(colDisplayName);
-
-                                        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                                        message.avatar = uri.toString();
-
-                                        if (!TextUtils.isEmpty(displayName))
-                                            ((InternetAddress) message.from[i]).setPersonal(displayName);
-                                    }
-                                } finally {
-                                    if (cursor != null)
-                                        cursor.close();
-                                }
-                            }
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-                }
-
-                message.id = db.message().insertMessage(message);
-
-                Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
-
-                int sequence = 1;
-                for (EntityAttachment attachment : helper.getAttachments()) {
-                    Log.i(Helper.TAG, folder.name + " attachment" +
-                            " seq=" + sequence + " name=" + attachment.name + " type=" + attachment.type);
-                    attachment.message = message.id;
-                    attachment.sequence = sequence++;
-                    attachment.id = db.attachment().insertAttachment(attachment);
-
-                    if (message.size != null && attachment.size != null)
-                        message.size -= attachment.size;
-                }
-
                 db.message().updateMessage(message);
-            } else {
-                if (message.seen != seen || message.seen != message.ui_seen) {
-                    message.seen = seen;
-                    message.ui_seen = seen;
-                    db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
-                }
-
-                if (message.flagged != flagged || message.flagged != message.ui_flagged) {
-                    message.flagged = flagged;
-                    message.ui_flagged = flagged;
-                    db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
-                }
-
-                if (message.ui_hide) {
-                    message.ui_hide = false;
-                    db.message().updateMessage(message);
-                    Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
-                }
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
-            db.setTransactionSuccessful();
+            if (message.flagged != flagged || message.flagged != message.ui_flagged) {
+                message.flagged = flagged;
+                message.ui_flagged = flagged;
+                db.message().updateMessage(message);
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+            }
 
-            return message.id;
-        } finally {
-            db.endTransaction();
+            if (message.ui_hide) {
+                message.ui_hide = false;
+                db.message().updateMessage(message);
+                Log.i(Helper.TAG, folder.name + " unhidden id=" + message.id + " uid=" + message.uid);
+            }
         }
+
+        return message.id;
     }
 
     private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
