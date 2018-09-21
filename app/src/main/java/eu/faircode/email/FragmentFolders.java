@@ -25,8 +25,10 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ToggleButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -42,6 +44,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentFolders extends FragmentEx {
     private ImageButton ibHintActions;
+    private ToggleButton tbShowHidden;
     private RecyclerView rvFolder;
     private ProgressBar pbWait;
     private Group grpHintActions;
@@ -67,6 +70,7 @@ public class FragmentFolders extends FragmentEx {
 
         // Get controls
         ibHintActions = view.findViewById(R.id.ibHintActions);
+        tbShowHidden = view.findViewById(R.id.tbShowHidden);
         rvFolder = view.findViewById(R.id.rvFolder);
         pbWait = view.findViewById(R.id.pbWait);
         grpHintActions = view.findViewById(R.id.grpHintActions);
@@ -81,6 +85,13 @@ public class FragmentFolders extends FragmentEx {
             public void onClick(View v) {
                 prefs.edit().putBoolean("folder_actions", true).apply();
                 grpHintActions.setVisibility(View.GONE);
+            }
+        });
+
+        tbShowHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                adapter.showHidden(isChecked);
             }
         });
 
@@ -105,6 +116,7 @@ public class FragmentFolders extends FragmentEx {
         });
 
         // Initialize
+        tbShowHidden.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -137,6 +149,14 @@ public class FragmentFolders extends FragmentEx {
                     finish();
                     return;
                 }
+
+                boolean hidden = false;
+                for (TupleFolderEx folder : folders)
+                    if (folder.hide) {
+                        hidden = true;
+                        break;
+                    }
+                tbShowHidden.setVisibility(hidden ? View.VISIBLE : View.GONE);
 
                 adapter.set(folders);
 

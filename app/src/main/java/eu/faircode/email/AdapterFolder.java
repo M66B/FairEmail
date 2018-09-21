@@ -75,7 +75,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             ivState = itemView.findViewById(R.id.ivState);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
@@ -97,6 +97,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(TupleFolderEx folder) {
+            itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
+
             if ("connected".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
             else if ("connecting".equals(folder.state))
@@ -284,6 +286,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         setHasStableIds(true);
     }
 
+    private boolean showAll = false;
+
+    public void showHidden(boolean show) {
+        showAll = show;
+        set(all);
+    }
+
     public void set(@NonNull List<TupleFolderEx> folders) {
         Log.i(Helper.TAG, "Set folders=" + folders.size());
 
@@ -307,13 +316,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
         });
 
-        all.clear();
-        all.addAll(folders);
+        all = folders;
 
-        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, all));
+        List<TupleFolderEx> shown = new ArrayList<>();
+        for (TupleFolderEx folder : folders)
+            if (!folder.hide || showAll)
+                shown.add(folder);
+
+        DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, shown));
 
         filtered.clear();
-        filtered.addAll(all);
+        filtered.addAll(shown);
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override

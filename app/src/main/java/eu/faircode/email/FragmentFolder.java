@@ -50,6 +50,7 @@ public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
     private EditText etRename;
     private EditText etDisplay;
+    private CheckBox cbHide;
     private CheckBox cbSynchronize;
     private CheckBox cbUnified;
     private EditText etAfter;
@@ -83,6 +84,7 @@ public class FragmentFolder extends FragmentEx {
         // Get controls
         etRename = view.findViewById(R.id.etRename);
         etDisplay = view.findViewById(R.id.etDisplay);
+        cbHide = view.findViewById(R.id.cbHide);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbUnified = view.findViewById(R.id.cbUnified);
         etAfter = view.findViewById(R.id.etAfter);
@@ -104,8 +106,9 @@ public class FragmentFolder extends FragmentEx {
                 args.putLong("account", account);
                 args.putString("name", etRename.getText().toString());
                 args.putString("display", etDisplay.getText().toString());
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("hide", cbHide.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
+                args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("after", etAfter.getText().toString());
 
                 new SimpleTask<Void>() {
@@ -115,8 +118,9 @@ public class FragmentFolder extends FragmentEx {
                         long aid = args.getLong("account");
                         String name = args.getString("name");
                         String display = args.getString("display");
-                        boolean synchronize = args.getBoolean("synchronize");
+                        boolean hide = args.getBoolean("hide");
                         boolean unified = args.getBoolean("unified");
+                        boolean synchronize = args.getBoolean("synchronize");
                         String after = args.getString("after");
 
                         if (TextUtils.isEmpty(display) || display.equals(name))
@@ -150,6 +154,7 @@ public class FragmentFolder extends FragmentEx {
                                     create.account = aid;
                                     create.name = name;
                                     create.display = display;
+                                    create.hide = hide;
                                     create.type = EntityFolder.USER;
                                     create.unified = unified;
                                     create.synchronize = synchronize;
@@ -168,7 +173,7 @@ public class FragmentFolder extends FragmentEx {
 
                             if (folder != null) {
                                 Log.i(Helper.TAG, "Updating folder=" + name);
-                                db.folder().setFolderProperties(id, name, display, synchronize, unified, days);
+                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, days);
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
                             }
@@ -313,6 +318,7 @@ public class FragmentFolder extends FragmentEx {
                     etRename.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
                     etDisplay.setHint(folder == null ? null : folder.name);
+                    cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
                 }

@@ -54,11 +54,11 @@
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
 
         <CheckBox
-            android:id="@+id/cbSynchronize"
+            android:id="@+id/cbHide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_synchronize_folder"
+            android:text="@string/title_hide_folder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etDisplay" />
 
@@ -69,7 +69,16 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_unified_folder"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
+            app:layout_constraintTop_toBottomOf="@id/cbHide" />
+
+        <CheckBox
+            android:id="@+id/cbSynchronize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_synchronize_folder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbUnified" />
 
         <!-- after -->
 
@@ -81,7 +90,7 @@
             android:text="@string/title_after"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUnified" />
+            app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
         <EditText
             android:id="@+id/etAfter"

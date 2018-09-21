@@ -40,6 +40,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvHintActions" />
 
+    <ToggleButton
+        android:id="@+id/tbShowHidden"
+        style="@style/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:textOff="@string/title_show_folders"
+        android:textOn="@string/title_hide_folders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
         android:layout_width="0dp"
@@ -49,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+        app:layout_constraintTop_toBottomOf="@id/tbShowHidden" />
 
     <ProgressBar
         android:id="@+id/pbWait"

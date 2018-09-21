@@ -58,15 +58,17 @@ public class EntityFolder implements Parcelable {
     public Long account; // Outbox = null
     @NonNull
     public String name;
-    public String display;
     @NonNull
     public String type;
-    @NonNull
-    public Boolean unified = false;
     @NonNull
     public Boolean synchronize;
     @NonNull
     public Integer after; // days
+    public String display;
+    @NonNull
+    public Boolean hide = false;
+    @NonNull
+    public Boolean unified = false;
     public String state;
     public String error;
 
@@ -135,6 +137,9 @@ public class EntityFolder implements Parcelable {
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.after.equals(other.after) &&
+                    (this.display == null ? other.display == null : this.display.equals(other.display)) &&
+                    this.hide == other.hide &&
+                    this.unified == other.unified &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

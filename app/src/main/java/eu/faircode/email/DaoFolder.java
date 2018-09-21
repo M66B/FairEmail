@@ -121,8 +121,15 @@ public interface DaoFolder {
             " AND type = :type")
     int setFolderUser(long account, String type);
 
-    @Query("UPDATE folder SET name = :name, display = :display, synchronize = :synchronize, unified = :unified, after = :after WHERE id = :id")
-    int setFolderProperties(long id, String name, String display, boolean synchronize, boolean unified, int after);
+    @Query("UPDATE folder" +
+            " SET name = :name" +
+            ", display = :display" +
+            ", hide = :hide" +
+            ", synchronize = :synchronize" +
+            ", unified = :unified" +
+            ", after = :after" +
+            " WHERE id = :id")
+    int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int after);
 
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);
