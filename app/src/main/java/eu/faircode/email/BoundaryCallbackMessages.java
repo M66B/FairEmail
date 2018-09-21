@@ -199,7 +199,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     long uid = ifolder.getUID(isub[j]);
                                     Log.i(Helper.TAG, "Boundary sync uid=" + uid);
                                     if (db.message().getMessageByUid(fid, uid) == null) {
-                                        ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], true);
+                                        ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
                                         count++;
                                         loaded++;
                                     }
