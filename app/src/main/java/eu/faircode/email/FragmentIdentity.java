@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.mail.AuthenticationFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
 
@@ -342,7 +343,15 @@ public class FragmentIdentity extends FragmentEx {
                             isession.setDebug(true);
                             Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
                             try {
-                                itransport.connect(host, Integer.parseInt(port), user, password);
+                                try {
+                                    itransport.connect(host, Integer.parseInt(port), user, password);
+                                } catch (AuthenticationFailedException ex) {
+                                    if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                        password = Helper.refreshToken(context, "com.google", user, password);
+                                        itransport.connect(host, Integer.parseInt(port), user, password);
+                                    } else
+                                        throw ex;
+                                }
                             } finally {
                                 itransport.close();
                             }

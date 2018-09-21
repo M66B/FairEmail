@@ -75,6 +75,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
+import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -472,7 +473,15 @@ public class FragmentAccount extends FragmentEx {
                         IMAPStore istore = null;
                         try {
                             istore = (IMAPStore) isession.getStore("imaps");
-                            istore.connect(host, Integer.parseInt(port), user, password);
+                            try {
+                                istore.connect(host, Integer.parseInt(port), user, password);
+                            } catch (AuthenticationFailedException ex) {
+                                if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                    password = Helper.refreshToken(context, "com.google", user, password);
+                                    istore.connect(host, Integer.parseInt(port), user, password);
+                                } else
+                                    throw ex;
+                            }
 
                             if (!istore.hasCapability("IDLE"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_idle));
@@ -708,7 +717,15 @@ public class FragmentAccount extends FragmentEx {
                             IMAPStore istore = null;
                             try {
                                 istore = (IMAPStore) isession.getStore("imaps");
-                                istore.connect(host, Integer.parseInt(port), user, password);
+                                try {
+                                    istore.connect(host, Integer.parseInt(port), user, password);
+                                } catch (AuthenticationFailedException ex) {
+                                    if (auth_type == Helper.AUTH_TYPE_GMAIL) {
+                                        password = Helper.refreshToken(context, "com.google", user, password);
+                                        istore.connect(host, Integer.parseInt(port), user, password);
+                                    } else
+                                        throw ex;
+                                }
 
                                 if (!istore.hasCapability("UIDPLUS"))
                                     throw new MessagingException(getContext().getString(R.string.title_no_uidplus));

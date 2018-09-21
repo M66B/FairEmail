@@ -230,7 +230,7 @@ public class Helper {
         }
     }
 
-    private static String refreshToken(Context context, String type, String name, String current) {
+    static String refreshToken(Context context, String type, String name, String current) {
         try {
             AccountManager am = AccountManager.get(context);
             Account[] accounts = am.getAccountsByType(type);
