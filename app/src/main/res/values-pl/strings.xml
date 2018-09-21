@@ -69,10 +69,8 @@
   <string name="title_setup_light_theme">Jasny motyw</string>
   <string name="title_setup_dark_theme">Ciemny motyw</string>
   <string name="title_advanced">Opcje zaawansowane</string>
-  <string name="title_advanced_compress_imap">Kompresuj dane IMAP</string>
   <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
   <string name="title_advanced_light">Użyj diody powiadomień</string>
-  <string name="title_advanced_ipv4">Preferuj połączenia IPv4</string>
   <string name="title_advanced_debug">Debuguj</string>
   <string name="title_select">Wybierz &#8230;</string>
   <string name="title_identity_name">Twoja nazwa</string>
@@ -126,6 +124,9 @@
   <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
   <string name="title_folder_name">Nazwa folderu</string>
   <string name="title_display_name">Nazwa wyświetlana</string>
+  <string name="title_hide_folder">Hide from list</string>
+  <string name="title_hide_folders">Hide hidden folders</string>
+  <string name="title_show_folders">Show hidden folders</string>
   <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
   <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
   <string name="title_after">Synchronizuj (dni)</string>
@@ -193,7 +194,7 @@
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
   <string name="title_search">Szukaj</string>
-  <string name="title_search_hint">Wyszukaj nadawcę/temat/tekst</string>
+  <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Szukam \'%1$s\'</string>
   <string name="title_sort_on">Sortuj wg</string>
   <string name="title_sort_on_time">Czas</string>

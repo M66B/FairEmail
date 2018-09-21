@@ -42,7 +42,7 @@
   <string name="title_edit_identity">Modifier l’identité</string>
   <string name="title_edit_folder">Modifier le dossier</string>
   <string name="title_setup">Configuration</string>
-  <string name="title_setup_export">Export settings (no passwords)</string>
+  <string name="title_setup_export">Exporter les paramètres (aucun mot de passe)</string>
   <string name="title_setup_import">Importer les paramètres</string>
   <string name="title_setup_exported">Paramètres exportés</string>
   <string name="title_setup_imported">Paramètres importés</string>
@@ -61,10 +61,8 @@
   <string name="title_setup_light_theme">Thème clair</string>
   <string name="title_setup_dark_theme">Thème sombre</string>
   <string name="title_advanced">Options avancées</string>
-  <string name="title_advanced_compress_imap">Compresser les données IMAP</string>
   <string name="title_advanced_avatars">Afficher les photos des contacts</string>
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
-  <string name="title_advanced_ipv4">Préférer les connexions IPv4</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -118,6 +116,9 @@
   <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
   <string name="title_folder_name">Nom du dossier</string>
   <string name="title_display_name">Nom</string>
+  <string name="title_hide_folder">Hide from list</string>
+  <string name="title_hide_folders">Hide hidden folders</string>
+  <string name="title_show_folders">Show hidden folders</string>
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>
@@ -185,7 +186,7 @@
   <string name="title_draft_saved">Brouillon enregistré</string>
   <string name="title_queued">Envoi du message</string>
   <string name="title_search">Rechercher</string>
-  <string name="title_search_hint">Rechercher expéditeur / objet / texte</string>
+  <string name="title_search_hint">Rechercher sur le serveur</string>
   <string name="title_searching">Recherche de \'%1$s\'</string>
   <string name="title_sort_on">Trier par</string>
   <string name="title_sort_on_time">Date</string>

@@ -42,7 +42,7 @@
   <string name="title_edit_identity">Modifica identità</string>
   <string name="title_edit_folder">Modifica cartella</string>
   <string name="title_setup">Configurazione</string>
-  <string name="title_setup_export">Export settings (no passwords)</string>
+  <string name="title_setup_export">Esporta impostazioni (nessuna password)</string>
   <string name="title_setup_import">Importa impostazioni</string>
   <string name="title_setup_exported">Impostazioni esportate</string>
   <string name="title_setup_imported">Impostazioni importate</string>
@@ -61,10 +61,8 @@
   <string name="title_setup_light_theme">Tema chiaro</string>
   <string name="title_setup_dark_theme">Tema scuro</string>
   <string name="title_advanced">Opzioni avanzate</string>
-  <string name="title_advanced_compress_imap">Comprimi dati IMAP</string>
   <string name="title_advanced_avatars">Mostra foto del contatto</string>
   <string name="title_advanced_light">Usa il led di notifica</string>
-  <string name="title_advanced_ipv4">Preferisci le connessioni IPv4</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Seleziona &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
@@ -118,6 +116,9 @@
   <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
   <string name="title_folder_name">Nome cartella</string>
   <string name="title_display_name">Nome visualizzato</string>
+  <string name="title_hide_folder">Hide from list</string>
+  <string name="title_hide_folders">Hide hidden folders</string>
+  <string name="title_show_folders">Show hidden folders</string>
   <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
   <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
   <string name="title_after">Sincronizza (giorni)</string>
@@ -185,7 +186,7 @@
   <string name="title_draft_saved">Bozza salvata</string>
   <string name="title_queued">Invio messaggio in corso</string>
   <string name="title_search">Cerca</string>
-  <string name="title_search_hint">Cerca mittente/oggetto/corpo</string>
+  <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Ricerca di \'%1$s\'</string>
   <string name="title_sort_on">Ordina per</string>
   <string name="title_sort_on_time">Ora</string>
@@ -214,7 +215,7 @@
   <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
   <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
   <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile); tieni premuto per segnare letto/non letto o per aggiungere/rimuovere stelle</string>
-  <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
+  <string name="title_hint_sync">Scaricare i messaggi può richiedere del tempo, a seconda del numero di messaggi, della velocità della tua connessione internet e del tuo fornitore di email</string>
   <string name="title_open_link">Apri collegamento</string>
   <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
   <string name="title_issue">Hai una domanda o un problema?</string>

@@ -42,7 +42,7 @@
   <string name="title_edit_identity">Identität bearbeiten</string>
   <string name="title_edit_folder">Ordner bearbeiten</string>
   <string name="title_setup">Einstellungen</string>
-  <string name="title_setup_export">Export settings (no passwords)</string>
+  <string name="title_setup_export">Einstellungen exportieren (keine Passwörter)</string>
   <string name="title_setup_import">Einstellungen importieren</string>
   <string name="title_setup_exported">Einstellungen exportiert</string>
   <string name="title_setup_imported">Einstellungen importiert</string>
@@ -61,10 +61,8 @@
   <string name="title_setup_light_theme">Helles Thema</string>
   <string name="title_setup_dark_theme">Dunkles Thema</string>
   <string name="title_advanced">Erweiterte Optionen</string>
-  <string name="title_advanced_compress_imap">IMAP-Daten komprimieren</string>
   <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
-  <string name="title_advanced_ipv4">Bevorzuge IPv4-Verbindungen</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -118,6 +116,9 @@
   <string name="title_empty_trash_ask">Alle ausgewählten Dateien dauerhaft löschen?</string>
   <string name="title_folder_name">Ordnername</string>
   <string name="title_display_name">Name</string>
+  <string name="title_hide_folder">Hide from list</string>
+  <string name="title_hide_folders">Hide hidden folders</string>
+  <string name="title_show_folders">Show hidden folders</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
@@ -185,7 +186,7 @@
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
-  <string name="title_search_hint">Absender/Betreff/Text durchsuchen</string>
+  <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Suche „%1$s“</string>
   <string name="title_sort_on">Sortieren nach</string>
   <string name="title_sort_on_time">Uhrzeit</string>
@@ -214,7 +215,7 @@
   <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
   <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
   <string name="title_hint_message_actions">Nach links wischen zum Löschen; nach rechts wischen zum Archivieren (falls verfügbar); gedrückt halten, um als gelesen/ungelesen zu markieren oder um zu favorisieren/entfavorisieren</string>
-  <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
+  <string name="title_hint_sync">Das Herunterladen der Nachrichten kann einige Zeit beanspruchen, abhängig von der Anzahl der Nachrichten, der Geschwindigkeit Ihrer Internetverbindung und Ihrem E-Mail-Anbieter</string>
   <string name="title_open_link">Link öffnen</string>
   <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
   <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>

@@ -61,10 +61,8 @@
   <string name="title_setup_light_theme">Light theme</string>
   <string name="title_setup_dark_theme">Tema escuro</string>
   <string name="title_advanced">Advanced options</string>
-  <string name="title_advanced_compress_imap">Compress IMAP data</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_light">Use notification light</string>
-  <string name="title_advanced_ipv4">Prefer IPv4 connections</string>
   <string name="title_advanced_debug">Debug mode</string>
   <string name="title_select">Select &#8230;</string>
   <string name="title_identity_name">Your name</string>
@@ -118,6 +116,9 @@
   <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
   <string name="title_folder_name">Folder name</string>
   <string name="title_display_name">Display name</string>
+  <string name="title_hide_folder">Hide from list</string>
+  <string name="title_hide_folders">Hide hidden folders</string>
+  <string name="title_show_folders">Show hidden folders</string>
   <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Sincronizar (dias)</string>
@@ -185,7 +186,7 @@
   <string name="title_draft_saved">Rascunho salvo</string>
   <string name="title_queued">Sending message</string>
   <string name="title_search">Search</string>
-  <string name="title_search_hint">Search sender/subject/text</string>
+  <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Searching \'%1$s\'</string>
   <string name="title_sort_on">Sort on</string>
   <string name="title_sort_on_time">Time</string>
