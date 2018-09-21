@@ -392,12 +392,6 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
-                args.putString("name", etName.getText().toString());
-                args.putInt("color", color);
-                args.putString("signature", Html.toHtml(etSignature.getText()));
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putBoolean("primary", cbPrimary.isChecked());
-
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
                     protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
@@ -407,54 +401,6 @@ public class FragmentAccount extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         int auth_type = args.getInt("auth_type");
-
-                        String name = args.getString("name");
-                        int color = args.getInt("color");
-                        String signature = args.getString("signature");
-                        boolean synchronize = args.getBoolean("synchronize");
-                        boolean primary = args.getBoolean("primary");
-
-                        boolean check = true;
-                        boolean restart = false;
-                        DB db = DB.getInstance(getContext());
-                        try {
-                            db.beginTransaction();
-
-                            EntityAccount account = db.account().getAccount(args.getLong("id"));
-                            if (account != null) {
-                                if (host.equals(account.host) &&
-                                        port.equals(Integer.toString(account.port)) &&
-                                        user.equals(account.user) &&
-                                        password.equals(account.password) &&
-                                        auth_type == account.auth_type) {
-                                    check = false;
-                                    restart = (synchronize != account.synchronize);
-
-                                    account.name = name;
-                                    account.color = color;
-                                    account.signature = signature;
-                                    account.synchronize = synchronize;
-                                    account.primary = primary;
-
-                                    if (!synchronize)
-                                        account.error = null;
-
-                                    if (account.primary)
-                                        db.account().resetPrimary();
-
-                                    db.account().updateAccount(account);
-                                }
-                            }
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        if (!check) {
-                            if (restart)
-                                ServiceSynchronize.reload(getContext(), "save account");
-                            return null;
-                        }
 
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
@@ -520,6 +466,7 @@ public class FragmentAccount extends FragmentEx {
                                     }
 
                                     // Create entry
+                                    DB db = DB.getInstance(context);
                                     EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
                                     if (folder == null) {
                                         folder = new EntityFolder();
