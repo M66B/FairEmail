@@ -241,9 +241,9 @@ public class FragmentMessages extends FragmentEx {
                 args.putLong("id", message.id);
                 args.putInt("direction", direction);
 
-                new SimpleTask<String>() {
+                new SimpleTask<String[]>() {
                     @Override
-                    protected String onLoad(Context context, Bundle args) {
+                    protected String[] onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
                         int direction = args.getInt("direction");
                         EntityFolder target = null;
@@ -274,15 +274,15 @@ public class FragmentMessages extends FragmentEx {
 
                         Log.i(Helper.TAG, "Move id=" + id + " target=" + target);
 
-                        return target.name;
+                        return new String[]{target.name, target.display == null ? target.name : target.display};
                     }
 
                     @Override
-                    protected void onLoaded(final Bundle args, final String target) {
+                    protected void onLoaded(final Bundle args, final String[] target) {
                         // Show undo snackbar
                         final Snackbar snackbar = Snackbar.make(
                                 view,
-                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), target)),
+                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), target[1])),
                                 Snackbar.LENGTH_INDEFINITE);
                         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
                             @Override
@@ -319,7 +319,7 @@ public class FragmentMessages extends FragmentEx {
                                     snackbar.dismiss();
 
                                 final Context context = getContext();
-                                args.putString("target", target);
+                                args.putString("target", target[0]);
 
                                 // Process move in a thread
                                 // - the fragment could be gone
