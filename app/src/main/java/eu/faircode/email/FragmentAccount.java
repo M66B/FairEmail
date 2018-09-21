@@ -115,6 +115,7 @@ public class FragmentAccount extends FragmentEx {
 
     private ProgressBar pbCheck;
 
+    private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
     private Spinner spSent;
     private Spinner spAll;
@@ -789,6 +790,15 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, new ArrayList<EntityFolder>());
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
+        spDrafts.setAdapter(adapter);
+        spSent.setAdapter(adapter);
+        spAll.setAdapter(adapter);
+        spTrash.setAdapter(adapter);
+        spJunk.setAdapter(adapter);
+
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnAuthorize.setVisibility(View.GONE);
@@ -1044,14 +1054,8 @@ public class FragmentAccount extends FragmentEx {
         none.name = "";
         folders.add(0, none);
 
-        ArrayAdapter<EntityFolder> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, folders);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-        spDrafts.setAdapter(adapter);
-        spSent.setAdapter(adapter);
-        spAll.setAdapter(adapter);
-        spTrash.setAdapter(adapter);
-        spJunk.setAdapter(adapter);
+        adapter.clear();
+        adapter.addAll(folders);
 
         for (int pos = 0; pos < folders.size(); pos++) {
             if (EntityFolder.DRAFTS.equals(folders.get(pos).type))
