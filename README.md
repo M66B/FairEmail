@@ -33,7 +33,7 @@ This email app might be for you if your current email app:
 * Account colors
 * Standard replies
 * Sort on time, unread or starred
-* Progressive search (first local, then server)
+* Search on server
 * Preview sender/subject in new messages status bar notification
 * Export settings
 
