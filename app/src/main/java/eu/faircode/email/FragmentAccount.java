@@ -54,6 +54,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -102,6 +103,7 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
 
     private Button btnAdvanced;
+    private TextView tvName;
     private EditText etName;
     private Button btnColor;
     private View vwColor;
@@ -167,6 +169,7 @@ public class FragmentAccount extends FragmentEx {
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etName = view.findViewById(R.id.etName);
+        tvName = view.findViewById(R.id.tvName);
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
@@ -321,7 +324,7 @@ public class FragmentAccount extends FragmentEx {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, btnCheck.getBottom());
+                            ((ScrollView) view).smoothScrollTo(0, tvName.getTop());
                         }
                     });
             }
