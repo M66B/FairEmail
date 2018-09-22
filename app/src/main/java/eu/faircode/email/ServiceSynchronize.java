@@ -2034,7 +2034,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     public static void start(Context context) {
         ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
-        JobDaily.schedule(context);
     }
 
     public static void reload(Context context, String reason) {

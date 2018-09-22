@@ -35,11 +35,13 @@ import java.util.concurrent.Executors;
 public class JobDaily extends JobService {
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
+    private static final long CLEANUP_INTERVAL = 4 * 3600 * 1000L; // milliseconds
+
     public static void schedule(Context context) {
         Log.i(Helper.TAG, "Scheduling daily job");
 
         JobInfo.Builder job = new JobInfo.Builder(Helper.JOB_DAILY, new ComponentName(context, JobDaily.class))
-                .setPeriodic(24 * 3600 * 1000L)
+                .setPeriodic(CLEANUP_INTERVAL)
                 .setRequiresDeviceIdle(true);
 
         JobScheduler scheduler = context.getSystemService(JobScheduler.class);
@@ -47,7 +49,7 @@ public class JobDaily extends JobService {
         if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
             Log.i(Helper.TAG, "Scheduled daily job");
         else
-            Log.e(Helper.TAG, "Failed to schedule daily job");
+            Log.e(Helper.TAG, "Scheduling daily job failed");
     }
 
     @Override
