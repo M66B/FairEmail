@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,7 +36,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -63,6 +66,7 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etName;
     private Spinner spAccount;
     private Button btnAdvanced;
+    private TextView tvEmail;
     private EditText etEmail;
     private EditText etReplyTo;
     private Spinner spProvider;
@@ -105,6 +109,7 @@ public class FragmentIdentity extends FragmentEx {
         spAccount = view.findViewById(R.id.spAccount);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
+        tvEmail = view.findViewById(R.id.tvEmail);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
 
@@ -191,6 +196,13 @@ public class FragmentIdentity extends FragmentEx {
             public void onClick(View v) {
                 int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
                 grpAdvanced.setVisibility(visibility);
+                if (visibility == View.VISIBLE)
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, tvEmail.getTop());
+                        }
+                    });
             }
         });
 
