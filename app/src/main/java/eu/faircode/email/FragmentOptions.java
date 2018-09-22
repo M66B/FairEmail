@@ -34,6 +34,7 @@ import androidx.annotation.Nullable;
 public class FragmentOptions extends FragmentEx {
     private CheckBox cbAvatars;
     private CheckBox cbLight;
+    private CheckBox cbBrowse;
     private CheckBox cbDebug;
 
     @Override
@@ -46,6 +47,7 @@ public class FragmentOptions extends FragmentEx {
         // Get controls
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbLight = view.findViewById(R.id.cbLight);
+        cbBrowse = view.findViewById(R.id.cbBrowse);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -65,6 +67,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("light", checked).apply();
+            }
+        });
+
+        cbBrowse.setChecked(prefs.getBoolean("browse", true));
+        cbBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("browse", checked).apply();
             }
         });
 

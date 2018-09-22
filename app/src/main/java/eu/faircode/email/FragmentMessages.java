@@ -654,6 +654,7 @@ public class FragmentMessages extends FragmentEx {
         if (TextUtils.isEmpty(search)) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String sort = prefs.getString("sort", "time");
+            boolean browse = prefs.getBoolean("browse", true);
             boolean debug = prefs.getBoolean("debug", false);
 
             if (messages != null)
@@ -693,7 +694,8 @@ public class FragmentMessages extends FragmentEx {
                             .build();
                     LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(folder, sort, false, debug), config);
-                    builder.setBoundaryCallback(searchCallback);
+                    if (browse)
+                        builder.setBoundaryCallback(searchCallback);
                     messages = builder.build();
 
                     break;
