@@ -99,7 +99,7 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 <a name="FAQ11"></a>
 **(11) Why is STARTTLS for IMAP not supported?**
 
-STARTTLS starts with an unencrypted connection and is therefore not secure.
+STARTTLS starts with a not encrypted connection and is therefore not secure.
 All known IMAP servers support IMAP with STARTTLS, so there is no need to support STARTTLS for IMAP.
 If you encounter an IMAP server that requires STARTTLS, please [create an issue](https://github.com/M66B/open-source-email/issues/new).
 
@@ -123,8 +123,9 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 **(15) Can you add ... ?**
 
 * More themes: the goal is to keep the app as simple as possible, so this will not be added.
-* Encryption: there is too little interest in sending/receiving encrypted messages to justifiy putting effort into this.
+* Encryption: there is too little interest in sending/receiving encrypted messages to justify putting effort into this.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
+* Swipe left/right for previous/next message: this kind of navigation is problematic because of the texts being selectable, see [here](https://github.com/M66B/open-source-email/issues/116) for more details.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
