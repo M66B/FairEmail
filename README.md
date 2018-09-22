@@ -13,6 +13,10 @@ This email app might be for you if your current email app:
 * stores your email on their servers
 * is closed source, potentially violating your privacy
 
+This app is minimalistic by design, so you can concentrate on reading and writing messages.
+
+This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
+
 ## Features
 
 * 100 % open source
@@ -58,10 +62,6 @@ This email app might be for you if your current email app:
 * [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
-
-This app is minimalistic by design, so you can concentrate on reading and writing messages.
-
-This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
 ## Downloads
 
