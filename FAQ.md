@@ -124,7 +124,6 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 
 * More themes: the goal is to keep the app as simple as possible, so this will not be added.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justifiy putting effort into this.
-* POP/poll support: besides that any decent provider is supporting / should support IMAP, polling does consume extra battery power and will delay notification of new messages, so this will not be added.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
 
 <a name="FAQ16"></a>
@@ -154,7 +153,7 @@ If the *Synchronize now* menu is dimmed, there is no connection to the account.
 See the previous question for more information.
 
 <a name="FAQ18"></a>
-**(18) When should I enabled 'Store sent messages' ?**
+**(18) When should I enable 'Store sent messages' ?**
 
 The option *Store sent messages* should be enabled only
 when the email server does not store sent messages in the sent folder (it should)
