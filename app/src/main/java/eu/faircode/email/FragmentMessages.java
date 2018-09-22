@@ -205,7 +205,7 @@ public class FragmentMessages extends FragmentEx {
 
                 if (dX > margin) {
                     // Right swipe
-                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24, getContext().getTheme());
+                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24, getContext().getTheme());
                     int padding = (itemView.getHeight() - d.getIntrinsicHeight());
                     d.setBounds(
                             itemView.getLeft() + margin,
@@ -215,7 +215,7 @@ public class FragmentMessages extends FragmentEx {
                     d.draw(canvas);
                 } else if (dX < -margin) {
                     // Left swipe
-                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
+                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_delete_24, getContext().getTheme());
                     int padding = (itemView.getHeight() - d.getIntrinsicHeight());
                     d.setBounds(
                             itemView.getLeft() + itemView.getWidth() - d.getIntrinsicWidth() - margin,

@@ -54,7 +54,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_get_app_24"
+        android:src="@drawable/baseline_cloud_download_24"
         app:layout_constraintEnd_toStartOf="@+id/ivSave"
         app:layout_constraintStart_toEndOf="@id/tvSize"
         app:layout_constraintTop_toTopOf="parent" />

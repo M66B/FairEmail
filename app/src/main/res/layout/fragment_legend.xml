@@ -13,7 +13,7 @@
             android:id="@+id/ivInbox"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/baseline_inbox_24"
+            android:src="@drawable/baseline_move_to_inbox_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -313,7 +313,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_get_app_24"
+            android:src="@drawable/baseline_cloud_download_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSynchronizing" />
 

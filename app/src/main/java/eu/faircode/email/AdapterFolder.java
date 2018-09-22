@@ -108,7 +108,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             else if ("syncing".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
             else if ("downloading".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_get_app_24);
+                ivState.setImageResource(R.drawable.baseline_cloud_download_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(folder.synchronize || folder.state != null ? View.VISIBLE : View.INVISIBLE);

@@ -106,7 +106,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 ivStatus.setVisibility(View.VISIBLE);
             } else {
                 if (attachment.progress == null) {
-                    ivStatus.setImageResource(R.drawable.baseline_get_app_24);
+                    ivStatus.setImageResource(R.drawable.baseline_cloud_download_24);
                     ivStatus.setVisibility(View.VISIBLE);
                 } else
                     ivStatus.setVisibility(View.GONE);
