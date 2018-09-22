@@ -63,6 +63,7 @@
   <string name="title_advanced">Opciones avanzadas</string>
   <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
   <string name="title_advanced_light">Usar luz de notificación</string>
+  <string name="title_advanced_browse">Browse messages on the server</string>
   <string name="title_advanced_debug">Modo de depuración</string>
   <string name="title_select">Seleccione &#8230;</string>
   <string name="title_identity_name">Su nombre</string>
@@ -104,6 +105,7 @@
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
   <string name="title_no_drafts">Falta carpeta de Borradores</string>
+  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
   <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>

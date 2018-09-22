@@ -63,6 +63,7 @@
   <string name="title_advanced">Opzioni avanzate</string>
   <string name="title_advanced_avatars">Mostra foto del contatto</string>
   <string name="title_advanced_light">Usa il led di notifica</string>
+  <string name="title_advanced_browse">Browse messages on the server</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Seleziona &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
@@ -104,6 +105,7 @@
   <string name="title_no_user">Nome utente mancante</string>
   <string name="title_no_password">Password mancante</string>
   <string name="title_no_drafts">Cartella delle bozze mancante</string>
+  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non supportato, vedi le FAQ</string>
   <string name="title_account_delete">Eliminare questo account permanentemente?</string>
   <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>

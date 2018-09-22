@@ -67,6 +67,7 @@
   <string name="title_advanced">Opțiuni avansate</string>
   <string name="title_advanced_avatars">Arată pozele contactelor</string>
   <string name="title_advanced_light">Folosire LED de notificare</string>
+  <string name="title_advanced_browse">Browse messages on the server</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
@@ -108,6 +109,7 @@
   <string name="title_no_user">Lipsește numele de utilizator</string>
   <string name="title_no_password">Lipsește parola</string>
   <string name="title_no_drafts">Lipsește dosarul de ciorne</string>
+  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS nu este suportat, consultați lista de întrebări și răspunsuri</string>
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
   <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>

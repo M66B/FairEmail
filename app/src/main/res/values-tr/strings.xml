@@ -63,6 +63,7 @@
   <string name="title_advanced">Gelişmiş ayarlar</string>
   <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
   <string name="title_advanced_light">Bildirim ışığını kullan</string>
+  <string name="title_advanced_browse">Browse messages on the server</string>
   <string name="title_advanced_debug">Hata ayıklama</string>
   <string name="title_select">Seçin &#8230;</string>
   <string name="title_identity_name">Adınız</string>
@@ -104,6 +105,7 @@
   <string name="title_no_user">Kullanıcı adı eksik</string>
   <string name="title_no_password">Parola Eksik</string>
   <string name="title_no_drafts">Taslaklar klasörü eksik</string>
+  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
   <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
   <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>

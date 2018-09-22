@@ -63,6 +63,7 @@
   <string name="title_advanced">Options avancées</string>
   <string name="title_advanced_avatars">Afficher les photos des contacts</string>
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
+  <string name="title_advanced_browse">Lire le message sur le serveur</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -104,6 +105,7 @@
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Répertoire Brouillons manquant</string>
+  <string name="title_no_idle">Ce fournisseur ne gère pas les messages push. La réception des nouveaux messages peut être retardée.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
   <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
@@ -160,7 +162,7 @@
   <string name="title_moving">Déplacement du message vers %1$s</string>
   <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
   <string name="title_attachment_saved">Pièce jointe enregistrée</string>
-  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
+  <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargés et ne seront pas transférées, continuer ?</string>
   <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
   <string name="title_ask_spam">Signaler le message comme spam ?</string>
   <string name="title_compose">Rédiger</string>
