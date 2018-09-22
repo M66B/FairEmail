@@ -1542,6 +1542,7 @@ public class ServiceSynchronize extends LifecycleService {
                         db.beginTransaction();
                         ids[from + j] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) isub[j], false);
                         db.setTransactionSuccessful();
+                        Thread.sleep(20);
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
@@ -1555,6 +1556,11 @@ public class ServiceSynchronize extends LifecycleService {
                         // Reduce memory usage
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ignored) {
+                }
             }
 
             db.folder().setFolderState(folder.id, "downloading");
@@ -1573,8 +1579,10 @@ public class ServiceSynchronize extends LifecycleService {
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
                         //Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
-                        if (ids[from + j] != null)
+                        if (ids[from + j] != null) {
                             downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
+                            Thread.sleep(20);
+                        }
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (FolderClosedIOException ex) {
@@ -1585,6 +1593,11 @@ public class ServiceSynchronize extends LifecycleService {
                         // Free memory
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ignored) {
+                }
             }
 
         } finally {
