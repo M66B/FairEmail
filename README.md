@@ -27,6 +27,8 @@ This app starts a foreground service with a low priority status bar notification
 * Distraction free reading and writing
 * Two way synchronization
 * Offline storage and operations
+* Battery friendly
+* Low data usage
 * Folder management
 * Material design
 
