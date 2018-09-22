@@ -160,6 +160,7 @@
   <string name="title_moving">Flytter besked til %1$s</string>
   <string name="title_no_viewer">Ingen viewer app til rådighed for %1$s</string>
   <string name="title_attachment_saved">Vedhæftet fil gemt</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Slet meddelelsen permanent?</string>
   <string name="title_ask_spam">Rapportér meddelelse som spam?</string>
   <string name="title_compose">Ny meddelelse</string>

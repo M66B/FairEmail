@@ -160,6 +160,7 @@
   <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
   <string name="title_compose">Verfassen</string>

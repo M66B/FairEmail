@@ -164,6 +164,7 @@
   <string name="title_moving">Mesajul se mută în %1$s</string>
   <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
   <string name="title_attachment_saved">Atașament salvat</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
   <string name="title_ask_spam">Raportați mesajul drept spam?</string>
   <string name="title_compose">Compune</string>

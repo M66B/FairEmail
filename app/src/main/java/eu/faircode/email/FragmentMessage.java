@@ -729,9 +729,40 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onMenuForward() {
-        startActivity(new Intent(getContext(), ActivityCompose.class)
-                .putExtra("action", "forward")
-                .putExtra("reference", message.id));
+        Bundle args = new Bundle();
+        args.putLong("id", message.id);
+
+        new SimpleTask<Boolean>() {
+            @Override
+            protected Boolean onLoad(Context context, Bundle args) {
+                long id = args.getLong("id");
+                List<EntityAttachment> attachments = DB.getInstance(context).attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments)
+                    if (!attachment.available)
+                        return false;
+                return true;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Boolean available) {
+                final Intent forward = new Intent(getContext(), ActivityCompose.class)
+                        .putExtra("action", "forward")
+                        .putExtra("reference", message.id);
+                if (available)
+                    startActivity(forward);
+                else
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_attachment_unavailable)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(forward);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+            }
+        }.load(this, args);
     }
 
     private void onMenuReplyAll() {

@@ -160,6 +160,7 @@
   <string name="title_moving">İleti şuraya taşınıyor %1$s</string>
   <string name="title_no_viewer">%1$s için kullanılabilir hiçbir görüntüleme uygulaması yok</string>
   <string name="title_attachment_saved">Ek kaydedildi</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">İletiyi kalıcı olarak sil?</string>
   <string name="title_ask_spam">İletiyi spam olarak raporla?</string>
   <string name="title_compose">Oluştur</string>

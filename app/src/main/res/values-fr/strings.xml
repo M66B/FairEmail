@@ -160,6 +160,7 @@
   <string name="title_moving">Déplacement du message vers %1$s</string>
   <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
   <string name="title_attachment_saved">Pièce jointe enregistrée</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
   <string name="title_ask_spam">Signaler le message comme spam ?</string>
   <string name="title_compose">Rédiger</string>

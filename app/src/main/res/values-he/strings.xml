@@ -168,6 +168,7 @@
   <string name="title_moving">Moving message to %1$s</string>
   <string name="title_no_viewer">No viewer app available for %1$s</string>
   <string name="title_attachment_saved">Attachment saved</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Delete message permanently?</string>
   <string name="title_ask_spam">Report message as spam?</string>
   <string name="title_compose">Compose</string>

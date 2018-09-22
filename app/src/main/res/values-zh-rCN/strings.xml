@@ -156,6 +156,7 @@
   <string name="title_moving">移动邮件至%1$s</string>
   <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
   <string name="title_attachment_saved">附件已保存</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">确定要永久删除邮件吗？</string>
   <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
   <string name="title_compose">新邮件</string>

@@ -160,6 +160,7 @@
   <string name="title_moving">Moviendo mensaje a %1$s</string>
   <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
   <string name="title_attachment_saved">Adjunto guardado</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
   <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
   <string name="title_compose">Redactar</string>

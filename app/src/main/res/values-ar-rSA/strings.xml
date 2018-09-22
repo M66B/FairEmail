@@ -176,6 +176,7 @@
   <string name="title_moving">نقل الرسالة إلى %1$s</string>
   <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
   <string name="title_attachment_saved">حفظ المرفقات</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>
   <string name="title_ask_spam">رسالة التقرير كالبريد المزعج؟</string>
   <string name="title_compose">إنشاء</string>

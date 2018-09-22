@@ -168,6 +168,7 @@
   <string name="title_moving">Przenoszenie wiadomości do %1$s</string>
   <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
   <string name="title_attachment_saved">Załącznik zapisany</string>
+  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
   <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
   <string name="title_compose">Napisz</string>
