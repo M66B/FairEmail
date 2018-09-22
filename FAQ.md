@@ -125,7 +125,7 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 * More themes: the goal is to keep the app as simple as possible, so this will not be added.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justify putting effort into this.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
-* Swipe left/right for previous/next message: this kind of navigation is problematic because of the texts being selectable, see [here](https://github.com/M66B/open-source-email/issues/116) for more details.
+* Swipe left/right for previous/next message: this would be confusing since sometimes a message and sometimes a message conversation would be shown.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
