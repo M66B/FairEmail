@@ -94,7 +94,7 @@
   <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
   <string name="title_primary_account">Principal (compte par défaut)</string>
   <string name="title_primary_identity">Principal (identité par défaut)</string>
-  <string name="title_poll_interval">Poll interval (minutes)</string>
+  <string name="title_poll_interval">Intervalle de temps (minutes)</string>
   <string name="title_check">Vérifier</string>
   <string name="title_no_name">Nom manquant</string>
   <string name="title_no_email">Adresse e-mail manquante</string>

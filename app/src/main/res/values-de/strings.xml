@@ -94,7 +94,7 @@
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primäres Konto</string>
   <string name="title_primary_identity">Primäre Identität</string>
-  <string name="title_poll_interval">Poll interval (minutes)</string>
+  <string name="title_poll_interval">Abrufinterval (Minuten)</string>
   <string name="title_check">Prüfen</string>
   <string name="title_no_name">Name fehlt</string>
   <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -116,9 +116,9 @@
   <string name="title_empty_trash_ask">Alle ausgewählten Dateien dauerhaft löschen?</string>
   <string name="title_folder_name">Ordnername</string>
   <string name="title_display_name">Name</string>
-  <string name="title_hide_folder">Hide from list</string>
-  <string name="title_hide_folders">Hide hidden folders</string>
-  <string name="title_show_folders">Show hidden folders</string>
+  <string name="title_hide_folder">Ordner ausblenden</string>
+  <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
+  <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
   <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
@@ -157,7 +157,7 @@
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
   <string name="title_reply">Antworten</string>
-  <string name="title_moving">Verschiebe Nachrichten nach %1$s</string>
+  <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
@@ -186,7 +186,7 @@
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
-  <string name="title_search_hint">Search on server</string>
+  <string name="title_search_hint">Auf Server suchen</string>
   <string name="title_searching">Suche „%1$s“</string>
   <string name="title_sort_on">Sortieren nach</string>
   <string name="title_sort_on_time">Uhrzeit</string>
