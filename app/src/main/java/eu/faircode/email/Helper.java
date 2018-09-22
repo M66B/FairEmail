@@ -329,7 +329,7 @@ public class Helper {
     }
 
     static boolean isPro(Context context) {
-        if (true && BuildConfig.DEBUG)
+        if (false && BuildConfig.DEBUG)
             return true;
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }

@@ -101,10 +101,9 @@ public class FragmentSetup extends FragmentEx {
     };
 
     static final List<String> EXPORT_SETTINGS = Arrays.asList(
-            "compress",
             "avatars",
             "light",
-            "theme"
+            "sort"
     );
 
     @Override
@@ -221,6 +220,7 @@ public class FragmentSetup extends FragmentEx {
                         prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                     }
                 } else {
+                    prefs.edit().putString("theme", "light").apply();
                     if (checked) {
                         tbDarkTheme.setChecked(false);
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
