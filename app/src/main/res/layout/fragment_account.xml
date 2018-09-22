@@ -372,6 +372,18 @@
             app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
         <TextView
+            android:id="@+id/tvIdle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="100dp"
+            android:text="@string/title_no_idle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCheck" />
+
+        <TextView
             android:id="@+id/tvDrafts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -389,7 +401,7 @@
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvDrafts"
-            app:layout_constraintTop_toBottomOf="@id/btnCheck" />
+            app:layout_constraintTop_toBottomOf="@id/tvIdle" />
 
         <TextView
             android:id="@+id/tvSent"

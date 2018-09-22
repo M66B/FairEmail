@@ -117,6 +117,8 @@ public class FragmentAccount extends FragmentEx {
 
     private ProgressBar pbCheck;
 
+    private TextView tvIdle;
+
     private ArrayAdapter<EntityFolder> adapter;
     private Spinner spDrafts;
     private Spinner spSent;
@@ -183,6 +185,8 @@ public class FragmentAccount extends FragmentEx {
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
 
+        tvIdle = view.findViewById(R.id.tvIdle);
+
         spDrafts = view.findViewById(R.id.spDrafts);
         spSent = view.findViewById(R.id.spSent);
         spAll = view.findViewById(R.id.spAll);
@@ -217,6 +221,7 @@ public class FragmentAccount extends FragmentEx {
                     grpAdvanced.setVisibility(View.GONE);
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                tvIdle.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
 
@@ -385,6 +390,7 @@ public class FragmentAccount extends FragmentEx {
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
+                tvIdle.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
 
@@ -398,9 +404,9 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
-                new SimpleTask<List<EntityFolder>>() {
+                new SimpleTask<CheckResult>() {
                     @Override
-                    protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
+                    protected CheckResult onLoad(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         String host = args.getString("host");
                         String port = args.getString("port");
@@ -417,8 +423,10 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
 
+                        CheckResult result = new CheckResult();
+                        result.folders = new ArrayList<>();
+
                         // Check IMAP server / get folders
-                        List<EntityFolder> folders = new ArrayList<>();
                         Properties props = MessageHelper.getSessionProperties(auth_type);
                         Session isession = Session.getInstance(props, null);
                         isession.setDebug(true);
@@ -437,6 +445,8 @@ public class FragmentAccount extends FragmentEx {
 
                             if (!istore.hasCapability("UIDPLUS"))
                                 throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
+
+                            result.idle = istore.hasCapability("IDLE");
 
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                                 String type = null;
@@ -478,7 +488,7 @@ public class FragmentAccount extends FragmentEx {
                                         folder.synchronize = (type != null && EntityFolder.SYSTEM_FOLDER_SYNC.contains(type));
                                         folder.after = (type == null ? EntityFolder.DEFAULT_USER_SYNC : EntityFolder.DEFAULT_SYSTEM_SYNC);
                                     }
-                                    folders.add(folder);
+                                    result.folders.add(folder);
 
                                     Log.i(Helper.TAG, folder.name + " id=" + folder.id +
                                             " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
@@ -490,17 +500,19 @@ public class FragmentAccount extends FragmentEx {
                                 istore.close();
                         }
 
-                        return folders;
+                        return result;
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, List<EntityFolder> folders) {
+                    protected void onLoaded(Bundle args, CheckResult result) {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
 
-                        setFolders(folders);
+                        tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
+
+                        setFolders(result.folders);
 
                         new Handler().post(new Runnable() {
                             @Override
@@ -809,6 +821,8 @@ public class FragmentAccount extends FragmentEx {
 
         btnAdvanced.setVisibility(View.GONE);
 
+        tvIdle.setVisibility(View.GONE);
+
         btnCheck.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
 
@@ -1075,5 +1089,10 @@ public class FragmentAccount extends FragmentEx {
 
         grpFolders.setVisibility(View.VISIBLE);
         btnSave.setVisibility(View.VISIBLE);
+    }
+
+    private class CheckResult {
+        List<EntityFolder> folders;
+        boolean idle;
     }
 }
