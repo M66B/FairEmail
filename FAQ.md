@@ -209,6 +209,17 @@ Possible causes are:
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
+<a name="FAQ23"></a>
+**(23) Why do I get 'Too many simultaneous connections' ?**
+
+The message *Too many simultaneous connections* is sent by the email server when there are too many connections to the same email account at the same time.
+
+Possible causes are:
+
+* There are multiple email clients connected to the same account
+* The same email client is connected multiple times to the same account
+* The previous connection was terminated abruptly for example by losing internet connectivity
+
 <br>
 
 If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
