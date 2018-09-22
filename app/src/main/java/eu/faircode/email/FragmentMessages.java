@@ -683,7 +683,11 @@ public class FragmentMessages extends FragmentEx {
                                     @Override
                                     public void onError(Context context, Throwable ex) {
                                         pbWait.setVisibility(View.GONE);
-                                        Helper.unexpectedError(context, ex);
+                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                                .setMessage(Helper.formatThrowable(ex))
+                                                .setPositiveButton(android.R.string.cancel, null)
+                                                .create()
+                                                .show();
                                     }
                                 });
 
@@ -725,7 +729,11 @@ public class FragmentMessages extends FragmentEx {
                             @Override
                             public void onError(Context context, Throwable ex) {
                                 pbWait.setVisibility(View.GONE);
-                                Helper.unexpectedError(context, ex);
+                                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                        .setMessage(Helper.formatThrowable(ex))
+                                        .setPositiveButton(android.R.string.cancel, null)
+                                        .create()
+                                        .show();
                             }
                         });
 
