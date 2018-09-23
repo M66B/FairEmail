@@ -743,12 +743,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 try {
                     db.beginTransaction();
 
-                    if (!message.content)
-                        EntityOperation.queue(db, message, EntityOperation.BODY);
+                    if (!EntityFolder.OUTBOX.equals(message.folderType)) {
+                        if (!message.content)
+                            EntityOperation.queue(db, message, EntityOperation.BODY);
 
-                    if (!message.threaded) {
-                        db.message().setMessageUiSeen(message.id, true);
-                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                        if (!message.threaded) {
+                            db.message().setMessageUiSeen(message.id, true);
+                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                        }
                     }
 
                     db.setTransactionSuccessful();

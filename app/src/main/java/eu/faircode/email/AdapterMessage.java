@@ -263,8 +263,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             final TupleMessageEx message = getItem(pos);
 
             PopupMenu popupMenu = new PopupMenu(context, itemView);
-            popupMenu.getMenu().add(Menu.NONE, action_flag, 1, message.ui_flagged ? R.string.title_unflag : R.string.title_flag);
-            popupMenu.getMenu().add(Menu.NONE, action_seen, 2, message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+            if (!EntityFolder.OUTBOX.equals(message.folderType)) {
+                popupMenu.getMenu().add(Menu.NONE, action_flag, 1, message.ui_flagged ? R.string.title_unflag : R.string.title_flag);
+                popupMenu.getMenu().add(Menu.NONE, action_seen, 2, message.ui_seen ? R.string.title_unseen : R.string.title_seen);
+            }
             if (EntityFolder.TRASH.equals(message.folderType))
                 popupMenu.getMenu().add(Menu.NONE, action_delete, 3, R.string.title_delete);
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -355,7 +357,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 }
             });
 
-            popupMenu.show();
+            if (popupMenu.getMenu().hasVisibleItems())
+                popupMenu.show();
 
             return true;
         }

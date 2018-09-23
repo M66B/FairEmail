@@ -667,7 +667,7 @@ public class FragmentMessages extends FragmentEx {
                 case FOLDER:
                     if (searchCallback == null)
                         searchCallback = new BoundaryCallbackMessages(
-                                getContext(), FragmentMessages.this,
+                                getContext(), this,
                                 folder, null, REMOTE_PAGE_SIZE,
                                 new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                     @Override
@@ -682,7 +682,6 @@ public class FragmentMessages extends FragmentEx {
 
                                     @Override
                                     public void onError(Context context, Throwable ex) {
-                                        pbWait.setVisibility(View.GONE);
                                         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                                 .setMessage(Helper.formatThrowable(ex))
                                                 .setPositiveButton(android.R.string.cancel, null)
@@ -710,7 +709,7 @@ public class FragmentMessages extends FragmentEx {
         } else {
             if (searchCallback == null)
                 searchCallback = new BoundaryCallbackMessages(
-                        getContext(), FragmentMessages.this,
+                        getContext(), this,
                         folder, search, REMOTE_PAGE_SIZE,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
@@ -728,7 +727,6 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             public void onError(Context context, Throwable ex) {
-                                pbWait.setVisibility(View.GONE);
                                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                         .setMessage(Helper.formatThrowable(ex))
                                         .setPositiveButton(android.R.string.cancel, null)

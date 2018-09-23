@@ -32,5 +32,7 @@ public class DialogBuilderLifecycle extends AlertDialog.Builder implements Lifec
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         dialog.dismiss();
+        owner = null;
+        dialog = null;
     }
 }

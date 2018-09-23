@@ -55,7 +55,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private long fid;
     private String search;
     private int pageSize;
-    private Handler mainHandler;
+    private Handler handler;
     private IBoundaryCallbackMessages intf;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
@@ -65,6 +65,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int index;
     private boolean searching = false;
     private int loaded = 0;
+    private boolean destroyed = false;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -79,13 +80,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.fid = folder;
         this.search = search;
         this.pageSize = pageSize;
-        this.mainHandler = new Handler(_context.getMainLooper());
+        this.handler = new Handler();
         this.intf = intf;
 
         owner.getLifecycle().addObserver(new GenericLifecycleObserver() {
             @Override
             public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
-                if (event == Lifecycle.Event.ON_DESTROY)
+                if (event == Lifecycle.Event.ON_DESTROY) {
+                    destroyed = true;
                     executor.submit(new Runnable() {
                         @Override
                         public void run() {
@@ -104,6 +106,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         }
                     });
+                }
             }
         });
     }
@@ -134,16 +137,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             public void run() {
                 try {
                     searching = true;
-
-                    mainHandler.post(new Runnable() {
+                    handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            intf.onLoading();
+                            if (!destroyed)
+                                intf.onLoading();
                         }
                     });
 
                     DB db = DB.getInstance(context);
                     EntityFolder folder = db.folder().getFolder(fid);
+                    if (folder.account == null) // outbox
+                        return;
                     EntityAccount account = db.account().getAccount(folder.account);
 
                     if (imessages == null) {
@@ -221,24 +226,25 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     }
 
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoaded();
-                        }
-                    });
-
                     Log.i(Helper.TAG, "Boundary done");
                 } catch (final Throwable ex) {
                     Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                    mainHandler.post(new Runnable() {
+                    handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            intf.onError(context, ex);
+                            if (!destroyed)
+                                intf.onError(context, ex);
                         }
                     });
                 } finally {
                     searching = false;
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (!destroyed)
+                                intf.onLoaded();
+                        }
+                    });
                 }
             }
         });
