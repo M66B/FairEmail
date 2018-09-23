@@ -75,9 +75,9 @@ If this doesn't happen, your provider might not keep track of sent messages or y
 In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
 
 <a name="FAQ8"></a>
-**(8) Can I use a Microsoft exchange account?**
+**(8) Can I use a Microsoft Exchange account?**
 
-If you can use a Microsoft exchange account depends on if the exchange account is accessible via IMAP.
+You can use a Microsoft Exchange account if it is accessible via IMAP.
 ActiveSync is not supported at this moment.
 See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
 
@@ -220,6 +220,13 @@ Possible causes are:
 * There are multiple email clients connected to the same account
 * The same email client is connected multiple times to the same account
 * The previous connection was terminated abruptly for example by losing internet connectivity
+
+<a name="FAQ24"></a>
+**(24) What is browse messages on the server?**
+
+Browse messages on the server will fetch messages from the email server in real time
+when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
+You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
 
 <br>
 
