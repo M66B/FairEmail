@@ -42,8 +42,10 @@
   <string name="title_edit_identity">Identität bearbeiten</string>
   <string name="title_edit_folder">Ordner bearbeiten</string>
   <string name="title_setup">Einstellungen</string>
-  <string name="title_setup_export">Einstellungen exportieren (keine Passwörter)</string>
+  <string name="title_setup_export">Export settings</string>
   <string name="title_setup_import">Einstellungen importieren</string>
+  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
+  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
   <string name="title_setup_exported">Einstellungen exportiert</string>
   <string name="title_setup_imported">Einstellungen importiert</string>
   <string name="title_setup_account">Konten verwalten</string>
@@ -63,7 +65,7 @@
   <string name="title_advanced">Erweiterte Optionen</string>
   <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
-  <string name="title_advanced_browse">Browse messages on the server</string>
+  <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -105,7 +107,7 @@
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
   <string name="title_no_drafts">Entwurfsordner fehlt</string>
-  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
+  <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Der Empfang von neuen Nachrichten kann sich verzögern.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
@@ -162,7 +164,7 @@
   <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
-  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
+  <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
   <string name="title_compose">Verfassen</string>

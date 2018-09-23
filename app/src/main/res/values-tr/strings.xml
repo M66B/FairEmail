@@ -42,8 +42,10 @@
   <string name="title_edit_identity">Kimliği düzenle</string>
   <string name="title_edit_folder">Klasörü düzenle</string>
   <string name="title_setup">Kurulum</string>
-  <string name="title_setup_export">Export settings (no passwords)</string>
+  <string name="title_setup_export">Export settings</string>
   <string name="title_setup_import">Ayarları İçe Aktar</string>
+  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
+  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
   <string name="title_setup_exported">Ayarları dışa aktarıldı</string>
   <string name="title_setup_imported">Ayarları içe aktarıldı</string>
   <string name="title_setup_account">Hesapları Yönet</string>

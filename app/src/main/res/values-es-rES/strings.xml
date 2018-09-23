@@ -42,8 +42,10 @@
   <string name="title_edit_identity">Editar identidad</string>
   <string name="title_edit_folder">Editar carpeta</string>
   <string name="title_setup">Configuración</string>
-  <string name="title_setup_export">Exportar ajustes (no contraseñas)</string>
+  <string name="title_setup_export">Export settings</string>
   <string name="title_setup_import">Importar ajustes</string>
+  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
+  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
   <string name="title_setup_exported">Ajustes exportados</string>
   <string name="title_setup_imported">Ajustes importados</string>
   <string name="title_setup_account">Gestionar cuentas</string>

@@ -46,8 +46,10 @@
   <string name="title_edit_identity">Editare identitate</string>
   <string name="title_edit_folder">Editare dosar</string>
   <string name="title_setup">Setări</string>
-  <string name="title_setup_export">Export settings (no passwords)</string>
+  <string name="title_setup_export">Export settings</string>
   <string name="title_setup_import">Importă setări</string>
+  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
+  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
   <string name="title_setup_exported">Setări exportate</string>
   <string name="title_setup_imported">Setări importate</string>
   <string name="title_setup_account">Gestionarea conturilor</string>
