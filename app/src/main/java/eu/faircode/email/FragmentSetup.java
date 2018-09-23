@@ -369,17 +369,11 @@ public class FragmentSetup extends FragmentEx {
                 return true;
 
             case R.id.menu_export:
-                if (Helper.isPro(getContext()))
-                    startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
-                else {
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                    fragmentTransaction.commit();
-                }
+                onMenuExport();
                 return true;
 
             case R.id.menu_import:
-                startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+                onMenuImport();
                 return true;
 
             case R.id.menu_privacy:
@@ -431,6 +425,46 @@ public class FragmentSetup extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentLegend()).addToBackStack("legend");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuExport() {
+        if (Helper.isPro(getContext()))
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setMessage(R.string.title_setup_export_do)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
+                            } catch (Throwable ex) {
+                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                        }
+                    })
+                    .create()
+                    .show();
+        else {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+        }
+    }
+
+    private void onMenuImport() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_setup_import_do)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+                    }
+                })
+                .create()
+                .show();
     }
 
     private void onMenuAbout() {
