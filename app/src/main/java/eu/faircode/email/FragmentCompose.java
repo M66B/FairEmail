@@ -1181,11 +1181,15 @@ public class FragmentCompose extends FragmentEx {
                     draft.write(context, body);
 
                     // Check data
-                    if (draft.identity == null)
+                    if (draft.identity == null) {
+                        db.setTransactionSuccessful();
                         throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+                    }
 
-                    if (draft.to == null && draft.cc == null && draft.bcc == null)
+                    if (draft.to == null && draft.cc == null && draft.bcc == null) {
+                        db.setTransactionSuccessful();
                         throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
+                    }
 
                     // Save message ID
                     String msgid = draft.msgid;
@@ -1193,8 +1197,10 @@ public class FragmentCompose extends FragmentEx {
                     // Save attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
-                        if (!attachment.available)
+                        if (!attachment.available) {
+                            db.setTransactionSuccessful();
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+                        }
 
                     // Delete draft (cannot move to outbox)
                     draft.msgid = null;

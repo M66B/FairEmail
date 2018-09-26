@@ -192,7 +192,7 @@ public interface DaoMessage {
     long insertMessage(EntityMessage message);
 
     @Update
-    void updateMessage(EntityMessage message);
+    int updateMessage(EntityMessage message);
 
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, Long uid);
