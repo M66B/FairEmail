@@ -514,21 +514,22 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void handleExit() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_ask_delete)
-                .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onAction(R.id.action_delete);
-                    }
-                })
-                .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .show();
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setMessage(R.string.title_ask_delete)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onAction(R.id.action_delete);
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
     }
 
     private void handlePickContact(int requestCode, Intent data) {
