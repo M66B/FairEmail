@@ -65,7 +65,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int index;
     private boolean searching = false;
     private int loaded = 0;
-    private boolean destroyed = false;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -87,7 +86,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             @Override
             public void onStateChanged(LifecycleOwner source, Lifecycle.Event event) {
                 if (event == Lifecycle.Event.ON_DESTROY) {
-                    destroyed = true;
                     executor.submit(new Runnable() {
                         @Override
                         public void run() {
@@ -140,8 +138,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (!destroyed)
-                                intf.onLoading();
+                            intf.onLoading();
                         }
                     });
 
@@ -232,8 +229,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (!destroyed)
-                                intf.onError(context, ex);
+                            intf.onError(context, ex);
                         }
                     });
                 } finally {
@@ -241,8 +237,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (!destroyed)
-                                intf.onLoaded();
+                            intf.onLoaded();
                         }
                     });
                 }

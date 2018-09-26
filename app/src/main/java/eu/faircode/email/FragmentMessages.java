@@ -52,6 +52,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.paging.LivePagedListBuilder;
@@ -682,11 +683,12 @@ public class FragmentMessages extends FragmentEx {
 
                                     @Override
                                     public void onError(Context context, Throwable ex) {
-                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                                .setMessage(Helper.formatThrowable(ex))
-                                                .setPositiveButton(android.R.string.cancel, null)
-                                                .create()
-                                                .show();
+                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                                    .setMessage(Helper.formatThrowable(ex))
+                                                    .setPositiveButton(android.R.string.cancel, null)
+                                                    .create()
+                                                    .show();
                                     }
                                 });
 
@@ -727,11 +729,12 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             public void onError(Context context, Throwable ex) {
-                                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                        .setMessage(Helper.formatThrowable(ex))
-                                        .setPositiveButton(android.R.string.cancel, null)
-                                        .create()
-                                        .show();
+                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                            .setMessage(Helper.formatThrowable(ex))
+                                            .setPositiveButton(android.R.string.cancel, null)
+                                            .create()
+                                            .show();
                             }
                         });
 
