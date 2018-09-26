@@ -1,8 +1,7 @@
 # FairEmail
 
-If you have a feature request or found a bug, you can request or report it [as an issue](https://github.com/M66B/open-source-email/issues).
-
-If you have a question, please check the frequently asked questions below first. At the bottom you can find how to ask other questions.
+If you have a question, please check the frequently asked questions below first.
+At the bottom you can find how to ask other questions, request features and report bugs.
 
 ## Frequently Asked Questions
 
@@ -230,5 +229,5 @@ You can disable this feature under *Setup* > *Advanced options* > *Browse messag
 
 <br>
 
-If you have another question, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
+If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 Registration is free.
