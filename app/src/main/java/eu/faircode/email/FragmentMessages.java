@@ -380,7 +380,7 @@ public class FragmentMessages extends FragmentEx {
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        fab.setVisibility(View.GONE);
+        fab.hide();
 
         return view;
     }
@@ -494,7 +494,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onLoaded(Bundle args, Long account) {
                 if (account != null) {
                     fab.setTag(account);
-                    fab.setVisibility(View.VISIBLE);
+                    fab.show();
                 }
             }
 

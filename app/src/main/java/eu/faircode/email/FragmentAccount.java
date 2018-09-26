@@ -34,7 +34,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -339,7 +338,7 @@ public class FragmentAccount extends FragmentEx {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("pro", false)) {
+                if (Helper.isPro(getContext())) {
                     int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
                     ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
                     colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);

@@ -127,7 +127,7 @@ public interface DaoFolder {
             ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", unified = :unified" +
-            ", after = :after" +
+            ", `after` = :after" +
             " WHERE id = :id")
     int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int after);
 

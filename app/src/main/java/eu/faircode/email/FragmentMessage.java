@@ -353,7 +353,7 @@ public class FragmentMessage extends FragmentEx {
 
                 grpHeader.setVisibility(View.GONE);
                 vSeparatorBody.setVisibility(View.GONE);
-                fab.setVisibility(View.GONE);
+                fab.hide();
 
                 grpThread.setVisibility(View.GONE);
                 grpAddresses.setVisibility(View.GONE);
@@ -373,7 +373,7 @@ public class FragmentMessage extends FragmentEx {
 
                     grpHeader.setVisibility(View.VISIBLE);
                     vSeparatorBody.setVisibility(View.VISIBLE);
-                    fab.setVisibility(View.VISIBLE);
+                    fab.show();
 
                     RecyclerView.Adapter adapter = rvAttachment.getAdapter();
 
@@ -425,7 +425,7 @@ public class FragmentMessage extends FragmentEx {
         bottom_navigation.setVisibility(View.GONE);
         grpThread.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
-        fab.setVisibility(View.GONE);
+        fab.hide();
         pbWait.setVisibility(View.VISIBLE);
 
         rvAttachment.setHasFixedSize(false);
@@ -1241,7 +1241,10 @@ public class FragmentMessage extends FragmentEx {
             tvBody.setText(body);
             btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
             grpMessage.setVisibility(View.VISIBLE);
-            fab.setVisibility(free ? View.GONE : View.VISIBLE);
+            if (free)
+                fab.hide();
+            else
+                fab.show();
             pbBody.setVisibility(View.GONE);
         }
     };

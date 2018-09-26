@@ -17,6 +17,10 @@ android {
         }
     }
 
+    lintOptions {
+        disable 'MissingTranslation'
+    }
+
     buildTypes {
         release {
             debuggable = false
