@@ -855,7 +855,7 @@ public class FragmentCompose extends FragmentEx {
                         body = body.replaceAll("\\r?\\n", "<br />");
 
                     if (pro && !TextUtils.isEmpty(account.signature))
-                        body = "<br />" + account.signature + body;
+                        body += account.signature;
 
                 } else {
                     draft.thread = ref.thread;
@@ -889,35 +889,37 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
-                        String text = "";
-                        if (answer > 0) {
-                            text = db.answer().getAnswer(answer).text;
-
-                            String name = null;
-                            String email = null;
-                            if (draft.to != null && draft.to.length > 0) {
-                                name = ((InternetAddress) draft.to[0]).getPersonal();
-                                email = ((InternetAddress) draft.to[0]).getAddress();
-                            }
-                            text = text.replace("$name$", name == null ? "" : name);
-                            text = text.replace("$email$", email == null ? "" : email);
-                        }
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                        body = String.format("%s<br><br>%s %s:<br><br><blockquote>%s</blockquote>",
-                                text.replaceAll("\\r?\\n", "<br />"),
+                        body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
-                        body = String.format("<br><br>%s %s:<br><br><blockquote>%s</blockquote>",
+                        body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date().toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     }
 
                     if (pro && !TextUtils.isEmpty(account.signature))
-                        body = "<br />" + account.signature + body;
+                        body = account.signature + body;
+
+                    if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
+                        String text = db.answer().getAnswer(answer).text;
+
+                        String name = null;
+                        String email = null;
+                        if (draft.to != null && draft.to.length > 0) {
+                            name = ((InternetAddress) draft.to[0]).getPersonal();
+                            email = ((InternetAddress) draft.to[0]).getAddress();
+                        }
+                        text = text.replace("$name$", name == null ? "" : name);
+                        text = text.replace("$email$", email == null ? "" : email);
+
+                        body = text + body;
+                    } else
+                        body = "<br><br>" + body;
                 }
 
                 draft.content = true;
