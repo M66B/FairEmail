@@ -25,6 +25,8 @@ import android.util.Base64;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
+import org.jsoup.Jsoup;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -181,14 +183,26 @@ public class MessageHelper {
 
         // TODO: plain message?
 
-        if (attachments.size() == 0)
-            imessage.setText(message.read(context), Charset.defaultCharset().name(), "html");
-        else {
-            Multipart multipart = new MimeMultipart();
+        String body = message.read(context);
 
-            BodyPart bpMessage = new MimeBodyPart();
-            bpMessage.setContent(message.read(context), "text/html; charset=" + Charset.defaultCharset().name());
-            multipart.addBodyPart(bpMessage);
+        BodyPart plain = new MimeBodyPart();
+        plain.setContent(Jsoup.parse(body).text(), "text/plain; charset=" + Charset.defaultCharset().name());
+
+        BodyPart html = new MimeBodyPart();
+        html.setContent(body, "text/html; charset=" + Charset.defaultCharset().name());
+
+        Multipart alternative = new MimeMultipart("alternative");
+        alternative.addBodyPart(plain);
+        alternative.addBodyPart(html);
+
+        if (attachments.size() == 0) {
+            imessage.setContent(alternative);
+        } else {
+            Multipart multipart = new MimeMultipart("mixed");
+
+            BodyPart bp = new MimeBodyPart();
+            bp.setContent(alternative);
+            multipart.addBodyPart(bp);
 
             for (final EntityAttachment attachment : attachments)
                 if (attachment.available) {
