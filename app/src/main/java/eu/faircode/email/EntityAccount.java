@@ -90,7 +90,7 @@ public class EntityAccount {
         json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
-        json.put("synchronize", synchronize);
+        json.put("synchronize", false);
         if (color != null)
             json.put("color", color);
         json.put("poll_interval", poll_interval);

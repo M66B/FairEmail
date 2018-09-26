@@ -84,7 +84,7 @@ public class EntityIdentity {
         json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
-        json.put("synchronize", synchronize);
+        json.put("synchronize", false);
         json.put("store_sent", store_sent);
         return json;
     }
