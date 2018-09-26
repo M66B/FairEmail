@@ -21,6 +21,7 @@
     <item quantity="one">%1$d message non envoyé</item>
     <item quantity="other">%1$d messages non envoyés</item>
   </plurals>
+  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
   <string name="menu_answers">Réponses standard</string>
@@ -42,10 +43,10 @@
   <string name="title_edit_identity">Modifier l’identité</string>
   <string name="title_edit_folder">Modifier le dossier</string>
   <string name="title_setup">Configuration</string>
-  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_export">Exporter les paramètres</string>
   <string name="title_setup_import">Importer les paramètres</string>
-  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
-  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+  <string name="title_setup_export_do">Les comptes et identités seront exportés sans les mots de passe</string>
+  <string name="title_setup_import_do">Les comptes importés seront ajoutés, pas remplacés</string>
   <string name="title_setup_exported">Paramètres exportés</string>
   <string name="title_setup_imported">Paramètres importés</string>
   <string name="title_setup_account">Gérer les comptes</string>
@@ -65,7 +66,7 @@
   <string name="title_advanced">Options avancées</string>
   <string name="title_advanced_avatars">Afficher les photos des contacts</string>
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
-  <string name="title_advanced_browse">Lire le message sur le serveur</string>
+  <string name="title_advanced_browse">Lire les messages sur le serveur</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>

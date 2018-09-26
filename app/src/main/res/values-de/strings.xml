@@ -21,6 +21,7 @@
     <item quantity="one">%1$d nicht gesendete Nachrichten</item>
     <item quantity="other">%1$d nicht gesendete Nachrichten</item>
   </plurals>
+  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
   <string name="menu_answers">Standardantworten</string>
@@ -42,10 +43,10 @@
   <string name="title_edit_identity">Identität bearbeiten</string>
   <string name="title_edit_folder">Ordner bearbeiten</string>
   <string name="title_setup">Einstellungen</string>
-  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_export">Einstellungen exportieren</string>
   <string name="title_setup_import">Einstellungen importieren</string>
-  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
-  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+  <string name="title_setup_export_do">Konten und Identitäten werden ohne Passwörter exportiert</string>
+  <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, nicht überschrieben</string>
   <string name="title_setup_exported">Einstellungen exportiert</string>
   <string name="title_setup_imported">Einstellungen importiert</string>
   <string name="title_setup_account">Konten verwalten</string>

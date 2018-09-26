@@ -21,6 +21,7 @@
     <item quantity="one">%1$d ikke sendt meddelelse</item>
     <item quantity="other">%1$d ikke sendte meddelelser</item>
   </plurals>
+  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
   <string name="menu_setup">Opsætning</string>
   <string name="menu_answers">Standard svar</string>

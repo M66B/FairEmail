@@ -21,12 +21,13 @@
     <item quantity="one">%1$d mensaje no enviado</item>
     <item quantity="other">%1$d mensajes no enviados</item>
   </plurals>
+  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' falló</string>
   <string name="menu_setup">Configuración</string>
   <string name="menu_answers">Respuestas estándar</string>
   <string name="menu_operations">Operaciones</string>
-  <string name="menu_legend">Leyenda</string>
-  <string name="menu_faq">Preguntas Frecuentes/Soporte</string>
+  <string name="menu_legend">Referencia</string>
+  <string name="menu_faq">Preguntas Frecuentes</string>
   <string name="menu_pro">Características Pro</string>
   <string name="menu_privacy">Privacidad</string>
   <string name="menu_about">Acerca de</string>
@@ -42,10 +43,10 @@
   <string name="title_edit_identity">Editar identidad</string>
   <string name="title_edit_folder">Editar carpeta</string>
   <string name="title_setup">Configuración</string>
-  <string name="title_setup_export">Export settings</string>
+  <string name="title_setup_export">Exportar ajustes</string>
   <string name="title_setup_import">Importar ajustes</string>
-  <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
-  <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+  <string name="title_setup_export_do">Las Cuentas e Identidades serán exportados sin contraseñas</string>
+  <string name="title_setup_import_do">Las Cuentas importadas serán agregadas, no sobreescritas</string>
   <string name="title_setup_exported">Ajustes exportados</string>
   <string name="title_setup_imported">Ajustes importados</string>
   <string name="title_setup_account">Gestionar cuentas</string>
@@ -65,7 +66,7 @@
   <string name="title_advanced">Opciones avanzadas</string>
   <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
   <string name="title_advanced_light">Usar luz de notificación</string>
-  <string name="title_advanced_browse">Browse messages on the server</string>
+  <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
   <string name="title_advanced_debug">Modo de depuración</string>
   <string name="title_select">Seleccione &#8230;</string>
   <string name="title_identity_name">Su nombre</string>
@@ -107,7 +108,7 @@
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
   <string name="title_no_drafts">Falta carpeta de Borradores</string>
-  <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
+  <string name="title_no_idle">Este proveedor no soporta mensajes Push. La recepción de nuevos mensajes puede ser retrasada.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
   <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
@@ -164,7 +165,7 @@
   <string name="title_moving">Moviendo mensaje a %1$s</string>
   <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
   <string name="title_attachment_saved">Adjunto guardado</string>
-  <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
+  <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
   <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
   <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
   <string name="title_compose">Redactar</string>
@@ -218,7 +219,7 @@
   <string name="title_legend_downloading">Descargando</string>
   <string name="title_legend_closing">Cerrando</string>
   <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
-  <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes/Soporte para obtener ayuda</string>
+  <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes para obtener ayuda</string>
   <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; a la derecha para archivar (si está disponible); deje presionado para marcar como leído/no leído o para marcar/desmarcar como destacado</string>
   <string name="title_hint_sync">Descargar mensajes puede tomar cierto tiempo, dependiendo del número de mensajes, la velocidad de su conexión a internet y su proveedor de correo electrónico</string>
   <string name="title_open_link">Abrir enlace</string>

@@ -21,6 +21,7 @@
     <item quantity="one">%1$d gönderilmemiş ileti</item>
     <item quantity="other">%1$d gönderilmemiş ileti</item>
   </plurals>
+  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
   <string name="menu_setup">Kurulum</string>
   <string name="menu_answers">Standart cevaplar</string>
