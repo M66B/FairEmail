@@ -21,13 +21,13 @@
     <item quantity="one">%1$d message non envoyé</item>
     <item quantity="other">%1$d messages non envoyés</item>
   </plurals>
-  <string name="title_notification_why">Why?</string>
+  <string name="title_notification_why">Pourquoi ?</string>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
   <string name="menu_answers">Réponses standard</string>
   <string name="menu_operations">Opérations</string>
   <string name="menu_legend">Légende</string>
-  <string name="menu_faq">FAQ/Aide</string>
+  <string name="menu_faq">FAQ / Aide</string>
   <string name="menu_pro">Fonctionnalités Pro</string>
   <string name="menu_privacy">Confidentialité</string>
   <string name="menu_about">À propos</string>

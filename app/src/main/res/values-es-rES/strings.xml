@@ -21,7 +21,7 @@
     <item quantity="one">%1$d mensaje no enviado</item>
     <item quantity="other">%1$d mensajes no enviados</item>
   </plurals>
-  <string name="title_notification_why">Why?</string>
+  <string name="title_notification_why">¿Por qué?</string>
   <string name="title_notification_failed">\'%1$s\' falló</string>
   <string name="menu_setup">Configuración</string>
   <string name="menu_answers">Respuestas estándar</string>
@@ -125,11 +125,11 @@
   <string name="title_hide_folders">Ocultar carpetas ocultas</string>
   <string name="title_show_folders">Mostrar carpetas ocultas</string>
   <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
-  <string name="title_unified_folder">Mostrar en Bandeja de Entrada unificada</string>
+  <string name="title_unified_folder">Mostrar en Bandeja de Entrada Unificada</string>
   <string name="title_after">Sincronizar (días)</string>
   <string name="title_folder_exists">La carpeta %1$s ya existe</string>
   <string name="title_folder_delete">¿Eliminar carpeta permanentemente?</string>
-  <string name="title_folder_unified">Bandeja de Entrada unificada</string>
+  <string name="title_folder_unified">Bandeja de Entrada Unificada</string>
   <string name="title_folder_inbox">Bandeja de Entrada</string>
   <string name="title_folder_outbox">Bandeja de Salida</string>
   <string name="title_folder_all">Archivo</string>
