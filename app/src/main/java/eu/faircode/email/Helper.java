@@ -23,6 +23,8 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -326,6 +328,30 @@ public class Helper {
             default:
                 return Integer.toString(responseCode);
         }
+    }
+
+    public static String getFingerprint(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            String pkg = context.getPackageName();
+            PackageInfo info = pm.getPackageInfo(pkg, PackageManager.GET_SIGNATURES);
+            byte[] cert = info.signatures[0].toByteArray();
+            MessageDigest digest = MessageDigest.getInstance("SHA1");
+            byte[] bytes = digest.digest(cert);
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes)
+                sb.append(Integer.toString(b & 0xff, 16).toUpperCase());
+            return sb.toString();
+        } catch (Throwable ex) {
+            Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
+            return null;
+        }
+    }
+
+    public static boolean hasValidFingerprint(Context context) {
+        String signed = getFingerprint(context);
+        String expected = context.getString(R.string.fingerprint);
+        return (signed != null && signed.equals(expected));
     }
 
     static boolean isPro(Context context) {

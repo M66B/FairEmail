@@ -368,7 +368,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                     sb.append(context.getString(R.string.title_crash_info_remark) + "\n\n\n\n");
 
-                    sb.append(String.format("%s: %s\r\n", context.getString(R.string.app_name), BuildConfig.VERSION_NAME));
+                    sb.append(String.format("%s: %s %s/%s\r\n",
+                            context.getString(R.string.app_name),
+                            BuildConfig.APPLICATION_ID,
+                            BuildConfig.VERSION_NAME,
+                            Helper.hasValidFingerprint(context) ? "1" : "3"));
                     sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
                     sb.append("\r\n");
 

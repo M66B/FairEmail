@@ -302,4 +302,6 @@
         <item>@color/grey</item>
         <item>@color/dark_grey</item>
     </array>
+
+    <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
 </resources>
