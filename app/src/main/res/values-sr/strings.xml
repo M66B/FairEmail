@@ -25,7 +25,6 @@
     <item quantity="few">%1$d unsent messages</item>
     <item quantity="other">%1$d unsent messages</item>
   </plurals>
-  <string name="title_notification_why">Why?</string>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
   <string name="menu_answers">Standard replies</string>

@@ -21,7 +21,6 @@
     <item quantity="one">%1$d message non envoyé</item>
     <item quantity="other">%1$d messages non envoyés</item>
   </plurals>
-  <string name="title_notification_why">Pourquoi ?</string>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
   <string name="menu_answers">Réponses standard</string>
@@ -66,7 +65,7 @@
   <string name="title_advanced">Options avancées</string>
   <string name="title_advanced_avatars">Afficher les photos des contacts</string>
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
-  <string name="title_advanced_browse">Lire les messages sur le serveur</string>
+  <string name="title_advanced_browse">Lire directement les msges sur le serveur</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>

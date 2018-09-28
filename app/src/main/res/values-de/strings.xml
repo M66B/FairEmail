@@ -21,7 +21,6 @@
     <item quantity="one">%1$d nicht gesendete Nachrichten</item>
     <item quantity="other">%1$d nicht gesendete Nachrichten</item>
   </plurals>
-  <string name="title_notification_why">Warum?</string>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
   <string name="menu_answers">Standardantworten</string>
