@@ -166,7 +166,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
-            " LEFT JOIN account ON account.id = message.account" +
+            " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
