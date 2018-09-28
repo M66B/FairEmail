@@ -194,6 +194,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             } else {
                 tvCount.setText(Integer.toString(message.count));
                 ivThread.setVisibility(View.VISIBLE);
+                tvCount.setAlpha(message.threaded ? 1.0f : 0.5f);
+                ivThread.setAlpha(message.threaded ? 1.0f : 0.5f);
             }
 
             if (debug) {
