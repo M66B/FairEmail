@@ -181,7 +181,7 @@ public class FragmentMessages extends FragmentEx {
                     return 0;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (EntityFolder.OUTBOX.equals(message.folderType))
+                if (message.threaded || EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
 
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
