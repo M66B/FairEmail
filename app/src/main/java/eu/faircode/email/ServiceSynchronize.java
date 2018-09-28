@@ -341,18 +341,6 @@ public class ServiceSynchronize extends LifecycleService {
         if (unsent > 0)
             builder.setContentText(getResources().getQuantityString(R.plurals.title_notification_unsent, unsent, unsent));
 
-        Intent why = new Intent(Intent.ACTION_VIEW);
-        why.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ2"));
-        PendingIntent piWhy = PendingIntent.getActivity(this, 0, why, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Notification.Action.Builder actionWhy = new Notification.Action.Builder(
-                Icon.createWithResource(this, R.drawable.baseline_info_24),
-                getString(R.string.title_notification_why),
-                piWhy);
-
-        if (why.resolveActivity(getPackageManager()) != null)
-            builder.addAction(actionWhy.build());
-
         return builder;
     }
 
