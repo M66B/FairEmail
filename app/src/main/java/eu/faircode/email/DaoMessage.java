@@ -37,7 +37,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -49,7 +49,7 @@ public interface DaoMessage {
             "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) as dummy" +
+            ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
@@ -66,7 +66,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -78,7 +78,7 @@ public interface DaoMessage {
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
-            ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) as dummy" +
+            ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
@@ -97,11 +97,11 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", 0 AS threaded" +
             ", 1 AS count" +
-            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END as unseen" +
-            ", CASE WHEN  message.ui_flagged THEN 0 ELSE 1 END as unflagged" +
+            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
+            ", CASE WHEN  message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -159,7 +159,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
-            ", folder.name as folderName, folder.display as folderDisplay, folder.type as folderType" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
