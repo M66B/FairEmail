@@ -42,7 +42,6 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -242,14 +241,12 @@ public class FragmentMessages extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putInt("direction", direction);
-                args.putBoolean("single", !message.threaded);
 
                 new SimpleTask<String[]>() {
                     @Override
                     protected String[] onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
                         int direction = args.getInt("direction");
-                        boolean single = args.getBoolean("single");
                         EntityFolder target = null;
 
                         // Get target folder and hide message
@@ -269,14 +266,7 @@ public class FragmentMessages extends FragmentEx {
                                     target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                             }
 
-                            List<EntityMessage> messages = new ArrayList<>();
-                            if (single)
-                                messages.add(message);
-                            else
-                                messages.addAll(db.message().getMessageByThread(message.account, message.thread));
-
-                            for (EntityMessage m : messages)
-                                db.message().setMessageUiHide(m.id, true);
+                            db.message().setMessageUiHide(message.id, true);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -305,30 +295,8 @@ public class FragmentMessages extends FragmentEx {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
                                         long id = args.getLong("id");
-                                        boolean single = args.getBoolean("single");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            EntityMessage message = db.message().getMessage(id);
-
-                                            List<EntityMessage> messages = new ArrayList<>();
-                                            if (single)
-                                                messages.add(message);
-                                            else
-                                                messages.addAll(db.message().getMessageByThread(message.account, message.thread));
-
-                                            for (EntityMessage m : messages) {
-                                                Log.i(Helper.TAG, "Undo move id=" + m.id);
-                                                DB.getInstance(context).message().setMessageUiHide(m.id, false);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
+                                        Log.i(Helper.TAG, "Undo move id=" + id);
+                                        DB.getInstance(context).message().setMessageUiHide(id, false);
                                         return null;
                                     }
 
