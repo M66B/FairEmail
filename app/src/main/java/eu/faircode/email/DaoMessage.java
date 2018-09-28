@@ -101,7 +101,7 @@ public interface DaoMessage {
             ", 0 AS threaded" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
-            ", CASE WHEN  message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
+            ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -162,8 +162,8 @@ public interface DaoMessage {
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
-            ", (SELECT COUNT(m2.id) FROM message m2 WHERE m2.account = message.account AND m2.thread = message.thread AND NOT m2.ui_hide AND NOT m2.ui_seen) AS unseen" +
-            ", (SELECT COUNT(m3.id) FROM message m3 WHERE m3.account = message.account AND m3.thread = message.thread AND NOT m3.ui_hide AND NOT m3.ui_flagged) AS unflagged" +
+            ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
+            ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " LEFT JOIN account ON account.id = message.account" +
