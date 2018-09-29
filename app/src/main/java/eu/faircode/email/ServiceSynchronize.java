@@ -1272,7 +1272,8 @@ public class ServiceSynchronize extends LifecycleService {
                 itransport.connect(ident.host, ident.port, ident.user, ident.password);
             } catch (AuthenticationFailedException ex) {
                 if (ident.auth_type == Helper.AUTH_TYPE_GMAIL) {
-                    ident.password = Helper.refreshToken(this, "com.google", ident.user, ident.password);
+                    EntityAccount account = db.account().getAccount(ident.account);
+                    ident.password = Helper.refreshToken(this, "com.google", ident.user, account.password);
                     DB.getInstance(this).identity().setIdentityPassword(ident.id, ident.password);
                     itransport.connect(ident.host, ident.port, ident.user, ident.password);
                 } else
