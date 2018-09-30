@@ -214,7 +214,7 @@ public class ServiceSynchronize extends LifecycleService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
 
-        serviceManager.stop();
+        serviceManager.onLost(null);
 
         stopForeground(true);
 
@@ -1864,7 +1864,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (running) {
                 ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-                NetworkInfo ani = cm.getActiveNetworkInfo();
+                NetworkInfo ani = (network == null ? null : cm.getActiveNetworkInfo());
                 EntityLog.log(ServiceSynchronize.this, "Network active=" + (ani == null ? null : ani.toString()));
                 if (ani == null || !ani.isConnected()) {
                     EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
