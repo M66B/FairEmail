@@ -182,7 +182,7 @@ public class FragmentMessages extends FragmentEx {
                     return 0;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message.threaded || EntityFolder.OUTBOX.equals(message.folderType))
+                if (message == null || message.threaded || EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
 
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -200,6 +200,9 @@ public class FragmentMessages extends FragmentEx {
                     return;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                if (message == null)
+                    return;
+
                 boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
 
                 View itemView = viewHolder.itemView;
@@ -237,6 +240,8 @@ public class FragmentMessages extends FragmentEx {
                     return;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
+                if (message == null)
+                    return;
                 Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
 
                 Bundle args = new Bundle();
