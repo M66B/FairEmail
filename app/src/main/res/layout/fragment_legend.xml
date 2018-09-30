@@ -89,13 +89,53 @@
             app:layout_constraintTop_toTopOf="@id/ivTrash" />
 
         <ImageView
+            android:id="@+id/ivPrimaryDisconnected"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_folder_open_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivTrash" />
+
+        <TextView
+            android:id="@+id/tvPrimaryDisconnected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_primary_disconnected"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivPrimaryDisconnected"
+            app:layout_constraintStart_toEndOf="@id/ivPrimaryDisconnected"
+            app:layout_constraintTop_toTopOf="@id/ivPrimaryDisconnected" />
+
+        <ImageView
+            android:id="@+id/ivPrimaryConnected"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_folder_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected" />
+
+        <TextView
+            android:id="@+id/tvPrimaryConnected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_primary_connected"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivPrimaryConnected"
+            app:layout_constraintStart_toEndOf="@id/ivPrimaryConnected"
+            app:layout_constraintTop_toTopOf="@id/ivPrimaryConnected" />
+
+        <ImageView
             android:id="@+id/ivCC"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_people_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivTrash" />
+            app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
 
         <TextView
             android:id="@+id/tvCC"
