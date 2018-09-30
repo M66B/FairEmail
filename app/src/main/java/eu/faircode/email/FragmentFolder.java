@@ -62,8 +62,6 @@ public class FragmentFolder extends FragmentEx {
     private long id = -1;
     private long account = -1;
 
-    private static final int MAX_FOLDER_SYNC = 25;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -320,6 +318,7 @@ public class FragmentFolder extends FragmentEx {
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
+                    cbSynchronize.setChecked(folder == null || folder.synchronize);
                     etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
                 }
 
@@ -327,26 +326,8 @@ public class FragmentFolder extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
-                cbSynchronize.setEnabled(false);
                 btnSave.setEnabled(true);
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
-
-                Bundle args = new Bundle();
-                args.putLong("account", folder == null ? account : folder.account);
-
-                new SimpleTask<Integer>() {
-                    @Override
-                    protected Integer onLoad(Context context, Bundle args) {
-                        long account = args.getLong("account");
-                        return DB.getInstance(context).folder().getFolderSyncCount(account);
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Integer count) {
-                        cbSynchronize.setChecked((folder == null || folder.synchronize) && count < MAX_FOLDER_SYNC);
-                        cbSynchronize.setEnabled(count < MAX_FOLDER_SYNC);
-                    }
-                }.load(FragmentFolder.this, args);
             }
         });
     }

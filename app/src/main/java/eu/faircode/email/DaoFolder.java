@@ -90,10 +90,6 @@ public interface DaoFolder {
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
 
-    @Query("SELECT COUNT(folder.id) FROM folder" +
-            " WHERE account = :account AND `synchronize`")
-    int getFolderSyncCount(long account);
-
     // For debug/crash info
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
