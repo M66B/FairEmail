@@ -80,6 +80,7 @@ public class FragmentMessages extends FragmentEx {
     private String search = null;
 
     private long primary = -1;
+    private boolean connected = false;
     private AdapterMessage adapter;
 
     private AdapterMessage.ViewType viewType;
@@ -400,6 +401,7 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onChanged(EntityAccount account) {
                 primary = (account == null ? -1 : account.id);
+                connected = (account != null && "connected".equals(account.state));
                 getActivity().invalidateOptionsMenu();
             }
         });
@@ -587,6 +589,7 @@ public class FragmentMessages extends FragmentEx {
         menu.findItem(R.id.menu_search).setVisible(folder >= 0 && search == null);
         menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
