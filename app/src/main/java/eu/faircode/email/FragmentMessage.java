@@ -796,26 +796,16 @@ public class FragmentMessage extends FragmentEx {
     }
 
     private void onMenuShowHtml() {
-        new SimpleTask<String>() {
-            @Override
-            protected String onLoad(Context context, Bundle args) throws Throwable {
-                return message.read(context);
-            }
+        Bundle args = new Bundle();
+        args.putLong("id", message.id);
+        args.putString("from", MessageHelper.getFormattedAddresses(message.from, true));
 
-            @Override
-            protected void onLoaded(Bundle a, String html) {
-                Bundle args = new Bundle();
-                args.putString("html", html);
-                args.putString("from", MessageHelper.getFormattedAddresses(message.from, true));
+        FragmentWebView fragment = new FragmentWebView();
+        fragment.setArguments(args);
 
-                FragmentWebView fragment = new FragmentWebView();
-                fragment.setArguments(args);
-
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
-                fragmentTransaction.commit();
-            }
-        }.load(this, new Bundle());
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
+        fragmentTransaction.commit();
     }
 
     private void onMenuUnseen() {

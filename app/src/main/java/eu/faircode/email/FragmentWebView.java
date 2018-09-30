@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -82,11 +83,26 @@ public class FragmentWebView extends FragmentEx {
             String url = args.getString("url");
             webview.loadUrl(url);
             setSubtitle(url);
-        } else if (args.containsKey("html")) {
-            String html = args.getString("html");
-            String from = args.getString("from");
-            webview.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
-            setSubtitle(from);
+        } else if (args.containsKey("id")) {
+            new SimpleTask<String>() {
+                @Override
+                protected String onLoad(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    return EntityMessage.read(context, id);
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, String html) {
+                    String from = args.getString("from");
+                    webview.loadDataWithBaseURL("email://", html, "text/html", "UTF-8", null);
+                    setSubtitle(from);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), ex);
+                }
+            }.load(this, args);
         }
 
         ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
