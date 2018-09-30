@@ -129,11 +129,12 @@ public class ServiceSynchronize extends LifecycleService {
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
-    private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // ms
+    private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // milliseconds
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
+    private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
 
     static final int PI_UNSEEN = 1;
     static final int PI_SEEN = 2;
@@ -1833,6 +1834,7 @@ public class ServiceSynchronize extends LifecycleService {
     private class ServiceManager extends ConnectivityManager.NetworkCallback {
         private ServiceState state;
         private boolean running = false;
+        private long lastLost = 0;
         private Thread main;
         private EntityFolder outbox = null;
         private ExecutorService lifecycle = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -1867,6 +1869,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (ani == null || !ani.isConnected()) {
                     EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
                     running = false;
+                    lastLost = new Date().getTime();
                     lifecycle.submit(new Runnable() {
                         @Override
                         public void run() {
@@ -1903,6 +1906,17 @@ public class ServiceSynchronize extends LifecycleService {
                             stopSelf();
                             return;
                         }
+
+                        long ago = new Date().getTime() - lastLost;
+                        if (ago < RECONNECT_BACKOFF)
+                            try {
+                                long backoff = RECONNECT_BACKOFF - ago;
+                                EntityLog.log(ServiceSynchronize.this, "Main backoff=" + (backoff / 1000));
+                                Thread.sleep(backoff);
+                            } catch (InterruptedException ex) {
+                                Log.w(Helper.TAG, "main backoff " + ex.toString());
+                                return;
+                            }
 
                         // Start monitoring outbox
                         IntentFilter f = new IntentFilter();
