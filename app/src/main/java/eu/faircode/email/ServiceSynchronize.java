@@ -816,7 +816,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     try {
                                         Thread.sleep(account.poll_interval * 60 * 1000L);
 
-                                        if (capIdle) {
+                                        if (!EntityFolder.USER.equals(folder.type) && capIdle) {
                                             Log.i(Helper.TAG, folder.name + " request NOOP");
                                             ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                                                 public Object doCommand(IMAPProtocol p) throws ProtocolException {
@@ -851,7 +851,7 @@ public class ServiceSynchronize extends LifecycleService {
                     noops.add(noop);
 
                     // Receive folder events
-                    if (capIdle) {
+                    if (!EntityFolder.USER.equals(folder.type) && capIdle) {
                         Thread idle = new Thread(new Runnable() {
                             @Override
                             public void run() {
