@@ -84,8 +84,8 @@ public class ApplicationEx extends Application {
     }
 
     public boolean ownFault(Throwable ex) {
-        if (!Helper.isPlayStoreInstall(this))
-            return true;
+        //if (!Helper.isPlayStoreInstall(this))
+        //    return true;
 
         if (ex instanceof OutOfMemoryError)
             return false;
