@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -253,9 +252,9 @@ public class FragmentAbout extends FragmentEx {
             }
         });
 
-        boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
-        btnLog.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        btnDebugInfo.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        //boolean debug = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("debug", false);
+        //btnLog.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        //btnDebugInfo.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         return view;
     }
