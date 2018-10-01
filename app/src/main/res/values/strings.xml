@@ -113,7 +113,7 @@
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
-    <string name="title_poll_interval">Poll interval (minutes)</string>
+    <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
     <string name="title_check">Check</string>
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>
@@ -147,6 +147,7 @@
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_after">Synchronize (days)</string>
+    <string name="title_poll_interval">Poll interval (minutes)</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
     <string name="title_folder_delete">Delete folder permanently?</string>
 

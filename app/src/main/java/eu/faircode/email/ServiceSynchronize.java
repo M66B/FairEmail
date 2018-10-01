@@ -814,9 +814,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, folder.name + " start noop");
                                 while (state.running && ifolder.isOpen()) {
                                     try {
-                                        Thread.sleep(account.poll_interval * 60 * 1000L);
-
                                         if (!EntityFolder.USER.equals(folder.type) && capIdle) {
+                                            Thread.sleep(account.poll_interval * 60 * 1000L);
                                             Log.i(Helper.TAG, folder.name + " request NOOP");
                                             ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                                                 public Object doCommand(IMAPProtocol p) throws ProtocolException {
@@ -826,8 +825,13 @@ public class ServiceSynchronize extends LifecycleService {
                                                     return null;
                                                 }
                                             });
-                                        } else
+                                        } else {
+                                            if (folder.poll_interval == null)
+                                                Thread.sleep(account.poll_interval * 60 * 1000L);
+                                            else
+                                                Thread.sleep(folder.poll_interval * 60 * 1000L);
                                             synchronizeMessages(account, folder, ifolder, state);
+                                        }
 
                                     } catch (InterruptedException ex) {
                                         Log.w(Helper.TAG, folder.name + " noop " + ex.toString());
