@@ -1795,7 +1795,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (!fetch)
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
-                    if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
+                    if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
                         fetch = true;
                         break;
                     }
@@ -1825,7 +1825,7 @@ public class ServiceSynchronize extends LifecycleService {
         for (int i = 0; i < attachments.size(); i++) {
             EntityAttachment attachment = attachments.get(i);
             if (!attachment.available)
-                if (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE) {
+                if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
                     if (iattachments == null)
                         iattachments = helper.getAttachments();
                     attachment.part = iattachments.get(i).part;
