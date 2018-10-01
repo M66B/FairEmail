@@ -204,6 +204,8 @@
   <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
   <string name="title_legend_archive">Arşiv</string>
   <string name="title_legend_trash">Trash</string>
+  <string name="title_legend_primary_disconnected">Account disconnected</string>
+  <string name="title_legend_primary_connected">Account connected</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Ek</string>
   <string name="title_legend_thread">Sohbet</string>

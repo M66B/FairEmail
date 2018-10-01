@@ -212,6 +212,8 @@
   <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
   <string name="title_legend_archive">Archiwum</string>
   <string name="title_legend_trash">Kosz</string>
+  <string name="title_legend_primary_disconnected">Account disconnected</string>
+  <string name="title_legend_primary_connected">Account connected</string>
   <string name="title_legend_cc">DW/UDW</string>
   <string name="title_legend_attachment">Załącznik</string>
   <string name="title_legend_thread">Konwersacja</string>

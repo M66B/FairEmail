@@ -204,6 +204,8 @@
   <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
   <string name="title_legend_archive">Archivo</string>
   <string name="title_legend_trash">Papelera</string>
+  <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
+  <string name="title_legend_primary_connected">Cuenta conectada</string>
   <string name="title_legend_cc">CC/CCO</string>
   <string name="title_legend_attachment">Adjunto</string>
   <string name="title_legend_thread">Conversación</string>

@@ -204,6 +204,8 @@
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
   <string name="title_legend_archive">Archiv</string>
   <string name="title_legend_trash">Papierkorb</string>
+  <string name="title_legend_primary_disconnected">Account disconnected</string>
+  <string name="title_legend_primary_connected">Account connected</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>
