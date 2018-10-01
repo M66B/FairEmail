@@ -322,7 +322,16 @@ public class FragmentCompose extends FragmentEx {
                 public CharSequence convertToString(Cursor cursor) {
                     int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
                     int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA);
-                    return cursor.getString(colName) + " <" + cursor.getString(colEmail) + ">";
+                    String name = cursor.getString(colName);
+                    String email = cursor.getString(colEmail);
+                    StringBuilder sb = new StringBuilder();
+                    if (name == null)
+                        sb.append(email);
+                    else {
+                        sb.append(name.replace(",", "")).append(" ");
+                        sb.append("<").append(email).append(">");
+                    }
+                    return sb.toString();
                 }
             });
         }
@@ -559,9 +568,7 @@ public class FragmentCompose extends FragmentEx {
 
                 InternetAddress address = new InternetAddress(email, name);
                 StringBuilder sb = new StringBuilder(text);
-                if (sb.length() > 0)
-                    sb.append(", ");
-                sb.append(address.toString());
+                sb.append(address.toString().replace(",", "")).append(", ");
 
                 if (requestCode == ActivityCompose.REQUEST_CONTACT_TO)
                     etTo.setText(sb.toString());
