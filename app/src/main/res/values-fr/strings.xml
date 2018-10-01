@@ -97,7 +97,7 @@
   <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
   <string name="title_primary_account">Principal (compte par défaut)</string>
   <string name="title_primary_identity">Principal (identité par défaut)</string>
-  <string name="title_poll_interval">Intervalle de temps (minutes)</string>
+  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
   <string name="title_check">Vérifier</string>
   <string name="title_no_name">Nom manquant</string>
   <string name="title_no_email">Adresse e-mail manquante</string>
@@ -126,6 +126,7 @@
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>
+  <string name="title_poll_interval">Intervalle de temps (minutes)</string>
   <string name="title_folder_exists">Le dossier %1$s existe</string>
   <string name="title_folder_delete">Supprimer définitivement le dossier ?</string>
   <string name="title_folder_unified">Boite de réception unifiée</string>

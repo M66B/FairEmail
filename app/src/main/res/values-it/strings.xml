@@ -97,7 +97,7 @@
   <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
   <string name="title_primary_account">Principale (account predefinito)</string>
   <string name="title_primary_identity">Principale (identità predefinita)</string>
-  <string name="title_poll_interval">Intervallo di tempo (minuti)</string>
+  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
   <string name="title_check">Controlla</string>
   <string name="title_no_name">Nome mancante</string>
   <string name="title_no_email">Indirizzo email mancante</string>
@@ -126,6 +126,7 @@
   <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
   <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
   <string name="title_after">Sincronizza (giorni)</string>
+  <string name="title_poll_interval">Intervallo di tempo (minuti)</string>
   <string name="title_folder_exists">La cartella %1$s esiste</string>
   <string name="title_folder_delete">Eliminare la cartella permanentemente?</string>
   <string name="title_folder_unified">Posta in arrivo unificata</string>
@@ -204,8 +205,8 @@
   <string name="title_legend_unified">Posta in arrivo unificata</string>
   <string name="title_legend_archive">Archivio</string>
   <string name="title_legend_trash">Cestino</string>
-  <string name="title_legend_primary_disconnected">Account disconnected</string>
-  <string name="title_legend_primary_connected">Account connected</string>
+  <string name="title_legend_primary_disconnected">Account disconnesso</string>
+  <string name="title_legend_primary_connected">Account connesso</string>
   <string name="title_legend_cc">CC/CCN</string>
   <string name="title_legend_attachment">Allegato</string>
   <string name="title_legend_thread">Conversazione</string>

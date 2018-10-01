@@ -101,7 +101,7 @@
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
   <string name="title_primary_account">Primară (identitatea implicită)</string>
   <string name="title_primary_identity">Primară (identitatea implicită)</string>
-  <string name="title_poll_interval">Interval verificare (minute)</string>
+  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
   <string name="title_check">Verificare</string>
   <string name="title_no_name">Lipsește numele</string>
   <string name="title_no_email">Lipsește adresa de e-mail</string>
@@ -130,6 +130,7 @@
   <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
   <string name="title_unified_folder">Arată în căsuța poștală comună</string>
   <string name="title_after">Sincronizare (zile)</string>
+  <string name="title_poll_interval">Interval verificare (minute)</string>
   <string name="title_folder_exists">Dosarul %1$s există</string>
   <string name="title_folder_delete">Ștergeți dosarul definitiv?</string>
   <string name="title_folder_unified">Căsuță poștală comună</string>
