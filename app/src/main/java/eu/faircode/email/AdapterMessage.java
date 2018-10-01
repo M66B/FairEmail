@@ -158,7 +158,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(viewType == ViewType.UNIFIED ? View.VISIBLE : View.GONE);
 
-            ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
+            if (viewType == ViewType.THREAD)
+                ivFlagged.setVisibility(message.unflagged == 1 ? View.GONE : View.VISIBLE);
+            else
+                ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
