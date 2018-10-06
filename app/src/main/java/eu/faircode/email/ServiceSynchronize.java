@@ -326,7 +326,7 @@ public class ServiceSynchronize extends LifecycleService {
             builder = new Notification.Builder(this);
 
         builder
-                .setSmallIcon(R.drawable.baseline_compare_arrows_24)
+                .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_synchronizing, accounts, accounts))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
@@ -375,7 +375,7 @@ public class ServiceSynchronize extends LifecycleService {
             builder = new Notification.Builder(this, "notification");
 
         builder
-                .setSmallIcon(R.drawable.baseline_mail_24)
+                .setSmallIcon(R.drawable.baseline_email_white_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
                 .setContentText("")
                 .setContentIntent(piView)
