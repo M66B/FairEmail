@@ -1304,8 +1304,10 @@ public class FragmentCompose extends FragmentEx {
                     long id = Long.parseLong(cid[1].replace(BuildConfig.APPLICATION_ID + ".", ""));
                     File file = EntityAttachment.getFile(getContext(), id);
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                    return d;
+                    if (d != null) {
+                        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                        return d;
+                    }
                 }
             }
 
