@@ -91,7 +91,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         @Override
                         public void run() {
                             Log.i(Helper.TAG, "Boundary close");
-                            DB.getInstance(context).message().deleteFoundMessages();
                             try {
                                 if (istore != null)
                                     istore.close();
@@ -207,11 +206,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 try {
                                     long uid = ifolder.getUID(isub[j]);
                                     Log.i(Helper.TAG, "Boundary sync uid=" + uid);
-                                    if (db.message().getMessageByUid(fid, uid) == null) {
+                                    EntityMessage message = db.message().getMessageByUid(fid, uid);
+                                    if (message == null) {
                                         ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
                                         count++;
                                         loaded++;
-                                    }
+                                    } else
+                                        db.message().setMessageFound(message.id, true);
                                 } catch (MessageRemovedException ex) {
                                     Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                                 } catch (FolderClosedException ex) {
