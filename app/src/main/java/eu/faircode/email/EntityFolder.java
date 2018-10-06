@@ -137,7 +137,7 @@ public class EntityFolder implements Parcelable {
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
-                    this.after.equals(other.after) &&
+                    (this.poll_interval == null ? other.poll_interval == null : this.poll_interval.equals(other.poll_interval)) && this.after.equals(other.after) &&
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
                     this.hide == other.hide &&
                     this.unified == other.unified &&
