@@ -422,6 +422,10 @@ public class FragmentCompose extends FragmentEx {
         menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
+
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_image).setEnabled(getImageIntent().resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_attachment).setEnabled(getAttachmentIntent().resolveActivity(pm) != null);
     }
 
     @Override
@@ -488,17 +492,11 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onMenuImage() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        startActivityForResult(intent, ActivityCompose.REQUEST_IMAGE);
+        startActivityForResult(getImageIntent(), ActivityCompose.REQUEST_IMAGE);
     }
 
     private void onMenuAttachment() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        startActivityForResult(intent, ActivityCompose.REQUEST_ATTACHMENT);
+        startActivityForResult(getAttachmentIntent(), ActivityCompose.REQUEST_ATTACHMENT);
     }
 
     private void onMenuAddresses() {
@@ -520,6 +518,20 @@ public class FragmentCompose extends FragmentEx {
                     handlePickContact(requestCode, data);
             }
         }
+    }
+
+    private Intent getImageIntent() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        return intent;
+    }
+
+    private Intent getAttachmentIntent() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        return intent;
     }
 
     private void handleExit() {
