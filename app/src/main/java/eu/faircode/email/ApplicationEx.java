@@ -67,6 +67,7 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            service.setShowBadge(false);
             nm.createNotificationChannel(service);
 
             NotificationChannel notification = new NotificationChannel(
@@ -79,6 +80,7 @@ public class ApplicationEx extends Application {
                     "error",
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
+            error.setShowBadge(false);
             nm.createNotificationChannel(error);
         }
     }
