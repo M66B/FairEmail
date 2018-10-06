@@ -583,11 +583,11 @@ public class FragmentAccount extends FragmentEx {
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putString("interval", etInterval.getText().toString());
 
-                args.putParcelable("drafts", drafts);
-                args.putParcelable("sent", sent);
-                args.putParcelable("all", all);
-                args.putParcelable("trash", trash);
-                args.putParcelable("junk", junk);
+                args.putSerializable("drafts", drafts);
+                args.putSerializable("sent", sent);
+                args.putSerializable("all", all);
+                args.putSerializable("trash", trash);
+                args.putSerializable("junk", junk);
 
                 new SimpleTask<Void>() {
                     @Override
@@ -605,11 +605,11 @@ public class FragmentAccount extends FragmentEx {
                         boolean primary = args.getBoolean("primary");
                         String interval = args.getString("interval");
 
-                        EntityFolder drafts = args.getParcelable("drafts");
-                        EntityFolder sent = args.getParcelable("sent");
-                        EntityFolder all = args.getParcelable("all");
-                        EntityFolder trash = args.getParcelable("trash");
-                        EntityFolder junk = args.getParcelable("junk");
+                        EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
+                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
+                        EntityFolder all = (EntityFolder) args.getSerializable("all");
+                        EntityFolder trash = (EntityFolder) args.getSerializable("trash");
+                        EntityFolder junk = (EntityFolder) args.getSerializable("junk");
 
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
