@@ -43,6 +43,7 @@ import javax.mail.UIDFolder;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
+import javax.mail.search.RecipientStringTerm;
 import javax.mail.search.SubjectTerm;
 
 import androidx.lifecycle.GenericLifecycleObserver;
@@ -167,10 +168,16 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         else
                             imessages = ifolder.search(
                                     new OrTerm(
-                                            new FromStringTerm(search),
+                                            new OrTerm(
+                                                    new FromStringTerm(search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, search)
+                                            ),
                                             new OrTerm(
                                                     new SubjectTerm(search),
-                                                    new BodyTerm(search))));
+                                                    new BodyTerm(search)
+                                            )
+                                    )
+                            );
                         Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
 
                         index = imessages.length - 1;
