@@ -224,9 +224,12 @@ public class EntityFolder implements Parcelable {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("type", type);
-        json.put("unified", unified);
         json.put("synchronize", synchronize);
+        json.put("poll_interval", poll_interval);
         json.put("after", after);
+        json.put("display", display);
+        json.put("hide", hide);
+        json.put("unified", unified);
         return json;
     }
 
@@ -234,9 +237,15 @@ public class EntityFolder implements Parcelable {
         EntityFolder folder = new EntityFolder();
         folder.name = json.getString("name");
         folder.type = json.getString("type");
-        folder.unified = json.getBoolean("unified");
         folder.synchronize = json.getBoolean("synchronize");
+        if (json.has("poll_interval"))
+            folder.poll_interval = json.getInt("poll_interval");
         folder.after = json.getInt("after");
+        if (json.has("display"))
+            folder.display = json.getString("display");
+        if (json.has("hide"))
+            folder.hide = json.getBoolean("hide");
+        folder.unified = json.getBoolean("unified");
         return folder;
     }
 }
