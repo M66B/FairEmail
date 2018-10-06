@@ -1334,6 +1334,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doHeaders(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, DB db) throws MessagingException {
         Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
         Enumeration<Header> headers = imessage.getAllHeaders();
         StringBuilder sb = new StringBuilder();
         while (headers.hasMoreElements()) {
