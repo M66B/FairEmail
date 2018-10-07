@@ -1033,7 +1033,7 @@ public class FragmentAccount extends FragmentEx {
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                            Helper.unexpectedError(getContext(), ex);
+                                            snackbar.setText(Helper.formatThrowable(ex));
                                         } finally {
                                             snackbar.dismiss();
                                         }
