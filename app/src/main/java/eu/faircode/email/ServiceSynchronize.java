@@ -965,6 +965,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (!istore.isConnected())
                             throw new StoreClosedException(istore);
+
+                        for (EntityFolder folder : folders.keySet())
+                            if (!folders.get(folder).isOpen())
+                                throw new FolderClosedException(folders.get(folder));
                     }
                     Log.i(Helper.TAG, account.name + " done running=" + state.running);
                 } finally {
