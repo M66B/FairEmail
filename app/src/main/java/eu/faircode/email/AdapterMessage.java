@@ -125,6 +125,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void clear() {
+            vwColor.setBackgroundColor(Color.TRANSPARENT);
             ivFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
