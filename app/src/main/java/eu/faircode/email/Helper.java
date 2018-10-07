@@ -57,7 +57,6 @@ import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
-import javax.mail.FolderClosedException;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
@@ -142,11 +141,6 @@ public class Helper {
     }
 
     static String formatThrowable(Throwable ex) {
-        if (ex instanceof FolderClosedException)
-            return null;
-        if (ex instanceof IllegalStateException)
-            return null;
-
         StringBuilder sb = new StringBuilder();
         sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
         Throwable cause = ex.getCause();
