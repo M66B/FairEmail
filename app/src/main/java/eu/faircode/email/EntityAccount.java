@@ -75,7 +75,6 @@ public class EntityAccount {
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
-                    this.store_sent.equals(other.store_sent) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     (this.seen_until == null ? other.seen_until == null : this.seen_until.equals(other.seen_until)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
@@ -93,8 +92,8 @@ public class EntityAccount {
         json.put("user", user);
         json.put("password", "");
         json.put("auth_type", auth_type);
-        json.put("primary", primary);
         json.put("synchronize", false);
+        json.put("primary", primary);
         if (color != null)
             json.put("color", color);
         json.put("poll_interval", poll_interval);
@@ -112,8 +111,8 @@ public class EntityAccount {
         account.user = json.getString("user");
         account.password = json.getString("password");
         account.auth_type = json.getInt("auth_type");
-        account.primary = json.getBoolean("primary");
         account.synchronize = json.getBoolean("synchronize");
+        account.primary = json.getBoolean("primary");
         if (json.has("color"))
             account.color = json.getInt("color");
         account.poll_interval = json.getInt("poll_interval");
