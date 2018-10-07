@@ -83,7 +83,7 @@ public class MessageHelper {
 
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
-        if (false) {
+        if (true) {
             Log.i(Helper.TAG, "IMAP compress enabled");
             props.put("mail.imaps.compress.enable", "true");
             //props.put("mail.imaps.compress.level", "-1");
@@ -91,6 +91,7 @@ public class MessageHelper {
         }
 
         props.put("mail.imaps.fetchsize", Integer.toString(48 * 1024)); // default 16K
+        props.put("mail.imaps.peek", "true");
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
         props.put("mail.smtps.ssl.checkserveridentity", "true");
@@ -112,9 +113,6 @@ public class MessageHelper {
         props.put("mail.smtp.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
         props.put("mail.smtp.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
         props.put("mail.smtp.timeout", Integer.toString(NETWORK_TIMEOUT));
-
-        props.put("mail.imaps.peek", "true");
-        //props.put("mail.imaps.minidletime", "5000");
 
         props.put("mail.mime.address.strict", "false");
         props.put("mail.mime.decodetext.strict", "false");
