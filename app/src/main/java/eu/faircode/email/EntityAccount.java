@@ -49,14 +49,14 @@ public class EntityAccount {
     @NonNull
     public Integer auth_type;
     @NonNull
-    public Boolean primary;
-    @NonNull
     public Boolean synchronize;
+    @NonNull
+    public Boolean primary;
     public Integer color;
     @NonNull
     public Boolean store_sent; // obsolete
     @NonNull
-    public Integer poll_interval; // NOOP interval
+    public Integer poll_interval; // keep-alive interval
     public Long seen_until;
     public String state;
     public String error;
@@ -66,12 +66,16 @@ public class EntityAccount {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
             return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
                     this.host.equals(other.host) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
-                    this.primary.equals(other.primary) &&
+                    this.auth_type.equals(other.auth_type) &&
                     this.synchronize.equals(other.synchronize) &&
+                    this.primary.equals(other.primary) &&
+                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    this.store_sent.equals(other.store_sent) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     (this.seen_until == null ? other.seen_until == null : this.seen_until.equals(other.seen_until)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&

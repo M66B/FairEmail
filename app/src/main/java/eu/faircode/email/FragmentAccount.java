@@ -102,6 +102,7 @@ public class FragmentAccount extends FragmentEx {
     private TextInputLayout tilPassword;
 
     private Button btnAdvanced;
+
     private TextView tvName;
     private EditText etName;
     private Button btnColor;
@@ -109,11 +110,12 @@ public class FragmentAccount extends FragmentEx {
     private ImageView ibColorDefault;
     private EditText etSignature;
     private ImageButton ibPro;
+
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private EditText etInterval;
-    private Button btnCheck;
 
+    private Button btnCheck;
     private ProgressBar pbCheck;
 
     private TextView tvIdle;
@@ -169,6 +171,7 @@ public class FragmentAccount extends FragmentEx {
         tilPassword = view.findViewById(R.id.tilPassword);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
+
         etName = view.findViewById(R.id.etName);
         tvName = view.findViewById(R.id.tvName);
         btnColor = view.findViewById(R.id.btnColor);
@@ -576,10 +579,11 @@ public class FragmentAccount extends FragmentEx {
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
-                args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("name", etName.getText().toString());
                 args.putInt("color", color);
                 args.putString("signature", Html.toHtml(etSignature.getText()));
+
+                args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putString("interval", etInterval.getText().toString());
 
@@ -601,6 +605,7 @@ public class FragmentAccount extends FragmentEx {
                         String name = args.getString("name");
                         int color = args.getInt("color");
                         String signature = args.getString("signature");
+
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
                         String interval = args.getString("interval");
@@ -660,18 +665,22 @@ public class FragmentAccount extends FragmentEx {
                             boolean update = (account != null);
                             if (account == null)
                                 account = new EntityAccount();
-                            account.name = name;
-                            account.color = color;
-                            account.signature = signature;
+
                             account.host = host;
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
                             account.auth_type = auth_type;
+
+                            account.name = name;
+                            account.color = color;
+                            account.signature = signature;
+
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
-                            account.store_sent = false;
                             account.poll_interval = Integer.parseInt(interval);
+
+                            account.store_sent = false;
 
                             if (!synchronize)
                                 account.error = null;
