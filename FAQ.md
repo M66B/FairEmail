@@ -24,6 +24,8 @@ to prevent Android from killing the service that takes care of receiving and sen
 
 Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
 
+Background: this is because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+
 <a name="FAQ3"></a>
 **(3) What are operations and why are they pending?**
 
