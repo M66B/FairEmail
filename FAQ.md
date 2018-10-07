@@ -233,6 +233,16 @@ Browse messages on the server will fetch messages from the email server in real 
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
 You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
 
+<a name="FAQ25"></a>
+**(25) Why can't I select an image, attachment or a file to export/import?**
+
+If a menu item to select a file is disabled (dimmed),
+likely the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider),
+a standard Android component, is not present,
+for example because your custom ROM does not include it or because it was removed.
+FairEmail does not request storage permissions, so this framework is required to select files and folders.
+No app, except maybe file managers, targetting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
