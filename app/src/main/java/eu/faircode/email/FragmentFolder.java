@@ -337,10 +337,61 @@ public class FragmentFolder extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
-                grpInterval.setVisibility(folder == null || EntityFolder.USER.equals(folder.type) ? View.VISIBLE : View.GONE);
                 btnSave.setEnabled(true);
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
         });
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putLong("account", account);
+
+        new SimpleTask<Boolean>() {
+            @Override
+            protected Boolean onLoad(Context context, Bundle args) throws Throwable {
+                long fid = args.getLong("id");
+                long aid = args.getLong("account");
+
+                IMAPStore istore = null;
+                DB db = DB.getInstance(getContext());
+                try {
+                    db.beginTransaction();
+
+                    EntityAccount account;
+                    if (fid < 0)
+                        account = db.account().getAccount(aid);
+                    else {
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        account = db.account().getAccount(folder.account);
+                    }
+
+                    db.setTransactionSuccessful();
+
+                    Properties props = MessageHelper.getSessionProperties(account.auth_type);
+                    Session isession = Session.getInstance(props, null);
+                    istore = (IMAPStore) isession.getStore("imaps");
+                    istore.connect(account.host, account.port, account.user, account.password);
+
+                    return istore.hasCapability("IDLE");
+                } finally {
+                    db.endTransaction();
+
+                    if (istore != null)
+                        istore.close();
+                }
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Boolean capIdle) {
+                grpInterval.setVisibility(capIdle ? View.GONE : View.VISIBLE);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                grpInterval.setVisibility(View.VISIBLE);
+                if (BuildConfig.DEBUG)
+                    Helper.unexpectedError(getContext(), ex);
+            }
+        }.load(this, args);
     }
 }

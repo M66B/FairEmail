@@ -50,12 +50,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.sun.mail.iap.ConnectionException;
-import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
-import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -129,7 +127,6 @@ public class ServiceSynchronize extends LifecycleService {
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
-    private static final long STORE_NOOP_INTERVAL = 9 * 60 * 1000L; // milliseconds
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
@@ -559,6 +556,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Debug
             boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
+            debug = debug || BuildConfig.DEBUG;
             System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
             // Create session
@@ -569,7 +567,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
             final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
-            List<Thread> noops = new ArrayList<>();
+            List<Thread> pollers = new ArrayList<>();
             List<Thread> idlers = new ArrayList<>();
             try {
                 // Listen for store events
@@ -672,7 +670,7 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderError(folder.id, null);
 
                     // Keep folder connection alive
-                    Thread noop = new Thread(new Runnable() {
+                    Thread poller = new Thread(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -811,30 +809,15 @@ public class ServiceSynchronize extends LifecycleService {
                                     }
                                 });
 
-                                Log.i(Helper.TAG, folder.name + " start noop");
-                                while (state.running && ifolder.isOpen()) {
-                                    try {
-                                        if (!EntityFolder.USER.equals(folder.type) && capIdle) {
-                                            Thread.sleep(account.poll_interval * 60 * 1000L);
-                                            Log.i(Helper.TAG, folder.name + " request NOOP");
-                                            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                                                public Object doCommand(IMAPProtocol p) throws ProtocolException {
-                                                    Log.i(Helper.TAG, ifolder.getName() + " start NOOP");
-                                                    p.simpleCommand("NOOP", null);
-                                                    Log.i(Helper.TAG, ifolder.getName() + " end NOOP");
-                                                    return null;
-                                                }
-                                            });
-                                        } else {
-                                            if (folder.poll_interval == null)
-                                                Thread.sleep(account.poll_interval * 60 * 1000L);
-                                            else
-                                                Thread.sleep(folder.poll_interval * 60 * 1000L);
+                                if (!capIdle) {
+                                    Log.i(Helper.TAG, folder.name + " start polling");
+                                    while (state.running) {
+                                        try {
+                                            Thread.sleep((folder.poll_interval == null ? 9 : folder.poll_interval) * 60 * 1000L);
                                             synchronizeMessages(account, folder, ifolder, state);
+                                        } catch (InterruptedException ex) {
+                                            Log.w(Helper.TAG, folder.name + " poll " + ex.toString());
                                         }
-
-                                    } catch (InterruptedException ex) {
-                                        Log.w(Helper.TAG, folder.name + " noop " + ex.toString());
                                     }
                                 }
                             } catch (Throwable ex) {
@@ -847,16 +830,17 @@ public class ServiceSynchronize extends LifecycleService {
                                     state.notifyAll();
                                 }
                             } finally {
-                                Log.i(Helper.TAG, folder.name + " end noop");
+                                if (!capIdle)
+                                    Log.i(Helper.TAG, folder.name + " end polling");
                             }
                         }
-                    }, "sync.noop." + folder.id);
-                    noop.start();
-                    noops.add(noop);
+                    }, "sync.poller." + folder.id);
+                    poller.start();
+                    pollers.add(poller);
 
                     // Receive folder events
-                    if (!EntityFolder.USER.equals(folder.type) && capIdle) {
-                        Thread idle = new Thread(new Runnable() {
+                    if (capIdle) {
+                        Thread idler = new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 try {
@@ -880,8 +864,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             }
                         }, "sync.idle." + folder.id);
-                        idle.start();
-                        idlers.add(idle);
+                        idler.start();
+                        idlers.add(idler);
                     }
                 }
 
@@ -969,22 +953,18 @@ public class ServiceSynchronize extends LifecycleService {
 
                 try {
                     // Keep store alive
-                    while (state.running && istore.isConnected()) {
-                        Log.i(Helper.TAG, "Checking folders");
-                        for (EntityFolder folder : folders.keySet())
-                            if (!folders.get(folder).isOpen())
-                                throw new FolderClosedException(folders.get(folder));
-
-                        // Wait for stop or folder error
+                    while (state.running) {
                         Log.i(Helper.TAG, account.name + " wait");
                         synchronized (state) {
                             try {
-                                state.wait(STORE_NOOP_INTERVAL);
+                                state.wait(account.poll_interval * 60 * 1000L);
                             } catch (InterruptedException ex) {
                                 Log.w(Helper.TAG, account.name + " wait " + ex.toString());
                             }
                         }
-                        Log.i(Helper.TAG, account.name + " waited");
+
+                        if (!istore.isConnected())
+                            throw new StoreClosedException(istore);
                     }
                     Log.i(Helper.TAG, account.name + " done running=" + state.running);
                 } finally {
@@ -996,11 +976,18 @@ public class ServiceSynchronize extends LifecycleService {
 
                 db.account().setAccountError(account.id, Helper.formatThrowable(ex));
             } finally {
-                // Close store
                 EntityLog.log(this, account.name + " closing");
                 db.account().setAccountState(account.id, "closing");
                 for (EntityFolder folder : folders.keySet())
                     db.folder().setFolderState(folder.id, "closing");
+
+                // Stop pollers
+                for (Thread poller : pollers) {
+                    poller.interrupt();
+                    join(poller);
+                }
+
+                // Close store
                 try {
                     Thread t = new Thread(new Runnable() {
                         @Override
@@ -1030,16 +1017,10 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().setFolderState(folder.id, null);
                 }
 
-                // Stop noop
-                for (Thread noop : noops) {
-                    noop.interrupt();
-                    join(noop);
-                }
-
-                // Stop idle
-                for (Thread idle : idlers) {
-                    idle.interrupt();
-                    join(idle);
+                // Stop idlers
+                for (Thread idler : idlers) {
+                    idler.interrupt();
+                    join(idler);
                 }
             }
 
@@ -1541,10 +1522,12 @@ public class ServiceSynchronize extends LifecycleService {
                     if (message == null)
                         full.add(imessage);
                 }
-                long headers = SystemClock.elapsedRealtime();
-                ifolder.fetch(full.toArray(new Message[0]), fp);
-                Log.i(Helper.TAG, folder.name + " fetched headers=" + full.size() +
-                        " " + (SystemClock.elapsedRealtime() - headers) + " ms");
+                if (full.size() > 0) {
+                    long headers = SystemClock.elapsedRealtime();
+                    ifolder.fetch(full.toArray(new Message[0]), fp);
+                    Log.i(Helper.TAG, folder.name + " fetched headers=" + full.size() +
+                            " " + (SystemClock.elapsedRealtime() - headers) + " ms");
+                }
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
