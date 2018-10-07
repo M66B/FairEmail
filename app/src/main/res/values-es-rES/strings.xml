@@ -97,7 +97,7 @@
   <string name="title_synchronize_identity">Sincronizar (enviar mensajes)</string>
   <string name="title_primary_account">Primaria (cuenta por defecto)</string>
   <string name="title_primary_identity">Primaria (identidad por defecto)</string>
-  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+  <string name="title_keep_alive_interval">Intervalo de mantener activo (minutos)</string>
   <string name="title_check">Verificar</string>
   <string name="title_no_name">Falta nombre</string>
   <string name="title_no_email">Falta dirección de correo electrónico</string>

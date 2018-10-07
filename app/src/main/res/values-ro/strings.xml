@@ -101,7 +101,7 @@
   <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
   <string name="title_primary_account">Primară (identitatea implicită)</string>
   <string name="title_primary_identity">Primară (identitatea implicită)</string>
-  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+  <string name="title_keep_alive_interval">Interval menținere conexiune (minute)</string>
   <string name="title_check">Verificare</string>
   <string name="title_no_name">Lipsește numele</string>
   <string name="title_no_email">Lipsește adresa de e-mail</string>
@@ -209,8 +209,8 @@
   <string name="title_legend_unified">Căsuță poștală comună</string>
   <string name="title_legend_archive">Arhivă</string>
   <string name="title_legend_trash">Gunoi</string>
-  <string name="title_legend_primary_disconnected">Account disconnected</string>
-  <string name="title_legend_primary_connected">Account connected</string>
+  <string name="title_legend_primary_disconnected">Cont deconectat</string>
+  <string name="title_legend_primary_connected">Cont conectat</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Atașament</string>
   <string name="title_legend_thread">Conversație</string>

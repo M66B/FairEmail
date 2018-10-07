@@ -97,7 +97,7 @@
   <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
   <string name="title_primary_account">Primäres Konto</string>
   <string name="title_primary_identity">Primäre Identität</string>
-  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+  <string name="title_keep_alive_interval">Verbindung auf­recht­er­hal­ten Intervall (Minuten)</string>
   <string name="title_check">Prüfen</string>
   <string name="title_no_name">Name fehlt</string>
   <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -156,7 +156,7 @@
   <string name="title_reply_all">Antworten an alle</string>
   <string name="title_show_headers">Kopfzeile anzeigen</string>
   <string name="title_show_html">Original anzeigen</string>
-  <string name="title_trash">Papierkorb</string>
+  <string name="title_trash">Löschen</string>
   <string name="title_delete">Löschen</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Verschieben</string>
@@ -205,8 +205,8 @@
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
   <string name="title_legend_archive">Archiv</string>
   <string name="title_legend_trash">Papierkorb</string>
-  <string name="title_legend_primary_disconnected">Account disconnected</string>
-  <string name="title_legend_primary_connected">Account connected</string>
+  <string name="title_legend_primary_disconnected">Konto getrennt</string>
+  <string name="title_legend_primary_connected">Konto verbunden</string>
   <string name="title_legend_cc">CC/BCC</string>
   <string name="title_legend_attachment">Anhang</string>
   <string name="title_legend_thread">Unterhaltung</string>

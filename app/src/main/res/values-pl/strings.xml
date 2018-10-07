@@ -105,7 +105,7 @@
   <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
   <string name="title_primary_account">Podstawowe (domyślne konto)</string>
   <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
-  <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+  <string name="title_keep_alive_interval">Interwał utrzymywania aktywności (minuty)</string>
   <string name="title_check">Sprawdź</string>
   <string name="title_no_name">Brak nazwy</string>
   <string name="title_no_email">Brak adresu e-mail</string>
