@@ -6,8 +6,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 78
-        versionName "1.78"
+        versionCode 79
+        versionName "1.79"
         archivesBaseName = "FairEmail-v$versionName"
 
         javaCompileOptions {
