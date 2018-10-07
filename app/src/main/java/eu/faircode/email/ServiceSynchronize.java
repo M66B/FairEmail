@@ -954,7 +954,8 @@ public class ServiceSynchronize extends LifecycleService {
                 try {
                     // Keep store alive
                     while (state.running) {
-                        Log.i(Helper.TAG, account.name + " wait");
+                        EntityLog.log(this, account.name + " wait=" + account.poll_interval);
+
                         synchronized (state) {
                             try {
                                 state.wait(account.poll_interval * 60 * 1000L);
