@@ -42,6 +42,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
@@ -77,6 +78,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -796,14 +800,42 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 if (!capIdle) {
                                     Log.i(Helper.TAG, folder.name + " start polling");
+
+                                    PowerManager pm = getSystemService(PowerManager.class);
+                                    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, account.name + "/" + folder.name);
+
+                                    final Thread pthread = Thread.currentThread();
+                                    int rate = (folder.poll_interval == null ? 9 : folder.poll_interval);
+                                    ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
+                                    ScheduledFuture future = scheduler.scheduleAtFixedRate(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Log.i(Helper.TAG, folder.name + " wakeup poll");
+                                            pthread.interrupt();
+                                        }
+                                    }, rate, rate, TimeUnit.MINUTES);
+
                                     while (state.running) {
                                         try {
-                                            Thread.sleep((folder.poll_interval == null ? 9 : folder.poll_interval) * 60 * 1000L);
-                                            synchronizeMessages(account, folder, ifolder, state);
+                                            Thread.sleep(Long.MAX_VALUE);
                                         } catch (InterruptedException ex) {
                                             Log.w(Helper.TAG, folder.name + " poll " + ex.toString());
                                         }
+
+                                        try {
+                                            wl.acquire();
+                                            synchronizeMessages(account, folder, ifolder, state);
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            reportError(account.name, folder.name, ex);
+
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                        } finally {
+                                            wl.release();
+                                        }
                                     }
+
+                                    future.cancel(false);
                                 }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -933,28 +965,44 @@ public class ServiceSynchronize extends LifecycleService {
                 lbm.registerReceiver(processFolder, f);
 
                 try {
+                    PowerManager pm = getSystemService(PowerManager.class);
+                    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, account.name);
+
+                    ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
+                    ScheduledFuture future = scheduler.scheduleAtFixedRate(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.i(Helper.TAG, account.name + " wakeup check");
+                            state.thread.interrupt();
+                        }
+                    }, account.poll_interval, account.poll_interval, TimeUnit.MINUTES);
+
                     // Keep store alive
                     while (state.running) {
                         EntityLog.log(this, account.name + " wait=" + account.poll_interval);
 
                         try {
-                            Thread.sleep(account.poll_interval * 60 * 1000L);
+                            Thread.sleep(Long.MAX_VALUE);
                         } catch (InterruptedException ex) {
                             Log.w(Helper.TAG, account.name + " wait " + ex.toString());
                         }
 
-                        if (state.running) {
-                            EntityLog.log(this, account.name + " checking store");
+                        if (state.running) try {
+                            wl.acquire();
+
                             if (!istore.isConnected())
                                 throw new StoreClosedException(istore);
 
-                            for (EntityFolder folder : folders.keySet()) {
-                                EntityLog.log(this, account.name + " checking " + folder.name);
+                            for (EntityFolder folder : folders.keySet())
                                 if (!folders.get(folder).isOpen())
                                     throw new FolderClosedException(folders.get(folder));
-                            }
+                        } finally {
+                            wl.release();
                         }
                     }
+
+                    future.cancel(false);
+
                     Log.i(Helper.TAG, account.name + " done running=" + state.running);
                 } finally {
                     lbm.unregisterReceiver(processFolder);

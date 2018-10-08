@@ -8,11 +8,12 @@ At the bottom you can find how to ask other questions, request features and repo
 <a name="FAQ1"></a>
 **(1) Which permissions are needed and why?**
 
-* Full network access (INTERNET): to send and receive email
-* View network connections (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
-* Run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
-* In-app billing (BILLING): to allow in-app purchases
-* Foreground service (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
+* have full network access (INTERNET): to send and receive email
+* view network connections (ACCESS_NETWORK_STATE): to monitor internet connectivity changes
+* run at startup (RECEIVE_BOOT_COMPLETED): to start monitoring on device start
+* in-app billing (BILLING): to allow in-app purchases
+* foreground service (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
+* prevent device from sleeping (WAKE_LOCK): to keep the device awake while synchronizing messages
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses and to show photos
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
