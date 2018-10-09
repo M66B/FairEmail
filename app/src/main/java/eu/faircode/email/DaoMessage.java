@@ -224,9 +224,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);
 
-    @Query("UPDATE message SET avatar = :avatar WHERE id = :id")
-    int setMessageAvatar(long id, String avatar);
-
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 
@@ -241,4 +238,7 @@ public interface DaoMessage {
 
     @Query("DELETE FROM message WHERE folder = :folder AND received < :received AND NOT uid IS NULL")
     int deleteMessagesBefore(long folder, long received);
+
+    @Query("DELETE FROM message WHERE ui_found")
+    int deleteFoundMessages();
 }

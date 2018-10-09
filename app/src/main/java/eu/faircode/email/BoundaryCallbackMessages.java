@@ -91,6 +91,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         @Override
                         public void run() {
                             Log.i(Helper.TAG, "Boundary close");
+                            DB.getInstance(context).message().deleteFoundMessages();
                             try {
                                 if (istore != null)
                                     istore.close();
