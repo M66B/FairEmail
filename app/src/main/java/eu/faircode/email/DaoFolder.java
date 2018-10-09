@@ -124,9 +124,8 @@ public interface DaoFolder {
             ", synchronize = :synchronize" +
             ", unified = :unified" +
             ", `after` = :after" +
-            ", `poll_interval` = :poll_interval" +
             " WHERE id = :id")
-    int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int after, Integer poll_interval);
+    int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int after);
 
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);

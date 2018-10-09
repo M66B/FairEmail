@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -78,9 +79,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -571,7 +570,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
             final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
-            List<Thread> pollers = new ArrayList<>();
+            List<Thread> syncs = new ArrayList<>();
             List<Thread> idlers = new ArrayList<>();
             try {
                 // Listen for store events
@@ -613,7 +612,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                 // Listen for connection events
                 istore.addConnectionListener(new ConnectionAdapter() {
-
                     @Override
                     public void opened(ConnectionEvent e) {
                         Log.i(Helper.TAG, account.name + " opened");
@@ -664,8 +662,8 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderState(folder.id, "connected");
                     db.folder().setFolderError(folder.id, null);
 
-                    // Keep folder connection alive
-                    Thread poller = new Thread(new Runnable() {
+                    // Synchronize folder
+                    Thread sync = new Thread(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -797,46 +795,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                     }
                                 });
-
-                                if (!capIdle) {
-                                    Log.i(Helper.TAG, folder.name + " start polling");
-
-                                    PowerManager pm = getSystemService(PowerManager.class);
-                                    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, account.name + "/" + folder.name);
-
-                                    final Thread pthread = Thread.currentThread();
-                                    int rate = (folder.poll_interval == null ? 9 : folder.poll_interval);
-                                    ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
-                                    ScheduledFuture future = scheduler.scheduleAtFixedRate(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Log.i(Helper.TAG, folder.name + " wakeup poll");
-                                            pthread.interrupt();
-                                        }
-                                    }, rate, rate, TimeUnit.MINUTES);
-
-                                    while (state.running) {
-                                        try {
-                                            Thread.sleep(Long.MAX_VALUE);
-                                        } catch (InterruptedException ex) {
-                                            Log.w(Helper.TAG, folder.name + " poll " + ex.toString());
-                                        }
-
-                                        try {
-                                            wl.acquire();
-                                            synchronizeMessages(account, folder, ifolder, state);
-                                        } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                            reportError(account.name, folder.name, ex);
-
-                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                        } finally {
-                                            wl.release();
-                                        }
-                                    }
-
-                                    future.cancel(false);
-                                }
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 reportError(account.name, folder.name, ex);
@@ -844,16 +802,13 @@ public class ServiceSynchronize extends LifecycleService {
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                 state.thread.interrupt();
-                            } finally {
-                                if (!capIdle)
-                                    Log.i(Helper.TAG, folder.name + " end polling");
                             }
                         }
-                    }, "sync.poller." + folder.id);
-                    poller.start();
-                    pollers.add(poller);
+                    }, "sync." + folder.id);
+                    sync.start();
+                    syncs.add(sync);
 
-                    // Receive folder events
+                    // Idle folder
                     if (capIdle) {
                         Thread idler = new Thread(new Runnable() {
                             @Override
@@ -876,7 +831,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     Log.i(Helper.TAG, folder.name + " end idle");
                                 }
                             }
-                        }, "sync.idle." + folder.id);
+                        }, "idler." + folder.id);
                         idler.start();
                         idlers.add(idler);
                     }
@@ -884,6 +839,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 backoff = CONNECT_BACKOFF_START;
 
+                // Process folder actions
                 BroadcastReceiver processFolder = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, final Intent intent) {
@@ -961,52 +917,78 @@ public class ServiceSynchronize extends LifecycleService {
                 f.addAction(ACTION_SYNCHRONIZE_FOLDER);
                 f.addAction(ACTION_PROCESS_OPERATIONS);
                 f.addDataType("account/" + account.id);
+
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                 lbm.registerReceiver(processFolder, f);
 
-                try {
-                    PowerManager pm = getSystemService(PowerManager.class);
-                    PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, account.name);
+                // Create barrier
+                final Semaphore sem = new Semaphore(0);
 
-                    ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1);
-                    ScheduledFuture future = scheduler.scheduleAtFixedRate(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.i(Helper.TAG, account.name + " wakeup check");
-                            state.thread.interrupt();
-                        }
-                    }, account.poll_interval, account.poll_interval, TimeUnit.MINUTES);
+                // Keep alive
+                final PowerManager pm = getSystemService(PowerManager.class);
+                final PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "account." + account.id);
 
-                    // Keep store alive
-                    while (state.running) {
-                        EntityLog.log(this, account.name + " wait=" + account.poll_interval);
+                final AlarmManager am = getSystemService(AlarmManager.class);
+                final String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id;
+                final PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
+
+                BroadcastReceiver alive = new BroadcastReceiver() {
+                    @Override
+                    public void onReceive(Context context, Intent intent) {
+                        EntityLog.log(context, account.name + " keep alive");
 
                         try {
-                            Thread.sleep(Long.MAX_VALUE);
-                        } catch (InterruptedException ex) {
-                            Log.w(Helper.TAG, account.name + " wait " + ex.toString());
-                        }
-
-                        if (state.running) try {
                             wl.acquire();
 
                             if (!istore.isConnected())
                                 throw new StoreClosedException(istore);
 
                             for (EntityFolder folder : folders.keySet())
-                                if (!folders.get(folder).isOpen())
-                                    throw new FolderClosedException(folders.get(folder));
+                                if (capIdle) {
+                                    if (!folders.get(folder).isOpen())
+                                        throw new FolderClosedException(folders.get(folder));
+                                } else
+                                    synchronizeMessages(account, folder, folders.get(folder), state);
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            reportError(account.name, null, ex);
+
+                            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+
+                            sem.release();
                         } finally {
                             wl.release();
                         }
+
+                        // Reschedule alarm
+                        am.setAndAllowWhileIdle(
+                                AlarmManager.RTC_WAKEUP,
+                                System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                pi);
                     }
+                };
+                registerReceiver(alive, new IntentFilter(id));
 
-                    future.cancel(false);
+                // Schedule alarm
+                EntityLog.log(this, account.name + " wait=" + account.poll_interval);
+                am.setAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                        pi);
 
-                    Log.i(Helper.TAG, account.name + " done running=" + state.running);
+                // Wait for interrupt or exception
+                try {
+                    sem.acquire();
+                } catch (InterruptedException ex) {
+                    Log.w(Helper.TAG, account.name + " semaphore " + ex.toString());
                 } finally {
+                    // Cleanup
+                    am.cancel(pi);
+                    unregisterReceiver(alive);
                     lbm.unregisterReceiver(processFolder);
                 }
+
+                Log.i(Helper.TAG, account.name + " done running=" + state.running);
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 reportError(account.name, null, ex);
@@ -1018,10 +1000,16 @@ public class ServiceSynchronize extends LifecycleService {
                 for (EntityFolder folder : folders.keySet())
                     db.folder().setFolderState(folder.id, "closing");
 
-                // Stop pollers
-                for (Thread poller : pollers) {
-                    poller.interrupt();
-                    join(poller);
+                // Stop syncs
+                for (Thread sync : syncs) {
+                    sync.interrupt();
+                    join(sync);
+                }
+
+                // Stop idlers
+                for (Thread idler : idlers) {
+                    idler.interrupt();
+                    join(idler);
                 }
 
                 // Close store
@@ -1052,12 +1040,6 @@ public class ServiceSynchronize extends LifecycleService {
                     db.account().setAccountState(account.id, null);
                     for (EntityFolder folder : folders.keySet())
                         db.folder().setFolderState(folder.id, null);
-                }
-
-                // Stop idlers
-                for (Thread idler : idlers) {
-                    idler.interrupt();
-                    join(idler);
                 }
             }
 

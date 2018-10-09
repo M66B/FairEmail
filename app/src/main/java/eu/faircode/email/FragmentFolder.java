@@ -44,7 +44,6 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 
 public class FragmentFolder extends FragmentEx {
@@ -55,12 +54,10 @@ public class FragmentFolder extends FragmentEx {
     private CheckBox cbSynchronize;
     private CheckBox cbUnified;
     private EditText etAfter;
-    private EditText etInterval;
     private Button btnSave;
     private ImageButton ibDelete;
     private ProgressBar pbSave;
     private ProgressBar pbWait;
-    private Group grpInterval;
 
     private long id = -1;
     private long account = -1;
@@ -89,12 +86,10 @@ public class FragmentFolder extends FragmentEx {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbUnified = view.findViewById(R.id.cbUnified);
         etAfter = view.findViewById(R.id.etAfter);
-        etInterval = view.findViewById(R.id.etInterval);
         btnSave = view.findViewById(R.id.btnSave);
         ibDelete = view.findViewById(R.id.ibDelete);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
-        grpInterval = view.findViewById(R.id.grpInterval);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +108,6 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putString("after", etAfter.getText().toString());
-                args.putString("interval", etInterval.getText().toString());
 
                 new SimpleTask<Void>() {
                     @Override
@@ -126,12 +120,10 @@ public class FragmentFolder extends FragmentEx {
                         boolean unified = args.getBoolean("unified");
                         boolean synchronize = args.getBoolean("synchronize");
                         String after = args.getString("after");
-                        String interval = args.getString("interval");
 
                         if (TextUtils.isEmpty(display) || display.equals(name))
                             display = null;
                         int days = (TextUtils.isEmpty(after) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(after));
-                        Integer poll_interval = (TextUtils.isEmpty(interval) ? null : Integer.parseInt(interval));
 
                         IMAPStore istore = null;
                         DB db = DB.getInstance(getContext());
@@ -165,7 +157,6 @@ public class FragmentFolder extends FragmentEx {
                                     create.unified = unified;
                                     create.synchronize = synchronize;
                                     create.after = days;
-                                    create.poll_interval = poll_interval;
                                     db.folder().insertFolder(create);
                                 } else {
                                     Log.i(Helper.TAG, "Renaming folder=" + name);
@@ -180,7 +171,7 @@ public class FragmentFolder extends FragmentEx {
 
                             if (folder != null) {
                                 Log.i(Helper.TAG, "Updating folder=" + name);
-                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, days, poll_interval);
+                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, days);
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
                             }
@@ -303,7 +294,6 @@ public class FragmentFolder extends FragmentEx {
         ibDelete.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
-        grpInterval.setVisibility(View.GONE);
 
         return view;
     }
@@ -330,7 +320,6 @@ public class FragmentFolder extends FragmentEx {
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
-                    etInterval.setText(folder == null || folder.poll_interval == null ? null : Integer.toString(folder.poll_interval));
                 }
 
                 // Consider previous save as cancelled
@@ -341,57 +330,5 @@ public class FragmentFolder extends FragmentEx {
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
         });
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        args.putLong("account", account);
-
-        new SimpleTask<Boolean>() {
-            @Override
-            protected Boolean onLoad(Context context, Bundle args) throws Throwable {
-                long fid = args.getLong("id");
-                long aid = args.getLong("account");
-
-                IMAPStore istore = null;
-                DB db = DB.getInstance(getContext());
-                try {
-                    db.beginTransaction();
-
-                    EntityAccount account;
-                    if (fid < 0)
-                        account = db.account().getAccount(aid);
-                    else {
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        account = db.account().getAccount(folder.account);
-                    }
-
-                    db.setTransactionSuccessful();
-
-                    Properties props = MessageHelper.getSessionProperties(account.auth_type);
-                    Session isession = Session.getInstance(props, null);
-                    istore = (IMAPStore) isession.getStore("imaps");
-                    istore.connect(account.host, account.port, account.user, account.password);
-
-                    return istore.hasCapability("IDLE");
-                } finally {
-                    db.endTransaction();
-
-                    if (istore != null)
-                        istore.close();
-                }
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, Boolean capIdle) {
-                grpInterval.setVisibility(capIdle ? View.GONE : View.VISIBLE);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                grpInterval.setVisibility(View.VISIBLE);
-                if (BuildConfig.DEBUG)
-                    Helper.unexpectedError(getContext(), ex);
-            }
-        }.load(this, args);
     }
 }

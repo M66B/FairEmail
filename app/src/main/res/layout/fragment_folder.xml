@@ -102,26 +102,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAfter" />
 
-        <TextView
-            android:id="@+id/tvInterval"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_poll_interval"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etAfter" />
-
-        <EditText
-            android:id="@+id/etInterval"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="9"
-            android:inputType="number"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInterval" />
-
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -129,7 +109,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etInterval" />
+            app:layout_constraintTop_toBottomOf="@id/etAfter" />
 
         <ImageButton
             android:id="@+id/ibDelete"
@@ -138,7 +118,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etInterval" />
+            app:layout_constraintTop_toBottomOf="@id/etAfter" />
 
         <ProgressBar
             android:id="@+id/pbSave"
@@ -161,11 +141,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpInterval"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="tvInterval,etInterval" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

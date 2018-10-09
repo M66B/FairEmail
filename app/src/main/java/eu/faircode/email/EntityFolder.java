@@ -60,7 +60,7 @@ public class EntityFolder implements Serializable {
     public String type;
     @NonNull
     public Boolean synchronize;
-    public Integer poll_interval;
+    public Integer poll_interval; // obsolete
     @NonNull
     public Integer after; // days
     public String display;
