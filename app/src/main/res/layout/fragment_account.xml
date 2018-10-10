@@ -334,7 +334,7 @@
             android:id="@+id/etInterval"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="12"
+            android:hint="19"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
