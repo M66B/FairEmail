@@ -139,23 +139,10 @@ public interface DaoMessage {
             " OR message.msgid = :reference)")
     List<EntityMessage> getMessageByMsgId(long account, String msgid, String reference);
 
-    @Query("SELECT message.* FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
-            " WHERE message.account = :account" +
-            " AND message.thread = :thread" +
-            " AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
-            " AND folder.type <> '" + EntityFolder.DRAFTS + "'")
-    List<EntityMessage> getMessageByThread(long account, String thread);
-
     @Query("SELECT *" +
             " FROM message" +
             " WHERE folder = :folder")
     List<EntityMessage> getMessageByFolder(long folder);
-
-    @Query("SELECT id FROM message" +
-            " WHERE folder = :folder" +
-            " ORDER BY message.received DESC, message.sent DESC")
-    List<Long> getMessageIDs(long folder);
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
