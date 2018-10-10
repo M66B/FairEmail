@@ -583,9 +583,15 @@ public class ServiceSynchronize extends LifecycleService {
                     istore.addStoreListener(new StoreListener() {
                         @Override
                         public void notification(StoreEvent e) {
-                            Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
-                            db.account().setAccountError(account.id, e.getMessage());
-                            state.thread.interrupt();
+                            try {
+                                wl.acquire();
+                                Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
+                                db.account().setAccountError(account.id, e.getMessage());
+                                state.thread.interrupt();
+                                yieldWakelock();
+                            } finally {
+                                wl.release();
+                            }
                         }
                     });
 
@@ -597,10 +603,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
                                 state.thread.interrupt();
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ignore) {
-                                }
+                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -618,10 +621,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
 
                                 state.thread.interrupt();
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ignore) {
-                                }
+                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -633,10 +633,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
                                 state.thread.interrupt();
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ignore) {
-                                }
+                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -752,6 +749,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                                     state.thread.interrupt();
+                                                    yieldWakelock();
                                                 } finally {
                                                     wl.release();
                                                 }
@@ -833,6 +831,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                                     state.thread.interrupt();
+                                                    yieldWakelock();
                                                 } finally {
                                                     wl.release();
                                                 }
@@ -846,6 +845,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                     state.thread.interrupt();
+                                    yieldWakelock();
                                 } finally {
                                     wl.release();
                                 }
@@ -874,6 +874,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
                                         state.thread.interrupt();
+                                        yieldWakelock();
                                     } finally {
                                         Log.i(Helper.TAG, folder.name + " end idle");
                                         wl.release();
@@ -984,11 +985,7 @@ public class ServiceSynchronize extends LifecycleService {
                             // Receiver has a wake lock for ~10 seconds
                             EntityLog.log(context, account.name + " keep alive");
                             state.thread.interrupt();
-                            try {
-                                // Give interrupted thread some time to acquire wake lock
-                                Thread.sleep(1000);
-                            } catch (InterruptedException ignored) {
-                            }
+                            yieldWakelock();
                         }
                     };
 
@@ -2017,7 +2014,7 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityLog.log(ServiceSynchronize.this, "Main started");
 
                         try {
-                            Thread.sleep(1000);
+                            yieldWakelock();
                             wl.release();
                             Thread.sleep(Long.MAX_VALUE);
                         } catch (InterruptedException ex) {
@@ -2050,11 +2047,7 @@ public class ServiceSynchronize extends LifecycleService {
             }, "sync.main");
             state.thread.setPriority(THREAD_PRIORITY_BACKGROUND); // will be inherited
             state.thread.start();
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ignored) {
-            }
+            yieldWakelock();
         }
 
         private void stop() {
@@ -2138,6 +2131,14 @@ public class ServiceSynchronize extends LifecycleService {
             } catch (InterruptedException ex) {
                 Log.w(Helper.TAG, thread.getName() + " join " + ex.toString());
             }
+    }
+
+    private void yieldWakelock() {
+        try {
+            // Give interrupted thread some time to acquire wake lock
+            Thread.sleep(500L);
+        } catch (InterruptedException ignored) {
+        }
     }
 
     public static void start(Context context) {
