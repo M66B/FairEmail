@@ -74,7 +74,7 @@ This app starts a foreground service with a low priority status bar notification
 
 FairEmail requires at least Android 6 Marshmallow.
 
-FairEmail might crash on a Motorola/Lenovo Moto G4 and G5 with Android 7 Nougat or earlier
+FairEmail might occasionally crash on a Motorola/Lenovo Moto G4 and G5 with Android 7 Nougat or earlier
 because of a [bug in Android](https://issuetracker.google.com/issues/63377371).
 
 ## Frequently asked questions
