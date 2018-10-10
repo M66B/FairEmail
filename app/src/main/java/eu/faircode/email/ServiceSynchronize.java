@@ -867,6 +867,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             ifolder.idle(false);
                                             //Log.i(Helper.TAG, folder.name + " done idle");
                                         }
+                                    } catch (FolderClosedException ignored) {
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
@@ -1051,12 +1052,6 @@ public class ServiceSynchronize extends LifecycleService {
                         join(sync);
                     }
 
-                    // Stop idlers
-                    for (Thread idler : idlers) {
-                        idler.interrupt();
-                        join(idler);
-                    }
-
                     // Close store
                     try {
                         Thread t = new Thread(new Runnable() {
@@ -1085,6 +1080,12 @@ public class ServiceSynchronize extends LifecycleService {
                         db.account().setAccountState(account.id, null);
                         for (EntityFolder folder : folders.keySet())
                             db.folder().setFolderState(folder.id, null);
+                    }
+
+                    // Stop idlers
+                    for (Thread idler : idlers) {
+                        idler.interrupt();
+                        join(idler);
                     }
                 }
 
