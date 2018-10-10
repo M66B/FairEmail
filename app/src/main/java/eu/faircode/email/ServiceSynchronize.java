@@ -79,7 +79,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -550,156 +549,275 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
-        final DB db = DB.getInstance(this);
-        final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+        final PowerManager pm = getSystemService(PowerManager.class);
+        final PowerManager.WakeLock wl = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK,
+                BuildConfig.APPLICATION_ID + ":account." + account.id);
+        try {
+            wl.acquire();
 
-        int backoff = CONNECT_BACKOFF_START;
-        while (state.running) {
-            EntityLog.log(this, account.name + " run");
+            final DB db = DB.getInstance(this);
+            final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-            // Debug
-            boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
-            debug = debug || BuildConfig.DEBUG;
-            System.setProperty("mail.socket.debug", Boolean.toString(debug));
+            int backoff = CONNECT_BACKOFF_START;
+            while (state.running) {
+                EntityLog.log(this, account.name + " run");
 
-            // Create session
-            Properties props = MessageHelper.getSessionProperties(account.auth_type);
-            final Session isession = Session.getInstance(props, null);
-            isession.setDebug(debug);
-            // adb -t 1 logcat | grep "fairemail\|System.out"
+                // Debug
+                boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
+                debug = debug || BuildConfig.DEBUG;
+                System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-            final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
-            final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
-            List<Thread> syncs = new ArrayList<>();
-            List<Thread> idlers = new ArrayList<>();
-            try {
-                // Listen for store events
-                istore.addStoreListener(new StoreListener() {
-                    @Override
-                    public void notification(StoreEvent e) {
-                        Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
-                        db.account().setAccountError(account.id, e.getMessage());
-                        state.thread.interrupt();
-                    }
-                });
+                // Create session
+                Properties props = MessageHelper.getSessionProperties(account.auth_type);
+                final Session isession = Session.getInstance(props, null);
+                isession.setDebug(debug);
+                // adb -t 1 logcat | grep "fairemail\|System.out"
 
-                // Listen for folder events
-                istore.addFolderListener(new FolderAdapter() {
-                    @Override
-                    public void folderCreated(FolderEvent e) {
-                        Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
-                        state.thread.interrupt();
-                    }
-
-                    @Override
-                    public void folderRenamed(FolderEvent e) {
-                        Log.i(Helper.TAG, "Folder renamed=" + e.getFolder());
-
-                        String old = e.getFolder().getFullName();
-                        String name = e.getNewFolder().getFullName();
-                        int count = db.folder().renameFolder(account.id, old, name);
-                        Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
-
-                        state.thread.interrupt();
-                    }
-
-                    @Override
-                    public void folderDeleted(FolderEvent e) {
-                        Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
-                        state.thread.interrupt();
-                    }
-                });
-
-                // Listen for connection events
-                istore.addConnectionListener(new ConnectionAdapter() {
-                    @Override
-                    public void opened(ConnectionEvent e) {
-                        Log.i(Helper.TAG, account.name + " opened");
-                    }
-
-                    @Override
-                    public void disconnected(ConnectionEvent e) {
-                        Log.e(Helper.TAG, account.name + " disconnected event");
-                    }
-
-                    @Override
-                    public void closed(ConnectionEvent e) {
-                        Log.e(Helper.TAG, account.name + " closed event");
-                    }
-                });
-
-                // Initiate connection
-                Log.i(Helper.TAG, account.name + " connect");
-                for (EntityFolder folder : db.folder().getFolders(account.id))
-                    db.folder().setFolderState(folder.id, null);
-                db.account().setAccountState(account.id, "connecting");
-                Helper.connect(this, istore, account);
-                final boolean capIdle = istore.hasCapability("IDLE");
-                Log.i(Helper.TAG, account.name + " idle=" + capIdle);
-                db.account().setAccountState(account.id, "connected");
-                db.account().setAccountError(account.id, null);
-
-                EntityLog.log(this, account.name + " connected");
-
-                // Update folder list
-                synchronizeFolders(account, istore, state);
-
-                // Synchronize folders
-                for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
-                    Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
-
-                    db.folder().setFolderState(folder.id, "connecting");
-
-                    final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                    try {
-                        ifolder.open(Folder.READ_WRITE);
-                    } catch (Throwable ex) {
-                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                        throw ex;
-                    }
-                    folders.put(folder, ifolder);
-
-                    db.folder().setFolderState(folder.id, "connected");
-                    db.folder().setFolderError(folder.id, null);
-
-                    // Synchronize folder
-                    Thread sync = new Thread(new Runnable() {
+                final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
+                final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
+                List<Thread> syncs = new ArrayList<>();
+                List<Thread> idlers = new ArrayList<>();
+                try {
+                    // Listen for store events
+                    istore.addStoreListener(new StoreListener() {
                         @Override
-                        public void run() {
+                        public void notification(StoreEvent e) {
+                            Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
+                            db.account().setAccountError(account.id, e.getMessage());
+                            state.thread.interrupt();
+                        }
+                    });
+
+                    // Listen for folder events
+                    istore.addFolderListener(new FolderAdapter() {
+                        @Override
+                        public void folderCreated(FolderEvent e) {
                             try {
-                                // Process pending operations
-                                processOperations(folder, isession, istore, ifolder);
+                                wl.acquire();
+                                Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
+                                state.thread.interrupt();
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException ignore) {
+                                }
+                            } finally {
+                                wl.release();
+                            }
+                        }
 
-                                // Listen for new and deleted messages
-                                ifolder.addMessageCountListener(new MessageCountAdapter() {
-                                    @Override
-                                    public void messagesAdded(MessageCountEvent e) {
-                                        synchronized (lock) {
-                                            try {
-                                                Log.i(Helper.TAG, folder.name + " messages added");
+                        @Override
+                        public void folderRenamed(FolderEvent e) {
+                            try {
+                                wl.acquire();
+                                Log.i(Helper.TAG, "Folder renamed=" + e.getFolder());
 
-                                                FetchProfile fp = new FetchProfile();
-                                                fp.add(FetchProfile.Item.ENVELOPE);
-                                                fp.add(FetchProfile.Item.FLAGS);
-                                                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-                                                fp.add(UIDFolder.FetchProfileItem.UID);
-                                                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-                                                fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-                                                fp.add(FetchProfile.Item.SIZE);
-                                                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                                                ifolder.fetch(e.getMessages(), fp);
+                                String old = e.getFolder().getFullName();
+                                String name = e.getNewFolder().getFullName();
+                                int count = db.folder().renameFolder(account.id, old, name);
+                                Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
 
-                                                for (Message imessage : e.getMessages())
+                                state.thread.interrupt();
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException ignore) {
+                                }
+                            } finally {
+                                wl.release();
+                            }
+                        }
+
+                        @Override
+                        public void folderDeleted(FolderEvent e) {
+                            try {
+                                wl.acquire();
+                                Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
+                                state.thread.interrupt();
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException ignore) {
+                                }
+                            } finally {
+                                wl.release();
+                            }
+                        }
+                    });
+
+                    // Listen for connection events
+                    istore.addConnectionListener(new ConnectionAdapter() {
+                        @Override
+                        public void opened(ConnectionEvent e) {
+                            Log.i(Helper.TAG, account.name + " opened");
+                        }
+
+                        @Override
+                        public void disconnected(ConnectionEvent e) {
+                            Log.e(Helper.TAG, account.name + " disconnected event");
+                        }
+
+                        @Override
+                        public void closed(ConnectionEvent e) {
+                            Log.e(Helper.TAG, account.name + " closed event");
+                        }
+                    });
+
+                    // Initiate connection
+                    Log.i(Helper.TAG, account.name + " connect");
+                    for (EntityFolder folder : db.folder().getFolders(account.id))
+                        db.folder().setFolderState(folder.id, null);
+                    db.account().setAccountState(account.id, "connecting");
+                    Helper.connect(this, istore, account);
+                    final boolean capIdle = istore.hasCapability("IDLE");
+                    Log.i(Helper.TAG, account.name + " idle=" + capIdle);
+                    db.account().setAccountState(account.id, "connected");
+                    db.account().setAccountError(account.id, null);
+
+                    EntityLog.log(this, account.name + " connected");
+
+                    // Update folder list
+                    synchronizeFolders(account, istore, state);
+
+                    // Open folders
+                    for (final EntityFolder folder : db.folder().getFolders(account.id, true)) {
+                        Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
+
+                        db.folder().setFolderState(folder.id, "connecting");
+
+                        final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                        try {
+                            ifolder.open(Folder.READ_WRITE);
+                        } catch (Throwable ex) {
+                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                            throw ex;
+                        }
+                        folders.put(folder, ifolder);
+
+                        db.folder().setFolderState(folder.id, "connected");
+                        db.folder().setFolderError(folder.id, null);
+
+                        // Synchronize folder
+                        Thread sync = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    wl.acquire();
+
+                                    // Process pending operations
+                                    processOperations(folder, isession, istore, ifolder);
+
+                                    // Listen for new and deleted messages
+                                    ifolder.addMessageCountListener(new MessageCountAdapter() {
+                                        @Override
+                                        public void messagesAdded(MessageCountEvent e) {
+                                            synchronized (lock) {
+                                                try {
+                                                    wl.acquire();
+                                                    Log.i(Helper.TAG, folder.name + " messages added");
+
+                                                    FetchProfile fp = new FetchProfile();
+                                                    fp.add(FetchProfile.Item.ENVELOPE);
+                                                    fp.add(FetchProfile.Item.FLAGS);
+                                                    fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                                                    fp.add(UIDFolder.FetchProfileItem.UID);
+                                                    fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                                                    fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                                                    fp.add(FetchProfile.Item.SIZE);
+                                                    fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                                                    ifolder.fetch(e.getMessages(), fp);
+
+                                                    for (Message imessage : e.getMessages())
+                                                        try {
+                                                            long id;
+                                                            try {
+                                                                db.beginTransaction();
+                                                                id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                                db.setTransactionSuccessful();
+                                                            } finally {
+                                                                db.endTransaction();
+                                                            }
+                                                            downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
+                                                        } catch (MessageRemovedException ex) {
+                                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        } catch (IOException ex) {
+                                                            if (ex.getCause() instanceof MessageRemovedException)
+                                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                            else
+                                                                throw ex;
+                                                        }
+                                                    EntityOperation.process(ServiceSynchronize.this); // download small attachments
+                                                } catch (Throwable ex) {
+                                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    reportError(account.name, folder.name, ex);
+
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
+                                                    state.thread.interrupt();
+                                                } finally {
+                                                    wl.release();
+                                                }
+                                            }
+                                        }
+
+                                        @Override
+                                        public void messagesRemoved(MessageCountEvent e) {
+                                            synchronized (lock) {
+                                                try {
+                                                    wl.acquire();
+                                                    Log.i(Helper.TAG, folder.name + " messages removed");
+                                                    for (Message imessage : e.getMessages())
+                                                        try {
+                                                            long uid = ifolder.getUID(imessage);
+
+                                                            DB db = DB.getInstance(ServiceSynchronize.this);
+                                                            int count = db.message().deleteMessage(folder.id, uid);
+
+                                                            Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
+                                                        } catch (MessageRemovedException ex) {
+                                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        }
+                                                } catch (Throwable ex) {
+                                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    reportError(account.name, folder.name, ex);
+
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
+                                                    state.thread.interrupt();
+                                                } finally {
+                                                    wl.release();
+                                                }
+                                            }
+                                        }
+                                    });
+
+                                    // Fetch e-mail
+                                    synchronizeMessages(account, folder, ifolder, state);
+
+                                    // Flags (like "seen") at the remote could be changed while synchronizing
+
+                                    // Listen for changed messages
+                                    ifolder.addMessageChangedListener(new MessageChangedListener() {
+                                        @Override
+                                        public void messageChanged(MessageChangedEvent e) {
+                                            synchronized (lock) {
+                                                try {
+                                                    wl.acquire();
                                                     try {
+                                                        Log.i(Helper.TAG, folder.name + " message changed");
+
+                                                        FetchProfile fp = new FetchProfile();
+                                                        fp.add(UIDFolder.FetchProfileItem.UID);
+                                                        fp.add(IMAPFolder.FetchProfileItem.FLAGS);
+                                                        ifolder.fetch(new Message[]{e.getMessage()}, fp);
+
                                                         long id;
                                                         try {
                                                             db.beginTransaction();
-                                                            id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false);
+                                                            id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
                                                             db.setTransactionSuccessful();
                                                         } finally {
                                                             db.endTransaction();
                                                         }
-                                                        downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
+                                                        downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
                                                     } catch (MessageRemovedException ex) {
                                                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     } catch (IOException ex) {
@@ -708,118 +826,19 @@ public class ServiceSynchronize extends LifecycleService {
                                                         else
                                                             throw ex;
                                                     }
-                                                EntityOperation.process(ServiceSynchronize.this); // download small attachments
-                                            } catch (Throwable ex) {
-                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
+                                                } catch (Throwable ex) {
+                                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    reportError(account.name, folder.name, ex);
 
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                                state.thread.interrupt();
-                                            }
-                                        }
-                                    }
-
-                                    @Override
-                                    public void messagesRemoved(MessageCountEvent e) {
-                                        synchronized (lock) {
-                                            try {
-                                                Log.i(Helper.TAG, folder.name + " messages removed");
-                                                for (Message imessage : e.getMessages())
-                                                    try {
-                                                        long uid = ifolder.getUID(imessage);
-
-                                                        DB db = DB.getInstance(ServiceSynchronize.this);
-                                                        int count = db.message().deleteMessage(folder.id, uid);
-
-                                                        Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
-                                                    } catch (MessageRemovedException ex) {
-                                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                    }
-                                            } catch (Throwable ex) {
-                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
-
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                                state.thread.interrupt();
-                                            }
-                                        }
-                                    }
-                                });
-
-                                // Fetch e-mail
-                                synchronizeMessages(account, folder, ifolder, state);
-
-                                // Flags (like "seen") at the remote could be changed while synchronizing
-
-                                // Listen for changed messages
-                                ifolder.addMessageChangedListener(new MessageChangedListener() {
-                                    @Override
-                                    public void messageChanged(MessageChangedEvent e) {
-                                        synchronized (lock) {
-                                            try {
-                                                try {
-                                                    Log.i(Helper.TAG, folder.name + " message changed");
-
-                                                    FetchProfile fp = new FetchProfile();
-                                                    fp.add(UIDFolder.FetchProfileItem.UID);
-                                                    fp.add(IMAPFolder.FetchProfileItem.FLAGS);
-                                                    ifolder.fetch(new Message[]{e.getMessage()}, fp);
-
-                                                    long id;
-                                                    try {
-                                                        db.beginTransaction();
-                                                        id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false);
-                                                        db.setTransactionSuccessful();
-                                                    } finally {
-                                                        db.endTransaction();
-                                                    }
-                                                    downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
-                                                } catch (MessageRemovedException ex) {
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                } catch (IOException ex) {
-                                                    if (ex.getCause() instanceof MessageRemovedException)
-                                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                    else
-                                                        throw ex;
+                                                    state.thread.interrupt();
+                                                } finally {
+                                                    wl.release();
                                                 }
-                                            } catch (Throwable ex) {
-                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                reportError(account.name, folder.name, ex);
-
-                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                                state.thread.interrupt();
                                             }
                                         }
-                                    }
-                                });
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                reportError(account.name, folder.name, ex);
-
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                state.thread.interrupt();
-                            }
-                        }
-                    }, "sync." + folder.id);
-                    sync.start();
-                    syncs.add(sync);
-
-                    // Idle folder
-                    if (capIdle) {
-                        Thread idler = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Log.i(Helper.TAG, folder.name + " start idle");
-                                    while (state.running) {
-                                        Log.i(Helper.TAG, folder.name + " do idle");
-                                        ifolder.idle(false);
-                                        //Log.i(Helper.TAG, folder.name + " done idle");
-                                    }
+                                    });
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     reportError(account.name, folder.name, ex);
@@ -828,235 +847,266 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     state.thread.interrupt();
                                 } finally {
-                                    Log.i(Helper.TAG, folder.name + " end idle");
+                                    wl.release();
                                 }
                             }
-                        }, "idler." + folder.id);
-                        idler.start();
-                        idlers.add(idler);
+                        }, "sync." + folder.id);
+                        sync.start();
+                        syncs.add(sync);
+
+                        // Idle folder
+                        if (capIdle) {
+                            Thread idler = new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        wl.acquire();
+                                        Log.i(Helper.TAG, folder.name + " start idle");
+                                        while (state.running) {
+                                            Log.i(Helper.TAG, folder.name + " do idle");
+                                            ifolder.idle(false);
+                                            //Log.i(Helper.TAG, folder.name + " done idle");
+                                        }
+                                    } catch (Throwable ex) {
+                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        reportError(account.name, folder.name, ex);
+
+                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
+                                        state.thread.interrupt();
+                                    } finally {
+                                        Log.i(Helper.TAG, folder.name + " end idle");
+                                        wl.release();
+                                    }
+                                }
+                            }, "idler." + folder.id);
+                            idler.start();
+                            idlers.add(idler);
+                        }
                     }
-                }
 
-                backoff = CONNECT_BACKOFF_START;
+                    // Successfully connected: reset back off time
+                    backoff = CONNECT_BACKOFF_START;
 
-                // Process folder actions
-                BroadcastReceiver processFolder = new BroadcastReceiver() {
-                    @Override
-                    public void onReceive(Context context, final Intent intent) {
-                        executor.submit(new Runnable() {
-                            @Override
-                            public void run() {
-                                long fid = intent.getLongExtra("folder", -1);
-                                Log.i(Helper.TAG, "Process folder=" + fid + " intent=" + intent);
+                    // Process folder actions
+                    BroadcastReceiver processFolder = new BroadcastReceiver() {
+                        @Override
+                        public void onReceive(Context context, final Intent intent) {
+                            executor.submit(new Runnable() {
+                                @Override
+                                public void run() {
+                                    long fid = intent.getLongExtra("folder", -1);
+                                    try {
+                                        wl.acquire();
+                                        Log.i(Helper.TAG, "Process folder=" + fid + " intent=" + intent);
 
-                                // Get folder
-                                EntityFolder folder = null;
-                                IMAPFolder ifolder = null;
-                                for (EntityFolder f : folders.keySet())
-                                    if (f.id == fid) {
-                                        folder = f;
-                                        ifolder = folders.get(f);
-                                        break;
-                                    }
+                                        // Get folder
+                                        EntityFolder folder = null;
+                                        IMAPFolder ifolder = null;
+                                        for (EntityFolder f : folders.keySet())
+                                            if (f.id == fid) {
+                                                folder = f;
+                                                ifolder = folders.get(f);
+                                                break;
+                                            }
 
-                                final boolean shouldClose = (ifolder == null);
+                                        final boolean shouldClose = (folder == null);
 
-                                try {
-                                    if (folder == null)
-                                        folder = db.folder().getFolder(fid);
+                                        try {
+                                            if (folder == null)
+                                                folder = db.folder().getFolder(fid);
 
-                                    Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
+                                            Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
 
-                                    if (ifolder == null) {
-                                        // Prevent unnecessary folder connections
-                                        if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
-                                            if (db.operation().getOperationCount(fid) == 0)
-                                                return;
+                                            if (ifolder == null) {
+                                                // Prevent unnecessary folder connections
+                                                if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
+                                                    if (db.operation().getOperationCount(fid) == 0)
+                                                        return;
 
-                                        db.folder().setFolderState(folder.id, "connecting");
+                                                db.folder().setFolderState(folder.id, "connecting");
 
-                                        ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                                        ifolder.open(Folder.READ_WRITE);
+                                                ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                                                ifolder.open(Folder.READ_WRITE);
 
-                                        db.folder().setFolderState(folder.id, "connected");
-                                        db.folder().setFolderError(folder.id, null);
-                                    }
+                                                db.folder().setFolderState(folder.id, "connected");
+                                                db.folder().setFolderError(folder.id, null);
+                                            }
 
-                                    if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
-                                        processOperations(folder, isession, istore, ifolder);
-                                    else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction())) {
-                                        processOperations(folder, isession, istore, ifolder);
-                                        synchronizeMessages(account, folder, ifolder, state);
-                                    }
+                                            if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
+                                                processOperations(folder, isession, istore, ifolder);
 
-                                } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                    reportError(account.name, folder.name, ex);
+                                            else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction())) {
+                                                processOperations(folder, isession, istore, ifolder);
+                                                synchronizeMessages(account, folder, ifolder, state);
+                                            }
 
-                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                } finally {
-                                    if (shouldClose) {
-                                        if (ifolder != null && ifolder.isOpen()) {
-                                            db.folder().setFolderState(folder.id, "closing");
-                                            try {
-                                                ifolder.close(false);
-                                            } catch (MessagingException ex) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            reportError(account.name, folder.name, ex);
+
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                        } finally {
+                                            if (shouldClose) {
+                                                if (ifolder != null && ifolder.isOpen()) {
+                                                    db.folder().setFolderState(folder.id, "closing");
+                                                    try {
+                                                        ifolder.close(false);
+                                                    } catch (MessagingException ex) {
+                                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    }
+                                                }
+                                                db.folder().setFolderState(folder.id, null);
                                             }
                                         }
-                                        db.folder().setFolderState(folder.id, null);
+                                    } finally {
+                                        wl.release();
                                     }
+                                }
+                            });
+                        }
+                    };
+
+                    // Listen for folder operations
+                    IntentFilter f = new IntentFilter();
+                    f.addAction(ACTION_SYNCHRONIZE_FOLDER);
+                    f.addAction(ACTION_PROCESS_OPERATIONS);
+                    f.addDataType("account/" + account.id);
+
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
+                    lbm.registerReceiver(processFolder, f);
+
+                    // Keep alive alarm receiver
+                    BroadcastReceiver alarm = new BroadcastReceiver() {
+                        @Override
+                        public void onReceive(Context context, Intent intent) {
+                            // Receiver runs on main thread
+                            // Receiver has a wake lock for ~10 seconds
+                            EntityLog.log(context, account.name + " keep alive");
+                            state.thread.interrupt();
+                            try {
+                                // Give interrupted thread some time to acquire wake lock
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ignored) {
+                            }
+                        }
+                    };
+
+                    String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id;
+                    PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
+                    registerReceiver(alarm, new IntentFilter(id));
+
+                    // Keep alive
+                    AlarmManager am = getSystemService(AlarmManager.class);
+                    try {
+                        while (state.running) {
+                            // Schedule keep alive alarm
+                            EntityLog.log(this, account.name + " wait=" + account.poll_interval);
+                            am.setAndAllowWhileIdle(
+                                    AlarmManager.RTC_WAKEUP,
+                                    System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                    pi);
+
+                            try {
+                                wl.release();
+                                Thread.sleep(Long.MAX_VALUE);
+                            } catch (InterruptedException ex) {
+                                EntityLog.log(this, account.name + " waited running=" + state.running);
+                            } finally {
+                                wl.acquire();
+                            }
+
+                            if (state.running) {
+                                if (!istore.isConnected())
+                                    throw new StoreClosedException(istore);
+
+                                for (EntityFolder folder : folders.keySet())
+                                    if (capIdle) {
+                                        if (!folders.get(folder).isOpen())
+                                            throw new FolderClosedException(folders.get(folder));
+                                    } else
+                                        synchronizeMessages(account, folder, folders.get(folder), state);
+                            }
+
+                        }
+                    } finally {
+                        // Cleanup
+                        am.cancel(pi);
+                        unregisterReceiver(alarm);
+                        lbm.unregisterReceiver(processFolder);
+                    }
+
+                    Log.i(Helper.TAG, account.name + " done running=" + state.running);
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    reportError(account.name, null, ex);
+
+                    db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+                } finally {
+                    EntityLog.log(this, account.name + " closing");
+                    db.account().setAccountState(account.id, "closing");
+                    for (EntityFolder folder : folders.keySet())
+                        db.folder().setFolderState(folder.id, "closing");
+
+                    // Stop syncs
+                    for (Thread sync : syncs) {
+                        sync.interrupt();
+                        join(sync);
+                    }
+
+                    // Stop idlers
+                    for (Thread idler : idlers) {
+                        idler.interrupt();
+                        join(idler);
+                    }
+
+                    // Close store
+                    try {
+                        Thread t = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    EntityLog.log(ServiceSynchronize.this, account.name + " store closing");
+                                    istore.close();
+                                    EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
+                                } catch (Throwable ex) {
+                                    Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 }
                             }
                         });
-                    }
-                };
-
-                // Listen for folder operations
-                IntentFilter f = new IntentFilter();
-                f.addAction(ACTION_SYNCHRONIZE_FOLDER);
-                f.addAction(ACTION_PROCESS_OPERATIONS);
-                f.addDataType("account/" + account.id);
-
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
-                lbm.registerReceiver(processFolder, f);
-
-                // Create barrier
-                final Semaphore sem = new Semaphore(0);
-
-                // Keep alive
-                final PowerManager pm = getSystemService(PowerManager.class);
-                final PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "account." + account.id);
-
-                final AlarmManager am = getSystemService(AlarmManager.class);
-                final String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id;
-                final PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
-
-                BroadcastReceiver alive = new BroadcastReceiver() {
-                    @Override
-                    public void onReceive(Context context, Intent intent) {
-                        EntityLog.log(context, account.name + " keep alive");
-
+                        t.start();
                         try {
-                            wl.acquire();
-
-                            if (!istore.isConnected())
-                                throw new StoreClosedException(istore);
-
-                            for (EntityFolder folder : folders.keySet())
-                                if (capIdle) {
-                                    if (!folders.get(folder).isOpen())
-                                        throw new FolderClosedException(folders.get(folder));
-                                } else
-                                    synchronizeMessages(account, folder, folders.get(folder), state);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            reportError(account.name, null, ex);
-
-                            db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-
-                            sem.release();
-                        } finally {
-                            wl.release();
+                            t.join(MessageHelper.NETWORK_TIMEOUT);
+                            if (t.isAlive())
+                                Log.w(Helper.TAG, account.name + " Close timeout");
+                        } catch (InterruptedException ex) {
+                            Log.w(Helper.TAG, account.name + " close wait " + ex.toString());
+                            t.interrupt();
                         }
-
-                        // Reschedule alarm
-                        am.setAndAllowWhileIdle(
-                                AlarmManager.RTC_WAKEUP,
-                                System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
-                                pi);
+                    } finally {
+                        EntityLog.log(this, account.name + " closed");
+                        db.account().setAccountState(account.id, null);
+                        for (EntityFolder folder : folders.keySet())
+                            db.folder().setFolderState(folder.id, null);
                     }
-                };
-                registerReceiver(alive, new IntentFilter(id));
-
-                // Schedule alarm
-                EntityLog.log(this, account.name + " wait=" + account.poll_interval);
-                am.setAndAllowWhileIdle(
-                        AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
-                        pi);
-
-                // Wait for interrupt or exception
-                try {
-                    sem.acquire();
-                } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, account.name + " semaphore " + ex.toString());
-                } finally {
-                    // Cleanup
-                    am.cancel(pi);
-                    unregisterReceiver(alive);
-                    lbm.unregisterReceiver(processFolder);
                 }
 
-                Log.i(Helper.TAG, account.name + " done running=" + state.running);
-            } catch (Throwable ex) {
-                Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                reportError(account.name, null, ex);
-
-                db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-            } finally {
-                EntityLog.log(this, account.name + " closing");
-                db.account().setAccountState(account.id, "closing");
-                for (EntityFolder folder : folders.keySet())
-                    db.folder().setFolderState(folder.id, "closing");
-
-                // Stop syncs
-                for (Thread sync : syncs) {
-                    sync.interrupt();
-                    join(sync);
-                }
-
-                // Stop idlers
-                for (Thread idler : idlers) {
-                    idler.interrupt();
-                    join(idler);
-                }
-
-                // Close store
-                try {
-                    Thread t = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                EntityLog.log(ServiceSynchronize.this, account.name + " store closing");
-                                istore.close();
-                                EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
-                            } catch (Throwable ex) {
-                                Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            }
-                        }
-                    });
-                    t.start();
+                if (state.running) {
                     try {
-                        t.join(MessageHelper.NETWORK_TIMEOUT);
-                        if (t.isAlive())
-                            Log.w(Helper.TAG, account.name + " Close timeout");
+                        EntityLog.log(this, account.name + " backoff=" + backoff);
+                        Thread.sleep(backoff * 1000L);
+
+                        if (backoff < CONNECT_BACKOFF_MAX)
+                            backoff *= 2;
                     } catch (InterruptedException ex) {
-                        Log.w(Helper.TAG, account.name + " close wait " + ex.toString());
-                        t.interrupt();
+                        Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
                     }
-                } finally {
-                    EntityLog.log(this, account.name + " closed");
-                    db.account().setAccountState(account.id, null);
-                    for (EntityFolder folder : folders.keySet())
-                        db.folder().setFolderState(folder.id, null);
                 }
             }
-
-            if (state.running) {
-                try {
-                    EntityLog.log(this, account.name + " backoff=" + backoff);
-                    Thread.sleep(backoff * 1000L);
-
-                    if (backoff < CONNECT_BACKOFF_MAX)
-                        backoff *= 2;
-                } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
-                }
-            }
+        } finally {
+            EntityLog.log(this, account.name + " stopped");
+            wl.release();
         }
-
-        EntityLog.log(this, account.name + " stopped");
     }
 
     private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
@@ -1897,7 +1947,13 @@ public class ServiceSynchronize extends LifecycleService {
 
                 @Override
                 public void run() {
+                    PowerManager pm = getSystemService(PowerManager.class);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK,
+                            BuildConfig.APPLICATION_ID + ":start");
                     try {
+                        wl.acquire();
+
                         DB db = DB.getInstance(ServiceSynchronize.this);
 
                         outbox = db.folder().getOutbox();
@@ -1961,9 +2017,13 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityLog.log(ServiceSynchronize.this, "Main started");
 
                         try {
+                            Thread.sleep(1000);
+                            wl.release();
                             Thread.sleep(Long.MAX_VALUE);
                         } catch (InterruptedException ex) {
                             Log.w(Helper.TAG, "main wait " + ex.toString());
+                        } finally {
+                            wl.acquire();
                         }
 
                         // Stop monitoring accounts
@@ -1983,23 +2043,39 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         // Fail-safe
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        wl.release();
                     }
                 }
             }, "sync.main");
             state.thread.setPriority(THREAD_PRIORITY_BACKGROUND); // will be inherited
             state.thread.start();
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ignored) {
+            }
         }
 
         private void stop() {
-            EntityLog.log(ServiceSynchronize.this, "Main stop");
+            PowerManager pm = getSystemService(PowerManager.class);
+            PowerManager.WakeLock wl = pm.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK,
+                    BuildConfig.APPLICATION_ID + ":stop");
+            try {
+                wl.acquire();
+                EntityLog.log(ServiceSynchronize.this, "Main stop");
 
-            state.running = false;
-            state.thread.interrupt();
-            join(state.thread);
+                state.running = false;
+                state.thread.interrupt();
+                join(state.thread);
 
-            EntityLog.log(ServiceSynchronize.this, "Main stopped");
+                EntityLog.log(ServiceSynchronize.this, "Main stopped");
 
-            state = null;
+                state = null;
+            } finally {
+                wl.release();
+            }
         }
 
         private void restart() {
@@ -2021,19 +2097,29 @@ public class ServiceSynchronize extends LifecycleService {
                 executor.submit(new Runnable() {
                     @Override
                     public void run() {
-                        DB db = DB.getInstance(context);
-                        try {
-                            Log.i(Helper.TAG, outbox.name + " start operations");
-                            db.folder().setFolderState(outbox.id, "syncing");
-                            processOperations(outbox, null, null, null);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                            reportError(null, outbox.name, ex);
+                        PowerManager pm = getSystemService(PowerManager.class);
+                        PowerManager.WakeLock wl = pm.newWakeLock(
+                                PowerManager.PARTIAL_WAKE_LOCK,
+                                BuildConfig.APPLICATION_ID + ":outbox");
 
-                            db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+                        try {
+                            wl.acquire();
+                            DB db = DB.getInstance(context);
+                            try {
+                                Log.i(Helper.TAG, outbox.name + " start operations");
+                                db.folder().setFolderState(outbox.id, "syncing");
+                                processOperations(outbox, null, null, null);
+                            } catch (Throwable ex) {
+                                Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                reportError(null, outbox.name, ex);
+
+                                db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+                            } finally {
+                                Log.i(Helper.TAG, outbox.name + " end operations");
+                                db.folder().setFolderState(outbox.id, null);
+                            }
                         } finally {
-                            Log.i(Helper.TAG, outbox.name + " end operations");
-                            db.folder().setFolderState(outbox.id, null);
+                            wl.release();
                         }
                     }
                 });
