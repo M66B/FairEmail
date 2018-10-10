@@ -1140,8 +1140,11 @@ public class FragmentMessage extends FragmentEx {
                             @Override
                             protected void onLoaded(Bundle args, Boolean close) {
                                 Helper.setViewsEnabled(view, true);
-                                if (close) // archived message
+                                if (close) { // archived message
                                     getFragmentManager().popBackStack();
+                                    if (message.threaded)
+                                        getFragmentManager().popBackStack();
+                                }
                             }
 
                             @Override
@@ -1194,6 +1197,8 @@ public class FragmentMessage extends FragmentEx {
             @Override
             protected void onLoaded(Bundle args, Void result) {
                 getFragmentManager().popBackStack();
+                if (message.threaded)
+                    getFragmentManager().popBackStack();
                 Helper.setViewsEnabled(view, true);
             }
 
