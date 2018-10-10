@@ -70,6 +70,13 @@ This app starts a foreground service with a low priority status bar notification
 * [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
 
+## Compatibility
+
+FairEmail requires at least Android 6 Marshmallow.
+
+FairEmail might crash on a Motorola/Lenovo Moto G4 and G5 with Android 7 Nougat or earlier
+because of a [bug in Android](https://issuetracker.google.com/issues/63377371).
+
 ## Frequently asked questions
 
 See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions.
