@@ -110,14 +110,13 @@ For more background information, please see [this article](https://www.eff.org/n
 tl;dr; "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
 
 <a name="FAQ13"></a>
-**(13) How does progressive search work?**
+**(13) How does search on server work?**
 
 You can start searching for messages on sender, subject or text by using the magnify glass in the action bar of a folder.
-First messages are searched on device, then the server is requested to search.
-Scrolling down will download more messages from the server.
-Searching on device is case insensitive and on partial text.
-Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
-Progressive search is a pro feature.
+The server executes the search.
+Scrolling down will fetch more messages from the server.
+Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+Search on server is a pro feature.
 
 <a name="FAQ14"></a>
 **(14) How can I setup Outlook with 2FA?**
@@ -133,6 +132,7 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
 * Swipe left/right for previous/next message: this would be confusing since sometimes a message and sometimes a message conversation would be shown.
 * Preview message text: this is not always possible because the message text is initially not downloaded for large messages and besides that the subject is supposed to tell what the message is about.
+* Filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for executing filter rules.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
