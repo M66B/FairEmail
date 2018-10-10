@@ -92,6 +92,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_ERROR = 3;
 
     static final int REQUEST_ATTACHMENT = 1;
+    static final int REQUEST_INVITE = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
@@ -164,6 +165,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_rate:
                         onMenuRate();
                         break;
+                    case R.string.menu_invite:
+                        onMenuInvite();
+                        break;
                     case R.string.menu_other:
                         onMenuOtherApps();
                         break;
@@ -221,6 +225,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_info_24, R.string.menu_about));
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
+
+                if (getIntentInvite().resolveActivity(getPackageManager()) != null)
+                    drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_people_24, R.string.menu_invite));
 
                 if (getIntentRate().resolveActivity(getPackageManager()) != null)
                     drawerArray.add(new DrawerItem(ActivityView.this, R.layout.item_drawer, R.drawable.baseline_star_24, R.string.menu_rate));
@@ -567,6 +574,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return intent;
     }
 
+    private Intent getIntentInvite() {
+        Intent intent = new Intent("com.google.android.gms.appinvite.ACTION_APP_INVITE");
+        intent.setPackage("com.google.android.gms");
+        intent.putExtra("com.google.android.gms.appinvite.TITLE", getString(R.string.menu_invite));
+        intent.putExtra("com.google.android.gms.appinvite.MESSAGE", getString(R.string.title_try));
+        intent.putExtra("com.google.android.gms.appinvite.BUTTON_TEXT", getString(R.string.title_try));
+        // com.google.android.gms.appinvite.DEEP_LINK_URL
+        return intent;
+    }
+
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
@@ -650,6 +667,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     })
                     .show();
         }
+    }
+
+    private void onMenuInvite() {
+        startActivityForResult(getIntentInvite(), REQUEST_INVITE);
     }
 
     private void onMenuOtherApps() {
