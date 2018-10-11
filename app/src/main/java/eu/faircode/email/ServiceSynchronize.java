@@ -2048,6 +2048,7 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
                         wl.release();
+                        EntityLog.log(ServiceSynchronize.this, "Start wake lock=" + wl.isHeld());
                     }
                 }
             }, "sync.main");
@@ -2074,6 +2075,7 @@ public class ServiceSynchronize extends LifecycleService {
                 state = null;
             } finally {
                 wl.release();
+                EntityLog.log(ServiceSynchronize.this, "Stop wake lock=" + wl.isHeld());
             }
         }
 
@@ -2119,6 +2121,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
                         } finally {
                             wl.release();
+                            EntityLog.log(ServiceSynchronize.this, "Outbox wake lock=" + wl.isHeld());
                         }
                     }
                 });
