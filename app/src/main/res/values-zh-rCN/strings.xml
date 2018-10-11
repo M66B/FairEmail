@@ -60,6 +60,7 @@
   <string name="title_setup_light_theme">亮色主题</string>
   <string name="title_setup_dark_theme">暗色主题</string>
   <string name="title_advanced">高级选项</string>
+  <string name="title_advanced_enabled">Enabled</string>
   <string name="title_advanced_avatars">显示联系人头像</string>
   <string name="title_advanced_light">使用指示灯</string>
   <string name="title_advanced_browse">浏览服务器上的消息</string>

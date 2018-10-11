@@ -64,6 +64,7 @@
   <string name="title_setup_light_theme">Ljust tema</string>
   <string name="title_setup_dark_theme">Mörkt tema</string>
   <string name="title_advanced">Avancerade inställningar</string>
+  <string name="title_advanced_enabled">Enabled</string>
   <string name="title_advanced_avatars">Visa kontaktfoton</string>
   <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>

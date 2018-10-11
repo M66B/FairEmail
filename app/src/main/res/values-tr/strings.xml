@@ -64,6 +64,7 @@
   <string name="title_setup_light_theme">Aydınlık tema</string>
   <string name="title_setup_dark_theme">Koyu Tema</string>
   <string name="title_advanced">Gelişmiş ayarlar</string>
+  <string name="title_advanced_enabled">Enabled</string>
   <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
   <string name="title_advanced_light">Bildirim ışığını kullan</string>
   <string name="title_advanced_browse">Browse messages on the server</string>

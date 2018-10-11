@@ -64,6 +64,7 @@
   <string name="title_setup_light_theme">Light theme</string>
   <string name="title_setup_dark_theme">Tema escuro</string>
   <string name="title_advanced">Advanced options</string>
+  <string name="title_advanced_enabled">Enabled</string>
   <string name="title_advanced_avatars">Show contact photos</string>
   <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_browse">Browse messages on the server</string>
