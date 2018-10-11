@@ -26,6 +26,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -164,6 +165,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     final Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setDataAndType(uri, attachment.type);
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    if (!TextUtils.isEmpty(attachment.name))
+                        intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
                     Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
                     Log.i(Helper.TAG, "Intent=" + intent);
 
