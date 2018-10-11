@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menu_text_size"
+        android:icon="@drawable/baseline_format_size_24"
+        android:title="@string/title_text_size"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_thread"
         android:icon="@drawable/baseline_message_24"
         android:title="@string/title_thread"

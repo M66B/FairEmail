@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -47,6 +48,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -361,6 +363,8 @@ public class FragmentMessage extends FragmentEx {
                 grpRawHeaders.setVisibility(View.GONE);
                 grpAttachments.setVisibility(View.GONE);
                 grpError.setVisibility(View.GONE);
+
+                setTextSize();
             }
         });
 
@@ -382,6 +386,8 @@ public class FragmentMessage extends FragmentEx {
                     pbRawHeaders.setVisibility(headers && message.headers == null ? View.VISIBLE : View.GONE);
                     grpRawHeaders.setVisibility(headers ? View.VISIBLE : View.GONE);
                     grpAttachments.setVisibility(adapter != null && adapter.getItemCount() > 0 ? View.VISIBLE : View.GONE);
+
+                    setTextSize();
 
                     return true;
                 }
@@ -668,6 +674,7 @@ public class FragmentMessage extends FragmentEx {
         boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
 
         menu.findItem(R.id.menu_addresses).setVisible(!free);
+        menu.findItem(R.id.menu_text_size).setVisible(free);
         menu.findItem(R.id.menu_thread).setVisible(message.count > 1);
         menu.findItem(R.id.menu_forward).setVisible(message.content && !inOutbox);
         menu.findItem(R.id.menu_show_headers).setChecked(headers);
@@ -682,6 +689,9 @@ public class FragmentMessage extends FragmentEx {
         switch (item.getItemId()) {
             case R.id.menu_addresses:
                 onMenuAddresses();
+                return true;
+            case R.id.menu_text_size:
+                onMenuTextSize();
                 return true;
             case R.id.menu_thread:
                 onMenuThread();
@@ -712,6 +722,15 @@ public class FragmentMessage extends FragmentEx {
     private void onMenuAddresses() {
         addresses = !addresses;
         grpAddresses.setVisibility(addresses ? View.VISIBLE : View.GONE);
+    }
+
+    private void onMenuTextSize() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int size = prefs.getInt("size", 0);
+        size = ++size % 3;
+        prefs.edit().putInt("size", size).apply();
+
+        setTextSize();
     }
 
     private void onMenuThread() {
@@ -1228,6 +1247,7 @@ public class FragmentMessage extends FragmentEx {
             SpannedString ss = new SpannedString(body);
             boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
 
+            setTextSize();
             tvBody.setText(body);
             btnImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
             grpMessage.setVisibility(View.VISIBLE);
@@ -1345,5 +1365,21 @@ public class FragmentMessage extends FragmentEx {
                 Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
             }
         });
+    }
+
+    private void setTextSize() {
+        int style = R.style.TextAppearance_AppCompat_Small;
+
+        if (free) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            int size = prefs.getInt("size", 0);
+            if (size == 1)
+                style = R.style.TextAppearance_AppCompat_Medium;
+            else if (size == 2)
+                style = R.style.TextAppearance_AppCompat_Large;
+        }
+
+        TypedArray ta = getContext().obtainStyledAttributes(style, new int[]{android.R.attr.textSize});
+        tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, ta.getDimensionPixelSize(0, 0));
     }
 }
