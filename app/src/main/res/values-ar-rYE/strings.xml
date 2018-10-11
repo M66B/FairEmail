@@ -46,6 +46,7 @@
   <string name="menu_pro">ميزات النسخة الكاملة</string>
   <string name="menu_privacy">الخصوصية</string>
   <string name="menu_about">حول</string>
+  <string name="menu_invite">Invite</string>
   <string name="menu_rate">قيّم هذا التطبيق</string>
   <string name="menu_other">تطبيقات أخرى</string>
   <string name="title_eula">اتفاقية ترخيص المستخدم النهائي</string>
@@ -246,6 +247,7 @@
   <string name="title_yes">Yes</string>
   <string name="title_no">No</string>
   <string name="title_undo">التراجع عن</string>
+  <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
   <string name="title_pro_feature">هذه ميزة برو</string>
   <string name="title_pro_list">قائمة ميزات برو</string>
   <string name="title_pro_purchase">شراء</string>

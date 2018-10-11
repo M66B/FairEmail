@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro-Funktionen</string>
   <string name="menu_privacy">Datenschutz</string>
   <string name="menu_about">Über</string>
+  <string name="menu_invite">Invite</string>
   <string name="menu_rate">Bewerte die App</string>
   <string name="menu_other">Weitere Apps</string>
   <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
@@ -230,6 +231,7 @@
   <string name="title_yes">Ja</string>
   <string name="title_no">Nein</string>
   <string name="title_undo">Rückgängig</string>
+  <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
   <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
   <string name="title_pro_list">Liste der Pro-Funktionen</string>
   <string name="title_pro_purchase">Kaufen</string>

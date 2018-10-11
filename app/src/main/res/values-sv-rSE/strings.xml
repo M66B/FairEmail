@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro-funktioner</string>
   <string name="menu_privacy">Integritet</string>
   <string name="menu_about">Om</string>
+  <string name="menu_invite">Invite</string>
   <string name="menu_rate">Betygsätt denna app</string>
   <string name="menu_other">Andra appar</string>
   <string name="title_eula">Licensavtal för slutanvändare</string>
@@ -230,6 +231,7 @@
   <string name="title_yes">Ja</string>
   <string name="title_no">Nej</string>
   <string name="title_undo">Ångra</string>
+  <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
   <string name="title_pro_feature">Detta är en pro-funktion</string>
   <string name="title_pro_list">Lista över pro-funktioner</string>
   <string name="title_pro_purchase">Köp</string>

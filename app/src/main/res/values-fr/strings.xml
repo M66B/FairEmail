@@ -30,6 +30,7 @@
   <string name="menu_pro">Fonctionnalités Pro</string>
   <string name="menu_privacy">Confidentialité</string>
   <string name="menu_about">À propos</string>
+  <string name="menu_invite">Inviter</string>
   <string name="menu_rate">Noter cette application</string>
   <string name="menu_other">Autres applications</string>
   <string name="title_eula">Contrat de licence d\'utilisateur final</string>
@@ -230,6 +231,7 @@
   <string name="title_yes">Oui</string>
   <string name="title_no">Non</string>
   <string name="title_undo">Annuler</string>
+  <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
   <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
   <string name="title_pro_list">Liste des fonctionnalités Pro</string>
   <string name="title_pro_purchase">Acheter</string>

@@ -26,6 +26,7 @@
   <string name="menu_pro">专业版功能</string>
   <string name="menu_privacy">隐私</string>
   <string name="menu_about">关于</string>
+  <string name="menu_invite">Invite</string>
   <string name="menu_rate">给这个应用打分</string>
   <string name="menu_other">其他应用</string>
   <string name="title_eula">最终用户许可协议</string>
@@ -226,6 +227,7 @@
   <string name="title_yes">是</string>
   <string name="title_no">否</string>
   <string name="title_undo">撤销</string>
+  <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
   <string name="title_pro_feature">这是专业版功能</string>
   <string name="title_pro_list">专业版功能列表</string>
   <string name="title_pro_purchase">购买</string>

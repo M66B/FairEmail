@@ -30,6 +30,7 @@
   <string name="menu_pro">Pro özellikleri</string>
   <string name="menu_privacy">Gizlilik</string>
   <string name="menu_about">Hakkında</string>
+  <string name="menu_invite">Invite</string>
   <string name="menu_rate">Bu uygulamaya puan verin</string>
   <string name="menu_other">Diğer uygulamalar</string>
   <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
@@ -230,6 +231,7 @@
   <string name="title_yes">Evet</string>
   <string name="title_no">Hayır</string>
   <string name="title_undo">Geri Al</string>
+  <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
   <string name="title_pro_feature">Bu Pro özelliğidir</string>
   <string name="title_pro_list">Pro özelliklerin listesi</string>
   <string name="title_pro_purchase">Satın al</string>
