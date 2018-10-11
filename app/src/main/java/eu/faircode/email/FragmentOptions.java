@@ -32,6 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentOptions extends FragmentEx {
+    private CheckBox cbEnabled;
     private CheckBox cbAvatars;
     private CheckBox cbLight;
     private CheckBox cbBrowse;
@@ -45,6 +46,7 @@ public class FragmentOptions extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         // Get controls
+        cbEnabled = view.findViewById(R.id.cbEnabled);
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbLight = view.findViewById(R.id.cbLight);
         cbBrowse = view.findViewById(R.id.cbBrowse);
@@ -53,6 +55,15 @@ public class FragmentOptions extends FragmentEx {
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        cbEnabled.setChecked(prefs.getBoolean("enabled", true));
+        cbEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("enabled", checked).apply();
+                ServiceSynchronize.reload(getContext(), "enabled");
+            }
+        });
 
         cbAvatars.setChecked(prefs.getBoolean("avatars", true));
         cbAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

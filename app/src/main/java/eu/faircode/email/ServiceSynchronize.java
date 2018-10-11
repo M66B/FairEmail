@@ -984,7 +984,7 @@ public class ServiceSynchronize extends LifecycleService {
                         public void onReceive(Context context, Intent intent) {
                             // Receiver runs on main thread
                             // Receiver has a wake lock for ~10 seconds
-                            EntityLog.log(context, account.name + " keep alive");
+                            EntityLog.log(context, account.name + " keep alive wake lock=" + wl.isHeld());
                             state.thread.interrupt();
                             yieldWakelock();
                         }
@@ -1938,6 +1938,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            if (!prefs.getBoolean("enabled", true)) {
+                EntityLog.log(ServiceSynchronize.this, "Not enabled, halt");
+                stopSelf();
+                return;
+            }
 
             state = new ServiceState();
             state.thread = new Thread(new Runnable() {
