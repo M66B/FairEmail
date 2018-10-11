@@ -35,12 +35,14 @@ import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -655,7 +657,12 @@ public class FragmentCompose extends FragmentEx {
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
-        args.putString("body", Html.toHtml(etBody.getText()));
+
+        Spannable spannable = etBody.getText();
+        UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
+        for (UnderlineSpan uspan : uspans)
+            spannable.removeSpan(uspan);
+        args.putString("body", Html.toHtml(spannable));
 
         Log.i(Helper.TAG, "Run load id=" + working);
         actionLoader.load(this, args);
