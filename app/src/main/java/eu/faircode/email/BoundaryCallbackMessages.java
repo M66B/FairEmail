@@ -28,7 +28,9 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.FolderClosedIOException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -63,6 +65,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
+    private List<Long> existing = new ArrayList<>();
     private int index;
     private boolean searching = false;
     private int loaded = 0;
@@ -91,7 +94,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         @Override
                         public void run() {
                             Log.i(Helper.TAG, "Boundary close");
-                            DB.getInstance(context).message().deleteFoundMessages();
+
+                            DB db = DB.getInstance(context);
+                            for (long id : existing)
+                                db.message().setMessageFound(id, false);
+                            db.message().deleteFoundMessages();
+
                             try {
                                 if (istore != null)
                                     istore.close();
@@ -102,6 +110,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 istore = null;
                                 ifolder = null;
                                 imessages = null;
+                                existing.clear();
                             }
                         }
                     });
@@ -212,8 +221,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
                                         count++;
                                         loaded++;
-                                    } else
+                                    } else if (search != null) {
+                                        existing.add(message.id);
                                         db.message().setMessageFound(message.id, true);
+                                    }
                                 } catch (MessageRemovedException ex) {
                                     Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                                 } catch (FolderClosedException ex) {
