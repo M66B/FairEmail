@@ -860,7 +860,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public void run() {
                                     try {
-                                        wl.acquire();
                                         Log.i(Helper.TAG, folder.name + " start idle");
                                         while (state.running) {
                                             Log.i(Helper.TAG, folder.name + " do idle");
@@ -878,7 +877,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         yieldWakelock();
                                     } finally {
                                         Log.i(Helper.TAG, folder.name + " end idle");
-                                        wl.release();
                                     }
                                 }
                             }, "idler." + folder.id);
