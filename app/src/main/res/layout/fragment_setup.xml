@@ -157,7 +157,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="@string/title_setup_doze"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
@@ -168,7 +167,6 @@
             android:layout_height="wrap_content"
             android:text="@string/title_setup_doze_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDoze" />
@@ -181,7 +179,6 @@
             android:text="@string/title_setup_done"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDoze" />
@@ -192,7 +189,6 @@
             android:layout_height="1dp"
             android:layout_marginTop="9dp"
             android:background="?attr/colorSeparator"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
 
@@ -204,8 +200,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
-            android:minWidth="0dp"
             android:minHeight="0dp"
+            android:minWidth="0dp"
             android:text="@string/title_setup_data"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -228,8 +224,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:minWidth="0dp"
             android:minHeight="0dp"
+            android:minWidth="0dp"
             android:text="@string/title_advanced"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
