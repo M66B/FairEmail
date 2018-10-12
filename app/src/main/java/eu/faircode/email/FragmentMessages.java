@@ -270,6 +270,8 @@ public class FragmentMessages extends FragmentEx {
                                     target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                                 if (direction == ItemTouchHelper.LEFT || target == null)
                                     target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                if (target == null)
+                                    target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                             }
 
                             db.message().setMessageUiHide(message.id, true);
@@ -279,7 +281,7 @@ public class FragmentMessages extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        Log.i(Helper.TAG, "Move id=" + id + " target=" + target);
+                        Log.i(Helper.TAG, "Move id=" + id + " target=" + target.name);
 
                         return new String[]{target.name, target.display == null ? target.name : target.display};
                     }
