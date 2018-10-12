@@ -6,8 +6,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 83
-        versionName "1.83"
+        versionCode 84
+        versionName "1.84"
         archivesBaseName = "FairEmail-v$versionName"
 
         javaCompileOptions {
@@ -42,6 +42,7 @@ android {
 }
 
 repositories {
+    google()
     jcenter()
     maven {
         url "https://repo1.maven.org/maven2/"
