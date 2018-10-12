@@ -157,7 +157,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
-            vwColor.setVisibility(viewType == ViewType.UNIFIED ? View.VISIBLE : View.GONE);
+            vwColor.setVisibility(viewType == ViewType.UNIFIED && message.accountColor != null ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.THREAD)
                 ivFlagged.setVisibility(message.unflagged == 1 ? View.GONE : View.VISIBLE);

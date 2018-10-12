@@ -603,7 +603,7 @@ public class FragmentAccount extends FragmentEx {
                         int auth_type = args.getInt("auth_type");
 
                         String name = args.getString("name");
-                        int color = args.getInt("color");
+                        Integer color = args.getInt("color");
                         String signature = args.getString("signature");
 
                         boolean synchronize = args.getBoolean("synchronize");
@@ -628,6 +628,8 @@ public class FragmentAccount extends FragmentEx {
                             interval = "12";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
+                        if (Color.TRANSPARENT == color)
+                            color = null;
 
                         // Check IMAP server
                         if (synchronize) {
