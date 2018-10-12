@@ -390,10 +390,10 @@ public class FragmentCompose extends FragmentEx {
                 draftLoader.load(this, args);
             }
         } else {
-            long id = savedInstanceState.getLong("working");
+            working = savedInstanceState.getLong("working");
             Bundle args = new Bundle();
-            args.putString("action", id < 0 ? "new" : "edit");
-            args.putLong("id", id);
+            args.putString("action", working < 0 ? "new" : "edit");
+            args.putLong("id", working);
             args.putLong("account", -1);
             args.putLong("reference", -1);
             args.putLong("answer", -1);
@@ -692,7 +692,7 @@ public class FragmentCompose extends FragmentEx {
             db.beginTransaction();
 
             EntityMessage draft = db.message().getMessage(id);
-            Log.i(Helper.TAG, "Attaching to id=" + draft.id);
+            Log.i(Helper.TAG, "Attaching to id=" + id);
 
             attachment.message = draft.id;
             attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
