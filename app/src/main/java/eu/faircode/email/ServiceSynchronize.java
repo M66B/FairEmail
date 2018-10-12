@@ -1803,12 +1803,7 @@ public class ServiceSynchronize extends LifecycleService {
                 attachment.message = message.id;
                 attachment.sequence = sequence++;
                 attachment.id = db.attachment().insertAttachment(attachment);
-
-                if (message.size != null && attachment.size != null)
-                    message.size -= attachment.size;
             }
-
-            db.message().updateMessage(message);
         } else {
             if (message.seen != seen || message.seen != message.ui_seen) {
                 message.seen = seen;
