@@ -1940,6 +1940,10 @@ public class ServiceSynchronize extends LifecycleService {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             if (!prefs.getBoolean("enabled", true)) {
                 EntityLog.log(ServiceSynchronize.this, "Not enabled, halt");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException ignored) {
+                }
                 stopSelf();
                 return;
             }
