@@ -19,10 +19,13 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,6 +107,24 @@ public class FragmentAbout extends FragmentEx {
                         sb.append(String.format("Host: %s\r\n", Build.HOST));
                         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
                         sb.append(String.format("Id: %s\r\n", Build.ID));
+                        sb.append("\r\n");
+
+                        PowerManager pm = getContext().getSystemService(PowerManager.class);
+                        boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+                        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                            UsageStatsManager usm = getContext().getSystemService(UsageStatsManager.class);
+                            int bucket = usm.getAppStandbyBucket();
+                            sb.append(String.format("Standby bucket: %d\r\n", bucket));
+                        }
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
+                            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+                            sb.append(String.format("Data saving: %b\r\n", saving));
+                        }
+
                         sb.append("\r\n");
 
                         String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
