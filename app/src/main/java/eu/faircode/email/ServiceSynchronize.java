@@ -179,13 +179,6 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i(Helper.TAG, "Service command intent=" + intent);
         super.onStartCommand(intent, flags, startId);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!prefs.getBoolean("enabled", true)) {
-            Log.i(Helper.TAG, "Not enabled, halt");
-            stopSelf();
-            return START_STICKY;
-        }
-
         startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
 
         DB db = DB.getInstance(this);
@@ -1943,6 +1936,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            if (!prefs.getBoolean("enabled", true)) {
+                EntityLog.log(ServiceSynchronize.this, "Not enabled, halt");
+                stopSelf();
+                return;
+            }
 
             state = new ServiceState();
             state.thread = new Thread(new Runnable() {

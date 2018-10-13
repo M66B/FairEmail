@@ -61,7 +61,7 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
-                ServiceSynchronize.start(getContext());
+                ServiceSynchronize.reload(getContext(), "enabled");
             }
         });
 
