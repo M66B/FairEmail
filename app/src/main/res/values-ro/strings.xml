@@ -72,6 +72,7 @@
   <string name="title_advanced_avatars">Arată pozele contactelor</string>
   <string name="title_advanced_light">Folosire LED de notificare</string>
   <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
+  <string name="title_advanced_swipe">Swipe actions</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>

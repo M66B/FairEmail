@@ -68,6 +68,7 @@
   <string name="title_advanced_avatars">Visa kontaktfoton</string>
   <string name="title_advanced_light">Use notification light</string>
   <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
+  <string name="title_advanced_swipe">Swipe actions</string>
   <string name="title_advanced_debug">Felsökningsläge</string>
   <string name="title_select">Välj &#8230;</string>
   <string name="title_identity_name">Ditt namn</string>

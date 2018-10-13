@@ -68,6 +68,7 @@
   <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
   <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
+  <string name="title_advanced_swipe">Swipe actions</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
