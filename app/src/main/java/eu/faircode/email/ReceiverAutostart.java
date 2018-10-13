@@ -35,7 +35,7 @@ public class ReceiverAutostart extends BroadcastReceiver {
                     int synchronizing = DB.getInstance(context).account().getSynchronizingAccountCount();
                     Log.i(Helper.TAG, "Synchronizing accounts=" + synchronizing);
                     if (synchronizing > 0)
-                        ServiceSynchronize.start(context);
+                        ServiceSynchronize.init(context);
                     JobDaily.schedule(context);
                 }
             }).start();

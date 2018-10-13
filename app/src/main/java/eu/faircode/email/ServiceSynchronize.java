@@ -176,7 +176,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(Helper.TAG, "Service command intent=" + intent);
+        String action = (intent == null ? null : intent.getAction());
+        Log.i(Helper.TAG, "Service command intent=" + intent + " action=" + action);
         super.onStartCommand(intent, flags, startId);
 
         startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
@@ -233,10 +234,13 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        if (intent != null) {
-            String action = intent.getAction();
-            if ("reload".equals(action))
-                serviceManager.restart();
+        if (action != null) {
+            if ("start".equals(action))
+                serviceManager.queue_start();
+            else if ("stop".equals(action))
+                serviceManager.queue_stop();
+            else if ("reload".equals(action))
+                serviceManager.queue_reload();
             else if ("until".equals(action)) {
                 Bundle args = new Bundle();
                 args.putLong("time", new Date().getTime());
@@ -267,8 +271,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }.load(this, args);
 
-            } else if (action != null &&
-                    (action.startsWith("seen:") || action.startsWith("trash:"))) {
+            } else if (action.startsWith("seen:") || action.startsWith("trash:")) {
                 Bundle args = new Bundle();
                 args.putLong("id", Long.parseLong(action.split(":")[1]));
                 args.putString("action", action.split(":")[0]);
@@ -1832,6 +1835,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
+        if (message == null)
+            return;
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         MessageHelper helper = new MessageHelper(imessage);
 
@@ -1936,17 +1941,6 @@ public class ServiceSynchronize extends LifecycleService {
 
         private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start");
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            if (!prefs.getBoolean("enabled", true)) {
-                EntityLog.log(ServiceSynchronize.this, "Not enabled, halt");
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException ignored) {
-                }
-                stopSelf();
-                return;
-            }
 
             state = new ServiceState();
             state.thread = new Thread(new Runnable() {
@@ -2083,7 +2077,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
-        private void restart() {
+        private void queue_reload() {
             if (running)
                 lifecycle.submit(new Runnable() {
                     @Override
@@ -2092,6 +2086,31 @@ public class ServiceSynchronize extends LifecycleService {
                         start();
                     }
                 });
+        }
+
+        private void queue_start() {
+            if (!running) {
+                running = true;
+                lifecycle.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        start();
+                    }
+                });
+            }
+        }
+
+        private void queue_stop() {
+            if (running) {
+                running = false;
+                lifecycle.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        stop();
+                        stopSelf();
+                    }
+                });
+            }
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
@@ -2154,13 +2173,26 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
+    public static void init(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (prefs.getBoolean("enabled", true))
+            ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+    }
+
     public static void start(Context context) {
-        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+        context.startService(new Intent(context, ServiceSynchronize.class).setAction("start"));
+    }
+
+    public static void stop(Context context) {
+        context.startService(new Intent(context, ServiceSynchronize.class).setAction("stop"));
     }
 
     public static void reload(Context context, String reason) {
-        Log.i(Helper.TAG, "Reload because of '" + reason + "'");
-        context.startService(new Intent(context, ServiceSynchronize.class).setAction("reload"));
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if (prefs.getBoolean("enabled", true)) {
+            Log.i(Helper.TAG, "Reload because of '" + reason + "'");
+            context.startService(new Intent(context, ServiceSynchronize.class).setAction("reload"));
+        }
     }
 
     private class ServiceState {
