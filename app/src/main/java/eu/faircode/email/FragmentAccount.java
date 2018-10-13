@@ -626,7 +626,7 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(password))
                             throw new Throwable(getContext().getString(R.string.title_no_password));
                         if (TextUtils.isEmpty(interval))
-                            interval = "12";
+                            interval = "9";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
                         if (Color.TRANSPARENT == color)
