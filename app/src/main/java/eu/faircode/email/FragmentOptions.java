@@ -99,7 +99,6 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipe", checked).apply();
-                ServiceSynchronize.reload(getContext(), "swipe=" + checked);
             }
         });
 
