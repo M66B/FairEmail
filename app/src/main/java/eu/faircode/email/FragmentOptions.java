@@ -36,6 +36,7 @@ public class FragmentOptions extends FragmentEx {
     private CheckBox cbAvatars;
     private CheckBox cbLight;
     private CheckBox cbBrowse;
+    private CheckBox cbSwipe;
     private CheckBox cbDebug;
 
     @Override
@@ -50,6 +51,7 @@ public class FragmentOptions extends FragmentEx {
         cbAvatars = view.findViewById(R.id.cbAvatars);
         cbLight = view.findViewById(R.id.cbLight);
         cbBrowse = view.findViewById(R.id.cbBrowse);
+        cbSwipe = view.findViewById(R.id.cbSwipe);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -89,6 +91,15 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("browse", checked).apply();
+            }
+        });
+
+        cbSwipe.setChecked(prefs.getBoolean("swipe", true));
+        cbSwipe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("swipe", checked).apply();
+                ServiceSynchronize.reload(getContext(), "swipe=" + checked);
             }
         });
 

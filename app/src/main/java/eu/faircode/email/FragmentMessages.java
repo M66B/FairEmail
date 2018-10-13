@@ -177,6 +177,9 @@ public class FragmentMessages extends FragmentEx {
         new ItemTouchHelper(new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                if (!prefs.getBoolean("swipe", true))
+                    return 0;
+
                 int pos = viewHolder.getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION)
                     return 0;
