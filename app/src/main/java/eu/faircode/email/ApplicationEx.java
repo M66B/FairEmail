@@ -23,6 +23,8 @@ import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.os.Build;
+import android.os.DeadSystemException;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -94,6 +96,10 @@ public class ApplicationEx extends Application {
 
         if (ex instanceof RemoteException)
             return false;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            if (ex instanceof RuntimeException && ex.getCause() instanceof DeadSystemException)
+                return false;
 
         while (ex != null) {
             for (StackTraceElement ste : ex.getStackTrace())
