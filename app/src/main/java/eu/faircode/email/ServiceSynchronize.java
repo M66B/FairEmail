@@ -122,7 +122,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
-    private TupleAccountStats stats = null;
     private final Object lock = new Object();
     private ServiceManager serviceManager = new ServiceManager();
 
@@ -188,7 +187,6 @@ public class ServiceSynchronize extends LifecycleService {
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
-                ServiceSynchronize.this.stats = stats;
                 NotificationManager nm = getSystemService(NotificationManager.class);
                 nm.notify(NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
@@ -241,37 +239,7 @@ public class ServiceSynchronize extends LifecycleService {
                 serviceManager.queue_stop();
             else if ("reload".equals(action))
                 serviceManager.queue_reload();
-            else if ("until".equals(action)) {
-                Bundle args = new Bundle();
-                args.putLong("time", new Date().getTime());
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long time = args.getLong("time");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (EntityAccount account : db.account().getAccounts(true))
-                                db.account().setAccountSeenUntil(account.id, time);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Void data) {
-                        Log.i(Helper.TAG, "Updated seen until");
-                    }
-                }.load(this, args);
-
-            } else if (action.startsWith("seen:") || action.startsWith("trash:")) {
+            else if (action.startsWith("seen:") || action.startsWith("trash:")) {
                 Bundle args = new Bundle();
                 args.putLong("id", Long.parseLong(action.split(":")[1]));
                 args.putString("action", action.split(":")[0]);
@@ -323,7 +291,7 @@ public class ServiceSynchronize extends LifecycleService {
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_SERVICE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityView.REQUEST_UNIFIED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;
@@ -364,15 +332,9 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
-        view.setAction("notification");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piView = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_UNSEEN, view, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Intent until = new Intent(this, ServiceSynchronize.class);
-        until.setAction("until");
-        PendingIntent piUntil = PendingIntent.getService(
-                this, PI_UNSEEN, until, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;
@@ -388,10 +350,10 @@ public class ServiceSynchronize extends LifecycleService {
                 .setContentIntent(piView)
                 .setNumber(messages.size())
                 .setShowWhen(false)
+                .setOngoing(true)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PRIVATE)
-                .setDeleteIntent(piUntil)
                 .setGroup(BuildConfig.APPLICATION_ID)
                 .setGroupSummary(true);
 
@@ -428,6 +390,12 @@ public class ServiceSynchronize extends LifecycleService {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
+            Intent thread = new Intent(this, ActivityView.class);
+            thread.setAction("thread:" + message.id);
+            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent piThread = PendingIntent.getActivity(
+                    this, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+
             Intent seen = new Intent(this, ServiceSynchronize.class);
             seen.setAction("seen:" + message.id);
             PendingIntent piSeen = PendingIntent.getService(this, PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -456,9 +424,10 @@ public class ServiceSynchronize extends LifecycleService {
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_mail_24)
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
-                    .setContentIntent(piView)
+                    .setContentIntent(piThread)
                     .setSound(uri)
                     .setWhen(message.sent == null ? message.received : message.sent)
+                    .setOngoing(true)
                     .setPriority(Notification.PRIORITY_DEFAULT)
                     .setCategory(Notification.CATEGORY_STATUS)
                     .setVisibility(Notification.VISIBILITY_PRIVATE)

@@ -75,9 +75,6 @@ public interface DaoAccount {
     @Update
     void updateAccount(EntityAccount account);
 
-    @Query("UPDATE account SET seen_until = :time WHERE id = :id")
-    int setAccountSeenUntil(long id, long time);
-
     @Query("UPDATE account SET state = :state WHERE id = :id")
     int setAccountState(long id, String state);
 

@@ -25,7 +25,6 @@ public class TupleMessageEx extends EntityMessage {
     public String folderName;
     public String folderDisplay;
     public String folderType;
-    public boolean threaded;
     public int count;
     public int unseen;
     public int unflagged;
@@ -41,7 +40,6 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderName.equals(other.folderName) &&
                     (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
                     this.folderType.equals(other.folderType) &&
-                    this.threaded == other.threaded &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&

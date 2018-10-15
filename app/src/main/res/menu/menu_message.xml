@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_forward"
+        android:title="@string/title_forward" />
+
+    <item
+        android:id="@+id/menu_reply_all"
+        android:title="@string/title_reply_all" />
+
+    <item
+        android:id="@+id/menu_show_headers"
+        android:checkable="true"
+        android:title="@string/title_show_headers" />
+
+    <item
+        android:id="@+id/menu_show_html"
+        android:title="@string/title_show_html" />
+
+    <item
+        android:id="@+id/menu_unseen"
+        android:title="@string/title_unseen" />
+
+    <item
+        android:id="@+id/menu_flag"
+        android:checkable="true"
+        android:title="@string/title_flag" />
+
+    <item
+        android:id="@+id/menu_answer"
+        android:title="@string/title_answer_reply" />
+</menu>

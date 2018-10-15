@@ -38,7 +38,6 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
@@ -67,7 +66,6 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", SUM(CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 0 ELSE 1 END) > 1 AS threaded" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
             "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
@@ -98,7 +96,6 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -147,7 +144,6 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", 0 AS threaded" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -164,7 +160,6 @@ public interface DaoMessage {
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
             " AND NOT message.ui_seen AND NOT message.ui_hide" +
-            " AND (account.seen_until IS NULL OR message.stored > account.seen_until)" +
             " ORDER BY message.received")
     LiveData<List<EntityMessage>> liveUnseenUnified();
 

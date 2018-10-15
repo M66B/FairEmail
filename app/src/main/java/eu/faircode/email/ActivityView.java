@@ -82,23 +82,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
-    private boolean newMessages = false;
     private long attachment = -1;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
-    static final int REQUEST_SERVICE = 1;
-    static final int REQUEST_UNSEEN = 2;
+    static final int REQUEST_UNIFIED = 1;
+    static final int REQUEST_THREAD = 2;
     static final int REQUEST_ERROR = 3;
 
     static final int REQUEST_ATTACHMENT = 1;
     static final int REQUEST_INVITE = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
-    static final String ACTION_VIEW_MESSAGE = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGE";
+    static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
+    static final String ACTION_VIEW_FULL = BuildConfig.APPLICATION_ID + ".VIEW_FULL";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+    static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
     static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
@@ -286,19 +287,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_VIEW_MESSAGES);
-        iff.addAction(ACTION_VIEW_MESSAGE);
+        iff.addAction(ACTION_VIEW_THREAD);
+        iff.addAction(ACTION_VIEW_FULL);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
+        iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
-
-        if (newMessages) {
-            newMessages = false;
-            FragmentManager fm = getSupportFragmentManager();
-            fm.popBackStackImmediate("unified", 0);
-            FragmentMessages fragment = (FragmentMessages) fm.findFragmentById(R.id.content_frame);
-            fragment.onNewMessages();
-        }
     }
 
     @Override
@@ -463,12 +458,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkIntent(Intent intent) {
-        Log.i(Helper.TAG, "View intent=" + intent + " action=" + intent.getAction());
         String action = intent.getAction();
-        if ("notification".equals(action)) {
+        Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
+        if (action != null && action.startsWith("thread")) {
             intent.setAction(null);
             setIntent(intent);
-            newMessages = true;
+            intent.putExtra("id", Long.parseLong(action.split(":")[1]));
+            onViewThread(intent);
         }
     }
 
@@ -739,14 +735,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         public void onReceive(Context context, Intent intent) {
             if (ACTION_VIEW_MESSAGES.equals(intent.getAction()))
                 onViewMessages(intent);
-            else if (ACTION_VIEW_MESSAGE.equals(intent.getAction()))
-                onViewMessage(intent);
+            else if (ACTION_VIEW_THREAD.equals(intent.getAction()))
+                onViewThread(intent);
+            else if (ACTION_VIEW_FULL.equals(intent.getAction()))
+                onViewFull(intent);
             else if (ACTION_EDIT_FOLDER.equals(intent.getAction()))
                 onEditFolder(intent);
             else if (ACTION_EDIT_ANSWER.equals(intent.getAction()))
                 onEditAnswer(intent);
             else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction()))
                 onStoreAttachment(intent);
+            else if (ACTION_SHOW_PRO.equals(intent.getAction()))
+                onShowPro(intent);
         }
     };
 
@@ -758,65 +758,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onViewMessage(Intent intent) {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onLoad(Context context, Bundle args) {
-                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+    private void onViewThread(Intent intent) {
+        Bundle args = new Bundle();
+        args.putLong("thread", intent.getLongExtra("id", -1));
 
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
+        FragmentMessages fragment = new FragmentMessages();
+        fragment.setArguments(args);
 
-                    if (!EntityFolder.OUTBOX.equals(message.folderType)) {
-                        if (!message.content)
-                            EntityOperation.queue(db, message, EntityOperation.BODY);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+        fragmentTransaction.commit();
+    }
 
-                        if (!message.threaded) {
-                            db.message().setMessageUiSeen(message.id, true);
-                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                        }
-                    }
+    private void onViewFull(Intent intent) {
+        FragmentWebView fragment = new FragmentWebView();
+        fragment.setArguments(intent.getExtras());
 
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                EntityOperation.process(context);
-
-                return null;
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, Void result) {
-                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                if (message.threaded) {
-                    Bundle targs = new Bundle();
-                    targs.putLong("thread", message.id);
-
-                    FragmentMessages fragment = new FragmentMessages();
-                    fragment.setArguments(targs);
-
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
-                    fragmentTransaction.commit();
-
-                } else {
-                    FragmentMessage fragment = new FragmentMessage();
-                    fragment.setArguments(args);
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("message");
-                    fragmentTransaction.commit();
-                }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ex);
-            }
-        }.load(ActivityView.this, intent.getExtras());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
+        fragmentTransaction.commit();
     }
 
     private void onEditFolder(Intent intent) {
@@ -842,6 +802,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         startActivityForResult(create, REQUEST_ATTACHMENT);
+    }
+
+    private void onShowPro(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+        fragmentTransaction.commit();
     }
 
     @Override

@@ -187,6 +187,7 @@
 
     <string name="title_trash">Trash</string>
     <string name="title_delete">Delete</string>
+    <string name="title_more">More</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Move</string>
     <string name="title_archive">Archive</string>
@@ -261,7 +262,7 @@
 
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
-    <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available); long press to mark read/unread or to add/remove star</string>
+    <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
 
     <string name="title_open_link">Open link</string>

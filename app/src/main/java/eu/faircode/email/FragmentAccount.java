@@ -71,7 +71,6 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -683,10 +682,8 @@ public class FragmentAccount extends FragmentEx {
                             account.primary = (account.synchronize && primary);
                             account.poll_interval = Integer.parseInt(interval);
 
-                            if (!update)
-                                account.seen_until = new Date().getTime();
-
-                            account.store_sent = false;
+                            account.store_sent = false; // obsolete
+                            account.seen_until = null; // obsolete
 
                             if (!synchronize)
                                 account.error = null;

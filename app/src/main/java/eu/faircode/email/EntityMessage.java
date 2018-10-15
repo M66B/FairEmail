@@ -189,6 +189,7 @@ public class EntityMessage implements Serializable {
                     (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&
+                    (this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
                     (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
                     (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
@@ -199,12 +200,14 @@ public class EntityMessage implements Serializable {
                     equal(this.reply, other.reply) &&
                     (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
+                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
+                    this.content == other.content &&
                     (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&
                     this.seen.equals(other.seen) &&
-                    this.ui_seen.equals(other.ui_seen) &&
                     this.flagged.equals(other.flagged) &&
+                    this.ui_seen.equals(other.ui_seen) &&
                     this.ui_flagged.equals(other.ui_flagged) &&
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&

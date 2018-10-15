@@ -167,7 +167,7 @@ public class FragmentMessage extends FragmentEx {
         ivFlagged = view.findViewById(R.id.ivFlagged);
         ivAvatar = view.findViewById(R.id.ivAvatar);
         tvFrom = view.findViewById(R.id.tvFrom);
-        ivContactAdd = view.findViewById(R.id.ivContactAdd);
+        ivContactAdd = view.findViewById(R.id.ivAddContact);
         tvTime = view.findViewById(R.id.tvTime);
         tvCount = view.findViewById(R.id.tvCount);
         tvTo = view.findViewById(R.id.tvTo);

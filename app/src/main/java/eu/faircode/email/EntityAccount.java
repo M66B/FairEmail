@@ -57,7 +57,7 @@ public class EntityAccount {
     public Boolean store_sent; // obsolete
     @NonNull
     public Integer poll_interval; // keep-alive interval
-    public Long seen_until;
+    public Long seen_until; // obsolete
     public String state;
     public String error;
 
@@ -76,7 +76,6 @@ public class EntityAccount {
                     this.primary.equals(other.primary) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.poll_interval.equals(other.poll_interval) &&
-                    (this.seen_until == null ? other.seen_until == null : this.seen_until.equals(other.seen_until)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

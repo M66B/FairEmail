@@ -42,7 +42,6 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -185,7 +184,7 @@ public class FragmentMessages extends FragmentEx {
                     return 0;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message == null || message.threaded || EntityFolder.OUTBOX.equals(message.folderType))
+                if (message == null || viewType != AdapterMessage.ViewType.THREAD || EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
 
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
@@ -403,7 +402,7 @@ public class FragmentMessages extends FragmentEx {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) ? View.GONE : View.VISIBLE);
-        grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) ? View.GONE : View.VISIBLE);
+        grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) || viewType != AdapterMessage.ViewType.THREAD ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
@@ -522,37 +521,6 @@ public class FragmentMessages extends FragmentEx {
     public void onResume() {
         super.onResume();
         grpSupport.setVisibility(Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
-
-        if (viewType == AdapterMessage.ViewType.UNIFIED) {
-            Bundle args = new Bundle();
-            args.putLong("time", new Date().getTime());
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    long time = args.getLong("time");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        for (EntityAccount account : db.account().getAccounts(true))
-                            db.account().setAccountSeenUntil(account.id, time);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), ex);
-                }
-            }.load(this, args);
-        }
     }
 
     @Override
@@ -792,9 +760,5 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-    }
-
-    void onNewMessages() {
-        rvMessage.scrollToPosition(0);
     }
 }
