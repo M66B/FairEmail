@@ -69,6 +69,7 @@
   <string name="title_advanced_light">Bildirim ışığını kullan</string>
   <string name="title_advanced_browse">Browse messages on the server</string>
   <string name="title_advanced_swipe">Swipe actions</string>
+  <string name="title_advanced_haptic">Haptic feedback</string>
   <string name="title_advanced_debug">Hata ayıklama</string>
   <string name="title_select">Seçin &#8230;</string>
   <string name="title_identity_name">Adınız</string>

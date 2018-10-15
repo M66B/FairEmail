@@ -69,6 +69,7 @@
   <string name="title_advanced_light">Usa il led di notifica</string>
   <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
   <string name="title_advanced_swipe">Swipe actions</string>
+  <string name="title_advanced_haptic">Haptic feedback</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Seleziona &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
