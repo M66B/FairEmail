@@ -52,12 +52,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.sun.mail.iap.ConnectionException;
-import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
-import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -1026,24 +1024,12 @@ public class ServiceSynchronize extends LifecycleService {
                                 if (!istore.isConnected())
                                     throw new StoreClosedException(istore);
 
-                                for (final EntityFolder folder : folders.keySet()) {
-                                    IMAPFolder ifolder = folders.get(folder);
+                                for (EntityFolder folder : folders.keySet())
                                     if (capIdle) {
-                                        try {
-                                            ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
-                                                public Object doCommand(IMAPProtocol p)
-                                                        throws ProtocolException {
-                                                    Log.i(Helper.TAG, folder.name + " do noop");
-                                                    p.simpleCommand("NOOP", null);
-                                                    return null;
-                                                }
-                                            });
-                                        } catch (MessagingException ex) {
-                                            throw new FolderClosedException(ifolder, "NOOP", ex);
-                                        }
+                                        if (!folders.get(folder).isOpen())
+                                            throw new FolderClosedException(folders.get(folder));
                                     } else
-                                        synchronizeMessages(account, folder, ifolder, state);
-                                }
+                                        synchronizeMessages(account, folder, folders.get(folder), state);
                             }
 
                         }
