@@ -37,6 +37,7 @@ public class FragmentOptions extends FragmentEx {
     private CheckBox cbLight;
     private CheckBox cbBrowse;
     private CheckBox cbSwipe;
+    private CheckBox cbHaptic;
     private CheckBox cbDebug;
 
     @Override
@@ -52,6 +53,7 @@ public class FragmentOptions extends FragmentEx {
         cbLight = view.findViewById(R.id.cbLight);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         cbSwipe = view.findViewById(R.id.cbSwipe);
+        cbHaptic = view.findViewById(R.id.cbHaptic);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -99,6 +101,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipe", checked).apply();
+            }
+        });
+
+        cbHaptic.setChecked(prefs.getBoolean("haptic", true));
+        cbHaptic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("haptic", checked).apply();
             }
         });
 

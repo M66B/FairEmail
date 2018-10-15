@@ -23,6 +23,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
@@ -31,6 +32,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,6 +83,12 @@ public class Helper {
             return thread;
         }
     };
+
+    static void hapticFeedback(View view) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        if (prefs.getBoolean("haptic", true))
+            view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
+    }
 
     static void view(Context context, Intent intent) {
         Uri uri = intent.getData();

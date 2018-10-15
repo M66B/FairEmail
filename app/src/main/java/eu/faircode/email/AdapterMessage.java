@@ -247,6 +247,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 return;
             TupleMessageEx message = getItem(pos);
 
+            Helper.hapticFeedback(itemView);
+
             if (EntityFolder.DRAFTS.equals(message.folderType))
                 context.startActivity(
                         new Intent(context, ActivityCompose.class)

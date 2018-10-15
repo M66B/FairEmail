@@ -351,6 +351,9 @@ public class FragmentMessage extends FragmentEx {
             @Override
             public void onClick(View view) {
                 free = true;
+
+                Helper.hapticFeedback(view);
+
                 getActivity().invalidateOptionsMenu();
 
                 grpHeader.setVisibility(View.GONE);
@@ -373,6 +376,7 @@ public class FragmentMessage extends FragmentEx {
             public boolean onBackPressed() {
                 if (free && isVisible()) {
                     free = false;
+
                     getActivity().invalidateOptionsMenu();
 
                     grpHeader.setVisibility(View.VISIBLE);

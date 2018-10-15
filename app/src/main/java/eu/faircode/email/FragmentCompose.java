@@ -194,7 +194,11 @@ public class FragmentCompose extends FragmentEx {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 free = hasFocus;
+
+                Helper.hapticFeedback(view);
+
                 getActivity().invalidateOptionsMenu();
+
                 grpHeader.setVisibility(hasFocus ? View.GONE : View.VISIBLE);
                 if (hasFocus) {
                     addresses = (grpAddresses.getVisibility() != View.GONE);
@@ -212,6 +216,7 @@ public class FragmentCompose extends FragmentEx {
                         case KeyEvent.KEYCODE_BACK:
                             if (grpHeader.getVisibility() == View.GONE) {
                                 free = false;
+
                                 getActivity().invalidateOptionsMenu();
                                 grpHeader.setVisibility(View.VISIBLE);
                                 if (addresses)
