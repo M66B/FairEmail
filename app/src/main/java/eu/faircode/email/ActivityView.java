@@ -256,7 +256,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
 
         checkFirst();
-        checkIntent(getIntent());
         checkCrash();
         if (!Helper.isPlayStoreInstall(this))
             checkUpdate();
@@ -276,8 +275,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onNewIntent(Intent intent) {
-        checkIntent(intent);
         super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     @Override
@@ -294,6 +293,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
+        if (action != null && action.startsWith("thread")) {
+            intent.setAction(null);
+            setIntent(intent);
+
+            getSupportFragmentManager().popBackStack("unified", 0);
+            intent.putExtra("id", Long.parseLong(action.split(":")[1]));
+            onViewThread(intent);
+        }
     }
 
     @Override
@@ -455,19 +466,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             }
         }.load(this, new Bundle());
-    }
-
-    private void checkIntent(Intent intent) {
-        String action = intent.getAction();
-        Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
-        if (action != null && action.startsWith("thread")) {
-            intent.setAction(null);
-            setIntent(intent);
-
-            getSupportFragmentManager().popBackStack("unified", 0);
-            intent.putExtra("id", Long.parseLong(action.split(":")[1]));
-            onViewThread(intent);
-        }
     }
 
     private class UpdateInfo {
