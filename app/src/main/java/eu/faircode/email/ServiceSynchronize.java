@@ -153,36 +153,9 @@ public class ServiceSynchronize extends LifecycleService {
         // Removed because of Android VPN service
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), serviceManager);
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.i(Helper.TAG, "Service destroy");
-
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        cm.unregisterNetworkCallback(serviceManager);
-
-        serviceManager.onLost(null);
-
-        stopForeground(true);
-
-        NotificationManager nm = getSystemService(NotificationManager.class);
-        nm.cancel(NOTIFICATION_SYNCHRONIZE);
-
-        super.onDestroy();
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        String action = (intent == null ? null : intent.getAction());
-        Log.i(Helper.TAG, "Service command intent=" + intent + " action=" + action);
-        super.onStartCommand(intent, flags, startId);
-
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
 
         DB db = DB.getInstance(this);
 
-        db.account().liveStats().removeObservers(this);
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
@@ -192,7 +165,6 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.message().liveUnseenUnified().removeObservers(this);
         db.message().liveUnseenUnified().observe(this, new Observer<List<EntityMessage>>() {
             private List<Integer> notifying = new ArrayList<>();
 
@@ -230,6 +202,33 @@ public class ServiceSynchronize extends LifecycleService {
                 notifying = all;
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(Helper.TAG, "Service destroy");
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        cm.unregisterNetworkCallback(serviceManager);
+
+        serviceManager.onLost(null);
+
+        stopForeground(true);
+
+        NotificationManager nm = getSystemService(NotificationManager.class);
+        nm.cancel(NOTIFICATION_SYNCHRONIZE);
+
+        super.onDestroy();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        String action = (intent == null ? null : intent.getAction());
+        Log.i(Helper.TAG, "Service command intent=" + intent + " action=" + action);
+
+        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
+
+        super.onStartCommand(intent, flags, startId);
 
         if (action != null) {
             if ("start".equals(action))
