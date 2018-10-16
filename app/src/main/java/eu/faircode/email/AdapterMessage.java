@@ -1027,7 +1027,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         }
                     });
 
-                    PopupMenu popupMenu = new PopupMenu(context, itemView);
+                    View anchor = bnvActions.findViewById(R.id.action_more);
+                    PopupMenu popupMenu = new PopupMenu(context, anchor);
 
                     int order = 0;
                     for (EntityAnswer answer : answers)
