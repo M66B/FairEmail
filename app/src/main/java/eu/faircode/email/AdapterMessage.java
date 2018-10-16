@@ -564,8 +564,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 if (!message.content)
                                     EntityOperation.queue(db, message, EntityOperation.BODY);
 
-                                db.message().setMessageUiSeen(message.id, true);
-                                EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                if (!message.ui_seen) {
+                                    db.message().setMessageUiSeen(message.id, true);
+                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                }
                             }
 
                             db.setTransactionSuccessful();
