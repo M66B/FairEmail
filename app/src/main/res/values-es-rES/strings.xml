@@ -161,7 +161,7 @@
   <string name="title_show_html">Mostrar original</string>
   <string name="title_trash">Papelera</string>
   <string name="title_delete">Eliminar</string>
-  <string name="title_more">More</string>
+  <string name="title_more">Más</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Mover</string>
   <string name="title_archive">Archivar</string>
@@ -227,7 +227,7 @@
   <string name="title_legend_closing">Cerrando</string>
   <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
   <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes para obtener ayuda</string>
-  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
+  <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
   <string name="title_hint_sync">Descargar mensajes puede tomar cierto tiempo, dependiendo del número de mensajes, la velocidad de su conexión a internet y su proveedor de correo electrónico</string>
   <string name="title_open_link">Abrir enlace</string>
   <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
