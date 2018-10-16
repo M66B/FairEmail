@@ -64,7 +64,8 @@ import static androidx.room.ForeignKey.CASCADE;
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),
                 @Index(value = {"ui_hide"}),
-                @Index(value = {"ui_found"})
+                @Index(value = {"ui_found"}),
+                @Index(value = {"ui_ignored"})
         }
 )
 public class EntityMessage implements Serializable {
@@ -111,6 +112,8 @@ public class EntityMessage implements Serializable {
     public Boolean ui_hide;
     @NonNull
     public Boolean ui_found;
+    @NonNull
+    public Boolean ui_ignored;
     public String error;
 
     @Ignore
@@ -211,6 +214,7 @@ public class EntityMessage implements Serializable {
                     this.ui_flagged.equals(other.ui_flagged) &&
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&
+                    this.ui_ignored.equals(other.ui_ignored) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;

@@ -959,6 +959,7 @@ public class FragmentCompose extends FragmentEx {
                 draft.ui_flagged = false;
                 draft.ui_hide = false;
                 draft.ui_found = false;
+                draft.ui_ignored = false;
 
                 draft.id = db.message().insertMessage(draft);
                 draft.write(context, body == null ? "" : body);

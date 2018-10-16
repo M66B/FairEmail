@@ -159,7 +159,9 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
-            " AND NOT message.ui_seen AND NOT message.ui_hide" +
+            " AND NOT message.ui_seen" +
+            " AND NOT message.ui_hide" +
+            " AND NOT message.ui_ignored" +
             " ORDER BY message.received")
     LiveData<List<EntityMessage>> liveUnseenUnified();
 
@@ -193,6 +195,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);
+
+    @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
+    int setMessageUiIgnored(long id, boolean ui_ignored);
 
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);

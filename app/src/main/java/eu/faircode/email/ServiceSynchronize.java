@@ -137,6 +137,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     static final int PI_SEEN = 1;
     static final int PI_TRASH = 2;
+    static final int PI_IGNORED = 3;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -237,7 +238,7 @@ public class ServiceSynchronize extends LifecycleService {
                 serviceManager.queue_stop();
             else if ("reload".equals(action))
                 serviceManager.queue_reload();
-            else if (action.startsWith("seen:") || action.startsWith("trash:")) {
+            else if (action.startsWith("seen:") || action.startsWith("trash:") || action.startsWith("ignored:")) {
                 Bundle args = new Bundle();
                 args.putLong("id", Long.parseLong(action.split(":")[1]));
                 args.putString("action", action.split(":")[0]);
@@ -261,7 +262,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                                 if (trash != null)
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-                            }
+                            } else if ("ignored".equals(action))
+                                db.message().setMessageUiIgnored(message.id, true);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -271,11 +273,6 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityOperation.process(context);
 
                         return null;
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Void data) {
-                        Log.i(Helper.TAG, "Set seen");
                     }
                 }.load(this, args);
             }
@@ -391,8 +388,12 @@ public class ServiceSynchronize extends LifecycleService {
             Intent thread = new Intent(this, ActivityView.class);
             thread.setAction("thread:" + message.id);
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent piThread = PendingIntent.getActivity(
+            PendingIntent piContent = PendingIntent.getActivity(
                     this, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Intent ignored = new Intent(this, ServiceSynchronize.class);
+            ignored.setAction("ignored:" + message.id);
+            PendingIntent piDelete = PendingIntent.getService(this, PI_IGNORED, ignored, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent seen = new Intent(this, ServiceSynchronize.class);
             seen.setAction("seen:" + message.id);
@@ -422,10 +423,10 @@ public class ServiceSynchronize extends LifecycleService {
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_mail_24)
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
-                    .setContentIntent(piThread)
+                    .setContentIntent(piContent)
                     .setSound(uri)
                     .setWhen(message.sent == null ? message.received : message.sent)
-                    .setOngoing(true)
+                    .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
                     .setCategory(Notification.CATEGORY_STATUS)
                     .setVisibility(Notification.VISIBILITY_PRIVATE)
@@ -1694,6 +1695,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_flagged = false;
             message.ui_hide = false;
             message.ui_found = found;
+            message.ui_ignored = false;
 
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                     == PackageManager.PERMISSION_GRANTED) {
