@@ -135,9 +135,8 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
 
-    static final int PI_UNSEEN = 1;
-    static final int PI_SEEN = 2;
-    static final int PI_TRASH = 3;
+    static final int PI_SEEN = 1;
+    static final int PI_TRASH = 2;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
