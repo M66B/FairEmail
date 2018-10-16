@@ -68,8 +68,8 @@
   <string name="title_advanced_avatars">Mostra foto del contatto</string>
   <string name="title_advanced_light">Usa il led di notifica</string>
   <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
-  <string name="title_advanced_swipe">Swipe actions</string>
-  <string name="title_advanced_haptic">Haptic feedback</string>
+  <string name="title_advanced_swipe">Azioni swipe</string>
+  <string name="title_advanced_haptic">Feedback tattile</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Seleziona &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
@@ -162,6 +162,7 @@
   <string name="title_show_html">Visualizza originale</string>
   <string name="title_trash">Cestino</string>
   <string name="title_delete">Elimina</string>
+  <string name="title_more">More</string>
   <string name="title_spam">Posta indesiderata</string>
   <string name="title_move">Sposta</string>
   <string name="title_archive">Archivo</string>
@@ -227,7 +228,7 @@
   <string name="title_legend_closing">Chiusura</string>
   <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
   <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
-  <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile); tieni premuto per segnare letto/non letto o per aggiungere/rimuovere stelle</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
   <string name="title_hint_sync">Scaricare i messaggi può richiedere del tempo, a seconda del numero di messaggi, della velocità della tua connessione internet e del tuo fornitore di email</string>
   <string name="title_open_link">Apri collegamento</string>
   <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>

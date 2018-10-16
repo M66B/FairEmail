@@ -162,6 +162,7 @@
   <string name="title_show_html">Visa originalet</string>
   <string name="title_trash">Papperskorg</string>
   <string name="title_delete">Ta bort</string>
+  <string name="title_more">More</string>
   <string name="title_spam">Skräppost</string>
   <string name="title_move">Flytta</string>
   <string name="title_archive">Arkivera</string>
@@ -227,7 +228,7 @@
   <string name="title_legend_closing">Stänger</string>
   <string name="title_hint_folder_actions">Långtryck för inställningar</string>
   <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
-  <string name="title_hint_message_actions">Svep åt vänster till papperskorgen; svep åt höger för att arkivera (om tillgängligt); tryck länge för att märka som läst/oläst eller lägga till/ta bort stjärna</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
   <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på antalet meddelanden, hastigheten på din Internetanslutning och din e-postleverantör</string>
   <string name="title_open_link">Öppna länken</string>
   <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>

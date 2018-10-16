@@ -162,6 +162,7 @@
   <string name="title_show_html">Original anzeigen</string>
   <string name="title_trash">Löschen</string>
   <string name="title_delete">Löschen</string>
+  <string name="title_more">More</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Verschieben</string>
   <string name="title_archive">Archivieren</string>
@@ -227,7 +228,7 @@
   <string name="title_legend_closing">Schließen</string>
   <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
   <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
-  <string name="title_hint_message_actions">Nach links wischen zum Löschen; nach rechts wischen zum Archivieren (falls verfügbar); gedrückt halten, um als gelesen/ungelesen zu markieren oder um zu favorisieren/entfavorisieren</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
   <string name="title_hint_sync">Das Herunterladen der Nachrichten kann einige Zeit beanspruchen, abhängig von der Anzahl der Nachrichten, der Geschwindigkeit Ihrer Internetverbindung und Ihrem E-Mail-Anbieter</string>
   <string name="title_open_link">Link öffnen</string>
   <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>

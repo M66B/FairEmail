@@ -162,6 +162,7 @@
   <string name="title_show_html">Orjinali göster</string>
   <string name="title_trash">Çöp Kutusu</string>
   <string name="title_delete">Sil</string>
+  <string name="title_more">More</string>
   <string name="title_spam">Spam</string>
   <string name="title_move">Taşı</string>
   <string name="title_archive">Arşivle</string>
@@ -227,7 +228,7 @@
   <string name="title_legend_closing">Kapatılıyor</string>
   <string name="title_hint_folder_actions">Ayarlar için uzun basın</string>
   <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
-  <string name="title_hint_message_actions">Silmek için sola kaydırın; arşivlemek (mümkün ise) için sağa kaydırın; okundu/okunmadı olarak işaretlemek veya yıldız eklemek/kaldırmak uzun basın</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
   <string name="title_hint_sync">Downloading messages can take some time, depending on the number of messages, the speed of your internet connection and your email provider</string>
   <string name="title_open_link">Bağlantıyı aç</string>
   <string name="title_updated">Sürüm %1$s için bir güncelleştirme mevcut</string>

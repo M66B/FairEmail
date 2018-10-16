@@ -158,6 +158,7 @@
   <string name="title_show_html">显示原件</string>
   <string name="title_trash">回收站</string>
   <string name="title_delete">删除</string>
+  <string name="title_more">More</string>
   <string name="title_spam">垃圾邮件</string>
   <string name="title_move">移动</string>
   <string name="title_archive">存档</string>
@@ -223,7 +224,7 @@
   <string name="title_legend_closing">正在结束</string>
   <string name="title_hint_folder_actions">长按以显示更多选项</string>
   <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
-  <string name="title_hint_message_actions">左滑进垃圾箱；右滑归档(如果能用)；长按以标注已读/未读或添加/移除星标</string>
+  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
   <string name="title_hint_sync">下载消息会花一些时间，取决于消息数量，您的网络连接以及您的邮件提供商</string>
   <string name="title_open_link">打开链接</string>
   <string name="title_updated">有新的版本%1$s可用</string>
