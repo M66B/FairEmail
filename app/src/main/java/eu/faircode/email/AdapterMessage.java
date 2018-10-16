@@ -208,7 +208,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
 
-            itemView.setHasTransientState(viewType == ViewType.THREAD);
+            setIsRecyclable(viewType != ViewType.THREAD);
             tvBody.setMovementMethod(new UrlHandler());
         }
 
