@@ -463,6 +463,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (action != null && action.startsWith("thread")) {
             intent.setAction(null);
             setIntent(intent);
+
+            getSupportFragmentManager().popBackStack("unified", 0);
             intent.putExtra("id", Long.parseLong(action.split(":")[1]));
             onViewThread(intent);
         }
