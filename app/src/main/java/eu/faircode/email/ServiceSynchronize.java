@@ -526,11 +526,11 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
         final PowerManager pm = getSystemService(PowerManager.class);
-        final PowerManager.WakeLock wl = pm.newWakeLock(
+        final PowerManager.WakeLock wl0 = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK,
-                BuildConfig.APPLICATION_ID + ":account." + account.id);
+                BuildConfig.APPLICATION_ID + ":account." + account.id + ".monitor");
         try {
-            wl.acquire();
+            wl0.acquire();
 
             final DB db = DB.getInstance(this);
             final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -557,6 +557,10 @@ public class ServiceSynchronize extends LifecycleService {
                 try {
                     // Listen for store events
                     istore.addStoreListener(new StoreListener() {
+                        PowerManager.WakeLock wl = pm.newWakeLock(
+                                PowerManager.PARTIAL_WAKE_LOCK,
+                                BuildConfig.APPLICATION_ID + ":account." + account.id + ".store");
+
                         @Override
                         public void notification(StoreEvent e) {
                             try {
@@ -573,6 +577,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                     // Listen for folder events
                     istore.addFolderListener(new FolderAdapter() {
+                        PowerManager.WakeLock wl = pm.newWakeLock(
+                                PowerManager.PARTIAL_WAKE_LOCK,
+                                BuildConfig.APPLICATION_ID + ":account." + account.id + ".folder");
+
                         @Override
                         public void folderCreated(FolderEvent e) {
                             try {
@@ -670,6 +678,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Synchronize folder
                         Thread sync = new Thread(new Runnable() {
+                            PowerManager.WakeLock wl = pm.newWakeLock(
+                                    PowerManager.PARTIAL_WAKE_LOCK,
+                                    BuildConfig.APPLICATION_ID + ":account." + account.id + ".sync");
+
                             @Override
                             public void run() {
                                 try {
@@ -869,6 +881,10 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void onReceive(Context context, final Intent intent) {
                             executor.submit(new Runnable() {
+                                PowerManager.WakeLock wl = pm.newWakeLock(
+                                        PowerManager.PARTIAL_WAKE_LOCK,
+                                        BuildConfig.APPLICATION_ID + ":account." + account.id + ".process");
+
                                 @Override
                                 public void run() {
                                     long fid = intent.getLongExtra("folder", -1);
@@ -958,7 +974,7 @@ public class ServiceSynchronize extends LifecycleService {
                         public void onReceive(Context context, Intent intent) {
                             // Receiver runs on main thread
                             // Receiver has a wake lock for ~10 seconds
-                            EntityLog.log(context, account.name + " keep alive wake lock=" + wl.isHeld());
+                            EntityLog.log(context, account.name + " keep alive wake lock=" + wl0.isHeld());
                             state.thread.interrupt();
                             yieldWakelock();
                         }
@@ -980,12 +996,12 @@ public class ServiceSynchronize extends LifecycleService {
                                     pi);
 
                             try {
-                                wl.release();
+                                wl0.release();
                                 Thread.sleep(Long.MAX_VALUE);
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, account.name + " waited running=" + state.running);
                             } finally {
-                                wl.acquire();
+                                wl0.acquire();
                             }
 
                             if (state.running) {
@@ -1077,7 +1093,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         } finally {
             EntityLog.log(this, account.name + " stopped");
-            wl.release();
+            wl0.release();
         }
     }
 
