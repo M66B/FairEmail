@@ -796,6 +796,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
+                        case R.id.menu_junk:
+                            onJunk(data);
+                            return true;
                         case R.id.menu_forward:
                             onForward(data);
                             return true;
@@ -1020,6 +1023,51 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             });
         }
 
+        private void onJunk(final ActionData data) {
+            new DialogBuilderLifecycle(context, owner)
+                    .setMessage(R.string.title_ask_spam)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Bundle args = new Bundle();
+                            args.putLong("id", data.message.id);
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onLoad(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        db.message().setMessageUiHide(id, true);
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    EntityOperation.process(context);
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(context, ex);
+                                }
+                            }.load(context, owner, args);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        }
+
         private void onDelete(final ActionData data) {
             if (data.delete) {
                 // No trash or is trash
@@ -1140,10 +1188,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             return collator.compare(f1.name, f2.name);
                         }
                     });
-
-                    EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                    if (junk != null && !message.folder.equals(junk.id))
-                        folders.add(0, junk);
 
                     EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
                     if (sent != null && !message.folder.equals(sent.id))
