@@ -65,7 +65,6 @@
   <string name="title_advanced_light">使用指示灯</string>
   <string name="title_advanced_browse">浏览服务器上的消息</string>
   <string name="title_advanced_swipe">Swipe actions</string>
-  <string name="title_advanced_haptic">Haptic feedback</string>
   <string name="title_advanced_debug">调试模式</string>
   <string name="title_select">选择 &#8230;</string>
   <string name="title_identity_name">姓名</string>
