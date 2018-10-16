@@ -544,48 +544,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 expanded.put(message.id, !expanded.get(message.id));
             notifyItemChanged(pos);
 
-            if (expanded.get(message.id)) {
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage message = db.message().getMessage(id);
-                            EntityFolder folder = db.folder().getFolder(message.folder);
-
-                            if (!EntityFolder.OUTBOX.equals(folder.type)) {
-                                if (!message.content)
-                                    EntityOperation.queue(db, message, EntityOperation.BODY);
-
-                                if (!message.ui_seen) {
-                                    db.message().setMessageUiSeen(message.id, true);
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        EntityOperation.process(context);
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, ex);
-                    }
-                }.load(context, owner, args);
-            }
+            if (expanded.get(message.id))
+                handleExpand(message.id);
         }
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
@@ -1315,6 +1275,49 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                         == PackageManager.PERMISSION_GRANTED);
         this.debug = prefs.getBoolean("debug", false);
+    }
+
+    private void handleExpand(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+
+                    if (!EntityFolder.OUTBOX.equals(folder.type)) {
+                        if (!message.content)
+                            EntityOperation.queue(db, message, EntityOperation.BODY);
+
+                        if (!message.ui_seen) {
+                            db.message().setMessageUiSeen(message.id, true);
+                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(context, ex);
+            }
+        }.load(context, owner, args);
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
