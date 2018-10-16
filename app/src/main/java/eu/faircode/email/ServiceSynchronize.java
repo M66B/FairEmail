@@ -1436,25 +1436,36 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
-                EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
-                if (folder == null) {
-                    folder = new EntityFolder();
-                    folder.account = account.id;
-                    folder.name = ifolder.getFullName();
-                    folder.type = EntityFolder.USER;
-                    folder.synchronize = false;
-                    folder.after = EntityFolder.DEFAULT_USER_SYNC;
-                    db.folder().insertFolder(folder);
-                    Log.i(Helper.TAG, folder.name + " added");
-                } else {
-                    names.remove(folder.name);
-                    Log.i(Helper.TAG, folder.name + " exists");
+                boolean selectable = true;
+                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                for (String attr : attrs) {
+                    if ("\\Noselect".equals(attr))
+                        selectable = false;
+                }
+
+                if (selectable) {
+                    EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
+                    if (folder == null) {
+                        folder = new EntityFolder();
+                        folder.account = account.id;
+                        folder.name = ifolder.getFullName();
+                        folder.type = EntityFolder.USER;
+                        folder.synchronize = false;
+                        folder.after = EntityFolder.DEFAULT_USER_SYNC;
+                        db.folder().insertFolder(folder);
+                        Log.i(Helper.TAG, folder.name + " added");
+                    } else {
+                        names.remove(folder.name);
+                        Log.i(Helper.TAG, folder.name + " exists");
+                    }
                 }
             }
 
             Log.i(Helper.TAG, "Delete local folder=" + names.size());
-            for (String name : names)
+            for (String name : names) {
                 db.folder().deleteFolder(account.id, name);
+                Log.i(Helper.TAG, name + " deleted");
+            }
 
             db.setTransactionSuccessful();
         } finally {
