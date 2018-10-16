@@ -101,9 +101,11 @@ public class FragmentSetup extends FragmentEx {
     };
 
     static final List<String> EXPORT_SETTINGS = Arrays.asList(
+            "enabled",
             "avatars",
             "light",
             "browse",
+            "swipe",
             "sort"
     );
 
