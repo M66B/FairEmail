@@ -208,7 +208,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
 
-            setIsRecyclable(viewType != ViewType.THREAD);
+            bnvActions.setHasTransientState(viewType == ViewType.THREAD);
+            btnImages.setHasTransientState(viewType == ViewType.THREAD);
+            tvBody.setHasTransientState(viewType == ViewType.THREAD);
+            pbBody.setHasTransientState(viewType == ViewType.THREAD);
+            grpAttachments.setHasTransientState(viewType == ViewType.THREAD);
+
             tvBody.setMovementMethod(new UrlHandler());
         }
 
