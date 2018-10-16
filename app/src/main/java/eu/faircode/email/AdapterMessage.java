@@ -794,6 +794,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             ActionData data = (ActionData) bnvActions.getTag();
+            if (data == null)
+                return false;
+
             switch (item.getItemId()) {
                 case R.id.action_more:
                     onMore(data);
