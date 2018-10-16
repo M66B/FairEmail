@@ -62,16 +62,6 @@
             app:layout_constraintTop_toBottomOf="@id/cbBrowse" />
 
         <CheckBox
-            android:id="@+id/cbHaptic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_haptic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSwipe" />
-
-        <CheckBox
             android:id="@+id/cbDebug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,6 +69,6 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbHaptic" />
+            app:layout_constraintTop_toBottomOf="@id/cbSwipe" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

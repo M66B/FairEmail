@@ -352,8 +352,6 @@ public class FragmentMessage extends FragmentEx {
             public void onClick(View view) {
                 free = true;
 
-                Helper.hapticFeedback(view);
-
                 getActivity().invalidateOptionsMenu();
 
                 grpHeader.setVisibility(View.GONE);

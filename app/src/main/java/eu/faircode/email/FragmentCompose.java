@@ -195,8 +195,6 @@ public class FragmentCompose extends FragmentEx {
             public void onFocusChange(View view, boolean hasFocus) {
                 free = hasFocus;
 
-                Helper.hapticFeedback(view);
-
                 getActivity().invalidateOptionsMenu();
 
                 grpHeader.setVisibility(hasFocus ? View.GONE : View.VISIBLE);

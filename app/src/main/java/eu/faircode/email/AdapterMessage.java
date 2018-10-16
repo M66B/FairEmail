@@ -538,8 +538,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onExpandMessage(int pos, EntityMessage message) {
-            Helper.hapticFeedback(itemView);
-
             if (expanded.get(message.id) == null)
                 expanded.put(message.id, true);
             else

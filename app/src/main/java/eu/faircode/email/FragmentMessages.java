@@ -379,7 +379,6 @@ public class FragmentMessages extends FragmentEx {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.hapticFeedback(view);
                 startActivity(new Intent(getContext(), ActivityCompose.class)
                         .putExtra("action", "new")
                         .putExtra("account", (Long) fab.getTag())
