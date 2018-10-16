@@ -1410,54 +1410,30 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             db.beginTransaction();
 
-            Log.v(Helper.TAG, "Start sync folders");
+            Log.v(Helper.TAG, "Start sync folders account=" + account.name);
 
             List<String> names = new ArrayList<>();
             for (EntityFolder folder : db.folder().getUserFolders(account.id))
                 names.add(folder.name);
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
-            Folder[] ifolders = istore.getDefaultFolder().list("*"); // TODO: is the pattern correct?
+            Folder[] ifolders = istore.getDefaultFolder().list("*");
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
-                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                boolean system = false;
-                boolean selectable = true;
-                for (String attr : attrs) {
-                    if ("\\Noselect".equals(attr)) { // TODO: is this attribute correct?
-                        selectable = false;
-                        break;
-                    }
-                    if (attr.startsWith("\\")) {
-                        attr = attr.substring(1);
-                        if (EntityFolder.SYSTEM_FOLDER_ATTR.contains(attr)) {
-                            int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
-                            system = EntityFolder.SYSTEM.equals(EntityFolder.SYSTEM_FOLDER_TYPE.get(index));
-                            if (!system)
-                                selectable = false;
-                            break;
-                        }
-                    }
-                }
-
-                if (selectable) {
-                    Log.i(Helper.TAG, ifolder.getFullName() + " candidate attr=" + TextUtils.join(",", attrs));
-                    EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
-                    if (folder == null) {
-                        folder = new EntityFolder();
-                        folder.account = account.id;
-                        folder.name = ifolder.getFullName();
-                        folder.type = (system ? EntityFolder.SYSTEM : EntityFolder.USER);
-                        folder.synchronize = false;
-                        folder.after = EntityFolder.DEFAULT_USER_SYNC;
-                        db.folder().insertFolder(folder);
-                        Log.i(Helper.TAG, folder.name + " added");
-                    } else {
-                        if (system)
-                            db.folder().setFolderType(folder.id, EntityFolder.SYSTEM);
-                        names.remove(folder.name);
-                    }
+                EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
+                if (folder == null) {
+                    folder = new EntityFolder();
+                    folder.account = account.id;
+                    folder.name = ifolder.getFullName();
+                    folder.type = EntityFolder.USER;
+                    folder.synchronize = false;
+                    folder.after = EntityFolder.DEFAULT_USER_SYNC;
+                    db.folder().insertFolder(folder);
+                    Log.i(Helper.TAG, folder.name + " added");
+                } else {
+                    names.remove(folder.name);
+                    Log.i(Helper.TAG, folder.name + " exists");
                 }
             }
 
