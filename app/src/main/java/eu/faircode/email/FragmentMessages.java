@@ -86,6 +86,7 @@ public class FragmentMessages extends FragmentEx {
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
 
+    private boolean autoExpand = true;
     private List<Long> expanded = new ArrayList<>();
     private List<Long> headers = new ArrayList<>();
     private List<Long> images = new ArrayList<>();
@@ -178,9 +179,10 @@ public class FragmentMessages extends FragmentEx {
         adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType, new AdapterMessage.IProperties() {
             @Override
             public void setExpanded(long id, boolean expand) {
-                if (expand)
+                if (expand) {
                     expanded.add(id);
-                else
+                    handleExpand(id);
+                } else
                     expanded.remove(id);
             }
 
@@ -797,6 +799,38 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 }
 
+                if (viewType == AdapterMessage.ViewType.THREAD && autoExpand) {
+                    autoExpand = false;
+
+                    int count = 0;
+                    int unseen = 0;
+                    TupleMessageEx single = null;
+                    TupleMessageEx see = null;
+                    for (int i = 0; i < messages.size(); i++) {
+                        TupleMessageEx message = messages.get(i);
+                        if (!EntityFolder.ARCHIVE.equals(message.folderType)) {
+                            count++;
+                            single = message;
+                            if (!message.ui_seen) {
+                                unseen++;
+                                see = message;
+                            }
+                        }
+                    }
+
+                    TupleMessageEx expand = null;
+                    if (count == 1)
+                        expand = single;
+                    else if (unseen == 1)
+                        expand = see;
+
+                    if (expand != null) {
+                        expanded.add(expand.id);
+                        if (!expand.ui_seen)
+                            handleExpand(expand.id);
+                    }
+                }
+
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
 
@@ -817,5 +851,48 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+    }
+
+    private void handleExpand(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+
+                    if (!EntityFolder.OUTBOX.equals(folder.type)) {
+                        if (!message.content)
+                            EntityOperation.queue(db, message, EntityOperation.BODY);
+
+                        if (!message.ui_seen) {
+                            db.message().setMessageUiSeen(message.id, true);
+                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
+        }.load(this, args);
     }
 }
