@@ -13,13 +13,8 @@
         android:title="@string/title_reply_all" />
 
     <item
-        android:id="@+id/menu_show_headers"
-        android:checkable="true"
-        android:title="@string/title_show_headers" />
-
-    <item
-        android:id="@+id/menu_show_html"
-        android:title="@string/title_show_html" />
+        android:id="@+id/menu_answer"
+        android:title="@string/title_answer_reply" />
 
     <item
         android:id="@+id/menu_unseen"
@@ -31,6 +26,11 @@
         android:title="@string/title_flag" />
 
     <item
-        android:id="@+id/menu_answer"
-        android:title="@string/title_answer_reply" />
+        android:id="@+id/menu_show_headers"
+        android:checkable="true"
+        android:title="@string/title_show_headers" />
+
+    <item
+        android:id="@+id/menu_show_html"
+        android:title="@string/title_show_html" />
 </menu>

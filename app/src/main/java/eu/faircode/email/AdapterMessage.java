@@ -784,54 +784,49 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
         }
 
-        private void onMore(final ActionData data) {
-            boolean inOutbox = EntityFolder.OUTBOX.equals(data.message.folderType);
-            boolean show_headers = properties.showHeaders(data.message.id);
+        private void onJunk(final ActionData data) {
+            new DialogBuilderLifecycle(context, owner)
+                    .setMessage(R.string.title_ask_spam)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Bundle args = new Bundle();
+                            args.putLong("id", data.message.id);
 
-            View anchor = bnvActions.findViewById(R.id.action_more);
-            PopupMenu popupMenu = new PopupMenu(context, anchor);
-            popupMenu.inflate(R.menu.menu_message);
-            popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(data.message.content && !inOutbox);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_show_html).setEnabled(data.message.content && Helper.classExists("android.webkit.WebView"));
-            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.uid != null && data.message.unflagged != 1);
-            popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(data.message.content && !inOutbox);
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onLoad(Context context, Bundle args) {
+                                    long id = args.getLong("id");
 
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case R.id.menu_junk:
-                            onJunk(data);
-                            return true;
-                        case R.id.menu_forward:
-                            onForward(data);
-                            return true;
-                        case R.id.menu_reply_all:
-                            onReplyAll(data);
-                            return true;
-                        case R.id.menu_show_headers:
-                            onShowHeaders(data);
-                            return true;
-                        case R.id.menu_show_html:
-                            onShowHtml(data);
-                            return true;
-                        case R.id.menu_flag:
-                            onFlag(data);
-                            return true;
-                        case R.id.menu_unseen:
-                            onUnseen(data);
-                            return true;
-                        case R.id.menu_answer:
-                            onAnswer(data);
-                            return true;
-                        default:
-                            return false;
-                    }
-                }
-            });
-            popupMenu.show();
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        db.message().setMessageUiHide(id, true);
+
+                                        EntityMessage message = db.message().getMessage(id);
+                                        EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    EntityOperation.process(context);
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(context, ex);
+                                }
+                            }.load(context, owner, args);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         }
 
         private void onForward(final ActionData data) {
@@ -882,105 +877,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     .putExtra("reference", data.message.id));
         }
 
-        private void onShowHeaders(ActionData data) {
-            boolean show_headers = !properties.showHeaders(data.message.id);
-            properties.setHeaders(data.message.id, show_headers);
-            if (show_headers) {
-                grpHeaders.setVisibility(View.VISIBLE);
-                pbHeaders.setVisibility(View.VISIBLE);
-
-                Bundle args = new Bundle();
-                args.putLong("id", data.message.id);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        Long id = args.getLong("id");
-                        DB db = DB.getInstance(context);
-                        EntityMessage message = db.message().getMessage(id);
-                        EntityOperation.queue(db, message, EntityOperation.HEADERS);
-                        EntityOperation.process(context);
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, ex);
-                    }
-                }.load(context, owner, args);
-            } else
-                notifyDataSetChanged();
-        }
-
-        private void onShowHtml(ActionData data) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_FULL)
-                            .putExtra("id", data.message.id)
-                            .putExtra("from", MessageHelper.getFormattedAddresses(data.message.from, true)));
-        }
-
-        private void onFlag(ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-            args.putBoolean("flagged", !data.message.ui_flagged);
-            Log.i(Helper.TAG, "Set message id=" + data.message.id + " flagged=" + !data.message.ui_flagged);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-                    boolean flagged = args.getBoolean("flagged");
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    db.message().setMessageUiFlagged(message.id, flagged);
-                    EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
-                    EntityOperation.process(context);
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
-                }
-            }.load(context, owner, args);
-        }
-
-        private void onUnseen(final ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        EntityMessage message = db.message().getMessage(id);
-                        db.message().setMessageUiSeen(message.id, false);
-                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    EntityOperation.process(context);
-
-                    return null;
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, Void ignored) {
-                    properties.setExpanded(data.message.id, false);
-                    notifyDataSetChanged();
-                }
-            }.load(context, owner, args);
-        }
-
         private void onAnswer(final ActionData data) {
             final DB db = DB.getInstance(context);
             db.answer().liveAnswers().observe(owner, new Observer<List<EntityAnswer>>() {
@@ -1026,49 +922,153 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             });
         }
 
-        private void onJunk(final ActionData data) {
-            new DialogBuilderLifecycle(context, owner)
-                    .setMessage(R.string.title_ask_spam)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Bundle args = new Bundle();
-                            args.putLong("id", data.message.id);
+        private void onUnseen(final ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onLoad(Context context, Bundle args) {
-                                    long id = args.getLong("id");
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
 
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
 
-                                        db.message().setMessageUiHide(id, true);
+                        EntityMessage message = db.message().getMessage(id);
+                        db.message().setMessageUiSeen(message.id, false);
+                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
 
-                                        EntityMessage message = db.message().getMessage(id);
-                                        EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
 
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
+                    EntityOperation.process(context);
 
-                                    EntityOperation.process(context);
+                    return null;
+                }
 
-                                    return null;
-                                }
+                @Override
+                protected void onLoaded(Bundle args, Void ignored) {
+                    properties.setExpanded(data.message.id, false);
+                    notifyDataSetChanged();
+                }
+            }.load(context, owner, args);
+        }
 
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, ex);
-                                }
-                            }.load(context, owner, args);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+        private void onFlag(ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+            args.putBoolean("flagged", !data.message.ui_flagged);
+            Log.i(Helper.TAG, "Set message id=" + data.message.id + " flagged=" + !data.message.ui_flagged);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    boolean flagged = args.getBoolean("flagged");
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    db.message().setMessageUiFlagged(message.id, flagged);
+                    EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+                    EntityOperation.process(context);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, ex);
+                }
+            }.load(context, owner, args);
+        }
+
+        private void onShowHeaders(ActionData data) {
+            boolean show_headers = !properties.showHeaders(data.message.id);
+            properties.setHeaders(data.message.id, show_headers);
+            if (show_headers) {
+                grpHeaders.setVisibility(View.VISIBLE);
+                pbHeaders.setVisibility(View.VISIBLE);
+
+                Bundle args = new Bundle();
+                args.putLong("id", data.message.id);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        Long id = args.getLong("id");
+                        DB db = DB.getInstance(context);
+                        EntityMessage message = db.message().getMessage(id);
+                        EntityOperation.queue(db, message, EntityOperation.HEADERS);
+                        EntityOperation.process(context);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, ex);
+                    }
+                }.load(context, owner, args);
+            } else
+                notifyDataSetChanged();
+        }
+
+        private void onShowHtml(ActionData data) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_VIEW_FULL)
+                            .putExtra("id", data.message.id)
+                            .putExtra("from", MessageHelper.getFormattedAddresses(data.message.from, true)));
+        }
+
+        private void onMore(final ActionData data) {
+            boolean inOutbox = EntityFolder.OUTBOX.equals(data.message.folderType);
+            boolean show_headers = properties.showHeaders(data.message.id);
+
+            View anchor = bnvActions.findViewById(R.id.action_more);
+            PopupMenu popupMenu = new PopupMenu(context, anchor);
+            popupMenu.inflate(R.menu.menu_message);
+            popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(data.message.content && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_show_html).setEnabled(data.message.content && Helper.classExists("android.webkit.WebView"));
+            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.uid != null && data.message.unflagged != 1);
+            popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(data.message.content && !inOutbox);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem target) {
+                    switch (target.getItemId()) {
+                        case R.id.menu_junk:
+                            onJunk(data);
+                            return true;
+                        case R.id.menu_forward:
+                            onForward(data);
+                            return true;
+                        case R.id.menu_reply_all:
+                            onReplyAll(data);
+                            return true;
+                        case R.id.menu_show_headers:
+                            onShowHeaders(data);
+                            return true;
+                        case R.id.menu_show_html:
+                            onShowHtml(data);
+                            return true;
+                        case R.id.menu_flag:
+                            onFlag(data);
+                            return true;
+                        case R.id.menu_unseen:
+                            onUnseen(data);
+                            return true;
+                        case R.id.menu_answer:
+                            onAnswer(data);
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+            });
+            popupMenu.show();
         }
 
         private void onDelete(final ActionData data) {
