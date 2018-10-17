@@ -1033,6 +1033,12 @@ public class FragmentCompose extends FragmentEx {
                     getActivity().invalidateOptionsMenu();
                     etBody.setText(body);
                     etBody.setSelection(0);
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            etTo.requestFocus();
+                        }
+                    });
                 }
             }.load(FragmentCompose.this, a);
 
