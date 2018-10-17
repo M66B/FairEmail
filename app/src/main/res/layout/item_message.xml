@@ -374,7 +374,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toTopOf="@+id/vSeparatorBody"
+            app:layout_constraintBottom_toTopOf="@+id/bnvActions"
             app:layout_constraintEnd_toEndOf="@id/tvHeaders"
             app:layout_constraintStart_toStartOf="@id/tvHeaders"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorRawHeaders" />
@@ -430,7 +430,7 @@
             app:layout_constraintBottom_toTopOf="@+id/vSeparatorAttachments"
             app:layout_constraintEnd_toEndOf="@id/tvBody"
             app:layout_constraintStart_toStartOf="@id/tvBody"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <View
             android:id="@+id/vSeparatorAttachments"
