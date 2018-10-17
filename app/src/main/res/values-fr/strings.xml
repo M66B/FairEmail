@@ -106,7 +106,6 @@
   <string name="title_no_email">Adresse e-mail manquante</string>
   <string name="title_no_account">Compte manquant</string>
   <string name="title_no_host">Nom d\'hôte manquant</string>
-  <string name="title_no_port">Numéro de port manquant</string>
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Répertoire Brouillons manquant</string>
@@ -129,7 +128,6 @@
   <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
   <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
   <string name="title_after">Synchroniser (jours)</string>
-  <string name="title_poll_interval">Intervalle de temps (minutes)</string>
   <string name="title_folder_exists">Le dossier %1$s existe</string>
   <string name="title_folder_delete">Supprimer définitivement le dossier ?</string>
   <string name="title_folder_unified">Boite de réception unifiée</string>
@@ -145,12 +143,9 @@
   <string name="title_folder_primary">Dossiers du compte principal</string>
   <string name="title_folder_thread">Fil de discussion</string>
   <string name="title_no_messages">Aucun message</string>
-  <string name="title_link">lien</string>
-  <string name="title_image">image</string>
   <string name="title_show_images">Afficher les images</string>
   <string name="title_subject_reply">Re : %1$s</string>
   <string name="title_subject_forward">Tr : %1$s</string>
-  <string name="title_thread">Afficher le fil de discussion</string>
   <string name="title_seen">Marquer comme lu</string>
   <string name="title_unseen">Marquer comme non lu</string>
   <string name="title_flag">Marquer comme suivi</string>
@@ -189,7 +184,6 @@
   <string name="title_style_image">Insérer une image</string>
   <string name="title_add_attachment">Ajouter une pièce jointe</string>
   <string name="title_show_addresses">Afficher Cc/Cci</string>
-  <string name="title_text_size">Taille du texte</string>
   <string name="title_from_missing">Expéditeur manquant</string>
   <string name="title_to_missing">Destinataire manquant</string>
   <string name="title_attachments_missing">Pièces jointes en cours de chargement</string>

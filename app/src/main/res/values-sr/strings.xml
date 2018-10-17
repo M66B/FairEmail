@@ -110,7 +110,6 @@
   <string name="title_no_email">Email address missing</string>
   <string name="title_no_account">Account missing</string>
   <string name="title_no_host">Host name missing</string>
-  <string name="title_no_port">Port number missing</string>
   <string name="title_no_user">User name missing</string>
   <string name="title_no_password">Password missing</string>
   <string name="title_no_drafts">Drafts folder missing</string>
@@ -133,7 +132,6 @@
   <string name="title_synchronize_folder">Synchronize (receive messages)</string>
   <string name="title_unified_folder">Show in unified inbox</string>
   <string name="title_after">Synchronize (days)</string>
-  <string name="title_poll_interval">Poll interval (minutes)</string>
   <string name="title_folder_exists">Folder %1$s exists</string>
   <string name="title_folder_delete">Delete folder permanently?</string>
   <string name="title_folder_unified">Unified inbox</string>
@@ -149,12 +147,9 @@
   <string name="title_folder_primary">Folders primary account</string>
   <string name="title_folder_thread">Conversation</string>
   <string name="title_no_messages">No messages</string>
-  <string name="title_link">link</string>
-  <string name="title_image">image</string>
   <string name="title_show_images">Show images</string>
   <string name="title_subject_reply">Re: %1$s</string>
   <string name="title_subject_forward">Fwd: %1$s</string>
-  <string name="title_thread">Show conversation</string>
   <string name="title_seen">Mark read</string>
   <string name="title_unseen">Mark unread</string>
   <string name="title_flag">Add star</string>
@@ -193,7 +188,6 @@
   <string name="title_style_image">Insert image</string>
   <string name="title_add_attachment">Add attachment</string>
   <string name="title_show_addresses">Show CC/BCC</string>
-  <string name="title_text_size">Text size</string>
   <string name="title_from_missing">Sender missing</string>
   <string name="title_to_missing">Recipient missing</string>
   <string name="title_attachments_missing">Attachments still loading</string>
