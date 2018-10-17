@@ -24,7 +24,7 @@ This app starts a foreground service with a low priority status bar notification
 * Multiple identities (outboxes)
 * Unified inbox
 * Message threading
-* Distraction free reading and writing
+* Distraction free writing
 * Two way synchronization
 * Offline storage and operations
 * Battery friendly
