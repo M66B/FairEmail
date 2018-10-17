@@ -76,7 +76,8 @@ public class FragmentMessages extends FragmentEx {
     private FloatingActionButton fab;
 
     private long folder = -1;
-    private long thread = -1;
+    private long account = -1;
+    private String thread = null;
     private String search = null;
 
     private long primary = -1;
@@ -106,8 +107,9 @@ public class FragmentMessages extends FragmentEx {
         // Get arguments
         Bundle args = getArguments();
         if (args != null) {
+            account = args.getLong("account", -1);
             folder = args.getLong("folder", -1);
-            thread = args.getLong("thread", -1); // message ID
+            thread = args.getString("thread");
             search = args.getString("search");
         }
     }
@@ -166,7 +168,7 @@ public class FragmentMessages extends FragmentEx {
         rvMessage.setLayoutManager(llm);
 
         if (TextUtils.isEmpty(search))
-            if (thread < 0)
+            if (thread == null)
                 if (folder < 0)
                     viewType = AdapterMessage.ViewType.UNIFIED;
                 else
@@ -531,38 +533,18 @@ public class FragmentMessages extends FragmentEx {
         // Compose FAB
         if (viewType != AdapterMessage.ViewType.THREAD) {
             Bundle args = new Bundle();
-            args.putLong("folder", folder);
-            args.putLong("thread", thread);
+            args.putLong("account", account);
 
             new SimpleTask<Long>() {
                 @Override
                 protected Long onLoad(Context context, Bundle args) {
-                    long fid = args.getLong("folder", -1);
-                    long thread = args.getLong("thread", -1); // message ID
+                    long account = args.getLong("account", -1);
 
-                    DB db = DB.getInstance(context);
-
-                    Long account = null;
-                    if (thread < 0) {
-                        if (folder >= 0) {
-                            EntityFolder folder = db.folder().getFolder(fid);
-                            if (folder != null)
-                                account = folder.account;
-                        }
-                    } else {
-                        EntityMessage threaded = db.message().getMessage(thread);
-                        if (threaded != null)
-                            account = threaded.account;
-                    }
-
-                    if (account == null) {
-                        // outbox
-                        EntityFolder primary = db.folder().getPrimaryDrafts();
-                        if (primary != null)
-                            account = primary.account;
-                    }
-
-                    return account;
+                    if (account < 0) {
+                        EntityFolder primary = DB.getInstance(context).folder().getPrimaryDrafts();
+                        return (primary == null ? null : primary.account);
+                    } else
+                        return account;
                 }
 
                 @Override
@@ -751,7 +733,7 @@ public class FragmentMessages extends FragmentEx {
 
                     break;
                 case THREAD:
-                    messages = new LivePagedListBuilder<>(db.message().pagedThread(thread, sort, debug), LOCAL_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedThread(account, thread, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {

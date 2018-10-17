@@ -103,15 +103,15 @@ public interface DaoMessage {
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
-            " WHERE (NOT message.ui_hide OR :debug)" +
-            " AND message.account = (SELECT m1.account FROM message m1 WHERE m1.id = :msgid)" +
-            " AND message.thread = (SELECT m2.thread FROM message m2 WHERE m2.id = :msgid)" +
+            " WHERE message.account = :account" +
+            " AND message.thread = :thread" +
+            " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long msgid, String sort, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, String sort, boolean debug);
 
     @Query("SELECT *" +
             " FROM message" +

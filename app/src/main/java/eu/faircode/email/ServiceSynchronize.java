@@ -409,8 +409,9 @@ public class ServiceSynchronize extends LifecycleService {
             args.putLong("id", message.id);
 
             Intent thread = new Intent(this, ActivityView.class);
-            thread.setAction("thread:" + message.id);
+            thread.setAction("thread:" + message.thread);
             thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            thread.putExtra("account", message.account);
             PendingIntent piContent = PendingIntent.getActivity(
                     this, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
 

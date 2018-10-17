@@ -302,7 +302,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             setIntent(intent);
 
             getSupportFragmentManager().popBackStack("unified", 0);
-            intent.putExtra("id", Long.parseLong(action.split(":")[1]));
+            intent.putExtra("thread", action.split(":", 2)[1]);
             onViewThread(intent);
         }
     }
@@ -752,8 +752,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     };
 
     private void onViewMessages(Intent intent) {
+        Bundle args = new Bundle();
+        args.putLong("account", intent.getLongExtra("account", -1));
+        args.putLong("folder", intent.getLongExtra("folder", -1));
+
         FragmentMessages fragment = new FragmentMessages();
-        fragment.setArguments(intent.getExtras());
+        fragment.setArguments(args);
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
         fragmentTransaction.commit();
@@ -761,7 +766,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onViewThread(Intent intent) {
         Bundle args = new Bundle();
-        args.putLong("thread", intent.getLongExtra("id", -1));
+        args.putLong("account", intent.getLongExtra("account", -1));
+        args.putString("thread", intent.getStringExtra("thread"));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

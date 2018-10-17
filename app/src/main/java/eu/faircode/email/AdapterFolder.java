@@ -156,6 +156,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                            .putExtra("account", folder.account)
                             .putExtra("folder", folder.id));
         }
 
