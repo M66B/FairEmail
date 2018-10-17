@@ -136,9 +136,10 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
 
-    static final int PI_SEEN = 1;
-    static final int PI_TRASH = 2;
-    static final int PI_IGNORED = 3;
+    static final int PI_CLEAR = 1;
+    static final int PI_SEEN = 2;
+    static final int PI_TRASH = 3;
+    static final int PI_IGNORED = 4;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -238,7 +239,15 @@ public class ServiceSynchronize extends LifecycleService {
                 serviceManager.queue_stop();
             else if ("reload".equals(action))
                 serviceManager.queue_reload();
-            else if (action.startsWith("seen:") || action.startsWith("trash:") || action.startsWith("ignored:")) {
+            else if ("clear".equals(action)) {
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        DB.getInstance(context).message().ignoreAll();
+                        return null;
+                    }
+                }.load(this, new Bundle());
+            } else if (action.startsWith("seen:") || action.startsWith("trash:") || action.startsWith("ignored:")) {
                 Bundle args = new Bundle();
                 args.putLong("id", Long.parseLong(action.split(":")[1]));
                 args.putString("action", action.split(":")[0]);
@@ -341,6 +350,10 @@ public class ServiceSynchronize extends LifecycleService {
         PendingIntent piView = PendingIntent.getActivity(
                 this, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Intent clear = new Intent(this, ServiceSynchronize.class);
+        clear.setAction("clear");
+        PendingIntent piClear = PendingIntent.getService(this, PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
+
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -355,7 +368,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setContentIntent(piView)
                 .setNumber(messages.size())
                 .setShowWhen(false)
-                .setOngoing(true)
+                .setDeleteIntent(piClear)
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PRIVATE)

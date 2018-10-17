@@ -211,6 +211,11 @@ public interface DaoMessage {
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);
 
+    @Query("UPDATE message SET ui_ignored = 1" +
+            " WHERE NOT ui_ignored" +
+            " AND folder IN (SELECT id FROM folder WHERE type = '" + EntityFolder.INBOX + "')")
+    int ignoreAll();
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 
