@@ -114,7 +114,6 @@ public class FragmentCompose extends FragmentEx {
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
-    private Group grpMessage;
 
     private AdapterAttachment adapter;
 
@@ -147,7 +146,6 @@ public class FragmentCompose extends FragmentEx {
         grpHeader = view.findViewById(R.id.grpHeader);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
-        grpMessage = view.findViewById(R.id.grpMessage);
 
         // Wire controls
 
@@ -273,7 +271,8 @@ public class FragmentCompose extends FragmentEx {
         grpHeader.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
-        grpMessage.setVisibility(View.GONE);
+        etBody.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         getActivity().invalidateOptionsMenu();
@@ -1043,7 +1042,8 @@ public class FragmentCompose extends FragmentEx {
             pbWait.setVisibility(View.GONE);
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-            grpMessage.setVisibility(View.VISIBLE);
+            etBody.setVisibility(View.VISIBLE);
+            bottom_navigation.setVisibility(View.VISIBLE);
 
             DB db = DB.getInstance(getContext());
 

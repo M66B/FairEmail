@@ -4,170 +4,190 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/spFrom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivIdentityAdd"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_person_add_24"
-        app:layout_constraintBottom_toBottomOf="@id/spFrom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/spFrom" />
-
-    <MultiAutoCompleteTextView
-        android:id="@+id/etTo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:hint="@string/title_to"
-        android:inputType="textEmailAddress|textMultiLine"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toStartOf="@+id/ivToAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spFrom" />
-
-    <ImageView
-        android:id="@+id/ivToAdd"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="@id/etTo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/etTo"
-        app:layout_constraintTop_toTopOf="@+id/etTo" />
-
-    <MultiAutoCompleteTextView
-        android:id="@+id/etCc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:hint="@string/title_cc"
-        android:inputType="textEmailAddress|textMultiLine"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toStartOf="@+id/ivCcAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTo" />
-
-    <ImageView
-        android:id="@+id/ivCcAdd"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="@id/etCc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/etCc"
-        app:layout_constraintTop_toTopOf="@+id/etCc" />
-
-    <MultiAutoCompleteTextView
-        android:id="@+id/etBcc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:hint="@string/title_bcc"
-        android:inputType="textEmailAddress|textMultiLine"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toStartOf="@+id/ivBccAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCc" />
-
-    <ImageView
-        android:id="@+id/ivBccAdd"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:src="@drawable/baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="@id/etBcc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/etBcc"
-        app:layout_constraintTop_toTopOf="@+id/etBcc" />
-
-    <EditText
-        android:id="@+id/etSubject"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:hint="@string/title_subject"
-        android:inputType="textEmailSubject|textCapSentences|textMultiLine"
-        android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBcc" />
-
-    <View
-        android:id="@+id/vSeparatorAttachments"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="3dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSubject" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAttachment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbars="vertical"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_max="90dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
-
-    <View
-        android:id="@+id/vSeparator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="6dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
-
-    <ScrollView
-        android:id="@+id/scroll"
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:fillViewport="true"
-        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparator">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etBody"
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:fontFamily="monospace"
-            android:gravity="top"
-            android:hint="@string/title_body_hint"
-            android:inputType="textCapSentences|textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/spFrom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivIdentityAdd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_add_24"
+                app:layout_constraintBottom_toBottomOf="@id/spFrom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/spFrom" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/etTo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:hint="@string/title_to"
+                android:inputType="textEmailAddress|textMultiLine"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/ivToAdd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spFrom" />
+
+            <ImageView
+                android:id="@+id/ivToAdd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/etTo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/etTo"
+                app:layout_constraintTop_toTopOf="@+id/etTo" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/etCc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:hint="@string/title_cc"
+                android:inputType="textEmailAddress|textMultiLine"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/ivCcAdd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etTo" />
+
+            <ImageView
+                android:id="@+id/ivCcAdd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/etCc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/etCc"
+                app:layout_constraintTop_toTopOf="@+id/etCc" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/etBcc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:hint="@string/title_bcc"
+                android:inputType="textEmailAddress|textMultiLine"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/ivBccAdd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCc" />
+
+            <ImageView
+                android:id="@+id/ivBccAdd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/baseline_person_24"
+                app:layout_constraintBottom_toBottomOf="@id/etBcc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/etBcc"
+                app:layout_constraintTop_toTopOf="@+id/etBcc" />
+
+            <EditText
+                android:id="@+id/etSubject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:hint="@string/title_subject"
+                android:inputType="textEmailSubject|textCapSentences|textMultiLine"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etBcc" />
+
+            <View
+                android:id="@+id/vSeparatorAttachments"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSubject" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAttachment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="6dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+
+            <View
+                android:id="@+id/vSeparator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
+
+            <EditText
+                android:id="@+id/etBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:background="@null"
+                android:fontFamily="monospace"
+                android:gravity="top"
+                android:hint="@string/title_body_hint"
+                android:inputType="textCapSentences|textMultiLine"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpHeader"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="spFrom,ivIdentityAdd,etTo,ivToAdd,etSubject,vSeparator" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpAddresses"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="etCc,ivCcAdd,etBcc,ivBccAdd" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpAttachments"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -193,28 +213,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpHeader"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="spFrom,ivIdentityAdd,etTo,ivToAdd,etSubject,vSeparator" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAddresses"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="etCc,ivCcAdd,etBcc,ivBccAdd" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAttachments"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpMessage"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="scroll,bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
