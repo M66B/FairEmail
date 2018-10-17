@@ -223,7 +223,7 @@ public class FragmentSetup extends FragmentEx {
                         prefs.edit().putString("theme", checked ? "dark" : "light").apply();
                     }
                 } else {
-                    prefs.edit().putString("theme", "light").apply();
+                    prefs.edit().remove("theme").apply();
                     if (checked) {
                         tbDarkTheme.setChecked(false);
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
