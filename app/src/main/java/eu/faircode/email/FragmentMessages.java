@@ -529,54 +529,56 @@ public class FragmentMessages extends FragmentEx {
         loadMessages();
 
         // Compose FAB
-        Bundle args = new Bundle();
-        args.putLong("folder", folder);
-        args.putLong("thread", thread);
+        if (viewType != AdapterMessage.ViewType.THREAD) {
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putLong("thread", thread);
 
-        new SimpleTask<Long>() {
-            @Override
-            protected Long onLoad(Context context, Bundle args) {
-                long fid = args.getLong("folder", -1);
-                long thread = args.getLong("thread", -1); // message ID
+            new SimpleTask<Long>() {
+                @Override
+                protected Long onLoad(Context context, Bundle args) {
+                    long fid = args.getLong("folder", -1);
+                    long thread = args.getLong("thread", -1); // message ID
 
-                DB db = DB.getInstance(context);
+                    DB db = DB.getInstance(context);
 
-                Long account = null;
-                if (thread < 0) {
-                    if (folder >= 0) {
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        if (folder != null)
-                            account = folder.account;
+                    Long account = null;
+                    if (thread < 0) {
+                        if (folder >= 0) {
+                            EntityFolder folder = db.folder().getFolder(fid);
+                            if (folder != null)
+                                account = folder.account;
+                        }
+                    } else {
+                        EntityMessage threaded = db.message().getMessage(thread);
+                        if (threaded != null)
+                            account = threaded.account;
                     }
-                } else {
-                    EntityMessage threaded = db.message().getMessage(thread);
-                    if (threaded != null)
-                        account = threaded.account;
+
+                    if (account == null) {
+                        // outbox
+                        EntityFolder primary = db.folder().getPrimaryDrafts();
+                        if (primary != null)
+                            account = primary.account;
+                    }
+
+                    return account;
                 }
 
-                if (account == null) {
-                    // outbox
-                    EntityFolder primary = db.folder().getPrimaryDrafts();
-                    if (primary != null)
-                        account = primary.account;
+                @Override
+                protected void onLoaded(Bundle args, Long account) {
+                    if (account != null) {
+                        fab.setTag(account);
+                        fab.show();
+                    }
                 }
 
-                return account;
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, Long account) {
-                if (account != null) {
-                    fab.setTag(account);
-                    fab.show();
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), ex);
                 }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
-            }
-        }.load(this, args);
+            }.load(this, args);
+        }
     }
 
     @Override
