@@ -130,8 +130,6 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 * More themes: the goal is to keep the app as simple as possible, so this will not be added.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justify putting effort into this.
 * Multiple select: swiping is easier and doesn't have the risk of accidental touches, so multiple select would not add anything.
-* Swipe left/right for previous/next message: this would be confusing since sometimes a message and sometimes a conversation would be shown.
-* Open message from notification: this would be confusing since sometimes a message and sometimes a conversation would be opened.
 * Preview message text: this is not always possible because the message text is initially not downloaded for large messages and besides that the subject is supposed to tell what the message is about.
 * Filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for executing filter rules.
 * Widget: FairEmail can be started from a shortcut and new messages are reported as status bar notifications, so I don't see what a widget would add.

@@ -52,10 +52,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -75,6 +77,8 @@ public class FragmentMessages extends FragmentEx {
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
+    private FloatingActionButton fabPrev;
+    private FloatingActionButton fabNext;
 
     private long folder = -1;
     private long account = -1;
@@ -107,12 +111,21 @@ public class FragmentMessages extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        if (args != null) {
-            account = args.getLong("account", -1);
-            folder = args.getLong("folder", -1);
-            thread = args.getString("thread");
-            search = args.getString("search");
-        }
+        account = args.getLong("account", -1);
+        folder = args.getLong("folder", -1);
+        thread = args.getString("thread");
+        search = args.getString("search");
+
+        if (TextUtils.isEmpty(search))
+            if (thread == null)
+                if (folder < 0)
+                    viewType = AdapterMessage.ViewType.UNIFIED;
+                else
+                    viewType = AdapterMessage.ViewType.FOLDER;
+            else
+                viewType = AdapterMessage.ViewType.THREAD;
+        else
+            viewType = AdapterMessage.ViewType.SEARCH;
     }
 
     @Override
@@ -134,6 +147,8 @@ public class FragmentMessages extends FragmentEx {
         grpHintActions = view.findViewById(R.id.grpHintActions);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+        fabPrev = view.findViewById(R.id.fabPrev);
+        fabNext = view.findViewById(R.id.fabNext);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -167,17 +182,6 @@ public class FragmentMessages extends FragmentEx {
         rvMessage.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
-
-        if (TextUtils.isEmpty(search))
-            if (thread == null)
-                if (folder < 0)
-                    viewType = AdapterMessage.ViewType.UNIFIED;
-                else
-                    viewType = AdapterMessage.ViewType.FOLDER;
-            else
-                viewType = AdapterMessage.ViewType.THREAD;
-        else
-            viewType = AdapterMessage.ViewType.SEARCH;
 
         adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType, new AdapterMessage.IProperties() {
             @Override
@@ -467,11 +471,30 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+        View.OnClickListener navigate = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                .putExtra("account", account)
+                                .putExtra("thread", (String) v.getTag()));
+            }
+        };
+
+        fabPrev.setOnClickListener(navigate);
+        fabNext.setOnClickListener(navigate);
+
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+
         fab.hide();
+        fabPrev.hide();
+        fabNext.hide();
 
         return view;
     }
@@ -561,7 +584,22 @@ public class FragmentMessages extends FragmentEx {
         loadMessages();
 
         // Compose FAB
-        if (viewType != AdapterMessage.ViewType.THREAD) {
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            String[] pn = ((ActivityView) getActivity()).getPrevNext(thread);
+
+            fabPrev.setTag(pn[0]);
+            fabNext.setTag(pn[1]);
+
+            if (pn[0] == null)
+                fabPrev.hide();
+            else
+                fabPrev.show();
+
+            if (pn[1] == null)
+                fabNext.hide();
+            else
+                fabNext.show();
+        } else {
             Bundle args = new Bundle();
             args.putLong("account", account);
 
@@ -815,6 +853,9 @@ public class FragmentMessages extends FragmentEx {
                     finish();
                     return;
                 }
+
+                if (viewType != AdapterMessage.ViewType.THREAD)
+                    ((ActivityView) getActivity()).setMessages(messages);
 
                 if (viewType == AdapterMessage.ViewType.THREAD && autoExpand) {
                     autoExpand = false;
