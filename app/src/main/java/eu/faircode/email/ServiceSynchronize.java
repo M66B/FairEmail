@@ -2148,22 +2148,22 @@ public class ServiceSynchronize extends LifecycleService {
     public static void init(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("enabled", true))
-            ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class));
+            start(context);
     }
 
     public static void start(Context context) {
-        context.startService(new Intent(context, ServiceSynchronize.class).setAction("start"));
+        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("start"));
     }
 
     public static void stop(Context context) {
-        context.startService(new Intent(context, ServiceSynchronize.class).setAction("stop"));
+        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("stop"));
     }
 
     public static void reload(Context context, String reason) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("enabled", true)) {
             Log.i(Helper.TAG, "Reload because of '" + reason + "'");
-            context.startService(new Intent(context, ServiceSynchronize.class).setAction("reload"));
+            ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("reload"));
         }
     }
 
