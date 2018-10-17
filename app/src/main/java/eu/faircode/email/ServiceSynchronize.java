@@ -992,6 +992,15 @@ public class ServiceSynchronize extends LifecycleService {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                     lbm.registerReceiver(processFolder, f);
 
+                    for (EntityFolder folder : folders.keySet())
+                        if (db.operation().getOperationCount(folder.id) > 0) {
+                            Intent intent = new Intent();
+                            intent.setType("account/" + account.id);
+                            intent.setAction(ServiceSynchronize.ACTION_PROCESS_OPERATIONS);
+                            intent.putExtra("folder", folder.id);
+                            lbm.sendBroadcast(intent);
+                        }
+
                     // Keep alive alarm receiver
                     BroadcastReceiver alarm = new BroadcastReceiver() {
                         @Override
@@ -1985,6 +1994,7 @@ public class ServiceSynchronize extends LifecycleService {
                         f.addDataType("account/outbox");
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ServiceSynchronize.this);
                         lbm.registerReceiver(outboxReceiver, f);
+
                         db.folder().setFolderState(outbox.id, "connected");
                         db.folder().setFolderError(outbox.id, null);
 
