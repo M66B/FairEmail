@@ -156,7 +156,7 @@
   <string name="title_show_html">Visualizza originale</string>
   <string name="title_trash">Cestino</string>
   <string name="title_delete">Elimina</string>
-  <string name="title_more">More</string>
+  <string name="title_more">Altro</string>
   <string name="title_spam">Posta indesiderata</string>
   <string name="title_move">Sposta</string>
   <string name="title_archive">Archivo</string>
@@ -221,7 +221,7 @@
   <string name="title_legend_closing">Chiusura</string>
   <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
   <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
-  <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
+  <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
   <string name="title_hint_sync">Scaricare i messaggi può richiedere del tempo, a seconda del numero di messaggi, della velocità della tua connessione internet e del tuo fornitore di email</string>
   <string name="title_open_link">Apri collegamento</string>
   <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
