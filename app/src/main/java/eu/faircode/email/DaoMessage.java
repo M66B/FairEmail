@@ -113,11 +113,6 @@ public interface DaoMessage {
             " END DESC, message.received DESC, message.sent DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, String sort, boolean debug);
 
-    @Query("SELECT *" +
-            " FROM message" +
-            " WHERE id = :id")
-    EntityMessage getMessage(long id);
-
     @Query("SELECT COUNT(id)" +
             " FROM message" +
             " WHERE id = :id")
@@ -125,9 +120,25 @@ public interface DaoMessage {
 
     @Query("SELECT *" +
             " FROM message" +
+            " WHERE id = :id")
+    EntityMessage getMessage(long id);
+
+    @Query("SELECT *" +
+            " FROM message" +
             " WHERE folder = :folder" +
             " AND uid = :uid")
     EntityMessage getMessageByUid(long folder, long uid);
+
+    @Query("SELECT *" +
+            " FROM message" +
+            " WHERE folder = :folder")
+    List<EntityMessage> getMessageByFolder(long folder);
+
+    @Query("SELECT *" +
+            " FROM message" +
+            " WHERE account = :account" +
+            " AND thread = :thread")
+    List<EntityMessage> getMessageByThread(long account, String thread);
 
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
@@ -135,11 +146,6 @@ public interface DaoMessage {
             " AND (message.msgid = :msgid" +
             " OR message.msgid = :reference)")
     List<EntityMessage> getMessageByMsgId(long account, String msgid, String reference);
-
-    @Query("SELECT *" +
-            " FROM message" +
-            " WHERE folder = :folder")
-    List<EntityMessage> getMessageByFolder(long folder);
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
