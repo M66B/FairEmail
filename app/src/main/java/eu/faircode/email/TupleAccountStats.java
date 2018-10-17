@@ -20,7 +20,7 @@ package eu.faircode.email;
 */
 
 public class TupleAccountStats {
-    public Integer accounts;
-    public Integer operations;
-    public Integer unsent;
+    public Integer accounts = 0;
+    public Integer operations = 0;
+    public Integer unsent = 0;
 }

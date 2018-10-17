@@ -123,6 +123,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends LifecycleService {
     private final Object lock = new Object();
+    private TupleAccountStats lastStats = null;
     private ServiceManager serviceManager = new ServiceManager();
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
@@ -161,8 +162,7 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
-                nm.notify(NOTIFICATION_SYNCHRONIZE,
-                        getNotificationService(stats.accounts, stats.operations, stats.unsent).build());
+                nm.notify(NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
             }
         });
 
@@ -227,7 +227,7 @@ public class ServiceSynchronize extends LifecycleService {
         String action = (intent == null ? null : intent.getAction());
         Log.i(Helper.TAG, "Service command intent=" + intent + " action=" + action);
 
-        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(0, 0, 0).build());
+        startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
         super.onStartCommand(intent, flags, startId);
 
@@ -281,7 +281,12 @@ public class ServiceSynchronize extends LifecycleService {
         return START_STICKY;
     }
 
-    private Notification.Builder getNotificationService(int accounts, int operations, int unsent) {
+    private Notification.Builder getNotificationService(TupleAccountStats stats) {
+        if (stats == null)
+            stats = lastStats;
+        if (stats == null)
+            stats = new TupleAccountStats();
+
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -297,7 +302,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
-                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_synchronizing, accounts, accounts))
+                .setContentTitle(getResources().getQuantityString(
+                        R.plurals.title_notification_synchronizing, stats.accounts, stats.accounts))
                 .setContentIntent(pi)
                 .setAutoCancel(false)
                 .setShowWhen(false)
@@ -305,12 +311,16 @@ public class ServiceSynchronize extends LifecycleService {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
-        if (operations > 0)
+        if (stats.operations > 0)
             builder.setStyle(new Notification.BigTextStyle().setSummaryText(
-                    getResources().getQuantityString(R.plurals.title_notification_operations, operations, operations)));
+                    getResources().getQuantityString(
+                            R.plurals.title_notification_operations, stats.operations, stats.operations)));
 
-        if (unsent > 0)
-            builder.setContentText(getResources().getQuantityString(R.plurals.title_notification_unsent, unsent, unsent));
+        if (stats.unsent > 0)
+            builder.setContentText(getResources().getQuantityString(
+                    R.plurals.title_notification_unsent, stats.unsent, stats.unsent));
+
+        lastStats = stats;
 
         return builder;
     }
