@@ -244,6 +244,12 @@ for example because your custom ROM does not include it or because it was remove
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targetting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
+<a name="FAQ26"></a>
+**(26) Can I help to translate FairEmail in my own language?**
+
+Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
+Registration is free.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
