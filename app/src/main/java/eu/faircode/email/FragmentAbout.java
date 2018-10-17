@@ -90,11 +90,12 @@ public class FragmentAbout extends FragmentEx {
                         sb.append(context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
 
                         // Get version info
-                        sb.append(String.format("%s: %s %s/%s\r\n",
+                        sb.append(String.format("%s: %s %s/%s%s\r\n",
                                 context.getString(R.string.app_name),
                                 BuildConfig.APPLICATION_ID,
                                 BuildConfig.VERSION_NAME,
-                                Helper.hasValidFingerprint(context) ? "1" : "3"));
+                                Helper.hasValidFingerprint(context) ? "1" : "3",
+                                Helper.isPro(context) ? "+" : ""));
                         sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
                         sb.append("\r\n");
 
