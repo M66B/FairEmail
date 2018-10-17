@@ -53,6 +53,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
@@ -352,5 +354,19 @@ public class Helper {
         if (false && BuildConfig.DEBUG)
             return true;
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
+    }
+
+    static long[] toLongArray(List<Long> list) {
+        long[] result = new long[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            result[i] = list.get(i);
+        return result;
+    }
+
+    static List<Long> fromLongArray(long[] array) {
+        List<Long> result = new ArrayList<>();
+        for (int i = 0; i < array.length; i++)
+            result.add(array[i]);
+        return result;
     }
 }

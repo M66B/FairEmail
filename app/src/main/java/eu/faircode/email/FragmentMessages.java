@@ -42,6 +42,7 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -84,6 +85,10 @@ public class FragmentMessages extends FragmentEx {
 
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
+
+    private List<Long> expanded = new ArrayList<>();
+    private List<Long> headers = new ArrayList<>();
+    private List<Long> images = new ArrayList<>();
 
     private BoundaryCallbackMessages searchCallback = null;
 
@@ -170,7 +175,46 @@ public class FragmentMessages extends FragmentEx {
         else
             viewType = AdapterMessage.ViewType.SEARCH;
 
-        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType);
+        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType, new AdapterMessage.IProperties() {
+            @Override
+            public void setExpanded(long id, boolean expand) {
+                if (expand)
+                    expanded.add(id);
+                else
+                    expanded.remove(id);
+            }
+
+            @Override
+            public void setHeaders(long id, boolean show) {
+                if (show)
+                    headers.add(id);
+                else
+                    headers.remove(id);
+            }
+
+            @Override
+            public void setImages(long id, boolean show) {
+                if (show)
+                    images.add(id);
+                else
+                    images.remove(id);
+            }
+
+            @Override
+            public boolean isExpanded(long id) {
+                return expanded.contains(id);
+            }
+
+            @Override
+            public boolean showHeaders(long id) {
+                return headers.contains(id);
+            }
+
+            @Override
+            public boolean showImages(long id) {
+                return images.contains(id);
+            }
+        });
         rvMessage.setAdapter(adapter);
 
         new ItemTouchHelper(new ItemTouchHelper.Callback() {
@@ -396,8 +440,22 @@ public class FragmentMessages extends FragmentEx {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLongArray("expanded", Helper.toLongArray(expanded));
+        outState.putLongArray("headers", Helper.toLongArray(headers));
+        outState.putLongArray("images", Helper.toLongArray(images));
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
+            headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
+            images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) ? View.GONE : View.VISIBLE);

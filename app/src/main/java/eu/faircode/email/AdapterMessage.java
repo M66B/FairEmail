@@ -49,7 +49,6 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
-import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -103,13 +102,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private Context context;
     private LifecycleOwner owner;
     private ViewType viewType;
+    private IProperties properties;
 
     private boolean avatars;
     private boolean debug;
-
-    private LongSparseArray<Boolean> expanded = new LongSparseArray<>();
-    private LongSparseArray<Boolean> headers = new LongSparseArray<>();
-    private LongSparseArray<Boolean> images = new LongSparseArray<>();
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
@@ -257,8 +253,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void bindTo(final TupleMessageEx message) {
             final DB db = DB.getInstance(context);
-            final boolean show_expanded = (expanded.get(message.id) != null && expanded.get(message.id));
-            boolean show_headers = (headers.get(message.id) != null && headers.get(message.id));
+            final boolean show_expanded = properties.isExpanded(message.id);
+            boolean show_headers = properties.showHeaders(message.id);
 
             pbLoading.setVisibility(View.GONE);
 
@@ -532,10 +528,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onShowImages(EntityMessage message) {
-            if (images.get(message.id) == null)
-                images.put(message.id, true);
-            else
-                images.put(message.id, !images.get(message.id));
+            properties.setImages(message.id, !properties.showImages(message.id));
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
@@ -543,14 +536,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onExpandMessage(int pos, EntityMessage message) {
-            if (expanded.get(message.id) == null)
-                expanded.put(message.id, true);
-            else
-                expanded.put(message.id, !expanded.get(message.id));
-            notifyItemChanged(pos);
-
-            if (expanded.get(message.id))
+            boolean expanded = !properties.isExpanded(message.id);
+            properties.setExpanded(message.id, expanded);
+            if (expanded)
                 handleExpand(message.id);
+            notifyItemChanged(pos);
         }
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
@@ -567,8 +557,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 SpannedString ss = new SpannedString(body);
                 boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
-                boolean show_expanded = (expanded.get(message.id) != null && expanded.get(message.id));
-                boolean show_images = (images.get(message.id) != null && images.get(message.id));
+                boolean show_expanded = properties.isExpanded(message.id);
+                boolean show_images = properties.showImages(message.id);
 
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 pbBody.setVisibility(View.GONE);
@@ -603,7 +593,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         }
                     }
 
-                    if (images.get(message.id) != null && images.get(message.id)) {
+                    if (properties.showImages(message.id)) {
                         // Get cache folder
                         File dir = new File(context.getCacheDir(), "images");
                         dir.mkdir();
@@ -785,7 +775,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void onMore(final ActionData data) {
             boolean inOutbox = EntityFolder.OUTBOX.equals(data.message.folderType);
-            boolean show_headers = (headers.get(data.message.id) != null && headers.get(data.message.id));
+            boolean show_headers = properties.showHeaders(data.message.id);
 
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
@@ -882,12 +872,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onShowHeaders(ActionData data) {
-            if (headers.get(data.message.id) == null)
-                headers.put(data.message.id, true);
-            else
-                headers.put(data.message.id, !headers.get(data.message.id));
-
-            if (headers.get(data.message.id) && data.message.headers == null) {
+            boolean show_headers = !properties.showHeaders(data.message.id);
+            properties.setHeaders(data.message.id, show_headers);
+            if (show_headers) {
                 grpHeaders.setVisibility(View.VISIBLE);
                 pbHeaders.setVisibility(View.VISIBLE);
 
@@ -976,8 +963,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 }
 
                 @Override
-                protected void onLoaded(Bundle args, Void data) {
-                    expanded.clear();
+                protected void onLoaded(Bundle args, Void ignored) {
+                    properties.setExpanded(data.message.id, false);
                     notifyDataSetChanged();
                 }
             }.load(context, owner, args);
@@ -1312,11 +1299,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType) {
+    AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType, IProperties properties) {
         super(DIFF_CALLBACK);
         this.context = context;
         this.owner = owner;
         this.viewType = viewType;
+        this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -1401,5 +1389,19 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             holder.bindTo(message);
             holder.wire();
         }
+    }
+
+    interface IProperties {
+        void setExpanded(long id, boolean expand);
+
+        void setHeaders(long id, boolean show);
+
+        void setImages(long id, boolean show);
+
+        boolean isExpanded(long id);
+
+        boolean showHeaders(long id);
+
+        boolean showImages(long id);
     }
 }
