@@ -836,7 +836,8 @@ public class FragmentMessages extends FragmentEx {
                     TupleMessageEx see = null;
                     for (int i = 0; i < messages.size(); i++) {
                         TupleMessageEx message = messages.get(i);
-                        if (!EntityFolder.ARCHIVE.equals(message.folderType)) {
+                        if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                !EntityFolder.SENT.equals(message.folderType)) {
                             count++;
                             single = message;
                             if (!message.ui_seen) {
