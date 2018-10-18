@@ -1157,7 +1157,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             EntityOperation.DELETE.equals(op.name) ||
                                             EntityOperation.MOVE.equals(op.name) ||
                                             EntityOperation.HEADERS.equals(op.name)))
-                                throw new IllegalArgumentException(op.name + " without uid");
+                                throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
                             JSONArray jargs = new JSONArray(op.args);
 
@@ -2139,6 +2139,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, outbox.name + " start operations");
                                 db.folder().setFolderState(outbox.id, "syncing");
                                 processOperations(outbox, null, null, null);
+                                db.folder().setFolderError(outbox.id, null);
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                 reportError(null, outbox.name, ex);
