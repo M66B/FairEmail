@@ -854,6 +854,8 @@ public class FragmentCompose extends FragmentEx {
                 draft.msgid = EntityMessage.generateMessageId();
 
                 if (ref == null) {
+                    draft.thread = draft.msgid;
+
                     try {
                         String to = args.getString("to");
                         draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
@@ -884,7 +886,6 @@ public class FragmentCompose extends FragmentEx {
 
                     if (pro && !TextUtils.isEmpty(account.signature))
                         body += account.signature;
-
                 } else {
                     draft.thread = ref.thread;
 
