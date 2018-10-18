@@ -140,8 +140,6 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="6dp"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
@@ -166,6 +164,7 @@
                 android:gravity="top"
                 android:hint="@string/title_body_hint"
                 android:inputType="textCapSentences|textMultiLine"
+                android:minHeight="480dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparator" />
