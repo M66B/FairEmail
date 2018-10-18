@@ -57,6 +57,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
@@ -585,7 +586,8 @@ public class FragmentMessages extends FragmentEx {
 
         // Compose FAB
         if (viewType == AdapterMessage.ViewType.THREAD) {
-            String[] pn = ((ActivityView) getActivity()).getPrevNext(thread);
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            String[] pn = model.getPrevNext(thread);
 
             fabPrev.setTag(pn[0]);
             fabNext.setTag(pn[1]);
@@ -854,8 +856,10 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 }
 
-                if (viewType != AdapterMessage.ViewType.THREAD)
-                    ((ActivityView) getActivity()).setMessages(messages);
+                if (viewType != AdapterMessage.ViewType.THREAD) {
+                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                    model.setMessages(messages);
+                }
 
                 if (viewType == AdapterMessage.ViewType.THREAD && autoExpand) {
                     autoExpand = false;

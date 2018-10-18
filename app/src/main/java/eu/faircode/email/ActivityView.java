@@ -885,29 +885,4 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }.load(this, args);
             }
     }
-
-    void setMessages(PagedList<TupleMessageEx> messages) {
-        this.messages = messages;
-    }
-
-    public String[] getPrevNext(String thread) {
-        boolean found = false;
-        TupleMessageEx prev = null;
-        TupleMessageEx next = null;
-        for (int i = 0; i < messages.size(); i++) {
-            TupleMessageEx item = messages.get(i);
-            if (item == null)
-                continue;
-            if (found) {
-                next = item;
-                messages.loadAround(i);
-                break;
-            }
-            if (thread.equals(item.thread))
-                found = true;
-            else
-                prev = item;
-        }
-        return new String[]{prev == null ? null : prev.thread, next == null ? null : next.thread};
-    }
 }
