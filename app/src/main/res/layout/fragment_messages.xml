@@ -167,12 +167,12 @@
         android:id="@+id/fabPrev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|start"
+        android:layout_gravity="bottom|start"
         android:layout_margin="16dp"
         android:src="@drawable/baseline_skip_previous_24"
         android:tint="@color/colorActionForeground"
-        app:backgroundTint="?attr/colorAccent"
-        app:fabSize="mini"
+        app:backgroundTint="?attr/colorFabTransparent"
+        app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -180,12 +180,12 @@
         android:id="@+id/fabNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|end"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@drawable/baseline_skip_next_24"
         android:tint="@color/colorActionForeground"
-        app:backgroundTint="?attr/colorAccent"
-        app:fabSize="mini"
+        app:backgroundTint="?attr/colorFabTransparent"
+        app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
