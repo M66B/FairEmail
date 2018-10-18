@@ -386,46 +386,48 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     bodyTask.load(context, owner, args);
                 }
 
-                bnvActions.setHasTransientState(true);
-                db.folder().liveFolders(message.account).observe(owner, new Observer<List<TupleFolderEx>>() {
-                    @Override
-                    public void onChanged(@Nullable List<TupleFolderEx> folders) {
-                        if (bnvActions.hasTransientState()) {
-                            boolean hasTrash = false;
-                            boolean hasArchive = false;
-                            boolean hasUser = false;
+                if (!EntityFolder.OUTBOX.equals(message.folderType)) {
+                    bnvActions.setHasTransientState(true);
+                    db.folder().liveFolders(message.account).observe(owner, new Observer<List<TupleFolderEx>>() {
+                        @Override
+                        public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                            if (bnvActions.hasTransientState()) {
+                                boolean hasTrash = false;
+                                boolean hasArchive = false;
+                                boolean hasUser = false;
 
-                            if (folders != null)
-                                for (EntityFolder folder : folders) {
-                                    if (EntityFolder.TRASH.equals(folder.type))
-                                        hasTrash = true;
-                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                        hasArchive = true;
-                                    else if (EntityFolder.USER.equals(folder.type))
-                                        hasUser = true;
-                                }
+                                if (folders != null)
+                                    for (EntityFolder folder : folders) {
+                                        if (EntityFolder.TRASH.equals(folder.type))
+                                            hasTrash = true;
+                                        else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                            hasArchive = true;
+                                        else if (EntityFolder.USER.equals(folder.type))
+                                            hasUser = true;
+                                    }
 
-                            boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
-                            boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                            boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                            boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                                boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
+                                boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                                boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                                boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
 
-                            ActionData data = new ActionData();
-                            data.delete = (inTrash || !hasTrash || inOutbox);
-                            data.message = message;
-                            bnvActions.setTag(data);
+                                ActionData data = new ActionData();
+                                data.delete = (inTrash || !hasTrash || inOutbox);
+                                data.message = message;
+                                bnvActions.setTag(data);
 
-                            bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                            bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
-                            bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                            bnvActions.getMenu().findItem(R.id.action_reply).setVisible(message.content && !inOutbox);
+                                bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                                bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                                bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                                bnvActions.getMenu().findItem(R.id.action_reply).setVisible(message.content && !inOutbox);
 
-                            bnvActions.setVisibility(View.VISIBLE);
+                                bnvActions.setVisibility(View.VISIBLE);
 
-                            bnvActions.setHasTransientState(false);
+                                bnvActions.setHasTransientState(false);
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
                 // Observe attachments
                 db.attachment().liveAttachments(message.id).observe(owner,
