@@ -144,6 +144,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private ProgressBar pbHeaders;
 
         private BottomNavigationView bnvActions;
+
+        private View vSeparatorBody;
         private Button btnImages;
         private TextView tvBody;
         private ProgressBar pbBody;
@@ -187,6 +189,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
+
+            vSeparatorBody = itemView.findViewById(R.id.vSeparatorBody);
             btnImages = itemView.findViewById(R.id.btnImages);
             tvBody = itemView.findViewById(R.id.tvBody);
             pbBody = itemView.findViewById(R.id.pbBody);
@@ -348,6 +352,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(View.GONE);
+            vSeparatorBody.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
@@ -377,6 +382,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 tvHeaders.setText(show_headers ? message.headers : null);
 
+                vSeparatorBody.setVisibility(View.VISIBLE);
                 tvBody.setText(null);
                 pbBody.setVisibility(View.VISIBLE);
 
@@ -422,6 +428,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 bnvActions.getMenu().findItem(R.id.action_reply).setVisible(message.content && !inOutbox);
 
                                 bnvActions.setVisibility(View.VISIBLE);
+                                vSeparatorBody.setVisibility(View.GONE);
 
                                 bnvActions.setHasTransientState(false);
                             }

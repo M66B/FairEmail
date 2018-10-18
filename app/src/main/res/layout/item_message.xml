@@ -343,7 +343,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
 
         <View
-            android:id="@+id/vSeparatorRawHeaders"
+            android:id="@+id/vSeparatorHeaders"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="3dp"
@@ -366,7 +366,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorRawHeaders" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
         <ProgressBar
             android:id="@+id/pbHeaders"
@@ -377,7 +377,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bnvActions"
             app:layout_constraintEnd_toEndOf="@id/tvHeaders"
             app:layout_constraintStart_toStartOf="@id/tvHeaders"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorRawHeaders" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnvActions"
@@ -393,6 +393,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvHeaders"
             app:menu="@menu/action_message" />
 
+        <View
+            android:id="@+id/vSeparatorBody"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+
         <Button
             android:id="@+id/btnImages"
             style="?android:attr/buttonStyleSmall"
@@ -404,7 +414,7 @@
             android:minHeight="0dp"
             android:text="@string/title_show_images"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 
         <TextView
             android:id="@+id/tvBody"
@@ -470,7 +480,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="visible"
-            app:constraint_referenced_ids="vSeparatorRawHeaders,tvHeaders" />
+            app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAttachments"
@@ -484,6 +494,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="visible"
-            app:constraint_referenced_ids="ivAddContact,vSeparatorAddress,tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx,bnvActions,tvBody,bottom_navigation" />
+            app:constraint_referenced_ids="ivAddContact,vSeparatorAddress,tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx,tvBody" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
