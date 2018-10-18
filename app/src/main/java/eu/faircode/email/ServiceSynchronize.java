@@ -1708,15 +1708,19 @@ public class ServiceSynchronize extends LifecycleService {
             for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
-                Log.i(Helper.TAG, folder.name + " found as id=" + dup.id +
-                        " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id);
+                Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + dup.uid +
+                        " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
+                        " msgid=" + dup.msgid + " thread=" + dup.thread);
 
                 if (dup.folder.equals(folder.id) || outbox) {
-                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + " uid=" + dup.uid + " msgid=" + msgid);
+                    String thread = helper.getThreadId(uid);
+                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + uid +
+                            " msgid=" + msgid + " thread=" + thread);
                     dup.folder = folder.id;
                     dup.uid = uid;
-                    if (TextUtils.isEmpty(dup.thread)) // outbox: only now the uid is known
-                        dup.thread = helper.getThreadId(uid);
+                    dup.msgid = msgid;
+                    dup.thread = thread;
+                    dup.error = null;
                     db.message().updateMessage(dup);
                     message = dup;
                 }
