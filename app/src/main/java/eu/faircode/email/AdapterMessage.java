@@ -104,6 +104,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private ViewType viewType;
     private IProperties properties;
 
+    private boolean contacts;
     private boolean avatars;
     private boolean debug;
 
@@ -349,6 +350,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setTextColor(colorUnseen);
 
             grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
+            ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts ? View.VISIBLE : View.GONE);
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(View.GONE);
@@ -373,7 +375,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     tvTimeEx.setText(df.format(new Date(message.received)));
                 }
 
-                ivAddContact.setVisibility(viewType == ViewType.THREAD ? View.VISIBLE : View.GONE);
                 tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
                 tvReplyTo.setText(MessageHelper.getFormattedAddresses(message.reply, true));
                 tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
@@ -1328,9 +1329,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        this.avatars = (prefs.getBoolean("avatars", true) &&
-                ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                        == PackageManager.PERMISSION_GRANTED);
+
+        this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED);
+        this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
         this.debug = prefs.getBoolean("debug", false);
     }
 
