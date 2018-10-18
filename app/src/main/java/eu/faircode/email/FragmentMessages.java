@@ -884,8 +884,7 @@ public class FragmentMessages extends FragmentEx {
 
                     if (expand != null) {
                         expanded.add(expand.id);
-                        if (!expand.ui_seen)
-                            handleExpand(expand.id);
+                        handleExpand(expand.id);
                     }
                 }
 
@@ -927,14 +926,12 @@ public class FragmentMessages extends FragmentEx {
                     EntityMessage message = db.message().getMessage(id);
                     EntityFolder folder = db.folder().getFolder(message.folder);
 
-                    if (!EntityFolder.OUTBOX.equals(folder.type)) {
-                        if (!message.content)
-                            EntityOperation.queue(db, message, EntityOperation.BODY);
+                    if (!message.content)
+                        EntityOperation.queue(db, message, EntityOperation.BODY);
 
-                        if (!message.ui_seen) {
-                            db.message().setMessageUiSeen(message.id, true);
-                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                        }
+                    if (!message.ui_seen && !EntityFolder.OUTBOX.equals(folder.type)) {
+                        db.message().setMessageUiSeen(message.id, true);
+                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                     }
 
                     db.setTransactionSuccessful();
