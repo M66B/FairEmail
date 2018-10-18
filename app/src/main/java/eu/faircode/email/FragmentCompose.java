@@ -241,7 +241,7 @@ public class FragmentCompose extends FragmentEx {
                 int action = item.getItemId();
                 if (action == R.id.action_delete) {
                     new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(R.string.title_ask_delete)
+                            .setMessage(R.string.title_ask_discard)
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -629,7 +629,7 @@ public class FragmentCompose extends FragmentEx {
     private void handleExit() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(R.string.title_ask_delete)
+                    .setMessage(R.string.title_ask_discard)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
