@@ -3,7 +3,7 @@ package eu.faircode.email;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedList;
 
-class ViewModelMessages extends ViewModel {
+public class ViewModelMessages extends ViewModel {
     private PagedList<TupleMessageEx> messages = null;
 
     void setMessages(PagedList<TupleMessageEx> messages) {
