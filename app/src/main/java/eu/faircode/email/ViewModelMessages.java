@@ -11,10 +11,12 @@ public class ViewModelMessages extends ViewModel {
     }
 
     String[] getPrevNext(String thread) {
+        if (messages == null)
+            return new String[]{null, null};
+
         boolean found = false;
         TupleMessageEx prev = null;
         TupleMessageEx next = null;
-
         for (int i = 0; i < messages.size(); i++) {
             TupleMessageEx item = messages.get(i);
             if (item == null)
