@@ -56,7 +56,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
@@ -77,8 +76,6 @@ public class FragmentMessages extends FragmentEx {
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
-    private FloatingActionButton fabPrev;
-    private FloatingActionButton fabNext;
 
     private long folder = -1;
     private long account = -1;
@@ -147,8 +144,6 @@ public class FragmentMessages extends FragmentEx {
         grpHintActions = view.findViewById(R.id.grpHintActions);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
-        fabPrev = view.findViewById(R.id.fabPrev);
-        fabNext = view.findViewById(R.id.fabNext);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -482,17 +477,12 @@ public class FragmentMessages extends FragmentEx {
             }
         };
 
-        fabPrev.setOnClickListener(navigate);
-        fabNext.setOnClickListener(navigate);
-
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         fab.hide();
-        fabPrev.hide();
-        fabNext.hide();
 
         return view;
     }
@@ -582,23 +572,7 @@ public class FragmentMessages extends FragmentEx {
         loadMessages();
 
         // Compose FAB
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            String[] pn = model.getPrevNext(thread);
-
-            fabPrev.setTag(pn[0]);
-            fabNext.setTag(pn[1]);
-
-            if (pn[0] == null)
-                fabPrev.hide();
-            else
-                fabPrev.show();
-
-            if (pn[1] == null)
-                fabNext.hide();
-            else
-                fabNext.show();
-        } else {
+        if (viewType != AdapterMessage.ViewType.THREAD) {
             Bundle args = new Bundle();
             args.putLong("account", account);
 
@@ -851,11 +825,6 @@ public class FragmentMessages extends FragmentEx {
                         (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0)) {
                     finish();
                     return;
-                }
-
-                if (viewType != AdapterMessage.ViewType.THREAD) {
-                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                    model.setMessages(messages);
                 }
 
                 if (viewType == AdapterMessage.ViewType.THREAD && autoExpand) {

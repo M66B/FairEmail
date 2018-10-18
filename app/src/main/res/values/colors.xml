@@ -14,7 +14,6 @@
     <color name="lightColorDrawerScrim">#99000000</color>
     <color name="lightColorDrawerText">#111</color>
     <color name="lightColorDrawerBackground">#eee</color>
-    <color name="lightColorFabTransparent">#8aaa</color>
 
     <color name="darkColorUnread">#fff</color>
     <color name="darkColorItemSelected">#555</color>
@@ -23,7 +22,6 @@
     <color name="darkColorDrawerScrim">#997f7f7f</color>
     <color name="darkColorDrawerText">#fff</color>
     <color name="darkColorDrawerBackground">#222</color>
-    <color name="darkColorFabTransparent">#8666</color>
 
     <!-- default: #323232 -->
     <color name="design_snackbar_background_color" tools:override="true">#ff000000</color>
