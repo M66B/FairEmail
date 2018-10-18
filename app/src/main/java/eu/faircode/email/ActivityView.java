@@ -303,7 +303,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             intent.setAction(null);
             setIntent(intent);
 
-            getSupportFragmentManager().popBackStack("unified", 0);
             intent.putExtra("thread", action.split(":", 2)[1]);
             onViewThread(intent);
         }
@@ -767,6 +766,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewThread(Intent intent) {
+        getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putString("thread", intent.getStringExtra("thread"));

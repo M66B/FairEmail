@@ -52,7 +52,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
@@ -475,8 +474,6 @@ public class FragmentMessages extends FragmentEx {
         View.OnClickListener navigate = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_THREAD)
