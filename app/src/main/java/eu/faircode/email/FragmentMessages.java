@@ -491,6 +491,8 @@ public class FragmentMessages extends FragmentEx {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putBoolean("autoExpand", autoExpand);
+        outState.putInt("autoCount", autoCount);
         outState.putLongArray("expanded", Helper.toLongArray(expanded));
         outState.putLongArray("headers", Helper.toLongArray(headers));
         outState.putLongArray("images", Helper.toLongArray(images));
@@ -501,6 +503,8 @@ public class FragmentMessages extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
+            autoExpand = savedInstanceState.getBoolean("autoExpand");
+            autoCount = savedInstanceState.getInt("autoCount");
             expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
             headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
             images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
