@@ -265,6 +265,7 @@ public class ServiceSynchronize extends LifecycleService {
                             EntityMessage message = db.message().getMessage(id);
                             if ("seen".equals(action)) {
                                 db.message().setMessageUiSeen(message.id, true);
+                                db.message().setMessageUiIgnored(message.id, true);
                                 EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                             } else if ("trash".equals(action)) {
                                 db.message().setMessageUiHide(message.id, true);

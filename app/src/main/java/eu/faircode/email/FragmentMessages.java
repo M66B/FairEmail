@@ -924,6 +924,7 @@ public class FragmentMessages extends FragmentEx {
 
                     if (!message.ui_seen && !EntityFolder.OUTBOX.equals(folder.type)) {
                         db.message().setMessageUiSeen(message.id, true);
+                        db.message().setMessageUiIgnored(message.id, true);
                         EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                     }
 
