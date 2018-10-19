@@ -166,7 +166,7 @@
   <string name="title_attachment_saved">Allegato salvato</string>
   <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno inoltrati, continuare?</string>
   <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
-  <string name="title_ask_discard">Discard draft?</string>
+  <string name="title_ask_discard">Eliminare la bozza?</string>
   <string name="title_ask_spam">Segnalare il messaggio come posta indesiderata?</string>
   <string name="title_compose">Scrivi</string>
   <string name="title_from">Da:</string>
@@ -176,7 +176,7 @@
   <string name="title_bcc">CCN:</string>
   <string name="title_subject">Oggetto:</string>
   <string name="title_body_hint">Il tuo messaggio</string>
-  <string name="title_discard">Discard</string>
+  <string name="title_discard">Elimina</string>
   <string name="title_save">Salva</string>
   <string name="title_send">Invia</string>
   <string name="title_clipboard_empty">Appunti vuoti</string>
@@ -189,7 +189,7 @@
   <string name="title_from_missing">Mittente mancante</string>
   <string name="title_to_missing">Destinatario mancante</string>
   <string name="title_attachments_missing">Allegati ancora in fase di caricamento</string>
-  <string name="title_draft_deleted">Draft discarded</string>
+  <string name="title_draft_deleted">Bozza eliminata</string>
   <string name="title_draft_saved">Bozza salvata</string>
   <string name="title_queued">Invio messaggio in corso</string>
   <string name="title_search">Cerca</string>

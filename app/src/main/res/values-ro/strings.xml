@@ -170,7 +170,7 @@
   <string name="title_attachment_saved">Atașament salvat</string>
   <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
   <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
-  <string name="title_ask_discard">Discard draft?</string>
+  <string name="title_ask_discard">Renunțați la ciornă?</string>
   <string name="title_ask_spam">Raportați mesajul drept spam?</string>
   <string name="title_compose">Compune</string>
   <string name="title_from">De la:</string>
@@ -180,7 +180,7 @@
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Subiect:</string>
   <string name="title_body_hint">Mesajul dumneavoastră</string>
-  <string name="title_discard">Discard</string>
+  <string name="title_discard">Renunță</string>
   <string name="title_save">Salvează</string>
   <string name="title_send">Trimite</string>
   <string name="title_clipboard_empty">Clipboardul este gol</string>
@@ -193,7 +193,7 @@
   <string name="title_from_missing">Expeditor lipsă</string>
   <string name="title_to_missing">Destinatar lipsă</string>
   <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
-  <string name="title_draft_deleted">Draft discarded</string>
+  <string name="title_draft_deleted">S-a renunțat la ciornă</string>
   <string name="title_draft_saved">Ciornă salvată</string>
   <string name="title_queued">Expediere mesaj</string>
   <string name="title_search">Caută</string>
