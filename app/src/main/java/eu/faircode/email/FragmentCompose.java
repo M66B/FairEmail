@@ -917,16 +917,18 @@ public class FragmentCompose extends FragmentEx {
                         draft.from = ref.to;
                     }
 
+                    long time = (ref.sent == null ? ref.received : ref.sent);
+
                     if ("reply".equals(action) || "reply_all".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                                Html.escapeHtml(new Date().toString()),
+                                Html.escapeHtml(new Date(time).toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     } else if ("forward".equals(action)) {
                         draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
                         body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                                Html.escapeHtml(new Date().toString()),
+                                Html.escapeHtml(new Date(time).toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     }
