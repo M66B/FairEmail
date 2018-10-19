@@ -89,6 +89,7 @@ public class FragmentMessages extends FragmentEx {
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
 
+    private int autoCount = 0;
     private boolean autoExpand = true;
     private List<Long> expanded = new ArrayList<>();
     private List<Long> headers = new ArrayList<>();
@@ -827,37 +828,58 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 }
 
-                if (viewType == AdapterMessage.ViewType.THREAD && autoExpand) {
-                    autoExpand = false;
+                if (viewType == AdapterMessage.ViewType.THREAD)
+                    if (autoExpand) {
+                        autoExpand = false;
 
-                    int count = 0;
-                    int unseen = 0;
-                    TupleMessageEx single = null;
-                    TupleMessageEx see = null;
-                    for (int i = 0; i < messages.size(); i++) {
-                        TupleMessageEx message = messages.get(i);
-                        if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
-                                !EntityFolder.SENT.equals(message.folderType)) {
-                            count++;
-                            single = message;
-                            if (!message.ui_seen) {
-                                unseen++;
-                                see = message;
+                        int unseen = 0;
+                        TupleMessageEx single = null;
+                        TupleMessageEx see = null;
+                        for (int i = 0; i < messages.size(); i++) {
+                            TupleMessageEx message = messages.get(i);
+                            if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                    !EntityFolder.SENT.equals(message.folderType)) {
+                                autoCount++;
+                                single = message;
+                                if (!message.ui_seen) {
+                                    unseen++;
+                                    see = message;
+                                }
                             }
                         }
-                    }
 
-                    TupleMessageEx expand = null;
-                    if (count == 1)
-                        expand = single;
-                    else if (unseen == 1)
-                        expand = see;
+                        // Auto expand when:
+                        // - single, non archived/sent message
+                        // - one unread, non archived/sent message in conversation
 
-                    if (expand != null) {
-                        expanded.add(expand.id);
-                        handleExpand(expand.id);
+                        TupleMessageEx expand = null;
+                        if (autoCount == 1)
+                            expand = single;
+                        else if (unseen == 1)
+                            expand = see;
+
+                        if (expand != null) {
+                            expanded.add(expand.id);
+                            handleExpand(expand.id);
+                        }
+                    } else {
+                        if (autoCount > 0) {
+                            int count = 0;
+                            for (int i = 0; i < messages.size(); i++) {
+                                TupleMessageEx message = messages.get(i);
+                                if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                        !EntityFolder.SENT.equals(message.folderType)) {
+                                    count++;
+                                }
+                            }
+
+                            // Auto close when:
+                            // - no more non archived/sent messages
+
+                            if (count == 0)
+                                finish();
+                        }
                     }
-                }
 
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
