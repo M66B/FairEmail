@@ -174,6 +174,7 @@
   <string name="title_attachment_saved">Załącznik zapisany</string>
   <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną przekazane, kontynuować?</string>
   <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
   <string name="title_compose">Napisz</string>
   <string name="title_from">Od:</string>
@@ -183,6 +184,7 @@
   <string name="title_bcc">UDW:</string>
   <string name="title_subject">Temat:</string>
   <string name="title_body_hint">Twoja wiadomość</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">Zapisz</string>
   <string name="title_send">Wyślij</string>
   <string name="title_clipboard_empty">Schowek pusty</string>
@@ -195,7 +197,7 @@
   <string name="title_from_missing">Brak nadawcy</string>
   <string name="title_to_missing">Brak adresata</string>
   <string name="title_attachments_missing">Załączniki są wciąż ładowane</string>
-  <string name="title_draft_deleted">Kopia robocza usunięta</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
   <string name="title_search">Szukaj</string>

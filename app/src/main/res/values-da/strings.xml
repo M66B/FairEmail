@@ -166,6 +166,7 @@
   <string name="title_attachment_saved">Vedhæftet fil gemt</string>
   <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Slet meddelelsen permanent?</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Rapportér meddelelse som spam?</string>
   <string name="title_compose">Ny meddelelse</string>
   <string name="title_from">Fra:</string>
@@ -175,6 +176,7 @@
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Emne:</string>
   <string name="title_body_hint">Din besked</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">Gem</string>
   <string name="title_send">Send</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
@@ -187,7 +189,7 @@
   <string name="title_from_missing">Afsender mangler</string>
   <string name="title_to_missing">Modtager mangler</string>
   <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>
-  <string name="title_draft_deleted">Draft deleted</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Kladde gemt</string>
   <string name="title_queued">Sender besked</string>
   <string name="title_search">Søg</string>

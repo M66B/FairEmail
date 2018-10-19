@@ -162,6 +162,7 @@
   <string name="title_attachment_saved">附件已保存</string>
   <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
   <string name="title_ask_delete">确定要永久删除邮件吗？</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
   <string name="title_compose">新邮件</string>
   <string name="title_from">发件人：</string>
@@ -171,6 +172,7 @@
   <string name="title_bcc">密送：</string>
   <string name="title_subject">主题：</string>
   <string name="title_body_hint">您的邮件内容……</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">保存</string>
   <string name="title_send">发送</string>
   <string name="title_clipboard_empty">剪贴板为空</string>
@@ -183,7 +185,7 @@
   <string name="title_from_missing">缺少发件人</string>
   <string name="title_to_missing">缺少收件人</string>
   <string name="title_attachments_missing">附件加载中</string>
-  <string name="title_draft_deleted">草稿已删除</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">草稿已保存</string>
   <string name="title_queued">正在发送邮件</string>
   <string name="title_search">搜索</string>

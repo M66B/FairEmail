@@ -166,6 +166,7 @@
   <string name="title_attachment_saved">Pièce jointe enregistrée</string>
   <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargés et ne seront pas transférées, continuer ?</string>
   <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
+  <string name="title_ask_discard">Supprimer le brouillon ?</string>
   <string name="title_ask_spam">Signaler le message comme spam ?</string>
   <string name="title_compose">Rédiger</string>
   <string name="title_from">De :</string>
@@ -175,6 +176,7 @@
   <string name="title_bcc">Cci :</string>
   <string name="title_subject">Objet :</string>
   <string name="title_body_hint">Votre message</string>
+  <string name="title_discard">Supprimer</string>
   <string name="title_save">Enregistrer</string>
   <string name="title_send">Envoyer</string>
   <string name="title_clipboard_empty">Presse-papier vide</string>

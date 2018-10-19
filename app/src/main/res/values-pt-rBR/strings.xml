@@ -166,6 +166,7 @@
   <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Reportar mensagem com spam?</string>
   <string name="title_compose">Escrever</string>
   <string name="title_from">De:</string>
@@ -175,6 +176,7 @@
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Assunto:</string>
   <string name="title_body_hint">Sua mensagem</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">Salvar</string>
   <string name="title_send">Enviar</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
@@ -187,7 +189,7 @@
   <string name="title_from_missing">Remetente faltante</string>
   <string name="title_to_missing">Destinatário faltante</string>
   <string name="title_attachments_missing">Attachments still loading</string>
-  <string name="title_draft_deleted">Draft deleted</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Rascunho salvo</string>
   <string name="title_queued">Sending message</string>
   <string name="title_search">Search</string>

@@ -166,6 +166,7 @@
   <string name="title_attachment_saved">Bilaga sparad</string>
   <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att vidarebefordras, fortsätt?</string>
   <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
   <string name="title_compose">Skriv</string>
   <string name="title_from">Från:</string>
@@ -175,6 +176,7 @@
   <string name="title_bcc">Dold kopia:</string>
   <string name="title_subject">Ämne:</string>
   <string name="title_body_hint">Ditt meddelande</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">Spara</string>
   <string name="title_send">Skicka</string>
   <string name="title_clipboard_empty">Urklipp är tomt</string>
@@ -187,7 +189,7 @@
   <string name="title_from_missing">Avsändaren saknas</string>
   <string name="title_to_missing">Mottagare saknas</string>
   <string name="title_attachments_missing">Bilagor läses fortfarande in</string>
-  <string name="title_draft_deleted">Utkast togs bort</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Utkast sparat</string>
   <string name="title_queued">Skickar meddelande</string>
   <string name="title_search">Sök</string>

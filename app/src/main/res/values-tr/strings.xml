@@ -166,6 +166,7 @@
   <string name="title_attachment_saved">Ek kaydedildi</string>
   <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">İletiyi kalıcı olarak sil?</string>
+  <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">İletiyi spam olarak raporla?</string>
   <string name="title_compose">Oluştur</string>
   <string name="title_from">Gönderen:</string>
@@ -175,6 +176,7 @@
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Konu:</string>
   <string name="title_body_hint">Mesajınız</string>
+  <string name="title_discard">Discard</string>
   <string name="title_save">Kaydet</string>
   <string name="title_send">Gönder</string>
   <string name="title_clipboard_empty">Pano boş</string>
@@ -187,7 +189,7 @@
   <string name="title_from_missing">Gönderici Eksik</string>
   <string name="title_to_missing">Alıcı eksik</string>
   <string name="title_attachments_missing">Ekler hala yükleniyor</string>
-  <string name="title_draft_deleted">Taslak silindi</string>
+  <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Taslak kaydedildi</string>
   <string name="title_queued">İleti gönderiliyor</string>
   <string name="title_search">Ara</string>
