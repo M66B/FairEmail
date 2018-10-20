@@ -10,9 +10,9 @@ public class ViewModelMessages extends ViewModel {
         this.messages = messages;
     }
 
-    String[] getPrevNext(String thread) {
+    AccountThread[] getPrevNext(String thread) {
         if (messages == null)
-            return new String[]{null, null};
+            return new AccountThread[]{null, null};
 
         boolean found = false;
         TupleMessageEx prev = null;
@@ -31,6 +31,18 @@ public class ViewModelMessages extends ViewModel {
             else
                 prev = item;
         }
-        return new String[]{prev == null ? null : prev.thread, next == null ? null : next.thread};
+        return new AccountThread[]{
+                prev == null ? null : new AccountThread(prev.account, prev.thread),
+                next == null ? null : new AccountThread(next.account, next.thread)};
+    }
+
+    class AccountThread {
+        long account;
+        String thread;
+
+        AccountThread(long account, String thread) {
+            this.account = account;
+            this.thread = thread;
+        }
     }
 }
