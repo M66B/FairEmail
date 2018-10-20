@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_prev"
+        android:icon="@drawable/baseline_navigate_before_24"
+        android:title="" />
+
+    <item
+        android:id="@+id/action_next"
+        android:icon="@drawable/baseline_navigate_next_24"
+        android:title="" />
+</menu>

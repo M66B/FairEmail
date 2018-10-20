@@ -74,6 +74,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.PagedList;
 
@@ -303,8 +304,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             intent.setAction(null);
             setIntent(intent);
 
+            ViewModelMessages model = ViewModelProviders.of(this).get(ViewModelMessages.class);
+            model.setMessages(null);
+
             intent.putExtra("thread", action.split(":", 2)[1]);
-            getSupportFragmentManager().popBackStack("unified", 0);
             onViewThread(intent);
         }
     }
@@ -767,6 +770,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewThread(Intent intent) {
+        getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putString("thread", intent.getStringExtra("thread"));

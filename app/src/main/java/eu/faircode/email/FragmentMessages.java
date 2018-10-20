@@ -39,6 +39,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -56,6 +57,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
@@ -70,6 +72,7 @@ public class FragmentMessages extends FragmentEx {
     private ImageButton ibHintActions;
     private RecyclerView rvMessage;
     private TextView tvNoEmail;
+    private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpSupport;
     private Group grpHintSupport;
@@ -139,6 +142,7 @@ public class FragmentMessages extends FragmentEx {
         ibHintActions = view.findViewById(R.id.ibHintActions);
         rvMessage = view.findViewById(R.id.rvFolder);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
+        bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
@@ -457,6 +461,20 @@ public class FragmentMessages extends FragmentEx {
             }
         }).attachToRecyclerView(rvMessage);
 
+        bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                String[] pn = (String[]) bottom_navigation.getTag();
+                String thread = (menuItem.getItemId() == R.id.action_prev ? pn[0] : pn[1]);
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                .putExtra("account", account)
+                                .putExtra("thread", thread));
+                return true;
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -467,19 +485,9 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        View.OnClickListener navigate = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", account)
-                                .putExtra("thread", (String) v.getTag()));
-            }
-        };
-
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -576,8 +584,16 @@ public class FragmentMessages extends FragmentEx {
         // Messages
         loadMessages();
 
-        // Compose FAB
-        if (viewType != AdapterMessage.ViewType.THREAD) {
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            // Navigation
+            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            String[] pn = model.getPrevNext(thread);
+            bottom_navigation.setTag(pn);
+            bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
+            bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
+            bottom_navigation.setVisibility(pn[0] == null && pn[1] == null ? View.GONE : View.VISIBLE);
+        } else {
+            // Compose FAB
             Bundle args = new Bundle();
             args.putLong("account", account);
 
@@ -832,7 +848,7 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 }
 
-                if (viewType == AdapterMessage.ViewType.THREAD)
+                if (viewType == AdapterMessage.ViewType.THREAD) {
                     if (autoExpand) {
                         autoExpand = false;
 
@@ -886,6 +902,10 @@ public class FragmentMessages extends FragmentEx {
                                 finish();
                         }
                     }
+                } else {
+                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                    model.setMessages(messages);
+                }
 
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
