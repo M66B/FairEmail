@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Tid</string>
   <string name="title_sort_on_unread">Olästa</string>
   <string name="title_sort_on_starred">Stjärnmärkta</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Standardsvar</string>
   <string name="title_answer_name">Svarnamn</string>
   <string name="title_answer_text">Svarstexten</string>

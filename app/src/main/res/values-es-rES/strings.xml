@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Respuesta estándar</string>
   <string name="title_answer_name">Nombre de respuesta</string>
   <string name="title_answer_text">Texto de respuesta</string>

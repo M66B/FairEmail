@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Time</string>
   <string name="title_sort_on_unread">Unread</string>
   <string name="title_sort_on_starred">Starred</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Standard svar</string>
   <string name="title_answer_name">Svarnavn</string>
   <string name="title_answer_text">Svartekst</string>

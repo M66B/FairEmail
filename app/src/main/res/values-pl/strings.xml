@@ -207,6 +207,8 @@
   <string name="title_sort_on_time">Czas</string>
   <string name="title_sort_on_unread">Nieprzeczytane</string>
   <string name="title_sort_on_starred">Oznaczone</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Standardowa odpowiedź</string>
   <string name="title_answer_name">Nazwa odpowiedzi</string>
   <string name="title_answer_text">Tekst odpowiedzi</string>

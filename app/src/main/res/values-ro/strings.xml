@@ -203,6 +203,8 @@
   <string name="title_sort_on_time">Dată</string>
   <string name="title_sort_on_unread">Necitit</string>
   <string name="title_sort_on_starred">Marcat</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Răspuns standard</string>
   <string name="title_answer_name">Titlu răspuns</string>
   <string name="title_answer_text">Text răspuns</string>

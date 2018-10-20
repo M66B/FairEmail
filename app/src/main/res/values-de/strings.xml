@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Uhrzeit</string>
   <string name="title_sort_on_unread">Ungelesen</string>
   <string name="title_sort_on_starred">Favoriten</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Standardantworten</string>
   <string name="title_answer_name">Antwort Name</string>
   <string name="title_answer_text">Antworttext</string>

@@ -133,7 +133,7 @@
             android:background="@color/colorPrimary"
             app:itemIconTint="@color/bottomnav_background"
             app:itemTextColor="@color/bottomnav_background"
-            app:labelVisibilityMode="unlabeled"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -4,10 +4,10 @@
     <item
         android:id="@+id/action_prev"
         android:icon="@drawable/baseline_navigate_before_24"
-        android:title="" />
+        android:title="@string/title_previous" />
 
     <item
         android:id="@+id/action_next"
         android:icon="@drawable/baseline_navigate_next_24"
-        android:title="" />
+        android:title="@string/title_next" />
 </menu>

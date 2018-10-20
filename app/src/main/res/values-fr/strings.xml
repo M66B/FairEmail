@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Date</string>
   <string name="title_sort_on_unread">Non lu(s)</string>
   <string name="title_sort_on_starred">Suivis</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>

@@ -199,6 +199,8 @@
   <string name="title_sort_on_time">Zaman</string>
   <string name="title_sort_on_unread">Okunmadı</string>
   <string name="title_sort_on_starred">Yıldızlı</string>
+  <string name="title_previous">Previous</string>
+  <string name="title_next">Next</string>
   <string name="title_answer_reply">Standart yanıt</string>
   <string name="title_answer_name">Yanıt adı</string>
   <string name="title_answer_text">Yanıt metni</string>
