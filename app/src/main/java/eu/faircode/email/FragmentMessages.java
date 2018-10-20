@@ -741,6 +741,9 @@ public class FragmentMessages extends FragmentEx {
     private void loadMessages() {
         final DB db = DB.getInstance(getContext());
 
+        ViewModelBrowse model = ViewModelProviders.of(this).get(ViewModelBrowse.class);
+        model.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
+
         // Observe folder/messages/search
         if (TextUtils.isEmpty(search)) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -758,8 +761,7 @@ public class FragmentMessages extends FragmentEx {
                 case FOLDER:
                     if (searchCallback == null)
                         searchCallback = new BoundaryCallbackMessages(
-                                getContext(), this,
-                                folder, null, REMOTE_PAGE_SIZE,
+                                this, model,
                                 new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                     @Override
                                     public void onLoading() {
@@ -801,8 +803,7 @@ public class FragmentMessages extends FragmentEx {
         } else {
             if (searchCallback == null)
                 searchCallback = new BoundaryCallbackMessages(
-                        getContext(), this,
-                        folder, search, REMOTE_PAGE_SIZE,
+                        this, model,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {
