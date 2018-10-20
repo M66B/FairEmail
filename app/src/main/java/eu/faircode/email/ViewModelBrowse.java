@@ -8,9 +8,7 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.FolderClosedIOException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.FetchProfile;
@@ -38,7 +36,6 @@ public class ViewModelBrowse extends ViewModel {
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
-    private List<Long> existing = new ArrayList<>();
     private int index;
     private boolean searching = false;
     private int loaded = 0;
@@ -48,6 +45,10 @@ public class ViewModelBrowse extends ViewModel {
         this.fid = folder;
         this.search = search;
         this.pageSize = pageSize;
+
+        this.index = -1;
+        this.searching = false;
+        this.loaded = 0;
     }
 
     Context getContext() {
@@ -130,15 +131,9 @@ public class ViewModelBrowse extends ViewModel {
                         try {
                             long uid = ifolder.getUID(isub[j]);
                             Log.i(Helper.TAG, "Boundary sync uid=" + uid);
-                            EntityMessage message = db.message().getMessageByUid(fid, uid);
-                            if (message == null) {
-                                ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
-                                count++;
-                                loaded++;
-                            } else if (search != null) {
-                                existing.add(message.id);
-                                db.message().setMessageFound(message.id, true);
-                            }
+                            ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
+                            count++;
+                            loaded++;
                         } catch (MessageRemovedException ex) {
                             Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                         } catch (FolderClosedException ex) {
@@ -164,24 +159,16 @@ public class ViewModelBrowse extends ViewModel {
     }
 
     void clear() {
-        Log.i(Helper.TAG, "Boundary close");
-
-        DB db = DB.getInstance(context);
-        for (long id : existing)
-            db.message().setMessageFound(id, false);
-        db.message().deleteFoundMessages();
-
+        Log.i(Helper.TAG, "Boundary clear");
         try {
             if (istore != null)
                 istore.close();
         } catch (Throwable ex) {
             Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
         } finally {
-            context = null;
             istore = null;
             ifolder = null;
             imessages = null;
-            existing.clear();
         }
     }
 }

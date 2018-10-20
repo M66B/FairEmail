@@ -644,15 +644,30 @@ public class FragmentMessages extends FragmentEx {
                 menuSearch.collapseActionView();
 
                 if (Helper.isPro(getContext())) {
-                    Intent intent = new Intent();
-                    intent.putExtra("folder", folder);
-                    intent.putExtra("search", query);
+                    Bundle args = new Bundle();
+                    args.putLong("folder", folder);
+                    args.putString("search", query);
 
-                    FragmentMessages fragment = new FragmentMessages();
-                    fragment.setArguments(intent.getExtras());
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                    fragmentTransaction.commit();
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                            DB.getInstance(context).message().deleteFoundMessages();
+                            return null;
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Void data) {
+                            Intent intent = new Intent();
+                            intent.putExtra("folder", args.getLong("folder", folder));
+                            intent.putExtra("search", args.getString("search"));
+
+                            FragmentMessages fragment = new FragmentMessages();
+                            fragment.setArguments(intent.getExtras());
+                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+                            fragmentTransaction.commit();
+                        }
+                    }.load(FragmentMessages.this, args);
                 } else {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
@@ -741,7 +756,7 @@ public class FragmentMessages extends FragmentEx {
     private void loadMessages() {
         final DB db = DB.getInstance(getContext());
 
-        ViewModelBrowse model = ViewModelProviders.of(this).get(ViewModelBrowse.class);
+        ViewModelBrowse model = ViewModelProviders.of(getActivity()).get(ViewModelBrowse.class);
         model.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
 
         // Observe folder/messages/search
@@ -760,8 +775,7 @@ public class FragmentMessages extends FragmentEx {
                     break;
                 case FOLDER:
                     if (searchCallback == null)
-                        searchCallback = new BoundaryCallbackMessages(
-                                this, model,
+                        searchCallback = new BoundaryCallbackMessages(this, model,
                                 new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                     @Override
                                     public void onLoading() {
@@ -802,8 +816,7 @@ public class FragmentMessages extends FragmentEx {
             }
         } else {
             if (searchCallback == null)
-                searchCallback = new BoundaryCallbackMessages(
-                        this, model,
+                searchCallback = new BoundaryCallbackMessages(this, model,
                         new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                             @Override
                             public void onLoading() {

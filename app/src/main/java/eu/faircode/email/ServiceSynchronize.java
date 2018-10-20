@@ -1596,7 +1596,7 @@ public class ServiceSynchronize extends LifecycleService {
                 List<Message> full = new ArrayList<>();
                 for (Message imessage : isub) {
                     long uid = ifolder.getUID(imessage);
-                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                    EntityMessage message = db.message().getMessageByUid(folder.id, uid, false);
                     if (message == null)
                         full.add(imessage);
                 }
@@ -1695,7 +1695,7 @@ public class ServiceSynchronize extends LifecycleService {
         DB db = DB.getInstance(context);
 
         // Find message by uid (fast, no headers required)
-        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+        EntityMessage message = db.message().getMessageByUid(folder.id, uid, found);
 
         // Find message by Message-ID (slow, headers required)
         // - messages in inbox have same id as message sent to self
@@ -1706,7 +1706,7 @@ public class ServiceSynchronize extends LifecycleService {
             String[] refs = helper.getReferences();
             String reference = (refs.length == 1 && refs[0].indexOf(BuildConfig.APPLICATION_ID) > 0 ? refs[0] : msgid);
             Log.i(Helper.TAG, "Searching for " + msgid + " / " + reference);
-            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference)) {
+            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, reference, found)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
                 Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + dup.uid +

@@ -35,7 +35,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private ViewModelBrowse model;
     private Handler handler;
     private IBoundaryCallbackMessages intf;
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+
+    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     interface IBoundaryCallbackMessages {
         void onLoading();
