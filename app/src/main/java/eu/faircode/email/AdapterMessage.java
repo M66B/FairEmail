@@ -257,8 +257,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             pbLoading.setVisibility(View.GONE);
 
-            itemView.setAlpha(viewType == ViewType.THREAD && EntityFolder.ARCHIVE.equals(message.folderType) ? 0.5f : 1.0f);
-
             boolean photo = false;
             if (avatars && message.avatar != null) {
                 ContentResolver resolver = context.getContentResolver();
