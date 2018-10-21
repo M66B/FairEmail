@@ -159,6 +159,8 @@ public class FragmentMessages extends FragmentEx {
         fab = view.findViewById(R.id.fab);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (folder >= 0)
+            swipeTarget = prefs.getLong("swipe." + folder, -1);
 
         // Wire controls
 
@@ -835,6 +837,8 @@ public class FragmentMessages extends FragmentEx {
                     @Override
                     public boolean onMenuItemClick(final MenuItem target) {
                         swipeTarget = target.getItemId();
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        prefs.edit().putLong("swipe." + folder, swipeTarget).apply();
                         return true;
                     }
                 });
@@ -842,7 +846,6 @@ public class FragmentMessages extends FragmentEx {
                 popupMenu.show();
             }
         }.load(this, args);
-
     }
 
     private void loadMessages() {
