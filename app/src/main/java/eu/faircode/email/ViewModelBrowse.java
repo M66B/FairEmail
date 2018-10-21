@@ -36,8 +36,8 @@ public class ViewModelBrowse extends ViewModel {
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
-    private int index;
-    private boolean searching = false;
+
+    private int index = -1;
     private int loaded = 0;
 
     void set(Context context, long folder, String search, int pageSize) {
@@ -47,7 +47,6 @@ public class ViewModelBrowse extends ViewModel {
         this.pageSize = pageSize;
 
         this.index = -1;
-        this.searching = false;
         this.loaded = 0;
     }
 
@@ -55,107 +54,100 @@ public class ViewModelBrowse extends ViewModel {
         return context;
     }
 
-    boolean isSearching() {
-        return searching;
-    }
-
     int getLoaded() {
         return loaded;
     }
 
     void load() throws MessagingException, FolderClosedIOException {
-        try {
-            searching = true;
+        DB db = DB.getInstance(context);
+        EntityFolder folder = db.folder().getFolder(fid);
+        if (folder.account == null) // outbox
+            return;
+        EntityAccount account = db.account().getAccount(folder.account);
 
-            DB db = DB.getInstance(context);
-            EntityFolder folder = db.folder().getFolder(fid);
-            if (folder.account == null) // outbox
-                return;
-            EntityAccount account = db.account().getAccount(folder.account);
+        if (imessages == null) {
+            Properties props = MessageHelper.getSessionProperties(account.auth_type);
+            props.setProperty("mail.imap.throwsearchexception", "true");
+            Session isession = Session.getInstance(props, null);
 
-            if (imessages == null) {
-                Properties props = MessageHelper.getSessionProperties(account.auth_type);
-                props.setProperty("mail.imap.throwsearchexception", "true");
-                Session isession = Session.getInstance(props, null);
+            Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
+            istore = (IMAPStore) isession.getStore("imaps");
+            Helper.connect(context, istore, account);
 
-                Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
-                istore = (IMAPStore) isession.getStore("imaps");
-                Helper.connect(context, istore, account);
+            Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
+            ifolder = (IMAPFolder) istore.getFolder(folder.name);
+            ifolder.open(Folder.READ_WRITE);
 
-                Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
-                ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                ifolder.open(Folder.READ_WRITE);
+            Log.i(Helper.TAG, "Boundary searching=" + search);
+            if (search == null)
+                imessages = ifolder.getMessages();
+            else
+                imessages = ifolder.search(
+                        new OrTerm(
+                                new OrTerm(
+                                        new FromStringTerm(search),
+                                        new RecipientStringTerm(Message.RecipientType.TO, search)
+                                ),
+                                new OrTerm(
+                                        new SubjectTerm(search),
+                                        new BodyTerm(search)
+                                )
+                        )
+                );
+            Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
 
-                Log.i(Helper.TAG, "Boundary searching=" + search);
-                if (search == null)
-                    imessages = ifolder.getMessages();
-                else
-                    imessages = ifolder.search(
-                            new OrTerm(
-                                    new OrTerm(
-                                            new FromStringTerm(search),
-                                            new RecipientStringTerm(Message.RecipientType.TO, search)
-                                    ),
-                                    new OrTerm(
-                                            new SubjectTerm(search),
-                                            new BodyTerm(search)
-                                    )
-                            )
-                    );
-                Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
+            index = imessages.length - 1;
+        }
 
-                index = imessages.length - 1;
-            }
+        int count = 0;
+        while (index >= 0 && count < pageSize) {
+            Log.i(Helper.TAG, "Boundary index=" + index);
+            int from = Math.max(0, index - (pageSize - count) + 1);
+            Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
+            index -= (pageSize - count);
 
-            int count = 0;
-            while (index >= 0 && count < pageSize) {
-                Log.i(Helper.TAG, "Boundary index=" + index);
-                int from = Math.max(0, index - (pageSize - count) + 1);
-                Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
-                index -= (pageSize - count);
+            FetchProfile fp = new FetchProfile();
+            fp.add(FetchProfile.Item.ENVELOPE);
+            fp.add(FetchProfile.Item.FLAGS);
+            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            fp.add(UIDFolder.FetchProfileItem.UID);
+            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            fp.add(FetchProfile.Item.SIZE);
+            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+            ifolder.fetch(isub, fp);
 
-                FetchProfile fp = new FetchProfile();
-                fp.add(FetchProfile.Item.ENVELOPE);
-                fp.add(FetchProfile.Item.FLAGS);
-                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-                fp.add(UIDFolder.FetchProfileItem.UID);
-                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-                fp.add(FetchProfile.Item.SIZE);
-                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                ifolder.fetch(isub, fp);
+            try {
+                db.beginTransaction();
 
-                try {
-                    db.beginTransaction();
-
-                    for (int j = isub.length - 1; j >= 0; j--)
-                        try {
-                            long uid = ifolder.getUID(isub[j]);
-                            Log.i(Helper.TAG, "Boundary sync uid=" + uid);
+                for (int j = isub.length - 1; j >= 0; j--)
+                    try {
+                        long uid = ifolder.getUID(isub[j]);
+                        Log.i(Helper.TAG, "Boundary sync uid=" + uid);
+                        EntityMessage message = db.message().getMessageByUid(fid, uid, search != null);
+                        if (message == null) {
                             ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
                             count++;
                             loaded++;
-                        } catch (MessageRemovedException ex) {
-                            Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                        } catch (FolderClosedException ex) {
-                            throw ex;
-                        } catch (FolderClosedIOException ex) {
-                            throw ex;
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
                         }
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (FolderClosedIOException ex) {
+                        throw ex;
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        ((IMAPMessage) isub[j]).invalidateHeaders();
+                    }
 
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
-
-            Log.i(Helper.TAG, "Boundary done");
-        } finally {
-            searching = false;
         }
+
+        Log.i(Helper.TAG, "Boundary done");
     }
 
     void clear() {

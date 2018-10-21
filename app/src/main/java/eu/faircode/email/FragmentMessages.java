@@ -650,7 +650,7 @@ public class FragmentMessages extends FragmentEx {
 
                     new SimpleTask<Void>() {
                         @Override
-                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        protected Void onLoad(Context context, Bundle args) {
                             DB.getInstance(context).message().deleteFoundMessages();
                             return null;
                         }
