@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/drawableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/vwColor"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@id/vSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/paddingTop"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivExpander"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:src="@drawable/baseline_expand_less_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toTopOf="@id/paddingTop" />
+
+        <View
+            android:id="@+id/paddingStart"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toEndOf="@+id/ivExpander"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivFlagged"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_star_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/ivFlagged"
+            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+
+        <TextView
+            android:id="@+id/tvFrom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:text="From"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toStartOf="@+id/tvSize"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:maxLines="1"
+            android:text="123 KB"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintEnd_toStartOf="@id/tvTime"
+            app:layout_constraintTop_toTopOf="@id/tvFrom" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:maxLines="1"
+            android:text="Time"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+            app:layout_constraintTop_toTopOf="@id/tvFrom" />
+
+        <ImageView
+            android:id="@+id/ivAttachments"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_attachment_24"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+
+        <TextView
+            android:id="@+id/tvSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:text="Subject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/tvFolder"
+            app:layout_constraintStart_toEndOf="@id/ivAttachments"
+            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+        <TextView
+            android:id="@+id/tvFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:maxLines="1"
+            android:text="folder"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintEnd_toStartOf="@+id/tvCount"
+            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:maxLines="1"
+            android:text="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintEnd_toStartOf="@+id/ivThread"
+            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+
+        <ImageView
+            android:id="@+id/ivThread"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_message_24"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="error"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+        <View
+            android:id="@+id/paddingEnd"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/paddingBottom"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="@id/paddingBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vSeparatorAddress"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/paddingBottom" />
+
+        <TextView
+            android:id="@+id/tvFromExTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_from"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+
+        <TextView
+            android:id="@+id/tvFromEx"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="From"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toStartOf="@+id/ivAddContact"
+            app:layout_constraintStart_toEndOf="@id/tvFromExTitle"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+
+        <ImageView
+            android:id="@+id/ivAddContact"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_import_contacts_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+
+        <TextView
+            android:id="@+id/tvToTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
+
+        <TextView
+            android:id="@+id/tvTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="To"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvToTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
+
+        <TextView
+            android:id="@+id/tvReplyToTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_reply_to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+        <TextView
+            android:id="@+id/tvReplyTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="Reply to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+        <TextView
+            android:id="@+id/tvCcTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_cc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+        <TextView
+            android:id="@+id/tvCc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="Cc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCcTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+        <TextView
+            android:id="@+id/tvBccTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/title_bcc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+        <TextView
+            android:id="@+id/tvBcc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="Bcc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvBccTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+        <TextView
+            android:id="@+id/tvTimeEx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="12:34:56"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <TextView
+            android:id="@+id/tvSubjectEx"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:maxHeight="60dp"
+            android:scrollbars="vertical"
+            android:text="Subject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
+
+        <View
+            android:id="@+id/vSeparatorHeaders"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
+
+        <TextView
+            android:id="@+id/tvHeaders"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="monospace"
+            android:text="Headers"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+
+        <ProgressBar
+            android:id="@+id/pbHeaders"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toTopOf="@+id/bnvActions"
+            app:layout_constraintEnd_toEndOf="@id/tvHeaders"
+            app:layout_constraintStart_toStartOf="@id/tvHeaders"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:itemIconTint="@color/bottomnav_background"
+            app:itemTextColor="@color/bottomnav_background"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvHeaders"
+            app:menu="@menu/action_message" />
+
+        <View
+            android:id="@+id/vSeparatorBody"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+
+        <Button
+            android:id="@+id/btnImages"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_show_images"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+
+        <TextView
+            android:id="@+id/tvBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="monospace"
+            android:minHeight="60dp"
+            android:text="Body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/btnImages" />
+
+        <ProgressBar
+            android:id="@+id/pbBody"
+            style="@style/Base.Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toTopOf="@+id/vSeparatorAttachments"
+            app:layout_constraintEnd_toEndOf="@id/tvBody"
+            app:layout_constraintStart_toStartOf="@id/tvBody"
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+
+        <View
+            android:id="@+id/vSeparatorAttachments"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAttachment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+
+        <View
+            android:id="@+id/vSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpHeaders"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparatorHeaders,tvHeaders" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAttachments"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpExpanded"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparatorAddress,tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx,tvBody" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

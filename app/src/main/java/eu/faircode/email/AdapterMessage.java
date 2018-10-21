@@ -106,6 +106,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     private boolean contacts;
     private boolean avatars;
+    private boolean compact;
     private boolean debug;
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
@@ -279,7 +280,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
-            tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, false));
+            tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, !compact));
 
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
@@ -1349,6 +1350,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
+        this.compact = prefs.getBoolean("compact", false);
         this.debug = prefs.getBoolean("debug", false);
     }
 
@@ -1370,7 +1372,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_message, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(
+                compact ? R.layout.item_message_compact : R.layout.item_message_normal,
+                parent,
+                false));
     }
 
     @Override
