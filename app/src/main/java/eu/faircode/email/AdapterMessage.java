@@ -942,7 +942,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                         EntityMessage message = db.message().getMessage(id);
                         db.message().setMessageUiSeen(message.id, false);
-                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                        EntityOperation.queue(db, message, EntityOperation.SEEN, false);
 
                         db.setTransactionSuccessful();
                     } finally {
