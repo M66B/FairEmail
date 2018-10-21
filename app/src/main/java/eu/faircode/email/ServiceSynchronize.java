@@ -215,6 +215,8 @@ public class ServiceSynchronize extends LifecycleService {
 
         serviceManager.onLost(null);
 
+        Widget.update(this, -1);
+
         stopForeground(true);
 
         NotificationManager nm = getSystemService(NotificationManager.class);
@@ -338,6 +340,8 @@ public class ServiceSynchronize extends LifecycleService {
     private List<Notification> getNotificationUnseen(List<EntityMessage> messages) {
         // https://developer.android.com/training/notify-user/group
         List<Notification> notifications = new ArrayList<>();
+
+        Widget.update(this, messages.size());
 
         if (messages.size() == 0)
             return notifications;
