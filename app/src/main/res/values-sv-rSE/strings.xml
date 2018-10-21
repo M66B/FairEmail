@@ -69,6 +69,7 @@
   <string name="title_advanced_light">Använda aviseringslampan</string>
   <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
   <string name="title_advanced_swipe">Svepfunktioner</string>
+  <string name="title_advanced_compact">Compact message view</string>
   <string name="title_advanced_debug">Felsökningsläge</string>
   <string name="title_select">Välj &#8230;</string>
   <string name="title_identity_name">Ditt namn</string>
@@ -110,6 +111,7 @@
   <string name="title_no_password">Lösenord saknas</string>
   <string name="title_no_drafts">No primary account or no drafts folder</string>
   <string name="title_no_archive">No primary account or no archive folder</string>
+  <string name="title_no_target">Target folder not set or missing</string>
   <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Mottagning av nya meddelanden kan fördröjas.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS stöds inte, se Vanliga frågor</string>
   <string name="title_account_delete">Ta bort detta konto permanent?</string>
@@ -200,6 +202,7 @@
   <string name="title_sort_on_time">Tid</string>
   <string name="title_sort_on_unread">Olästa</string>
   <string name="title_sort_on_starred">Stjärnmärkta</string>
+  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Standardsvar</string>

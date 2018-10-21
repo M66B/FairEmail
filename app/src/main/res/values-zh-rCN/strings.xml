@@ -65,6 +65,7 @@
   <string name="title_advanced_light">使用指示灯</string>
   <string name="title_advanced_browse">浏览服务器上的消息</string>
   <string name="title_advanced_swipe">Swipe actions</string>
+  <string name="title_advanced_compact">Compact message view</string>
   <string name="title_advanced_debug">调试模式</string>
   <string name="title_select">选择 &#8230;</string>
   <string name="title_identity_name">姓名</string>
@@ -106,6 +107,7 @@
   <string name="title_no_password">缺少密码</string>
   <string name="title_no_drafts">No primary account or no drafts folder</string>
   <string name="title_no_archive">No primary account or no archive folder</string>
+  <string name="title_no_target">Target folder not set or missing</string>
   <string name="title_no_idle">吃提供商不支持推送消息. 新消息的接收可能会延迟</string>
   <string name="title_no_uidplus">不支持 IMAP UIDPLUS, 详见常见问题</string>
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
@@ -196,6 +198,7 @@
   <string name="title_sort_on_time">时间</string>
   <string name="title_sort_on_unread">未读</string>
   <string name="title_sort_on_starred">星标记</string>
+  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">标准回复</string>

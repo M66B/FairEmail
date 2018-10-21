@@ -69,6 +69,7 @@
   <string name="title_advanced_light">Usar luz de notificación</string>
   <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
   <string name="title_advanced_swipe">Acciones al deslizar</string>
+  <string name="title_advanced_compact">Compact message view</string>
   <string name="title_advanced_debug">Modo de depuración</string>
   <string name="title_select">Seleccione &#8230;</string>
   <string name="title_identity_name">Su nombre</string>
@@ -110,6 +111,7 @@
   <string name="title_no_password">Falta contraseña</string>
   <string name="title_no_drafts">No primary account or no drafts folder</string>
   <string name="title_no_archive">No primary account or no archive folder</string>
+  <string name="title_no_target">Target folder not set or missing</string>
   <string name="title_no_idle">Este proveedor no soporta mensajes Push. La recepción de nuevos mensajes puede ser retrasada.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -200,6 +202,7 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
+  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Respuesta estándar</string>
