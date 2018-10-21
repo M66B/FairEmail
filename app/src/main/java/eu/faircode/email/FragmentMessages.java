@@ -919,7 +919,7 @@ public class FragmentMessages extends FragmentEx {
                             @Override
                             public void onLoaded() {
                                 pbWait.setVisibility(View.GONE);
-                                if (searchCallback.getLoaded() == 0)
+                                if (messages.getValue().size() == 0)
                                     tvNoEmail.setVisibility(View.VISIBLE);
                             }
 

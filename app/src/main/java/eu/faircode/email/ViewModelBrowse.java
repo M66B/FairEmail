@@ -38,7 +38,6 @@ public class ViewModelBrowse extends ViewModel {
     private Message[] imessages = null;
 
     private int index = -1;
-    private int loaded = 0;
 
     void set(Context context, long folder, String search, int pageSize) {
         this.context = context;
@@ -47,7 +46,6 @@ public class ViewModelBrowse extends ViewModel {
         this.pageSize = pageSize;
 
         this.index = -1;
-        this.loaded = 0;
     }
 
     @Override
@@ -60,10 +58,6 @@ public class ViewModelBrowse extends ViewModel {
 
     Context getContext() {
         return context;
-    }
-
-    int getLoaded() {
-        return loaded;
     }
 
     void load() throws MessagingException, FolderClosedIOException {
@@ -135,7 +129,6 @@ public class ViewModelBrowse extends ViewModel {
                         if (message == null) {
                             ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
                             count++;
-                            loaded++;
                         }
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));

@@ -70,10 +70,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return searching;
     }
 
-    int getLoaded() {
-        return model.getLoaded();
-    }
-
     @Override
     public void onZeroItemsLoaded() {
         Log.i(Helper.TAG, "onZeroItemsLoaded");
