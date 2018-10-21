@@ -310,6 +310,45 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             intent.putExtra("thread", action.split(":", 2)[1]);
             onViewThread(intent);
         }
+
+        if (getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
+            String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
+
+            intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
+            setIntent(intent);
+
+            Bundle args = new Bundle();
+            args.putString("search", search);
+
+            new SimpleTask<Long>() {
+                @Override
+                protected Long onLoad(Context context, Bundle args) {
+                    EntityFolder archive = DB.getInstance(context).folder().getPrimaryArchive();
+                    if (archive == null)
+                        throw new IllegalArgumentException(getString(R.string.title_no_archive));
+                    return archive.id;
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, Long archive) {
+                    Bundle sargs = new Bundle();
+                    sargs.putLong("folder", archive);
+                    sargs.putString("search", args.getString("search"));
+
+                    FragmentMessages fragment = new FragmentMessages();
+                    fragment.setArguments(sargs);
+
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+                    fragmentTransaction.commit();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(ActivityView.this, ex);
+                }
+            }.load(this, args);
+        }
     }
 
     @Override

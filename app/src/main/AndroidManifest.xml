@@ -50,9 +50,15 @@
 
         <activity
             android:name=".ActivityView"
-            android:exported="false"
+            android:exported="true"
             android:launchMode="singleTop"
-            android:parentActivityName=".ActivityMain" />
+            android:parentActivityName=".ActivityMain">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ActivityCompose"

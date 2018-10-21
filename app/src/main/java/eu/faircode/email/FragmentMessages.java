@@ -657,12 +657,9 @@ public class FragmentMessages extends FragmentEx {
 
                         @Override
                         protected void onLoaded(Bundle args, Void data) {
-                            Intent intent = new Intent();
-                            intent.putExtra("folder", args.getLong("folder", folder));
-                            intent.putExtra("search", args.getString("search"));
-
                             FragmentMessages fragment = new FragmentMessages();
-                            fragment.setArguments(intent.getExtras());
+                            fragment.setArguments(args);
+
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
                             fragmentTransaction.commit();

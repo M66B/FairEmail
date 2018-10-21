@@ -96,6 +96,11 @@ public interface DaoFolder {
             " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
     EntityFolder getPrimaryDrafts();
 
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
+    EntityFolder getPrimaryArchive();
+
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
 
