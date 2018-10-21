@@ -10,6 +10,11 @@ public class ViewModelMessages extends ViewModel {
         this.messages = messages;
     }
 
+    @Override
+    protected void onCleared() {
+        messages = null;
+    }
+
     Target[] getPrevNext(String thread) {
         if (messages == null)
             return new Target[]{null, null};

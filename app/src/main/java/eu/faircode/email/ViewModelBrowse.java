@@ -50,6 +50,14 @@ public class ViewModelBrowse extends ViewModel {
         this.loaded = 0;
     }
 
+    @Override
+    protected void onCleared() {
+        context = null;
+        istore = null;
+        ifolder = null;
+        imessages = null;
+    }
+
     Context getContext() {
         return context;
     }
@@ -158,6 +166,7 @@ public class ViewModelBrowse extends ViewModel {
         } catch (Throwable ex) {
             Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
         } finally {
+            context = null;
             istore = null;
             ifolder = null;
             imessages = null;
