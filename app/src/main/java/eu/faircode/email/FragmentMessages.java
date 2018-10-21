@@ -36,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -44,8 +45,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -70,8 +75,9 @@ public class FragmentMessages extends FragmentEx {
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintActions;
-    private RecyclerView rvMessage;
+    private View popupAnchor;
     private TextView tvNoEmail;
+    private RecyclerView rvMessage;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpSupport;
@@ -94,6 +100,7 @@ public class FragmentMessages extends FragmentEx {
 
     private int autoCount = 0;
     private boolean autoExpand = true;
+    private long swipeTarget = -1;
     private List<Long> expanded = new ArrayList<>();
     private List<Long> headers = new ArrayList<>();
     private List<Long> images = new ArrayList<>();
@@ -140,8 +147,9 @@ public class FragmentMessages extends FragmentEx {
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintActions = view.findViewById(R.id.ibHintActions);
-        rvMessage = view.findViewById(R.id.rvFolder);
+        popupAnchor = view.findViewById(R.id.popupAnchor);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
+        rvMessage = view.findViewById(R.id.rvFolder);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -267,7 +275,10 @@ public class FragmentMessages extends FragmentEx {
 
                 if (dX > margin) {
                     // Right swipe
-                    Drawable d = getResources().getDrawable(inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24, getContext().getTheme());
+                    Drawable d = getResources().getDrawable(swipeTarget < 0
+                                    ? (inbox ? R.drawable.baseline_move_to_inbox_24 : R.drawable.baseline_archive_24)
+                                    : R.drawable.baseline_folder_24,
+                            getContext().getTheme());
                     int padding = (itemView.getHeight() - d.getIntrinsicHeight());
                     d.setBounds(
                             itemView.getLeft() + margin,
@@ -305,6 +316,7 @@ public class FragmentMessages extends FragmentEx {
                 args.putLong("id", message.id);
                 args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
                 args.putInt("direction", direction);
+                args.putLong("swipeTarget", swipeTarget);
 
                 new SimpleTask<MessageTarget>() {
                     @Override
@@ -324,15 +336,19 @@ public class FragmentMessages extends FragmentEx {
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
 
-                            if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
-                                target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                            else {
-                                if (direction == ItemTouchHelper.RIGHT)
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                                if (direction == ItemTouchHelper.LEFT || target == null)
-                                    target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (target == null)
+                            if (swipeTarget < 0 || direction == ItemTouchHelper.LEFT) {
+                                if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
                                     target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                                else {
+                                    if (direction == ItemTouchHelper.RIGHT)
+                                        target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                                    if (direction == ItemTouchHelper.LEFT || target == null)
+                                        target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                    if (target == null)
+                                        target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                                }
+                            } else {
+                                target = db.folder().getFolder(swipeTarget);
                             }
 
                             result.target = target.name;
@@ -501,6 +517,7 @@ public class FragmentMessages extends FragmentEx {
         super.onSaveInstanceState(outState);
         outState.putBoolean("autoExpand", autoExpand);
         outState.putInt("autoCount", autoCount);
+        outState.putLong("swipeTarget", swipeTarget);
         outState.putLongArray("expanded", Helper.toLongArray(expanded));
         outState.putLongArray("headers", Helper.toLongArray(headers));
         outState.putLongArray("images", Helper.toLongArray(images));
@@ -513,6 +530,7 @@ public class FragmentMessages extends FragmentEx {
         if (savedInstanceState != null) {
             autoExpand = savedInstanceState.getBoolean("autoExpand");
             autoCount = savedInstanceState.getInt("autoCount");
+            swipeTarget = savedInstanceState.getLong("swipeTarget");
             expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
             headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
             images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
@@ -633,7 +651,7 @@ public class FragmentMessages extends FragmentEx {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_list, menu);
+        inflater.inflate(R.menu.menu_messages, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
         final SearchView searchView = (SearchView) menuSearch.getActionView();
@@ -689,6 +707,7 @@ public class FragmentMessages extends FragmentEx {
         menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+        menu.findItem(R.id.menu_swipe).setVisible(folder >= 0);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
@@ -731,6 +750,10 @@ public class FragmentMessages extends FragmentEx {
                 loadMessages();
                 return true;
 
+            case R.id.menu_swipe:
+                onMenuSwipeTarget();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -748,6 +771,78 @@ public class FragmentMessages extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuSwipeTarget() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<List<EntityFolder>>() {
+            @Override
+            protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                long fid = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                List<EntityFolder> folders = db.folder().getUserFolders(folder.account);
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(folders, new Comparator<EntityFolder>() {
+                    @Override
+                    public int compare(EntityFolder f1, EntityFolder f2) {
+                        return collator.compare(f1.name, f2.name);
+                    }
+                });
+
+                EntityFolder junk = db.folder().getFolderByType(folder.account, EntityFolder.JUNK);
+                if (junk != null && !junk.id.equals(fid))
+                    folders.add(0, junk);
+
+                EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
+                if (trash != null && !trash.id.equals(fid))
+                    folders.add(0, trash);
+
+                EntityFolder archive = db.folder().getFolderByType(folder.account, EntityFolder.ARCHIVE);
+                if (archive != null && !archive.id.equals(fid))
+                    folders.add(0, archive);
+
+                EntityFolder sent = db.folder().getFolderByType(folder.account, EntityFolder.SENT);
+                if (sent != null && !sent.id.equals(fid))
+                    folders.add(0, sent);
+
+                EntityFolder inbox = db.folder().getFolderByType(folder.account, EntityFolder.INBOX);
+                if (!inbox.id.equals(fid))
+                    folders.add(0, inbox);
+
+                return folders;
+            }
+
+            @Override
+            protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
+                PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
+
+                int order = 0;
+                for (EntityFolder folder : folders) {
+                    String name = (folder.display == null
+                            ? Helper.localizeFolderName(getContext(), folder.name)
+                            : folder.display);
+                    popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
+                }
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(final MenuItem target) {
+                        swipeTarget = target.getItemId();
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        }.load(this, args);
+
     }
 
     private void loadMessages() {

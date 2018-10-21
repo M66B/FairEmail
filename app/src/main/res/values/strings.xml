@@ -232,6 +232,8 @@
     <string name="title_sort_on_unread">Unread</string>
     <string name="title_sort_on_starred">Starred</string>
 
+    <string name="title_swipe">Set right swipe target</string>
+
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
 
