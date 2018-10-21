@@ -394,13 +394,16 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         @Override
                         public void onChanged(@Nullable List<TupleFolderEx> folders) {
                             if (bnvActions.hasTransientState()) {
+                                boolean hasJunk = false;
                                 boolean hasTrash = false;
                                 boolean hasArchive = false;
                                 boolean hasUser = false;
 
                                 if (folders != null)
                                     for (EntityFolder folder : folders) {
-                                        if (EntityFolder.TRASH.equals(folder.type))
+                                        if (EntityFolder.JUNK.equals(folder.type))
+                                            hasJunk = true;
+                                        else if (EntityFolder.TRASH.equals(folder.type))
                                             hasTrash = true;
                                         else if (EntityFolder.ARCHIVE.equals(folder.type))
                                             hasArchive = true;
@@ -414,6 +417,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
 
                                 ActionData data = new ActionData();
+                                data.hasJunk = hasJunk;
                                 data.delete = (inTrash || !hasTrash || inOutbox);
                                 data.message = message;
                                 bnvActions.setTag(data);
@@ -421,7 +425,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
                                 bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
                                 bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
-                                bnvActions.getMenu().findItem(R.id.action_reply).setVisible(message.content && !inOutbox);
+
+                                bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
+                                bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
 
                                 bnvActions.setVisibility(View.VISIBLE);
                                 vSeparatorBody.setVisibility(View.GONE);
@@ -758,6 +764,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private class ActionData {
+            boolean hasJunk;
             boolean delete;
             TupleMessageEx message;
         }
@@ -1033,12 +1040,26 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
             popupMenu.inflate(R.menu.menu_message);
-            popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(data.message.content && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(data.message.uid != null && data.hasJunk && !inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(!inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(!inOutbox);
+
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
+
             popupMenu.getMenu().findItem(R.id.menu_show_html).setEnabled(data.message.content && Helper.classExists("android.webkit.WebView"));
-            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.uid != null && data.message.unflagged != 1);
-            popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(data.message.content && !inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.unflagged != 1);
+            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null && !inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null && !inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_answer).setVisible(!inOutbox);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1202,7 +1223,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         folders.add(0, sent);
 
                     EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                    if (!message.folder.equals(inbox.id))
+                    if (inbox != null && !message.folder.equals(inbox.id))
                         folders.add(0, inbox);
 
                     return folders;

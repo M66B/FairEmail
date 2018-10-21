@@ -338,21 +338,20 @@ public class FragmentMessages extends FragmentEx {
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
 
-                            if (swipeTarget >= 0 && direction == ItemTouchHelper.RIGHT)
-                                target = db.folder().getFolder(swipeTarget);
-
-                            if (target == null || !target.account.equals((message.account))) {
+                            if (swipeTarget < 0 || direction == ItemTouchHelper.LEFT) {
                                 if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
                                     target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 else {
                                     if (direction == ItemTouchHelper.RIGHT)
                                         target = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                                    if (direction == ItemTouchHelper.LEFT || target == null)
+                                    else if (direction == ItemTouchHelper.LEFT)
                                         target = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                    if (target == null)
-                                        target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 }
-                            }
+                            } else
+                                target = db.folder().getFolder(swipeTarget);
+
+                            if (target == null || !target.account.equals((message.account)))
+                                throw new IllegalArgumentException(getString(R.string.title_no_target));
 
                             result.target = target.name;
                             result.display = (target.display == null ? target.name : target.display);
@@ -816,7 +815,7 @@ public class FragmentMessages extends FragmentEx {
                     folders.add(0, sent);
 
                 EntityFolder inbox = db.folder().getFolderByType(folder.account, EntityFolder.INBOX);
-                if (!inbox.id.equals(fid))
+                if (inbox != null && !inbox.id.equals(fid))
                     folders.add(0, inbox);
 
                 return folders;
