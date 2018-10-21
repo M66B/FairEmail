@@ -108,7 +108,8 @@
   <string name="title_no_host">Nom d\'hôte manquant</string>
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
-  <string name="title_no_drafts">Répertoire Brouillons manquant</string>
+  <string name="title_no_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Ce fournisseur ne gère pas les messages push. La réception des nouveaux messages peut être retardée.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
@@ -199,8 +200,8 @@
   <string name="title_sort_on_time">Date</string>
   <string name="title_sort_on_unread">Non lu(s)</string>
   <string name="title_sort_on_starred">Suivis</string>
-  <string name="title_previous">Previous</string>
-  <string name="title_next">Next</string>
+  <string name="title_previous">Précédent</string>
+  <string name="title_next">Suivant</string>
   <string name="title_answer_reply">Réponse standard</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>

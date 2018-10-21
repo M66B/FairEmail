@@ -108,7 +108,8 @@
   <string name="title_no_host">Falta nombre de host</string>
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
-  <string name="title_no_drafts">Falta carpeta de Borradores</string>
+  <string name="title_no_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Este proveedor no soporta mensajes Push. La recepción de nuevos mensajes puede ser retrasada.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -166,7 +167,7 @@
   <string name="title_attachment_saved">Adjunto guardado</string>
   <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
   <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
-  <string name="title_ask_discard">Discard draft?</string>
+  <string name="title_ask_discard">¿Descartar el borrador?</string>
   <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
   <string name="title_compose">Redactar</string>
   <string name="title_from">De:</string>
@@ -176,7 +177,7 @@
   <string name="title_bcc">CCO:</string>
   <string name="title_subject">Asunto:</string>
   <string name="title_body_hint">Su mensaje</string>
-  <string name="title_discard">Discard</string>
+  <string name="title_discard">Eliminar</string>
   <string name="title_save">Guardar</string>
   <string name="title_send">Enviar</string>
   <string name="title_clipboard_empty">Portapapeles vacío</string>
@@ -189,7 +190,7 @@
   <string name="title_from_missing">Falta remitente</string>
   <string name="title_to_missing">Falta destinatario</string>
   <string name="title_attachments_missing">Adjuntos todavía cargándose</string>
-  <string name="title_draft_deleted">Draft discarded</string>
+  <string name="title_draft_deleted">Borrador eliminado</string>
   <string name="title_draft_saved">Borrador guardado</string>
   <string name="title_queued">Enviando mensaje</string>
   <string name="title_search">Buscar</string>
@@ -199,8 +200,8 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
-  <string name="title_previous">Previous</string>
-  <string name="title_next">Next</string>
+  <string name="title_previous">Anterior</string>
+  <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Respuesta estándar</string>
   <string name="title_answer_name">Nombre de respuesta</string>
   <string name="title_answer_text">Texto de respuesta</string>

@@ -108,7 +108,8 @@
   <string name="title_no_host">Hostname fehlt</string>
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
-  <string name="title_no_drafts">Entwurfsordner fehlt</string>
+  <string name="title_no_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Der Empfang von neuen Nachrichten kann sich verzögern.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
