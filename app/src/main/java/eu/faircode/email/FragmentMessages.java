@@ -338,7 +338,10 @@ public class FragmentMessages extends FragmentEx {
                             EntityMessage message = db.message().getMessage(id);
                             EntityFolder folder = db.folder().getFolder(message.folder);
 
-                            if (swipeTarget < 0 || direction == ItemTouchHelper.LEFT) {
+                            if (swipeTarget >= 0 && direction == ItemTouchHelper.RIGHT)
+                                target = db.folder().getFolder(swipeTarget);
+
+                            if (target == null || !target.account.equals((message.account))) {
                                 if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
                                     target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 else {
@@ -349,8 +352,6 @@ public class FragmentMessages extends FragmentEx {
                                     if (target == null)
                                         target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 }
-                            } else {
-                                target = db.folder().getFolder(swipeTarget);
                             }
 
                             result.target = target.name;
