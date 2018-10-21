@@ -464,8 +464,8 @@ public class FragmentMessages extends FragmentEx {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                ViewModelMessages.AccountThread[] pn = (ViewModelMessages.AccountThread[]) bottom_navigation.getTag();
-                ViewModelMessages.AccountThread target = (menuItem.getItemId() == R.id.action_prev ? pn[0] : pn[1]);
+                ViewModelMessages.Target[] pn = (ViewModelMessages.Target[]) bottom_navigation.getTag();
+                ViewModelMessages.Target target = (menuItem.getItemId() == R.id.action_prev ? pn[0] : pn[1]);
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_THREAD)
@@ -587,7 +587,7 @@ public class FragmentMessages extends FragmentEx {
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            ViewModelMessages.AccountThread[] pn = model.getPrevNext(thread);
+            ViewModelMessages.Target[] pn = model.getPrevNext(thread);
             bottom_navigation.setTag(pn);
             bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
             bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
