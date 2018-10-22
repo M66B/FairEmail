@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -193,7 +194,9 @@ public class FragmentCompose extends FragmentEx {
             public void onFocusChange(View view, boolean hasFocus) {
                 free = hasFocus;
 
-                getActivity().invalidateOptionsMenu();
+                Activity activity = getActivity();
+                if (activity != null)
+                    activity.invalidateOptionsMenu();
 
                 grpHeader.setVisibility(hasFocus ? View.GONE : View.VISIBLE);
                 if (hasFocus) {
@@ -213,7 +216,10 @@ public class FragmentCompose extends FragmentEx {
                             if (grpHeader.getVisibility() == View.GONE) {
                                 free = false;
 
-                                getActivity().invalidateOptionsMenu();
+                                Activity activity = getActivity();
+                                if (activity != null)
+                                    activity.invalidateOptionsMenu();
+
                                 grpHeader.setVisibility(View.VISIBLE);
                                 if (addresses)
                                     grpAddresses.setVisibility(View.VISIBLE);
