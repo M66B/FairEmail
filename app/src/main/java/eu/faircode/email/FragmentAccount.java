@@ -628,8 +628,6 @@ public class FragmentAccount extends FragmentEx {
                             interval = "9";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
-                        if (synchronize && trash == null)
-                            throw new Throwable(getContext().getString(R.string.title_no_trash));
                         if (Color.TRANSPARENT == color)
                             color = null;
 
@@ -731,8 +729,8 @@ public class FragmentAccount extends FragmentEx {
                                 folders.add(junk);
                             }
 
+                            db.folder().setFoldersUser(account.id);
                             for (EntityFolder folder : folders) {
-                                db.folder().setFolderUser(account.id, folder.type);
                                 EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                 if (existing == null) {
                                     folder.account = account.id;

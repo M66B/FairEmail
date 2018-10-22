@@ -55,6 +55,11 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveFolders(long account);
 
+    @Query("SELECT * FROM folder" +
+            " WHERE (:account < 0 OR folder.account = :account)" +
+            " AND type <> '" + EntityFolder.USER + "'")
+    LiveData<List<EntityFolder>> liveSystemFolders(long account);
+
     @Query("SELECT folder.*, account.name AS accountName" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
@@ -118,9 +123,8 @@ public interface DaoFolder {
 
     @Query("UPDATE folder" +
             " SET type = '" + EntityFolder.USER + "'" +
-            " WHERE account = :account" +
-            " AND type = :type")
-    int setFolderUser(long account, String type);
+            " WHERE account = :account")
+    int setFoldersUser(long account);
 
     @Query("UPDATE folder" +
             " SET name = :name" +

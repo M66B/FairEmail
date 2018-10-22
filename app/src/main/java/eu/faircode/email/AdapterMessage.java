@@ -357,7 +357,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
 
-            db.folder().liveFolders(message.account).removeObservers(owner);
+            db.folder().liveSystemFolders(message.account).removeObservers(owner);
             db.attachment().liveAttachments(message.id).removeObservers(owner);
 
             bnvActions.setTag(null);
@@ -391,9 +391,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 if (!EntityFolder.OUTBOX.equals(message.folderType)) {
                     bnvActions.setHasTransientState(true);
-                    db.folder().liveFolders(message.account).observe(owner, new Observer<List<TupleFolderEx>>() {
+                    db.folder().liveSystemFolders(message.account).observe(owner, new Observer<List<EntityFolder>>() {
                         @Override
-                        public void onChanged(@Nullable List<TupleFolderEx> folders) {
+                        public void onChanged(@Nullable List<EntityFolder> folders) {
                             if (bnvActions.hasTransientState()) {
                                 boolean hasJunk = false;
                                 boolean hasTrash = false;

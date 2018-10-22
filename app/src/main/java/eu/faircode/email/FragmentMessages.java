@@ -88,6 +88,8 @@ public class FragmentMessages extends FragmentEx {
     private long primary = -1;
     private boolean connected = false;
     private AdapterMessage adapter;
+    private List<Long> archives = new ArrayList<>();
+    private List<Long> trashes = new ArrayList<>();
 
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
@@ -242,7 +244,13 @@ public class FragmentMessages extends FragmentEx {
                         EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
 
-                return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+                int flags = 0;
+                if (archives.contains(message.account))
+                    flags |= ItemTouchHelper.RIGHT;
+                if (trashes.contains(message.account))
+                    flags |= ItemTouchHelper.LEFT;
+
+                return makeMovementFlags(0, flags);
             }
 
             @Override
@@ -583,8 +591,25 @@ public class FragmentMessages extends FragmentEx {
                 break;
         }
 
-        // Messages
-        loadMessages();
+        // Folders and messages
+        db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
+            @Override
+            public void onChanged(List<EntityFolder> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                archives.clear();
+                trashes.clear();
+
+                for (EntityFolder folder : folders)
+                    if (EntityFolder.ARCHIVE.equals(folder.type))
+                        archives.add(folder.account);
+                    else if (EntityFolder.TRASH.equals(folder.type))
+                        trashes.add(folder.account);
+
+                loadMessages();
+            }
+        });
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation
