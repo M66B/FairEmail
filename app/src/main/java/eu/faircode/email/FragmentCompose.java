@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -45,7 +44,6 @@ import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -119,8 +117,6 @@ public class FragmentCompose extends FragmentEx {
     private AdapterAttachment adapter;
 
     private long working = -1;
-    private boolean free = false;
-    private boolean addresses;
     private boolean autosave = false;
 
     @Override
@@ -186,58 +182,6 @@ public class FragmentCompose extends FragmentEx {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
                 startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_BCC);
-            }
-        });
-
-        etBody.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                free = hasFocus;
-
-                Activity activity = getActivity();
-                if (activity != null)
-                    activity.invalidateOptionsMenu();
-
-                grpHeader.setVisibility(hasFocus ? View.GONE : View.VISIBLE);
-                if (hasFocus) {
-                    addresses = (grpAddresses.getVisibility() != View.GONE);
-                    grpAddresses.setVisibility(View.GONE);
-                    grpAttachments.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        etBody.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    switch (keyCode) {
-                        case KeyEvent.KEYCODE_BACK:
-                            if (grpHeader.getVisibility() == View.GONE) {
-                                free = false;
-
-                                Activity activity = getActivity();
-                                if (activity != null)
-                                    activity.invalidateOptionsMenu();
-
-                                grpHeader.setVisibility(View.VISIBLE);
-                                if (addresses)
-                                    grpAddresses.setVisibility(View.VISIBLE);
-                                if (rvAttachment.getAdapter().getItemCount() > 0)
-                                    grpAttachments.setVisibility(View.VISIBLE);
-
-                                new Handler().post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        etTo.requestFocus();
-                                    }
-                                });
-
-                                return true;
-                            }
-                    }
-                }
-                return false;
             }
         });
 
@@ -425,13 +369,13 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_bold).setVisible(free && working >= 0);
-        menu.findItem(R.id.menu_italic).setVisible(free && working >= 0);
-        menu.findItem(R.id.menu_link).setVisible(free && working >= 0);
-        menu.findItem(R.id.menu_image).setVisible(free && working >= 0);
-        menu.findItem(R.id.menu_attachment).setVisible(!free && working >= 0);
+        menu.findItem(R.id.menu_bold).setVisible(working >= 0);
+        menu.findItem(R.id.menu_italic).setVisible(working >= 0);
+        menu.findItem(R.id.menu_link).setVisible(working >= 0);
+        menu.findItem(R.id.menu_image).setVisible(working >= 0);
+        menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
         menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
-        menu.findItem(R.id.menu_addresses).setVisible(!free && working >= 0);
+        menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
 
         PackageManager pm = getContext().getPackageManager();
         menu.findItem(R.id.menu_image).setEnabled(getImageIntent().resolveActivity(pm) != null);
@@ -1130,7 +1074,7 @@ public class FragmentCompose extends FragmentEx {
                                 attachments = new ArrayList<>();
 
                             adapter.set(attachments);
-                            grpAttachments.setVisibility(!free && attachments.size() > 0 ? View.VISIBLE : View.GONE);
+                            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
                         }
                     });
 
@@ -1139,10 +1083,8 @@ public class FragmentCompose extends FragmentEx {
                 @Override
                 public void onChanged(final EntityMessage draft) {
                     // Draft was deleted
-                    if (draft == null || draft.ui_hide) {
+                    if (draft == null || draft.ui_hide)
                         finish();
-                        return;
-                    }
                 }
             });
         }
