@@ -127,7 +127,6 @@
     <string name="title_no_password">Password missing</string>
     <string name="title_no_drafts">No primary account or no drafts folder</string>
     <string name="title_no_archive">No primary account or no archive folder</string>
-    <string name="title_no_target">Target folder not set or missing</string>
     <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
     <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
     <string name="title_account_delete">Delete this account permanently?</string>
@@ -233,8 +232,6 @@
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>
     <string name="title_sort_on_starred">Starred</string>
-
-    <string name="title_swipe">Set right swipe target</string>
 
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
