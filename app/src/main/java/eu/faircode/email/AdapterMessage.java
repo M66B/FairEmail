@@ -348,7 +348,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setTextColor(colorUnseen);
 
             grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
-            ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts ? View.VISIBLE : View.GONE);
+            ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts && message.from != null ? View.VISIBLE : View.GONE);
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(View.GONE);
