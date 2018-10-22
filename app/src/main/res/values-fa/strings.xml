@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">تنظیمات</string>
-  <string name="menu_answers">پاسخ های استاندارد</string>
+  <string name="menu_answers">Reply templates</string>
   <string name="menu_operations">عملیات ها</string>
   <string name="menu_legend">Legend</string>
   <string name="menu_faq">پرسش و پاسخ / پشتیبانی</string>
@@ -205,7 +205,7 @@
   <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
-  <string name="title_answer_reply">Standard reply</string>
+  <string name="title_answer_reply">Reply template</string>
   <string name="title_answer_name">Answer name</string>
   <string name="title_answer_text">Answer text</string>
   <string name="title_legend_inbox">Inbox</string>

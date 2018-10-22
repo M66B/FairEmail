@@ -31,7 +31,7 @@
   </plurals>
   <string name="title_notification_failed">%1$s nie powiodło się</string>
   <string name="menu_setup">Ustawienia</string>
-  <string name="menu_answers">Standardowe odpowiedzi</string>
+  <string name="menu_answers">Reply templates</string>
   <string name="menu_operations">Operacje</string>
   <string name="menu_legend">Legenda</string>
   <string name="menu_faq">FAQ/Wsparcie</string>
@@ -213,7 +213,7 @@
   <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
-  <string name="title_answer_reply">Standardowa odpowiedź</string>
+  <string name="title_answer_reply">Reply template</string>
   <string name="title_answer_name">Nazwa odpowiedzi</string>
   <string name="title_answer_text">Tekst odpowiedzi</string>
   <string name="title_legend_inbox">Odebrane</string>

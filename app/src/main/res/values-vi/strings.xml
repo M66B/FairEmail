@@ -19,7 +19,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' failed</string>
   <string name="menu_setup">Setup</string>
-  <string name="menu_answers">Standard replies</string>
+  <string name="menu_answers">Reply templates</string>
   <string name="menu_operations">Operations</string>
   <string name="menu_legend">Legend</string>
   <string name="menu_faq">FAQ/support</string>
@@ -201,7 +201,7 @@
   <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
-  <string name="title_answer_reply">Standard reply</string>
+  <string name="title_answer_reply">Reply template</string>
   <string name="title_answer_name">Answer name</string>
   <string name="title_answer_text">Answer text</string>
   <string name="title_legend_inbox">Inbox</string>

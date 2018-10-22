@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">%1$s ha fallat</string>
   <string name="menu_setup">Configuració</string>
-  <string name="menu_answers">Respostes estàndard</string>
+  <string name="menu_answers">Reply templates</string>
   <string name="menu_operations">Operacions</string>
   <string name="menu_legend">Llegenda</string>
   <string name="menu_faq">Preguntes freqüents/suport</string>
@@ -205,7 +205,7 @@
   <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Següent</string>
-  <string name="title_answer_reply">Resposta estàndard</string>
+  <string name="title_answer_reply">Reply template</string>
   <string name="title_answer_name">Nom de resposta</string>
   <string name="title_answer_text">Text de resposta</string>
   <string name="title_legend_inbox">Safata d\'entrada</string>

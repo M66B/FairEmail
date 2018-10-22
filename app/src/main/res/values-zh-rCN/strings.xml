@@ -19,7 +19,7 @@
   </plurals>
   <string name="title_notification_failed">“%1$s”失败</string>
   <string name="menu_setup">设置</string>
-  <string name="menu_answers">标准回复</string>
+  <string name="menu_answers">Reply templates</string>
   <string name="menu_operations">操作</string>
   <string name="menu_legend">图例</string>
   <string name="menu_faq">常见问题/支持</string>
@@ -201,7 +201,7 @@
   <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
-  <string name="title_answer_reply">标准回复</string>
+  <string name="title_answer_reply">Reply template</string>
   <string name="title_answer_name">回复名称</string>
   <string name="title_answer_text">回复文本</string>
   <string name="title_legend_inbox">收件箱</string>

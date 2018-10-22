@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a échoué</string>
   <string name="menu_setup">Configuration</string>
-  <string name="menu_answers">Réponses standard</string>
+  <string name="menu_answers">Modèles de réponse</string>
   <string name="menu_operations">Opérations</string>
   <string name="menu_legend">Légende</string>
   <string name="menu_faq">FAQ / Aide</string>
@@ -69,7 +69,7 @@
   <string name="title_advanced_light">Utiliser le voyant de notification</string>
   <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
   <string name="title_advanced_swipe">Gestes de balayage</string>
-  <string name="title_advanced_compact">Compact message view</string>
+  <string name="title_advanced_compact">Affichage compact des messages</string>
   <string name="title_advanced_debug">Débogage</string>
   <string name="title_select">Sélectionner &#8230;</string>
   <string name="title_identity_name">Votre nom</string>
@@ -111,7 +111,7 @@
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Pas de compte principal ou bien pas de dossier brouillon</string>
   <string name="title_no_archive">Pas de compte principal ou bien pas de dossier archive</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_target">Le dossier cible n\'est pas défini ou est manquant</string>
   <string name="title_no_idle">Ce fournisseur ne gère pas les messages push. La réception des nouveaux messages peut être retardée.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
@@ -202,10 +202,10 @@
   <string name="title_sort_on_time">Date</string>
   <string name="title_sort_on_unread">Non lu(s)</string>
   <string name="title_sort_on_starred">Suivis</string>
-  <string name="title_swipe">Set right swipe target</string>
+  <string name="title_swipe">Définir l\'action du balayage à droite</string>
   <string name="title_previous">Précédent</string>
   <string name="title_next">Suivant</string>
-  <string name="title_answer_reply">Réponse standard</string>
+  <string name="title_answer_reply">Modèle de réponse</string>
   <string name="title_answer_name">Nom de la réponse</string>
   <string name="title_answer_text">Texte de la réponse</string>
   <string name="title_legend_inbox">Boîte de réception</string>

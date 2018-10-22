@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
   <string name="menu_setup">Einstellungen</string>
-  <string name="menu_answers">Standardantworten</string>
+  <string name="menu_answers">Antwortvorlagen</string>
   <string name="menu_operations">Vorgänge</string>
   <string name="menu_legend">Legende</string>
   <string name="menu_faq">FAQ/Support</string>
@@ -69,7 +69,7 @@
   <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
   <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
   <string name="title_advanced_swipe">Wischgesten</string>
-  <string name="title_advanced_compact">Compact message view</string>
+  <string name="title_advanced_compact">Kompakte Nachrichtenansicht</string>
   <string name="title_advanced_debug">Debuggen</string>
   <string name="title_select">Wählen Sie &#8230;</string>
   <string name="title_identity_name">Ihr Name</string>
@@ -109,9 +109,9 @@
   <string name="title_no_host">Hostname fehlt</string>
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
-  <string name="title_no_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_archive">No primary account or no archive folder</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_drafts">Kein Hauptkonto oder kein Entwürfeordner</string>
+  <string name="title_no_archive">Kein Hauptkonto oder kein Archivordner</string>
+  <string name="title_no_target">Ein Zielordner wurde nicht festgelegt oder fehlt</string>
   <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Der Empfang von neuen Nachrichten kann sich verzögern.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
@@ -169,7 +169,7 @@
   <string name="title_attachment_saved">Anhang gespeichert</string>
   <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
   <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
-  <string name="title_ask_discard">Discard draft?</string>
+  <string name="title_ask_discard">Entwurf verwerfen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
   <string name="title_compose">Verfassen</string>
   <string name="title_from">Von:</string>
@@ -179,7 +179,7 @@
   <string name="title_bcc">BCC:</string>
   <string name="title_subject">Betreff:</string>
   <string name="title_body_hint">Ihre Nachricht</string>
-  <string name="title_discard">Discard</string>
+  <string name="title_discard">Verwerfen</string>
   <string name="title_save">Speichern</string>
   <string name="title_send">Senden</string>
   <string name="title_clipboard_empty">Zwischenablage ist leer</string>
@@ -192,7 +192,7 @@
   <string name="title_from_missing">Absender fehlt</string>
   <string name="title_to_missing">Empfänger fehlt</string>
   <string name="title_attachments_missing">Anhänge werden noch geladen</string>
-  <string name="title_draft_deleted">Draft discarded</string>
+  <string name="title_draft_deleted">Entwurf verworfen</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
   <string name="title_search">Suche</string>
@@ -203,9 +203,9 @@
   <string name="title_sort_on_unread">Ungelesen</string>
   <string name="title_sort_on_starred">Favoriten</string>
   <string name="title_swipe">Set right swipe target</string>
-  <string name="title_previous">Previous</string>
-  <string name="title_next">Next</string>
-  <string name="title_answer_reply">Standardantworten</string>
+  <string name="title_previous">Vorherige</string>
+  <string name="title_next">Nächste</string>
+  <string name="title_answer_reply">Antwortvorlage</string>
   <string name="title_answer_name">Antwort Name</string>
   <string name="title_answer_text">Antworttext</string>
   <string name="title_legend_inbox">Posteingang</string>
