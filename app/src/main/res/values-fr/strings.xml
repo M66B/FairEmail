@@ -109,10 +109,10 @@
   <string name="title_no_host">Nom d\'hôte manquant</string>
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
-  <string name="title_no_drafts">No drafts folder selected</string>
-  <string name="title_no_trash">No trash folder selected</string>
-  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_primary_archive">No primary account or no archive folder</string>
+  <string name="title_no_drafts">Aucun dossier Brouillons sélectionné</string>
+  <string name="title_no_trash">Aucun dossier Corbeille sélectionné</string>
+  <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
+  <string name="title_no_primary_archive">Pas de compte principal ou pas de dossier Archives</string>
   <string name="title_no_idle">Ce fournisseur ne gère pas les messages push. La réception des nouveaux messages peut être retardée.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
   <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
