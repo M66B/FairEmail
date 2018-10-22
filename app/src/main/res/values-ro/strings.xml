@@ -27,7 +27,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' a eșuat</string>
   <string name="menu_setup">Setări</string>
-  <string name="menu_answers">Reply templates</string>
+  <string name="menu_answers">Șabloane răspunsuri</string>
   <string name="menu_operations">Operaţii</string>
   <string name="menu_legend">Legendă</string>
   <string name="menu_faq">Întrebări/suport</string>
@@ -73,7 +73,7 @@
   <string name="title_advanced_light">Folosire LED de notificare</string>
   <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
   <string name="title_advanced_swipe">Acțiuni glisare</string>
-  <string name="title_advanced_compact">Compact message view</string>
+  <string name="title_advanced_compact">Afișarea compactă a mesajelor</string>
   <string name="title_advanced_debug">Depanare</string>
   <string name="title_select">Selectaţi &#8230;</string>
   <string name="title_identity_name">Numele dumneavoastră</string>
@@ -113,9 +113,10 @@
   <string name="title_no_host">Lipsește numele serverului</string>
   <string name="title_no_user">Lipsește numele de utilizator</string>
   <string name="title_no_password">Lipsește parola</string>
-  <string name="title_no_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_archive">No primary account or no archive folder</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Acest furnizor nu suportă mesaje push. Recepția mesajelor noi poate fi întârziată.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS nu este suportat, consultați lista de întrebări și răspunsuri</string>
   <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
@@ -206,10 +207,9 @@
   <string name="title_sort_on_time">Dată</string>
   <string name="title_sort_on_unread">Necitit</string>
   <string name="title_sort_on_starred">Marcat</string>
-  <string name="title_swipe">Set right swipe target</string>
-  <string name="title_previous">Previous</string>
-  <string name="title_next">Next</string>
-  <string name="title_answer_reply">Reply template</string>
+  <string name="title_previous">Precedent</string>
+  <string name="title_next">Următor</string>
+  <string name="title_answer_reply">Șablon răspuns</string>
   <string name="title_answer_name">Titlu răspuns</string>
   <string name="title_answer_text">Text răspuns</string>
   <string name="title_legend_inbox">Primite</string>

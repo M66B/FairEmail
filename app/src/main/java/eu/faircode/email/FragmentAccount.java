@@ -628,6 +628,8 @@ public class FragmentAccount extends FragmentEx {
                             interval = "9";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
+                        if (synchronize && trash == null)
+                            throw new Throwable(getContext().getString(R.string.title_no_trash));
                         if (Color.TRANSPARENT == color)
                             color = null;
 

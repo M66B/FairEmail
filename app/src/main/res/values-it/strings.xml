@@ -23,7 +23,7 @@
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fallito</string>
   <string name="menu_setup">Configurazione</string>
-  <string name="menu_answers">Reply templates</string>
+  <string name="menu_answers">Modelli di risposta</string>
   <string name="menu_operations">Operazioni</string>
   <string name="menu_legend">Legenda</string>
   <string name="menu_faq">FAQ/supporto</string>
@@ -69,7 +69,7 @@
   <string name="title_advanced_light">Usa il led di notifica</string>
   <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
   <string name="title_advanced_swipe">Azioni swipe</string>
-  <string name="title_advanced_compact">Compact message view</string>
+  <string name="title_advanced_compact">Visualizzazione messaggio compatto</string>
   <string name="title_advanced_debug">Debug</string>
   <string name="title_select">Seleziona &#8230;</string>
   <string name="title_identity_name">Il tuo nome</string>
@@ -109,9 +109,10 @@
   <string name="title_no_host">Nome dell\'host mancante</string>
   <string name="title_no_user">Nome utente mancante</string>
   <string name="title_no_password">Password mancante</string>
-  <string name="title_no_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_archive">No primary account or no archive folder</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Questo fornitore non supporta i messaggi push. La ricezione di nuovi messaggi può subire ritardi.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS non supportato, vedi le FAQ</string>
   <string name="title_account_delete">Eliminare questo account permanentemente?</string>
@@ -202,10 +203,9 @@
   <string name="title_sort_on_time">Ora</string>
   <string name="title_sort_on_unread">Non letti</string>
   <string name="title_sort_on_starred">Stellati</string>
-  <string name="title_swipe">Set right swipe target</string>
-  <string name="title_previous">Previous</string>
-  <string name="title_next">Next</string>
-  <string name="title_answer_reply">Reply template</string>
+  <string name="title_previous">Precedente</string>
+  <string name="title_next">Successivo</string>
+  <string name="title_answer_reply">Modello di risposta</string>
   <string name="title_answer_name">Nome risposta</string>
   <string name="title_answer_text">Testo risposta</string>
   <string name="title_legend_inbox">Posta in arrivo</string>

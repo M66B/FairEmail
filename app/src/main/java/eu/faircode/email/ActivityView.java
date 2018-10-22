@@ -328,7 +328,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         EntityFolder archive = db.folder().getPrimaryArchive();
                         if (archive == null)
-                            throw new IllegalArgumentException(getString(R.string.title_no_archive));
+                            throw new IllegalArgumentException(getString(R.string.title_no_primary_archive));
 
                         db.message().deleteFoundMessages();
 

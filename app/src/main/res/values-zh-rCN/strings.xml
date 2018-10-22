@@ -105,9 +105,10 @@
   <string name="title_no_host">缺少主机名称</string>
   <string name="title_no_user">缺少用户名</string>
   <string name="title_no_password">缺少密码</string>
-  <string name="title_no_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_archive">No primary account or no archive folder</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">吃提供商不支持推送消息. 新消息的接收可能会延迟</string>
   <string name="title_no_uidplus">不支持 IMAP UIDPLUS, 详见常见问题</string>
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
@@ -198,7 +199,6 @@
   <string name="title_sort_on_time">时间</string>
   <string name="title_sort_on_unread">未读</string>
   <string name="title_sort_on_starred">星标记</string>
-  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Reply template</string>

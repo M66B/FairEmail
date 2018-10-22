@@ -109,9 +109,10 @@
   <string name="title_no_host">Hostname fehlt</string>
   <string name="title_no_user">Benutzername fehlt</string>
   <string name="title_no_password">Passwort fehlt</string>
-  <string name="title_no_drafts">Kein Hauptkonto oder kein Entwürfeordner</string>
-  <string name="title_no_archive">Kein Hauptkonto oder kein Archivordner</string>
-  <string name="title_no_target">Ein Zielordner wurde nicht festgelegt oder fehlt</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Der Empfang von neuen Nachrichten kann sich verzögern.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
@@ -202,7 +203,6 @@
   <string name="title_sort_on_time">Uhrzeit</string>
   <string name="title_sort_on_unread">Ungelesen</string>
   <string name="title_sort_on_starred">Favoriten</string>
-  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Vorherige</string>
   <string name="title_next">Nächste</string>
   <string name="title_answer_reply">Antwortvorlage</string>

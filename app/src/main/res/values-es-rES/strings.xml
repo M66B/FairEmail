@@ -64,7 +64,7 @@
   <string name="title_setup_light_theme">Tema claro</string>
   <string name="title_setup_dark_theme">Tema oscuro</string>
   <string name="title_advanced">Opciones avanzadas</string>
-  <string name="title_advanced_enabled">Activado</string>
+  <string name="title_advanced_enabled">Servicio activado</string>
   <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
   <string name="title_advanced_light">Usar luz de notificación</string>
   <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
@@ -109,9 +109,10 @@
   <string name="title_no_host">Falta nombre de host</string>
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
-  <string name="title_no_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
-  <string name="title_no_archive">No hay cuenta primaria o no hay carpeta de archivados</string>
-  <string name="title_no_target">La carpeta destino no está establecida o no existe</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Este proveedor no soporta mensajes Push. La recepción de nuevos mensajes puede ser retrasada.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -202,7 +203,6 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
-  <string name="title_swipe">Establecer destino al deslizar a la derecha</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Plantilla de respuesta</string>

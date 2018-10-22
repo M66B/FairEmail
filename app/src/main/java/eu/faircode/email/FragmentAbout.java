@@ -137,7 +137,7 @@ public class FragmentAbout extends FragmentEx {
 
                             EntityFolder drafts = db.folder().getPrimaryDrafts();
                             if (drafts == null)
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
 
                             draft = new EntityMessage();
                             draft.account = drafts.account;

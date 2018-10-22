@@ -109,9 +109,10 @@
   <string name="title_no_host">Falta nom de servidor</string>
   <string name="title_no_user">Falta nom de d\'usuari</string>
   <string name="title_no_password">Falta la contrasenya</string>
-  <string name="title_no_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_archive">No primary account or no archive folder</string>
-  <string name="title_no_target">Target folder not set or missing</string>
+  <string name="title_no_drafts">No drafts folder selected</string>
+  <string name="title_no_trash">No trash folder selected</string>
+  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
+  <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">Aquest proveïdor no suporta missatges push. La recepció de nous missatges pot sofrir retards.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no està suportat, per favor consulta les preguntes freqüents</string>
   <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
@@ -202,7 +203,6 @@
   <string name="title_sort_on_time">Data</string>
   <string name="title_sort_on_unread">Sense llegir</string>
   <string name="title_sort_on_starred">Destacats</string>
-  <string name="title_swipe">Set right swipe target</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Següent</string>
   <string name="title_answer_reply">Reply template</string>
