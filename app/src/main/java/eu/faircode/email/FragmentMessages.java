@@ -316,6 +316,7 @@ public class FragmentMessages extends FragmentEx {
 
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
+                args.putLong("folder", folder);
                 args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
                 args.putInt("direction", direction);
                 args.putLong("swipeTarget", swipeTarget);
@@ -324,6 +325,7 @@ public class FragmentMessages extends FragmentEx {
                     @Override
                     protected MessageTarget onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
+                        long fid = args.getLong("folder");
                         boolean thread = args.getBoolean("thread");
                         int direction = args.getInt("direction");
 
@@ -336,9 +338,9 @@ public class FragmentMessages extends FragmentEx {
                             db.beginTransaction();
 
                             EntityMessage message = db.message().getMessage(id);
-                            EntityFolder folder = db.folder().getFolder(message.folder);
 
-                            if (swipeTarget < 0 || direction == ItemTouchHelper.LEFT) {
+                            if (fid < 0 || swipeTarget < 0 || direction == ItemTouchHelper.LEFT) {
+                                EntityFolder folder = db.folder().getFolder(message.folder);
                                 if (EntityFolder.ARCHIVE.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))
                                     target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                                 else {
