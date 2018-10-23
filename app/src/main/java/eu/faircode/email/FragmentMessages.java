@@ -86,6 +86,7 @@ public class FragmentMessages extends FragmentEx {
     private String search = null;
 
     private long primary = -1;
+    private boolean outbox = false;
     private boolean connected = false;
     private AdapterMessage adapter;
     private List<Long> archives = new ArrayList<>();
@@ -577,6 +578,9 @@ public class FragmentMessages extends FragmentEx {
                                 setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
                             else
                                 setSubtitle(name);
+
+                            outbox = EntityFolder.OUTBOX.equals(folder.type);
+                            getActivity().invalidateOptionsMenu();
                         }
                     }
                 });
@@ -716,6 +720,7 @@ public class FragmentMessages extends FragmentEx {
         menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+        menu.findItem(R.id.menu_move_sent).setVisible(outbox);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
@@ -758,6 +763,10 @@ public class FragmentMessages extends FragmentEx {
                 loadMessages();
                 return true;
 
+            case R.id.menu_move_sent:
+                onMenuMoveSent();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -775,6 +784,48 @@ public class FragmentMessages extends FragmentEx {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuMoveSent() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                long outbox = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (EntityMessage message : db.message().getMessageSeen(outbox)) {
+                        EntityIdentity identity = db.identity().getIdentity(message.identity);
+                        EntityFolder sent = db.folder().getFolderByType(identity.account, EntityFolder.SENT);
+                        if (sent != null) {
+                            message.folder = sent.id;
+                            message.uid = null;
+                            db.message().updateMessage(message);
+                            Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
+                            EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
+        }.load(this, args);
     }
 
     private void loadMessages() {

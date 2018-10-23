@@ -34,4 +34,9 @@
         android:icon="@drawable/baseline_folder_open_24"
         android:title="@string/title_folder_primary"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_move_sent"
+        android:title="@string/title_move_sent"
+        app:showAsAction="never" />
 </menu>

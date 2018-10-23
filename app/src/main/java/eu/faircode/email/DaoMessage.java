@@ -152,6 +152,11 @@ public interface DaoMessage {
             " AND ui_found = :found")
     List<EntityMessage> getMessageByMsgId(long account, String msgid, String reference, boolean found);
 
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND ui_seen")
+    List<EntityMessage> getMessageSeen(long folder);
+
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
