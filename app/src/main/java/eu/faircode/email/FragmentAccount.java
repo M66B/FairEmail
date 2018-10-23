@@ -28,12 +28,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -93,13 +95,18 @@ public class FragmentAccount extends FragmentEx {
     private ViewGroup view;
 
     private Spinner spProvider;
-    private EditText etHost;
+
     private EditText etDomain;
     private Button btnAutoConfig;
+
+    private EditText etHost;
+    private CheckBox cbStartTls;
+    private CheckBox cbInsecure;
     private EditText etPort;
-    private Button btnAuthorize;
     private EditText etUser;
     private TextInputLayout tilPassword;
+
+    private Button btnAuthorize;
 
     private Button btnAdvanced;
 
@@ -155,6 +162,9 @@ public class FragmentAccount extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_account);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final boolean insecure = prefs.getBoolean("insecure", false);
+
         view = (ViewGroup) inflater.inflate(R.layout.fragment_account, container, false);
 
         // Get controls
@@ -165,10 +175,12 @@ public class FragmentAccount extends FragmentEx {
 
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
-
-        btnAuthorize = view.findViewById(R.id.btnAuthorize);
+        cbStartTls = view.findViewById(R.id.cbStartTls);
+        cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+
+        btnAuthorize = view.findViewById(R.id.btnAuthorize);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
 
@@ -214,6 +226,8 @@ public class FragmentAccount extends FragmentEx {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 Provider provider = (Provider) adapterView.getSelectedItem();
                 grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
+                cbStartTls.setVisibility(position == 1 && insecure ? View.VISIBLE : View.GONE);
+                cbInsecure.setVisibility(position == 1 && insecure ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
                 btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);
@@ -290,6 +304,13 @@ public class FragmentAccount extends FragmentEx {
                             Helper.unexpectedError(getContext(), ex);
                     }
                 }.load(FragmentAccount.this, args);
+            }
+        });
+
+        cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                etPort.setHint(checked ? "143" : "993");
             }
         });
 
@@ -401,6 +422,8 @@ public class FragmentAccount extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("host", etHost.getText().toString());
+                args.putBoolean("starttls", cbStartTls.isChecked());
+                args.putBoolean("insecure", cbInsecure.isChecked());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
@@ -411,6 +434,8 @@ public class FragmentAccount extends FragmentEx {
                     protected CheckResult onLoad(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         String host = args.getString("host");
+                        boolean starttls = args.getBoolean("starttls");
+                        boolean insecure = args.getBoolean("insecure");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
@@ -419,22 +444,22 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            port = "993";
+                            port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
                             throw new Throwable(getContext().getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password))
+                        if (TextUtils.isEmpty(password) && !insecure)
                             throw new Throwable(getContext().getString(R.string.title_no_password));
 
                         CheckResult result = new CheckResult();
                         result.folders = new ArrayList<>();
 
                         // Check IMAP server / get folders
-                        Properties props = MessageHelper.getSessionProperties(auth_type);
+                        Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
                         Session isession = Session.getInstance(props, null);
                         isession.setDebug(true);
                         IMAPStore istore = null;
                         try {
-                            istore = (IMAPStore) isession.getStore("imaps");
+                            istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
                             try {
                                 istore.connect(host, Integer.parseInt(port), user, password);
                             } catch (AuthenticationFailedException ex) {
@@ -574,6 +599,8 @@ public class FragmentAccount extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("host", etHost.getText().toString());
+                args.putBoolean("starttls", cbStartTls.isChecked());
+                args.putBoolean("insecure", cbInsecure.isChecked());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
@@ -597,6 +624,8 @@ public class FragmentAccount extends FragmentEx {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
                         String host = args.getString("host");
+                        boolean starttls = args.getBoolean("starttls");
+                        boolean insecure = args.getBoolean("insecure");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
@@ -619,10 +648,10 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new Throwable(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            port = "993";
+                            port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
                             throw new Throwable(getContext().getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password))
+                        if (TextUtils.isEmpty(password) && !insecure)
                             throw new Throwable(getContext().getString(R.string.title_no_password));
                         if (TextUtils.isEmpty(interval))
                             interval = "9";
@@ -633,11 +662,11 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server
                         if (synchronize) {
-                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type), null);
+                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type, insecure), null);
                             isession.setDebug(true);
                             IMAPStore istore = null;
                             try {
-                                istore = (IMAPStore) isession.getStore("imaps");
+                                istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
                                 try {
                                     istore.connect(host, Integer.parseInt(port), user, password);
                                 } catch (AuthenticationFailedException ex) {
@@ -669,6 +698,8 @@ public class FragmentAccount extends FragmentEx {
                                 account = new EntityAccount();
 
                             account.host = host;
+                            account.starttls = starttls;
+                            account.insecure = insecure;
                             account.port = Integer.parseInt(port);
                             account.user = user;
                             account.password = password;
@@ -828,6 +859,8 @@ public class FragmentAccount extends FragmentEx {
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnAuthorize.setVisibility(View.GONE);
+        cbStartTls.setVisibility(View.GONE);
+        cbInsecure.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
 
         btnAdvanced.setVisibility(View.GONE);

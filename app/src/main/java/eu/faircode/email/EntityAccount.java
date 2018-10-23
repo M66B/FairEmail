@@ -41,6 +41,10 @@ public class EntityAccount {
     @NonNull
     public String host; // IMAP
     @NonNull
+    public Boolean starttls;
+    @NonNull
+    public Boolean insecure;
+    @NonNull
     public Integer port;
     @NonNull
     public String user;

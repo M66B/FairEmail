@@ -99,15 +99,15 @@ This IMAP extension is required to implement two way synchronization, which is n
 So, unless your provider can enable this extension, you cannot use FairEmail for this provider.
 
 <a name="FAQ11"></a>
-**(11) Why is STARTTLS for IMAP not supported?**
+~~**(11) Why is STARTTLS for IMAP not supported?**~~
 
-STARTTLS starts with a not encrypted connection and is therefore not secure.
-All well known IMAP servers support IMAP with a plain SSL connection, so there is no need to support STARTTLS for IMAP.
-If you encounter an IMAP server that requires STARTTLS, please let me know.
+~~STARTTLS starts with a not encrypted connection and is therefore not secure.~~
+~~All well known IMAP servers support IMAP with a plain SSL connection, so there is no need to support STARTTLS for IMAP.~~
+~~If you encounter an IMAP server that requires STARTTLS, please let me know.~~
 
-For more background information, please see [this article](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery).
+~~For more background information, please see [this article](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery).~~
 
-tl;dr; "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
+~~tl;dr; "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"~~
 
 <a name="FAQ13"></a>
 **(13) How does search on server work?**

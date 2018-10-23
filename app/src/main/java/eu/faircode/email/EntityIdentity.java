@@ -54,9 +54,11 @@ public class EntityIdentity {
     @NonNull
     public String host; // SMTP
     @NonNull
-    public Integer port;
-    @NonNull
     public Boolean starttls;
+    @NonNull
+    public Boolean insecure;
+    @NonNull
+    public Integer port;
     @NonNull
     public String user;
     @NonNull

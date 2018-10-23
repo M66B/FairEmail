@@ -63,11 +63,13 @@ public class MessageHelper {
 
     final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
 
-    static Properties getSessionProperties(int auth_type) {
+    static Properties getSessionProperties(int auth_type, boolean insecure) {
         Properties props = new Properties();
 
+        String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
+
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
-        props.put("mail.imaps.ssl.checkserveridentity", "true");
+        props.put("mail.imaps.ssl.checkserveridentity", checkserveridentity);
         props.put("mail.imaps.ssl.trust", "*");
         props.put("mail.imaps.starttls.enable", "false");
 
@@ -79,22 +81,35 @@ public class MessageHelper {
         props.put("mail.imaps.connectionpool.debug", "true");
         props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
 
-        // "mail.imaps.finalizecleanclose"
-
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
-        if (true) {
-            Log.i(Helper.TAG, "IMAP compress enabled");
-            props.put("mail.imaps.compress.enable", "true");
-            //props.put("mail.imaps.compress.level", "-1");
-            //props.put("mail.imaps.compress.strategy", "0");
-        }
+        props.put("mail.imaps.compress.enable", "true");
+        //props.put("mail.imaps.compress.level", "-1");
+        //props.put("mail.imaps.compress.strategy", "0");
 
         props.put("mail.imaps.fetchsize", Integer.toString(48 * 1024)); // default 16K
         props.put("mail.imaps.peek", "true");
 
+        props.put("mail.imap.ssl.checkserveridentity", checkserveridentity);
+        props.put("mail.imap.ssl.trust", "*");
+        props.put("mail.imap.starttls.enable", "true");
+        props.put("mail.imap.starttls.required", "true");
+        props.put("mail.imap.auth", "true");
+
+        props.put("mail.imap.connectiontimeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.imap.timeout", Integer.toString(NETWORK_TIMEOUT));
+        props.put("mail.imap.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
+
+        props.put("mail.imap.connectionpool.debug", "true");
+        props.put("mail.imap.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+
+        props.put("mail.imap.compress.enable", "true");
+
+        props.put("mail.imap.fetchsize", Integer.toString(48 * 1024)); // default 16K
+        props.put("mail.imap.peek", "true");
+
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
-        props.put("mail.smtps.ssl.checkserveridentity", "true");
+        props.put("mail.smtps.ssl.checkserveridentity", checkserveridentity);
         props.put("mail.smtps.ssl.trust", "*");
         props.put("mail.smtps.starttls.enable", "false");
         props.put("mail.smtps.starttls.required", "false");
@@ -104,7 +119,7 @@ public class MessageHelper {
         props.put("mail.smtps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
         props.put("mail.smtps.timeout", Integer.toString(NETWORK_TIMEOUT));
 
-        props.put("mail.smtp.ssl.checkserveridentity", "true");
+        props.put("mail.smtp.ssl.checkserveridentity", checkserveridentity);
         props.put("mail.smtp.ssl.trust", "*");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.starttls.required", "true");
@@ -145,6 +160,7 @@ public class MessageHelper {
         Log.i(Helper.TAG, "Auth type=" + auth_type);
         if (auth_type == Helper.AUTH_TYPE_GMAIL) {
             props.put("mail.imaps.auth.mechanisms", "XOAUTH2");
+            props.put("mail.imap.auth.mechanisms", "XOAUTH2");
             props.put("mail.smtps.auth.mechanisms", "XOAUTH2");
             props.put("mail.smtp.auth.mechanisms", "XOAUTH2");
         }

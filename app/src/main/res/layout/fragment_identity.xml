@@ -214,6 +214,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etHost" />
 
+        <CheckBox
+            android:id="@+id/cbInsecure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_allow_insecure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbStartTls" />
+
         <!-- port -->
 
         <TextView
@@ -224,7 +233,7 @@
             android:text="@string/title_port"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbStartTls" />
+            app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
 
         <EditText
             android:id="@+id/etPort"

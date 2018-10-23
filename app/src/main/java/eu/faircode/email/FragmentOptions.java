@@ -38,6 +38,7 @@ public class FragmentOptions extends FragmentEx {
     private CheckBox cbBrowse;
     private CheckBox cbSwipe;
     private CheckBox cbCompact;
+    private CheckBox cbInsecure;
     private CheckBox cbDebug;
 
     @Override
@@ -54,6 +55,7 @@ public class FragmentOptions extends FragmentEx {
         cbBrowse = view.findViewById(R.id.cbBrowse);
         cbSwipe = view.findViewById(R.id.cbSwipe);
         cbCompact = view.findViewById(R.id.cbCompact);
+        cbInsecure = view.findViewById(R.id.cbInsecure);
         cbDebug = view.findViewById(R.id.cbDebug);
 
         // Wire controls
@@ -109,6 +111,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("compact", checked).apply();
+            }
+        });
+
+        cbInsecure.setChecked(prefs.getBoolean("insecure", false));
+        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("insecure", checked).apply();
             }
         });
 

@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -74,6 +76,7 @@ public class FragmentIdentity extends FragmentEx {
     private Button btnAutoConfig;
     private EditText etHost;
     private CheckBox cbStartTls;
+    private CheckBox cbInsecure;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -102,6 +105,9 @@ public class FragmentIdentity extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_identity);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final boolean insecure = prefs.getBoolean("insecure", false);
+
         view = (ViewGroup) inflater.inflate(R.layout.fragment_identity, container, false);
 
         // Get controls
@@ -120,8 +126,8 @@ public class FragmentIdentity extends FragmentEx {
 
         etHost = view.findViewById(R.id.etHost);
         cbStartTls = view.findViewById(R.id.cbStartTls);
+        cbInsecure = view.findViewById(R.id.cbInsecure);
         etPort = view.findViewById(R.id.etPort);
-
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
 
@@ -188,21 +194,6 @@ public class FragmentIdentity extends FragmentEx {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        btnAdvanced.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
-                grpAdvanced.setVisibility(visibility);
-                if (visibility == View.VISIBLE)
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvEmail.getTop());
-                        }
-                    });
             }
         });
 
@@ -275,6 +266,22 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        btnAdvanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+                grpAdvanced.setVisibility(visibility);
+                cbInsecure.setVisibility(insecure ? visibility : View.GONE);
+                if (visibility == View.VISIBLE)
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((ScrollView) view).smoothScrollTo(0, tvEmail.getTop());
+                        }
+                    });
+            }
+        });
+
         cbStartTls.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -307,6 +314,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
                 args.putString("host", etHost.getText().toString());
                 args.putBoolean("starttls", cbStartTls.isChecked());
+                args.putBoolean("insecure", cbInsecure.isChecked());
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
@@ -324,6 +332,7 @@ public class FragmentIdentity extends FragmentEx {
                         String replyto = args.getString("replyto");
                         String host = args.getString("host");
                         boolean starttls = args.getBoolean("starttls");
+                        boolean insecure = args.getBoolean("insecure");
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
@@ -339,10 +348,10 @@ public class FragmentIdentity extends FragmentEx {
                         if (TextUtils.isEmpty(host))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
-                            port = "465";
+                            port = (starttls ? "587" : "465");
                         if (TextUtils.isEmpty(user))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password))
+                        if (TextUtils.isEmpty(password) && !insecure)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
                         if (TextUtils.isEmpty(replyto))
@@ -350,7 +359,7 @@ public class FragmentIdentity extends FragmentEx {
 
                         // Check SMTP server
                         if (synchronize) {
-                            Properties props = MessageHelper.getSessionProperties(auth_type);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
@@ -382,8 +391,9 @@ public class FragmentIdentity extends FragmentEx {
                             identity.email = email;
                             identity.replyto = replyto;
                             identity.host = host;
-                            identity.port = Integer.parseInt(port);
                             identity.starttls = starttls;
+                            identity.insecure = insecure;
+                            identity.port = Integer.parseInt(port);
                             identity.user = user;
                             identity.password = password;
                             identity.auth_type = auth_type;
@@ -476,6 +486,7 @@ public class FragmentIdentity extends FragmentEx {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+        cbInsecure.setVisibility(View.GONE);
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         btnSave.setVisibility(View.GONE);
         btnAdvanced.setVisibility(View.GONE);

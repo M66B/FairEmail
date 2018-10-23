@@ -574,12 +574,12 @@ public class ServiceSynchronize extends LifecycleService {
                 System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
                 // Create session
-                Properties props = MessageHelper.getSessionProperties(account.auth_type);
+                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
                 final Session isession = Session.getInstance(props, null);
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
 
-                final IMAPStore istore = (IMAPStore) isession.getStore("imaps");
+                final IMAPStore istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
                 final Map<EntityFolder, IMAPFolder> folders = new HashMap<>();
                 List<Thread> syncs = new ArrayList<>();
                 List<Thread> idlers = new ArrayList<>();
@@ -1331,7 +1331,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         // Create session
-        Properties props = MessageHelper.getSessionProperties(ident.auth_type);
+        Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.insecure);
         final Session isession = Session.getInstance(props, null);
 
         // Create message

@@ -68,12 +68,12 @@ public class ViewModelBrowse extends ViewModel {
         EntityAccount account = db.account().getAccount(folder.account);
 
         if (imessages == null) {
-            Properties props = MessageHelper.getSessionProperties(account.auth_type);
+            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
             props.setProperty("mail.imap.throwsearchexception", "true");
             Session isession = Session.getInstance(props, null);
 
             Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
-            istore = (IMAPStore) isession.getStore("imaps");
+            istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
             Helper.connect(context, istore, account);
 
             Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
