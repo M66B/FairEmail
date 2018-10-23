@@ -203,6 +203,7 @@
   <string name="title_sort_on_time">Uhrzeit</string>
   <string name="title_sort_on_unread">Ungelesen</string>
   <string name="title_sort_on_starred">Favoriten</string>
+  <string name="title_move_sent">Move to sent</string>
   <string name="title_previous">Vorherige</string>
   <string name="title_next">Nächste</string>
   <string name="title_answer_reply">Antwortvorlage</string>

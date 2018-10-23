@@ -90,7 +90,7 @@
   <string name="title_custom">Personnalisé</string>
   <string name="title_host">Nom d’hôte</string>
   <string name="title_starttls">STARTTLS</string>
-  <string name="title_allow_insecure">Allow insecure connections</string>
+  <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
   <string name="title_port">Numéro de port</string>
   <string name="title_user">Nom d’utilisateur</string>
   <string name="title_password">Mot de passe</string>
@@ -203,6 +203,7 @@
   <string name="title_sort_on_time">Date</string>
   <string name="title_sort_on_unread">Non lu(s)</string>
   <string name="title_sort_on_starred">Suivis</string>
+  <string name="title_move_sent">Déplacer dans Envoyés</string>
   <string name="title_previous">Précédent</string>
   <string name="title_next">Suivant</string>
   <string name="title_answer_reply">Modèle de réponse</string>

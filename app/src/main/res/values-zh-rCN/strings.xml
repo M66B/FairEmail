@@ -199,6 +199,7 @@
   <string name="title_sort_on_time">时间</string>
   <string name="title_sort_on_unread">未读</string>
   <string name="title_sort_on_starred">星标记</string>
+  <string name="title_move_sent">Move to sent</string>
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Reply template</string>

@@ -211,6 +211,7 @@
   <string name="title_sort_on_time">Czas</string>
   <string name="title_sort_on_unread">Nieprzeczytane</string>
   <string name="title_sort_on_starred">Oznaczone</string>
+  <string name="title_move_sent">Move to sent</string>
   <string name="title_previous">Poprzedni</string>
   <string name="title_next">Następny</string>
   <string name="title_answer_reply">Szablon odpowiedzi</string>

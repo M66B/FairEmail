@@ -203,6 +203,7 @@
   <string name="title_sort_on_time">Data</string>
   <string name="title_sort_on_unread">Sense llegir</string>
   <string name="title_sort_on_starred">Destacats</string>
+  <string name="title_move_sent">Move to sent</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Següent</string>
   <string name="title_answer_reply">Reply template</string>

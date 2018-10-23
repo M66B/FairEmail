@@ -203,6 +203,7 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
+  <string name="title_move_sent">Move to sent</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Plantilla de respuesta</string>
