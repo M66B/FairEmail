@@ -109,10 +109,9 @@
   <string name="title_no_host">Falta nombre de host</string>
   <string name="title_no_user">Falta nombre de usuario</string>
   <string name="title_no_password">Falta contraseña</string>
-  <string name="title_no_drafts">No drafts folder selected</string>
-  <string name="title_no_trash">No trash folder selected</string>
-  <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
-  <string name="title_no_primary_archive">No primary account or no archive folder</string>
+  <string name="title_no_drafts">No se seleccionó carpeta de borradores</string>
+  <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
+  <string name="title_no_primary_archive">No hay cuenta primaria o no hay carpeta de archivados</string>
   <string name="title_no_idle">Este proveedor no soporta mensajes Push. La recepción de nuevos mensajes puede ser retrasada.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>

@@ -110,7 +110,6 @@
   <string name="title_no_user">Nom d\'utilisateur manquant</string>
   <string name="title_no_password">Mot de passe manquant</string>
   <string name="title_no_drafts">Aucun dossier Brouillons sélectionné</string>
-  <string name="title_no_trash">Aucun dossier Corbeille sélectionné</string>
   <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
   <string name="title_no_primary_archive">Pas de compte principal ou pas de dossier Archives</string>
   <string name="title_no_idle">Ce fournisseur ne gère pas les messages push. La réception des nouveaux messages peut être retardée.</string>

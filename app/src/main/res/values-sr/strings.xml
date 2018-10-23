@@ -114,7 +114,6 @@
   <string name="title_no_user">User name missing</string>
   <string name="title_no_password">Password missing</string>
   <string name="title_no_drafts">No drafts folder selected</string>
-  <string name="title_no_trash">No trash folder selected</string>
   <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
   <string name="title_no_primary_archive">No primary account or no archive folder</string>
   <string name="title_no_idle">This provider does not support push messages. Reception of new messages can be delayed.</string>
