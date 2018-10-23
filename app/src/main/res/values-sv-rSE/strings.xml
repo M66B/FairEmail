@@ -90,6 +90,7 @@
   <string name="title_custom">Anpassad</string>
   <string name="title_host">Värdnamn</string>
   <string name="title_starttls">STARTTLS</string>
+  <string name="title_allow_insecure">Allow insecure connections</string>
   <string name="title_port">Portnummer</string>
   <string name="title_user">Användarnamn</string>
   <string name="title_password">Lösenord</string>
@@ -112,7 +113,7 @@
   <string name="title_no_drafts">No drafts folder selected</string>
   <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
   <string name="title_no_primary_archive">No primary account or no archive folder</string>
-  <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Mottagning av nya meddelanden kan fördröjas.</string>
+  <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS stöds inte, se Vanliga frågor</string>
   <string name="title_account_delete">Ta bort detta konto permanent?</string>
   <string name="title_identity_delete">Ta bort denna identitet permanent?</string>

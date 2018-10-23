@@ -86,6 +86,7 @@
   <string name="title_custom">自定义</string>
   <string name="title_host">主机名称</string>
   <string name="title_starttls">STARTTLS</string>
+  <string name="title_allow_insecure">Allow insecure connections</string>
   <string name="title_port">端口</string>
   <string name="title_user">用户名</string>
   <string name="title_password">密码</string>
@@ -108,7 +109,7 @@
   <string name="title_no_drafts">No drafts folder selected</string>
   <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
   <string name="title_no_primary_archive">No primary account or no archive folder</string>
-  <string name="title_no_idle">吃提供商不支持推送消息. 新消息的接收可能会延迟</string>
+  <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
   <string name="title_no_uidplus">不支持 IMAP UIDPLUS, 详见常见问题</string>
   <string name="title_account_delete">确定永久删除这个账户吗？</string>
   <string name="title_identity_delete">确定永久删除这个身份吗？</string>

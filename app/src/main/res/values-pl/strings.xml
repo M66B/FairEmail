@@ -98,6 +98,7 @@
   <string name="title_custom">Własne</string>
   <string name="title_host">Nazwa hosta</string>
   <string name="title_starttls">STARTTLS</string>
+  <string name="title_allow_insecure">Allow insecure connections</string>
   <string name="title_port">Numer portu</string>
   <string name="title_user">Nazwa użytkownika</string>
   <string name="title_password">Hasło</string>
@@ -120,7 +121,7 @@
   <string name="title_no_drafts">No drafts folder selected</string>
   <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
   <string name="title_no_primary_archive">No primary account or no archive folder</string>
-  <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. Odbieranie nowych wiadomości może być opóźnione.</string>
+  <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS nie jest wspierane, zobacz FAQ</string>
   <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
   <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
