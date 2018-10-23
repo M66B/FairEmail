@@ -1249,24 +1249,17 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         public boolean onMenuItemClick(final MenuItem target) {
                             args.putLong("target", target.getItemId());
 
-                            new SimpleTask<Boolean>() {
+                            new SimpleTask<Void>() {
                                 @Override
-                                protected Boolean onLoad(Context context, Bundle args) {
+                                protected Void onLoad(Context context, Bundle args) {
                                     long id = args.getLong("id");
                                     long target = args.getLong("target");
-
-                                    boolean close;
 
                                     DB db = DB.getInstance(context);
                                     try {
                                         db.beginTransaction();
 
                                         EntityMessage message = db.message().getMessage(id);
-                                        EntityFolder folder = db.folder().getFolder(message.folder);
-
-                                        close = EntityFolder.ARCHIVE.equals(folder.type);
-                                        if (!close)
-                                            db.message().setMessageUiHide(message.id, true);
 
                                         EntityOperation.queue(db, message, EntityOperation.MOVE, target);
 
@@ -1277,7 +1270,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                     EntityOperation.process(context);
 
-                                    return close;
+                                    return null;
                                 }
 
                                 @Override
