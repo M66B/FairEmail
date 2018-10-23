@@ -79,6 +79,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -1035,7 +1036,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             try {
                                 wl0.release();
-                                Thread.sleep(Long.MAX_VALUE);
+                                state.semaphore.acquire();
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, account.name + " waited running=" + state.running);
                             } finally {
@@ -2035,7 +2036,7 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             yieldWakelock();
                             wl.release();
-                            Thread.sleep(Long.MAX_VALUE);
+                            state.semaphore.acquire();
                         } catch (InterruptedException ex) {
                             Log.w(Helper.TAG, "main wait " + ex.toString());
                         } finally {
@@ -2045,7 +2046,7 @@ public class ServiceSynchronize extends LifecycleService {
                         // Stop monitoring accounts
                         for (ServiceState astate : threadState) {
                             astate.running = false;
-                            astate.thread.interrupt();
+                            astate.semaphore.release();
                             join(astate.thread);
                         }
                         threadState.clear();
@@ -2080,7 +2081,7 @@ public class ServiceSynchronize extends LifecycleService {
                 EntityLog.log(ServiceSynchronize.this, "Main stop");
 
                 state.running = false;
-                state.thread.interrupt();
+                state.semaphore.release();
                 join(state.thread);
 
                 EntityLog.log(ServiceSynchronize.this, "Main stopped");
@@ -2214,5 +2215,6 @@ public class ServiceSynchronize extends LifecycleService {
     private class ServiceState {
         boolean running = true;
         Thread thread;
+        Semaphore semaphore = new Semaphore(0);
     }
 }
