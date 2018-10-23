@@ -280,14 +280,15 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
-            tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, !compact));
-
             if (EntityFolder.DRAFTS.equals(message.folderType) ||
                     EntityFolder.OUTBOX.equals(message.folderType) ||
-                    EntityFolder.SENT.equals(message.folderType))
+                    EntityFolder.SENT.equals(message.folderType)) {
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.to, !compact));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
-            else
+            } else {
+                tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, !compact));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
+            }
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setTypeface(null, message.content ? Typeface.NORMAL : Typeface.BOLD);
