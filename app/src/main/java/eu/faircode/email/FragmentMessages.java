@@ -61,6 +61,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -94,6 +96,8 @@ public class FragmentMessages extends FragmentEx {
 
     private AdapterMessage.ViewType viewType;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
+
+    private SelectionTracker<Long> selectionTracker;
 
     private int autoCount = 0;
     private boolean autoExpand = true;
@@ -228,6 +232,22 @@ public class FragmentMessages extends FragmentEx {
             }
         });
         rvMessage.setAdapter(adapter);
+
+        selectionTracker = new SelectionTracker.Builder<>(
+                "messages-selection",
+                rvMessage,
+                new ItemKeyProviderMessage(rvMessage),
+                new ItemDetailsLookupMessage(rvMessage),
+                StorageStrategy.createLongStorage())
+                .withSelectionPredicate(new SelectionPredicateMessage())
+                .build();
+        adapter.setSelectionTracker(selectionTracker);
+
+        selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+            @Override
+            public void onSelectionChanged() {
+            }
+        });
 
         new ItemTouchHelper(new ItemTouchHelper.Callback() {
             @Override
@@ -515,6 +535,7 @@ public class FragmentMessages extends FragmentEx {
         outState.putLongArray("expanded", Helper.toLongArray(expanded));
         outState.putLongArray("headers", Helper.toLongArray(headers));
         outState.putLongArray("images", Helper.toLongArray(images));
+        selectionTracker.onSaveInstanceState(outState);
     }
 
     @Override
@@ -527,6 +548,7 @@ public class FragmentMessages extends FragmentEx {
             expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
             headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
             images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
+            selectionTracker.onRestoreInstanceState(savedInstanceState);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

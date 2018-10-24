@@ -94,6 +94,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.selection.ItemDetailsLookup;
+import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -108,6 +110,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean avatars;
     private boolean compact;
     private boolean debug;
+
+    private SelectionTracker<Long> selectionTracker = null;
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
@@ -158,6 +162,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
+
+        private ItemDetailsMessage itemDetails = null;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -251,7 +257,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             grpExpanded.setVisibility(View.GONE);
         }
 
-        private void bindTo(final TupleMessageEx message) {
+        private void bindTo(int position, final TupleMessageEx message) {
             final DB db = DB.getInstance(context);
             final boolean show_expanded = properties.isExpanded(message.id);
             boolean show_headers = properties.showHeaders(message.id);
@@ -458,6 +464,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             }
                         });
             }
+
+            itemDetails = new ItemDetailsMessage(position, message.id);
+            itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
         }
 
         @Override
@@ -1329,6 +1338,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     .putExtra("action", "reply")
                     .putExtra("reference", data.message.id));
         }
+
+        ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
+            return itemDetails;
+        }
     }
 
     AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType, IProperties properties) {
@@ -1380,9 +1393,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         if (message == null)
             holder.clear();
         else {
-            holder.bindTo(message);
+            holder.bindTo(position, message);
             holder.wire();
         }
+    }
+
+    void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
+        this.selectionTracker = selectionTracker;
     }
 
     interface IProperties {
