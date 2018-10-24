@@ -36,6 +36,7 @@ This app starts a foreground service with a low priority status bar notification
 * Signatures
 * Dark theme
 * Account colors
+* Multiple select
 * Standard replies
 * Sort on time, unread or starred
 * Search on server
