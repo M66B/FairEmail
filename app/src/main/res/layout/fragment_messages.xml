@@ -10,6 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/popupAnchor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvSupport"
             android:layout_width="wrap_content"
@@ -165,6 +172,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_folder_24"
+        android:tint="@color/colorActionForeground"
+        app:backgroundTint="?attr/colorAccent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,15 +190,4 @@
         android:src="@drawable/baseline_edit_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorAccent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/multiple"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimary"
-        app:itemIconTint="@color/bottomnav_background"
-        app:itemTextColor="@color/bottomnav_background"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/action_multiple" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

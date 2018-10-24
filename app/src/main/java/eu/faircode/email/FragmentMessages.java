@@ -44,13 +44,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
@@ -61,6 +66,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
+import androidx.recyclerview.selection.MutableSelection;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -69,12 +75,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
+    private View popupAnchor;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintActions;
     private TextView tvNoEmail;
     private RecyclerView rvMessage;
-    private BottomNavigationView multiple;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpSupport;
@@ -82,6 +88,7 @@ public class FragmentMessages extends FragmentEx {
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
+    private FloatingActionButton fabMove;
 
     private long folder = -1;
     private long account = -1;
@@ -144,12 +151,12 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
+        popupAnchor = view.findViewById(R.id.popupAnchor);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintActions = view.findViewById(R.id.ibHintActions);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvFolder);
-        multiple = view.findViewById(R.id.multiple);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -157,6 +164,7 @@ public class FragmentMessages extends FragmentEx {
         grpHintActions = view.findViewById(R.id.grpHintActions);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
+        fabMove = view.findViewById(R.id.fabMove);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -234,21 +242,24 @@ public class FragmentMessages extends FragmentEx {
         });
         rvMessage.setAdapter(adapter);
 
-        if (viewType == AdapterMessage.ViewType.FOLDER && BuildConfig.DEBUG) {
+        if (viewType == AdapterMessage.ViewType.FOLDER) {
             selectionTracker = new SelectionTracker.Builder<>(
                     "messages-selection",
                     rvMessage,
                     new ItemKeyProviderMessage(rvMessage),
                     new ItemDetailsLookupMessage(rvMessage),
                     StorageStrategy.createLongStorage())
-                    .withSelectionPredicate(new SelectionPredicateMessage())
+                    .withSelectionPredicate(new SelectionPredicateMessage(rvMessage))
                     .build();
             adapter.setSelectionTracker(selectionTracker);
 
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    multiple.setVisibility(selectionTracker.hasSelection() ? View.VISIBLE : View.GONE);
+                    if (selectionTracker.hasSelection())
+                        fabMove.show();
+                    else
+                        fabMove.hide();
                 }
             });
         }
@@ -520,14 +531,129 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+        fabMove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putLong("folder", folder);
+
+                new SimpleTask<List<EntityFolder>>() {
+                    @Override
+                    protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                        long folder = args.getLong("folder");
+                        DB db = DB.getInstance(context);
+
+                        EntityFolder source = db.folder().getFolder(folder);
+                        List<EntityFolder> folders = db.folder().getFolders(source.account);
+                        List<EntityFolder> targets = new ArrayList<>();
+                        for (EntityFolder f : folders)
+                            if (!f.id.equals(folder) && !EntityFolder.DRAFTS.equals(f.type))
+                                targets.add(f);
+
+                        final Collator collator = Collator.getInstance(Locale.getDefault());
+                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                        Collections.sort(targets, new Comparator<EntityFolder>() {
+                            @Override
+                            public int compare(EntityFolder f1, EntityFolder f2) {
+                                int s = Integer.compare(
+                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                                if (s != 0)
+                                    return s;
+                                return collator.compare(
+                                        f1.name == null ? "" : f1.name,
+                                        f2.name == null ? "" : f2.name);
+                            }
+                        });
+
+                        return targets;
+                    }
+
+                    @Override
+                    protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
+                        PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
+
+                        int order = 0;
+                        for (EntityFolder folder : folders) {
+                            String name = (folder.display == null
+                                    ? Helper.localizeFolderName(getContext(), folder.name)
+                                    : folder.display);
+                            popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
+                        }
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(final MenuItem target) {
+                                MutableSelection<Long> selection = new MutableSelection<>();
+                                selectionTracker.copySelection(selection);
+
+                                long[] ids = new long[selection.size()];
+                                int i = 0;
+                                for (Long id : selection)
+                                    ids[i++] = id;
+
+                                selectionTracker.clearSelection();
+
+                                args.putLongArray("ids", ids);
+                                args.putLong("target", target.getItemId());
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onLoad(Context context, Bundle args) {
+                                        long[] ids = args.getLongArray("ids");
+                                        long target = args.getLong("target");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (long id : ids) {
+                                                db.message().setMessageUiHide(id, true);
+
+                                                EntityMessage message = db.message().getMessage(id);
+                                                EntityOperation.queue(db, message, EntityOperation.MOVE, target);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        EntityOperation.process(context);
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Helper.unexpectedError(getContext(), ex);
+                                    }
+                                }.load(FragmentMessages.this, args);
+
+                                return true;
+                            }
+                        });
+
+                        popupMenu.show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+        });
+
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
-        multiple.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         fab.hide();
+        fabMove.hide();
 
         return view;
     }
@@ -644,7 +770,10 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        multiple.setVisibility(selectionTracker != null && selectionTracker.hasSelection() ? View.VISIBLE : View.GONE);
+        if (selectionTracker != null && selectionTracker.hasSelection())
+            fabMove.show();
+        else
+            fabMove.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation

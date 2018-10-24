@@ -1289,8 +1289,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     try {
                                         db.beginTransaction();
 
-                                        EntityMessage message = db.message().getMessage(id);
+                                        db.message().setMessageUiHide(id, true);
 
+                                        EntityMessage message = db.message().getMessage(id);
                                         EntityOperation.queue(db, message, EntityOperation.MOVE, target);
 
                                         db.setTransactionSuccessful();
