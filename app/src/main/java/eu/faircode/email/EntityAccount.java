@@ -91,6 +91,8 @@ public class EntityAccount {
         json.put("name", name);
         json.put("signature", signature);
         json.put("host", host);
+        json.put("starttls", starttls);
+        json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
         json.put("password", "");
@@ -110,6 +112,8 @@ public class EntityAccount {
         if (json.has("signature"))
             account.signature = json.getString("signature");
         account.host = json.getString("host");
+        account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
+        account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.user = json.getString("user");
         account.password = json.getString("password");

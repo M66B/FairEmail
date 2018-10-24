@@ -82,6 +82,7 @@ public class EntityIdentity {
         json.put("host", host);
         json.put("port", port);
         json.put("starttls", starttls);
+        json.put("insecure", insecure);
         json.put("user", user);
         json.put("password", "");
         json.put("auth_type", auth_type);
@@ -100,6 +101,7 @@ public class EntityIdentity {
         identity.host = json.getString("host");
         identity.port = json.getInt("port");
         identity.starttls = json.getBoolean("starttls");
+        identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.user = json.getString("user");
         identity.password = json.getString("password");
         identity.auth_type = json.getInt("auth_type");
