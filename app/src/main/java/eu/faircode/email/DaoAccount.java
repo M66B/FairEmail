@@ -57,7 +57,7 @@ public interface DaoAccount {
     LiveData<EntityAccount> liveAccount(long id);
 
     @Query("SELECT" +
-            " (SELECT COUNT(account.id) FROM account WHERE synchronize) AS accounts" +
+            " (SELECT COUNT(account.id) FROM account WHERE synchronize AND state = 'connected') AS accounts" +
             ", (SELECT COUNT(operation.id) FROM operation" +
             "     JOIN message ON message.id = operation.message" +
             "     JOIN account ON account.id = message.account" +
