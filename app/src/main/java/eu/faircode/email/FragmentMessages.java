@@ -78,14 +78,16 @@ public class FragmentMessages extends FragmentEx {
     private View popupAnchor;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
-    private ImageButton ibHintActions;
+    private ImageButton ibHintSwipe;
+    private ImageButton ibHintSelect;
     private TextView tvNoEmail;
     private RecyclerView rvMessage;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpSupport;
     private Group grpHintSupport;
-    private Group grpHintActions;
+    private Group grpHintSwipe;
+    private Group grpHintSelect;
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMove;
@@ -154,14 +156,16 @@ public class FragmentMessages extends FragmentEx {
         popupAnchor = view.findViewById(R.id.popupAnchor);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
-        ibHintActions = view.findViewById(R.id.ibHintActions);
+        ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
+        ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvFolder);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
-        grpHintActions = view.findViewById(R.id.grpHintActions);
+        grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
+        grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
         fabMove = view.findViewById(R.id.fabMove);
@@ -179,11 +183,19 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        ibHintActions.setOnClickListener(new View.OnClickListener() {
+        ibHintSwipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putBoolean("message_actions", true).apply();
-                grpHintActions.setVisibility(View.GONE);
+                prefs.edit().putBoolean("message_swipe", true).apply();
+                grpHintSwipe.setVisibility(View.GONE);
+            }
+        });
+
+        ibHintSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("message_select", true).apply();
+                grpHintSelect.setVisibility(View.GONE);
             }
         });
 
@@ -685,8 +697,9 @@ public class FragmentMessages extends FragmentEx {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) ? View.GONE : View.VISIBLE);
-        grpHintActions.setVisibility(prefs.getBoolean("message_actions", false) || viewType != AdapterMessage.ViewType.THREAD ? View.GONE : View.VISIBLE);
+        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || viewType != AdapterMessage.ViewType.UNIFIED ? View.GONE : View.VISIBLE);
+        grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || viewType == AdapterMessage.ViewType.THREAD ? View.GONE : View.VISIBLE);
+        grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || viewType != AdapterMessage.ViewType.FOLDER ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
