@@ -707,7 +707,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }, new Html.TagHandler() {
                 @Override
                 public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
-                    Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
+                    if (BuildConfig.DEBUG)
+                        Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
                 }
             });
         }
