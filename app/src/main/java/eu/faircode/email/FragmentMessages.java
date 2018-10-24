@@ -234,7 +234,7 @@ public class FragmentMessages extends FragmentEx {
         });
         rvMessage.setAdapter(adapter);
 
-        if (viewType == AdapterMessage.ViewType.FOLDER) {
+        if (viewType == AdapterMessage.ViewType.FOLDER && BuildConfig.DEBUG) {
             selectionTracker = new SelectionTracker.Builder<>(
                     "messages-selection",
                     rvMessage,
