@@ -63,6 +63,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.xml.sax.XMLReader;
 
@@ -90,6 +91,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -103,6 +106,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMessage.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
+    private FragmentManager fragmentManager;
     private ViewType viewType;
     private IProperties properties;
 
@@ -906,40 +910,56 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             db.answer().liveAnswers().observe(owner, new Observer<List<EntityAnswer>>() {
                 @Override
                 public void onChanged(List<EntityAnswer> answers) {
-                    final Collator collator = Collator.getInstance(Locale.getDefault());
-                    collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                    Collections.sort(answers, new Comparator<EntityAnswer>() {
-                        @Override
-                        public int compare(EntityAnswer a1, EntityAnswer a2) {
-                            return collator.compare(a1.name, a2.name);
-                        }
-                    });
-
-                    View anchor = bnvActions.findViewById(R.id.action_more);
-                    PopupMenu popupMenu = new PopupMenu(context, anchor);
-
-                    int order = 0;
-                    for (EntityAnswer answer : answers)
-                        popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            if (Helper.isPro(context))
-                                context.startActivity(new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "reply")
-                                        .putExtra("reference", data.message.id)
-                                        .putExtra("answer", (long) target.getItemId()));
-                            else {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                    if (answers == null || answers.size() == 0) {
+                        Snackbar snackbar = Snackbar.make(
+                                itemView,
+                                context.getString(R.string.title_no_answers),
+                                Snackbar.LENGTH_LONG);
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.content_frame, new FragmentAnswers()).addToBackStack("answers");
+                                fragmentTransaction.commit();
                             }
-                            return true;
-                        }
-                    });
+                        });
+                        snackbar.show();
+                    } else {
+                        final Collator collator = Collator.getInstance(Locale.getDefault());
+                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-                    popupMenu.show();
+                        Collections.sort(answers, new Comparator<EntityAnswer>() {
+                            @Override
+                            public int compare(EntityAnswer a1, EntityAnswer a2) {
+                                return collator.compare(a1.name, a2.name);
+                            }
+                        });
+
+                        View anchor = bnvActions.findViewById(R.id.action_more);
+                        PopupMenu popupMenu = new PopupMenu(context, anchor);
+
+                        int order = 0;
+                        for (EntityAnswer answer : answers)
+                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem target) {
+                                if (Helper.isPro(context))
+                                    context.startActivity(new Intent(context, ActivityCompose.class)
+                                            .putExtra("action", "reply")
+                                            .putExtra("reference", data.message.id)
+                                            .putExtra("answer", (long) target.getItemId()));
+                                else {
+                                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                }
+                                return true;
+                            }
+                        });
+
+                        popupMenu.show();
+                    }
 
                     db.answer().liveAnswers().removeObservers(owner);
                 }
@@ -1345,10 +1365,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, ViewType viewType, IProperties properties) {
+    AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager, ViewType viewType, IProperties properties) {
         super(DIFF_CALLBACK);
         this.context = context;
         this.owner = owner;
+        this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.properties = properties;
 

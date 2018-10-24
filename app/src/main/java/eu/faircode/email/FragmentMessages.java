@@ -190,7 +190,7 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
-        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), viewType, new AdapterMessage.IProperties() {
+        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), getFragmentManager(), viewType, new AdapterMessage.IProperties() {
             @Override
             public void setExpanded(long id, boolean expand) {
                 if (expand) {
