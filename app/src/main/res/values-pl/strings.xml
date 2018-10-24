@@ -174,12 +174,14 @@
   <string name="title_archive">Archiwum</string>
   <string name="title_reply">Odpowiedz</string>
   <string name="title_moving">Przenoszenie wiadomości do %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
   <string name="title_attachment_saved">Załącznik zapisany</string>
   <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną przekazane, kontynuować?</string>
   <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
   <string name="title_ask_discard">Odrzucić szkic?</string>
   <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Napisz</string>
   <string name="title_from">Od:</string>
   <string name="title_to">Do:</string>

@@ -166,12 +166,14 @@
   <string name="title_archive">Archive</string>
   <string name="title_reply">Reply</string>
   <string name="title_moving">Moving message to %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">No viewer app available for %1$s</string>
   <string name="title_attachment_saved">Attachment saved</string>
   <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
   <string name="title_ask_delete">Delete message permanently?</string>
   <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Report message as spam?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Compose</string>
   <string name="title_from">From:</string>
   <string name="title_to">To:</string>

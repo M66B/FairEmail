@@ -166,12 +166,14 @@
   <string name="title_archive">Archivo</string>
   <string name="title_reply">Rispondi</string>
   <string name="title_moving">Spostamento messaggio in %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">Nessuna app di visualizzazione disponibile per %1$s</string>
   <string name="title_attachment_saved">Allegato salvato</string>
   <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno inoltrati, continuare?</string>
   <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
   <string name="title_ask_discard">Eliminare la bozza?</string>
   <string name="title_ask_spam">Segnalare il messaggio come posta indesiderata?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Scrivi</string>
   <string name="title_from">Da:</string>
   <string name="title_to">A:</string>

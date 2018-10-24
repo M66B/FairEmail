@@ -166,12 +166,14 @@
   <string name="title_archive">Arxivar</string>
   <string name="title_reply">Respon</string>
   <string name="title_moving">Movent el missatge a %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">No hi ha cap visor disponible per a %1$s</string>
   <string name="title_attachment_saved">Fitxer adjunt desat</string>
   <string name="title_attachment_unavailable">Alguns adjunts no s\'han descarregat i no seran reenviats, continuar?</string>
   <string name="title_ask_delete">Esborrar el missatge per sempre?</string>
   <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
   <string name="title_ask_spam">Qualificar el missatge com correu brossa?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Redactar</string>
   <string name="title_from">De:</string>
   <string name="title_to">A:</string>

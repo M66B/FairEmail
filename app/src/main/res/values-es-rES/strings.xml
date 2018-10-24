@@ -90,7 +90,7 @@
   <string name="title_custom">Personalizado</string>
   <string name="title_host">Nombre de host</string>
   <string name="title_starttls">STARTTLS</string>
-  <string name="title_allow_insecure">Allow insecure connections</string>
+  <string name="title_allow_insecure">Permitir conexiones inseguras</string>
   <string name="title_port">Puerto</string>
   <string name="title_user">Nombre de usuario</string>
   <string name="title_password">Contraseña</string>
@@ -113,7 +113,7 @@
   <string name="title_no_drafts">No se seleccionó carpeta de borradores</string>
   <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
   <string name="title_no_primary_archive">No hay cuenta primaria o no hay carpeta de archivados</string>
-  <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
+  <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS no está soportado, vea las Preguntas Frecuentes</string>
   <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
   <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
@@ -166,12 +166,14 @@
   <string name="title_archive">Archivar</string>
   <string name="title_reply">Responder</string>
   <string name="title_moving">Moviendo mensaje a %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
   <string name="title_attachment_saved">Adjunto guardado</string>
   <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
   <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
   <string name="title_ask_discard">¿Descartar el borrador?</string>
   <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Redactar</string>
   <string name="title_from">De:</string>
   <string name="title_to">A:</string>
@@ -203,7 +205,7 @@
   <string name="title_sort_on_time">Tiempo</string>
   <string name="title_sort_on_unread">No leído</string>
   <string name="title_sort_on_starred">Destacado</string>
-  <string name="title_move_sent">Move to sent</string>
+  <string name="title_move_sent">Mover a enviados</string>
   <string name="title_previous">Anterior</string>
   <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Plantilla de respuesta</string>

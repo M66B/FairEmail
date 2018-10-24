@@ -166,12 +166,14 @@
   <string name="title_archive">Arkivera</string>
   <string name="title_reply">Svara</string>
   <string name="title_moving">Flytta meddelande till %1$s</string>
+  <string name="title_no_answers">No reply templates defined</string>
   <string name="title_no_viewer">Ingen visarapp tillgänglig för %1$s</string>
   <string name="title_attachment_saved">Bilaga sparad</string>
   <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att vidarebefordras, fortsätt?</string>
   <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
   <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Skriv</string>
   <string name="title_from">Från:</string>
   <string name="title_to">Till:</string>

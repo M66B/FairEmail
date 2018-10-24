@@ -90,7 +90,7 @@
   <string name="title_custom">Benutzerdefiniert</string>
   <string name="title_host">Hostname</string>
   <string name="title_starttls">STARTTLS</string>
-  <string name="title_allow_insecure">Allow insecure connections</string>
+  <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
   <string name="title_port">Portnummer</string>
   <string name="title_user">Benutzername</string>
   <string name="title_password">Passwort</string>
@@ -113,7 +113,7 @@
   <string name="title_no_drafts">Kein Entwürfe-Ordner ausgewählt</string>
   <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
   <string name="title_no_primary_archive">Kein Hauptkonto oder kein Archiv-Ordner</string>
-  <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
+  <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Dies verzögert den Empfang neuer Nachrichten und erhöht den Batterie-Verbrauch.</string>
   <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
   <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
   <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
@@ -123,7 +123,7 @@
   <string name="title_delete_local">Lösche lokale Nachrichten</string>
   <string name="title_empty_trash">Papierkorb leeren</string>
   <string name="title_edit_properties">Eigenschaften bearbeiten</string>
-  <string name="title_empty_trash_ask">Alle ausgewählten Dateien dauerhaft löschen?</string>
+  <string name="title_empty_trash_ask">Alle ausgewählten Dateien unwiderruflich löschen?</string>
   <string name="title_folder_name">Ordnername</string>
   <string name="title_display_name">Name</string>
   <string name="title_hide_folder">Ordner ausblenden</string>
@@ -133,7 +133,7 @@
   <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
   <string name="title_after">Synchronisiere (Tage)</string>
   <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
-  <string name="title_folder_delete">Ordner dauerhaft löschen?</string>
+  <string name="title_folder_delete">Ordner unwiderruflich löschen?</string>
   <string name="title_folder_unified">Gemeinsamer Posteingang</string>
   <string name="title_folder_inbox">Posteingang</string>
   <string name="title_folder_outbox">Postausgang</string>
@@ -166,12 +166,14 @@
   <string name="title_archive">Archivieren</string>
   <string name="title_reply">Antworten</string>
   <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
+  <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
   <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
   <string name="title_attachment_saved">Anhang gespeichert</string>
   <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
-  <string name="title_ask_delete">E-Mail dauerhaft löschen?</string>
+  <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
   <string name="title_ask_discard">Entwurf verwerfen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
+  <string name="title_fix">Fix</string>
   <string name="title_compose">Verfassen</string>
   <string name="title_from">Von:</string>
   <string name="title_to">An:</string>
@@ -203,7 +205,7 @@
   <string name="title_sort_on_time">Uhrzeit</string>
   <string name="title_sort_on_unread">Ungelesen</string>
   <string name="title_sort_on_starred">Favoriten</string>
-  <string name="title_move_sent">Move to sent</string>
+  <string name="title_move_sent">In den Gesendet-Ordner verschieben</string>
   <string name="title_previous">Vorherige</string>
   <string name="title_next">Nächste</string>
   <string name="title_answer_reply">Antwortvorlage</string>
@@ -251,6 +253,6 @@
   <string name="title_unexpected_error">Unerwarteter Fehler</string>
   <string name="title_log">Protokoll</string>
   <string name="title_debug_info">Debuginformationen</string>
-  <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt dieses aufgetreten ist:</string>
+  <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
   <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
 </resources>
