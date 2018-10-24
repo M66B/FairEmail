@@ -282,6 +282,9 @@ public class FragmentMessages extends FragmentEx {
                 if (!prefs.getBoolean("swipe", true))
                     return 0;
 
+                if (selectionTracker != null && selectionTracker.hasSelection())
+                    return 0;
+
                 int pos = viewHolder.getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION)
                     return 0;
