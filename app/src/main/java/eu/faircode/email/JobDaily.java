@@ -61,42 +61,51 @@ public class JobDaily extends JobService {
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                Log.i(Helper.TAG, "Start daily job");
+                try {
+                    db.beginTransaction();
 
-                // Cleanup message files
-                Log.i(Helper.TAG, "Cleanup message files");
-                File[] messages = new File(getFilesDir(), "messages").listFiles();
-                if (messages != null)
-                    for (File file : messages)
-                        if (file.isFile()) {
-                            long id = Long.parseLong(file.getName());
-                            if (db.message().countMessage(id) == 0) {
-                                Log.i(Helper.TAG, "Cleanup message id=" + id);
-                                if (!file.delete())
-                                    Log.w(Helper.TAG, "Error deleting " + file);
+                    Log.i(Helper.TAG, "Start daily job");
+
+                    // Cleanup message files
+                    Log.i(Helper.TAG, "Cleanup message files");
+                    File[] messages = new File(getFilesDir(), "messages").listFiles();
+                    if (messages != null)
+                        for (File file : messages)
+                            if (file.isFile()) {
+                                long id = Long.parseLong(file.getName());
+                                if (db.message().countMessage(id) == 0) {
+                                    Log.i(Helper.TAG, "Cleanup message id=" + id);
+                                    if (!file.delete())
+                                        Log.w(Helper.TAG, "Error deleting " + file);
+                                }
                             }
-                        }
 
-                // Cleanup attachment files
-                Log.i(Helper.TAG, "Cleanup attachment files");
-                File[] attachments = new File(getFilesDir(), "attachments").listFiles();
-                if (attachments != null)
-                    for (File file : attachments)
-                        if (file.isFile()) {
-                            long id = Long.parseLong(file.getName());
-                            if (db.attachment().countAttachment(id) == 0) {
-                                Log.i(Helper.TAG, "Cleanup attachment id=" + id);
-                                if (!file.delete())
-                                    Log.w(Helper.TAG, "Error deleting " + file);
+                    // Cleanup attachment files
+                    Log.i(Helper.TAG, "Cleanup attachment files");
+                    File[] attachments = new File(getFilesDir(), "attachments").listFiles();
+                    if (attachments != null)
+                        for (File file : attachments)
+                            if (file.isFile()) {
+                                long id = Long.parseLong(file.getName());
+                                if (db.attachment().countAttachment(id) == 0) {
+                                    Log.i(Helper.TAG, "Cleanup attachment id=" + id);
+                                    if (!file.delete())
+                                        Log.w(Helper.TAG, "Error deleting " + file);
+                                }
                             }
-                        }
 
-                Log.i(Helper.TAG, "Cleanup log");
-                long before = new Date().getTime() - 24 * 3600 * 1000L;
-                int logs = db.log().deleteLogs(before);
-                Log.i(Helper.TAG, "Deleted logs=" + logs);
+                    Log.i(Helper.TAG, "Cleanup log");
+                    long before = new Date().getTime() - 24 * 3600 * 1000L;
+                    int logs = db.log().deleteLogs(before);
+                    Log.i(Helper.TAG, "Deleted logs=" + logs);
 
-                Log.i(Helper.TAG, "End daily job");
+                    db.setTransactionSuccessful();
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                } finally {
+                    db.endTransaction();
+                    Log.i(Helper.TAG, "End daily job");
+                }
             }
         });
 
