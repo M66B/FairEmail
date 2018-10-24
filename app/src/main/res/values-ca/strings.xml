@@ -233,6 +233,7 @@
   <string name="title_hint_folder_actions">Manté polsat per més opcions</string>
   <string name="title_hint_support">Si tens algun problema o pregunta, per favor utilitza el menú d\'ajuda per obtenir assistència</string>
   <string name="title_hint_message_actions">Llisca cap a l\'esquerra per enviar a la paperera; o bé cap a la dreta per arxivar (si és possible)</string>
+  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
   <string name="title_hint_sync">Descarregar missatges pot trigar, depenent del nombre de missatges, de la velocitat de la teva connexió a Internet i del teu proveïdor de correu-e</string>
   <string name="title_open_link">Obrir l\'enllaç</string>
   <string name="title_updated">Hi ha disponible una actualització a la versió %1$s</string>

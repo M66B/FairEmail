@@ -237,6 +237,7 @@
   <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
   <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
   <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
+  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
   <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcţie de numărul de mesaje, viteza de conexiunea la internet și furnizorul dumneavostră de e-mail</string>
   <string name="title_open_link">Deschide legătura</string>
   <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>

@@ -233,6 +233,7 @@
   <string name="title_hint_folder_actions">Långtryck för inställningar</string>
   <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
+  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
   <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på antalet meddelanden, hastigheten på din Internetanslutning och din e-postleverantör</string>
   <string name="title_open_link">Öppna länken</string>
   <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>

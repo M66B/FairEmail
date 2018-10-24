@@ -229,6 +229,7 @@
   <string name="title_hint_folder_actions">长按以显示更多选项</string>
   <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
   <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
+  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
   <string name="title_hint_sync">下载消息会花一些时间，取决于消息数量，您的网络连接以及您的邮件提供商</string>
   <string name="title_open_link">打开链接</string>
   <string name="title_updated">有新的版本%1$s可用</string>
