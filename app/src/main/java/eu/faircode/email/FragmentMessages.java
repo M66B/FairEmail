@@ -74,6 +74,7 @@ public class FragmentMessages extends FragmentEx {
     private ImageButton ibHintActions;
     private TextView tvNoEmail;
     private RecyclerView rvMessage;
+    private BottomNavigationView multiple;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpSupport;
@@ -95,9 +96,8 @@ public class FragmentMessages extends FragmentEx {
     private List<Long> trashes = new ArrayList<>();
 
     private AdapterMessage.ViewType viewType;
+    private SelectionTracker<Long> selectionTracker = null;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
-
-    private SelectionTracker<Long> selectionTracker;
 
     private int autoCount = 0;
     private boolean autoExpand = true;
@@ -149,6 +149,7 @@ public class FragmentMessages extends FragmentEx {
         ibHintActions = view.findViewById(R.id.ibHintActions);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvFolder);
+        multiple = view.findViewById(R.id.multiple);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -233,21 +234,24 @@ public class FragmentMessages extends FragmentEx {
         });
         rvMessage.setAdapter(adapter);
 
-        selectionTracker = new SelectionTracker.Builder<>(
-                "messages-selection",
-                rvMessage,
-                new ItemKeyProviderMessage(rvMessage),
-                new ItemDetailsLookupMessage(rvMessage),
-                StorageStrategy.createLongStorage())
-                .withSelectionPredicate(new SelectionPredicateMessage())
-                .build();
-        adapter.setSelectionTracker(selectionTracker);
+        if (viewType == AdapterMessage.ViewType.FOLDER) {
+            selectionTracker = new SelectionTracker.Builder<>(
+                    "messages-selection",
+                    rvMessage,
+                    new ItemKeyProviderMessage(rvMessage),
+                    new ItemDetailsLookupMessage(rvMessage),
+                    StorageStrategy.createLongStorage())
+                    .withSelectionPredicate(new SelectionPredicateMessage())
+                    .build();
+            adapter.setSelectionTracker(selectionTracker);
 
-        selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
-            @Override
-            public void onSelectionChanged() {
-            }
-        });
+            selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+                @Override
+                public void onSelectionChanged() {
+                    multiple.setVisibility(selectionTracker.hasSelection() ? View.VISIBLE : View.GONE);
+                }
+            });
+        }
 
         new ItemTouchHelper(new ItemTouchHelper.Callback() {
             @Override
@@ -518,6 +522,7 @@ public class FragmentMessages extends FragmentEx {
 
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
+        multiple.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -535,7 +540,8 @@ public class FragmentMessages extends FragmentEx {
         outState.putLongArray("expanded", Helper.toLongArray(expanded));
         outState.putLongArray("headers", Helper.toLongArray(headers));
         outState.putLongArray("images", Helper.toLongArray(images));
-        selectionTracker.onSaveInstanceState(outState);
+        if (selectionTracker != null)
+            selectionTracker.onSaveInstanceState(outState);
     }
 
     @Override
@@ -548,7 +554,8 @@ public class FragmentMessages extends FragmentEx {
             expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
             headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
             images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
-            selectionTracker.onRestoreInstanceState(savedInstanceState);
+            if (selectionTracker != null)
+                selectionTracker.onRestoreInstanceState(savedInstanceState);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -636,6 +643,8 @@ public class FragmentMessages extends FragmentEx {
                 loadMessages();
             }
         });
+
+        multiple.setVisibility(selectionTracker != null && selectionTracker.hasSelection() ? View.VISIBLE : View.GONE);
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation
