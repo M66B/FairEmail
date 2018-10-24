@@ -992,12 +992,15 @@ public class FragmentMessages extends FragmentEx {
                         // Auto expand when:
                         // - single, non archived/sent message
                         // - one unread, non archived/sent message in conversation
+                        // - sole message
 
                         TupleMessageEx expand = null;
                         if (autoCount == 1)
                             expand = single;
                         else if (unseen == 1)
                             expand = see;
+                        else if (messages.size() == 1)
+                            expand = messages.get(0);
 
                         if (expand != null) {
                             expanded.add(expand.id);
