@@ -446,7 +446,7 @@
             android:fontFamily="monospace"
             android:minHeight="60dp"
             android:text="Body"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/vwColor"
