@@ -627,7 +627,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         } else {
                             File file = EntityAttachment.getFile(context, attachment.id);
                             Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                            if (d == null) {
+                                d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                                d.setBounds(0, 0, px, px);
+                            } else
+                                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                             return d;
                         }
                     }
