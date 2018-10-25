@@ -187,4 +187,15 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="1und1.de"
+        link="https://hilfe.webmailer.1und1.de/mailprogramme/imap.html">
+        <imap
+            host="imap.1und1.de"
+            port="993" />
+        <smtp
+            host="smtp.1und1.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
