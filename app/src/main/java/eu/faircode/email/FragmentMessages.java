@@ -661,6 +661,17 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                if (selectionTracker != null && selectionTracker.hasSelection()) {
+                    selectionTracker.clearSelection();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
