@@ -624,10 +624,15 @@ public class FragmentMessages extends FragmentEx {
                                             db.beginTransaction();
 
                                             for (long id : ids) {
-                                                db.message().setMessageUiHide(id, true);
-
                                                 EntityMessage message = db.message().getMessage(id);
-                                                EntityOperation.queue(db, message, EntityOperation.MOVE, target);
+                                                List<EntityMessage> messages =
+                                                        db.message().getMessageByThread(message.account, message.thread);
+                                                for (EntityMessage threaded : messages) {
+                                                    if (threaded.folder.equals(message.folder)) {
+                                                        db.message().setMessageUiHide(threaded.id, true);
+                                                        EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
+                                                    }
+                                                }
                                             }
 
                                             db.setTransactionSuccessful();
