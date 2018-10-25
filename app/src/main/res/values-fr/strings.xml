@@ -233,7 +233,7 @@
   <string name="title_hint_folder_actions">Appui long pour les options</string>
   <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l’aide</string>
   <string name="title_hint_message_actions">Balayer à gauche pour supprimer ; balayer à droite pour archiver (si disponible)</string>
-  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
+  <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
   <string name="title_hint_sync">Le téléchargement des messages peut prendre du temps, selon le nombre de messages, la vitesse de votre connexion internet et votre fournisseur de messagerie</string>
   <string name="title_open_link">Ouvrir le lien</string>
   <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>

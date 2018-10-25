@@ -18,7 +18,7 @@
     <item quantity="other">%1$d neue Nachrichten</item>
   </plurals>
   <plurals name="title_notification_unsent">
-    <item quantity="one">%1$d nicht gesendete Nachrichten</item>
+    <item quantity="one">%1$d nicht gesendete Nachricht</item>
     <item quantity="other">%1$d nicht gesendete Nachrichten</item>
   </plurals>
   <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
@@ -173,7 +173,7 @@
   <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
   <string name="title_ask_discard">Entwurf verwerfen?</string>
   <string name="title_ask_spam">Nachricht als Spam melden?</string>
-  <string name="title_fix">Fix</string>
+  <string name="title_fix">Problem beheben</string>
   <string name="title_compose">Verfassen</string>
   <string name="title_from">Von:</string>
   <string name="title_to">An:</string>
@@ -233,7 +233,7 @@
   <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
   <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
   <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
-  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
+  <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
   <string name="title_hint_sync">Das Herunterladen der Nachrichten kann einige Zeit beanspruchen, abhängig von der Anzahl der Nachrichten, der Geschwindigkeit Ihrer Internetverbindung und Ihrem E-Mail-Anbieter</string>
   <string name="title_open_link">Link öffnen</string>
   <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
