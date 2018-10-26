@@ -70,6 +70,12 @@ This app starts a foreground service with a low priority status bar notification
 * [GitHub](https://github.com/M66B/open-source-email/releases)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email)
 
+Certificate fingerprints:
+
+* MD5: 64:90:8E:2C:0D:25:29:B0:D0:26:2D:24:D8:BB:66:56
+* SHA1: 17:BA:15:C1:AF:55:D9:25:F9:8B:99:CE:A4:37:5D:4C:DF:4C:17:4B
+* SHA256: E0:20:67:24:9F:5A:35:0E:0E:C7:03:FE:9D:F4:DD:68:2E:02:91:A0:9F:0C:2E:04:10:50:BB:E7:C0:64:F5:C9
+
 ## Compatibility
 
 FairEmail requires at least Android 6 Marshmallow.
