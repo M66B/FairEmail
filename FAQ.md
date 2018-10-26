@@ -75,6 +75,7 @@ If this doesn't work, see here for more solutions: [https://support.google.com/m
 Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
+There is a menu to move sent messages to the sent folder after enabling this option.
 
 <a name="FAQ8"></a>
 **(8) Can I use a Microsoft Exchange account?**
@@ -112,9 +113,8 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 <a name="FAQ13"></a>
 **(13) How does search on server work?**
 
-You can start searching for messages on sender, subject or text by using the magnify glass in the action bar of a folder.
-The server executes the search.
-Scrolling down will fetch more messages from the server.
+You can start searching for messages on sender, recipient, subject or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
+The server executes the search. Scrolling down will fetch more messages from the server.
 Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 Search on server is a pro feature.
 
@@ -127,9 +127,9 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 <a name="FAQ15"></a>
 **(15) Can you add ... ?**
 
-* More themes: the goal is to keep the app as simple as possible, so this will not be added.
+* More themes: the goal is to keep the app as simple as possible, so no more themes will not be added.
 * Encryption: there is too little interest in sending/receiving encrypted messages to justify putting effort into this.
-* Preview message text: this is not always possible because the message text is not initially downloaded for larger messages and besides that the subject is supposed to tell what the message is about.
+* Preview message text: this is not always possible because the message text is initially not downloaded for larger messages and besides that the subject is supposed to tell what the message is about.
 * Filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for executing filter rules.
 
 <a name="FAQ16"></a>
@@ -137,7 +137,7 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 
 Possible causes of messages not being synchronized (sent or received) are:
 
-* The account or folder(s) or not set to synchronize
+* The account or folder(s) are not set to synchronize
 * The number of days to synchronize is set to low
 * There is no usable internet connection
 * The email server is temporarily not available
@@ -157,13 +157,6 @@ stop apps and services too aggressively.
 If the *Synchronize now* menu is dimmed, there is no connection to the account.
 
 See the previous question for more information.
-
-<a name="FAQ18"></a>
-**(18) When should I enable 'Store sent messages' ?**
-
-The option *Store sent messages* should be enabled only
-when the email server does not store sent messages in the sent folder (it should)
-or when an SMTP server not related to the account is being used.
 
 <a name="FAQ19"></a>
 **(19) Why are the pro features so expensive?**
