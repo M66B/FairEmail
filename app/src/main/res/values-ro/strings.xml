@@ -170,7 +170,7 @@
   <string name="title_archive">Arhivă</string>
   <string name="title_reply">Răspunde</string>
   <string name="title_moving">Mesajul se mută în %1$s</string>
-  <string name="title_no_answers">No reply templates defined</string>
+  <string name="title_no_answers">Nici un răspuns standard definit</string>
   <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
   <string name="title_attachment_saved">Atașament salvat</string>
   <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
@@ -213,8 +213,8 @@
   <string name="title_previous">Precedent</string>
   <string name="title_next">Următor</string>
   <string name="title_answer_reply">Șablon răspuns</string>
-  <string name="title_answer_name">Titlu răspuns</string>
-  <string name="title_answer_text">Text răspuns</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">Primite</string>
   <string name="title_legend_unified">Căsuță poștală comună</string>
   <string name="title_legend_archive">Arhivă</string>
@@ -237,7 +237,7 @@
   <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
   <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
   <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
-  <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
+  <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
   <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcţie de numărul de mesaje, viteza de conexiunea la internet și furnizorul dumneavostră de e-mail</string>
   <string name="title_open_link">Deschide legătura</string>
   <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>

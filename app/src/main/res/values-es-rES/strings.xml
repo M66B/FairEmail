@@ -209,8 +209,8 @@
   <string name="title_previous">Anterior</string>
   <string name="title_next">Siguiente</string>
   <string name="title_answer_reply">Plantilla de respuesta</string>
-  <string name="title_answer_name">Nombre de respuesta</string>
-  <string name="title_answer_text">Texto de respuesta</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">Bandeja de Entrada</string>
   <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
   <string name="title_legend_archive">Archivo</string>

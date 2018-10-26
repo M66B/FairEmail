@@ -26,7 +26,7 @@
   <string name="menu_answers">Cavab şablonları</string>
   <string name="menu_operations">Əməliyyatlar</string>
   <string name="menu_legend">Mənalar</string>
-  <string name="menu_faq">TCS/dəstək</string>
+  <string name="menu_faq">TSS/dəstək</string>
   <string name="menu_pro">Pro xüsusiyyətlər</string>
   <string name="menu_privacy">Gizlilik</string>
   <string name="menu_about">Haqqında</string>
@@ -114,7 +114,7 @@
   <string name="title_no_primary_drafts">Üstünlük verilən hesab və ya qaralama qovluğu yoxdur</string>
   <string name="title_no_primary_archive">Üstünlük verilən hesab və ya arxiv qovluq yoxdur</string>
   <string name="title_no_idle">Bu təchizatçı ani mesajları dəstəkləmir. Bu, yeni mesajların alınmasını gecikdirəcək və batareyanın istifadəsini artıracaq.</string>
-  <string name="title_no_uidplus">IMAP UIDPLUS dəstəklənmir, TCS-a baxın</string>
+  <string name="title_no_uidplus">IMAP UIDPLUS dəstəklənmir, TSS-a baxın</string>
   <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
   <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
   <string name="title_pop">POP dəstəklənmir</string>
@@ -133,7 +133,7 @@
   <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
   <string name="title_after">Eyniləşdir (günlər)</string>
   <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
-  <string name="title_folder_delete">Qovluğu birdəfəlik sil?</string>
+  <string name="title_folder_delete">Qovluğu birdəfəlik silinsin?</string>
   <string name="title_folder_unified">Birləşmiş gələn qutusu</string>
   <string name="title_folder_inbox">Gələn qutusu</string>
   <string name="title_folder_outbox">Gedən qutusu</string>
@@ -162,7 +162,7 @@
   <string name="title_delete">Sil</string>
   <string name="title_more">Daha çox</string>
   <string name="title_spam">Spam</string>
-  <string name="title_move">Köçür</string>
+  <string name="title_move">Köçürt</string>
   <string name="title_archive">Arxivlə</string>
   <string name="title_reply">Cavabla</string>
   <string name="title_moving">Mesaj %1$s qovluğuna köçürülür</string>
@@ -170,7 +170,7 @@
   <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
   <string name="title_attachment_saved">Qoşma saxlanıldı</string>
   <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və yönləndirilməyəcək, davam edək?</string>
-  <string name="title_ask_delete">Mesajı birdəfəlik sil?</string>
+  <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
   <string name="title_ask_discard">Qaralama silinsin?</string>
   <string name="title_ask_spam">Mesajı spam kimi bildirilsin?</string>
   <string name="title_fix">Düzəlt</string>
@@ -205,12 +205,12 @@
   <string name="title_sort_on_time">Vaxt</string>
   <string name="title_sort_on_unread">Oxunmadı</string>
   <string name="title_sort_on_starred">Ulduzlu</string>
-  <string name="title_move_sent">Göndərilənlərə köçür</string>
+  <string name="title_move_sent">Göndərilənlərə köçürt</string>
   <string name="title_previous">Əvvəlki</string>
   <string name="title_next">Növbəti</string>
   <string name="title_answer_reply">Cavab şablonu</string>
-  <string name="title_answer_name">Cavab adı</string>
-  <string name="title_answer_text">Cavab mətni</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">Gələn qutusu</string>
   <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
   <string name="title_legend_archive">Arxiv</string>
@@ -246,7 +246,7 @@
   <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>
   <string name="title_pro_purchase">Satın al</string>
   <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
-  <string name="title_pro_price">Zəhmət olmasa pro xüsusiyyətlərin qiyməti haqqında <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">bu TCS</a> səhifəsinə baxın</string>
+  <string name="title_pro_price">Zəhmət olmasa pro xüsusiyyətlərin qiyməti haqqında <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">bu TSS</a> səhifəsinə baxın</string>
   <string name="title_pro_activated">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
   <string name="title_pro_valid">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
   <string name="title_pro_invalid">Etibarsız cavab</string>

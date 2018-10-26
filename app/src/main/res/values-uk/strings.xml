@@ -217,8 +217,8 @@
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Reply template</string>
-  <string name="title_answer_name">Answer name</string>
-  <string name="title_answer_text">Answer text</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">Inbox</string>
   <string name="title_legend_unified">Unified inbox</string>
   <string name="title_legend_archive">Archive</string>

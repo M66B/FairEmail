@@ -209,8 +209,8 @@
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Reply template</string>
-  <string name="title_answer_name">Svarnamn</string>
-  <string name="title_answer_text">Svarstexten</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">Inkorg</string>
   <string name="title_legend_unified">Samlad inkorg</string>
   <string name="title_legend_archive">Arkivera</string>

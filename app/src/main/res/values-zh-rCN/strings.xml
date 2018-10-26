@@ -205,8 +205,8 @@
   <string name="title_previous">Previous</string>
   <string name="title_next">Next</string>
   <string name="title_answer_reply">Reply template</string>
-  <string name="title_answer_name">回复名称</string>
-  <string name="title_answer_text">回复文本</string>
+  <string name="title_answer_name">Template name</string>
+  <string name="title_answer_text">Template text</string>
   <string name="title_legend_inbox">收件箱</string>
   <string name="title_legend_unified">聚合收件箱</string>
   <string name="title_legend_archive">存档</string>
