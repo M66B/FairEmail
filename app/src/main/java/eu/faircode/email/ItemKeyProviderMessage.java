@@ -18,7 +18,11 @@ public class ItemKeyProviderMessage extends ItemKeyProvider<Long> {
     @Override
     public Long getKey(int pos) {
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
-        return adapter.getCurrentList().get(pos).id;
+        PagedList<TupleMessageEx> list = adapter.getCurrentList();
+        if (list != null && pos < list.size())
+            return list.get(pos).id;
+        else
+            return null;
     }
 
     @Override
