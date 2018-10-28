@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -55,10 +56,10 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.InputStreamReader;
@@ -70,8 +71,11 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.Session;
+import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
@@ -91,9 +95,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
+    private long message = -1;
     private long attachment = -1;
-    private long decryptId = -1;
-    private File decryptFile = null;
+
     private OpenPgpServiceConnection pgpService;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
@@ -894,51 +898,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onDecrypt(Intent intent) {
-        Bundle args = new Bundle();
-        args.putLong("id", intent.getLongExtra("id", -1));
+        Intent data = new Intent();
+        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
+        data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
-        new SimpleTask<File>() {
-            @Override
-            protected File onLoad(Context context, Bundle args) {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    for (EntityAttachment attachment : db.attachment().getAttachments(id))
-                        if (attachment.available && "encrypted.asc".equals(attachment.name))
-                            return EntityAttachment.getFile(context, attachment.id);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onLoaded(Bundle args, File file) {
-                if (file != null)
-                    try {
-                        if (!pgpService.isBound())
-                            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
-
-                        Intent data = new Intent();
-                        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-                        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{args.getString("to")});
-                        data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-
-                        decrypt(data, args.getLong("id"), file);
-                    } catch (Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(ActivityView.this, ex);
-                    }
-            }
-        }.load(this, args);
+        decrypt(data, intent.getLongExtra("id", -1));
     }
 
     private void onShowPro(Intent intent) {
@@ -947,63 +912,78 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void decrypt(Intent data, final long id, final File file) throws FileNotFoundException {
-        final OpenPgpApi api = new OpenPgpApi(this, pgpService.getService());
-        final FileInputStream msg = new FileInputStream(file);
-        final ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
+    private void decrypt(Intent data, long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putParcelable("data", data);
 
-        api.executeApiAsync(data, msg, decrypted, new OpenPgpApi.IOpenPgpCallback() {
+        new SimpleTask<PendingIntent>() {
             @Override
-            public void onReturn(Intent result) {
-                try {
-                    switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
-                        case OpenPgpApi.RESULT_CODE_SUCCESS:
-                            Bundle args = new Bundle();
-                            args.putLong("id", id);
+            protected PendingIntent onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Intent data = args.getParcelable("data");
 
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onLoad(Context context, Bundle args) throws Throwable {
-                                    long id = args.getLong("id");
+                DB db = DB.getInstance(context);
+                for (EntityAttachment attachment : db.attachment().getAttachments(id))
+                    if (attachment.available && "encrypted.asc".equals(attachment.name)) {
+                        if (!pgpService.isBound())
+                            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
-                                    DB db = DB.getInstance(context);
-                                    EntityMessage message = db.message().getMessage(id);
-                                    message.write(context, decrypted.toString("UTF-8"));
-                                    db.message().setMessageStored(id, new Date().getTime());
+                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                        FileInputStream encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
+                        ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
 
-                                    return null;
-                                }
+                        Intent result = api.executeApi(data, encrypted, decrypted);
+                        switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
+                            case OpenPgpApi.RESULT_CODE_SUCCESS:
+                                ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
 
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(ActivityView.this, ex);
-                                }
-                            }.load(ActivityView.this, args);
+                                Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                                Session isession = Session.getInstance(props, null);
+                                MimeMessage imessage = new MimeMessage(isession, is);
+                                MessageHelper helper = new MessageHelper(imessage);
 
-                            break;
+                                EntityMessage m = db.message().getMessage(id);
+                                m.write(context, helper.getHtml());
+                                db.message().setMessageStored(id, new Date().getTime());
+                                break;
 
-                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                            decryptId = id;
-                            decryptFile = file;
-                            PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-                            startIntentSenderForResult(
-                                    pi.getIntentSender(),
-                                    ActivityView.REQUEST_DECRYPT,
-                                    null, 0, 0, 0, null);
-                            break;
+                            case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                                message = id;
+                                return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
-                        case OpenPgpApi.RESULT_CODE_ERROR:
-                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                            throw new IllegalArgumentException(error.getMessage());
+                            case OpenPgpApi.RESULT_CODE_ERROR:
+                                OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                                throw new IllegalArgumentException(error.getMessage());
+                        }
+
+                        break;
                     }
-                } catch (Throwable ex) {
-                    if (ex instanceof IllegalArgumentException)
-                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                    else
-                        Helper.unexpectedError(ActivityView.this, ex);
-                }
+
+                return null;
             }
-        });
+
+            @Override
+            protected void onLoaded(Bundle args, PendingIntent pi) {
+                if (pi != null)
+                    try {
+                        startIntentSenderForResult(
+                                pi.getIntentSender(),
+                                ActivityView.REQUEST_DECRYPT,
+                                null, 0, 0, 0, null);
+                    } catch (IntentSender.SendIntentException ex) {
+                        Helper.unexpectedError(ActivityView.this, ex);
+                    }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(ActivityView.this, ex);
+            }
+        }.load(ActivityView.this, args);
     }
 
     @Override
@@ -1075,14 +1055,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             } else if (requestCode == REQUEST_DECRYPT) {
                 if (data != null)
-                    try {
-                        decrypt(data, decryptId, decryptFile);
-                    } catch (Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(ActivityView.this, ex);
-                    }
+                    decrypt(data, message);
             }
     }
 }
