@@ -37,4 +37,10 @@
         android:icon="@drawable/baseline_people_24"
         android:title="@string/title_show_addresses"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_encrypt"
+        android:icon="@drawable/baseline_lock_24"
+        android:title="@string/title_encrypt"
+        app:showAsAction="ifRoom" />
 </menu>

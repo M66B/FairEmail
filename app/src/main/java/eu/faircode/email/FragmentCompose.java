@@ -423,6 +423,9 @@ public class FragmentCompose extends FragmentEx {
             case R.id.menu_addresses:
                 onMenuAddresses();
                 return true;
+            case R.id.menu_encrypt:
+                onAction(R.id.menu_encrypt);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -1371,7 +1374,7 @@ public class FragmentCompose extends FragmentEx {
                             Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
                         }
                     });
-                } else if (action == R.id.action_save || action == R.id.action_encrypt) {
+                } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
                     db.message().updateMessage(draft);
                     draft.write(context, body);
 
@@ -1462,7 +1465,7 @@ public class FragmentCompose extends FragmentEx {
             } else if (action == R.id.action_save) {
                 // Do nothing
 
-            } else if (action == R.id.action_encrypt) {
+            } else if (action == R.id.menu_encrypt) {
                 onEncrypt();
 
             } else if (action == R.id.action_send) {
