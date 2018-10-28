@@ -411,7 +411,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 boolean hasJunk = false;
                                 boolean hasTrash = false;
                                 boolean hasArchive = false;
-                                boolean hasUser = false;
 
                                 if (folders != null)
                                     for (EntityFolder folder : folders) {
@@ -421,8 +420,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                             hasTrash = true;
                                         else if (EntityFolder.ARCHIVE.equals(folder.type))
                                             hasArchive = true;
-                                        else if (EntityFolder.USER.equals(folder.type))
-                                            hasUser = true;
                                     }
 
                                 boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
@@ -437,7 +434,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 bnvActions.setTag(data);
 
                                 bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                                bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null && (!inInbox || hasUser));
+                                bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
                                 bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
 
                                 bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
@@ -1238,46 +1235,32 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             new SimpleTask<List<EntityFolder>>() {
                 @Override
                 protected List<EntityFolder> onLoad(Context context, Bundle args) {
-                    EntityMessage message;
-                    List<EntityFolder> folders;
-
                     DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        message = db.message().getMessage(args.getLong("id"));
-                        folders = db.folder().getUserFolders(message.account);
-
-                        for (int i = 0; i < folders.size(); i++)
-                            if (folders.get(i).id.equals(message.folder)) {
-                                folders.remove(i);
-                                break;
-                            }
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
+                    EntityMessage message = db.message().getMessage(args.getLong("id"));
+                    List<EntityFolder> folders = db.folder().getFolders(message.account);
+                    List<EntityFolder> targets = new ArrayList<>();
+                    for (EntityFolder f : folders)
+                        if (!f.id.equals(message.folder) && !EntityFolder.DRAFTS.equals(f.type))
+                            targets.add(f);
 
                     final Collator collator = Collator.getInstance(Locale.getDefault());
                     collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-                    Collections.sort(folders, new Comparator<EntityFolder>() {
+                    Collections.sort(targets, new Comparator<EntityFolder>() {
                         @Override
                         public int compare(EntityFolder f1, EntityFolder f2) {
-                            return collator.compare(f1.name, f2.name);
+                            int s = Integer.compare(
+                                    EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                                    EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                            if (s != 0)
+                                return s;
+                            return collator.compare(
+                                    f1.name == null ? "" : f1.name,
+                                    f2.name == null ? "" : f2.name);
                         }
                     });
 
-                    EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
-                    if (sent != null && !message.folder.equals(sent.id))
-                        folders.add(0, sent);
-
-                    EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
-                    if (inbox != null && !message.folder.equals(inbox.id))
-                        folders.add(0, inbox);
-
-                    return folders;
+                    return targets;
                 }
 
                 @Override
