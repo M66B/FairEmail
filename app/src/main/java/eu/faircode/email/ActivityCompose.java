@@ -58,31 +58,54 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                 args.putLong("account", -1);
 
                 Uri uri = intent.getData();
-                if (uri != null && "mailto".equals(uri.getScheme()))
-                    args.putString("to", uri.getSchemeSpecificPart());
+                if (uri != null && "mailto".equals(uri.getScheme())) {
+                    String to = uri.getSchemeSpecificPart();
+                    if (to != null)
+                        args.putString("to", to);
+                }
 
-                if (intent.hasExtra(Intent.EXTRA_EMAIL))
-                    args.putString("to", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_EMAIL)));
+                if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
+                    String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
+                    if (to != null)
+                        args.putString("to", TextUtils.join(", ", to));
+                }
 
-                if (intent.hasExtra(Intent.EXTRA_CC))
-                    args.putString("cc", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_CC)));
+                if (intent.hasExtra(Intent.EXTRA_CC)) {
+                    String[] cc = intent.getStringArrayExtra(Intent.EXTRA_CC);
+                    if (cc != null)
+                        args.putString("cc", TextUtils.join(", ", cc));
+                }
 
-                if (intent.hasExtra(Intent.EXTRA_BCC))
-                    args.putString("bcc", TextUtils.join(", ", intent.getStringArrayExtra(Intent.EXTRA_BCC)));
+                if (intent.hasExtra(Intent.EXTRA_BCC)) {
+                    String[] bcc = intent.getStringArrayExtra(Intent.EXTRA_BCC);
+                    if (bcc != null)
+                        args.putString("bcc", TextUtils.join(", ", bcc));
+                }
 
-                if (intent.hasExtra(Intent.EXTRA_SUBJECT))
-                    args.putString("subject", intent.getStringExtra(Intent.EXTRA_SUBJECT));
+                if (intent.hasExtra(Intent.EXTRA_SUBJECT)) {
+                    String subject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+                    if (subject != null)
+                        args.putString("subject", subject);
+                }
 
-                if (intent.hasExtra(Intent.EXTRA_TEXT))
-                    args.putString("body", intent.getStringExtra(Intent.EXTRA_TEXT)); // Intent.EXTRA_HTML_TEXT
+                if (intent.hasExtra(Intent.EXTRA_TEXT)) {
+                    String body = intent.getStringExtra(Intent.EXTRA_TEXT); // Intent.EXTRA_HTML_TEXT
+                    if (body != null)
+                        args.putString("body", body);
+                }
 
                 if (intent.hasExtra(Intent.EXTRA_STREAM))
-                    if (Intent.ACTION_SEND_MULTIPLE.equals(action))
-                        args.putParcelableArrayList("attachments", intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM));
-                    else {
-                        ArrayList<Uri> uris = new ArrayList<>();
-                        uris.add((Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM));
-                        args.putParcelableArrayList("attachments", uris);
+                    if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
+                        ArrayList<Uri> uris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+                        if (uris != null)
+                            args.putParcelableArrayList("attachments", uris);
+                    } else {
+                        Uri stream = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                        if (stream != null) {
+                            ArrayList<Uri> uris = new ArrayList<>();
+                            uris.add((Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM));
+                            args.putParcelableArrayList("attachments", uris);
+                        }
                     }
             } else
                 args = intent.getExtras();
