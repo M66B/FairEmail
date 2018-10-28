@@ -209,8 +209,8 @@
   <string name="title_previous">Précédent</string>
   <string name="title_next">Suivant</string>
   <string name="title_answer_reply">Modèle de réponse</string>
-  <string name="title_answer_name">Template name</string>
-  <string name="title_answer_text">Template text</string>
+  <string name="title_answer_name">Nom du modèle</string>
+  <string name="title_answer_text">Texte du modèle</string>
   <string name="title_legend_inbox">Boîte de réception</string>
   <string name="title_legend_unified">Boite de réception unifiée</string>
   <string name="title_legend_archive">Archives</string>

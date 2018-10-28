@@ -15,7 +15,7 @@
   </plurals>
   <plurals name="title_notification_operations">
     <item quantity="zero">%1$d operations pending</item>
-    <item quantity="one">%1 العملية معلقه</item>
+    <item quantity="one">%1$d العملية معلقة</item>
     <item quantity="two">%1$d operations pending</item>
     <item quantity="few">%1$d operations pending</item>
     <item quantity="many">%1$d operations pending</item>

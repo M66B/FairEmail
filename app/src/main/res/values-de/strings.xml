@@ -209,8 +209,8 @@
   <string name="title_previous">Vorherige</string>
   <string name="title_next">Nächste</string>
   <string name="title_answer_reply">Antwortvorlage</string>
-  <string name="title_answer_name">Template name</string>
-  <string name="title_answer_text">Template text</string>
+  <string name="title_answer_name">Vorlagenname</string>
+  <string name="title_answer_text">Vorlagentext</string>
   <string name="title_legend_inbox">Posteingang</string>
   <string name="title_legend_unified">Gemeinsamer Posteingang</string>
   <string name="title_legend_archive">Archiv</string>

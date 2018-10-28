@@ -217,8 +217,8 @@
   <string name="title_previous">Poprzedni</string>
   <string name="title_next">Następny</string>
   <string name="title_answer_reply">Szablon odpowiedzi</string>
-  <string name="title_answer_name">Template name</string>
-  <string name="title_answer_text">Template text</string>
+  <string name="title_answer_name">Nazwa szablonu</string>
+  <string name="title_answer_text">Tekst szablonu</string>
   <string name="title_legend_inbox">Odebrane</string>
   <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
   <string name="title_legend_archive">Archiwum</string>
