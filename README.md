@@ -29,6 +29,7 @@ This app starts a foreground service with a low priority status bar notification
 * Battery friendly
 * Low data usage
 * Folder management
+* PGP support
 * Material design
 
 ## Pro features
