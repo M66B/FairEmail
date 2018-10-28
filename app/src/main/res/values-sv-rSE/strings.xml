@@ -158,6 +158,7 @@
   <string name="title_reply_all">Svara till alla</string>
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Visa originalet</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Papperskorg</string>
   <string name="title_delete">Ta bort</string>
   <string name="title_more">Mer</string>
@@ -184,6 +185,7 @@
   <string name="title_body_hint">Ditt meddelande</string>
   <string name="title_discard">Släng</string>
   <string name="title_save">Spara</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Skicka</string>
   <string name="title_clipboard_empty">Urklipp är tomt</string>
   <string name="title_style_bold">Fetstil</string>
@@ -198,6 +200,7 @@
   <string name="title_draft_deleted">Utkastet slängdes</string>
   <string name="title_draft_saved">Utkast sparat</string>
   <string name="title_queued">Skickar meddelande</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Sök</string>
   <string name="title_search_hint">Sök på server</string>
   <string name="title_searching">Söker \'%1$s\'</string>

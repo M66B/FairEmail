@@ -174,6 +174,7 @@
   <string name="title_reply_all">الرد على الكل</string>
   <string name="title_show_headers">عرض العنوان الرأسي</string>
   <string name="title_show_html">إظهار المنشور الأصلي</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">سلة المهملات</string>
   <string name="title_delete">حذف</string>
   <string name="title_more">More</string>
@@ -200,6 +201,7 @@
   <string name="title_body_hint">الرسالة الخاصة بك</string>
   <string name="title_discard">Discard</string>
   <string name="title_save">Save</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Send</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
   <string name="title_style_bold">Bold</string>
@@ -214,6 +216,7 @@
   <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Draft saved</string>
   <string name="title_queued">Sending message</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Search</string>
   <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Searching \'%1$s\'</string>

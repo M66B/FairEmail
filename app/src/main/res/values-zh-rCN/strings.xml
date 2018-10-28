@@ -154,6 +154,7 @@
   <string name="title_reply_all">回复全部</string>
   <string name="title_show_headers">显示标题</string>
   <string name="title_show_html">显示原件</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">回收站</string>
   <string name="title_delete">删除</string>
   <string name="title_more">More</string>
@@ -180,6 +181,7 @@
   <string name="title_body_hint">您的邮件内容……</string>
   <string name="title_discard">Discard</string>
   <string name="title_save">保存</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">发送</string>
   <string name="title_clipboard_empty">剪贴板为空</string>
   <string name="title_style_bold">粗体</string>
@@ -194,6 +196,7 @@
   <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">草稿已保存</string>
   <string name="title_queued">正在发送邮件</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">搜索</string>
   <string name="title_search_hint">在服务器上搜索</string>
   <string name="title_searching">搜索 “%1$s”</string>

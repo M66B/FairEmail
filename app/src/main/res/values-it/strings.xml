@@ -158,6 +158,7 @@
   <string name="title_reply_all">Rispondi a tutti</string>
   <string name="title_show_headers">Visualizza header</string>
   <string name="title_show_html">Visualizza originale</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Cestino</string>
   <string name="title_delete">Elimina</string>
   <string name="title_more">Altro</string>
@@ -184,6 +185,7 @@
   <string name="title_body_hint">Il tuo messaggio</string>
   <string name="title_discard">Elimina</string>
   <string name="title_save">Salva</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Invia</string>
   <string name="title_clipboard_empty">Appunti vuoti</string>
   <string name="title_style_bold">Grassetto</string>
@@ -198,6 +200,7 @@
   <string name="title_draft_deleted">Bozza eliminata</string>
   <string name="title_draft_saved">Bozza salvata</string>
   <string name="title_queued">Invio messaggio in corso</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Cerca</string>
   <string name="title_search_hint">Cerca sul server</string>
   <string name="title_searching">Ricerca di \'%1$s\'</string>

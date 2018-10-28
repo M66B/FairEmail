@@ -158,6 +158,7 @@
   <string name="title_reply_all">Svar alle</string>
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Papirkurv</string>
   <string name="title_delete">Delete</string>
   <string name="title_more">More</string>
@@ -184,6 +185,7 @@
   <string name="title_body_hint">Din besked</string>
   <string name="title_discard">Discard</string>
   <string name="title_save">Gem</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Send</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
   <string name="title_style_bold">Bold</string>
@@ -198,6 +200,7 @@
   <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Kladde gemt</string>
   <string name="title_queued">Sender besked</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Søg</string>
   <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Søger \'%1$s \'</string>

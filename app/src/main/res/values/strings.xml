@@ -230,7 +230,7 @@
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_queued">Sending message</string>
 
-    <string name="title_no_openpgp">OpenPgp not found</string>
+    <string name="title_no_openpgp">OpenKeychain not found</string>
 
     <string name="title_search">Search</string>
     <string name="title_search_hint">Search on server</string>

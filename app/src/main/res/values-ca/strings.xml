@@ -158,6 +158,7 @@
   <string name="title_reply_all">Respon a tots</string>
   <string name="title_show_headers">Mostra les capçaleres</string>
   <string name="title_show_html">Veure l\'original</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Paperera</string>
   <string name="title_delete">Eliminar</string>
   <string name="title_more">Més</string>
@@ -184,6 +185,7 @@
   <string name="title_body_hint">El teu missatge</string>
   <string name="title_discard">Descartar</string>
   <string name="title_save">Desa</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Enviar</string>
   <string name="title_clipboard_empty">Porta-retalls buit</string>
   <string name="title_style_bold">Negreta</string>
@@ -198,6 +200,7 @@
   <string name="title_draft_deleted">Esborrany eliminat</string>
   <string name="title_draft_saved">Esborrany desat</string>
   <string name="title_queued">Enviant missatge</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Cerca</string>
   <string name="title_search_hint">Cerca en el servidor remot</string>
   <string name="title_searching">Cercant \'%1$s\'</string>

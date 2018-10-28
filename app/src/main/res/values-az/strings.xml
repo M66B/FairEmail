@@ -158,6 +158,7 @@
   <string name="title_reply_all">Hamısını cavabla</string>
   <string name="title_show_headers">Başlıqları göstər</string>
   <string name="title_show_html">Həqiqisini göstər</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Tullantı</string>
   <string name="title_delete">Sil</string>
   <string name="title_more">Daha çox</string>
@@ -184,6 +185,7 @@
   <string name="title_body_hint">Mesajınız</string>
   <string name="title_discard">Sil</string>
   <string name="title_save">Saxla</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Göndər</string>
   <string name="title_clipboard_empty">Lövhə boşdur</string>
   <string name="title_style_bold">Qalın</string>
@@ -198,6 +200,7 @@
   <string name="title_draft_deleted">Qaralama silindi</string>
   <string name="title_draft_saved">Qaralama saxlanıldı</string>
   <string name="title_queued">Mesaj göndərilir</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Axtar</string>
   <string name="title_search_hint">Serverdə axtar</string>
   <string name="title_searching">\'%1$s\' axtarılır</string>

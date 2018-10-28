@@ -162,6 +162,7 @@
   <string name="title_reply_all">Reply to all</string>
   <string name="title_show_headers">Show headers</string>
   <string name="title_show_html">Show original</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Trash</string>
   <string name="title_delete">Delete</string>
   <string name="title_more">More</string>
@@ -188,6 +189,7 @@
   <string name="title_body_hint">Your message</string>
   <string name="title_discard">Discard</string>
   <string name="title_save">Save</string>
+  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Send</string>
   <string name="title_clipboard_empty">Clipboard empty</string>
   <string name="title_style_bold">Bold</string>
@@ -202,6 +204,7 @@
   <string name="title_draft_deleted">Draft discarded</string>
   <string name="title_draft_saved">Draft saved</string>
   <string name="title_queued">Sending message</string>
+  <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Search</string>
   <string name="title_search_hint">Search on server</string>
   <string name="title_searching">Searching \'%1$s\'</string>
