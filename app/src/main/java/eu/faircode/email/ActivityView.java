@@ -61,7 +61,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.Collator;
@@ -956,11 +955,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         api.executeApiAsync(data, msg, decrypted, new OpenPgpApi.IOpenPgpCallback() {
             @Override
             public void onReturn(Intent result) {
-                Log.i(Helper.TAG, "Pgp result=" + result);
-                Bundle extras = result.getExtras();
-                for (String key : extras.keySet())
-                    Log.i(Helper.TAG, key + "=" + extras.get(key));
-
                 try {
                     switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
@@ -1007,12 +1001,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
                         Helper.unexpectedError(ActivityView.this, ex);
-                } finally {
-                    try {
-                        msg.close();
-                    } catch (IOException ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
                 }
             }
         });

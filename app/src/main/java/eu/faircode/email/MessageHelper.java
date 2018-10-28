@@ -27,9 +27,11 @@ import android.webkit.MimeTypeMap;
 
 import org.jsoup.Jsoup;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -196,6 +198,27 @@ public class MessageHelper {
             imessage.setSubject(message.subject);
 
         imessage.setSentDate(new Date());
+
+        if (message.from != null && message.from.length > 0)
+            for (EntityAttachment attachment : attachments)
+                if (attachment.available && "signature.asc".equals(attachment.name)) {
+                    InternetAddress from = (InternetAddress) message.from[0];
+                    File file = EntityAttachment.getFile(context, attachment.id);
+                    BufferedReader br = null;
+                    StringBuilder sb = new StringBuilder();
+                    try {
+                        br = new BufferedReader(new FileReader(file));
+                        String line;
+                        while ((line = br.readLine()) != null)
+                            if (!line.startsWith("-----") && !line.endsWith("-----"))
+                                sb.append(line);
+                    } finally {
+                        if (br != null)
+                            br.close();
+                    }
+
+                    imessage.addHeader("Autocrypt", "addr=" + from.getAddress() + "; keydata=" + sb.toString());
+                }
 
         for (final EntityAttachment attachment : attachments)
             if (attachment.available && "encrypted.asc".equals(attachment.name)) {
