@@ -978,7 +978,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                protected Void onLoad(Context context, Bundle args) {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
@@ -1015,7 +1015,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                protected Void onLoad(Context context, Bundle args) {
                     long id = args.getLong("id");
                     boolean flagged = args.getBoolean("flagged");
                     DB db = DB.getInstance(context);

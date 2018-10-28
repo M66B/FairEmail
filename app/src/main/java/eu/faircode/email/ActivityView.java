@@ -458,7 +458,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     // Get version info
                     StringBuilder sb = new StringBuilder();
 
-                    sb.append(context.getString(R.string.title_crash_info_remark) + "\n\n\n\n");
+                    sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
 
                     sb.append(String.format("%s: %s %s/%s\r\n",
                             context.getString(R.string.app_name),
@@ -549,8 +549,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private class UpdateInfo {
-        public String tag_name; // version
-        public String html_url;
+        String tag_name; // version
+        String html_url;
     }
 
     private void checkUpdate() {
@@ -900,7 +900,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         new SimpleTask<File>() {
             @Override
-            protected File onLoad(Context context, Bundle args) throws Throwable {
+            protected File onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
