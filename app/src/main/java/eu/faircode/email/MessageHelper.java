@@ -195,7 +195,41 @@ public class MessageHelper {
         if (message.subject != null)
             imessage.setSubject(message.subject);
 
-        // TODO: plain message?
+        imessage.setSentDate(new Date());
+
+        for (final EntityAttachment attachment : attachments)
+            if (attachment.available && "encrypted.asc".equals(attachment.name)) {
+                Multipart multipart = new MimeMultipart("encrypted; protocol=\"application/pgp-encrypted\"");
+
+                BodyPart pgp = new MimeBodyPart();
+                pgp.setContent("", "application/pgp-encrypted");
+                multipart.addBodyPart(pgp);
+
+                BodyPart bpAttachment = new MimeBodyPart();
+                bpAttachment.setFileName(attachment.name);
+
+                File file = EntityAttachment.getFile(context, attachment.id);
+                FileDataSource dataSource = new FileDataSource(file);
+                dataSource.setFileTypeMap(new FileTypeMap() {
+                    @Override
+                    public String getContentType(File file) {
+                        return attachment.type;
+                    }
+
+                    @Override
+                    public String getContentType(String filename) {
+                        return attachment.type;
+                    }
+                });
+                bpAttachment.setDataHandler(new DataHandler(dataSource));
+                bpAttachment.setDisposition(Part.INLINE);
+
+                multipart.addBodyPart(bpAttachment);
+
+                imessage.setContent(multipart);
+
+                return imessage;
+            }
 
         String body = message.read(context);
 
@@ -245,8 +279,6 @@ public class MessageHelper {
 
             imessage.setContent(multipart);
         }
-
-        imessage.setSentDate(new Date());
 
         return imessage;
     }

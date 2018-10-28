@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -64,8 +65,14 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.openintents.openpgp.OpenPgpError;
+import org.openintents.openpgp.util.OpenPgpApi;
+import org.openintents.openpgp.util.OpenPgpServiceConnection;
+
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -118,6 +125,8 @@ public class FragmentCompose extends FragmentEx {
 
     private long working = -1;
     private boolean autosave = false;
+
+    private OpenPgpServiceConnection pgpService;
 
     @Override
     @Nullable
@@ -189,20 +198,14 @@ public class FragmentCompose extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int action = item.getItemId();
-                if (action == R.id.action_delete) {
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(R.string.title_ask_discard)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    onAction(R.id.action_delete);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
+                switch (action) {
+                    case R.id.action_delete:
+                        onDelete();
+                        break;
 
-                } else
-                    onAction(action);
+                    default:
+                        onAction(action);
+                }
                 return false;
             }
         });
@@ -298,12 +301,19 @@ public class FragmentCompose extends FragmentEx {
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), false);
         rvAttachment.setAdapter(adapter);
 
+        pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
+        pgpService.bindToService();
+
         return view;
     }
 
     @Override
     public void onDestroyView() {
         adapter = null;
+
+        if (pgpService != null)
+            pgpService.unbindFromService();
+
         super.onDestroyView();
     }
 
@@ -457,6 +467,145 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
+    private void onDelete() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_ask_discard)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onAction(R.id.action_delete);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void onEncrypt() {
+        try {
+            if (!pgpService.isBound())
+                throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
+
+            String to = etTo.getText().toString();
+            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+            if (ato.length == 0)
+                throw new IllegalArgumentException(getString(R.string.title_to_missing));
+
+            String[] tos = new String[ato.length];
+            for (int i = 0; i < ato.length; i++)
+                tos[i] = ato[i].getAddress();
+
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_ENCRYPT);
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
+            data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+
+            encrypt(data);
+        } catch (Throwable ex) {
+            if (ex instanceof IllegalArgumentException)
+                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            else
+                Helper.unexpectedError(getContext(), ex);
+        }
+    }
+
+    private void encrypt(Intent data) throws IOException {
+        final OpenPgpApi api = new OpenPgpApi(getContext(), pgpService.getService());
+        final FileInputStream msg = new FileInputStream(EntityMessage.getFile(getContext(), working));
+        final ByteArrayOutputStream encrypted = new ByteArrayOutputStream();
+
+        final Bundle args = new Bundle();
+        args.putLong("id", working);
+
+        api.executeApiAsync(data, msg, encrypted, new OpenPgpApi.IOpenPgpCallback() {
+            @Override
+            public void onReturn(Intent result) {
+                Log.i(Helper.TAG, "Pgp result=" + result);
+                Bundle extras = result.getExtras();
+                for (String key : extras.keySet())
+                    Log.i(Helper.TAG, key + "=" + extras.get(key));
+
+                try {
+                    switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
+                        case OpenPgpApi.RESULT_CODE_SUCCESS:
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                    long id = args.getLong("id");
+                                    EntityAttachment attachment = new EntityAttachment();
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        int seq = db.attachment().getAttachmentCount(id);
+
+                                        attachment.message = id;
+                                        attachment.sequence = seq + 1;
+                                        attachment.name = "encrypted.asc";
+                                        attachment.type = "application/octet-stream";
+                                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                                        File file = EntityAttachment.getFile(context, attachment.id);
+
+                                        OutputStream os = null;
+                                        try {
+                                            os = new BufferedOutputStream(new FileOutputStream(file));
+                                            byte[] data = encrypted.toByteArray();
+                                            os.write(data);
+
+                                            attachment.size = data.length;
+                                            attachment.progress = null;
+                                            attachment.available = true;
+                                            db.attachment().updateAttachment(attachment);
+                                        } finally {
+                                            if (os != null)
+                                                os.close();
+                                        }
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(getContext(), ex);
+                                }
+                            }.load(FragmentCompose.this, args);
+
+                            break;
+
+                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                            PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                            startIntentSenderForResult(
+                                    pi.getIntentSender(),
+                                    ActivityCompose.REQUEST_ENCRYPT,
+                                    null, 0, 0, 0, null);
+                            break;
+
+                        case OpenPgpApi.RESULT_CODE_ERROR:
+                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            throw new IllegalArgumentException(error.getMessage());
+                    }
+                } catch (Throwable ex) {
+                    if (ex instanceof IllegalArgumentException)
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    else
+                        Helper.unexpectedError(getContext(), ex);
+                } finally {
+                    try {
+                        msg.close();
+                    } catch (IOException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+                }
+            }
+        });
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i(Helper.TAG, "Compose onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
@@ -467,6 +616,16 @@ public class FragmentCompose extends FragmentEx {
             } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
                 if (data != null)
                     handleAddAttachment(data, false);
+            } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT) {
+                if (data != null)
+                    try {
+                        encrypt(data);
+                    } catch (Throwable ex) {
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(getContext(), ex);
+                    }
             } else {
                 if (data != null)
                     handlePickContact(requestCode, data);
@@ -626,7 +785,8 @@ public class FragmentCompose extends FragmentEx {
         actionLoader.load(this, args);
     }
 
-    private static EntityAttachment addAttachment(Context context, long id, Uri uri, boolean image) throws IOException {
+    private static EntityAttachment addAttachment(Context context, long id, Uri uri,
+                                                  boolean image) throws IOException {
         EntityAttachment attachment = new EntityAttachment();
 
         String name = null;
@@ -1159,7 +1319,7 @@ public class FragmentCompose extends FragmentEx {
                             Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
                         }
                     });
-                } else if (action == R.id.action_save) {
+                } else if (action == R.id.action_save || action == R.id.action_encrypt) {
                     db.message().updateMessage(draft);
                     draft.write(context, body);
 
@@ -1249,6 +1409,9 @@ public class FragmentCompose extends FragmentEx {
 
             } else if (action == R.id.action_save) {
                 // Do nothing
+
+            } else if (action == R.id.action_encrypt) {
+                onEncrypt();
 
             } else if (action == R.id.action_send) {
                 autosave = false;

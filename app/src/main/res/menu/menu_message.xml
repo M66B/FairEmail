@@ -33,4 +33,8 @@
     <item
         android:id="@+id/menu_show_html"
         android:title="@string/title_show_html" />
+
+    <item
+        android:id="@+id/menu_decrypt"
+        android:title="@string/title_decrypt" />
 </menu>

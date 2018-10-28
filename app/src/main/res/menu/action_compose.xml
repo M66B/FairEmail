@@ -12,6 +12,11 @@
         android:title="@string/title_save" />
 
     <item
+        android:id="@+id/action_encrypt"
+        android:icon="@drawable/baseline_lock_24"
+        android:title="@string/title_encrypt" />
+
+    <item
         android:id="@+id/action_send"
         android:icon="@drawable/baseline_send_24"
         android:title="@string/title_send" />

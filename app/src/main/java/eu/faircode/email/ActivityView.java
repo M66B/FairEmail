@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -45,14 +46,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.openintents.openpgp.OpenPgpError;
+import org.openintents.openpgp.util.OpenPgpApi;
+import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.Collator;
@@ -76,7 +85,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.paging.PagedList;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private View view;
@@ -85,7 +93,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ActionBarDrawerToggle drawerToggle;
 
     private long attachment = -1;
-    private PagedList<TupleMessageEx> messages = null;
+    private long decryptId = -1;
+    private File decryptFile = null;
+    private OpenPgpServiceConnection pgpService;
 
     private static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
@@ -95,6 +105,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final int REQUEST_ATTACHMENT = 1;
     static final int REQUEST_INVITE = 2;
+    static final int REQUEST_DECRYPT = 3;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
@@ -102,6 +113,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+    static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
@@ -262,6 +274,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         checkCrash();
         if (!Helper.isPlayStoreInstall(this))
             checkUpdate();
+
+        pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
+        pgpService.bindToService();
     }
 
     @Override
@@ -294,6 +309,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
+        iff.addAction(ACTION_DECRYPT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
 
@@ -367,6 +383,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (pgpService != null)
+            pgpService.unbindFromService();
+
+        super.onDestroy();
     }
 
     @Override
@@ -801,6 +825,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 onEditAnswer(intent);
             else if (ACTION_STORE_ATTACHMENT.equals(intent.getAction()))
                 onStoreAttachment(intent);
+            else if (ACTION_DECRYPT.equals(intent.getAction()))
+                onDecrypt(intent);
             else if (ACTION_SHOW_PRO.equals(intent.getAction()))
                 onShowPro(intent);
         }
@@ -868,10 +894,128 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         startActivityForResult(create, REQUEST_ATTACHMENT);
     }
 
+    private void onDecrypt(Intent intent) {
+        Bundle args = new Bundle();
+        args.putLong("id", intent.getLongExtra("id", -1));
+
+        new SimpleTask<File>() {
+            @Override
+            protected File onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (EntityAttachment attachment : db.attachment().getAttachments(id))
+                        if (attachment.available && "encrypted.asc".equals(attachment.name))
+                            return EntityAttachment.getFile(context, attachment.id);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, File file) {
+                if (file != null)
+                    try {
+                        if (!pgpService.isBound())
+                            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
+
+                        Intent data = new Intent();
+                        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+                        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{args.getString("to")});
+                        data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+
+                        decrypt(data, args.getLong("id"), file);
+                    } catch (Throwable ex) {
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(ActivityView.this, ex);
+                    }
+            }
+        }.load(this, args);
+    }
+
     private void onShowPro(Intent intent) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
         fragmentTransaction.commit();
+    }
+
+    private void decrypt(Intent data, final long id, final File file) throws FileNotFoundException {
+        final OpenPgpApi api = new OpenPgpApi(this, pgpService.getService());
+        final FileInputStream msg = new FileInputStream(file);
+        final ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
+
+        api.executeApiAsync(data, msg, decrypted, new OpenPgpApi.IOpenPgpCallback() {
+            @Override
+            public void onReturn(Intent result) {
+                Log.i(Helper.TAG, "Pgp result=" + result);
+                Bundle extras = result.getExtras();
+                for (String key : extras.keySet())
+                    Log.i(Helper.TAG, key + "=" + extras.get(key));
+
+                try {
+                    switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
+                        case OpenPgpApi.RESULT_CODE_SUCCESS:
+                            Bundle args = new Bundle();
+                            args.putLong("id", id);
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                    long id = args.getLong("id");
+
+                                    DB db = DB.getInstance(context);
+                                    EntityMessage message = db.message().getMessage(id);
+                                    message.write(context, decrypted.toString("UTF-8"));
+                                    db.message().setMessageStored(id, new Date().getTime());
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(ActivityView.this, ex);
+                                }
+                            }.load(ActivityView.this, args);
+
+                            break;
+
+                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                            decryptId = id;
+                            decryptFile = file;
+                            PendingIntent pi = result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                            startIntentSenderForResult(
+                                    pi.getIntentSender(),
+                                    ActivityView.REQUEST_DECRYPT,
+                                    null, 0, 0, 0, null);
+                            break;
+
+                        case OpenPgpApi.RESULT_CODE_ERROR:
+                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            throw new IllegalArgumentException(error.getMessage());
+                    }
+                } catch (Throwable ex) {
+                    if (ex instanceof IllegalArgumentException)
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    else
+                        Helper.unexpectedError(ActivityView.this, ex);
+                } finally {
+                    try {
+                        msg.close();
+                    } catch (IOException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -879,65 +1023,78 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Log.i(Helper.TAG, "View onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == Activity.RESULT_OK)
             if (requestCode == REQUEST_ATTACHMENT) {
-                Bundle args = new Bundle();
-                args.putLong("id", attachment);
-                args.putParcelable("uri", data.getData());
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        Uri uri = args.getParcelable("uri");
+                if (data != null) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", attachment);
+                    args.putParcelable("uri", data.getData());
 
-                        File file = EntityAttachment.getFile(context, id);
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            Uri uri = args.getParcelable("uri");
 
-                        ParcelFileDescriptor pfd = null;
-                        FileOutputStream fos = null;
-                        FileInputStream fis = null;
-                        try {
-                            pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                            fos = new FileOutputStream(pfd.getFileDescriptor());
-                            fis = new FileInputStream(file);
+                            File file = EntityAttachment.getFile(context, id);
 
-                            byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                            int read;
-                            while ((read = fis.read(buffer)) != -1) {
-                                fos.write(buffer, 0, read);
-                            }
-                        } finally {
+                            ParcelFileDescriptor pfd = null;
+                            FileOutputStream fos = null;
+                            FileInputStream fis = null;
                             try {
-                                if (pfd != null)
-                                    pfd.close();
-                            } catch (Throwable ex) {
-                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                                fos = new FileOutputStream(pfd.getFileDescriptor());
+                                fis = new FileInputStream(file);
+
+                                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                                int read;
+                                while ((read = fis.read(buffer)) != -1) {
+                                    fos.write(buffer, 0, read);
+                                }
+                            } finally {
+                                try {
+                                    if (pfd != null)
+                                        pfd.close();
+                                } catch (Throwable ex) {
+                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
+                                try {
+                                    if (fos != null)
+                                        fos.close();
+                                } catch (Throwable ex) {
+                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
+                                try {
+                                    if (fis != null)
+                                        fis.close();
+                                } catch (Throwable ex) {
+                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
                             }
-                            try {
-                                if (fos != null)
-                                    fos.close();
-                            } catch (Throwable ex) {
-                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            }
-                            try {
-                                if (fis != null)
-                                    fis.close();
-                            } catch (Throwable ex) {
-                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            }
+
+                            return null;
                         }
 
-                        return null;
-                    }
+                        @Override
+                        protected void onLoaded(Bundle args, Void data) {
+                            Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+                        }
 
-                    @Override
-                    protected void onLoaded(Bundle args, Void data) {
-                        Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Helper.unexpectedError(ActivityView.this, ex);
+                        }
+                    }.load(this, args);
+                }
+            } else if (requestCode == REQUEST_DECRYPT) {
+                if (data != null)
+                    try {
+                        decrypt(data, decryptId, decryptFile);
+                    } catch (Throwable ex) {
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(ActivityView.this, ex);
                     }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        Helper.unexpectedError(ActivityView.this, ex);
-                    }
-                }.load(this, args);
             }
     }
 }

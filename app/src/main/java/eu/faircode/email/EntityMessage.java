@@ -37,7 +37,6 @@ import javax.mail.Address;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -116,9 +115,6 @@ public class EntityMessage implements Serializable {
     public Boolean ui_ignored;
     public String error;
 
-    @Ignore
-    String body = null;
-
     static String generateMessageId() {
         StringBuffer sb = new StringBuffer();
         sb.append('<')
@@ -139,9 +135,8 @@ public class EntityMessage implements Serializable {
         File file = getFile(context, id);
         BufferedWriter out = null;
         try {
-            this.body = (body == null ? "" : body);
             out = new BufferedWriter(new FileWriter(file));
-            out.write(this.body);
+            out.write(body == null ? "" : body);
         } finally {
             if (out != null)
                 try {
@@ -153,9 +148,7 @@ public class EntityMessage implements Serializable {
     }
 
     String read(Context context) throws IOException {
-        if (body == null)
-            body = read(context, this.id);
-        return body;
+        return read(context, this.id);
     }
 
     static String read(Context context, Long id) throws IOException {

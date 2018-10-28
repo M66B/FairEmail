@@ -84,6 +84,7 @@ dependencies {
     def jsoup_version = "1.11.3"
     def jcharset_version = "2.0"
     def dnsjava_version = "2.1.8"
+    def openpgp_version = "12.0"
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
@@ -112,6 +113,9 @@ dependencies {
 
     // http://www.xbill.org/dnsjava/
     implementation "dnsjava:dnsjava:$dnsjava_version"
+
+    // https://github.com/open-keychain/openpgp-api
+    implementation "org.sufficientlysecure:openpgp-api:$openpgp_version"
 
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')

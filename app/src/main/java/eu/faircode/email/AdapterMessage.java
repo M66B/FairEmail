@@ -1071,6 +1071,14 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             .putExtra("from", MessageHelper.getFormattedAddresses(data.message.from, true)));
         }
 
+        private void onDecrypt(ActionData data) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_DECRYPT)
+                            .putExtra("id", data.message.id)
+                            .putExtra("to", ((InternetAddress) data.message.to[0]).getAddress()));
+        }
+
         private void onMore(final ActionData data) {
             boolean inOutbox = EntityFolder.OUTBOX.equals(data.message.folderType);
             boolean show_headers = properties.showHeaders(data.message.id);
@@ -1086,18 +1094,20 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(!inOutbox);
 
+            popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_answer).setVisible(!inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null && !inOutbox);
+
+            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.unflagged != 1);
+            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null && !inOutbox);
+
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_show_html).setEnabled(data.message.content && Helper.classExists("android.webkit.WebView"));
 
-            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.unflagged != 1);
-            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null && !inOutbox);
-
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null && !inOutbox);
-
-            popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_answer).setVisible(!inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(data.message.to != null && data.message.to.length > 0);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1112,20 +1122,23 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         case R.id.menu_reply_all:
                             onReplyAll(data);
                             return true;
+                        case R.id.menu_answer:
+                            onAnswer(data);
+                            return true;
+                        case R.id.menu_unseen:
+                            onUnseen(data);
+                            return true;
+                        case R.id.menu_flag:
+                            onFlag(data);
+                            return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);
                             return true;
                         case R.id.menu_show_html:
                             onShowHtml(data);
                             return true;
-                        case R.id.menu_flag:
-                            onFlag(data);
-                            return true;
-                        case R.id.menu_unseen:
-                            onUnseen(data);
-                            return true;
-                        case R.id.menu_answer:
-                            onAnswer(data);
+                        case R.id.menu_decrypt:
+                            onDecrypt(data);
                             return true;
                         default:
                             return false;
@@ -1381,7 +1394,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
 
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
