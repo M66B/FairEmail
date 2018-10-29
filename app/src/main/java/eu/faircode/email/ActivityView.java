@@ -316,6 +316,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
 
+        if (!pgpService.isBound())
+            pgpService.bindToService();
+
         Intent intent = getIntent();
         String action = intent.getAction();
         Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
@@ -899,12 +902,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onDecrypt(Intent intent) {
         if (Helper.isPro(this)) {
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
-            data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+            if (pgpService.isBound()) {
+                Intent data = new Intent();
+                data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+                data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
+                data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
-            decrypt(data, intent.getLongExtra("id", -1));
+                decrypt(data, intent.getLongExtra("id", -1));
+            } else {
+                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+                if (Helper.getIntentOpenKeychain().resolveActivity(getPackageManager()) != null)
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(Helper.getIntentOpenKeychain());
+                        }
+                    });
+                snackbar.show();
+            }
         } else
             onShowPro(intent);
     }
@@ -926,9 +941,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 // Get arguments
                 long id = args.getLong("id");
                 Intent data = args.getParcelable("data");
-
-                if (!pgpService.isBound())
-                    throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
                 DB db = DB.getInstance(context);
 

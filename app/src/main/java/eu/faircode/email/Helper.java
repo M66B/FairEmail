@@ -109,6 +109,12 @@ public class Helper {
         return intent;
     }
 
+    static Intent getIntentOpenKeychain() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://f-droid.org/en/packages/org.sufficientlysecure.keychain/"));
+        return intent;
+    }
+
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);
