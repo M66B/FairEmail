@@ -158,7 +158,7 @@
   <string name="title_reply_all">Allen beantwoorden</string>
   <string name="title_show_headers">Toon koppen</string>
   <string name="title_show_html">Toon origineel</string>
-  <string name="title_decrypt">Decrypt</string>
+  <string name="title_decrypt">Ontsleutelen</string>
   <string name="title_trash">Prullenbak</string>
   <string name="title_delete">Verwijder</string>
   <string name="title_more">Meer</string>
@@ -185,7 +185,7 @@
   <string name="title_body_hint">Uw bericht</string>
   <string name="title_discard">Weggooien</string>
   <string name="title_save">Bewaren</string>
-  <string name="title_encrypt">Encrypt</string>
+  <string name="title_encrypt">Versleutelen</string>
   <string name="title_send">Verzenden</string>
   <string name="title_clipboard_empty">Klembord is leeg</string>
   <string name="title_style_bold">Vet</string>
@@ -200,7 +200,7 @@
   <string name="title_draft_deleted">Concept weggegooid</string>
   <string name="title_draft_saved">Concept opgeslagen</string>
   <string name="title_queued">Bericht wordt verzonden</string>
-  <string name="title_no_openpgp">OpenKeychain not found</string>
+  <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
   <string name="title_search">Zoek</string>
   <string name="title_search_hint">Zoek op server</string>
   <string name="title_searching">Zoeken naar \'%1$s\'</string>
@@ -248,7 +248,7 @@
   <string name="title_pro_feature">Dit is een pro-functie</string>
   <string name="title_pro_list">Lijst van pro-functies</string>
   <string name="title_pro_purchase">Koop</string>
-  <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported</string>
+  <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app</string>
   <string name="title_pro_price">Raadpleeg <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">deze FAQ</a> over de prijs van de pro-functies</string>
   <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>
   <string name="title_pro_valid">Alle pro-functies geactiveerd</string>
@@ -257,6 +257,6 @@
   <string name="title_unexpected_error">Onverwachte fout</string>
   <string name="title_log">Logboek</string>
   <string name="title_debug_info">Informatie voor foutopsporing</string>
-  <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
-  <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+  <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
+  <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
 </resources>

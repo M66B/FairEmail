@@ -158,7 +158,7 @@
   <string name="title_reply_all">Antworten an alle</string>
   <string name="title_show_headers">Kopfzeile anzeigen</string>
   <string name="title_show_html">Original anzeigen</string>
-  <string name="title_decrypt">Decrypt</string>
+  <string name="title_decrypt">Entschlüsseln</string>
   <string name="title_trash">Löschen</string>
   <string name="title_delete">Löschen</string>
   <string name="title_more">Mehr</string>
@@ -185,7 +185,7 @@
   <string name="title_body_hint">Ihre Nachricht</string>
   <string name="title_discard">Verwerfen</string>
   <string name="title_save">Speichern</string>
-  <string name="title_encrypt">Encrypt</string>
+  <string name="title_encrypt">Verschlüsseln</string>
   <string name="title_send">Senden</string>
   <string name="title_clipboard_empty">Zwischenablage ist leer</string>
   <string name="title_style_bold">Fett</string>
@@ -200,7 +200,7 @@
   <string name="title_draft_deleted">Entwurf verworfen</string>
   <string name="title_draft_saved">Entwurf gespeichert</string>
   <string name="title_queued">Nachricht senden\u2026</string>
-  <string name="title_no_openpgp">OpenKeychain not found</string>
+  <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
   <string name="title_search">Suche</string>
   <string name="title_search_hint">Auf Server suchen</string>
   <string name="title_searching">Suche „%1$s“</string>
