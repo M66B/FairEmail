@@ -29,7 +29,6 @@ This app starts a foreground service with a low priority status bar notification
 * Battery friendly
 * Low data usage
 * Folder management
-* PGP support
 * Material design
 
 ## Pro features
@@ -42,6 +41,7 @@ This app starts a foreground service with a low priority status bar notification
 * Sort on time, unread or starred
 * Search on server
 * Preview sender/subject in new messages status bar notification
+* Encryption/decryption
 * Export settings
 
 ## Simple
