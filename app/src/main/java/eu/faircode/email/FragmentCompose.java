@@ -578,7 +578,7 @@ public class FragmentCompose extends FragmentEx {
                         try {
                             db.beginTransaction();
 
-                            int seq = db.attachment().getAttachmentCount(id);
+                            int seq = db.attachment().getAttachmentSequence(id);
 
                             attachment1.message = id;
                             attachment1.sequence = seq + 1;
@@ -868,7 +868,7 @@ public class FragmentCompose extends FragmentEx {
             Log.i(Helper.TAG, "Attaching to id=" + id);
 
             attachment.message = draft.id;
-            attachment.sequence = db.attachment().getAttachmentCount(draft.id) + 1;
+            attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
             attachment.name = name;
 
             String extension = Helper.getExtension(attachment.name);
