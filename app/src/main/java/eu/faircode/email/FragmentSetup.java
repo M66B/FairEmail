@@ -90,6 +90,8 @@ public class FragmentSetup extends FragmentEx {
 
     private Button btnData;
 
+    private Button btnNotifications;
+
     private ToggleButton tbDarkTheme;
 
     private Button btnOptions;
@@ -135,6 +137,8 @@ public class FragmentSetup extends FragmentEx {
 
         btnDoze = view.findViewById(R.id.btnDoze);
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
+
+        btnNotifications = view.findViewById(R.id.btnNotifications);
 
         btnData = view.findViewById(R.id.btnData);
 
@@ -206,6 +210,15 @@ public class FragmentSetup extends FragmentEx {
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
+            }
+        });
+
+        PackageManager pm = getContext().getPackageManager();
+        btnNotifications.setVisibility(getIntentNotifications(getContext()).resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+        btnNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(getIntentNotifications(getContext()));
             }
         });
 
@@ -497,6 +510,13 @@ public class FragmentSetup extends FragmentEx {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
         return intent;
+    }
+
+    private static Intent getIntentNotifications(Context context) {
+        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra("app_package", context.getPackageName())
+                .putExtra("app_uid", context.getApplicationInfo().uid)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
     }
 
     private void handleExport(Intent data) {
