@@ -578,6 +578,10 @@ public class FragmentCompose extends FragmentEx {
                         try {
                             db.beginTransaction();
 
+                            for (EntityAttachment attachment : db.attachment().getAttachments(id))
+                                if ("encrypted.asc".equals(attachment.name) || "signature.asc".equals(attachment.name))
+                                    db.attachment().deleteAttachment(attachment.id);
+
                             int seq = db.attachment().getAttachmentSequence(id);
 
                             attachment1.message = id;
