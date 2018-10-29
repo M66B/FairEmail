@@ -23,11 +23,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
 
 public class ActivityCompose extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     static final int REQUEST_CONTACT_TO = 1;
@@ -124,5 +126,17 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0)
             finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getSupportFragmentManager().popBackStack();
+                return true;
+            default:
+                return false;
+        }
     }
 }

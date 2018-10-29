@@ -898,12 +898,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onDecrypt(Intent intent) {
-        Intent data = new Intent();
-        data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-        data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
-        data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+        if (Helper.isPro(this)) {
+            Intent data = new Intent();
+            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
+            data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
-        decrypt(data, intent.getLongExtra("id", -1));
+            decrypt(data, intent.getLongExtra("id", -1));
+        } else
+            onShowPro(intent);
     }
 
     private void onShowPro(Intent intent) {

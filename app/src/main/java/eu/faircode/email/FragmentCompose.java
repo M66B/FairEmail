@@ -488,27 +488,33 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onEncrypt() {
-        try {
-            String to = etTo.getText().toString();
-            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
-            if (ato.length == 0)
-                throw new IllegalArgumentException(getString(R.string.title_to_missing));
+        if (Helper.isPro(getContext()))
+            try {
+                String to = etTo.getText().toString();
+                InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+                if (ato.length == 0)
+                    throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-            String[] tos = new String[ato.length];
-            for (int i = 0; i < ato.length; i++)
-                tos[i] = ato[i].getAddress();
+                String[] tos = new String[ato.length];
+                for (int i = 0; i < ato.length; i++)
+                    tos[i] = ato[i].getAddress();
 
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-            data.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
-            data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                Intent data = new Intent();
+                data.setAction(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                data.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
+                data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
-            encrypt(data);
-        } catch (Throwable ex) {
-            if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
-                Helper.unexpectedError(getContext(), ex);
+                encrypt(data);
+            } catch (Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), ex);
+            }
+        else {
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
         }
     }
 
