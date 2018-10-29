@@ -128,7 +128,6 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 **(15) Can you add ... ?**
 
 * More themes: the goal is to keep the app as simple as possible, so no more themes will not be added.
-* Encryption: there is too little interest in sending/receiving encrypted messages to justify putting effort into this.
 * Preview message text: this is not always possible because the message text is initially not downloaded for larger messages and besides that the subject is supposed to tell what the message is about.
 * Filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for executing filter rules.
 
