@@ -110,6 +110,12 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 
 ~~tl;dr; "*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"~~
 
+<a name="FAQ12"></a>
+**(12) How does encryption/decryption work?**
+
+First of all you need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/).
+To encrypt a message before sending, just select the menu *Encrypt*. Similarly, to decrypt a received message, just select the menu *Decrypt*.
+
 <a name="FAQ13"></a>
 **(13) How does search on server work?**
 
@@ -127,9 +133,9 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 <a name="FAQ15"></a>
 **(15) Can you add ... ?**
 
-* More themes: the goal is to keep the app as simple as possible, so no more themes will not be added.
-* Preview message text: this is not always possible because the message text is initially not downloaded for larger messages and besides that the subject is supposed to tell what the message is about.
-* Filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for executing filter rules.
+* More themes/black theme: the goal is to keep the app as simple as possible, so no more themes will not be added.
+* Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
+* Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
