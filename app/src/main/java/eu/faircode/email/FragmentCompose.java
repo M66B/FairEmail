@@ -66,7 +66,6 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -79,7 +78,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -89,15 +87,11 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
-import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -526,64 +520,62 @@ public class FragmentCompose extends FragmentEx {
         new SimpleTask<PendingIntent>() {
             @Override
             protected PendingIntent onLoad(Context context, Bundle args) throws Throwable {
+                // Get arguments
                 long id = args.getLong("id");
                 Intent data = args.getParcelable("data");
 
-                String body = EntityMessage.read(getContext(), id);
+                if (!pgpService.isBound())
+                    throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
-                BodyPart plain = new MimeBodyPart();
-                plain.setContent(Jsoup.parse(body).text(), "text/plain; charset=" + Charset.defaultCharset().name());
+                DB db = DB.getInstance(context);
 
-                BodyPart html = new MimeBodyPart();
-                html.setContent(body, "text/html; charset=" + Charset.defaultCharset().name());
+                // Get attachments
+                EntityMessage message = db.message().getMessage(id);
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : new ArrayList<>(attachments))
+                    if ("encrypted.asc".equals(attachment.name) || "signature.asc".equals(attachment.name))
+                        attachments.remove(attachment);
 
-                Multipart alternative = new MimeMultipart("alternative");
-                alternative.addBodyPart(plain);
-                alternative.addBodyPart(html);
-
+                // Build message
                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                imessage.setContent(alternative);
+                MessageHelper.build(context, message, attachments, imessage);
 
+                // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
                 imessage.writeTo(os);
                 ByteArrayInputStream decrypted = new ByteArrayInputStream(os.toByteArray());
                 ByteArrayOutputStream encrypted = new ByteArrayOutputStream();
 
-                if (!pgpService.isBound())
-                    throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
-
-                OpenPgpApi api = new OpenPgpApi(getContext(), pgpService.getService());
+                // Encrypt message
+                OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
                 Intent result = api.executeApi(data, decrypted, encrypted);
-
                 switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                     case OpenPgpApi.RESULT_CODE_SUCCESS:
-                        EntityAttachment attachment1 = new EntityAttachment();
-                        EntityAttachment attachment2 = new EntityAttachment();
-
+                        // Get public signature
                         Intent keyRequest = new Intent();
                         keyRequest.setAction(OpenPgpApi.ACTION_DETACHED_SIGN);
                         keyRequest.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, data.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1));
-                        Intent keyData = api.executeApi(keyRequest, decrypted, null);
-                        int r = keyData.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                        Intent key = api.executeApi(keyRequest, decrypted, null);
+                        int r = key.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
                         if (r != OpenPgpApi.RESULT_CODE_SUCCESS) {
-                            OpenPgpError error = keyData.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            OpenPgpError error = key.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
                             throw new IllegalArgumentException(error.getMessage());
                         }
 
-                        byte[] signature = keyData.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
-
-                        DB db = DB.getInstance(context);
+                        // Attach encrypted data
                         try {
                             db.beginTransaction();
 
+                            // Delete previously encrypted data
                             for (EntityAttachment attachment : db.attachment().getAttachments(id))
                                 if ("encrypted.asc".equals(attachment.name) || "signature.asc".equals(attachment.name))
                                     db.attachment().deleteAttachment(attachment.id);
 
                             int seq = db.attachment().getAttachmentSequence(id);
 
+                            EntityAttachment attachment1 = new EntityAttachment();
                             attachment1.message = id;
                             attachment1.sequence = seq + 1;
                             attachment1.name = "encrypted.asc";
@@ -594,11 +586,11 @@ public class FragmentCompose extends FragmentEx {
 
                             OutputStream os1 = null;
                             try {
+                                byte[] bytes1 = encrypted.toByteArray();
                                 os1 = new BufferedOutputStream(new FileOutputStream(file1));
-                                byte[] bytes = encrypted.toByteArray();
-                                os1.write(bytes);
+                                os1.write(bytes1);
 
-                                attachment1.size = bytes.length;
+                                attachment1.size = bytes1.length;
                                 attachment1.progress = null;
                                 attachment1.available = true;
                                 db.attachment().updateAttachment(attachment1);
@@ -607,6 +599,7 @@ public class FragmentCompose extends FragmentEx {
                                     os1.close();
                             }
 
+                            EntityAttachment attachment2 = new EntityAttachment();
                             attachment2.message = id;
                             attachment2.sequence = seq + 2;
                             attachment2.name = "signature.asc";
@@ -617,10 +610,11 @@ public class FragmentCompose extends FragmentEx {
 
                             OutputStream os2 = null;
                             try {
+                                byte[] bytes2 = key.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
                                 os2 = new BufferedOutputStream(new FileOutputStream(file2));
-                                os2.write(signature);
+                                os2.write(bytes2);
 
-                                attachment2.size = signature.length;
+                                attachment2.size = bytes2.length;
                                 attachment2.progress = null;
                                 attachment2.available = true;
                                 db.attachment().updateAttachment(attachment2);

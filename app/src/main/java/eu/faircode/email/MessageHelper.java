@@ -254,6 +254,12 @@ public class MessageHelper {
                 return imessage;
             }
 
+        build(context, message, attachments, imessage);
+
+        return imessage;
+    }
+
+    static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, MimeMessage imessage) throws IOException, MessagingException {
         String body = message.read(context);
 
         BodyPart plain = new MimeBodyPart();
@@ -302,8 +308,6 @@ public class MessageHelper {
 
             imessage.setContent(multipart);
         }
-
-        return imessage;
     }
 
     MessageHelper(MimeMessage message) {

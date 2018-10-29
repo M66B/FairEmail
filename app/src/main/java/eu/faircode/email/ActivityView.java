@@ -920,32 +920,62 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<PendingIntent>() {
             @Override
             protected PendingIntent onLoad(Context context, Bundle args) throws Throwable {
+                // Get arguments
                 long id = args.getLong("id");
                 Intent data = args.getParcelable("data");
 
-                DB db = DB.getInstance(context);
-                for (EntityAttachment attachment : db.attachment().getAttachments(id))
-                    if (attachment.available && "encrypted.asc".equals(attachment.name)) {
-                        if (!pgpService.isBound())
-                            throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
+                if (!pgpService.isBound())
+                    throw new IllegalArgumentException(getString(R.string.title_no_openpgp));
 
-                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                DB db = DB.getInstance(context);
+
+                // Find encrypted data
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.available && "encrypted.asc".equals(attachment.name)) {
+                        // Serialize encrypted data
                         FileInputStream encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
                         ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
 
+                        // Decrypt message
+                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
                         Intent result = api.executeApi(data, encrypted, decrypted);
                         switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                             case OpenPgpApi.RESULT_CODE_SUCCESS:
-                                ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
-
+                                // Decode message
                                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
                                 Session isession = Session.getInstance(props, null);
+                                ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
                                 MimeMessage imessage = new MimeMessage(isession, is);
                                 MessageHelper helper = new MessageHelper(imessage);
 
-                                EntityMessage m = db.message().getMessage(id);
-                                m.write(context, helper.getHtml());
-                                db.message().setMessageStored(id, new Date().getTime());
+                                try {
+                                    db.beginTransaction();
+
+                                    // Write decrypted body
+                                    EntityMessage m = db.message().getMessage(id);
+                                    m.write(context, helper.getHtml());
+
+                                    // Remove previously decrypted attachments
+                                    for (EntityAttachment a : attachments)
+                                        if (!"encrypted.asc".equals(a.name))
+                                            db.attachment().deleteAttachment(a.id);
+
+                                    // Add decrypted attachments
+                                    int sequence = db.attachment().getAttachmentSequence(id);
+                                    for (EntityAttachment a : helper.getAttachments()) {
+                                        a.message = id;
+                                        a.sequence = ++sequence;
+                                        a.id = db.attachment().insertAttachment(a);
+                                    }
+
+                                    db.message().setMessageStored(id, new Date().getTime());
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
                                 break;
 
                             case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
