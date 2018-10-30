@@ -92,6 +92,8 @@ See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a l
 
 * For support on FairEmail, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 
+For support on authorizing accounts you should contact your provider.
+
 ## Contributing
 
 *Documentation*
