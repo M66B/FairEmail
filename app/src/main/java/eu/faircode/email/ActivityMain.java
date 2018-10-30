@@ -36,8 +36,6 @@ import androidx.lifecycle.Observer;
 public class ActivityMain extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -49,6 +47,7 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
         }
 
         if (prefs.getBoolean("eula", false)) {
+            super.onCreate(savedInstanceState);
             DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityAccount> accounts) {
@@ -63,6 +62,7 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
             });
         } else {
             setTheme(R.style.AppThemeLight);
+            super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
