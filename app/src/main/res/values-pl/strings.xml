@@ -67,6 +67,7 @@
   <string name="title_setup_data">Wyłącz oszczędzanie danych</string>
   <string name="title_setup_permissions">Przyznaj uprawnienia</string>
   <string name="title_setup_permissions_remark">Aby uzyskać informacje kontaktowe (opcjonalnie)</string>
+  <string name="title_setup_notifications">Manage notifications</string>
   <string name="title_setup_to_do">Do zrobienia</string>
   <string name="title_setup_done">Gotowe</string>
   <string name="title_setup_light_theme">Jasny motyw</string>
@@ -166,7 +167,6 @@
   <string name="title_reply_all">Odpowiedz wszystkim</string>
   <string name="title_show_headers">Pokaż nagłówki</string>
   <string name="title_show_html">Pokaż oryginał</string>
-  <string name="title_decrypt">Decrypt</string>
   <string name="title_trash">Kosz</string>
   <string name="title_delete">Usuń</string>
   <string name="title_more">Więcej</string>
@@ -193,7 +193,6 @@
   <string name="title_body_hint">Twoja wiadomość</string>
   <string name="title_discard">Odrzuć</string>
   <string name="title_save">Zapisz</string>
-  <string name="title_encrypt">Encrypt</string>
   <string name="title_send">Wyślij</string>
   <string name="title_clipboard_empty">Schowek pusty</string>
   <string name="title_style_bold">Pogrubienie</string>
@@ -208,6 +207,8 @@
   <string name="title_draft_deleted">Szkic odrzucony</string>
   <string name="title_draft_saved">Szkic zapisany</string>
   <string name="title_queued">Wysyłanie wiadomości</string>
+  <string name="title_encrypt">Encrypt</string>
+  <string name="title_decrypt">Decrypt</string>
   <string name="title_no_openpgp">OpenKeychain not found</string>
   <string name="title_search">Szukaj</string>
   <string name="title_search_hint">Szukaj na serwerze</string>

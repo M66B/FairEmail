@@ -59,6 +59,7 @@
   <string name="title_setup_data">Databesparing uitschakelen</string>
   <string name="title_setup_permissions">Toestemming verlenen</string>
   <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
+  <string name="title_setup_notifications">Beheer meldingen</string>
   <string name="title_setup_to_do">Te doen</string>
   <string name="title_setup_done">Gedaan</string>
   <string name="title_setup_light_theme">Licht thema</string>
@@ -158,7 +159,6 @@
   <string name="title_reply_all">Allen beantwoorden</string>
   <string name="title_show_headers">Toon koppen</string>
   <string name="title_show_html">Toon origineel</string>
-  <string name="title_decrypt">Ontsleutelen</string>
   <string name="title_trash">Prullenbak</string>
   <string name="title_delete">Verwijder</string>
   <string name="title_more">Meer</string>
@@ -185,7 +185,6 @@
   <string name="title_body_hint">Uw bericht</string>
   <string name="title_discard">Weggooien</string>
   <string name="title_save">Bewaren</string>
-  <string name="title_encrypt">Versleutelen</string>
   <string name="title_send">Verzenden</string>
   <string name="title_clipboard_empty">Klembord is leeg</string>
   <string name="title_style_bold">Vet</string>
@@ -200,6 +199,8 @@
   <string name="title_draft_deleted">Concept weggegooid</string>
   <string name="title_draft_saved">Concept opgeslagen</string>
   <string name="title_queued">Bericht wordt verzonden</string>
+  <string name="title_encrypt">Versleutelen</string>
+  <string name="title_decrypt">Ontsleutelen</string>
   <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
   <string name="title_search">Zoek</string>
   <string name="title_search_hint">Zoek op server</string>
@@ -256,7 +257,7 @@
   <string name="title_pro_support">FairEmail heeft uw hulp nodig. Tik hier om pro functies te kopen om het project gaande te houden.</string>
   <string name="title_unexpected_error">Onverwachte fout</string>
   <string name="title_log">Logboek</string>
-  <string name="title_debug_info">Informatie voor foutopsporing</string>
+  <string name="title_debug_info">Foutopsporing</string>
   <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
   <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
 </resources>
