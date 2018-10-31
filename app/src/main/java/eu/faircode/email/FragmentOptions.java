@@ -25,21 +25,21 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 
 public class FragmentOptions extends FragmentEx {
-    private CheckBox cbEnabled;
-    private CheckBox cbAvatars;
-    private CheckBox cbLight;
-    private CheckBox cbBrowse;
-    private CheckBox cbSwipe;
-    private CheckBox cbCompact;
-    private CheckBox cbInsecure;
-    private CheckBox cbDebug;
+    private SwitchCompat swEnabled;
+    private SwitchCompat swAvatars;
+    private SwitchCompat swLight;
+    private SwitchCompat swBrowse;
+    private SwitchCompat swSwipe;
+    private SwitchCompat swCompact;
+    private SwitchCompat swInsecure;
+    private SwitchCompat swDebug;
 
     @Override
     @Nullable
@@ -49,21 +49,21 @@ public class FragmentOptions extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
         // Get controls
-        cbEnabled = view.findViewById(R.id.cbEnabled);
-        cbAvatars = view.findViewById(R.id.cbAvatars);
-        cbLight = view.findViewById(R.id.cbLight);
-        cbBrowse = view.findViewById(R.id.cbBrowse);
-        cbSwipe = view.findViewById(R.id.cbSwipe);
-        cbCompact = view.findViewById(R.id.cbCompact);
-        cbInsecure = view.findViewById(R.id.cbInsecure);
-        cbDebug = view.findViewById(R.id.cbDebug);
+        swEnabled = view.findViewById(R.id.swEnabled);
+        swAvatars = view.findViewById(R.id.swAvatars);
+        swLight = view.findViewById(R.id.swLight);
+        swBrowse = view.findViewById(R.id.swBrowse);
+        swSwipe = view.findViewById(R.id.swSwipe);
+        swCompact = view.findViewById(R.id.swCompact);
+        swInsecure = view.findViewById(R.id.swInsecure);
+        swDebug = view.findViewById(R.id.swDebug);
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        cbEnabled.setChecked(prefs.getBoolean("enabled", true));
-        cbEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swEnabled.setChecked(prefs.getBoolean("enabled", true));
+        swEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
@@ -74,56 +74,56 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
-        cbAvatars.setChecked(prefs.getBoolean("avatars", true));
-        cbAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAvatars.setChecked(prefs.getBoolean("avatars", true));
+        swAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
             }
         });
 
-        cbLight.setChecked(prefs.getBoolean("light", false));
-        cbLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swLight.setChecked(prefs.getBoolean("light", false));
+        swLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("light", checked).apply();
             }
         });
 
-        cbBrowse.setChecked(prefs.getBoolean("browse", true));
-        cbBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swBrowse.setChecked(prefs.getBoolean("browse", true));
+        swBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("browse", checked).apply();
             }
         });
 
-        cbSwipe.setChecked(prefs.getBoolean("swipe", true));
-        cbSwipe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swSwipe.setChecked(prefs.getBoolean("swipe", true));
+        swSwipe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipe", checked).apply();
             }
         });
 
-        cbCompact.setChecked(prefs.getBoolean("compact", false));
-        cbCompact.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swCompact.setChecked(prefs.getBoolean("compact", false));
+        swCompact.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("compact", checked).apply();
             }
         });
 
-        cbInsecure.setChecked(prefs.getBoolean("insecure", false));
-        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swInsecure.setChecked(prefs.getBoolean("insecure", false));
+        swInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("insecure", checked).apply();
             }
         });
 
-        cbDebug.setChecked(prefs.getBoolean("debug", false));
-        cbDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swDebug.setChecked(prefs.getBoolean("debug", false));
+        swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("debug", checked).apply();
@@ -131,7 +131,7 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
-        cbLight.setVisibility(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        swLight.setVisibility(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         return view;
     }

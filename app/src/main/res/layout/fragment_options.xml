@@ -9,86 +9,78 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp">
 
-        <CheckBox
-            android:id="@+id/cbEnabled"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swEnabled"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
             android:text="@string/title_advanced_enabled"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/cbAvatars"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAvatars"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_avatars"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbEnabled" />
+            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
-        <CheckBox
-            android:id="@+id/cbLight"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swLight"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_light"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAvatars" />
+            app:layout_constraintTop_toBottomOf="@id/swAvatars" />
 
-        <CheckBox
-            android:id="@+id/cbBrowse"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swBrowse"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_browse"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbLight" />
+            app:layout_constraintTop_toBottomOf="@id/swLight" />
 
-        <CheckBox
-            android:id="@+id/cbSwipe"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSwipe"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_swipe"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbBrowse" />
+            app:layout_constraintTop_toBottomOf="@id/swBrowse" />
 
-        <CheckBox
-            android:id="@+id/cbCompact"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCompact"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_compact"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSwipe" />
+            app:layout_constraintTop_toBottomOf="@id/swSwipe" />
 
-        <CheckBox
-            android:id="@+id/cbInsecure"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swInsecure"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_allow_insecure"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbCompact" />
+            app:layout_constraintTop_toBottomOf="@id/swCompact" />
 
-        <CheckBox
-            android:id="@+id/cbDebug"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDebug"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
+            app:layout_constraintTop_toBottomOf="@id/swInsecure" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
