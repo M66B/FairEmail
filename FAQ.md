@@ -137,6 +137,14 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 * Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 
+Since FairEmail is meant to be privacy friendly, the following will not be added:
+
+* Show images without confirmation
+* Show original message without confirmation
+* Open links without confirmation
+
+Confirmation is just one tap, which is just a small price for better privacy.
+
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
 
