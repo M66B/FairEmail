@@ -59,7 +59,7 @@
   <string name="title_setup_data">Verilənlərə qənaət-i ləğv et</string>
   <string name="title_setup_permissions">İcazə ver</string>
   <string name="title_setup_permissions_remark">Şəxs məlumatı alma (istənilən)</string>
-  <string name="title_setup_notifications">Manage notifications</string>
+  <string name="title_setup_notifications">Bildirişləri idarə et</string>
   <string name="title_setup_to_do">Edilməli</string>
   <string name="title_setup_done">Hazırdır</string>
   <string name="title_setup_light_theme">Açıq tema</string>
@@ -175,7 +175,7 @@
   <string name="title_ask_discard">Qaralama silinsin?</string>
   <string name="title_ask_spam">Mesajı spam kimi bildirilsin?</string>
   <string name="title_fix">Düzəlt</string>
-  <string name="title_compose">Tərtib et</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">Göndərən:</string>
   <string name="title_to">Alıcı:</string>
   <string name="title_reply_to">Cavabla:</string>
@@ -199,9 +199,9 @@
   <string name="title_draft_deleted">Qaralama silindi</string>
   <string name="title_draft_saved">Qaralama saxlanıldı</string>
   <string name="title_queued">Mesaj göndərilir</string>
-  <string name="title_encrypt">Encrypt</string>
-  <string name="title_decrypt">Decrypt</string>
-  <string name="title_no_openpgp">OpenKeychain not found</string>
+  <string name="title_encrypt">Şifrələ</string>
+  <string name="title_decrypt">Şifrəni aç</string>
+  <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
   <string name="title_search">Axtar</string>
   <string name="title_search_hint">Serverdə axtar</string>
   <string name="title_searching">\'%1$s\' axtarılır</string>
@@ -213,8 +213,8 @@
   <string name="title_previous">Əvvəlki</string>
   <string name="title_next">Növbəti</string>
   <string name="title_answer_reply">Cavab şablonu</string>
-  <string name="title_answer_name">Template name</string>
-  <string name="title_answer_text">Template text</string>
+  <string name="title_answer_name">Şablon adı</string>
+  <string name="title_answer_text">Şablon mətni</string>
   <string name="title_legend_inbox">Gələn qutusu</string>
   <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
   <string name="title_legend_archive">Arxiv</string>

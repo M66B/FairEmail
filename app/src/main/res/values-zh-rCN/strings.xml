@@ -171,7 +171,7 @@
   <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
   <string name="title_fix">Fix</string>
-  <string name="title_compose">新邮件</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">发件人：</string>
   <string name="title_to">收件人：</string>
   <string name="title_reply_to">回复：</string>

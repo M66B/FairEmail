@@ -175,7 +175,7 @@
   <string name="title_ask_discard">¿Descartar el borrador?</string>
   <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
   <string name="title_fix">Reparar</string>
-  <string name="title_compose">Redactar</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">De:</string>
   <string name="title_to">A:</string>
   <string name="title_reply_to">Responder a:</string>

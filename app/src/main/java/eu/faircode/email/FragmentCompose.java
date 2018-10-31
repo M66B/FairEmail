@@ -135,8 +135,6 @@ public class FragmentCompose extends FragmentEx {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_compose);
-
         view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get controls
@@ -955,9 +953,10 @@ public class FragmentCompose extends FragmentEx {
         return attachment;
     }
 
-    private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
+    private SimpleTask<DraftAccount> draftLoader = new SimpleTask<DraftAccount>() {
+
         @Override
-        protected EntityMessage onLoad(Context context, Bundle args) throws IOException {
+        protected DraftAccount onLoad(Context context, Bundle args) throws IOException {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
@@ -966,31 +965,32 @@ public class FragmentCompose extends FragmentEx {
 
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " reference=" + reference);
 
-            EntityMessage draft;
+            DraftAccount result = new DraftAccount();
 
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
 
-                draft = db.message().getMessage(id);
-                if (draft == null || draft.ui_hide) {
+                result.draft = db.message().getMessage(id);
+                if (result.draft == null || result.draft.ui_hide) {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Message to edit not found");
-                } else
-                    return draft;
+                } else {
+                    result.account = db.account().getAccount(result.draft.account);
+                    return result;
+                }
 
-                EntityAccount account;
                 EntityMessage ref = db.message().getMessage(reference);
                 if (ref == null) {
                     long aid = args.getLong("account", -1);
                     if (aid < 0) {
-                        account = db.account().getPrimaryAccount();
-                        if (account == null)
+                        result.account = db.account().getPrimaryAccount();
+                        if (result.account == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_account));
                     } else
-                        account = db.account().getAccount(aid);
+                        result.account = db.account().getAccount(aid);
                 } else {
-                    account = db.account().getAccount(ref.account);
+                    result.account = db.account().getAccount(ref.account);
 
                     // Reply to recipient, not to known self
                     List<EntityIdentity> identities = db.identity().getIdentities();
@@ -1032,7 +1032,7 @@ public class FragmentCompose extends FragmentEx {
                 }
 
                 EntityFolder drafts;
-                drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
+                drafts = db.folder().getFolderByType(result.account.id, EntityFolder.DRAFTS);
                 if (drafts == null)
                     drafts = db.folder().getPrimaryDrafts();
                 if (drafts == null)
@@ -1040,51 +1040,51 @@ public class FragmentCompose extends FragmentEx {
 
                 String body = "";
 
-                draft = new EntityMessage();
-                draft.account = account.id;
-                draft.folder = drafts.id;
-                draft.msgid = EntityMessage.generateMessageId();
+                result.draft = new EntityMessage();
+                result.draft.account = result.account.id;
+                result.draft.folder = drafts.id;
+                result.draft.msgid = EntityMessage.generateMessageId();
 
                 if (ref == null) {
-                    draft.thread = draft.msgid;
+                    result.draft.thread = result.draft.msgid;
 
                     try {
                         String to = args.getString("to");
-                        draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                        result.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                     } catch (AddressException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
 
                     try {
                         String cc = args.getString("cc");
-                        draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                        result.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                     } catch (AddressException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
 
                     try {
                         String bcc = args.getString("bcc");
-                        draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                        result.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
                     } catch (AddressException ex) {
                         Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
 
-                    draft.subject = args.getString("subject");
+                    result.draft.subject = args.getString("subject");
                     body = args.getString("body");
                     if (body == null)
                         body = "";
                     else
                         body = body.replaceAll("\\r?\\n", "<br />");
 
-                    if (pro && !TextUtils.isEmpty(account.signature))
-                        body += account.signature;
+                    if (pro && !TextUtils.isEmpty(result.account.signature))
+                        body += result.account.signature;
                 } else {
-                    draft.thread = ref.thread;
+                    result.draft.thread = ref.thread;
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
-                        draft.replying = ref.id;
-                        draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                        draft.from = ref.to;
+                        result.draft.replying = ref.id;
+                        result.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                        result.draft.from = ref.to;
 
                         if ("reply_all".equals(action)) {
                             List<Address> addresses = new ArrayList<>();
@@ -1101,41 +1101,41 @@ public class FragmentCompose extends FragmentEx {
                                         addresses.remove(address);
                                 }
                             }
-                            draft.cc = addresses.toArray(new Address[0]);
+                            result.draft.cc = addresses.toArray(new Address[0]);
                         }
 
                     } else if ("forward".equals(action)) {
                         //msg.replying = ref.id;
-                        draft.from = ref.to;
+                        result.draft.from = ref.to;
                     }
 
                     long time = (ref.sent == null ? ref.received : ref.sent);
 
                     if ("reply".equals(action) || "reply_all".equals(action)) {
-                        draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
+                        result.draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
                         body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(time).toString()),
-                                Html.escapeHtml(MessageHelper.getFormattedAddresses(draft.to, true)),
+                                Html.escapeHtml(MessageHelper.getFormattedAddresses(result.draft.to, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     } else if ("forward".equals(action)) {
-                        draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
+                        result.draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
                         body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(time).toString()),
                                 Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
                                 HtmlHelper.sanitize(ref.read(context)));
                     }
 
-                    if (pro && !TextUtils.isEmpty(account.signature))
-                        body = account.signature + body;
+                    if (pro && !TextUtils.isEmpty(result.account.signature))
+                        body = result.account.signature + body;
 
                     if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
                         String text = db.answer().getAnswer(answer).text;
 
                         String name = null;
                         String email = null;
-                        if (draft.to != null && draft.to.length > 0) {
-                            name = ((InternetAddress) draft.to[0]).getPersonal();
-                            email = ((InternetAddress) draft.to[0]).getAddress();
+                        if (result.draft.to != null && result.draft.to.length > 0) {
+                            name = ((InternetAddress) result.draft.to[0]).getPersonal();
+                            email = ((InternetAddress) result.draft.to[0]).getAddress();
                         }
                         text = text.replace("$name$", name == null ? "" : name);
                         text = text.replace("$email$", email == null ? "" : email);
@@ -1145,31 +1145,31 @@ public class FragmentCompose extends FragmentEx {
                         body = "<br><br>" + body;
                 }
 
-                draft.content = true;
-                draft.received = new Date().getTime();
-                draft.seen = false;
-                draft.ui_seen = false;
-                draft.flagged = false;
-                draft.ui_flagged = false;
-                draft.ui_hide = false;
-                draft.ui_found = false;
-                draft.ui_ignored = false;
+                result.draft.content = true;
+                result.draft.received = new Date().getTime();
+                result.draft.seen = false;
+                result.draft.ui_seen = false;
+                result.draft.flagged = false;
+                result.draft.ui_flagged = false;
+                result.draft.ui_hide = false;
+                result.draft.ui_found = false;
+                result.draft.ui_ignored = false;
 
-                draft.id = db.message().insertMessage(draft);
-                draft.write(context, body == null ? "" : body);
+                result.draft.id = db.message().insertMessage(result.draft);
+                result.draft.write(context, body == null ? "" : body);
 
                 if ("new".equals(action)) {
                     ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
                     if (uris != null)
                         for (Uri uri : uris)
-                            addAttachment(context, draft.id, uri, false);
+                            addAttachment(context, result.draft.id, uri, false);
                 } else if ("forward".equals(action)) {
                     int sequence = 0;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available) {
                             EntityAttachment copy = new EntityAttachment();
-                            copy.message = draft.id;
+                            copy.message = result.draft.id;
                             copy.sequence = ++sequence;
                             copy.name = attachment.name;
                             copy.type = attachment.type;
@@ -1185,7 +1185,7 @@ public class FragmentCompose extends FragmentEx {
                         }
                 }
 
-                EntityOperation.queue(db, draft, EntityOperation.ADD);
+                EntityOperation.queue(db, result.draft, EntityOperation.ADD);
 
                 db.setTransactionSuccessful();
             } finally {
@@ -1194,26 +1194,28 @@ public class FragmentCompose extends FragmentEx {
 
             EntityOperation.process(context);
 
-            return draft;
+            return result;
         }
 
         @Override
-        protected void onLoaded(Bundle args, final EntityMessage draft) {
-            working = draft.id;
+        protected void onLoaded(Bundle args, final DraftAccount result) {
+            working = result.draft.id;
             autosave = true;
 
             final String action = getArguments().getString("action");
-            Log.i(Helper.TAG, "Loaded draft id=" + draft.id + " action=" + action);
+            Log.i(Helper.TAG, "Loaded draft id=" + result.draft.id + " action=" + action);
 
-            etTo.setText(MessageHelper.getFormattedAddresses(draft.to, true));
-            etCc.setText(MessageHelper.getFormattedAddresses(draft.cc, true));
-            etBcc.setText(MessageHelper.getFormattedAddresses(draft.bcc, true));
-            etSubject.setText(draft.subject);
+            setSubtitle(getString(R.string.title_compose, result.account.name));
+
+            etTo.setText(MessageHelper.getFormattedAddresses(result.draft.to, true));
+            etCc.setText(MessageHelper.getFormattedAddresses(result.draft.cc, true));
+            etBcc.setText(MessageHelper.getFormattedAddresses(result.draft.bcc, true));
+            etSubject.setText(result.draft.subject);
 
             etBody.setText(null);
 
             Bundle a = new Bundle();
-            a.putLong("id", draft.id);
+            a.putLong("id", result.draft.id);
 
             new SimpleTask<Spanned>() {
                 @Override
@@ -1273,9 +1275,9 @@ public class FragmentCompose extends FragmentEx {
                     boolean found = false;
 
                     // Select earlier selected identity
-                    if (draft.identity != null)
+                    if (result.draft.identity != null)
                         for (int pos = 0; pos < identities.size(); pos++) {
-                            if (identities.get(pos).id.equals(draft.identity)) {
+                            if (identities.get(pos).id.equals(result.draft.identity)) {
                                 spFrom.setSelection(pos);
                                 found = true;
                                 break;
@@ -1283,8 +1285,8 @@ public class FragmentCompose extends FragmentEx {
                         }
 
                     // Select identity matching from address
-                    if (!found && draft.from != null && draft.from.length > 0) {
-                        String from = Helper.canonicalAddress(((InternetAddress) draft.from[0]).getAddress());
+                    if (!found && result.draft.from != null && result.draft.from.length > 0) {
+                        String from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
                         for (int pos = 0; pos < identities.size(); pos++) {
                             String email = Helper.canonicalAddress(identities.get(pos).email);
                             if (email.equals(from)) {
@@ -1307,8 +1309,8 @@ public class FragmentCompose extends FragmentEx {
                 }
             });
 
-            db.attachment().liveAttachments(draft.id).removeObservers(getViewLifecycleOwner());
-            db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
+            db.attachment().liveAttachments(result.draft.id).removeObservers(getViewLifecycleOwner());
+            db.attachment().liveAttachments(result.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
@@ -1320,8 +1322,8 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
 
-            db.message().liveMessage(draft.id).removeObservers(getViewLifecycleOwner());
-            db.message().liveMessage(draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
+            db.message().liveMessage(result.draft.id).removeObservers(getViewLifecycleOwner());
+            db.message().liveMessage(result.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
                 public void onChanged(final EntityMessage draft) {
                     // Draft was deleted
@@ -1531,6 +1533,11 @@ public class FragmentCompose extends FragmentEx {
             return d;
         }
     };
+
+    private class DraftAccount {
+        EntityMessage draft;
+        EntityAccount account;
+    }
 
     public class IdentityAdapter extends ArrayAdapter<EntityIdentity> {
         private Context context;

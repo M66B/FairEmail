@@ -175,7 +175,7 @@
   <string name="title_ask_discard">Släng utkastet?</string>
   <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
   <string name="title_fix">Fix</string>
-  <string name="title_compose">Skriv</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">Från:</string>
   <string name="title_to">Till:</string>
   <string name="title_reply_to">Svara till:</string>

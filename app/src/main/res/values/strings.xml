@@ -202,7 +202,7 @@
     <string name="title_ask_spam">Report message as spam?</string>
     <string name="title_fix">Fix</string>
 
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Compose %1$s</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
     <string name="title_reply_to">Reply to:</string>

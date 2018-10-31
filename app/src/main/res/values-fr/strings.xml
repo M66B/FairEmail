@@ -175,7 +175,7 @@
   <string name="title_ask_discard">Supprimer le brouillon ?</string>
   <string name="title_ask_spam">Signaler le message comme spam ?</string>
   <string name="title_fix">Corriger</string>
-  <string name="title_compose">Rédiger</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">De :</string>
   <string name="title_to">À :</string>
   <string name="title_reply_to">Répondre à :</string>

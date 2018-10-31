@@ -175,7 +175,7 @@
   <string name="title_ask_discard">Eliminare la bozza?</string>
   <string name="title_ask_spam">Segnalare il messaggio come posta indesiderata?</string>
   <string name="title_fix">Correggi</string>
-  <string name="title_compose">Scrivi</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">Da:</string>
   <string name="title_to">A:</string>
   <string name="title_reply_to">Rispondi a:</string>

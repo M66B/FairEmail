@@ -191,7 +191,7 @@
   <string name="title_ask_discard">Discard draft?</string>
   <string name="title_ask_spam">رسالة التقرير كالبريد المزعج؟</string>
   <string name="title_fix">Fix</string>
-  <string name="title_compose">إنشاء</string>
+  <string name="title_compose">Compose %1$s</string>
   <string name="title_from">من:</string>
   <string name="title_to">إلى:</string>
   <string name="title_reply_to">الرد على:</string>
