@@ -56,3 +56,6 @@
 #dnsjava
 -keep class org.xbill.DNS.** {*;}
 -dontwarn sun.net.spi.nameservice.**
+
+#OpenPGP
+-keep class org.openintents.openpgp.** {*;}
