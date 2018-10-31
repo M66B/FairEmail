@@ -615,21 +615,24 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     int px = (int) (24 * scale + 0.5f);
 
                     if (source != null && source.startsWith("cid")) {
-                        String cid = "<" + source.split(":")[1] + ">";
-                        EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(message.id, cid);
-                        if (attachment == null || !attachment.available) {
-                            Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                            d.setBounds(0, 0, px, px);
-                            return d;
-                        } else {
-                            File file = EntityAttachment.getFile(context, attachment.id);
-                            Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                            if (d == null) {
-                                d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                        String[] cids = source.split(":");
+                        if (cids.length > 1) {
+                            String cid = "<" + cids[1] + ">";
+                            EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(message.id, cid);
+                            if (attachment == null || !attachment.available) {
+                                Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
                                 d.setBounds(0, 0, px, px);
-                            } else
-                                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                            return d;
+                                return d;
+                            } else {
+                                File file = EntityAttachment.getFile(context, attachment.id);
+                                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                                if (d == null) {
+                                    d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
+                                    d.setBounds(0, 0, px, px);
+                                } else
+                                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                                return d;
+                            }
                         }
                     }
 
