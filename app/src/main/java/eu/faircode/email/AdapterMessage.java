@@ -156,6 +156,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private BottomNavigationView bnvActions;
 
         private View vSeparatorBody;
+        private Button btnHtml;
         private Button btnImages;
         private TextView tvBody;
         private ProgressBar pbBody;
@@ -203,6 +204,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
             vSeparatorBody = itemView.findViewById(R.id.vSeparatorBody);
+            btnHtml = itemView.findViewById(R.id.btnHtml);
             btnImages = itemView.findViewById(R.id.btnImages);
             tvBody = itemView.findViewById(R.id.tvBody);
             pbBody = itemView.findViewById(R.id.pbBody);
@@ -227,6 +229,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             itemView.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
             bnvActions.setOnNavigationItemSelectedListener(this);
+            btnHtml.setOnClickListener(this);
             btnImages.setOnClickListener(this);
         }
 
@@ -234,6 +237,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             itemView.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             bnvActions.setOnNavigationItemSelectedListener(null);
+            btnHtml.setOnClickListener(null);
             btnImages.setOnClickListener(null);
         }
 
@@ -256,6 +260,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
+            btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
@@ -366,6 +371,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
+            btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
@@ -483,7 +489,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
-                if (view.getId() == R.id.btnImages)
+                if (view.getId() == R.id.btnHtml) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_VIEW_FULL)
+                                    .putExtra("id", message.id)
+                                    .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
+                } else if (view.getId() == R.id.btnImages)
                     onShowImages(message);
                 else
                     onExpandMessage(pos, message);
@@ -567,6 +579,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
             @Override
             protected void onInit(Bundle args) {
+                btnHtml.setHasTransientState(true);
                 btnImages.setHasTransientState(true);
                 tvBody.setHasTransientState(true);
                 pbBody.setHasTransientState(true);
@@ -588,10 +601,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 boolean show_expanded = properties.isExpanded(message.id);
                 boolean show_images = properties.showImages(message.id);
 
+                btnHtml.setVisibility(Helper.classExists("android.webkit.WebView") && show_expanded ? View.VISIBLE : View.GONE);
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 pbBody.setVisibility(View.GONE);
 
+                btnHtml.setHasTransientState(false);
                 btnImages.setHasTransientState(false);
                 tvBody.setHasTransientState(false);
                 pbBody.setHasTransientState(false);
@@ -599,6 +614,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                btnHtml.setHasTransientState(false);
                 btnImages.setHasTransientState(false);
                 tvBody.setHasTransientState(false);
                 pbBody.setHasTransientState(false);
@@ -1063,14 +1079,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 notifyDataSetChanged();
         }
 
-        private void onShowHtml(ActionData data) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(ActivityView.ACTION_VIEW_FULL)
-                            .putExtra("id", data.message.id)
-                            .putExtra("from", MessageHelper.getFormattedAddresses(data.message.from, true)));
-        }
-
         private void onDecrypt(ActionData data) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -1105,8 +1113,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
 
-            popupMenu.getMenu().findItem(R.id.menu_show_html).setEnabled(data.message.content && Helper.classExists("android.webkit.WebView"));
-
             popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(data.message.to != null && data.message.to.length > 0);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -1133,9 +1139,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);
-                            return true;
-                        case R.id.menu_show_html:
-                            onShowHtml(data);
                             return true;
                         case R.id.menu_decrypt:
                             onDecrypt(data);

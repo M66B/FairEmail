@@ -428,6 +428,19 @@
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <Button
+            android:id="@+id/btnHtml"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_show_html"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+
+        <Button
             android:id="@+id/btnImages"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -454,7 +467,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/btnImages" />
+            app:layout_constraintTop_toBottomOf="@id/btnHtml" />
 
         <ProgressBar
             android:id="@+id/pbBody"
