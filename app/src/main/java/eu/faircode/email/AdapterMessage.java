@@ -563,7 +563,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onShowImages(EntityMessage message) {
-            properties.setImages(message.id, !properties.showImages(message.id));
+            properties.setImages(message.id, true);
+            btnImages.setEnabled(false);
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
