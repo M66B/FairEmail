@@ -815,12 +815,13 @@ public class FragmentMessages extends FragmentEx {
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation
+            boolean nav = prefs.getBoolean("navigation", true);
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
             ViewModelMessages.Target[] pn = model.getPrevNext(thread);
             bottom_navigation.setTag(pn);
             bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
             bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
-            bottom_navigation.setVisibility(pn[0] == null && pn[1] == null ? View.GONE : View.VISIBLE);
+            bottom_navigation.setVisibility(!nav || (pn[0] == null && pn[1] == null) ? View.GONE : View.VISIBLE);
         } else {
             // Compose FAB
             Bundle args = new Bundle();

@@ -109,6 +109,7 @@ public class FragmentSetup extends FragmentEx {
             "browse",
             "swipe",
             "compat",
+            "navigation",
             "insecure",
             "sort"
     );

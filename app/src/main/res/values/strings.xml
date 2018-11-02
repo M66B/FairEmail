@@ -86,6 +86,7 @@
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_compact">Compact message view</string>
+    <string name="title_advanced_nav">Previous/next navigation</string>
     <string name="title_advanced_debug">Debug mode</string>
 
     <string name="title_select">Select &#8230;</string>
