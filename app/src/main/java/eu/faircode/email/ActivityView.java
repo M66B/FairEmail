@@ -897,7 +897,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-        startActivityForResult(create, REQUEST_ATTACHMENT);
+        if (create.resolveActivity(getPackageManager()) == null)
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(create, REQUEST_ATTACHMENT);
     }
 
     private void onDecrypt(Intent intent) {
