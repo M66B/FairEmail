@@ -316,10 +316,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);
-            else
+            else {
                 tvFolder.setText(message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay);
+                tvFolder.setAlpha(EntityFolder.ARCHIVE.equals(message.folderType) ||
+                        EntityFolder.SENT.equals(message.folderType) ? 0.5f : 1.0f);
+            }
             tvFolder.setVisibility(viewType == ViewType.FOLDER ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD) {
