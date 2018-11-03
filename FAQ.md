@@ -14,6 +14,7 @@ Frequently requested features:
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
+* Generate avatars: you can use [Micopi+](https://f-droid.org/en/packages/com.easytarget.micopi/) or a similar app to generate images for your contacts.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
