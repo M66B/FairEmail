@@ -64,6 +64,7 @@
     <string name="title_setup_done">Hazırdır</string>
     <string name="title_setup_light_theme">Açıq tema</string>
     <string name="title_setup_dark_theme">Tünd tema</string>
+    <string name="title_setup_black_background">Black background</string>
     <string name="title_advanced">Qabaqcıl variantlar</string>
     <string name="title_advanced_enabled">Fəallaşdırıldı</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
