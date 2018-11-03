@@ -68,6 +68,7 @@
     <string name="title_advanced">Avancerade inställningar</string>
     <string name="title_advanced_enabled">Aktiverad</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>

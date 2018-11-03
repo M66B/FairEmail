@@ -68,6 +68,7 @@
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_enabled">Aktiviert</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>

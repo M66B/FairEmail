@@ -68,6 +68,7 @@
     <string name="title_advanced">Qabaqcıl variantlar</string>
     <string name="title_advanced_enabled">Fəallaşdırıldı</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>

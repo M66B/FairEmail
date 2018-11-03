@@ -68,6 +68,7 @@
     <string name="title_advanced">Gelişmiş ayarlar</string>
     <string name="title_advanced_enabled">Etkin</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>

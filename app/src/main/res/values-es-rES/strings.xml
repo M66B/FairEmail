@@ -68,6 +68,7 @@
     <string name="title_advanced">Opciones avanzadas</string>
     <string name="title_advanced_enabled">Servicio activado</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>

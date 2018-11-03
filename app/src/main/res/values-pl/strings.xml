@@ -76,6 +76,7 @@
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_enabled">Włączone</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_swipe">Gesty przesuwania</string>

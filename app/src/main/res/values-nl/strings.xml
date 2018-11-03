@@ -68,6 +68,7 @@
     <string name="title_advanced">Geavanceerde opties</string>
     <string name="title_advanced_enabled">Ingeschakeld</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
+    <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
