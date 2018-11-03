@@ -3,6 +3,22 @@
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
 
+Frequently requested features:
+
+* More themes/black theme: the goal is to keep the app as simple as possible, so no more themes will not be added.
+* Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
+* Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
+* Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
+* Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
+
+Since FairEmail is meant to be privacy friendly, the following will not be added:
+
+* Show images without confirmation
+* Show original message without confirmation
+* Open links without confirmation
+
+Confirmation is just one tap, which is just a small price for better privacy.
+
 ## Frequently Asked Questions
 
 <a name="FAQ1"></a>
@@ -37,7 +53,7 @@ The low priority status bar notification shows the number of pending operations,
 * delete: delete message from remote folder
 * send: send message
 * seen: mark message as seen/unseen in remote folder
-* flag: star/unstar remote message
+* flag: add/remove stars
 * headers: download message headers
 * body: download message text
 * attachment: download attachment
@@ -129,21 +145,6 @@ Search on server is a pro feature.
 
 To use Outlook with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
-
-<a name="FAQ15"></a>
-**(15) Can you add ... ?**
-
-* More themes/black theme: the goal is to keep the app as simple as possible, so no more themes will not be added.
-* Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
-* Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
-
-Since FairEmail is meant to be privacy friendly, the following will not be added:
-
-* Show images without confirmation
-* Show original message without confirmation
-* Open links without confirmation
-
-Confirmation is just one tap, which is just a small price for better privacy.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
@@ -246,7 +247,7 @@ likely the [storage access framework](https://developer.android.com/guide/topics
 a standard Android component, is not present,
 for example because your custom ROM does not include it or because it was removed.
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
-No app, except maybe file managers, targetting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
 <a name="FAQ26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
