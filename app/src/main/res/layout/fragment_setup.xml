@@ -183,15 +183,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
-        <View
-            android:id="@+id/vSeparatorDoze"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="9dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
-
         <!-- data saver -->
 
         <Button
@@ -205,7 +196,16 @@
             android:text="@string/title_setup_data"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
+            app:layout_constraintTop_toBottomOf="@id/tvDozeDone" />
+
+        <View
+            android:id="@+id/vSeparatorDoze"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="9dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnData" />
 
         <Button
             android:id="@+id/btnNotifications"
@@ -215,7 +215,7 @@
             android:text="@string/title_setup_notifications"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnData" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
 
         <ToggleButton
             android:id="@+id/tbDarkTheme"
