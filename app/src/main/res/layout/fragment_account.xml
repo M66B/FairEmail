@@ -186,6 +186,7 @@
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="username"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -207,6 +208,7 @@
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="password"
             android:inputType="textPassword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -216,6 +218,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 

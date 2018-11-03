@@ -18,6 +18,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="name"
             android:text="@string/title_identity_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minHeight="0dp"
             android:minWidth="0dp"
+            android:minHeight="0dp"
             android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spAccount" />
@@ -79,6 +80,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +102,7 @@
             android:id="@+id/etReplyTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
             android:hint="@string/title_optional"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -155,8 +158,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minHeight="0dp"
             android:minWidth="0dp"
+            android:minHeight="0dp"
             android:text="@string/title_autoconfig"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etDomain" />
@@ -261,6 +264,7 @@
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="username"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -282,6 +286,7 @@
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="password"
             android:inputType="textPassword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -291,6 +296,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
