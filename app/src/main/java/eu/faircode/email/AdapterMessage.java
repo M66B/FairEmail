@@ -118,6 +118,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean debug;
 
     private int dp24;
+    private String theme;
 
     private SelectionTracker<Long> selectionTracker = null;
 
@@ -292,7 +293,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
             if (!photo && identicons) {
                 if (message.from.length > 0)
-                    ivAvatar.setImageBitmap(Identicon.generate(((InternetAddress) message.from[0]).getAddress(), dp24, 5));
+                    ivAvatar.setImageBitmap(
+                            Identicon.generate(((InternetAddress) message.from[0]).getAddress(),
+                                    dp24, 5, "light".equals(theme)));
                 else
                     ivAvatar.setImageDrawable(null);
                 photo = true;
@@ -1409,6 +1412,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp24 = Math.round(24 * Resources.getSystem().getDisplayMetrics().density);
+        this.theme = prefs.getString("theme", "light");
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =

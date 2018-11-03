@@ -9,8 +9,10 @@ import android.graphics.RectF;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import androidx.core.graphics.ColorUtils;
+
 class Identicon {
-    static Bitmap generate(String email, int size, int pixels) {
+    static Bitmap generate(String email, int size, int pixels, boolean dark) {
         byte[] hash;
         try {
             hash = MessageDigest.getInstance("MD5").digest(email.getBytes());
@@ -18,12 +20,15 @@ class Identicon {
             hash = email.getBytes();
         }
 
+        int color = Color.argb(255, hash[0], hash[1], hash[2]);
+        color = ColorUtils.blendARGB(color, dark ? Color.BLACK : Color.WHITE, 0.2f);
+
         Paint paint = new Paint();
-        paint.setColor(Color.argb(255, hash[0], hash[1], hash[2]));
+        paint.setColor(color);
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.argb(255, 128, 128, 128));
+        canvas.drawColor(Color.TRANSPARENT);
 
         float psize = (float) size / pixels;
 
