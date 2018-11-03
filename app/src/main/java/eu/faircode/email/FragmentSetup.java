@@ -44,6 +44,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -93,6 +94,7 @@ public class FragmentSetup extends FragmentEx {
     private Button btnNotifications;
 
     private ToggleButton tbDarkTheme;
+    private CheckBox cbBlackTheme;
 
     private Button btnOptions;
 
@@ -144,6 +146,7 @@ public class FragmentSetup extends FragmentEx {
         btnData = view.findViewById(R.id.btnData);
 
         tbDarkTheme = view.findViewById(R.id.tbDarkTheme);
+        cbBlackTheme = view.findViewById(R.id.cbBlackTheme);
         btnOptions = view.findViewById(R.id.btnOptions);
 
         // Wire controls
@@ -226,9 +229,9 @@ public class FragmentSetup extends FragmentEx {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         String theme = prefs.getString("theme", "light");
-        boolean dark = "dark".equals(theme);
-        tbDarkTheme.setTag(dark);
-        tbDarkTheme.setChecked(dark);
+        boolean light = "light".equals(theme);
+        tbDarkTheme.setTag(!light);
+        tbDarkTheme.setChecked(!light);
         tbDarkTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton button, boolean checked) {
@@ -247,8 +250,18 @@ public class FragmentSetup extends FragmentEx {
                         fragmentTransaction.commit();
                     }
                 }
+                cbBlackTheme.setVisibility(tbDarkTheme.isChecked() ? View.VISIBLE : View.GONE);
             }
         });
+
+        cbBlackTheme.setChecked("black".equals(theme));
+        cbBlackTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putString("theme", checked ? "black" : "dark").apply();
+            }
+        });
+        cbBlackTheme.setVisibility(tbDarkTheme.isChecked() ? View.VISIBLE : View.GONE);
 
         btnOptions.setOnClickListener(new View.OnClickListener() {
             @Override

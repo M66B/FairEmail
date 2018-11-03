@@ -51,6 +51,11 @@
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
     </style>
 
+    <style name="AppThemeBlack" parent="AppThemeDark">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="colorDrawerBackground">@android:color/black</item>
+    </style>
+
     <style name="Theme.Transparent" parent="Base.Theme.AppCompat">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

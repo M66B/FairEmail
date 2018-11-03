@@ -10,7 +10,6 @@ For support on authorizing an account you should consult the documentation of yo
 
 Frequently requested features:
 
-* More themes/black theme: the goal is to keep the app as simple as possible, so no more themes will not be added.
 * Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
