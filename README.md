@@ -84,15 +84,9 @@ FairEmail requires at least Android 6 Marshmallow.
 FairEmail might occasionally crash on Motorola/Lenovo devices with Android 7 Nougat or earlier
 because of a [bug in Android](https://issuetracker.google.com/issues/63377371).
 
-## Frequently asked questions
+## Support / frequently asked questions
 
-See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions.
-
-## Support
-
-* For support on FairEmail, please go [here](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
-
-For support on authorizing accounts you should contact your provider.
+See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
 
 ## Contributing
 

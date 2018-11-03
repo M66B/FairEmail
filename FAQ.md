@@ -3,6 +3,11 @@
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
 
+For support on authorizing an account you should consult the documentation of your provider.
+
+* Gmail / G suite: see [question 6](#user-content-FAQ6)
+* Outlook: see [question 14](#user-content-FAQ14)
+
 Frequently requested features:
 
 * More themes/black theme: the goal is to keep the app as simple as possible, so no more themes will not be added.
@@ -18,6 +23,8 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 * Open links without confirmation
 
 Confirmation is just one tap, which is just a small price for better privacy.
+
+
 
 ## Frequently Asked Questions
 
