@@ -34,6 +34,7 @@ import androidx.appcompat.widget.SwitchCompat;
 public class FragmentOptions extends FragmentEx {
     private SwitchCompat swEnabled;
     private SwitchCompat swAvatars;
+    private SwitchCompat swIdenticons;
     private SwitchCompat swLight;
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
@@ -52,6 +53,7 @@ public class FragmentOptions extends FragmentEx {
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
         swAvatars = view.findViewById(R.id.swAvatars);
+        swIdenticons = view.findViewById(R.id.swIdenticons);
         swLight = view.findViewById(R.id.swLight);
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
@@ -81,6 +83,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("avatars", checked).apply();
+            }
+        });
+
+        swIdenticons.setChecked(prefs.getBoolean("identicons", true));
+        swIdenticons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("identicons", checked).apply();
             }
         });
 

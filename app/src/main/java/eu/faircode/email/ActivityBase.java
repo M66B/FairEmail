@@ -81,7 +81,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             if (this.getClass().equals(ActivitySetup.class))
                 startActivity(getIntent());
-        } else if (!this.getClass().equals(ActivitySetup.class) && ("compact".equals(key) || "debug".equals(key)))
+        } else if (!this.getClass().equals(ActivitySetup.class) &&
+                ("avatars".equals(key) || "identicons".equals(key) || "compact".equals(key) || "debug".equals(key)))
             finish();
     }
 

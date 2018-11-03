@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -112,8 +113,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     private boolean contacts;
     private boolean avatars;
+    private boolean identicons;
     private boolean compact;
     private boolean debug;
+
+    private int dp24;
 
     private SelectionTracker<Long> selectionTracker = null;
 
@@ -276,13 +280,22 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbLoading.setVisibility(View.GONE);
 
             boolean photo = false;
-            if (avatars && message.avatar != null) {
-                ContentResolver resolver = context.getContentResolver();
-                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
-                if (is != null) {
-                    photo = true;
-                    ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+            if (avatars) {
+                if (message.avatar != null) {
+                    ContentResolver resolver = context.getContentResolver();
+                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
+                    if (is != null) {
+                        photo = true;
+                        ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+                    }
                 }
+            }
+            if (!photo && identicons) {
+                if (message.from.length > 0)
+                    ivAvatar.setImageBitmap(Identicon.generate(((InternetAddress) message.from[0]).getAddress(), dp24, 5));
+                else
+                    ivAvatar.setImageDrawable(null);
+                photo = true;
             }
             ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
 
@@ -1391,8 +1404,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
+        this.identicons = prefs.getBoolean("identicons", true);
         this.compact = prefs.getBoolean("compact", false);
         this.debug = prefs.getBoolean("debug", false);
+
+        this.dp24 = Math.round(24 * Resources.getSystem().getDisplayMetrics().density);
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
