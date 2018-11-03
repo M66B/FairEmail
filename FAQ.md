@@ -23,8 +23,6 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 Confirmation is just one tap, which is just a small price for better privacy.
 
-
-
 ## Frequently Asked Questions
 
 <a name="FAQ1"></a>
@@ -65,7 +63,7 @@ The low priority status bar notification shows the number of pending operations,
 * attachment: download attachment
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
-See also [this FAQ](#FAQ16).
+See also [this FAQ](#user-content-FAQ16).
 
 <a name="FAQ4"></a>
 **(4) What is a valid security certificate?**
@@ -246,11 +244,11 @@ when you reach the end of the list of synchronized messages, even when the folde
 You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
 
 <a name="FAQ25"></a>
-**(25) Why can't I select an image, attachment or a file to export/import?**
+**(25) Why can't I select/open/save an image, attachment or a file?**
 
-If a menu item to select a file is disabled (dimmed),
-likely the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider),
-a standard Android component, is not present,
+If a menu item to select/open/save a file is disabled (dimmed),
+the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider),
+a standard Android component, is probably not present,
 for example because your custom ROM does not include it or because it was removed.
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
