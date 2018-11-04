@@ -72,7 +72,7 @@
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_enabled">Activat</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
-    <string name="title_advanced_identicons">Show identicons</string>
+    <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>

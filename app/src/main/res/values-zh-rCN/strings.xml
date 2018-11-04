@@ -60,7 +60,7 @@
     <string name="title_setup_done">完成</string>
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
-    <string name="title_setup_black_background">Black background</string>
+    <string name="title_setup_black_background">黑色背景</string>
     <string name="title_advanced">高级选项</string>
     <string name="title_advanced_enabled">已启用</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -69,7 +69,7 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_compact">简洁信息视图</string>
-    <string name="title_advanced_nav">Previous/next navigation</string>
+    <string name="title_advanced_nav">上/下一则导航</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
