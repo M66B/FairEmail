@@ -261,8 +261,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setText(null);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
-            if (tvPreview != null)
-                tvPreview.setText(null);
+            tvPreview.setVisibility(View.GONE);
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
@@ -334,9 +333,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 
-            tvPreview.setText(null);
-            tvPreview.setVisibility(preview && message.content ? View.VISIBLE : View.GONE);
-            if (message.content) {
+            tvPreview.setVisibility(View.GONE);
+            if (preview && message.content) {
                 Bundle args = new Bundle();
                 args.putSerializable("message", message);
 
@@ -356,6 +354,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     @Override
                     protected void onLoaded(Bundle args, String preview) {
                         tvPreview.setText(preview);
+                        tvPreview.setVisibility(View.VISIBLE);
                         tvPreview.setHasTransientState(false);
                     }
 
