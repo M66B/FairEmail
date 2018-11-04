@@ -595,6 +595,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+            private String body = null;
+
             @Override
             protected void onInit(Bundle args) {
                 btnHtml.setHasTransientState(true);
@@ -606,7 +608,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             @Override
             protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                String body = message.read(context);
+                if (body == null)
+                    body = message.read(context);
                 return decodeHtml(message, body);
             }
 
