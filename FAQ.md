@@ -152,6 +152,11 @@ Searching messages is a pro feature.
 To use Outlook with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
+<a name="FAQ15"></a>
+**(15) Why does the message text keep loading?**
+
+The message text will keep loading if there is no connection to the account, see also the next question.
+
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
 
