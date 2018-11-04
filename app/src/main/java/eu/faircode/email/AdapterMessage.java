@@ -293,9 +293,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
             if (!photo && identicons) {
                 if (message.from.length > 0)
-                    ivAvatar.setImageBitmap(
-                            Identicon.generate(((InternetAddress) message.from[0]).getAddress(),
-                                    dp24, 5, "light".equals(theme)));
+                    ivAvatar.setImageBitmap(Identicon.generate(message.from[0].toString(), dp24, 5, "light".equals(theme)));
                 else
                     ivAvatar.setImageDrawable(null);
                 photo = true;
