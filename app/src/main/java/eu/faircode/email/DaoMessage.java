@@ -131,11 +131,12 @@ public interface DaoMessage {
             " AND ui_found = :found")
     EntityMessage getMessageByUid(long folder, long uid, boolean found);
 
-    @Query("SELECT *" +
+    @Query("SELECT id" +
             " FROM message" +
             " WHERE folder = :folder" +
-            " AND NOT ui_found")
-    List<EntityMessage> getMessageByFolder(long folder);
+            " AND NOT ui_found" +
+            " ORDER BY message.received DESC, message.sent DESC")
+    List<Long> getMessageByFolder(long folder);
 
     @Query("SELECT *" +
             " FROM message" +

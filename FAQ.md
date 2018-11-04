@@ -14,7 +14,6 @@ Frequently requested features:
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
-* Local search: searching on the server is almost always faster and using less battery power.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -141,9 +140,11 @@ To encrypt a message before sending, just select the menu *Encrypt*. Similarly, 
 **(13) How does search on server work?**
 
 You can start searching for messages on sender, recipient, subject or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
-The server executes the search. Scrolling down will fetch more messages from the server.
+First local messages will be searched and after that the server will execute the search.
+Searching local messages is case insensitive and on partial text.
+The message text of local messages will not be searched if the message text was not downloaded yet.
 Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
-Search on server is a pro feature.
+Searching messages is a pro feature.
 
 <a name="FAQ14"></a>
 **(14) How can I setup Outlook with 2FA?**

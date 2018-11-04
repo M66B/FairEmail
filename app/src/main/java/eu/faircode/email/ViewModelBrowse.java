@@ -27,7 +27,9 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.util.FolderClosedIOException;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.FetchProfile;
@@ -52,6 +54,8 @@ public class ViewModelBrowse extends ViewModel {
     private String search;
     private int pageSize;
 
+    private int local = 0;
+    private List<Long> messages = null;
     private IMAPStore istore = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
@@ -79,14 +83,61 @@ public class ViewModelBrowse extends ViewModel {
         return context;
     }
 
-    void load() throws MessagingException, FolderClosedIOException {
+    void load() throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(fid);
-        if (folder.account == null) // outbox
-            return;
-        EntityAccount account = db.account().getAccount(folder.account);
+
+        if (search != null)
+            try {
+                db.beginTransaction();
+
+                if (messages == null)
+                    messages = db.message().getMessageByFolder(fid);
+
+                int matched = 0;
+                for (int i = local; i < messages.size() && matched < pageSize; i++) {
+                    local = i + 1;
+
+                    boolean match = false;
+                    String find = search.toLowerCase();
+                    EntityMessage message = db.message().getMessage(messages.get(i));
+
+                    if (message.from != null)
+                        for (int j = 0; j < message.from.length && !match; j++)
+                            match = message.from[j].toString().toLowerCase().contains(find);
+
+                    if (message.to != null)
+                        for (int j = 0; j < message.to.length && !match; j++)
+                            match = message.to[j].toString().toLowerCase().contains(find);
+
+                    if (message.subject != null && !match)
+                        match = message.subject.toLowerCase().contains(find);
+
+                    if (!match && message.content)
+                        match = message.read(context).toLowerCase().contains(find);
+
+                    if (match) {
+                        matched++;
+                        message.id = null;
+                        message.ui_found = true;
+                        message.id = db.message().insertMessage(message);
+                    }
+                }
+
+                db.setTransactionSuccessful();
+
+                if (++matched >= pageSize)
+                    return;
+            } finally {
+                db.endTransaction();
+            }
 
         if (imessages == null) {
+            if (folder.account == null) // outbox
+                return;
+
+            EntityAccount account = db.account().getAccount(folder.account);
+
             Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
             props.setProperty("mail.imap.throwsearchexception", "true");
             Session isession = Session.getInstance(props, null);
@@ -179,6 +230,8 @@ public class ViewModelBrowse extends ViewModel {
             Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
         } finally {
             context = null;
+            local = 0;
+            messages = null;
             istore = null;
             ifolder = null;
             imessages = null;

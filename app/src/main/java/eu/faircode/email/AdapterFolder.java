@@ -239,7 +239,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                                     try {
                                                         db.beginTransaction();
 
-                                                        for (EntityMessage message : db.message().getMessageByFolder(id)) {
+                                                        for (Long mid : db.message().getMessageByFolder(id)) {
+                                                            EntityMessage message = db.message().getMessage(mid);
                                                             db.message().setMessageUiHide(message.id, true);
                                                             EntityOperation.queue(db, message, EntityOperation.DELETE);
                                                         }
