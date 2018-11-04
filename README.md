@@ -16,14 +16,15 @@ This email app might be for you if your current email app:
 This app is minimalistic by design, so you can concentrate on reading and writing messages.
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
+See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ2).
 
 ## Features
 
-* 100 % open source
+* 100 % [open source](https://github.com/M66B/open-source-email/blob/master/LICENSE)
 * Multiple accounts (inboxes)
 * Multiple identities (outboxes)
 * Unified inbox
-* Conversation view
+* Flat [conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * Two way synchronization
 * Offline storage and operations
 * Battery friendly
@@ -34,14 +35,14 @@ This app starts a foreground service with a low priority status bar notification
 ## Pro features
 
 * Signatures
-* Dark theme
+* Dark/black theme
 * Account colors
 * Multiple select
 * Standard replies
 * Sort on time, unread or starred
 * Search on server
 * Preview sender/subject in new messages status bar notification
-* Encryption/decryption
+* Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
 * Export settings
 
 ## Simple
