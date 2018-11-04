@@ -100,6 +100,7 @@ public class FragmentMessages extends FragmentEx {
     private long primary = -1;
     private boolean outbox = false;
     private boolean connected = false;
+    private boolean searching = false;
     private AdapterMessage adapter;
     private List<Long> archives = new ArrayList<>();
     private List<Long> trashes = new ArrayList<>();
@@ -866,11 +867,28 @@ public class FragmentMessages extends FragmentEx {
         inflater.inflate(R.menu.menu_messages, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        menuSearch.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                searching = true;
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                searching = false;
+                return true;
+            }
+        });
+        if (searching)
+            menuSearch.expandActionView();
+
         final SearchView searchView = (SearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(R.string.title_search_hint));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                searching = false;
                 menuSearch.collapseActionView();
 
                 if (Helper.isPro(getContext())) {
