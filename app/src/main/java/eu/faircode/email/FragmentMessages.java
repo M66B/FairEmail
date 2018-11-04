@@ -209,6 +209,8 @@ public class FragmentMessages extends FragmentEx {
         });
 
         rvMessage.setHasFixedSize(false);
+        //rvMessage.setItemViewCacheSize(10);
+        //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
