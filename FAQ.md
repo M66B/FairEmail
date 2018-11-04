@@ -155,6 +155,8 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 <a name="FAQ15"></a>
 **(15) Why does the message text keep loading?**
 
+The message header and message body are fetched separately from the server.
+The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message.
 The message text will keep loading if there is no connection to the account, see also the next question.
 
 <a name="FAQ16"></a>
@@ -182,6 +184,12 @@ stop apps and services too aggressively.
 If the *Synchronize now* menu is dimmed, there is no connection to the account.
 
 See the previous question for more information.
+
+<a name="FAQ18"></a>
+**(18) Why is the message preview not always shown?**
+
+The preview of the message text cannot be shown if the message body has not been downloaded yet.
+See also [this FAQ](#user-content-FAQ15).
 
 <a name="FAQ19"></a>
 **(19) Why are the pro features so expensive?**
