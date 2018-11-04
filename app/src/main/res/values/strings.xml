@@ -90,6 +90,7 @@
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_nav">Previous/next navigation</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">Debug mode</string>
 
     <string name="title_select">Select &#8230;</string>
@@ -306,6 +307,30 @@
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
+
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
+
+    <integer-array name="downloadValues" translatable="false">
+        <item>16384</item>
+        <item>32768</item>
+        <item>65536</item>
+        <item>131072</item>
+        <item>262144</item>
+        <item>524288</item>
+        <item>1048576</item>
+        <item>2097152</item>
+        <item>0</item>
+    </integer-array>
 
     <array name="colorPicker">
         <item>@color/red</item>

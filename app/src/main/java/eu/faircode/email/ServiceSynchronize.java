@@ -133,8 +133,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
-    private static final int MESSAGE_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
-    private static final int ATTACHMENT_AUTO_DOWNLOAD_SIZE = 32 * 1024; // bytes
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
 
     static final int PI_CLEAR = 1;
@@ -1848,6 +1846,11 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long download = prefs.getInt("download", 32768);
+        if (download == 0)
+            download = Long.MAX_VALUE;
+
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
@@ -1860,13 +1863,13 @@ public class ServiceSynchronize extends LifecycleService {
 
         boolean fetch = false;
         if (!message.content)
-            if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE))
+            if (!metered || (message.size != null && message.size < download))
                 fetch = true;
 
         if (!fetch)
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
+                    if (!metered || (attachment.size != null && attachment.size < download)) {
                         fetch = true;
                         break;
                     }
@@ -1886,7 +1889,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         if (!message.content)
-            if (!metered || (message.size != null && message.size < MESSAGE_AUTO_DOWNLOAD_SIZE)) {
+            if (!metered || (message.size != null && message.size < download)) {
                 message.write(context, helper.getHtml());
                 db.message().setMessageContent(message.id, true);
                 Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
@@ -1896,7 +1899,7 @@ public class ServiceSynchronize extends LifecycleService {
         for (int i = 0; i < attachments.size(); i++) {
             EntityAttachment attachment = attachments.get(i);
             if (!attachment.available)
-                if (!metered || (attachment.size != null && attachment.size < ATTACHMENT_AUTO_DOWNLOAD_SIZE)) {
+                if (!metered || (attachment.size != null && attachment.size < download)) {
                     if (iattachments == null)
                         iattachments = helper.getAttachments();
                     attachment.part = iattachments.get(i).part;

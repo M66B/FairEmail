@@ -25,7 +25,9 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,6 +44,7 @@ public class FragmentOptions extends FragmentEx {
     private SwitchCompat swSwipe;
     private SwitchCompat swNav;
     private SwitchCompat swInsecure;
+    private Spinner spDownload;
     private SwitchCompat swDebug;
 
     @Override
@@ -62,6 +65,7 @@ public class FragmentOptions extends FragmentEx {
         swSwipe = view.findViewById(R.id.swSwipe);
         swNav = view.findViewById(R.id.swNav);
         swInsecure = view.findViewById(R.id.swInsecure);
+        spDownload = view.findViewById(R.id.spDownload);
         swDebug = view.findViewById(R.id.swDebug);
 
         // Wire controls
@@ -149,6 +153,25 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("insecure", checked).apply();
+            }
+        });
+
+        int download = prefs.getInt("download", 32768);
+        final int[] values = getResources().getIntArray(R.array.downloadValues);
+        for (int i = 0; i < values.length; i++)
+            if (values[i] == download) {
+                spDownload.setSelection(i);
+                break;
+            }
+        spDownload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                prefs.edit().putInt("download", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("download").apply();
             }
         });
 
