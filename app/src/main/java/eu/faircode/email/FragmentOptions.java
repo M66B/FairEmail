@@ -86,7 +86,7 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
-        swIdenticons.setChecked(prefs.getBoolean("identicons", true));
+        swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

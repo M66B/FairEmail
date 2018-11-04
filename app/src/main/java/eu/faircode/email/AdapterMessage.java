@@ -1405,7 +1405,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
-        this.identicons = prefs.getBoolean("identicons", true);
+        this.identicons = prefs.getBoolean("identicons", false);
         this.compact = prefs.getBoolean("compact", false);
         this.debug = prefs.getBoolean("debug", false);
 
