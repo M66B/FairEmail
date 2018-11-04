@@ -65,8 +65,8 @@
     <string name="title_advanced_enabled">已启用</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
-    <string name="title_advanced_identicons">Show identicons</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_identicons">显示哈希头像</string>
+    <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
@@ -169,7 +169,7 @@
     <string name="title_moving">移动邮件至%1$s</string>
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
-    <string name="title_no_saf">Storage access framework not available</string>
+    <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
