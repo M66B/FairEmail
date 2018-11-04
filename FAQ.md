@@ -10,7 +10,7 @@ For support on authorizing an account you should consult the documentation of yo
 
 Frequently requested features:
 
-* Previewing message text in notification/widget: this is not always possible because the message text is initially not downloaded for larger messages.
+* Previewing message text in notification/widget: this is not possible because the message text is initially not downloaded.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
