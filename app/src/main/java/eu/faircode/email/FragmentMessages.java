@@ -112,6 +112,7 @@ public class FragmentMessages extends FragmentEx {
     private int autoCount = 0;
     private boolean autoExpand = true;
     private List<Long> expanded = new ArrayList<>();
+    private List<Long> addresses = new ArrayList<>();
     private List<Long> headers = new ArrayList<>();
     private List<Long> images = new ArrayList<>();
 
@@ -225,6 +226,14 @@ public class FragmentMessages extends FragmentEx {
             }
 
             @Override
+            public void setAddresses(long id, boolean show) {
+                if (show)
+                    addresses.remove(id);
+                else
+                    addresses.add(id);
+            }
+
+            @Override
             public void setHeaders(long id, boolean show) {
                 if (show)
                     headers.add(id);
@@ -243,6 +252,11 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public boolean isExpanded(long id) {
                 return expanded.contains(id);
+            }
+
+            @Override
+            public boolean showAddresses(long id) {
+                return !addresses.contains(id);
             }
 
             @Override

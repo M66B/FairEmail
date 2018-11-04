@@ -234,6 +234,18 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toBottomOf="@id/paddingBottom" />
 
+        <ImageView
+            android:id="@+id/ivExpanderAddress"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_expand_less_24"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+
         <TextView
             android:id="@+id/tvFromExTitle"
             android:layout_width="wrap_content"
@@ -242,7 +254,7 @@
             android:text="@string/title_from"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
         <TextView
             android:id="@+id/tvFromEx"
@@ -255,7 +267,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toStartOf="@+id/ivAddContact"
             app:layout_constraintStart_toEndOf="@id/tvFromExTitle"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
         <ImageView
             android:id="@+id/ivAddContact"
@@ -264,7 +276,7 @@
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+            app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
         <TextView
             android:id="@+id/tvToTitle"
@@ -529,6 +541,12 @@
             app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpAddress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -544,6 +562,6 @@
             android:id="@+id/grpExpanded"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparatorAddress,tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx,tvBody" />
+            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,tvBody" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
