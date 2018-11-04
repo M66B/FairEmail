@@ -66,7 +66,6 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
 import org.xml.sax.XMLReader;
 
 import java.io.File;
@@ -333,38 +332,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 
-            tvPreview.setVisibility(View.GONE);
-            if (preview && message.content) {
-                Bundle args = new Bundle();
-                args.putSerializable("message", message);
-
-                new SimpleTask<String>() {
-                    @Override
-                    protected void onInit(Bundle args) {
-                        tvPreview.setHasTransientState(true);
-                    }
-
-                    @Override
-                    protected String onLoad(Context context, Bundle args) throws Throwable {
-                        TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                        String body = message.read(context);
-                        return Jsoup.parse(body).text();
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, String preview) {
-                        tvPreview.setText(preview);
-                        tvPreview.setVisibility(View.VISIBLE);
-                        tvPreview.setHasTransientState(false);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        tvPreview.setHasTransientState(false);
-                        Helper.unexpectedError(context, ex);
-                    }
-                }.load(context, owner, args);
-            }
+            tvPreview.setText(message.preview);
+            tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);

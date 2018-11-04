@@ -94,6 +94,7 @@ public class EntityMessage implements Serializable {
     public Integer size;
     @NonNull
     public Boolean content = false;
+    public String preview;
     public Long sent; // compose = null
     @NonNull
     public Long received; // compose = stored
@@ -198,6 +199,7 @@ public class EntityMessage implements Serializable {
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
                     this.content == other.content &&
+                    (this.preview == null ? other.preview == null : this.preview.equals(other.preview)) &&
                     (this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&

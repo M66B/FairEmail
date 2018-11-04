@@ -61,6 +61,7 @@ import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.net.SocketException;
@@ -134,6 +135,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
+    private static final int PREVIEW_SIZE = 250;
 
     static final int PI_CLEAR = 1;
     static final int PI_SEEN = 2;
@@ -1432,8 +1434,11 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        message.write(this, helper.getHtml());
-        db.message().setMessageContent(message.id, true);
+        String html = helper.getHtml();
+        String text = Jsoup.parse(html).text();
+        String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
+        message.write(this, html);
+        db.message().setMessageContent(message.id, preview);
     }
 
     private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -1890,8 +1895,11 @@ public class ServiceSynchronize extends LifecycleService {
 
         if (!message.content)
             if (!metered || (message.size != null && message.size < download)) {
-                message.write(context, helper.getHtml());
-                db.message().setMessageContent(message.id, true);
+                String html = helper.getHtml();
+                String text = Jsoup.parse(html).text();
+                String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
+                message.write(context, html);
+                db.message().setMessageContent(message.id, preview);
                 Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
             }
 

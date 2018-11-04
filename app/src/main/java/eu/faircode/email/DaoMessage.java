@@ -158,6 +158,11 @@ public interface DaoMessage {
             " AND ui_seen")
     List<EntityMessage> getMessageSeen(long folder);
 
+    @Query("SELECT id FROM message" +
+            " WHERE content" +
+            " AND preview IS NULL")
+    List<Long> getMessageWithoutPreview();
+
     @Query("SELECT message.*" +
             ", account.name AS accountName, account.color AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
@@ -220,8 +225,8 @@ public interface DaoMessage {
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 
-    @Query("UPDATE message SET content = :content WHERE id = :id")
-    int setMessageContent(long id, boolean content);
+    @Query("UPDATE message SET content = NOT preview IS NULL, preview = :preview WHERE id = :id")
+    int setMessageContent(long id, String preview);
 
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);

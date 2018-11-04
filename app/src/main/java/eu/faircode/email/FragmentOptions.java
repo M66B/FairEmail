@@ -19,15 +19,22 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+
+import org.jsoup.Jsoup;
+
+import java.io.IOException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -113,6 +120,36 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("preview", checked).apply();
+                if (checked)
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onLoad(Context context, Bundle args) {
+                            DB db = DB.getInstance(context);
+
+                            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+                            boolean metered = (cm == null || cm.isActiveNetworkMetered());
+
+                            for (Long id : db.message().getMessageWithoutPreview()) {
+                                EntityMessage message = db.message().getMessage(id);
+                                try {
+                                    Log.i(Helper.TAG, "Building preview id=" + id);
+                                    String html = message.read(context);
+                                    String text = Jsoup.parse(html).text();
+                                    String preview = text.substring(0, Math.min(text.length(), 250));
+                                    db.message().setMessageContent(message.id, preview);
+                                } catch (IOException ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    db.message().setMessageContent(message.id, null);
+                                    if (!metered)
+                                        EntityOperation.queue(db, message, EntityOperation.BODY);
+                                }
+                            }
+
+                            EntityOperation.process(context);
+
+                            return null;
+                        }
+                    }.load(FragmentOptions.this, null);
             }
         });
 
