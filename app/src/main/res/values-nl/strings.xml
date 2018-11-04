@@ -66,7 +66,7 @@
     <string name="title_setup_dark_theme">Donker thema</string>
     <string name="title_setup_black_background">Zwarte achtergrond</string>
     <string name="title_advanced">Geavanceerde opties</string>
-    <string name="title_advanced_enabled">Ingeschakeld</string>
+    <string name="title_advanced_enabled">Synchroniseren</string>
     <string name="title_advanced_compact">Compacte berichtweergave</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_identicons">Toon identicons</string>
@@ -75,6 +75,7 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
     <string name="title_advanced_nav">Vorige/volgende navigatie</string>
+    <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
@@ -265,4 +266,15 @@
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

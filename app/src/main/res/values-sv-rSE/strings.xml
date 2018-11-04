@@ -66,7 +66,7 @@
     <string name="title_setup_dark_theme">Mörkt tema</string>
     <string name="title_setup_black_background">Black background</string>
     <string name="title_advanced">Avancerade inställningar</string>
-    <string name="title_advanced_enabled">Aktiverad</string>
+    <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_compact">Kompakt meddelandevisning</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Show identicons</string>
@@ -75,6 +75,7 @@
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>
     <string name="title_advanced_nav">Previous/next navigation</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
@@ -265,4 +266,15 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

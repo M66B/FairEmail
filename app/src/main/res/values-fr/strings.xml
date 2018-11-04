@@ -66,15 +66,16 @@
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
-    <string name="title_advanced_enabled">Activé</string>
+    <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_preview">Afficher l’aperçu du message</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_nav">Navigation précédente/suivante</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
@@ -265,4 +266,15 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

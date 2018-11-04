@@ -66,7 +66,7 @@
     <string name="title_setup_dark_theme">Tünd tema</string>
     <string name="title_setup_black_background">Black background</string>
     <string name="title_advanced">Qabaqcıl variantlar</string>
-    <string name="title_advanced_enabled">Fəallaşdırıldı</string>
+    <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_compact">Yığcam mesaj görünüşü</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
     <string name="title_advanced_identicons">Show identicons</string>
@@ -75,6 +75,7 @@
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_nav">Əvvəlki/növbəti naviqasiya</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_select">&#8230; seçin</string>
     <string name="title_identity_name">Adınız</string>
@@ -265,4 +266,15 @@
     <string name="title_debug_info">Sazlama məlumatı</string>
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

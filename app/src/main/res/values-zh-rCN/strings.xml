@@ -62,7 +62,7 @@
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_background">黑色背景</string>
     <string name="title_advanced">高级选项</string>
-    <string name="title_advanced_enabled">已启用</string>
+    <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -71,6 +71,7 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_nav">上/下一则导航</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
@@ -261,4 +262,15 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

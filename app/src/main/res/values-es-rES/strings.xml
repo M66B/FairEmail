@@ -66,7 +66,7 @@
     <string name="title_setup_dark_theme">Tema oscuro</string>
     <string name="title_setup_black_background">Black background</string>
     <string name="title_advanced">Opciones avanzadas</string>
-    <string name="title_advanced_enabled">Servicio activado</string>
+    <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_compact">Vista de mensajes compacta</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_identicons">Show identicons</string>
@@ -75,6 +75,7 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_nav">Previous/next navigation</string>
+    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
@@ -265,4 +266,15 @@
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>
