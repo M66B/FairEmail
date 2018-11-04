@@ -60,6 +60,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         @Override
                         public void run() {
                             model.clear();
+                            model = null;
                         }
                     });
             }
@@ -83,36 +84,37 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     private void load() {
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    searching = true;
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoading();
-                        }
-                    });
-                    model.load();
-                } catch (final Throwable ex) {
-                    Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onError(model.getContext(), ex);
-                        }
-                    });
-                } finally {
-                    searching = false;
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            intf.onLoaded();
-                        }
-                    });
+        if (model != null)
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        searching = true;
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onLoading();
+                            }
+                        });
+                        model.load();
+                    } catch (final Throwable ex) {
+                        Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onError(model.getContext(), ex);
+                            }
+                        });
+                    } finally {
+                        searching = false;
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                intf.onLoaded();
+                            }
+                        });
+                    }
                 }
-            }
-        });
+            });
     }
 }
