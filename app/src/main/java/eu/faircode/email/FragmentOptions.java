@@ -35,10 +35,11 @@ public class FragmentOptions extends FragmentEx {
     private SwitchCompat swEnabled;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
+    private SwitchCompat swCompact;
+    private SwitchCompat swPreview;
     private SwitchCompat swLight;
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
-    private SwitchCompat swCompact;
     private SwitchCompat swNav;
     private SwitchCompat swInsecure;
     private SwitchCompat swDebug;
@@ -52,12 +53,13 @@ public class FragmentOptions extends FragmentEx {
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+        swCompact = view.findViewById(R.id.swCompact);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
+        swPreview = view.findViewById(R.id.swPreview);
         swLight = view.findViewById(R.id.swLight);
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
-        swCompact = view.findViewById(R.id.swCompact);
         swNav = view.findViewById(R.id.swNav);
         swInsecure = view.findViewById(R.id.swInsecure);
         swDebug = view.findViewById(R.id.swDebug);
@@ -78,6 +80,14 @@ public class FragmentOptions extends FragmentEx {
             }
         });
 
+        swCompact.setChecked(prefs.getBoolean("compact", false));
+        swCompact.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("compact", checked).apply();
+            }
+        });
+
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -91,6 +101,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("identicons", checked).apply();
+            }
+        });
+
+        swPreview.setChecked(prefs.getBoolean("preview", false));
+        swPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("preview", checked).apply();
             }
         });
 
@@ -115,14 +133,6 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipe", checked).apply();
-            }
-        });
-
-        swCompact.setChecked(prefs.getBoolean("compact", false));
-        swCompact.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("compact", checked).apply();
             }
         });
 

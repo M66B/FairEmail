@@ -66,6 +66,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
 import org.xml.sax.XMLReader;
 
 import java.io.File;
@@ -111,10 +112,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private ViewType viewType;
     private IProperties properties;
 
+    private boolean compact;
     private boolean contacts;
     private boolean avatars;
     private boolean identicons;
-    private boolean compact;
+    private boolean preview;
     private boolean debug;
 
     private int dp24;
@@ -142,6 +144,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvTimeEx;
         private ImageView ivAttachments;
         private TextView tvSubject;
+        private TextView tvPreview;
         private TextView tvFolder;
         private TextView tvCount;
         private ImageView ivThread;
@@ -190,6 +193,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
+            tvPreview = itemView.findViewById(R.id.tvPreview);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvCount = itemView.findViewById(R.id.tvCount);
             ivThread = itemView.findViewById(R.id.ivThread);
@@ -257,6 +261,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setText(null);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
+            if (tvPreview != null)
+                tvPreview.setText(null);
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
@@ -327,6 +333,39 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
+
+            tvPreview.setText(null);
+            tvPreview.setVisibility(preview && message.content ? View.VISIBLE : View.GONE);
+            if (message.content) {
+                Bundle args = new Bundle();
+                args.putSerializable("message", message);
+
+                new SimpleTask<String>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        tvPreview.setHasTransientState(true);
+                    }
+
+                    @Override
+                    protected String onLoad(Context context, Bundle args) throws Throwable {
+                        TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                        String body = message.read(context);
+                        return Jsoup.parse(body).text();
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, String preview) {
+                        tvPreview.setText(preview);
+                        tvPreview.setHasTransientState(false);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        tvPreview.setHasTransientState(false);
+                        Helper.unexpectedError(context, ex);
+                    }
+                }.load(context, owner, args);
+            }
 
             if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);
@@ -1405,11 +1444,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        this.compact = prefs.getBoolean("compact", false);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
         this.identicons = prefs.getBoolean("identicons", false);
-        this.compact = prefs.getBoolean("compact", false);
+        this.preview = prefs.getBoolean("preview", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp24 = Math.round(24 * Resources.getSystem().getDisplayMetrics().density);
