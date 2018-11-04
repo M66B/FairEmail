@@ -67,12 +67,13 @@
     <string name="title_setup_black_background">Black background</string>
     <string name="title_advanced">Gelişmiş ayarlar</string>
     <string name="title_advanced_enabled">Etkin</string>
+    <string name="title_advanced_compact">Kompakt mesaj görünümü</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Show identicons</string>
+    <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
-    <string name="title_advanced_compact">Kompakt mesaj görünümü</string>
     <string name="title_advanced_nav">Önceki/sonraki gezinme</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_select">Seçin &#8230;</string>

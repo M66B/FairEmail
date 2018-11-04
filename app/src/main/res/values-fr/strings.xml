@@ -67,12 +67,13 @@
     <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_enabled">Activé</string>
+    <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
+    <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
-    <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_nav">Navigation précédente/suivante</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_select">Sélectionner &#8230;</string>
