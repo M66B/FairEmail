@@ -23,6 +23,8 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 Confirmation is just one tap, which is just a small price for better privacy.
 
+Note that your contacts could unknowingly send malicious messages if they are infected with malware.
+
 ## Frequently Asked Questions
 
 <a name="FAQ1"></a>
