@@ -209,7 +209,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
-        <androidx.core.widget.ContentLoadingProgressBar
+        <ProgressBar
             android:id="@+id/pbLoading"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
@@ -418,7 +418,7 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
-        <androidx.core.widget.ContentLoadingProgressBar
+        <ProgressBar
             android:id="@+id/pbHeaders"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
@@ -495,7 +495,7 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toBottomOf="@id/btnHtml" />
 
-        <androidx.core.widget.ContentLoadingProgressBar
+        <ProgressBar
             android:id="@+id/pbBody"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"

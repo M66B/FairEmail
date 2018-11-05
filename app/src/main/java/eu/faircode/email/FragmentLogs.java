@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,14 +32,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentLogs extends FragmentEx {
     private RecyclerView rvLog;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpReady;
 
     private AdapterLog adapter;
@@ -66,7 +66,7 @@ public class FragmentLogs extends FragmentEx {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -86,7 +86,7 @@ public class FragmentLogs extends FragmentEx {
 
                 adapter.set(logs);
 
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });

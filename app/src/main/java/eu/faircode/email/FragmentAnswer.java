@@ -27,13 +27,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.lifecycle.Observer;
 
 public class FragmentAnswer extends FragmentEx {
@@ -41,7 +41,7 @@ public class FragmentAnswer extends FragmentEx {
     private EditText etName;
     private EditText etText;
     private BottomNavigationView bottom_navigation;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpReady;
 
     private long id = -1;
@@ -85,7 +85,7 @@ public class FragmentAnswer extends FragmentEx {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -101,7 +101,7 @@ public class FragmentAnswer extends FragmentEx {
                 etText.setText(answer == null ? null : Html.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
 
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });

@@ -59,6 +59,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -91,7 +92,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
@@ -146,7 +146,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private ImageView ivThread;
         private TextView tvPreview;
         private TextView tvError;
-        private ContentLoadingProgressBar pbLoading;
+        private ProgressBar pbLoading;
 
         private ImageView ivExpanderAddress;
         private TextView tvFromEx;
@@ -159,7 +159,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvSubjectEx;
 
         private TextView tvHeaders;
-        private ContentLoadingProgressBar pbHeaders;
+        private ProgressBar pbHeaders;
 
         private BottomNavigationView bnvActions;
 
@@ -167,7 +167,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private Button btnHtml;
         private Button btnImages;
         private TextView tvBody;
-        private ContentLoadingProgressBar pbBody;
+        private ProgressBar pbBody;
 
         private RecyclerView rvAttachment;
         private AdapterAttachment adapter;
@@ -270,15 +270,15 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivThread.setVisibility(View.GONE);
             tvPreview.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
-            pbLoading.show();
+            pbLoading.setVisibility(View.VISIBLE);
 
             ivAddContact.setVisibility(View.GONE);
-            pbHeaders.hide();
+            pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
-            pbBody.hide();
+            pbBody.setVisibility(View.GONE);
 
             grpAddress.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
@@ -292,7 +292,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             boolean show_addresses = properties.showAddresses(message.id);
             boolean show_headers = properties.showHeaders(message.id);
 
-            pbLoading.hide();
+            pbLoading.setVisibility(View.GONE);
 
             boolean photo = false;
             if (avatars) {
@@ -401,13 +401,13 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             grpAddress.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses ? View.VISIBLE : View.GONE);
             ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts && message.from != null ? View.VISIBLE : View.GONE);
-            pbHeaders.hide();
+            pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
-            pbBody.hide();
+            pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
             grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
 
@@ -436,7 +436,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 vSeparatorBody.setVisibility(View.VISIBLE);
                 tvBody.setText(null);
-                pbBody.show();
+                pbBody.setVisibility(View.VISIBLE);
 
                 if (message.content) {
                     Bundle args = new Bundle();
@@ -652,7 +652,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 btnHtml.setVisibility(Helper.classExists("android.webkit.WebView") && show_expanded ? View.VISIBLE : View.GONE);
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
-                pbBody.hide();
+                pbBody.setVisibility(View.GONE);
 
                 btnHtml.setHasTransientState(false);
                 btnImages.setHasTransientState(false);
@@ -1102,7 +1102,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             properties.setHeaders(data.message.id, show_headers);
             if (show_headers) {
                 grpHeaders.setVisibility(View.VISIBLE);
-                pbHeaders.show();
+                pbHeaders.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", data.message.id);

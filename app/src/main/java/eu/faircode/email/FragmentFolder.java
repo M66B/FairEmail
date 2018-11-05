@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
@@ -43,7 +44,6 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.lifecycle.Observer;
 
 public class FragmentFolder extends FragmentEx {
@@ -56,8 +56,8 @@ public class FragmentFolder extends FragmentEx {
     private EditText etAfter;
     private Button btnSave;
     private ImageButton ibDelete;
-    private ContentLoadingProgressBar pbSave;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbSave;
+    private ProgressBar pbWait;
 
     private long id = -1;
     private long account = -1;
@@ -97,7 +97,7 @@ public class FragmentFolder extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnSave.setEnabled(false);
                 ibDelete.setEnabled(false);
-                pbSave.show();
+                pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -199,7 +199,7 @@ public class FragmentFolder extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnSave.setEnabled(true);
                         ibDelete.setEnabled(true);
-                        pbSave.hide();
+                        pbSave.setVisibility(View.GONE);
 
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -221,7 +221,7 @@ public class FragmentFolder extends FragmentEx {
                                 Helper.setViewsEnabled(view, false);
                                 btnSave.setEnabled(false);
                                 ibDelete.setEnabled(false);
-                                pbSave.show();
+                                pbSave.setVisibility(View.VISIBLE);
 
                                 Bundle args = new Bundle();
                                 args.putLong("id", id);
@@ -272,7 +272,7 @@ public class FragmentFolder extends FragmentEx {
                                         Helper.setViewsEnabled(view, true);
                                         btnSave.setEnabled(true);
                                         ibDelete.setEnabled(true);
-                                        pbSave.hide();
+                                        pbSave.setVisibility(View.GONE);
 
                                         if (ex instanceof IllegalArgumentException)
                                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -292,8 +292,8 @@ public class FragmentFolder extends FragmentEx {
         btnSave.setEnabled(false);
         ibDelete.setEnabled(false);
         ibDelete.setVisibility(View.GONE);
-        pbSave.hide();
-        pbWait.show();
+        pbSave.setVisibility(View.GONE);
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -323,7 +323,7 @@ public class FragmentFolder extends FragmentEx {
                 }
 
                 // Consider previous save as cancelled
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 btnSave.setEnabled(true);

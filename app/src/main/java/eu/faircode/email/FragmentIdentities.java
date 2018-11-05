@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -32,7 +33,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentIdentities extends FragmentEx {
     private RecyclerView rvIdentity;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -81,7 +81,7 @@ public class FragmentIdentities extends FragmentEx {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -96,7 +96,7 @@ public class FragmentIdentities extends FragmentEx {
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
                 adapter.set(identities == null ? new ArrayList<TupleIdentityEx>() : identities);
 
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });

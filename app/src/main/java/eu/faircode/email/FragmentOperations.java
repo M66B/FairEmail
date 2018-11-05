@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +31,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentOperations extends FragmentEx {
     private RecyclerView rvOperation;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpReady;
 
     private AdapterOperation adapter;
@@ -65,7 +65,7 @@ public class FragmentOperations extends FragmentEx {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -83,7 +83,7 @@ public class FragmentOperations extends FragmentEx {
 
                 adapter.set(operations);
 
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });

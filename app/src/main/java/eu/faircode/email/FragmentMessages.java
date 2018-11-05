@@ -36,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -57,7 +58,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LiveData;
@@ -83,7 +83,7 @@ public class FragmentMessages extends FragmentEx {
     private TextView tvNoEmail;
     private RecyclerView rvMessage;
     private BottomNavigationView bottom_navigation;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -704,7 +704,7 @@ public class FragmentMessages extends FragmentEx {
         tvNoEmail.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         fab.hide();
         fabMove.hide();
@@ -1087,12 +1087,12 @@ public class FragmentMessages extends FragmentEx {
                                 new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
                                     @Override
                                     public void onLoading() {
-                                        pbWait.show();
+                                        pbWait.setVisibility(View.VISIBLE);
                                     }
 
                                     @Override
                                     public void onLoaded() {
-                                        pbWait.hide();
+                                        pbWait.setVisibility(View.GONE);
                                     }
 
                                     @Override
@@ -1129,12 +1129,12 @@ public class FragmentMessages extends FragmentEx {
                             @Override
                             public void onLoading() {
                                 tvNoEmail.setVisibility(View.GONE);
-                                pbWait.show();
+                                pbWait.setVisibility(View.VISIBLE);
                             }
 
                             @Override
                             public void onLoaded() {
-                                pbWait.hide();
+                                pbWait.setVisibility(View.GONE);
                                 if (messages.getValue() == null || messages.getValue().size() == 0)
                                     tvNoEmail.setVisibility(View.VISIBLE);
                             }
@@ -1238,7 +1238,7 @@ public class FragmentMessages extends FragmentEx {
                 boolean searching = (searchCallback != null && searchCallback.isSearching());
 
                 if (!searching)
-                    pbWait.hide();
+                    pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
 
                 if (messages.size() == 0) {

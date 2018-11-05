@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -31,7 +32,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,7 +39,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentAnswers extends FragmentEx {
     private RecyclerView rvAnswer;
-    private ContentLoadingProgressBar pbWait;
+    private ProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -78,7 +78,7 @@ public class FragmentAnswers extends FragmentEx {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
-        pbWait.show();
+        pbWait.setVisibility(View.VISIBLE);
 
         return view;
     }
@@ -92,7 +92,7 @@ public class FragmentAnswers extends FragmentEx {
             @Override
             public void onChanged(List<EntityAnswer> answers) {
                 adapter.set(answers);
-                pbWait.hide();
+                pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
