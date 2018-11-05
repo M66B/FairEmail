@@ -68,9 +68,20 @@ Operations are processed only when there is a connection to the email server or 
 See also [this FAQ](#user-content-FAQ16).
 
 <a name="FAQ4"></a>
-**(4) What is a valid security certificate?**
+**(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
 
-Valid security certificates are officially signed (not self signed) and have matching a host name.
+Invalid security certificate: you should try to fix this by contacting your provider or by getting a valid security certificate
+because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
+
+IMAP STARTTLS: the EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announcing-starttls-everywhere-securing-hop-hop-email-delivery):
+"*Additionally, even if you configure STARTTLS perfectly and use a valid certificate, there’s still no guarantee your communication will be encrypted.*"
+
+Empty password: your username is likely easily guessed, so this is very insecure.
+
+If you still want to use an invalid security certificate, IMAP STARTTLS or an empty password,
+you'll need to enable insecure connections in the advanced settings and also in the account and/or identity settings.
+Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
 
 <a name="FAQ5"></a>
 ~~**(5) What does 'no IDLE support' mean?**~~
@@ -137,6 +148,8 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 
 First of all you need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/).
 To encrypt a message before sending, just select the menu *Encrypt*. Similarly, to decrypt a received message, just select the menu *Decrypt*.
+Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
+Encryption/decryption is a pro feature.
 
 <a name="FAQ13"></a>
 **(13) How does search on server work?**
