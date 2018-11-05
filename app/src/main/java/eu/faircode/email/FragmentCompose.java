@@ -411,6 +411,7 @@ public class FragmentCompose extends FragmentEx {
                 return true;
             case R.id.menu_bold:
             case R.id.menu_italic:
+            case R.id.menu_clear:
             case R.id.menu_link:
                 onMenuStyle(item.getItemId());
                 return true;
@@ -447,6 +448,10 @@ public class FragmentCompose extends FragmentEx {
                     break;
                 case R.id.menu_italic:
                     s.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    break;
+                case R.id.menu_clear:
+                    for (Object span : s.getSpans(start, end, Object.class))
+                        s.removeSpan(span);
                     break;
                 case R.id.menu_link:
                     Uri uri = null;
@@ -796,8 +801,6 @@ public class FragmentCompose extends FragmentEx {
                     ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
                     s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     String html = Html.toHtml(s);
-                    Log.i(Helper.TAG, "html=" + html);
-
                     etBody.setText(Html.fromHtml(html, cidGetter, null));
                 }
             }
