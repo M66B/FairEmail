@@ -188,6 +188,18 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<EntityMessage>> liveUnseenUnified();
 
+    @Query("SELECT COUNT(message.id) FROM message" +
+            " JOIN account ON account.id = message.account" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE account.`synchronize`" +
+            " AND folder.unified" +
+            " AND NOT message.ui_seen" +
+            " AND NOT message.ui_hide" +
+            " AND NOT message.ui_found" +
+            " AND NOT message.ui_ignored" +
+            " ORDER BY message.received")
+    int getUnseenUnified();
+
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
             " AND received >= :received" +

@@ -29,8 +29,14 @@ import android.widget.RemoteViews;
 
 public class Widget extends AppWidgetProvider {
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        update(appWidgetIds, appWidgetManager, context, -1);
+    public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DB db = DB.getInstance(context);
+                update(appWidgetIds, appWidgetManager, context, db.message().getUnseenUnified());
+            }
+        }).start();
     }
 
     static void update(Context context, int count) {
