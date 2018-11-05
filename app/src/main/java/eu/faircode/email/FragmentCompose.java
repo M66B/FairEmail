@@ -58,7 +58,6 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -97,6 +96,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -120,7 +120,7 @@ public class FragmentCompose extends FragmentEx {
     private RecyclerView rvAttachment;
     private EditText etBody;
     private BottomNavigationView bottom_navigation;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpHeader;
     private Group grpAddresses;
     private Group grpAttachments;
@@ -228,7 +228,7 @@ public class FragmentCompose extends FragmentEx {
         grpAttachments.setVisibility(View.GONE);
         etBody.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
-        pbWait.setVisibility(View.VISIBLE);
+        pbWait.show();
 
         getActivity().invalidateOptionsMenu();
         spFrom.setEnabled(false);
@@ -1242,7 +1242,7 @@ public class FragmentCompose extends FragmentEx {
             getActivity().invalidateOptionsMenu();
             Helper.setViewsEnabled(view, true);
 
-            pbWait.setVisibility(View.GONE);
+            pbWait.hide();
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             etBody.setVisibility(View.VISIBLE);

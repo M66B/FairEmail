@@ -372,7 +372,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etInterval" />
 
-        <ProgressBar
+        <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/pbCheck"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
@@ -515,7 +515,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spJunk" />
 
-        <ProgressBar
+        <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/pbSave"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="24dp"
@@ -526,7 +526,7 @@
             app:layout_constraintStart_toEndOf="@id/btnSave"
             app:layout_constraintTop_toTopOf="@id/btnSave" />
 
-        <ProgressBar
+        <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/pbWait"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="wrap_content"

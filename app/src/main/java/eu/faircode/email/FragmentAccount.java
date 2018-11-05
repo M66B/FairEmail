@@ -52,7 +52,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -86,6 +85,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 
@@ -123,7 +123,7 @@ public class FragmentAccount extends FragmentEx {
     private EditText etInterval;
 
     private Button btnCheck;
-    private ProgressBar pbCheck;
+    private ContentLoadingProgressBar pbCheck;
 
     private TextView tvIdle;
 
@@ -135,9 +135,9 @@ public class FragmentAccount extends FragmentEx {
     private Spinner spJunk;
 
     private Button btnSave;
-    private ProgressBar pbSave;
+    private ContentLoadingProgressBar pbSave;
     private ImageButton ibDelete;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
 
     private Group grpServer;
     private Group grpAuthorize;
@@ -412,7 +412,7 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
-                pbCheck.setVisibility(View.VISIBLE);
+                pbCheck.show();
                 tvIdle.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
@@ -535,7 +535,7 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
-                        pbCheck.setVisibility(View.GONE);
+                        pbCheck.hide();
 
                         tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
 
@@ -554,7 +554,7 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
-                        pbCheck.setVisibility(View.GONE);
+                        pbCheck.hide();
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
 
@@ -575,7 +575,7 @@ public class FragmentAccount extends FragmentEx {
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
                 btnSave.setEnabled(false);
-                pbSave.setVisibility(View.VISIBLE);
+                pbSave.show();
 
                 Provider provider = (Provider) spProvider.getSelectedItem();
 
@@ -792,7 +792,7 @@ public class FragmentAccount extends FragmentEx {
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
                         btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
+                        pbSave.hide();
 
                         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(Helper.formatThrowable(ex))
@@ -816,7 +816,7 @@ public class FragmentAccount extends FragmentEx {
                                 btnAuthorize.setEnabled(false);
                                 btnCheck.setEnabled(false);
                                 btnSave.setEnabled(false);
-                                pbWait.setVisibility(View.VISIBLE);
+                                pbWait.show();
 
                                 Bundle args = new Bundle();
                                 args.putLong("id", id);
@@ -868,10 +868,10 @@ public class FragmentAccount extends FragmentEx {
         tvIdle.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
-        pbCheck.setVisibility(View.GONE);
+        pbCheck.hide();
 
         btnSave.setVisibility(View.GONE);
-        pbSave.setVisibility(View.GONE);
+        pbSave.hide();
 
         ibDelete.setVisibility(View.GONE);
 
@@ -993,7 +993,7 @@ public class FragmentAccount extends FragmentEx {
 
                 // Consider previous check/save/delete as cancelled
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
-                pbWait.setVisibility(View.GONE);
+                pbWait.hide();
 
                 if (account != null) {
                     db.folder().liveFolders(account.id).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {

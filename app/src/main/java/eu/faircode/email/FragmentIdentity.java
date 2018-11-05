@@ -37,7 +37,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -61,6 +60,7 @@ import javax.mail.Transport;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.lifecycle.Observer;
 
 public class FragmentIdentity extends FragmentEx {
@@ -84,9 +84,9 @@ public class FragmentIdentity extends FragmentEx {
     private CheckBox cbPrimary;
     private CheckBox cbStoreSent;
     private Button btnSave;
-    private ProgressBar pbSave;
+    private ContentLoadingProgressBar pbSave;
     private ImageButton ibDelete;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpAdvanced;
 
     private long id = -1;
@@ -301,7 +301,7 @@ public class FragmentIdentity extends FragmentEx {
             public void onClick(View v) {
                 Helper.setViewsEnabled(view, false);
                 btnSave.setEnabled(false);
-                pbSave.setVisibility(View.VISIBLE);
+                pbSave.show();
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
@@ -431,7 +431,7 @@ public class FragmentIdentity extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.setViewsEnabled(view, true);
                         btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
+                        pbSave.hide();
 
                         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(Helper.formatThrowable(ex))
@@ -453,7 +453,7 @@ public class FragmentIdentity extends FragmentEx {
                             public void onClick(DialogInterface dialog, int which) {
                                 Helper.setViewsEnabled(view, false);
                                 btnSave.setEnabled(false);
-                                pbWait.setVisibility(View.VISIBLE);
+                                pbWait.show();
 
                                 Bundle args = new Bundle();
                                 args.putLong("id", id);
@@ -491,7 +491,7 @@ public class FragmentIdentity extends FragmentEx {
         btnSave.setVisibility(View.GONE);
         btnAdvanced.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
-        pbSave.setVisibility(View.GONE);
+        pbSave.hide();
         ibDelete.setVisibility(View.GONE);
 
         return view;
@@ -560,7 +560,7 @@ public class FragmentIdentity extends FragmentEx {
 
                 // Consider previous save/delete as cancelled
                 ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
-                pbWait.setVisibility(View.GONE);
+                pbWait.hide();
 
                 db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
                 db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {

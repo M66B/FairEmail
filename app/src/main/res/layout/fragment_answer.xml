@@ -77,7 +77,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/action_answer" />
 
-    <ProgressBar
+    <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/pbWait"
         style="@style/Base.Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"

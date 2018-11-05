@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.ToggleButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +36,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.widget.ContentLoadingProgressBar;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,7 +46,7 @@ public class FragmentFolders extends FragmentEx {
     private ImageButton ibHintActions;
     private ToggleButton tbShowHidden;
     private RecyclerView rvFolder;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;
@@ -118,7 +118,7 @@ public class FragmentFolders extends FragmentEx {
         // Initialize
         tbShowHidden.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
-        pbWait.setVisibility(View.VISIBLE);
+        pbWait.show();
 
         return view;
     }
@@ -160,7 +160,7 @@ public class FragmentFolders extends FragmentEx {
 
                 adapter.set(folders);
 
-                pbWait.setVisibility(View.GONE);
+                pbWait.hide();
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
