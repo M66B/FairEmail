@@ -195,6 +195,7 @@
     <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>
+    <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_style_image">Infoga bild</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
@@ -208,6 +209,7 @@
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
     <string name="title_no_openpgp">OpenKeychain not found</string>
+    <string name="title_not_encrypted">Message is not encrypted</string>
     <string name="title_search">Sök</string>
     <string name="title_search_hint">Sök på server</string>
     <string name="title_searching">Söker \'%1$s\'</string>

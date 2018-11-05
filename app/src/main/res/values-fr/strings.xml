@@ -195,6 +195,7 @@
     <string name="title_clipboard_empty">Presse-papier vide</string>
     <string name="title_style_bold">Gras</string>
     <string name="title_style_italic">Italique</string>
+    <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_image">Insérer une image</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
@@ -208,6 +209,7 @@
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
+    <string name="title_not_encrypted">Message is not encrypted</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_hint">Rechercher sur le serveur</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>
@@ -221,8 +223,8 @@
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
     <string name="title_answer_text">Texte du modèle</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l’expéditeur</string>
+    <string name="title_answer_template_email">$email$ sera remplacé par l’adresse e-mail de l’expéditeur</string>
     <string name="title_legend_inbox">Boîte de réception</string>
     <string name="title_legend_unified">Boite de réception unifiée</string>
     <string name="title_legend_archive">Archives</string>
@@ -258,7 +260,7 @@
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera l\'utilisation de toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette appli</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">cette FAQ</a> à propos du prix des fonctionnalités Pro</string>
     <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
     <string name="title_pro_invalid">Réponse non valide</string>

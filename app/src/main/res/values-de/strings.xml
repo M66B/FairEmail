@@ -76,7 +76,7 @@
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_nav">Vorherige/nächste E-Mail Navigation</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
-    <string name="title_advanced_debug">Debuggen</string>
+    <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_select">Wählen Sie &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
@@ -195,6 +195,7 @@
     <string name="title_clipboard_empty">Zwischenablage ist leer</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
+    <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_style_image">Bild einfügen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
@@ -208,6 +209,7 @@
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
+    <string name="title_not_encrypted">Message is not encrypted</string>
     <string name="title_search">Suche</string>
     <string name="title_search_hint">Auf Server suchen</string>
     <string name="title_searching">Suche „%1$s“</string>
@@ -221,8 +223,8 @@
     <string name="title_answer_reply">Antwortvorlage</string>
     <string name="title_answer_name">Vorlagenname</string>
     <string name="title_answer_text">Vorlagentext</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
+    <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_unified">Gemeinsamer Posteingang</string>
     <string name="title_legend_archive">Archiv</string>
@@ -258,7 +260,7 @@
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in den<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">FAQ</a></string>
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
     <string name="title_pro_invalid">Ungültige Antwort</string>

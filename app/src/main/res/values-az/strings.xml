@@ -64,18 +64,18 @@
     <string name="title_setup_done">Hazırdır</string>
     <string name="title_setup_light_theme">Açıq tema</string>
     <string name="title_setup_dark_theme">Tünd tema</string>
-    <string name="title_setup_black_background">Black background</string>
+    <string name="title_setup_black_background">Qara arxafon</string>
     <string name="title_advanced">Qabaqcıl variantlar</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Eyniləşdirmə</string>
     <string name="title_advanced_compact">Yığcam mesaj görünüşü</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
-    <string name="title_advanced_identicons">Show identicons</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_identicons">İdentikon-ları göstər</string>
+    <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_nav">Əvvəlki/növbəti naviqasiya</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_select">&#8230; seçin</string>
     <string name="title_identity_name">Adınız</string>
@@ -195,6 +195,7 @@
     <string name="title_clipboard_empty">Lövhə boşdur</string>
     <string name="title_style_bold">Qalın</string>
     <string name="title_style_italic">Meyilli</string>
+    <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Bağlantı daxil et</string>
     <string name="title_style_image">Təsvir daxil et</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
@@ -208,6 +209,7 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
+    <string name="title_not_encrypted">Message is not encrypted</string>
     <string name="title_search">Axtar</string>
     <string name="title_search_hint">Serverdə axtar</string>
     <string name="title_searching">\'%1$s\' axtarılır</string>
@@ -221,8 +223,8 @@
     <string name="title_answer_reply">Cavab şablonu</string>
     <string name="title_answer_name">Şablon adı</string>
     <string name="title_answer_text">Şablon mətni</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ göndərənin tam adıyla əvəz ediləcək</string>
+    <string name="title_answer_template_email">$email$ göndərənin e-poçt ünvanı ilə əvəz ediləcək</string>
     <string name="title_legend_inbox">Gələn qutusu</string>
     <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
     <string name="title_legend_archive">Arxiv</string>
@@ -258,7 +260,7 @@
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Zəhmət olmasa pro xüsusiyyətlərin qiyməti haqqında <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">bu TSS</a> səhifəsinə baxın</string>
     <string name="title_pro_activated">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
     <string name="title_pro_valid">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
     <string name="title_pro_invalid">Etibarsız cavab</string>

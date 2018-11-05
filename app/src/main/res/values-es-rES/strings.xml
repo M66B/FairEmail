@@ -64,18 +64,18 @@
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema oscuro</string>
-    <string name="title_setup_black_background">Black background</string>
+    <string name="title_setup_black_background">Fondo negro</string>
     <string name="title_advanced">Opciones avanzadas</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Sincronizar</string>
     <string name="title_advanced_compact">Vista de mensajes compacta</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
-    <string name="title_advanced_identicons">Show identicons</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_identicons">Mostrar identicons</string>
+    <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
-    <string name="title_advanced_nav">Previous/next navigation</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_nav">Navegación anterior/siguiente</string>
+    <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
@@ -174,7 +174,7 @@
     <string name="title_moving">Moviendo mensaje a %1$s</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
-    <string name="title_no_saf">Storage access framework not available</string>
+    <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
@@ -195,6 +195,7 @@
     <string name="title_clipboard_empty">Portapapeles vacío</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
+    <string name="title_style_clear">Borrar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_image">Insertar imagen</string>
     <string name="title_add_attachment">Agregar adjunto</string>
@@ -208,6 +209,7 @@
     <string name="title_encrypt">Encriptar</string>
     <string name="title_decrypt">Desencriptar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
+    <string name="title_not_encrypted">Message is not encrypted</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_hint">Buscar en el servidor</string>
     <string name="title_searching">Buscando \'%1$s\'</string>
@@ -221,8 +223,8 @@
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
     <string name="title_answer_text">Texto de plantilla</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
+    <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
     <string name="title_legend_inbox">Bandeja de Entrada</string>
     <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
     <string name="title_legend_archive">Archivo</string>
@@ -258,7 +260,7 @@
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y soportada</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>
     <string name="title_pro_valid">Todas las características Pro activadas</string>
     <string name="title_pro_invalid">Respuesta inválida</string>
