@@ -857,6 +857,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putString("thread", intent.getStringExtra("thread"));
+        args.putBoolean("found", intent.getBooleanExtra("found", false));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

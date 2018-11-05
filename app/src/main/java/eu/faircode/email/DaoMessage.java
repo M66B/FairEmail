@@ -106,13 +106,14 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
+            " AND ui_found = :found" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, String sort, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, boolean found, String sort, boolean debug);
 
     @Query("SELECT COUNT(id)" +
             " FROM message" +

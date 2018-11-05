@@ -95,6 +95,7 @@ public class FragmentMessages extends FragmentEx {
     private long folder = -1;
     private long account = -1;
     private String thread = null;
+    private boolean found = false;
     private String search = null;
 
     private long primary = -1;
@@ -133,6 +134,7 @@ public class FragmentMessages extends FragmentEx {
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
         thread = args.getString("thread");
+        found = args.getBoolean("found", false);
         search = args.getString("search");
 
         if (TextUtils.isEmpty(search))
@@ -548,7 +550,8 @@ public class FragmentMessages extends FragmentEx {
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_THREAD)
                                 .putExtra("account", target.account)
-                                .putExtra("thread", target.thread));
+                                .putExtra("thread", target.thread)
+                                .putExtra("found", target.found));
                 return true;
             }
         });
@@ -1119,7 +1122,7 @@ public class FragmentMessages extends FragmentEx {
 
                     break;
                 case THREAD:
-                    messages = new LivePagedListBuilder<>(db.message().pagedThread(account, thread, sort, debug), LOCAL_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedThread(account, thread, found, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {

@@ -548,7 +548,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_VIEW_THREAD)
                                     .putExtra("account", message.account)
-                                    .putExtra("thread", message.thread));
+                                    .putExtra("thread", message.thread)
+                                    .putExtra("found", message.ui_found));
                 }
             }
         }
