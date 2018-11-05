@@ -66,7 +66,7 @@
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -75,7 +75,7 @@
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_nav">Navigation précédente/suivante</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Modèle de réponse</string>
     <string name="title_answer_name">Nom du modèle</string>
     <string name="title_answer_text">Texte du modèle</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Boîte de réception</string>
     <string name="title_legend_unified">Boite de réception unifiée</string>
     <string name="title_legend_archive">Archives</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera l\'utilisation de toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette appli</string>
-    <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">cette FAQ</a> sur le prix des fonctionnalités Pro</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Toutes les fonctionnalités Pro sont activées</string>
     <string name="title_pro_valid">Toutes les fonctionnalités Pro activées</string>
     <string name="title_pro_invalid">Réponse non valide</string>
@@ -267,14 +269,14 @@
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
     <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
+        <item>16 ko</item>
+        <item>32 ko</item>
+        <item>64 ko</item>
+        <item>128 ko</item>
+        <item>256 ko</item>
+        <item>512 ko</item>
+        <item>1 Mo</item>
+        <item>2 Mo</item>
         <item>&#8734;</item>
     </string-array>
 </resources>

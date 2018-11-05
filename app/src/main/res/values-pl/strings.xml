@@ -229,6 +229,8 @@
     <string name="title_answer_reply">Szablon odpowiedzi</string>
     <string name="title_answer_name">Nazwa szablonu</string>
     <string name="title_answer_text">Tekst szablonu</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Odebrane</string>
     <string name="title_legend_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_legend_archive">Archiwum</string>
@@ -264,7 +266,7 @@
     <string name="title_pro_list">Lista funkcji pro</string>
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
-    <string name="title_pro_price">Po więcej informacji nt cen wejdź <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">w ten FAQ</a></string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
     <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>

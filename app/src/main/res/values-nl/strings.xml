@@ -10,7 +10,7 @@
         <item quantity="other">Synchroniseren: %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d handeling te doen</item>
+        <item quantity="one">%1$d acties te doen</item>
         <item quantity="other">%1$d handelingen te doen</item>
     </plurals>
     <plurals name="title_notification_unseen">
@@ -24,7 +24,7 @@
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
     <string name="menu_answers">Antwoord sjablonen</string>
-    <string name="menu_operations">Handelingen</string>
+    <string name="menu_operations">Acties</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">FAQ/ondersteuning</string>
     <string name="menu_pro">Pro functies</string>
@@ -150,7 +150,7 @@
     <string name="title_folder_sent">Verzonden</string>
     <string name="title_folder_system">Systeem</string>
     <string name="title_folder_user">Gebruiker</string>
-    <string name="title_folder_primary">Primaire account mappen</string>
+    <string name="title_folder_primary">Mappen primaire account</string>
     <string name="title_folder_thread">Gesprek</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_show_images">Toon afbeeldingen</string>
@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Antwoord sjabloon</string>
     <string name="title_answer_name">Sjabloonnaam</string>
     <string name="title_answer_text">Sjabloontekst</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Postvak in</string>
     <string name="title_legend_unified">Gecombineerd postvak in</string>
     <string name="title_legend_archive">Archief</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Lijst van pro-functies</string>
     <string name="title_pro_purchase">Koop</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app</string>
-    <string name="title_pro_price">Raadpleeg <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">deze FAQ</a> over de prijs van de pro-functies</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Alle pro-functies zijn geactiveerd</string>
     <string name="title_pro_valid">Alle pro-functies geactiveerd</string>
     <string name="title_pro_invalid">Ongeldige reactie</string>

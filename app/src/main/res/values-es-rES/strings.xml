@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Plantilla de respuesta</string>
     <string name="title_answer_name">Nombre de plantilla</string>
     <string name="title_answer_text">Texto de plantilla</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Bandeja de Entrada</string>
     <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
     <string name="title_legend_archive">Archivo</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y soportada</string>
-    <string name="title_pro_price">Por favor lea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">estas Preguntas Frecuentas</a> acerca del precio de las características Pro</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>
     <string name="title_pro_valid">Todas las características Pro activadas</string>
     <string name="title_pro_invalid">Respuesta inválida</string>

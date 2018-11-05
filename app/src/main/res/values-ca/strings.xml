@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>
     <string name="title_answer_text">Template text</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Safata d\'entrada</string>
     <string name="title_legend_unified">Safata d\'entrada unificada</string>
     <string name="title_legend_archive">Arxiu</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Llista de característiques Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_hint">Comprar característiques Pro et permet utilitzar tota la funcionalitat Pro actual i futura i mantindrà el desenvolupament de l\'aplicació</string>
-    <string name="title_pro_price">Dona un cop d\'ull <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">a les preguntes freqüents</a> per saber el preu de les característiques Pro</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Totes les característiques Pro estan activades</string>
     <string name="title_pro_valid">Totes les característiques Pro estan activades</string>
     <string name="title_pro_invalid">Resposta no vàlida</string>

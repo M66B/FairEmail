@@ -237,6 +237,8 @@
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>
     <string name="title_answer_text">Template text</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Inbox</string>
     <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_archive">Archive</string>
@@ -272,7 +274,7 @@
     <string name="title_pro_list">قائمة ميزات برو</string>
     <string name="title_pro_purchase">شراء</string>
     <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">All pro features are activated</string>
     <string name="title_pro_valid">All pro features activated</string>
     <string name="title_pro_invalid">Invalid response</string>

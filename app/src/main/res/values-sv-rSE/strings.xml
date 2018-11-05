@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>
     <string name="title_answer_text">Malltext</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Inkorg</string>
     <string name="title_legend_unified">Samlad inkorg</string>
     <string name="title_legend_archive">Arkivera</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Lista över pro-funktioner</string>
     <string name="title_pro_purchase">Köp</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
-    <string name="title_pro_price">Se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">Vanliga frågor</a> om pris på pro-funktionerna</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>
     <string name="title_pro_invalid">Ogiltigt svar</string>

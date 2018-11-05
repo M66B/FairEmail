@@ -221,6 +221,8 @@
     <string name="title_answer_reply">Yanıt şablonu</string>
     <string name="title_answer_name">Şablon ismi</string>
     <string name="title_answer_text">Şablon metni</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
     <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_legend_archive">Arşiv</string>
@@ -256,7 +258,7 @@
     <string name="title_pro_list">Pro özelliklerin listesi</string>
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_hint">Pro özelliklerin satın alınması, mevcut ve gelecekteki tüm pro özelliklerin kullanılmasına izin verecek ve bu uygulamayı ayakta tutup destekleyecek</string>
-    <string name="title_pro_price">Lütfen pro özelliklerin fiyatı için <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ19">bu SSS sayfasını</a> görün</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_valid">Tüm pro özellikleri etkinleştirildi</string>
     <string name="title_pro_invalid">Geçersiz yanıt</string>
