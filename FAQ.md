@@ -84,13 +84,18 @@ you'll need to enable insecure connections in the advanced settings and also in 
 Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
 
 <a name="FAQ5"></a>
-~~**(5) What does 'no IDLE support' mean?**~~
+**(5) How can I customize the message view?**
 
-~~Without [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) emails need to be periodically fetched,~~
-~~which is a waste of battery power and internet bandwidth and will delay notification of new emails.~~
-~~Since the goal of FairEmail is to offer safe and fast email, providers without IMAP IDLE are not supported.~~
-~~You should consider this a problem of the provider, not of the app.~~
-~~Almost all email providers offer IMAP IDLE, with as notable exception Yahoo!~~
+In the advanced settings you can enable or disable:
+
+* *compact message view*: for more condensed message items and a smaller message text font
+* *show contact photos*: to hide contact photos
+* *show identicons*: to show generated contact avatars
+* *show message preview*: to show two lines of the message text
+
+If the list of addresses is long, you can collapse the addresses section with the *less* icon at the top of the addresses section.
+
+Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
 <a name="FAQ6"></a>
 **(6) How can I login to Gmail / G suite?**
@@ -173,6 +178,8 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 The message header and message body are fetched separately from the server.
 The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message.
 The message text will keep loading if there is no connection to the account, see also the next question.
+
+In the advanced settings you can set the maximum size for automatically downloading of messages on metered connections.
 
 <a name="FAQ16"></a>
 **(16) Why are messages not being synchronized?**
