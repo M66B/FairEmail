@@ -13,10 +13,10 @@ Frequently requested features:
 * Previewing message text in notification/widget: this is not possible because the message text is initially not downloaded.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
-* Widget to read e-mail: widgets do not allow user interaction, so a widget to read e-mail would not be very useful.
+* Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
-* ​Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
-* ​Calendar events: opening the attached calendar file should open the related calendar app.
+* Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
+* Calendar events: opening the attached calendar file should open the related calendar app.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
