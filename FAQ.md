@@ -17,6 +17,7 @@ Frequently requested features:
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
+* Snooze timer: to keep the number of bugs and questions minimal, the goal is to keep things simple for now.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
