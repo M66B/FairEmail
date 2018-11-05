@@ -160,7 +160,7 @@ public interface DaoMessage {
 
     @Query("SELECT id FROM message" +
             " WHERE content" +
-            " AND preview IS NULL")
+            " AND (preview IS NULL OR preview = '')")
     List<Long> getMessageWithoutPreview();
 
     @Query("SELECT message.*" +
@@ -225,8 +225,8 @@ public interface DaoMessage {
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 
-    @Query("UPDATE message SET content = NOT preview IS NULL, preview = :preview WHERE id = :id")
-    int setMessageContent(long id, String preview);
+    @Query("UPDATE message SET content = :content, preview = :preview WHERE id = :id")
+    int setMessageContent(long id, boolean content, String preview);
 
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);

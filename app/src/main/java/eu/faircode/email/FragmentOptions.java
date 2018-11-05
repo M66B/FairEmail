@@ -134,12 +134,12 @@ public class FragmentOptions extends FragmentEx {
                                 try {
                                     Log.i(Helper.TAG, "Building preview id=" + id);
                                     String html = message.read(context);
-                                    String text = Jsoup.parse(html).text();
-                                    String preview = text.substring(0, Math.min(text.length(), 250));
-                                    db.message().setMessageContent(message.id, preview);
+                                    String text = (html == null ? null : Jsoup.parse(html).text());
+                                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+                                    db.message().setMessageContent(message.id, true, preview);
                                 } catch (IOException ex) {
                                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                    db.message().setMessageContent(message.id, null);
+                                    db.message().setMessageContent(message.id, false, null);
                                     if (!metered)
                                         EntityOperation.queue(db, message, EntityOperation.BODY);
                                 }
