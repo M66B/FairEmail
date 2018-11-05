@@ -1435,7 +1435,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         String html = helper.getHtml();
-        String text = Jsoup.parse(html).text();
+        String text = (html == null ? "" : Jsoup.parse(html).text());
         String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
         message.write(this, html);
         db.message().setMessageContent(message.id, preview);
@@ -1896,7 +1896,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (!message.content)
             if (!metered || (message.size != null && message.size < download)) {
                 String html = helper.getHtml();
-                String text = Jsoup.parse(html).text();
+                String text = (html == null ? "" : Jsoup.parse(html).text());
                 String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
                 message.write(context, html);
                 db.message().setMessageContent(message.id, preview);
