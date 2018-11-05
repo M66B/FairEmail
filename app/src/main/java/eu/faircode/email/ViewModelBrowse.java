@@ -101,6 +101,7 @@ public class ViewModelBrowse extends ViewModel {
                     boolean match = false;
                     String find = search.toLowerCase();
                     EntityMessage message = db.message().getMessage(messages.get(i));
+                    String body = (message.content ? message.read(context) : null);
 
                     if (message.from != null)
                         for (int j = 0; j < message.from.length && !match; j++)
@@ -114,13 +115,15 @@ public class ViewModelBrowse extends ViewModel {
                         match = message.subject.toLowerCase().contains(find);
 
                     if (!match && message.content)
-                        match = message.read(context).toLowerCase().contains(find);
+                        match = body.toLowerCase().contains(find);
 
                     if (match) {
                         matched++;
                         message.id = null;
                         message.ui_found = true;
                         message.id = db.message().insertMessage(message);
+                        if (message.content)
+                            message.write(context, body);
                     }
                 }
 
