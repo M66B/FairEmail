@@ -75,7 +75,7 @@ public class ApplicationEx extends Application {
             NotificationChannel notification = new NotificationChannel(
                     "notification",
                     getString(R.string.channel_notification),
-                    NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager.IMPORTANCE_HIGH);
             nm.createNotificationChannel(notification);
 
             NotificationChannel error = new NotificationChannel(
