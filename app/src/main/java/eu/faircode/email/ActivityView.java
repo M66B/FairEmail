@@ -948,9 +948,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DB db = DB.getInstance(context);
 
                 // Find encrypted data
+                boolean found = false;
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : attachments)
                     if (attachment.available && "encrypted.asc".equals(attachment.name)) {
+                        found = true;
+
                         // Serialize encrypted data
                         FileInputStream encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
                         ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
@@ -1007,6 +1010,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         break;
                     }
+
+                if (!found)
+                    throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
 
                 return null;
             }
