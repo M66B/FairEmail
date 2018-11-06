@@ -391,6 +391,7 @@ public class FragmentCompose extends FragmentEx {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_bold).setVisible(working >= 0);
         menu.findItem(R.id.menu_italic).setVisible(working >= 0);
+        menu.findItem(R.id.menu_clear).setVisible(working >= 0);
         menu.findItem(R.id.menu_link).setVisible(working >= 0);
         menu.findItem(R.id.menu_image).setVisible(working >= 0);
         menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
