@@ -62,6 +62,7 @@ public class EntityAccount {
     @NonNull
     public Integer poll_interval; // keep-alive interval
     public Long seen_until; // obsolete
+    public Long created;
     public String state;
     public String error;
 

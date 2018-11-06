@@ -73,6 +73,7 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -715,6 +716,7 @@ public class FragmentAccount extends FragmentEx {
 
                             account.store_sent = false; // obsolete
                             account.seen_until = null; // obsolete
+                            account.created = new Date().getTime();
 
                             if (!synchronize)
                                 account.error = null;

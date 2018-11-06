@@ -182,6 +182,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
+            " AND (account.created IS NULL OR IFNULL(message.sent, message.received) > account.created)" +
             " AND NOT message.ui_seen" +
             " AND NOT message.ui_hide" +
             " AND NOT message.ui_found" +
