@@ -716,7 +716,6 @@ public class FragmentSetup extends FragmentEx {
             @Override
             protected void onLoaded(Bundle args, Void data) {
                 Snackbar.make(view, R.string.title_setup_imported, Snackbar.LENGTH_LONG).show();
-                ServiceSynchronize.reload(getContext(), "import");
             }
 
             @Override
