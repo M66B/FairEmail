@@ -79,10 +79,6 @@ public class ViewModelBrowse extends ViewModel {
         imessages = null;
     }
 
-    Context getContext() {
-        return context;
-    }
-
     void load() throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityFolder folder = db.folder().getFolder(fid);

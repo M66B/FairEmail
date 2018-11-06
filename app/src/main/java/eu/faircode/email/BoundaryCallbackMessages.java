@@ -44,7 +44,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         void onLoaded();
 
-        void onError(Context context, Throwable ex);
+        void onError(Throwable ex);
     }
 
     BoundaryCallbackMessages(LifecycleOwner owner, ViewModelBrowse _model, IBoundaryCallbackMessages intf) {
@@ -102,7 +102,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                intf.onError(model.getContext(), ex);
+                                intf.onError(ex);
                             }
                         });
                     } finally {

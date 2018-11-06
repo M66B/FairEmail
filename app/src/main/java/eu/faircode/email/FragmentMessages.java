@@ -1099,7 +1099,7 @@ public class FragmentMessages extends FragmentEx {
                                     }
 
                                     @Override
-                                    public void onError(Context context, Throwable ex) {
+                                    public void onError(Throwable ex) {
                                         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                                             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                                     .setMessage(Helper.formatThrowable(ex))
@@ -1143,7 +1143,7 @@ public class FragmentMessages extends FragmentEx {
                             }
 
                             @Override
-                            public void onError(Context context, Throwable ex) {
+                            public void onError(Throwable ex) {
                                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                                     new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                             .setMessage(Helper.formatThrowable(ex))
