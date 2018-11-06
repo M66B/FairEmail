@@ -167,11 +167,11 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="24dp"
             android:background="?attr/colorSeparator"
             app:itemIconTint="@color/bottomnav_background"
             app:itemTextColor="@color/bottomnav_background"
-            app:labelVisibilityMode="labeled"
+            app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
