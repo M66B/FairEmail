@@ -279,13 +279,17 @@ public class ServiceSynchronize extends LifecycleService {
                                 EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                                 if (archive == null)
                                     archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (archive != null)
+                                if (archive != null) {
+                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
+                                }
                             } else if ("trash".equals(action)) {
                                 db.message().setMessageUiHide(message.id, true);
                                 EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (trash != null)
+                                if (trash != null) {
+                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
+                                }
                             } else if ("ignored".equals(action))
                                 db.message().setMessageUiIgnored(message.id, true);
 
