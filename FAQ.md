@@ -301,6 +301,17 @@ No app, except maybe file managers, targeting Android 4.4 KitKat or later should
 Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
 Registration is free.
 
+<a name="FAQ27"></a>
+**(27) Why are images shown without tapping 'Show images' ?**
+
+There are two types of images:
+
+* Images embedded into a message
+* Images stored on a remote server
+
+Embedded images, also visible as an attachment, are always shown, but images stored on a remote server need to be downloaded by tapping *Show images*.
+Note that downloading images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
