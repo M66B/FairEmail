@@ -27,7 +27,6 @@ import android.app.PendingIntent;
 import android.app.Person;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -515,7 +514,9 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (!TextUtils.isEmpty(message.avatar))
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                    mbuilder.addPerson(new Person.Builder().setUri(message.avatar).build());
+                    mbuilder.addPerson(new Person.Builder()
+                            .setUri(message.avatar)
+                            .build());
                 else
                     mbuilder.addPerson(message.avatar);
 
@@ -569,7 +570,7 @@ public class ServiceSynchronize extends LifecycleService {
         // - failed to create new store connection (connectivity)
 
         // MailConnectException
-        // - on connectity problems when connecting to store
+        // - on connectivity problems when connecting to store
 
         String action;
         if (TextUtils.isEmpty(account))
@@ -1832,18 +1833,21 @@ public class ServiceSynchronize extends LifecycleService {
                                 cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                                         new String[]{
                                                 ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                                ContactsContract.Contacts.LOOKUP_KEY,
                                                 ContactsContract.Contacts.DISPLAY_NAME
                                         },
                                         ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
                                         new String[]{email}, null);
                                 if (cursor.moveToNext()) {
                                     int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
                                     int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+
                                     long contactId = cursor.getLong(colContactId);
+                                    String lookupKey = cursor.getString(colLookupKey);
                                     String displayName = cursor.getString(colDisplayName);
 
-                                    Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                                    message.avatar = uri.toString();
+                                    message.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
 
                                     if (!TextUtils.isEmpty(displayName))
                                         ((InternetAddress) message.from[i]).setPersonal(displayName);
