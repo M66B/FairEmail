@@ -119,6 +119,7 @@ public class FragmentCompose extends FragmentEx {
     private EditText etSubject;
     private RecyclerView rvAttachment;
     private EditText etBody;
+    private BottomNavigationView edit_bar;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpHeader;
@@ -149,6 +150,7 @@ public class FragmentCompose extends FragmentEx {
         etSubject = view.findViewById(R.id.etSubject);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         etBody = view.findViewById(R.id.etBody);
+        edit_bar = view.findViewById(R.id.edit_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
@@ -196,6 +198,29 @@ public class FragmentCompose extends FragmentEx {
             }
         });
 
+        edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int action = item.getItemId();
+                switch (action) {
+                    case R.id.menu_bold:
+                    case R.id.menu_italic:
+                    case R.id.menu_clear:
+                    case R.id.menu_link:
+                        onMenuStyle(item.getItemId());
+                        return true;
+                    case R.id.menu_image:
+                        onMenuImage();
+                        return true;
+                    case R.id.menu_attachment:
+                        onMenuAttachment();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -204,7 +229,6 @@ public class FragmentCompose extends FragmentEx {
                     case R.id.action_delete:
                         onDelete();
                         break;
-
                     default:
                         onAction(action);
                 }
@@ -227,6 +251,7 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         etBody.setVisibility(View.GONE);
+        edit_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -389,18 +414,9 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.menu_bold).setVisible(working >= 0);
-        menu.findItem(R.id.menu_italic).setVisible(working >= 0);
-        menu.findItem(R.id.menu_clear).setVisible(working >= 0);
-        menu.findItem(R.id.menu_link).setVisible(working >= 0);
-        menu.findItem(R.id.menu_image).setVisible(working >= 0);
-        menu.findItem(R.id.menu_attachment).setVisible(working >= 0);
-        menu.findItem(R.id.menu_attachment).setEnabled(etBody.isEnabled());
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
-
-        PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_image).setEnabled(getImageIntent().resolveActivity(pm) != null);
-        menu.findItem(R.id.menu_attachment).setEnabled(getAttachmentIntent().resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_clear).setVisible(working >= 0);
+        menu.findItem(R.id.menu_encrypt).setVisible(working >= 0);
     }
 
     @Override
@@ -410,20 +426,11 @@ public class FragmentCompose extends FragmentEx {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     handleExit();
                 return true;
-            case R.id.menu_bold:
-            case R.id.menu_italic:
-            case R.id.menu_clear:
-            case R.id.menu_link:
-                onMenuStyle(item.getItemId());
-                return true;
-            case R.id.menu_image:
-                onMenuImage();
-                return true;
-            case R.id.menu_attachment:
-                onMenuAttachment();
-                return true;
             case R.id.menu_addresses:
                 onMenuAddresses();
+                return true;
+            case R.id.menu_clear:
+                onMenuStyle(item.getItemId());
                 return true;
             case R.id.menu_encrypt:
                 onAction(R.id.menu_encrypt);
@@ -441,7 +448,9 @@ public class FragmentCompose extends FragmentEx {
             start = end;
             end = tmp;
         }
-        if (start != end) {
+        if (start == end)
+            Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
+        else {
             SpannableString s = new SpannableString(etBody.getText());
             switch (id) {
                 case R.id.menu_bold:
@@ -452,7 +461,8 @@ public class FragmentCompose extends FragmentEx {
                     break;
                 case R.id.menu_clear:
                     for (Object span : s.getSpans(start, end, Object.class))
-                        s.removeSpan(span);
+                        if (!(span instanceof ImageSpan))
+                            s.removeSpan(span);
                     break;
                 case R.id.menu_link:
                     Uri uri = null;
@@ -475,11 +485,25 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onMenuImage() {
-        startActivityForResult(getImageIntent(), ActivityCompose.REQUEST_IMAGE);
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        PackageManager pm = getContext().getPackageManager();
+        if (intent.resolveActivity(pm) == null)
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(intent, ActivityCompose.REQUEST_IMAGE);
     }
 
     private void onMenuAttachment() {
-        startActivityForResult(getAttachmentIntent(), ActivityCompose.REQUEST_ATTACHMENT);
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        PackageManager pm = getContext().getPackageManager();
+        if (intent.resolveActivity(pm) == null)
+            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(intent, ActivityCompose.REQUEST_ATTACHMENT);
     }
 
     private void onMenuAddresses() {
@@ -711,20 +735,6 @@ public class FragmentCompose extends FragmentEx {
                     handlePickContact(requestCode, data);
             }
         }
-    }
-
-    private Intent getImageIntent() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        return intent;
-    }
-
-    private Intent getAttachmentIntent() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        return intent;
     }
 
     private void handlePickContact(int requestCode, Intent data) {
@@ -1250,6 +1260,7 @@ public class FragmentCompose extends FragmentEx {
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             etBody.setVisibility(View.VISIBLE);
+            edit_bar.setVisibility(View.VISIBLE);
             bottom_navigation.setVisibility(View.VISIBLE);
 
             DB db = DB.getInstance(getContext());

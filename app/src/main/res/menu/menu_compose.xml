@@ -1,47 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
-        android:id="@+id/menu_bold"
-        android:icon="@drawable/baseline_format_bold_24"
-        android:title="@string/title_style_bold"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/menu_italic"
-        android:icon="@drawable/baseline_format_italic_24"
-        android:title="@string/title_style_italic"
+        android:id="@+id/menu_addresses"
+        android:icon="@drawable/baseline_people_24"
+        android:title="@string/title_show_addresses"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/menu_clear"
         android:icon="@drawable/baseline_format_clear_24"
         android:title="@string/title_style_clear"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/menu_link"
-        android:icon="@drawable/baseline_insert_link_24"
-        android:title="@string/title_style_link"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/menu_image"
-        android:icon="@drawable/baseline_image_24"
-        android:title="@string/title_style_image"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/menu_attachment"
-        android:icon="@drawable/baseline_attachment_24"
-        android:title="@string/title_add_attachment"
-        app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/menu_addresses"
-        android:icon="@drawable/baseline_people_24"
-        android:title="@string/title_show_addresses"
         app:showAsAction="ifRoom" />
 
     <item

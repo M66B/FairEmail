@@ -7,7 +7,7 @@
     <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintBottom_toTopOf="@+id/edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -188,6 +188,19 @@
                 app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/edit_bar"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="?attr/colorSeparator"
+        app:itemIconTint="@color/bottomnav_background"
+        app:itemTextColor="@color/bottomnav_background"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/action_edit" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
