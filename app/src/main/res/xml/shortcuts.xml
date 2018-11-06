@@ -1,0 +1,13 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/baseline_edit_24"
+        android:shortcutId="compose"
+        android:shortcutShortLabel="@string/shortcut_compose">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="eu.faircode.email.ActivityCompose"
+            android:targetPackage="eu.faircode.email" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
