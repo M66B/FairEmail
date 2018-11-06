@@ -226,6 +226,9 @@
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
+    <string name="title_action_seen">Mark read</string>
+    <string name="title_action_archive">Archive</string>
+    <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_unified">Gemeinsamer Posteingang</string>
     <string name="title_legend_archive">Archiv</string>

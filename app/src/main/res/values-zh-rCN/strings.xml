@@ -5,7 +5,7 @@
     <string name="channel_service">服务</string>
     <string name="channel_notification">通知</string>
     <string name="channel_error">错误</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_compose">撰写</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="other">正在同步%1$d个账户</item>
     </plurals>
@@ -72,7 +72,7 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_nav">上/下一则导航</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
@@ -220,8 +220,11 @@
     <string name="title_answer_reply">回复模板</string>
     <string name="title_answer_name">模板名称</string>
     <string name="title_answer_text">模板内容</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
+    <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
+    <string name="title_action_seen">Mark read</string>
+    <string name="title_action_archive">Archive</string>
+    <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_unified">聚合收件箱</string>
     <string name="title_legend_archive">存档</string>
@@ -257,7 +260,7 @@
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_activated">专业版功能已激活</string>
     <string name="title_pro_valid">专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>

@@ -5,7 +5,7 @@
     <string name="channel_service">Servicio</string>
     <string name="channel_notification">Notificaciones</string>
     <string name="channel_error">Errores</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_compose">Redactar</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizando %1$d cuenta</item>
         <item quantity="other">Sincronizando %1$d cuentas</item>
@@ -226,6 +226,9 @@
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
+    <string name="title_action_seen">Mark read</string>
+    <string name="title_action_archive">Archive</string>
+    <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Bandeja de Entrada</string>
     <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
     <string name="title_legend_archive">Archivo</string>

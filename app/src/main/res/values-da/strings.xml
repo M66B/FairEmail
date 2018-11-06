@@ -226,6 +226,9 @@
     <string name="title_answer_text">Template text</string>
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
     <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_action_seen">Mark read</string>
+    <string name="title_action_archive">Archive</string>
+    <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Inbox</string>
     <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_archive">Archive</string>

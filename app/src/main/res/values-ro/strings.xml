@@ -5,7 +5,7 @@
     <string name="channel_service">Serviciu</string>
     <string name="channel_notification">Notificări</string>
     <string name="channel_error">Erori</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_compose">Compune</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizare %1$d cont</item>
         <item quantity="few">Sincronizare %1$d conturi</item>
@@ -230,6 +230,9 @@
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
+    <string name="title_action_seen">Mark read</string>
+    <string name="title_action_archive">Archive</string>
+    <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_unified">Căsuță poștală comună</string>
     <string name="title_legend_archive">Arhivă</string>

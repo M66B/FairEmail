@@ -5,7 +5,7 @@
     <string name="channel_service">Service</string>
     <string name="channel_notification">Meldingen</string>
     <string name="channel_error">Foutenmeldingen</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_compose">Opstellen</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchroniseren: %1$d account</item>
         <item quantity="other">Synchroniseren: %1$d accounts</item>
@@ -165,12 +165,12 @@
     <string name="title_reply_all">Allen beantwoorden</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_show_html">Toon origineel</string>
-    <string name="title_trash">Prullenbak</string>
+    <string name="title_trash">Weggooien</string>
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaats</string>
-    <string name="title_archive">Archief</string>
+    <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_moving">Bericht verplaatsen naar %1$s</string>
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
@@ -226,6 +226,9 @@
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_action_seen">Gelezen</string>
+    <string name="title_action_archive">Archiveren</string>
+    <string name="title_action_trash">Weggooien</string>
     <string name="title_legend_inbox">Postvak in</string>
     <string name="title_legend_unified">Gecombineerd postvak in</string>
     <string name="title_legend_archive">Archief</string>
