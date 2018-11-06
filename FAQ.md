@@ -308,6 +308,25 @@ There are two types of images:
 Embedded images, also visible as an attachment, are always shown, but images stored on a remote server need to be downloaded by tapping *Show images*.
 Note that downloading images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
+<a name="FAQ28"></a>
+**(28) How can I manage status bar notifications?**
+
+In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
+
+On Android 8.0 Oreo and later you can manage the properties of the individual notification channels,
+for example to set a specific notification sound or to show notifications on the lock screen.
+
+FairEmail has the following notification channels:
+
+* Service: used for the foreground service notification, see also [this FAQ](#user-content-FAQ2)
+* Notifications: used for new message notifications
+* Error: used for error notifications
+
+See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels.
+In short: tap on the notification channel name to access the channel settings.
+
+See [this FAQ](#user-content-FAQ21) if your device has a notification light.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
