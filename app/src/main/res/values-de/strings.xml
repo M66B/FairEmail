@@ -5,7 +5,7 @@
     <string name="channel_service">Dienst</string>
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_error">Fehler</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_compose">Verfassen</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronisiere %1$d Konto</item>
         <item quantity="other">Synchronisiere %1$d Konten</item>
@@ -193,7 +193,7 @@
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Nichts ausgewählt</string>
     <string name="title_clipboard_empty">Zwischenablage ist leer</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
@@ -227,9 +227,9 @@
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_seen">Als gelesen markieren</string>
+    <string name="title_action_archive">Archivieren</string>
+    <string name="title_action_trash">Löschen</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_unified">Gemeinsamer Posteingang</string>
     <string name="title_legend_archive">Archiv</string>
