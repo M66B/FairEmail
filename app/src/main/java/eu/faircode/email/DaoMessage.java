@@ -177,7 +177,14 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
-    @Query("SELECT message.* FROM message" +
+    @Query("SELECT message.*" +
+            ", account.name AS accountName, account.color AS accountColor" +
+            ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
+            ", 1 AS count" +
+            ", 1 AS unseen" +
+            ", 0 AS unflagged" +
+            ", 0 AS attachments" +
+            " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
@@ -188,7 +195,7 @@ public interface DaoMessage {
             " AND NOT message.ui_found" +
             " AND NOT message.ui_ignored" +
             " ORDER BY message.received")
-    LiveData<List<EntityMessage>> liveUnseenUnified();
+    LiveData<List<TupleMessageEx>> liveUnseenUnified();
 
     @Query("SELECT COUNT(message.id) FROM message" +
             " JOIN account ON account.id = message.account" +

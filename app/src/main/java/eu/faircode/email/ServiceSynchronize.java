@@ -169,11 +169,11 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.message().liveUnseenUnified().observe(this, new Observer<List<EntityMessage>>() {
+        db.message().liveUnseenUnified().observe(this, new Observer<List<TupleMessageEx>>() {
             private List<Integer> notifying = new ArrayList<>();
 
             @Override
-            public void onChanged(List<EntityMessage> messages) {
+            public void onChanged(List<TupleMessageEx> messages) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
                 List<Notification> notifications = getNotificationUnseen(messages);
 
@@ -353,7 +353,7 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private List<Notification> getNotificationUnseen(List<EntityMessage> messages) {
+    private List<Notification> getNotificationUnseen(List<TupleMessageEx> messages) {
         // https://developer.android.com/training/notify-user/group
         List<Notification> notifications = new ArrayList<>();
 
@@ -443,7 +443,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        for (EntityMessage message : messages) {
+        for (TupleMessageEx message : messages) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
@@ -537,6 +537,9 @@ public class ServiceSynchronize extends LifecycleService {
                 else
                     mbuilder.addPerson(message.avatar);
             }
+
+            if (message.accountColor != null)
+                mbuilder.setColor(message.accountColor);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 mbuilder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
