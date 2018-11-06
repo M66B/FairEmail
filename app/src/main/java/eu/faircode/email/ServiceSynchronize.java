@@ -2036,6 +2036,7 @@ public class ServiceSynchronize extends LifecycleService {
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
                             EntityLog.log(ServiceSynchronize.this, "No outbox, halt");
+                            Thread.sleep(3000);
                             stopSelf();
                             return;
                         }
@@ -2043,6 +2044,7 @@ public class ServiceSynchronize extends LifecycleService {
                         List<EntityAccount> accounts = db.account().getAccounts(true);
                         if (accounts.size() == 0) {
                             EntityLog.log(ServiceSynchronize.this, "No accounts, halt");
+                            Thread.sleep(3000);
                             stopSelf();
                             return;
                         }
