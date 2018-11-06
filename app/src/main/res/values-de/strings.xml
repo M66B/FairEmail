@@ -5,6 +5,7 @@
     <string name="channel_service">Dienst</string>
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_error">Fehler</string>
+    <string name="shortcut_compose">Compose</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronisiere %1$d Konto</item>
         <item quantity="other">Synchronisiere %1$d Konten</item>

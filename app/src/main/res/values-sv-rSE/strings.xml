@@ -5,6 +5,7 @@
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_error">Fel</string>
+    <string name="shortcut_compose">Compose</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synkroniserar %1$d konto</item>
         <item quantity="other">Synkronisera %1$d konton</item>

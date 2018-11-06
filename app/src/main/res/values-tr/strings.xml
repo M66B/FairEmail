@@ -5,6 +5,7 @@
     <string name="channel_service">Hizmet</string>
     <string name="channel_notification">Bildirimler</string>
     <string name="channel_error">Hatalar</string>
+    <string name="shortcut_compose">Compose</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d Hesap senkronize ediliyor</item>
         <item quantity="other">%1$d Hesap senkronize ediliyor</item>

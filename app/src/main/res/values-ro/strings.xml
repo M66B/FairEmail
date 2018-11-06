@@ -5,6 +5,7 @@
     <string name="channel_service">Serviciu</string>
     <string name="channel_notification">Notificări</string>
     <string name="channel_error">Erori</string>
+    <string name="shortcut_compose">Compose</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizare %1$d cont</item>
         <item quantity="few">Sincronizare %1$d conturi</item>
