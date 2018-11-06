@@ -24,6 +24,7 @@ import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Person;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -401,7 +402,7 @@ public class ServiceSynchronize extends LifecycleService {
         else
             builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
 
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O &&
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
                 prefs.getBoolean("light", false)) {
             builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
             builder.setLights(0xff00ff00, 1000, 1000);
@@ -482,7 +483,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setWhen(message.sent == null ? message.received : message.sent)
                     .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
-                    .setCategory(Notification.CATEGORY_STATUS)
+                    .setCategory(Notification.CATEGORY_MESSAGE)
                     .setVisibility(Notification.VISIBILITY_PRIVATE)
                     .setGroup(BuildConfig.APPLICATION_ID)
                     .setGroupSummary(false)
@@ -493,6 +494,12 @@ public class ServiceSynchronize extends LifecycleService {
             if (pro)
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
+
+            if (!TextUtils.isEmpty(message.avatar))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                    mbuilder.addPerson(new Person.Builder().setUri(message.avatar).build());
+                else
+                    mbuilder.addPerson(message.avatar);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 mbuilder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
