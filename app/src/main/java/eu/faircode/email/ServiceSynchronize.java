@@ -139,8 +139,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     static final int PI_CLEAR = 1;
     static final int PI_SEEN = 2;
-    static final int PI_TRASH = 3;
-    static final int PI_IGNORED = 4;
+    static final int PI_ARCHIVE = 2;
+    static final int PI_TRASH = 4;
+    static final int PI_IGNORED = 5;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -250,7 +251,10 @@ public class ServiceSynchronize extends LifecycleService {
                         return null;
                     }
                 }.load(this, new Bundle());
-            } else if (action.startsWith("seen:") || action.startsWith("trash:") || action.startsWith("ignored:")) {
+            } else if (action.startsWith("seen:") ||
+                    action.startsWith("archive:") ||
+                    action.startsWith("trash:") ||
+                    action.startsWith("ignored:")) {
                 Bundle args = new Bundle();
                 args.putLong("id", Long.parseLong(action.split(":")[1]));
                 args.putString("action", action.split(":")[0]);
@@ -270,6 +274,13 @@ public class ServiceSynchronize extends LifecycleService {
                                 db.message().setMessageUiSeen(message.id, true);
                                 db.message().setMessageUiIgnored(message.id, true);
                                 EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                            } else if ("archive".equals(action)) {
+                                db.message().setMessageUiHide(message.id, true);
+                                EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                                if (archive == null)
+                                    archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                if (archive != null)
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
                             } else if ("trash".equals(action)) {
                                 db.message().setMessageUiHide(message.id, true);
                                 EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
@@ -429,6 +440,10 @@ public class ServiceSynchronize extends LifecycleService {
             seen.setAction("seen:" + message.id);
             PendingIntent piSeen = PendingIntent.getService(this, PI_SEEN, seen, PendingIntent.FLAG_UPDATE_CURRENT);
 
+            Intent archive = new Intent(this, ServiceSynchronize.class);
+            archive.setAction("archive:" + message.id);
+            PendingIntent piArchive = PendingIntent.getService(this, PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
+
             Intent trash = new Intent(this, ServiceSynchronize.class);
             trash.setAction("trash:" + message.id);
             PendingIntent piTrash = PendingIntent.getService(this, PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -437,6 +452,11 @@ public class ServiceSynchronize extends LifecycleService {
                     Icon.createWithResource(this, R.drawable.baseline_visibility_24),
                     getString(R.string.title_seen),
                     piSeen);
+
+            Notification.Action.Builder actionArchive = new Notification.Action.Builder(
+                    Icon.createWithResource(this, R.drawable.baseline_archive_24),
+                    getString(R.string.title_archive),
+                    piArchive);
 
             Notification.Action.Builder actionTrash = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.baseline_delete_24),
@@ -463,6 +483,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setGroup(BuildConfig.APPLICATION_ID)
                     .setGroupSummary(false)
                     .addAction(actionSeen.build())
+                    .addAction(actionArchive.build())
                     .addAction(actionTrash.build());
 
             if (pro)
