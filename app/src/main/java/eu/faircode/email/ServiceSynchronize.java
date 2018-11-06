@@ -502,7 +502,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
                     .setCategory(Notification.CATEGORY_MESSAGE)
-                    .setVisibility(Notification.VISIBILITY_PRIVATE)
+                    .setVisibility(Notification.VISIBILITY_SECRET)
                     .setGroup(BuildConfig.APPLICATION_ID)
                     .setGroupSummary(false)
                     .addAction(actionSeen.build())
