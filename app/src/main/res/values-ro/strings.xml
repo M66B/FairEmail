@@ -70,7 +70,7 @@
     <string name="title_setup_dark_theme">Temă întunecată</string>
     <string name="title_setup_black_background">Fundal negru</string>
     <string name="title_advanced">Opțiuni avansate</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_compact">Afișarea compactă a mesajelor</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
@@ -79,7 +79,7 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_nav">Navigare înainte/înapoi</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
@@ -199,7 +199,7 @@
     <string name="title_clipboard_empty">Clipboardul este gol</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
-    <string name="title_style_clear">Clear formatting</string>
+    <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_style_image">Inserare imagine</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
@@ -213,7 +213,7 @@
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_not_encrypted">Mesajul nu este criptat</string>
     <string name="title_search">Caută</string>
     <string name="title_search_hint">Căutare pe server</string>
     <string name="title_searching">Se caută \'%1$s\'</string>
@@ -227,8 +227,8 @@
     <string name="title_answer_reply">Șablon răspuns</string>
     <string name="title_answer_name">Nume șablon</string>
     <string name="title_answer_text">Text șablon</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
+    <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_unified">Căsuță poștală comună</string>
     <string name="title_legend_archive">Arhivă</string>
@@ -264,7 +264,7 @@
     <string name="title_pro_list">Lista de caracteristici Pro</string>
     <string name="title_pro_purchase">Cumpără</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">acestă pagină</a> pentru a afla prețurile caracteristicilor Pro</string>
     <string name="title_pro_activated">Sunt activate toate caracteristicile Pro</string>
     <string name="title_pro_valid">Au fost activate toate caracteristicile Pro</string>
     <string name="title_pro_invalid">Răspunsul nu este valid</string>
@@ -275,14 +275,14 @@
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
+        <item>16 Ko</item>
+        <item>32 Ko</item>
+        <item>64 Ko</item>
+        <item>128 Ko</item>
+        <item>256 Ko</item>
+        <item>512 Ko</item>
+        <item>1 Mo</item>
+        <item>2 Mo</item>
         <item>&#8734;</item>
     </string-array>
 </resources>

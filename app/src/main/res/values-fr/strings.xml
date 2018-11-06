@@ -209,7 +209,7 @@
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_not_encrypted">Le message n’est pas chiffré</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_hint">Rechercher sur le serveur</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>

@@ -206,10 +206,10 @@
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_queued">Enviando mensaje</string>
-    <string name="title_encrypt">Encriptar</string>
+    <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Desencriptar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_not_encrypted">Este mensaje no esta cifrado</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_hint">Buscar en el servidor</string>
     <string name="title_searching">Buscando \'%1$s\'</string>
