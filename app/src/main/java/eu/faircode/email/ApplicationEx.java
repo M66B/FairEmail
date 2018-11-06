@@ -70,12 +70,14 @@ public class ApplicationEx extends Application {
                     NotificationManager.IMPORTANCE_MIN);
             service.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             service.setShowBadge(false);
+            service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(service);
 
             NotificationChannel notification = new NotificationChannel(
                     "notification",
                     getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_HIGH);
+            notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(notification);
 
             NotificationChannel error = new NotificationChannel(
@@ -83,6 +85,7 @@ public class ApplicationEx extends Application {
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
             error.setShowBadge(false);
+            error.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(error);
         }
     }

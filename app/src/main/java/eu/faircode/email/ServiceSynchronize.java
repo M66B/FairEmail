@@ -376,6 +376,24 @@ public class ServiceSynchronize extends LifecycleService {
         clear.setAction("clear");
         PendingIntent piClear = PendingIntent.getService(this, PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        // Build public notification
+        Notification.Builder pbuilder;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            pbuilder = new Notification.Builder(this);
+        else
+            pbuilder = new Notification.Builder(this, "notification");
+
+        pbuilder
+                .setSmallIcon(R.drawable.baseline_email_white_24)
+                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
+                .setContentIntent(piView)
+                .setNumber(messages.size())
+                .setShowWhen(false)
+                .setDeleteIntent(piClear)
+                .setPriority(Notification.PRIORITY_DEFAULT)
+                .setCategory(Notification.CATEGORY_STATUS)
+                .setVisibility(Notification.VISIBILITY_PUBLIC);
+
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -386,7 +404,6 @@ public class ServiceSynchronize extends LifecycleService {
         builder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
                 .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
-                .setContentText("")
                 .setContentIntent(piView)
                 .setNumber(messages.size())
                 .setShowWhen(false)
@@ -394,6 +411,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setPriority(Notification.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PRIVATE)
+                .setPublicVersion(pbuilder.build())
                 .setGroup(BuildConfig.APPLICATION_ID)
                 .setGroupSummary(true);
 
