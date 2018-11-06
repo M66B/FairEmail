@@ -472,17 +472,17 @@ public class ServiceSynchronize extends LifecycleService {
 
             Notification.Action.Builder actionSeen = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.baseline_visibility_24),
-                    getString(R.string.title_seen),
+                    getString(R.string.title_action_seen),
                     piSeen);
 
             Notification.Action.Builder actionArchive = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.baseline_archive_24),
-                    getString(R.string.title_archive),
+                    getString(R.string.title_action_archive),
                     piArchive);
 
             Notification.Action.Builder actionTrash = new Notification.Action.Builder(
                     Icon.createWithResource(this, R.drawable.baseline_delete_24),
-                    getString(R.string.title_trash),
+                    getString(R.string.title_action_trash),
                     piTrash);
 
             Notification.Builder mbuilder;
