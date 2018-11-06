@@ -192,7 +192,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/edit_bar"
         android:layout_width="match_parent"
-        android:layout_height="24dp"
+        android:layout_height="36dp"
         android:background="?attr/colorSeparator"
         app:itemIconTint="@color/bottomnav_background"
         app:itemTextColor="@color/bottomnav_background"
