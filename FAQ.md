@@ -24,9 +24,9 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 * Show images without confirmation
 * Show original message without confirmation
 * Open links without confirmation
-* ​Hide addresses: addresses play an important role in determining if a message is authentic
+* Hide addresses by default: addresses play an important role in determining if a message is authentic
 
-Confirmation is just one tap, which is just a small price for better privacy.
+Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
 
 Note that your contacts could unknowingly send malicious messages if they are infected with malware.
 
