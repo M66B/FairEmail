@@ -193,6 +193,7 @@
     <string name="title_discard">Eliminar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Portapapeles vacío</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
@@ -226,9 +227,9 @@
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_seen">Marcar como leído</string>
+    <string name="title_action_archive">Archivar</string>
+    <string name="title_action_trash">Mover a Papelera</string>
     <string name="title_legend_inbox">Bandeja de Entrada</string>
     <string name="title_legend_unified">Bandeja de Entrada Unificada</string>
     <string name="title_legend_archive">Archivo</string>

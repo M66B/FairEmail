@@ -193,6 +193,7 @@
     <string name="title_discard">Weggooien</string>
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
+    <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_clipboard_empty">Klembord is leeg</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>

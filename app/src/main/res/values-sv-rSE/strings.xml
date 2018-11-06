@@ -193,6 +193,7 @@
     <string name="title_discard">Släng</string>
     <string name="title_save">Spara</string>
     <string name="title_send">Skicka</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>

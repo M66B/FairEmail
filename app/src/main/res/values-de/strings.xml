@@ -193,6 +193,7 @@
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Zwischenablage ist leer</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>

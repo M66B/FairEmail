@@ -193,6 +193,7 @@
     <string name="title_discard">Elimina</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Appunti vuoti</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>

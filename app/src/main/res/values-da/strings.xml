@@ -193,6 +193,7 @@
     <string name="title_discard">Discard</string>
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Clipboard empty</string>
     <string name="title_style_bold">Bold</string>
     <string name="title_style_italic">Italic</string>

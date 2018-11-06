@@ -193,6 +193,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
+    <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Pano boş</string>
     <string name="title_style_bold">Kalın</string>
     <string name="title_style_italic">Eğik</string>
