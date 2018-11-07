@@ -11,6 +11,7 @@
     <string name="tile_unseen">New messages</string>
 
     <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_setup">Setup</string>
 
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronizing %1$d account</item>
