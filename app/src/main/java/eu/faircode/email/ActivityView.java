@@ -909,8 +909,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (pgpService.isBound()) {
                 Intent data = new Intent();
                 data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-                data.putExtra(OpenPgpApi.EXTRA_USER_IDS, new String[]{intent.getStringExtra("to")});
-                data.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
 
                 decrypt(data, intent.getLongExtra("id", -1));
             } else {
