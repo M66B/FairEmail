@@ -38,10 +38,10 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Dark/black theme
 * Account colors
 * Multiple select
-* Standard replies
+* Reply templates
 * Sort on time, unread or starred
 * Search on server
-* Preview sender/subject in new messages status bar notification
+* Preview sender/subject/photo in new message notifications
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
 * Export settings
 

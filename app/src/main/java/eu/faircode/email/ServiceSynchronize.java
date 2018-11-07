@@ -508,38 +508,39 @@ public class ServiceSynchronize extends LifecycleService {
                     .addAction(actionArchive.build())
                     .addAction(actionTrash.build());
 
-            if (pro)
+            if (pro) {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
 
-            if (!TextUtils.isEmpty(message.avatar)) {
-                Cursor cursor = null;
-                try {
-                    cursor = getContentResolver().query(
-                            Uri.parse(message.avatar),
-                            new String[]{ContactsContract.Contacts._ID},
-                            null, null, null);
-                    if (cursor.moveToNext()) {
-                        Uri photo = Uri.withAppendedPath(
-                                ContactsContract.Contacts.CONTENT_URI,
-                                cursor.getLong(0) + "/photo");
-                        mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                if (!TextUtils.isEmpty(message.avatar)) {
+                    Cursor cursor = null;
+                    try {
+                        cursor = getContentResolver().query(
+                                Uri.parse(message.avatar),
+                                new String[]{ContactsContract.Contacts._ID},
+                                null, null, null);
+                        if (cursor.moveToNext()) {
+                            Uri photo = Uri.withAppendedPath(
+                                    ContactsContract.Contacts.CONTENT_URI,
+                                    cursor.getLong(0) + "/photo");
+                            mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
                     }
-                } finally {
-                    if (cursor != null)
-                        cursor.close();
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                        mbuilder.addPerson(new Person.Builder()
+                                .setUri(message.avatar)
+                                .build());
+                    else
+                        mbuilder.addPerson(message.avatar);
                 }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                    mbuilder.addPerson(new Person.Builder()
-                            .setUri(message.avatar)
-                            .build());
-                else
-                    mbuilder.addPerson(message.avatar);
+                if (message.accountColor != null)
+                    mbuilder.setColor(message.accountColor);
             }
-
-            if (message.accountColor != null)
-                mbuilder.setColor(message.accountColor);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 mbuilder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
