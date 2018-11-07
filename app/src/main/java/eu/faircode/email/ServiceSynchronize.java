@@ -1995,6 +1995,7 @@ public class ServiceSynchronize extends LifecycleService {
     private class ServiceManager extends ConnectivityManager.NetworkCallback {
         private ServiceState state;
         private boolean running = false;
+        private int queued = 0;
         private long lastLost = 0;
         private EntityFolder outbox = null;
         private ExecutorService lifecycle = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -2008,11 +2009,18 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (!running) {
                 running = true;
+                queued++;
                 lifecycle.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i(Helper.TAG, "Starting service");
-                        start();
+                        try {
+                            Log.i(Helper.TAG, "Starting service");
+                            start();
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            queued--;
+                        }
                     }
                 });
             }
@@ -2030,10 +2038,17 @@ public class ServiceSynchronize extends LifecycleService {
                     EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
                     running = false;
                     lastLost = new Date().getTime();
+                    queued++;
                     lifecycle.submit(new Runnable() {
                         @Override
                         public void run() {
-                            stop();
+                            try {
+                                stop();
+                            } catch (Throwable ex) {
+                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            } finally {
+                                queued--;
+                            }
                         }
                     });
                 }
@@ -2041,7 +2056,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void start() {
-            EntityLog.log(ServiceSynchronize.this, "Main start");
+            EntityLog.log(ServiceSynchronize.this, "Main start queued=" + queued);
 
             state = new ServiceState();
             state.thread = new Thread(new Runnable() {
@@ -2061,16 +2076,14 @@ public class ServiceSynchronize extends LifecycleService {
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
                             EntityLog.log(ServiceSynchronize.this, "No outbox, halt");
-                            Thread.sleep(3000);
-                            stopSelf();
+                            serviceManager.queue_stop();
                             return;
                         }
 
                         List<EntityAccount> accounts = db.account().getAccounts(true);
                         if (accounts.size() == 0) {
                             EntityLog.log(ServiceSynchronize.this, "No accounts, halt");
-                            Thread.sleep(3000);
-                            stopSelf();
+                            serviceManager.queue_stop();
                             return;
                         }
 
@@ -2172,7 +2185,7 @@ public class ServiceSynchronize extends LifecycleService {
                 state.semaphore.release();
                 join(state.thread);
 
-                EntityLog.log(ServiceSynchronize.this, "Main stopped");
+                EntityLog.log(ServiceSynchronize.this, "Main stopped queued=" + queued);
 
                 state = null;
             } finally {
@@ -2182,23 +2195,38 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void queue_reload() {
-            if (running)
+            if (running) {
+                queued++;
                 lifecycle.submit(new Runnable() {
                     @Override
                     public void run() {
-                        stop();
-                        start();
+                        try {
+                            stop();
+                            start();
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            queued--;
+                        }
                     }
                 });
+            }
         }
 
         private void queue_start() {
             if (!running) {
                 running = true;
+                queued++;
                 lifecycle.submit(new Runnable() {
                     @Override
                     public void run() {
-                        start();
+                        try {
+                            start();
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            queued--;
+                        }
                     }
                 });
             }
@@ -2207,11 +2235,24 @@ public class ServiceSynchronize extends LifecycleService {
         private void queue_stop() {
             if (running) {
                 running = false;
+                queued++;
                 lifecycle.submit(new Runnable() {
                     @Override
                     public void run() {
-                        stop();
-                        stopSelf();
+                        try {
+                            stop();
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            if (--queued == 0) {
+                                try {
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException ignored) {
+                                }
+                                if (queued == 0)
+                                    stopSelf();
+                            }
+                        }
                     }
                 });
             }
