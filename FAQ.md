@@ -19,6 +19,8 @@ Frequently requested features:
 * Calendar events: opening the attached calendar file should open the related calendar app.
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime.
+* Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
+* Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-FAQ2).
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
