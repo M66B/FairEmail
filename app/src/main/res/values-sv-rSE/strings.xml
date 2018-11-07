@@ -5,7 +5,10 @@
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_error">Fel</string>
+    <string name="tile_synchronize">Synchronize</string>
+    <string name="tile_unseen">New messages</string>
     <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_setup">Setup</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synkroniserar %1$d konto</item>
         <item quantity="other">Synkronisera %1$d konton</item>
@@ -269,7 +272,7 @@
     <string name="title_pro_list">Lista över pro-funktioner</string>
     <string name="title_pro_purchase">Köp</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>
     <string name="title_pro_invalid">Ogiltigt svar</string>

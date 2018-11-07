@@ -5,7 +5,10 @@
     <string name="channel_service">Servizio</string>
     <string name="channel_notification">Notifiche</string>
     <string name="channel_error">Errori</string>
+    <string name="tile_synchronize">Synchronize</string>
+    <string name="tile_unseen">New messages</string>
     <string name="shortcut_compose">Compose</string>
+    <string name="shortcut_setup">Setup</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizzazione account %1$d</item>
         <item quantity="other">Sincronizzazione di %1$d account</item>
@@ -269,7 +272,7 @@
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>

@@ -5,7 +5,10 @@
     <string name="channel_service">Dienst</string>
     <string name="channel_notification">Benachrichtigungen</string>
     <string name="channel_error">Fehler</string>
+    <string name="tile_synchronize">Synchronisieren</string>
+    <string name="tile_unseen">Neue Nachrichten</string>
     <string name="shortcut_compose">Verfassen</string>
+    <string name="shortcut_setup">Einstellungen</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronisiere %1$d Konto</item>
         <item quantity="other">Synchronisiere %1$d Konten</item>
@@ -231,7 +234,7 @@
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
-    <string name="title_action_seen">Als gelesen markieren</string>
+    <string name="title_action_seen">Gelesen</string>
     <string name="title_action_archive">Archivieren</string>
     <string name="title_action_trash">Löschen</string>
     <string name="title_legend_inbox">Posteingang</string>
@@ -269,7 +272,7 @@
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
-    <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in den<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">FAQ</a></string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
     <string name="title_pro_invalid">Ungültige Antwort</string>

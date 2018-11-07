@@ -5,7 +5,10 @@
     <string name="channel_service">Servicio</string>
     <string name="channel_notification">Notificaciones</string>
     <string name="channel_error">Errores</string>
+    <string name="tile_synchronize">Sincronizar</string>
+    <string name="tile_unseen">Nuevos mensajes</string>
     <string name="shortcut_compose">Redactar</string>
+    <string name="shortcut_setup">Configuración</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizando %1$d cuenta</item>
         <item quantity="other">Sincronizando %1$d cuentas</item>
@@ -23,8 +26,8 @@
         <item quantity="other">%1$d mensajes no enviados</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d new</item>
-        <item quantity="other">%1$d new</item>
+        <item quantity="one">%1$d nuevo</item>
+        <item quantity="other">%1$d nuevos</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="menu_setup">Configuración</string>
@@ -269,7 +272,7 @@
     <string name="title_pro_list">Lista de características Pro</string>
     <string name="title_pro_purchase">Comprar</string>
     <string name="title_pro_hint">Comprar las características Pro le permitirá usar todas las características Pro que existen y las futuras, mantendrá esta app en mantenimiento y soportada</string>
-    <string name="title_pro_price">Por favor vea <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">estas Preguntas Frecuentes</a> acerca del precio de las características Pro</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Todas las características Pro están activadas</string>
     <string name="title_pro_valid">Todas las características Pro activadas</string>
     <string name="title_pro_invalid">Respuesta inválida</string>

@@ -5,7 +5,10 @@
     <string name="channel_service">Xidmət</string>
     <string name="channel_notification">Bildirişlər</string>
     <string name="channel_error">Xətalar</string>
-    <string name="shortcut_compose">Compose</string>
+    <string name="tile_synchronize">Eyniləşdirmə</string>
+    <string name="tile_unseen">Yeni mesajlar</string>
+    <string name="shortcut_compose">Yaz</string>
+    <string name="shortcut_setup">Quraşdırma</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d hesab eyniləşdirilir</item>
         <item quantity="other">%1$d hesab eyniləşdirilir</item>
@@ -23,8 +26,8 @@
         <item quantity="other">%1$d göndərilməmiş mesaj</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d new</item>
-        <item quantity="other">%1$d new</item>
+        <item quantity="one">%1$d yeni</item>
+        <item quantity="other">%1$d yeni</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="menu_setup">Quraşdırma</string>
@@ -197,11 +200,11 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Saxla</string>
     <string name="title_send">Göndər</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Heçnə seçilmədi</string>
     <string name="title_clipboard_empty">Lövhə boşdur</string>
     <string name="title_style_bold">Qalın</string>
     <string name="title_style_italic">Meyilli</string>
-    <string name="title_style_clear">Clear formatting</string>
+    <string name="title_style_clear">Formatları təmizlə</string>
     <string name="title_style_link">Bağlantı daxil et</string>
     <string name="title_style_image">Təsvir daxil et</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
@@ -215,7 +218,7 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_not_encrypted">Mesaj şifrəli deyil</string>
     <string name="title_search">Axtar</string>
     <string name="title_search_hint">Serverdə axtar</string>
     <string name="title_searching">\'%1$s\' axtarılır</string>
@@ -231,9 +234,9 @@
     <string name="title_answer_text">Şablon mətni</string>
     <string name="title_answer_template_name">$name$ göndərənin tam adıyla əvəz ediləcək</string>
     <string name="title_answer_template_email">$email$ göndərənin e-poçt ünvanı ilə əvəz ediləcək</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_seen">Oxundu kimi işarələ</string>
+    <string name="title_action_archive">Arxiv</string>
+    <string name="title_action_trash">Tullantı</string>
     <string name="title_legend_inbox">Gələn qutusu</string>
     <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
     <string name="title_legend_archive">Arxiv</string>
@@ -269,7 +272,7 @@
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_hint">Pro xüsusiyyətlərinin alınması sizə, mövcud və gələcəkdəki pro xüsusiyyətləri istifadə etməyinizə icazə verəcək və tətbiqin uzunömürlü olması üçün bizə dəstək olacaq</string>
-    <string name="title_pro_price">Zəhmət olmasa pro xüsusiyyətlərin qiyməti haqqında <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ19">bu TSS</a> səhifəsinə baxın</string>
+    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
     <string name="title_pro_activated">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
     <string name="title_pro_valid">Bütün pro xüsusiyyətlər aktivləşdirildi</string>
     <string name="title_pro_invalid">Etibarsız cavab</string>
