@@ -18,6 +18,9 @@
     <plurals name="title_notification_unsent">
         <item quantity="other">%1$d条消息未发送</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_setup">设置</string>
     <string name="menu_answers">回复模板</string>
@@ -189,7 +192,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">未选中任何内容</string>
     <string name="title_clipboard_empty">剪贴板为空</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
@@ -223,9 +226,9 @@
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
     <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_seen">标记为已读</string>
+    <string name="title_action_archive">存档</string>
+    <string name="title_action_trash">垃圾箱</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_unified">聚合收件箱</string>
     <string name="title_legend_archive">存档</string>

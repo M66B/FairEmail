@@ -22,6 +22,10 @@
         <item quantity="one">%1$d göndərilməmiş mesaj</item>
         <item quantity="other">%1$d göndərilməmiş mesaj</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="menu_setup">Quraşdırma</string>
     <string name="menu_answers">Cavab şablonları</string>

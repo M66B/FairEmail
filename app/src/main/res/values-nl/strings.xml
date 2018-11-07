@@ -22,6 +22,10 @@
         <item quantity="one">%1$d niet verzonden bericht</item>
         <item quantity="other">%1$d niet verzonden berichten</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d nieuw</item>
+        <item quantity="other">%1$d nieuw</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
     <string name="menu_answers">Antwoord sjablonen</string>

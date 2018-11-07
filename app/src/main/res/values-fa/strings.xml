@@ -22,6 +22,10 @@
         <item quantity="one">%1$d unsent message</item>
         <item quantity="other">%1$d unsent messages</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' failed</string>
     <string name="menu_setup">تنظیمات</string>
     <string name="menu_answers">Reply templates</string>

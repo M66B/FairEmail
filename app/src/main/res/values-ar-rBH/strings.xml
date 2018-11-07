@@ -38,6 +38,14 @@
         <item quantity="many">%1$d unsent messages</item>
         <item quantity="other">رسائل غير مرسله</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="zero">%1$d new</item>
+        <item quantity="one">%1$d new</item>
+        <item quantity="two">%1$d new</item>
+        <item quantity="few">%1$d new</item>
+        <item quantity="many">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
     <string name="menu_setup">اعداد</string>
     <string name="menu_answers">Reply templates</string>

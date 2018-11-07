@@ -26,6 +26,11 @@
         <item quantity="few">%1$d mesaje netrimise</item>
         <item quantity="other">%1$d de mesaje netrimise</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d new</item>
+        <item quantity="few">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_setup">Setări</string>
     <string name="menu_answers">Șabloane răspunsuri</string>
@@ -197,7 +202,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Nimic selectat</string>
     <string name="title_clipboard_empty">Clipboardul este gol</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
@@ -231,9 +236,9 @@
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_seen">Marcare ca citit</string>
+    <string name="title_action_archive">Arhivare</string>
+    <string name="title_action_trash">Gunoi</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_unified">Căsuță poștală comună</string>
     <string name="title_legend_archive">Arhivă</string>

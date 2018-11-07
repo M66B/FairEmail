@@ -22,6 +22,10 @@
         <item quantity="one">%1$d oskickat meddelande</item>
         <item quantity="other">%1$d oskickade meddelanden</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="menu_setup">Ställ in</string>
     <string name="menu_answers">Svarsmallar</string>

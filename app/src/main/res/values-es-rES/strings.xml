@@ -22,6 +22,10 @@
         <item quantity="one">%1$d mensaje no enviado</item>
         <item quantity="other">%1$d mensajes no enviados</item>
     </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="menu_setup">Configuración</string>
     <string name="menu_answers">Plantillas de respuesta</string>
@@ -193,7 +197,7 @@
     <string name="title_discard">Eliminar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Nada seleccionado</string>
     <string name="title_clipboard_empty">Portapapeles vacío</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
