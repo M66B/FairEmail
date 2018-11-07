@@ -33,7 +33,7 @@ import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 
 @TargetApi(Build.VERSION_CODES.N)
-public class ServiceTile extends TileService {
+public class ServiceTileUnseen extends TileService {
     LifecycleService owner = new LifecycleService();
 
     @Override
@@ -61,12 +61,14 @@ public class ServiceTile extends TileService {
     }
 
     public void onStartListening() {
-        Log.i(Helper.TAG, "Tile start");
+        Log.i(Helper.TAG, "Start tile unseen");
 
         DB db = DB.getInstance(this);
         db.message().liveUnseenUnified().observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
+                Log.i(Helper.TAG, "Update tile unseen=" + messages.size());
+
                 Tile tile = getQsTile();
                 if (tile != null) {
                     tile.setState(messages.size() > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
@@ -79,14 +81,14 @@ public class ServiceTile extends TileService {
     }
 
     public void onStopListening() {
-        Log.i(Helper.TAG, "Tile stop");
+        Log.i(Helper.TAG, "Stop tile unseen");
 
         DB db = DB.getInstance(this);
         db.message().liveUnseenUnified().removeObservers(owner);
     }
 
     public void onClick() {
-        Log.i(Helper.TAG, "Tile click");
+        Log.i(Helper.TAG, "Click tile unseen");
 
         Intent clear = new Intent(this, ServiceSynchronize.class);
         clear.setAction("clear");
