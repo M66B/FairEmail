@@ -18,6 +18,7 @@ Frequently requested features:
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
+* Badge count: there is no standard Android API for this and third party solutions might stop working anytime.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -116,6 +117,7 @@ If this doesn't work, see here for more solutions: [https://support.google.com/m
 **(7) Why are messages in the outbox not moved to the sent folder?**
 
 Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
+Note that this requires a sent folder to be selected and to be set to synchronizing.
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
 There is a menu to move sent messages to the sent folder after enabling this option.
