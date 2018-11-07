@@ -123,6 +123,7 @@ FairEmail uses:
 * [colorpicker](https://android.googlesource.com/platform/frameworks/opt/colorpicker). Copyright (C) 2013 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/opt/colorpicker/+/master/src/com/android/colorpicker/ColorPickerDialog.java).
 * [dnsjava](http://www.xbill.org/dnsjava/). Copyright (c) 1998-2011, Brian Wellington. [BSD License](https://sourceforge.net/p/dnsjava/code/HEAD/tree/trunk/LICENSE).
 * [OpenPGP API library](https://github.com/open-keychain/openpgp-api). Copyright (C) 2014-2015 Dominik Schürmann. [Apache License 2.0](https://github.com/open-keychain/openpgp-api/blob/master/LICENSE).
+* [App shortcut icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-app-shortcut.html). Copyright ???. [Apache License 2.0](https://github.com/romannurik/AndroidAssetStudio/blob/master/LICENSE).
 
 ## License
 
