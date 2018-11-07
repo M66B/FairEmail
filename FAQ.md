@@ -331,6 +331,13 @@ In short: tap on the notification channel name to access the channel settings.
 
 See [this FAQ](#user-content-FAQ21) if your device has a notification light.
 
+<a name="FAQ29"></a>
+**(29) How can I get new message notifications for other folders?**
+
+There are only notifications for new messages in the folders of the unified inbox.
+However, you can make any folder part of the unified inbox.
+Just long press the folder, select *Edit properties*, enable *Show in unified inbox* and tap *Save*.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
