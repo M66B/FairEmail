@@ -1180,8 +1180,7 @@ public class FragmentMessages extends FragmentEx {
                         int unseen = 0;
                         TupleMessageEx single = null;
                         TupleMessageEx see = null;
-                        for (int i = 0; i < messages.size(); i++) {
-                            TupleMessageEx message = messages.get(i);
+                        for (TupleMessageEx message : messages)
                             if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
                                     !EntityFolder.SENT.equals(message.folderType) &&
                                     !EntityFolder.OUTBOX.equals(message.folderType)) {
@@ -1192,7 +1191,6 @@ public class FragmentMessages extends FragmentEx {
                                     see = message;
                                 }
                             }
-                        }
 
                         // Auto expand when:
                         // - single, non archived/sent message
