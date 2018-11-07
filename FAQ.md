@@ -5,8 +5,8 @@ At the bottom you can find how to ask other questions, request features and repo
 
 For support on authorizing an account you should consult the documentation of your provider.
 
-* Gmail / G suite: see [question 6](#user-content-FAQ6)
-* Outlook: see [question 14](#user-content-FAQ14)
+* Gmail / G suite: see [question 6](#user-content-faq6)
+* Outlook: see [question 14](#user-content-faq14)
 
 Frequently requested features:
 
@@ -20,7 +20,7 @@ Frequently requested features:
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime.
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
-* Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-FAQ2).
+* Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-faq2).
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -73,7 +73,7 @@ The low priority status bar notification shows the number of pending operations,
 * attachment: download attachment
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
-See also [this FAQ](#user-content-FAQ16).
+See also [this FAQ](#user-content-faq16).
 
 <a name="FAQ4"></a>
 **(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
@@ -161,6 +161,14 @@ To encrypt a message before sending, just select the menu *Encrypt*. Similarly, 
 Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
 Encryption/decryption is a pro feature.
 
+Note that signed only or encrypted only messages are not supported, see here for some considerations:
+
+* [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
+* [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
+* [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+
+If you like, you can verify a signature by opening the *signature.asc* attachment.
+
 <a name="FAQ13"></a>
 **(13) How does search on server work?**
 
@@ -216,7 +224,7 @@ See the previous question for more information.
 **(18) Why is the message preview not always shown?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
-See also [this FAQ](#user-content-FAQ15).
+See also [this FAQ](#user-content-faq15).
 
 <a name="FAQ19"></a>
 **(19) Why are the pro features so expensive?**
@@ -322,14 +330,14 @@ for example to set a specific notification sound or to show notifications on the
 
 FairEmail has the following notification channels:
 
-* Service: used for the foreground service notification, see also [this FAQ](#user-content-FAQ2)
+* Service: used for the foreground service notification, see also [this FAQ](#user-content-faq2)
 * Notifications: used for new message notifications
 * Error: used for error notifications
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels.
 In short: tap on the notification channel name to access the channel settings.
 
-See [this FAQ](#user-content-FAQ21) if your device has a notification light.
+See [this FAQ](#user-content-faq21) if your device has a notification light.
 
 <a name="FAQ29"></a>
 **(29) How can I get new message notifications for other folders?**
