@@ -35,7 +35,7 @@ Note that your contacts could unknowingly send malicious messages if they are in
 
 ## Frequently Asked Questions
 
-<a name="FAQ1"></a>
+<a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
 * have full network access (INTERNET): to send and receive email
@@ -47,7 +47,7 @@ Note that your contacts could unknowingly send malicious messages if they are in
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses and to show photos
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
-<a name="FAQ2"></a>
+<a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
 A permanent status bar notification with the number of accounts being synchronized and the number of operations pending is shown
@@ -57,7 +57,7 @@ Most, if not all, other email apps don't show a notification with the "side effe
 
 Background: this is because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
 
-<a name="FAQ3"></a>
+<a name="faq3"></a>
 **(3) What are operations and why are they pending?**
 
 The low priority status bar notification shows the number of pending operations, which can be:
@@ -75,7 +75,7 @@ The low priority status bar notification shows the number of pending operations,
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
 
-<a name="FAQ4"></a>
+<a name="faq4"></a>
 **(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
 
 Invalid security certificate: you should try to fix this by contacting your provider or by getting a valid security certificate
@@ -91,7 +91,7 @@ If you still want to use an invalid security certificate, IMAP STARTTLS or an em
 you'll need to enable insecure connections in the advanced settings and also in the account and/or identity settings.
 Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
 
-<a name="FAQ5"></a>
+<a name="faq5"></a>
 **(5) How can I customize the message view?**
 
 In the advanced settings you can enable or disable:
@@ -105,7 +105,7 @@ If the list of addresses is long, you can collapse the addresses section with th
 
 Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
-<a name="FAQ6"></a>
+<a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
 Preferably select Gmail as provider and select an account on your device.
@@ -115,7 +115,7 @@ See here for instructions: [https://support.google.com/accounts/answer/185833](h
 
 If this doesn't work, see here for more solutions: [https://support.google.com/mail/accounts/answer/78754](https://support.google.com/mail/accounts/answer/78754)
 
-<a name="FAQ7"></a>
+<a name="faq7"></a>
 **(7) Why are messages in the outbox not moved to the sent folder?**
 
 Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
@@ -124,14 +124,14 @@ If this doesn't happen, your provider might not keep track of sent messages or y
 In these cases you can enable the account option *Store sent messages* to let the app move messages from the outbox to the sent folder after sending.
 There is a menu to move sent messages to the sent folder after enabling this option.
 
-<a name="FAQ8"></a>
+<a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP.
 ActiveSync is not supported at this moment.
 See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
 
-<a name="FAQ9"></a>
+<a name="faq9"></a>
 **(9) What are identities?**
 
 Identities represent email addresses you are sending *from*.
@@ -139,21 +139,21 @@ Identities represent email addresses you are sending *from*.
 Some providers allow you to have multiple email aliases.
 You can configure these by setting the email address field to the alias address and setting the user name field to your main email address.
 
-<a name="FAQ10"></a>
+<a name="faq10"></a>
 **(10) What does 'UIDPLUS not supported' mean?**
 
 The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
 This IMAP extension is required to implement two way synchronization, which is not an optional feature.
 So, unless your provider can enable this extension, you cannot use FairEmail for this provider.
 
-<a name="FAQ11"></a>
+<a name="faq11"></a>
 **(11) Why is POP not supported?**
 
 Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,
 using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary battery usage and delayed new message notifications.
 Moreover, POP is unsuitable for two way synchronization and more often than not people read email on different devices.
 
-<a name="FAQ12"></a>
+<a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
 First of all you need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/).
@@ -169,7 +169,7 @@ Note that signed only or encrypted only messages are not supported, see here for
 
 If you like, you can verify a signature by opening the *signature.asc* attachment.
 
-<a name="FAQ13"></a>
+<a name="faq13"></a>
 **(13) How does search on server work?**
 
 You can start searching for messages on sender, recipient, subject or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
@@ -179,13 +179,13 @@ The message text of local messages will not be searched if the message text was 
 Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 Searching messages is a pro feature.
 
-<a name="FAQ14"></a>
+<a name="faq14"></a>
 **(14) How can I setup Outlook with 2FA?**
 
 To use Outlook with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
-<a name="FAQ15"></a>
+<a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
 The message header and message body are fetched separately from the server.
@@ -194,7 +194,7 @@ The message text will keep loading if there is no connection to the account, see
 
 In the advanced settings you can set the maximum size for automatically downloading of messages on metered connections.
 
-<a name="FAQ16"></a>
+<a name="faq16"></a>
 **(16) Why are messages not being synchronized?**
 
 Possible causes of messages not being synchronized (sent or received) are:
@@ -213,20 +213,20 @@ in particular of Huawei (see [here](https://www.forbes.com/sites/bensin/2016/07/
 or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-push-notifications-on-xiaomis-miui-8-for-real/) for a fix)
 stop apps and services too aggressively.
 
-<a name="FAQ17"></a>
+<a name="faq17"></a>
 **(17) Why does manual synchronize not work?**
 
 If the *Synchronize now* menu is dimmed, there is no connection to the account.
 
 See the previous question for more information.
 
-<a name="FAQ18"></a>
+<a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
 See also [this FAQ](#user-content-faq15).
 
-<a name="FAQ19"></a>
+<a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
 The right question is "*why are there so many taxes and fees?*":
@@ -242,7 +242,7 @@ Note that only some convenience and advanced features need to be purchased, whic
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
-<a name="FAQ20"></a>
+<a name="faq20"></a>
 **(20) Can I get a refund?**
 
 If a purchased pro feature doesn't work as intended
@@ -254,14 +254,14 @@ since there wasn't paid anything for them and because they can be evaluated with
 I take my responsibility as seller to deliver what has been promised
 and I expect that you take responsibility for informing yourself of what you are buying.
 
-<a name="FAQ21"></a>
+<a name="faq21"></a>
 **(21) How do I enable the notification light?**
 
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 
-<a name="FAQ22"></a>
+<a name="faq22"></a>
 **(22) Why do I get 'Couldn't connect to host' ?**
 
 The message *Couldn't connect to host ...* means that FairEmail was not able to connect to the email server.
@@ -275,7 +275,7 @@ Possible causes are:
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
-<a name="FAQ23"></a>
+<a name="faq23"></a>
 **(23) Why do I get 'Too many simultaneous connections' ?**
 
 The message *Too many simultaneous connections* is sent by the email server when there are too many connections to the same email account at the same time.
@@ -286,14 +286,14 @@ Possible causes are:
 * The same email client is connected multiple times to the same account
 * The previous connection was terminated abruptly for example by losing internet connectivity
 
-<a name="FAQ24"></a>
+<a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
 Browse messages on the server will fetch messages from the email server in real time
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
 You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
 
-<a name="FAQ25"></a>
+<a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
 
 If a menu item to select/open/save a file is disabled (dimmed),
@@ -303,13 +303,13 @@ for example because your custom ROM does not include it or because it was remove
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
-<a name="FAQ26"></a>
+<a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
 
 Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
 Registration is free.
 
-<a name="FAQ27"></a>
+<a name="faq27"></a>
 **(27) Why are images shown without tapping 'Show images' ?**
 
 There are two types of images:
@@ -320,7 +320,7 @@ There are two types of images:
 Embedded images, also visible as an attachment, are always shown, but images stored on a remote server need to be downloaded by tapping *Show images*.
 Note that downloading images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
-<a name="FAQ28"></a>
+<a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
 
 In the setup you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
@@ -339,7 +339,7 @@ In short: tap on the notification channel name to access the channel settings.
 
 See [this FAQ](#user-content-faq21) if your device has a notification light.
 
-<a name="FAQ29"></a>
+<a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
 
 There are only notifications for new messages in the folders of the unified inbox.
