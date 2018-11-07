@@ -296,14 +296,17 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             boolean photo = false;
             if (avatars) {
-                if (message.avatar != null) {
-                    ContentResolver resolver = context.getContentResolver();
-                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
-                    if (is != null) {
-                        photo = true;
-                        ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+                if (message.avatar != null)
+                    try {
+                        ContentResolver resolver = context.getContentResolver();
+                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
+                        if (is != null) {
+                            photo = true;
+                            ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+                        }
+                    } catch (SecurityException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
-                }
             }
             if (!photo && identicons) {
                 if (message.from != null && message.from.length > 0)

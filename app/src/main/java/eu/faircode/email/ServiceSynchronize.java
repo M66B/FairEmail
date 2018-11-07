@@ -525,6 +525,8 @@ public class ServiceSynchronize extends LifecycleService {
                                     cursor.getLong(0) + "/photo");
                             mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
                         }
+                    } catch (SecurityException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
                         if (cursor != null)
                             cursor.close();
