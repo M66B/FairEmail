@@ -1172,9 +1172,11 @@ public class ServiceSynchronize extends LifecycleService {
                         });
                         t.start();
                         try {
-                            t.join(MessageHelper.NETWORK_TIMEOUT);
-                            if (t.isAlive())
+                            t.join(MessageHelper.CLOSE_TIMEOUT);
+                            if (t.isAlive()) {
                                 Log.w(Helper.TAG, account.name + " Close timeout");
+                                t.interrupt();
+                            }
                         } catch (InterruptedException ex) {
                             Log.w(Helper.TAG, account.name + " close wait " + ex.toString());
                             t.interrupt();

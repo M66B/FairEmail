@@ -508,7 +508,7 @@ public class FragmentSetup extends FragmentEx {
 
     private Intent getIntentHelp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md"));
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
         return intent;
     }
 

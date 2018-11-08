@@ -64,6 +64,7 @@ public class MessageHelper {
     private String raw = null;
 
     final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
+    final static int CLOSE_TIMEOUT = 20 * 1000; // milliseconds
 
     static Properties getSessionProperties(int auth_type, boolean insecure) {
         Properties props = new Properties();
