@@ -61,12 +61,12 @@
     <string name="title_setup_account_remark">Att ta emot e-post</string>
     <string name="title_setup_identity">Hantera identiteter</string>
     <string name="title_setup_identity_remark">Att skicka e-post</string>
+    <string name="title_setup_permissions">Bevilja behörigheter</string>
+    <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_doze">Inaktivera batterioptimering</string>
     <string name="title_setup_doze_remark">Att kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, Välj ”alla program” högst upp, Välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_data">Inaktivera datasparande</string>
-    <string name="title_setup_permissions">Bevilja behörigheter</string>
-    <string name="title_setup_permissions_remark">Att få kontaktinformation (tillval)</string>
     <string name="title_setup_notifications">Hantera aviseringar</string>
     <string name="title_setup_to_do">Att göra</string>
     <string name="title_setup_done">Klart</string>

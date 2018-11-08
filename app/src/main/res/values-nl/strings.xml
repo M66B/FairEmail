@@ -61,12 +61,12 @@
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
     <string name="title_setup_identity">Beheer identiteiten</string>
     <string name="title_setup_identity_remark">Om e-mail te verzenden</string>
+    <string name="title_setup_permissions">Toestemming verlenen</string>
+    <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_doze">Accuoptimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Om voortdurend e-mail te ontvangen (optioneel)</string>
     <string name="title_setup_doze_instructions">In het volgende dialoogvenster, selecteer \"Alle apps\" bovenin, selecteer deze app en bevestig met \"Niet optimaliseren\"</string>
     <string name="title_setup_data">Databesparing uitschakelen</string>
-    <string name="title_setup_permissions">Toestemming verlenen</string>
-    <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_notifications">Beheer meldingen</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>

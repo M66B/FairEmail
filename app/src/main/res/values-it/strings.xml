@@ -5,10 +5,10 @@
     <string name="channel_service">Servizio</string>
     <string name="channel_notification">Notifiche</string>
     <string name="channel_error">Errori</string>
-    <string name="tile_synchronize">Synchronize</string>
-    <string name="tile_unseen">New messages</string>
-    <string name="shortcut_compose">Compose</string>
-    <string name="shortcut_setup">Setup</string>
+    <string name="tile_synchronize">Sincronizza</string>
+    <string name="tile_unseen">Nuovi messaggi</string>
+    <string name="shortcut_compose">Scrivi</string>
+    <string name="shortcut_setup">Configurazione</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Sincronizzazione account %1$d</item>
         <item quantity="other">Sincronizzazione di %1$d account</item>
@@ -26,8 +26,8 @@
         <item quantity="other">%1$d messaggi non inviati</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d new</item>
-        <item quantity="other">%1$d new</item>
+        <item quantity="one">%1$d nuovo</item>
+        <item quantity="other">%1$d nuovi</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="menu_setup">Configurazione</string>
@@ -61,29 +61,29 @@
     <string name="title_setup_account_remark">Per ricevere email</string>
     <string name="title_setup_identity">Gestione identità</string>
     <string name="title_setup_identity_remark">Per inviare email</string>
+    <string name="title_setup_permissions">Concedi i permessi</string>
+    <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_doze">Disattiva ottimizzazioni batteria</string>
     <string name="title_setup_doze_remark">Per ricevere continuamente email (facoltativo)</string>
     <string name="title_setup_doze_instructions">Nella finestra successiva, seleziona \"Tutte le app\" in alto, scegli questa app, seleziona e conferma \"Non ottimizzare\"</string>
     <string name="title_setup_data">Disattiva risparmio dati</string>
-    <string name="title_setup_permissions">Concedi i permessi</string>
-    <string name="title_setup_permissions_remark">Per ottenere informazioni di contatto (facoltativo)</string>
     <string name="title_setup_notifications">Gestione notifiche</string>
     <string name="title_setup_to_do">Da fare</string>
     <string name="title_setup_done">Fine</string>
     <string name="title_setup_light_theme">Tema chiaro</string>
     <string name="title_setup_dark_theme">Tema scuro</string>
-    <string name="title_setup_black_background">Black background</string>
+    <string name="title_setup_black_background">Sfondo nero</string>
     <string name="title_advanced">Opzioni avanzate</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Sincronizza</string>
     <string name="title_advanced_compact">Visualizzazione messaggio compatto</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
-    <string name="title_advanced_identicons">Show identicons</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_identicons">Visualizza identicon</string>
+    <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_swipe">Azioni swipe</string>
-    <string name="title_advanced_nav">Previous/next navigation</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_nav">Navigazione precedente/successivo</string>
+    <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_debug">Debug</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
@@ -182,7 +182,7 @@
     <string name="title_moving">Spostamento messaggio in %1$s</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
     <string name="title_no_viewer">Nessuna app di visualizzazione disponibile per %1$s</string>
-    <string name="title_no_saf">Storage access framework not available</string>
+    <string name="title_no_saf">Storage access framework non disponibile</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno inoltrati, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
@@ -200,11 +200,11 @@
     <string name="title_discard">Elimina</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Nessuna selezione</string>
     <string name="title_clipboard_empty">Appunti vuoti</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>
-    <string name="title_style_clear">Clear formatting</string>
+    <string name="title_style_clear">Cancella formattazione</string>
     <string name="title_style_link">Inserisci collegamento</string>
     <string name="title_style_image">Inserisci immagine</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
@@ -218,7 +218,7 @@
     <string name="title_encrypt">Crittografare</string>
     <string name="title_decrypt">Decifra</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_not_encrypted">Il messaggio non è cifrato</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_hint">Cerca sul server</string>
     <string name="title_searching">Ricerca di \'%1$s\'</string>
@@ -232,11 +232,11 @@
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
     <string name="title_answer_text">Testo del modello</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
-    <string name="title_action_seen">Mark read</string>
-    <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
+    <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
+    <string name="title_action_seen">Segna come letto</string>
+    <string name="title_action_archive">Archivia</string>
+    <string name="title_action_trash">Cestina</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_unified">Posta in arrivo unificata</string>
     <string name="title_legend_archive">Archivio</string>
@@ -272,7 +272,7 @@
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Consulta <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">queste FAQ</a> riguardo il prezzo delle funzioni a pagamento</string>
     <string name="title_pro_activated">Tutte le funzionalità sono attivate</string>
     <string name="title_pro_valid">Tutte le funzionalità attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>

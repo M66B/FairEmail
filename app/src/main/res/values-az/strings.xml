@@ -61,12 +61,12 @@
     <string name="title_setup_account_remark">E-poçt alma</string>
     <string name="title_setup_identity">Kimlikləri idarə et</string>
     <string name="title_setup_identity_remark">E-poçt göndərmə</string>
+    <string name="title_setup_permissions">İcazə ver</string>
+    <string name="title_setup_permissions_remark">To access contact information (optional)</string>
     <string name="title_setup_doze">Batereya optimizasiyalarını ləğv et</string>
     <string name="title_setup_doze_remark">Davamlı olaraq e-poçt alma (istənilən)</string>
     <string name="title_setup_doze_instructions">Növbəti pəncərədə, Yuxarıdakı \"Bütün tətbiqlər\"i seçin, bu tətbiqi seçib \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_data">Verilənlərə qənaət-i ləğv et</string>
-    <string name="title_setup_permissions">İcazə ver</string>
-    <string name="title_setup_permissions_remark">Şəxs məlumatı alma (istənilən)</string>
     <string name="title_setup_notifications">Bildirişləri idarə et</string>
     <string name="title_setup_to_do">Edilməli</string>
     <string name="title_setup_done">Hazırdır</string>
