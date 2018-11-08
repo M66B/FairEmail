@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +45,7 @@ public class FragmentIdentities extends FragmentEx {
     private ProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
+    private ObjectAnimator animator;
 
     private AdapterIdentity adapter;
 
@@ -79,6 +82,17 @@ public class FragmentIdentities extends FragmentEx {
             }
         });
 
+        animator = ObjectAnimator.ofFloat(fab, "alpha", 0.5f, 1.0f);
+        animator.setDuration(500L);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.addUpdateListener(new ObjectAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                fab.setAlpha((float) animation.getAnimatedValue());
+            }
+        });
+
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -94,10 +108,19 @@ public class FragmentIdentities extends FragmentEx {
         DB.getInstance(getContext()).identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleIdentityEx> identities) {
-                adapter.set(identities == null ? new ArrayList<TupleIdentityEx>() : identities);
+                if (identities == null)
+                    identities = new ArrayList<>();
+
+                adapter.set(identities);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
+
+
+                if (identities.size() == 0)
+                    animator.start();
+                else
+                    animator.end();
             }
         });
     }
