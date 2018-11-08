@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -38,6 +39,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -100,7 +102,13 @@ public class Helper {
         builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));
 
         CustomTabsIntent customTabsIntent = builder.build();
-        customTabsIntent.launchUrl(context, uri);
+        try {
+            customTabsIntent.launchUrl(context, uri);
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+        } catch (Throwable ex) {
+            Helper.unexpectedError(context, ex);
+        }
     }
 
     static Intent getIntentPrivacy() {
