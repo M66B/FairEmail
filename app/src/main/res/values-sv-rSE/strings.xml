@@ -5,10 +5,10 @@
     <string name="channel_service">Tjänst</string>
     <string name="channel_notification">Aviseringar</string>
     <string name="channel_error">Fel</string>
-    <string name="tile_synchronize">Synchronize</string>
-    <string name="tile_unseen">New messages</string>
-    <string name="shortcut_compose">Compose</string>
-    <string name="shortcut_setup">Setup</string>
+    <string name="tile_synchronize">Synkronisera</string>
+    <string name="tile_unseen">Nya meddelanden</string>
+    <string name="shortcut_compose">Skriv</string>
+    <string name="shortcut_setup">Ställ in</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synkroniserar %1$d konto</item>
         <item quantity="other">Synkronisera %1$d konton</item>
@@ -27,7 +27,7 @@
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d new</item>
-        <item quantity="other">%1$d new</item>
+        <item quantity="other">%1$d nya</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
     <string name="menu_setup">Ställ in</string>
@@ -67,23 +67,23 @@
     <string name="title_setup_data">Inaktivera datasparande</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
     <string name="title_setup_permissions_remark">Att få kontaktinformation (tillval)</string>
-    <string name="title_setup_notifications">Manage notifications</string>
+    <string name="title_setup_notifications">Hantera aviseringar</string>
     <string name="title_setup_to_do">Att göra</string>
     <string name="title_setup_done">Klart</string>
     <string name="title_setup_light_theme">Ljust tema</string>
     <string name="title_setup_dark_theme">Mörkt tema</string>
-    <string name="title_setup_black_background">Black background</string>
+    <string name="title_setup_black_background">Svart bakgrund</string>
     <string name="title_advanced">Avancerade inställningar</string>
-    <string name="title_advanced_enabled">Synchronize</string>
+    <string name="title_advanced_enabled">Synkronisera</string>
     <string name="title_advanced_compact">Kompakt meddelandevisning</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
-    <string name="title_advanced_identicons">Show identicons</string>
-    <string name="title_advanced_preview">Show message preview</string>
+    <string name="title_advanced_identicons">Visa identicons</string>
+    <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>
-    <string name="title_advanced_nav">Previous/next navigation</string>
-    <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_nav">Föregående/nästa navigering</string>
+    <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
@@ -200,7 +200,7 @@
     <string name="title_discard">Släng</string>
     <string name="title_save">Spara</string>
     <string name="title_send">Skicka</string>
-    <string name="title_no_selection">Nothing selected</string>
+    <string name="title_no_selection">Inget valt</string>
     <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>
@@ -215,10 +215,10 @@
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
     <string name="title_queued">Skickar meddelande</string>
-    <string name="title_encrypt">Encrypt</string>
-    <string name="title_decrypt">Decrypt</string>
-    <string name="title_no_openpgp">OpenKeychain not found</string>
-    <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_encrypt">Kryptera</string>
+    <string name="title_decrypt">Dekryptera</string>
+    <string name="title_no_openpgp">OpenKeychain hittades inte</string>
+    <string name="title_not_encrypted">Meddelandet är inte krypterat</string>
     <string name="title_search">Sök</string>
     <string name="title_search_hint">Sök på server</string>
     <string name="title_searching">Söker \'%1$s\'</string>
@@ -232,11 +232,11 @@
     <string name="title_answer_reply">Svarsmall</string>
     <string name="title_answer_name">Mallnamn</string>
     <string name="title_answer_text">Malltext</string>
-    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
-    <string name="title_action_seen">Mark read</string>
+    <string name="title_answer_template_name">$name$ kommer att ersättas av avsändarens fullständiga namn</string>
+    <string name="title_answer_template_email">$email$ kommer att ersättas av avsändarens e-postadress</string>
+    <string name="title_action_seen">Märk som läst</string>
     <string name="title_action_archive">Archive</string>
-    <string name="title_action_trash">Trash</string>
+    <string name="title_action_trash">Papperskorg</string>
     <string name="title_legend_inbox">Inkorg</string>
     <string name="title_legend_unified">Samlad inkorg</string>
     <string name="title_legend_archive">Arkivera</string>
@@ -272,7 +272,7 @@
     <string name="title_pro_list">Lista över pro-funktioner</string>
     <string name="title_pro_purchase">Köp</string>
     <string name="title_pro_hint">Att köpa pro-funktioner gör att du kan använda alla aktuella och framtida pro-funktioner, kommer att göra att denna app underhålls och stöds</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">dessa vanliga frågor</a> om pris på pro-funktionerna</string>
     <string name="title_pro_activated">Alla pro-funktioner aktiverades</string>
     <string name="title_pro_valid">Alla pro-funktioner aktiverade</string>
     <string name="title_pro_invalid">Ogiltigt svar</string>

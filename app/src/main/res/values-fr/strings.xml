@@ -234,7 +234,7 @@
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l’expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l’adresse e-mail de l’expéditeur</string>
-    <string name="title_action_seen">M. comme lu</string>
+    <string name="title_action_seen">Marquer lu</string>
     <string name="title_action_archive">Archiver</string>
     <string name="title_action_trash">Supprimer</string>
     <string name="title_legend_inbox">Boîte de réception</string>
