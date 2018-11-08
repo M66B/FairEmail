@@ -346,6 +346,28 @@ There are only notifications for new messages in the folders of the unified inbo
 However, you can make any folder part of the unified inbox.
 Just long press the folder, select *Edit properties*, enable *Show in unified inbox* and tap *Save*.
 
+<a name="faq30"></a>
+**(30) How can I use the provided quick settings?**
+
+There are quick settings (settings tiles) available to:
+
+* globally enable/disable synchronization
+* show the number of new messages and marking them as seen (not read)
+
+Quick settings require Android 7.0 Nougat or later.
+The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+
+<a name="faq31"></a>
+**(31) How can I use the provided shortcuts?**
+
+There are shortcuts available to:
+
+* compose a message
+* setup accounts, identities, etc
+
+Shortcuts require Android 7.1 Nougat or later.
+The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
