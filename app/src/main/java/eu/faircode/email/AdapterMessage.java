@@ -291,6 +291,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             final boolean show_expanded = properties.isExpanded(message.id);
             boolean show_addresses = properties.showAddresses(message.id);
             boolean show_headers = properties.showHeaders(message.id);
+            boolean outgoing = EntityFolder.DRAFTS.equals(message.folderType) ||
+                    EntityFolder.OUTBOX.equals(message.folderType) ||
+                    EntityFolder.SENT.equals(message.folderType);
 
             pbLoading.setVisibility(View.GONE);
 
@@ -309,11 +312,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     }
             }
             if (!photo && identicons) {
-                if (message.from != null && message.from.length > 0)
-                    ivAvatar.setImageBitmap(Identicon.generate(message.from[0].toString(), dp24, 5, "light".equals(theme)));
-                else
+                Address[] addresses = (outgoing ? message.to : message.from);
+                if (addresses != null && addresses.length > 0) {
+                    ivAvatar.setImageBitmap(Identicon.generate(addresses[0].toString(), dp24, 5, "light".equals(theme)));
+                    photo = true;
+                } else
                     ivAvatar.setImageDrawable(null);
-                photo = true;
             }
             ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
 
@@ -328,9 +332,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
-            if (EntityFolder.DRAFTS.equals(message.folderType) ||
-                    EntityFolder.OUTBOX.equals(message.folderType) ||
-                    EntityFolder.SENT.equals(message.folderType)) {
+            if (outgoing) {
                 tvFrom.setText(MessageHelper.getFormattedAddresses(message.to, !compact));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
             } else {

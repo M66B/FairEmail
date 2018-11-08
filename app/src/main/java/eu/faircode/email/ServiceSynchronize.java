@@ -1848,9 +1848,14 @@ public class ServiceSynchronize extends LifecycleService {
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                     == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    if (message.from != null)
-                        for (int i = 0; i < message.from.length; i++) {
-                            String email = ((InternetAddress) message.from[i]).getAddress();
+                    boolean outgoing = EntityFolder.DRAFTS.equals(folder.type) ||
+                            EntityFolder.OUTBOX.equals(folder.type) ||
+                            EntityFolder.SENT.equals(folder.type);
+                    Address[] addresses = (outgoing ? message.to : message.from);
+
+                    if (addresses != null)
+                        for (int i = 0; i < addresses.length; i++) {
+                            String email = ((InternetAddress) addresses[i]).getAddress();
                             Cursor cursor = null;
                             try {
                                 ContentResolver resolver = context.getContentResolver();
@@ -1874,7 +1879,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     message.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
 
                                     if (!TextUtils.isEmpty(displayName))
-                                        ((InternetAddress) message.from[i]).setPersonal(displayName);
+                                        ((InternetAddress) addresses[i]).setPersonal(displayName);
                                 }
                             } finally {
                                 if (cursor != null)
