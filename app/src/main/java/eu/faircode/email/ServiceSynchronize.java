@@ -133,6 +133,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
+    private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
@@ -1196,19 +1197,47 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
 
-                if (state.running) {
+                if (state.running)
                     try {
-                        EntityLog.log(this, account.name + " backoff=" + backoff);
-                        Thread.sleep(backoff * 1000L);
+                        if (backoff <= CONNECT_BACKOFF_MAX) {
+                            // Short back-off period, keep device awake
+                            EntityLog.log(this, account.name + " backoff=" + backoff);
+                            Thread.sleep(backoff * 1000L);
+                        } else {
+                            // Long back-off period, let device sleep
+                            EntityLog.log(this, account.name + " backoff alarm=" + CONNECT_BACKOFF_AlARM);
+
+                            BroadcastReceiver alarm = new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    state.thread.interrupt();
+                                    yieldWakelock();
+                                }
+                            };
+
+                            String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id;
+                            PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
+                            registerReceiver(alarm, new IntentFilter(id));
+
+                            AlarmManager am = getSystemService(AlarmManager.class);
+                            am.setAndAllowWhileIdle(
+                                    AlarmManager.RTC_WAKEUP,
+                                    System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                    pi);
+
+                            try {
+                                wl0.release();
+                                Thread.sleep(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
+                            } finally {
+                                wl0.acquire();
+                            }
+                        }
 
                         if (backoff < CONNECT_BACKOFF_MAX)
                             backoff *= 2;
-                        else
-                            throw new TimeoutException();
                     } catch (InterruptedException ex) {
                         Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
                     }
-                }
             }
         } finally {
             EntityLog.log(this, account.name + " stopped");
