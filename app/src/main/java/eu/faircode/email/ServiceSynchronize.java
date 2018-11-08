@@ -81,6 +81,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeoutException;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -131,10 +132,10 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
-    private static final int CONNECT_BACKOFF_MAX = 1024; // seconds (1024 sec ~ 17 min)
+    private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
-    private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
+    private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
 
     static final int PI_CLEAR = 1;
@@ -629,7 +630,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
+    private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException, TimeoutException {
         final PowerManager pm = getSystemService(PowerManager.class);
         final PowerManager.WakeLock wl0 = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK,
@@ -1202,6 +1203,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (backoff < CONNECT_BACKOFF_MAX)
                             backoff *= 2;
+                        else
+                            throw new TimeoutException();
                     } catch (InterruptedException ex) {
                         Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
                     }
@@ -2081,7 +2084,7 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         wl.acquire();
 
-                        DB db = DB.getInstance(ServiceSynchronize.this);
+                        final DB db = DB.getInstance(ServiceSynchronize.this);
 
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
@@ -2133,8 +2136,8 @@ public class ServiceSynchronize extends LifecycleService {
                                     try {
                                         monitorAccount(account, astate);
                                     } catch (Throwable ex) {
-                                        // Fall-safe
                                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                                     }
                                 }
                             }, "sync.account." + account.id);
