@@ -82,6 +82,8 @@ Certificate fingerprints:
 
 FairEmail requires at least Android 6 Marshmallow.
 
+FairEmail will work properly on devices without any Google service installed.
+
 FairEmail might occasionally crash on Motorola/Lenovo devices with Android 7 Nougat or earlier
 because of a [bug in Android](https://issuetracker.google.com/issues/63377371).
 
