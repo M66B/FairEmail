@@ -7,10 +7,11 @@ For support on authorizing an account you should consult the documentation of yo
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook: see [question 14](#user-content-faq14)
+* Microsoft Exchange: see [question 8](#user-content-faq8)
 
 Frequently requested features:
 
-* Previewing message text in notification/widget: this is not possible because the message text is initially not downloaded.
+* Previewing message text in notifications: this is not possible because the message text is initially not downloaded.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful.
@@ -31,7 +32,7 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 
 Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
 
-Note that your contacts could unknowingly send malicious messages if they are infected with malware.
+Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 ## Frequently Asked Questions
 
@@ -55,7 +56,7 @@ to prevent Android from killing the service that takes care of receiving and sen
 
 Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
 
-Background: this is because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
 
 <a name="faq3"></a>
 **(3) What are operations and why are they pending?**
@@ -194,6 +195,8 @@ The message text will keep loading if there is no connection to the account, see
 
 In the advanced settings you can set the maximum size for automatically downloading of messages on metered connections.
 
+Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+
 <a name="faq16"></a>
 **(16) Why are messages not being synchronized?**
 
@@ -260,6 +263,7 @@ and I expect that you take responsibility for informing yourself of what you are
 Before Android 8 Oreo: there is an advanced option in the setup for this.
 
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
+You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
 
 <a name="faq22"></a>
 **(22) Why do I get 'Couldn't connect to host' ?**
