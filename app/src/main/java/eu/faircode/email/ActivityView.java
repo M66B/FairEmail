@@ -428,8 +428,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerLayout.closeDrawer(drawerList);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
-            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
-            grpPane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
+            if (grpPane != null) {
+                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
+                grpPane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
+            }
         }
     }
 
