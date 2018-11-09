@@ -66,6 +66,10 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Built with latest development tools and libraries
 * Android 6 Marshmallow or later required
 
+## Screenshots
+
+Please [see here](https://email.faircode.eu/#screenshots).
+
 ## Downloads
 
 * [GitHub](https://github.com/M66B/open-source-email/releases)
