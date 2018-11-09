@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.service.quicksettings.Tile;
@@ -50,6 +51,8 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
         Tile tile = getQsTile();
         if (tile != null) {
             tile.setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+            tile.setIcon(Icon.createWithResource(this,
+                    enabled ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24));
             tile.updateTile();
         }
     }

@@ -113,7 +113,7 @@
 
         <service
             android:name=".ServiceTileSynchronize"
-            android:icon="@drawable/baseline_compare_arrows_24"
+            android:icon="@drawable/baseline_sync_disabled_24"
             android:label="@string/tile_synchronize"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -123,7 +123,7 @@
 
         <service
             android:name=".ServiceTileUnseen"
-            android:icon="@drawable/baseline_mail_24"
+            android:icon="@drawable/baseline_mail_outline_24"
             android:label="@string/tile_unseen"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>

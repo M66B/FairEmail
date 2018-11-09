@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.IBinder;
 import android.service.quicksettings.Tile;
@@ -72,6 +73,8 @@ public class ServiceTileUnseen extends TileService {
                 Tile tile = getQsTile();
                 if (tile != null) {
                     tile.setState(messages.size() > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+                    tile.setIcon(Icon.createWithResource(ServiceTileUnseen.this,
+                            messages.size() > 0 ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24));
                     tile.setLabel(getResources().getQuantityString(
                             R.plurals.title_tile_unseen, messages.size(), messages.size()));
                     tile.updateTile();
