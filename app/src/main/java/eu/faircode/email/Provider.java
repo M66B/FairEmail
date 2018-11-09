@@ -37,10 +37,11 @@ public class Provider {
     public String link;
     public String type;
     public String imap_host;
+    public boolean imap_starttls;
     public int imap_port;
     public String smtp_host;
     public int smtp_port;
-    public boolean starttls;
+    public boolean smtp_starttls;
 
     private Provider() {
     }
@@ -67,10 +68,11 @@ public class Provider {
                     } else if ("imap".equals(xml.getName())) {
                         provider.imap_host = xml.getAttributeValue(null, "host");
                         provider.imap_port = xml.getAttributeIntValue(null, "port", 0);
+                        provider.imap_starttls = xml.getAttributeBooleanValue(null, "starttls", false);
                     } else if ("smtp".equals(xml.getName())) {
                         provider.smtp_host = xml.getAttributeValue(null, "host");
                         provider.smtp_port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.smtp_starttls = xml.getAttributeBooleanValue(null, "starttls", false);
                     } else
                         throw new IllegalAccessException(xml.getName());
                 } else if (eventType == XmlPullParser.END_TAG) {

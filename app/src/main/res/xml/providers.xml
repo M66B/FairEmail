@@ -6,7 +6,8 @@
         type="com.google">
         <imap
             host="imap.gmail.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.gmail.com"
             port="465"
@@ -17,7 +18,8 @@
         link="https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040">
         <imap
             host="imap-mail.outlook.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp-mail.outlook.com"
             port="587"
@@ -29,7 +31,8 @@
         link="https://userforum-en.mailbox.org/knowledge-base/article/setup-other-e-mail-clients-manually">
         <imap
             host="imap.mailbox.org"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.mailbox.org"
             port="465"
@@ -41,7 +44,8 @@
         link="https://help.yahoo.com/kb/SLN4075.html">
         <imap
             host="imap.mail.yahoo.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.mail.yahoo.com"
             port="465"
@@ -52,7 +56,8 @@
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
             host="posteo.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="posteo.de"
             port="465"
@@ -63,7 +68,8 @@
         link="https://www.free.fr/assistance/597.html">
         <imap
             host="imap.free.fr"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.free.fr"
             port="465"
@@ -74,7 +80,8 @@
         link="https://www.fastmail.com/help/technical/servernamesandports.html">
         <imap
             host="imap.fastmail.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.fastmail.com"
             port="465"
@@ -86,7 +93,8 @@
         link="https://assistance.sfr.fr/service-et-accessoire/sfr-mail/serveurs-messagerie-sfr.html">
         <imap
             host="imap.sfr.fr"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.sfr.fr"
             port="465"
@@ -97,7 +105,8 @@
         link="https://www.infomaniak.com/fr/support/faq/1075/configurer-une-adresse-email-configuration-logiciel-de-messagerie-parametres-courrier">
         <imap
             host="mail.infomaniak.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="mail.infomaniak.com"
             port="587"
@@ -106,7 +115,8 @@
     <provider name="OVH.net">
         <imap
             host="ssl0.ovh.net"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="ssl0.ovh.net"
             port="465"
@@ -117,7 +127,8 @@
         link="https://support.gmx.com/pop-imap/imap/index.html#breadcrumb_help_pop-imap_imap_server">
         <imap
             host="imap.gmx.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="mail.gmx.com"
             port="587"
@@ -126,7 +137,8 @@
     <provider name="disroot.org">
         <imap
             host="disroot.org"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="disroot.org"
             port="587"
@@ -137,7 +149,8 @@
         link="https://mail.de/hilfe/pop3-imap-einstellungen">
         <imap
             host="imap.mail.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.mail.de"
             port="465"
@@ -148,7 +161,8 @@
         link="https://yandex.com/support/mail/mail-clients.html#imap">
         <imap
             host="imap.yandex.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.yandex.com"
             port="465"
@@ -159,7 +173,8 @@
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html">
         <imap
             host="imap.web.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.web.de"
             port="587"
@@ -170,7 +185,8 @@
         link="https://www.telstra.com.au/support/category/email/set-up/imap-pop-and-smtp-information-for-manual-email-set-up">
         <imap
             host="imap.telstra.com"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.telstra.com"
             port="465"
@@ -181,7 +197,8 @@
         link="https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-server-e-mail-protokolle-und-e-mail-einrichtung/imap/einrichtung-imap">
         <imap
             host="secureimap.t-online.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="securesmtp.t-online.de"
             port="465"
@@ -192,7 +209,8 @@
         link="https://hilfe.webmailer.1und1.de/mailprogramme/imap.html">
         <imap
             host="imap.1und1.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.1und1.de"
             port="465"
@@ -203,7 +221,8 @@
         link="https://dismail.de/info.html">
         <imap
             host="imap.dismail.de"
-            port="993" />
+            port="993"
+            starttls="false" />
         <smtp
             host="smtp.dismail.de"
             port="465"

@@ -249,6 +249,7 @@ public class FragmentAccount extends FragmentEx {
 
                 etHost.setText(provider.imap_host);
                 etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
+                cbStartTls.setChecked(provider.imap_starttls);
 
                 etUser.setText(null);
                 tilPassword.getEditText().setText(null);
@@ -292,6 +293,7 @@ public class FragmentAccount extends FragmentEx {
                         if (srv != null) {
                             etHost.setText(srv.getTarget().toString(true));
                             etPort.setText(Integer.toString(srv.getPort()));
+                            cbStartTls.setChecked(srv.getPort() == 143);
                         }
                     }
 

@@ -175,7 +175,7 @@ public class FragmentIdentity extends FragmentEx {
                             // This is needed because the spinner might be invisible
                             etHost.setText(provider.smtp_host);
                             etPort.setText(Integer.toString(provider.smtp_port));
-                            cbStartTls.setChecked(provider.starttls);
+                            cbStartTls.setChecked(provider.smtp_starttls);
 
                             break;
                         }
@@ -210,7 +210,7 @@ public class FragmentIdentity extends FragmentEx {
                 // Set associated host/port/starttls
                 etHost.setText(provider.smtp_host);
                 etPort.setText(position == 0 ? null : Integer.toString(provider.smtp_port));
-                cbStartTls.setChecked(provider.starttls);
+                cbStartTls.setChecked(provider.smtp_starttls);
             }
 
             @Override
