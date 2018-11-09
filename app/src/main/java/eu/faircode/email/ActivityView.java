@@ -81,7 +81,9 @@ import javax.net.ssl.HttpsURLConnection;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.constraintlayout.widget.Group;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -92,6 +94,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private View view;
     private DrawerLayout drawerLayout;
+    private Group grpPane;
     private ListView drawerList;
     private ActionBarDrawerToggle drawerToggle;
 
@@ -134,6 +137,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
+
+        grpPane = findViewById(R.id.grpPane);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
@@ -422,6 +427,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (drawerLayout.isDrawerOpen(drawerList))
                 drawerLayout.closeDrawer(drawerList);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
+
+            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
+            grpPane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
         }
     }
 
@@ -862,8 +870,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
 
+        int pane;
+        if (findViewById(R.id.content_pane) == null)
+            pane = R.id.content_frame;
+        else {
+            pane = R.id.content_pane;
+            grpPane.setVisibility(View.VISIBLE);
+        }
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+        fragmentTransaction.replace(pane, fragment).addToBackStack("thread");
         fragmentTransaction.commit();
     }
 
