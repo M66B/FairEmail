@@ -1299,8 +1299,8 @@ public class FragmentCompose extends FragmentEx {
 
             DB db = DB.getInstance(getContext());
 
-            db.identity().liveIdentities(true).removeObservers(getViewLifecycleOwner());
-            db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+            db.identity().liveIdentities(result.draft.account, true).removeObservers(getViewLifecycleOwner());
+            db.identity().liveIdentities(result.draft.account, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
                 @Override
                 public void onChanged(@Nullable List<EntityIdentity> identities) {
                     if (identities == null)

@@ -35,9 +35,10 @@ public interface DaoIdentity {
 
     @Query("SELECT identity.* FROM identity" +
             " JOIN account ON account.id = identity.account" +
-            " WHERE account.synchronize = :synchronize" +
+            " WHERE (:account IS NULL OR account.id = :account)" +
+            " AND account.synchronize = :synchronize" +
             " AND identity.synchronize = :synchronize")
-    LiveData<List<EntityIdentity>> liveIdentities(boolean synchronize);
+    LiveData<List<EntityIdentity>> liveIdentities(Long account, boolean synchronize);
 
     @Query("SELECT * FROM identity")
     List<EntityIdentity> getIdentities();

@@ -354,7 +354,7 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
-        db.identity().liveIdentities(true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+        db.identity().liveIdentities(null, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
             @Override
             public void onChanged(@Nullable List<EntityIdentity> identities) {
                 boolean done = (identities != null && identities.size() > 0);
