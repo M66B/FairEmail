@@ -83,6 +83,8 @@
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_nav">Vorherige/nächste E-Mail Navigation</string>
+    <string name="title_advanced_sender">Allow editing sender address</string>
+    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_select">Wählen Sie &#8230;</string>

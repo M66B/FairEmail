@@ -83,6 +83,8 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_nav">Navegación anterior/siguiente</string>
+    <string name="title_advanced_sender">Allow editing sender address</string>
+    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_select">Seleccione &#8230;</string>

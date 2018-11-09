@@ -83,6 +83,8 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
     <string name="title_advanced_nav">Vorige/volgende navigatie</string>
+    <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
+    <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_select">Selecteer &#8230;</string>

@@ -88,6 +88,8 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_nav">Navigare înainte/înapoi</string>
+    <string name="title_advanced_sender">Allow editing sender address</string>
+    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
