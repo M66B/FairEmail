@@ -188,6 +188,7 @@
     <string name="title_attachment_saved">Fitxer adjunt desat</string>
     <string name="title_attachment_unavailable">Alguns adjunts no s\'han descarregat i no seran reenviats, continuar?</string>
     <string name="title_ask_delete">Esborrar el missatge per sempre?</string>
+    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_spam">Qualificar el missatge com correu brossa?</string>
     <string name="title_fix">Fix</string>

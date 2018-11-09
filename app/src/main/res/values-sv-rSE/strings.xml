@@ -188,6 +188,7 @@
     <string name="title_attachment_saved">Bilaga sparad</string>
     <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att vidarebefordras, fortsätt?</string>
     <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
+    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
     <string name="title_fix">Fix</string>

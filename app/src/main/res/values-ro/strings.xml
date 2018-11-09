@@ -67,7 +67,7 @@
     <string name="title_setup_identity">Gestionarea identităţilor</string>
     <string name="title_setup_identity_remark">Pentru a trimite e-mail</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
-    <string name="title_setup_permissions_remark">To access contact information (optional)</string>
+    <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
@@ -88,8 +88,8 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_nav">Navigare înainte/înapoi</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
-    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
+    <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
+    <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
@@ -193,6 +193,7 @@
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
+    <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_fix">Remediere</string>

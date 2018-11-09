@@ -188,6 +188,7 @@
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachment_unavailable">Bazı ekler indirilmedi ve iletilmez, devam edilsin mi?</string>
     <string name="title_ask_delete">İletiyi kalıcı olarak sil?</string>
+    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_discard">Taslağı sil?</string>
     <string name="title_ask_spam">İletiyi spam olarak raporla?</string>
     <string name="title_fix">Düzelt</string>
