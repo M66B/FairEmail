@@ -377,6 +377,22 @@ The usage of shortcuts is explained [here](https://support.google.com/android/an
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
+<a name="faq33"></a>
+**(33) Why are edited sender addresses not working?**
+
+Most providers accept validated addresses only when sending messages to prevent spam.
+
+For example Google modifies the message headers like this:
+
+```
+From: Somebody <somebody@example.org>
+X-Google-Original-From: Somebody <somebody+extra@example.org>
+```
+
+This means that the edited sender address was automatically being replaced by a validated address before sending the message.
+
+Note that this is independent of receiving messages.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
