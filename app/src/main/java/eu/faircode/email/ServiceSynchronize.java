@@ -542,8 +542,8 @@ public class ServiceSynchronize extends LifecycleService {
                         mbuilder.addPerson(message.avatar);
                 }
 
-                if (message.accountColor != null)
-                    mbuilder.setColor(message.accountColor);
+                //if (message.accountColor != null)
+                //    mbuilder.setColor(message.accountColor);
             }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
