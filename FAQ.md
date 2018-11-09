@@ -6,6 +6,7 @@ At the bottom you can find how to ask other questions, request features and repo
 ## Authorizing accounts
 
 For support on authorizing an account you should consult the documentation of your provider.
+Mostly searching for *IMAP* and the name of the provider is sufficient to find the right documentation.
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook: see [question 14](#user-content-faq14)
