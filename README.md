@@ -18,7 +18,7 @@ This app is minimalistic by design, so you can concentrate on reading and writin
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ2).
 
-## Features
+## Main features
 
 * 100 % [open source](https://github.com/M66B/open-source-email/blob/master/LICENSE)
 * Multiple accounts (inboxes)
@@ -29,7 +29,6 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Offline storage and operations
 * Battery friendly
 * Low data usage
-* Folder management
 * Material design
 
 ## Pro features
