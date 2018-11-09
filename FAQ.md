@@ -3,13 +3,15 @@
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
 
+## Authorizing accounts
+
 For support on authorizing an account you should consult the documentation of your provider.
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook: see [question 14](#user-content-faq14)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 
-Frequently requested features:
+## Frequently requested features
 
 * Previewing message text in notifications: this is not possible because the message text is initially not downloaded.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
@@ -393,7 +395,7 @@ This means that the edited sender address was automatically being replaced by a 
 
 Note that this is independent of receiving messages.
 
-<br>
+## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 Registration is free.
