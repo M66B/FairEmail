@@ -198,4 +198,15 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="dismail.de"
+        link="https://dismail.de/info.html">
+        <imap
+            host="imap.dismail.de"
+            port="993" />
+        <smtp
+            host="smtp.dismail.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
