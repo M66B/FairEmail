@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -91,6 +92,7 @@ public class FragmentMessages extends FragmentEx {
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMove;
+    private FloatingActionButton fabDelete;
 
     private long folder = -1;
     private long account = -1;
@@ -173,6 +175,7 @@ public class FragmentMessages extends FragmentEx {
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
         fabMove = view.findViewById(R.id.fabMove);
+        fabDelete = view.findViewById(R.id.fabDelete);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -287,10 +290,13 @@ public class FragmentMessages extends FragmentEx {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    if (selectionTracker.hasSelection())
+                    if (selectionTracker.hasSelection()) {
                         fabMove.show();
-                    else
+                        fabDelete.show();
+                    } else {
                         fabMove.hide();
+                        fabDelete.hide();
+                    }
                 }
             });
         }
@@ -692,6 +698,75 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+        fabDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Helper.isPro(getContext()))
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(R.string.title_ask_delete_selected)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Bundle args = new Bundle();
+                                    MutableSelection<Long> selection = new MutableSelection<>();
+                                    selectionTracker.copySelection(selection);
+
+                                    long[] ids = new long[selection.size()];
+                                    int i = 0;
+                                    for (Long id : selection)
+                                        ids[i++] = id;
+
+                                    selectionTracker.clearSelection();
+
+                                    args.putLongArray("ids", ids);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onLoad(Context context, Bundle args) {
+                                            long[] ids = args.getLongArray("ids");
+
+                                            DB db = DB.getInstance(context);
+                                            try {
+                                                db.beginTransaction();
+
+                                                for (long id : ids) {
+                                                    EntityMessage message = db.message().getMessage(id);
+                                                    if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
+                                                        db.message().deleteMessage(id);
+                                                    else {
+                                                        db.message().setMessageUiHide(message.id, true);
+                                                        EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                                    }
+                                                }
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            EntityOperation.process(context);
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(getContext(), ex);
+                                        }
+                                    }.load(FragmentMessages.this, args);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+                else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
+
+            }
+        });
+
         ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
             @Override
             public boolean onBackPressed() {
@@ -711,6 +786,7 @@ public class FragmentMessages extends FragmentEx {
 
         fab.hide();
         fabMove.hide();
+        fabDelete.hide();
 
         return view;
     }

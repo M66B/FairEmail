@@ -217,6 +217,7 @@
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
+    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_spam">Report message as spam?</string>
     <string name="title_fix">Fix</string>
