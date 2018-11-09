@@ -372,6 +372,11 @@ There are shortcuts available to:
 Shortcuts require Android 7.1 Nougat or later.
 The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
+<a name="faq32"></a>
+**(32) How can I check if reading email is really safe?**
+
+You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+
 <br>
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
