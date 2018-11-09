@@ -31,6 +31,7 @@ For:
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime.
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-faq2).
+* Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
