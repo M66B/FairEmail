@@ -38,6 +38,11 @@ android {
 
     packagingOptions {
         pickFirst 'META-INF/LICENSE.txt'
+
+        // keep lib/armeabi-v7a/libsqlite3x.so
+        exclude 'lib/arm64-v8a/libsqlite3x.so'
+        // keep lib/x86/libsqlite3x.so
+        exclude 'lib/x86_64/libsqlite3x.so'
     }
 }
 
@@ -85,6 +90,7 @@ dependencies {
     def jcharset_version = "2.0"
     def dnsjava_version = "2.1.8"
     def openpgp_version = "12.0"
+    def requery_version = "3.25.3"
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
@@ -116,6 +122,9 @@ dependencies {
 
     // https://github.com/open-keychain/openpgp-api
     implementation "org.sufficientlysecure:openpgp-api:$openpgp_version"
+
+    // https://github.com/requery/sqlite-android/
+    implementation "io.requery:sqlite-android:$requery_version"
 
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')

@@ -22,6 +22,7 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
 /*
     This file is part of FairEmail.
@@ -84,6 +85,7 @@ public abstract class DB extends RoomDatabase {
         if (sInstance == null) {
             sInstance = migrate(Room
                     .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
+                    .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                     .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
 
             Log.i(Helper.TAG, "sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));

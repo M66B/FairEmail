@@ -84,9 +84,6 @@ FairEmail requires at least Android 6 Marshmallow.
 
 FairEmail will work properly on devices without any Google service installed.
 
-FairEmail might occasionally crash on Motorola/Lenovo devices with Android 7 Nougat or earlier
-because of a [bug in Android](https://issuetracker.google.com/issues/63377371).
-
 ## Support / frequently asked questions
 
 See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
@@ -125,6 +122,7 @@ FairEmail uses:
 * [colorpicker](https://android.googlesource.com/platform/frameworks/opt/colorpicker). Copyright (C) 2013 The Android Open Source Project. [Apache license](https://android.googlesource.com/platform/frameworks/opt/colorpicker/+/master/src/com/android/colorpicker/ColorPickerDialog.java).
 * [dnsjava](http://www.xbill.org/dnsjava/). Copyright (c) 1998-2011, Brian Wellington. [BSD License](https://sourceforge.net/p/dnsjava/code/HEAD/tree/trunk/LICENSE).
 * [OpenPGP API library](https://github.com/open-keychain/openpgp-api). Copyright (C) 2014-2015 Dominik Schürmann. [Apache License 2.0](https://github.com/open-keychain/openpgp-api/blob/master/LICENSE).
+* [Android SQLite support library](https://github.com/requery/sqlite-android). Copyright (C) 2017 requery.io. [Apache License 2.0](https://github.com/requery/sqlite-android/blob/master/LICENSE).
 * [App shortcut icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-app-shortcut.html). Copyright ???. [Apache License 2.0](https://github.com/romannurik/AndroidAssetStudio/blob/master/LICENSE).
 
 ## License
