@@ -873,7 +873,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(args);
 
         int pane;
-        if (findViewById(R.id.content_pane) == null)
+        if (grpPane == null)
             pane = R.id.content_frame;
         else {
             pane = R.id.content_pane;
