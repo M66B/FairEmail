@@ -6,7 +6,13 @@ At the bottom you can find how to ask other questions, request features and repo
 ## Authorizing accounts
 
 For support on authorizing an account you should consult the documentation of your provider.
-Mostly searching for *IMAP* and the name of the provider is sufficient to find the right documentation.
+Searching for *IMAP* and the name of the provider is mostly sufficient to find the right documentation.
+To setup an account you need the IMAP and SMTP server addresses and port numbers,
+whether STARTTLS should be used and your username and password.
+In some cases you'll need to enable external access to your account and/or to use a special (app) password,
+for instance when two factor authentication is enabled.
+
+For:
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook: see [question 14](#user-content-faq14)
@@ -392,7 +398,7 @@ From: Somebody <somebody@example.org>
 X-Google-Original-From: Somebody <somebody+extra@example.org>
 ```
 
-This means that the edited sender address was automatically being replaced by a validated address before sending the message.
+This means that the edited sender address was automatically replaced by a validated address before sending the message.
 
 Note that this is independent of receiving messages.
 

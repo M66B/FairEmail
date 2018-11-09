@@ -25,6 +25,7 @@ If your provider is not in the list of providers, select *Custom*.
 Enter the domain name, for example *gmail.com* and tap *Get settings*.
 If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number,
 else check the setup instructions of your provider for the right IMAP host name and port number.
+For more about this, please see [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#authorizing-accounts).
 
 ## Identity - to send email
 
