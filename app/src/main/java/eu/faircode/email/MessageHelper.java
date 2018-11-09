@@ -183,8 +183,16 @@ public class MessageHelper {
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
 
-        if (message.from != null && message.from.length > 0)
-            imessage.setFrom(message.from[0]);
+        if (message.from != null && message.from.length > 0) {
+            String email = ((InternetAddress) message.from[0]).getAddress();
+            String name = ((InternetAddress) message.from[0]).getPersonal();
+            if (email != null && !TextUtils.isEmpty(message.extra)) {
+                int at = email.indexOf('@');
+                email = email.substring(0, at) + "+" + message.extra + email.substring(at);
+                Log.i(Helper.TAG, "extra=" + email);
+            }
+            imessage.setFrom(new InternetAddress(email, name));
+        }
 
         if (message.to != null && message.to.length > 0)
             imessage.setRecipients(Message.RecipientType.TO, message.to);

@@ -34,6 +34,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
 import android.text.Html;
@@ -53,6 +54,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
@@ -110,6 +112,9 @@ public class FragmentCompose extends FragmentEx {
     private ViewGroup view;
     private Spinner spFrom;
     private ImageView ivIdentityAdd;
+    private TextView tvExtraPrefix;
+    private EditText etExtra;
+    private TextView tvExtraSuffix;
     private MultiAutoCompleteTextView etTo;
     private ImageView ivToAdd;
     private MultiAutoCompleteTextView etCc;
@@ -123,6 +128,7 @@ public class FragmentCompose extends FragmentEx {
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
     private Group grpHeader;
+    private Group grpExtra;
     private Group grpAddresses;
     private Group grpAttachments;
 
@@ -141,6 +147,9 @@ public class FragmentCompose extends FragmentEx {
         // Get controls
         spFrom = view.findViewById(R.id.spFrom);
         ivIdentityAdd = view.findViewById(R.id.ivIdentityAdd);
+        tvExtraPrefix = view.findViewById(R.id.tvExtraPrefix);
+        etExtra = view.findViewById(R.id.etExtra);
+        tvExtraSuffix = view.findViewById(R.id.tvExtraSuffix);
         etTo = view.findViewById(R.id.etTo);
         ivToAdd = view.findViewById(R.id.ivToAdd);
         etCc = view.findViewById(R.id.etCc);
@@ -154,10 +163,26 @@ public class FragmentCompose extends FragmentEx {
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
         grpHeader = view.findViewById(R.id.grpHeader);
+        grpExtra = view.findViewById(R.id.grpExtra);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
 
         // Wire controls
+        spFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
+                int at = (identity == null ? -1 : identity.email.indexOf('@'));
+                tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at) + "+");
+                tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                tvExtraPrefix.setText(null);
+                tvExtraSuffix.setText(null);
+            }
+        });
 
         ivIdentityAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,7 +272,11 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
+        tvExtraPrefix.setText(null);
+        tvExtraSuffix.setText(null);
+
         grpHeader.setVisibility(View.GONE);
+        grpExtra.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         etBody.setVisibility(View.GONE);
@@ -858,6 +887,7 @@ public class FragmentCompose extends FragmentEx {
         args.putLong("id", working);
         args.putInt("action", action);
         args.putLong("identity", identity == null ? -1 : identity.id);
+        args.putString("extra", etExtra.getText().toString());
         args.putString("to", etTo.getText().toString());
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
@@ -1221,6 +1251,7 @@ public class FragmentCompose extends FragmentEx {
 
             setSubtitle(getString(R.string.title_compose, result.account.name));
 
+            etExtra.setText(result.draft.extra);
             etTo.setText(MessageHelper.getFormattedAddresses(result.draft.to, true));
             etCc.setText(MessageHelper.getFormattedAddresses(result.draft.cc, true));
             etBcc.setText(MessageHelper.getFormattedAddresses(result.draft.bcc, true));
@@ -1256,8 +1287,11 @@ public class FragmentCompose extends FragmentEx {
             getActivity().invalidateOptionsMenu();
             Helper.setViewsEnabled(view, true);
 
+            boolean sender = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("sender", false);
+
             pbWait.setVisibility(View.GONE);
             grpHeader.setVisibility(View.VISIBLE);
+            grpExtra.setVisibility(sender ? View.VISIBLE : View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             etBody.setVisibility(View.VISIBLE);
             edit_bar.setVisibility(View.VISIBLE);
@@ -1361,6 +1395,7 @@ public class FragmentCompose extends FragmentEx {
             long id = args.getLong("id");
             int action = args.getInt("action");
             long iid = args.getLong("identity");
+            String extra = args.getString("extra");
             String to = args.getString("to");
             String cc = args.getString("cc");
             String bcc = args.getString("bcc");
@@ -1389,8 +1424,12 @@ public class FragmentCompose extends FragmentEx {
                 InternetAddress acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                 InternetAddress abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
 
+                if (TextUtils.isEmpty(extra))
+                    extra = null;
+
                 // Update draft
                 draft.identity = (identity == null ? null : identity.id);
+                draft.extra = extra;
                 draft.from = afrom;
                 draft.to = ato;
                 draft.cc = acc;

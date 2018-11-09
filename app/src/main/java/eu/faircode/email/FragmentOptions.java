@@ -50,6 +50,7 @@ public class FragmentOptions extends FragmentEx {
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
     private SwitchCompat swNav;
+    private SwitchCompat swSender;
     private SwitchCompat swInsecure;
     private Spinner spDownload;
     private SwitchCompat swDebug;
@@ -71,6 +72,7 @@ public class FragmentOptions extends FragmentEx {
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
         swNav = view.findViewById(R.id.swNav);
+        swSender = view.findViewById(R.id.swSender);
         swInsecure = view.findViewById(R.id.swInsecure);
         spDownload = view.findViewById(R.id.spDownload);
         swDebug = view.findViewById(R.id.swDebug);
@@ -182,6 +184,14 @@ public class FragmentOptions extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("navigation", checked).apply();
+            }
+        });
+
+        swSender.setChecked(prefs.getBoolean("sender", true));
+        swSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sender", checked).apply();
             }
         });
 

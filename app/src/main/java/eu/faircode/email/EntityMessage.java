@@ -76,6 +76,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Long folder;
     public Long identity;
+    public String extra; // plus
     public Long replying;
     public Long uid; // compose = null
     public String msgid;
