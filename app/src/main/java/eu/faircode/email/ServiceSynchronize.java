@@ -1220,16 +1220,22 @@ public class ServiceSynchronize extends LifecycleService {
                             registerReceiver(alarm, new IntentFilter(id));
 
                             AlarmManager am = getSystemService(AlarmManager.class);
-                            am.setAndAllowWhileIdle(
-                                    AlarmManager.RTC_WAKEUP,
-                                    System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
-                                    pi);
-
                             try {
-                                wl0.release();
-                                Thread.sleep(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
+                                am.setAndAllowWhileIdle(
+                                        AlarmManager.RTC_WAKEUP,
+                                        System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                        pi);
+
+                                try {
+                                    wl0.release();
+                                    Thread.sleep(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
+                                } finally {
+                                    wl0.acquire();
+                                }
                             } finally {
-                                wl0.acquire();
+                                // Cleanup
+                                am.cancel(pi);
+                                unregisterReceiver(alarm);
                             }
                         }
 
