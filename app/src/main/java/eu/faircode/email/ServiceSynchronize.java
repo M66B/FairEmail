@@ -1879,6 +1879,11 @@ public class ServiceSynchronize extends LifecycleService {
                     identity = db.identity().getIdentity(folder.account, to);
                     if (identity == null)
                         identity = db.identity().getIdentity(folder.account, Helper.canonicalAddress(to));
+                    if (identity == null) {
+                        to = helper.getDeliveredTo();
+                        if (!TextUtils.isEmpty(to))
+                            identity = db.identity().getIdentity(folder.account, to);
+                    }
                 }
             }
 
