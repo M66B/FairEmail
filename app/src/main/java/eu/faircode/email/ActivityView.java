@@ -222,7 +222,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 });
 
                 for (EntityAccount account : accounts)
-                    drawerArray.add(new DrawerItem(R.layout.item_drawer, -1, R.drawable.baseline_folder_24, account.name, account.id));
+                    drawerArray.add(new DrawerItem(R.layout.item_drawer, -1, R.drawable.baseline_folder_24, account.color, account.name, account.id));
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
@@ -773,6 +773,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         private int layout;
         private int id;
         private int icon;
+        private Integer color;
         private String title;
         private Object data;
 
@@ -787,10 +788,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             this.title = context.getString(title);
         }
 
-        DrawerItem(int layout, int id, int icon, String title, Object data) {
+        DrawerItem(int layout, int id, int icon, Integer color, String title, Object data) {
             this.layout = layout;
             this.id = id;
             this.icon = icon;
+            this.color = color;
             this.title = title;
             this.data = data;
         }
@@ -817,8 +819,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             ImageView iv = row.findViewById(R.id.ivItem);
             TextView tv = row.findViewById(R.id.tvItem);
 
-            if (iv != null)
+            if (iv != null) {
                 iv.setImageResource(item.icon);
+                if (item.color != null)
+                    iv.setColorFilter(item.color);
+            }
             if (tv != null)
                 tv.setText(item.title);
 
