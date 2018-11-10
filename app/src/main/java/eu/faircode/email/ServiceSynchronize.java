@@ -1870,10 +1870,14 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         if (message == null) {
-            Address[] to = helper.getTo();
+            Address[] tos = helper.getTo();
             EntityIdentity identity = null;
-            if (to != null && to.length > 0)
-                identity = db.identity().getIdentity(folder.account, ((InternetAddress) to[0]).getAddress());
+            if (tos != null && tos.length > 0) {
+                String to = ((InternetAddress) tos[0]).getAddress();
+                identity = db.identity().getIdentity(folder.account, to);
+                if (identity == null)
+                    identity = db.identity().getIdentity(folder.account, Helper.canonicalAddress(to));
+            }
 
             message = new EntityMessage();
             message.account = folder.account;
