@@ -49,6 +49,9 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
+    @Query("SELECT * FROM identity WHERE account = :account AND email = :email")
+    EntityIdentity getIdentity(long account, String email);
+
     @Query("SELECT * FROM identity WHERE id = :id")
     LiveData<EntityIdentity> liveIdentity(long id);
 

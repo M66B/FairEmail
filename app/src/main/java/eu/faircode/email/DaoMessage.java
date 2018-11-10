@@ -36,7 +36,7 @@ public interface DaoMessage {
     // https://www.sqlite.org/lang_select.html
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.name AS accountName, IFNULL(identity.color,account.color) AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -51,6 +51,7 @@ public interface DaoMessage {
             ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND (NOT message.ui_hide OR :debug)" +
@@ -65,7 +66,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(String sort, boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.name AS accountName, IFNULL(identity.color,account.color) AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", COUNT(message.id) AS count" +
             ", SUM(CASE WHEN message.ui_seen" +
@@ -80,6 +81,7 @@ public interface DaoMessage {
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " JOIN folder f ON f.id = :folder" +
             " WHERE (message.account = f.account OR folder.type = '" + EntityFolder.OUTBOX + "')" +
@@ -95,7 +97,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, String sort, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.name AS accountName, IFNULL(identity.color,account.color) AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
@@ -103,6 +105,7 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
@@ -165,7 +168,7 @@ public interface DaoMessage {
     List<Long> getMessageWithoutPreview();
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.name AS accountName, IFNULL(identity.color,account.color) AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
@@ -173,12 +176,13 @@ public interface DaoMessage {
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, account.color AS accountColor" +
+            ", account.name AS accountName, IFNULL(identity.color,account.color) AS accountColor" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", 1 AS count" +
             ", 1 AS unseen" +
@@ -186,6 +190,7 @@ public interface DaoMessage {
             ", 0 AS attachments" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
+            " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +

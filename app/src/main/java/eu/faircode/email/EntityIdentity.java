@@ -36,7 +36,8 @@ import static androidx.room.ForeignKey.CASCADE;
                 @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE)
         },
         indices = {
-                @Index(value = {"account"})
+                @Index(value = {"account"}),
+                @Index(value = {"account", "email"})
         }
 )
 public class EntityIdentity {
@@ -67,6 +68,7 @@ public class EntityIdentity {
     public Integer auth_type;
     @NonNull
     public Boolean primary;
+    public Integer color;
     @NonNull
     public Boolean synchronize;
     @NonNull
@@ -88,6 +90,8 @@ public class EntityIdentity {
         json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
+        if (color != null)
+            json.put("color", color);
         json.put("synchronize", false);
         json.put("store_sent", store_sent);
         // not state
@@ -109,6 +113,8 @@ public class EntityIdentity {
         identity.password = json.getString("password");
         identity.auth_type = json.getInt("auth_type");
         identity.primary = json.getBoolean("primary");
+        if (json.has("color"))
+            identity.color = json.getInt("color");
         identity.synchronize = json.getBoolean("synchronize");
         identity.store_sent = json.getBoolean("store_sent");
         return identity;
@@ -129,6 +135,7 @@ public class EntityIdentity {
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
+                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.store_sent.equals(other.store_sent) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&

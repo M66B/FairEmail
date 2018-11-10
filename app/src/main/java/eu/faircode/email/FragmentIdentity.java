@@ -22,6 +22,8 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -37,11 +39,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.colorpicker.ColorPickerDialog;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -61,6 +66,7 @@ import javax.mail.Transport;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 
 public class FragmentIdentity extends FragmentEx {
@@ -80,6 +86,9 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private Button btnColor;
+    private View vwColor;
+    private ImageView ibColorDefault;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private CheckBox cbStoreSent;
@@ -90,6 +99,7 @@ public class FragmentIdentity extends FragmentEx {
     private Group grpAdvanced;
 
     private long id = -1;
+    private int color = Color.TRANSPARENT;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -130,6 +140,10 @@ public class FragmentIdentity extends FragmentEx {
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+
+        btnColor = view.findViewById(R.id.btnColor);
+        vwColor = view.findViewById(R.id.vwColor);
+        ibColorDefault = view.findViewById(R.id.ibColorDefault);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -289,6 +303,37 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        vwColor.setBackgroundColor(color);
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Helper.isPro(getContext())) {
+                    int[] colors = getContext().getResources().getIntArray(R.array.colorPicker);
+                    ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
+                    colorPickerDialog.initialize(R.string.title_account_color, colors, color, 4, colors.length);
+                    colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
+                        @Override
+                        public void onColorSelected(int color) {
+                            setColor(color);
+                        }
+                    });
+                    colorPickerDialog.show(getFragmentManager(), "colorpicker");
+                } else {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.hide(FragmentIdentity.this);
+                    fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
+            }
+        });
+
+        ibColorDefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setColor(Color.TRANSPARENT);
+            }
+        });
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -318,6 +363,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("port", etPort.getText().toString());
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putInt("color", color);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putBoolean("store_sent", cbStoreSent.isChecked());
@@ -336,6 +382,7 @@ public class FragmentIdentity extends FragmentEx {
                         String port = args.getString("port");
                         String user = args.getString("user");
                         String password = args.getString("password");
+                        Integer color = args.getInt("color");
                         int auth_type = args.getInt("auth_type");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
@@ -356,6 +403,8 @@ public class FragmentIdentity extends FragmentEx {
 
                         if (TextUtils.isEmpty(replyto))
                             replyto = null;
+                        if (Color.TRANSPARENT == color)
+                            color = null;
 
                         // Check SMTP server
                         if (synchronize) {
@@ -396,6 +445,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.port = Integer.parseInt(port);
                             identity.user = user;
                             identity.password = password;
+                            identity.color = color;
                             identity.auth_type = auth_type;
                             identity.synchronize = synchronize;
                             identity.primary = (identity.synchronize && primary);
@@ -504,6 +554,7 @@ public class FragmentIdentity extends FragmentEx {
         outState.putInt("provider", spProvider.getSelectedItemPosition());
         outState.putString("password", tilPassword.getEditText().getText().toString());
         outState.putInt("advanced", grpAdvanced.getVisibility());
+        outState.putInt("color", color);
     }
 
     @Override
@@ -535,6 +586,8 @@ public class FragmentIdentity extends FragmentEx {
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
                     cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
+                    color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
+
                     etName.requestFocus();
 
                     if (identity == null)
@@ -552,10 +605,12 @@ public class FragmentIdentity extends FragmentEx {
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
+                    color = savedInstanceState.getInt("color");
                 }
 
                 Helper.setViewsEnabled(view, true);
 
+                setColor(color);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous save/delete as cancelled
@@ -628,5 +683,14 @@ public class FragmentIdentity extends FragmentEx {
                 });
             }
         });
+    }
+
+    private void setColor(int color) {
+        FragmentIdentity.this.color = color;
+
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(color);
+        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
+        vwColor.setBackground(border);
     }
 }
