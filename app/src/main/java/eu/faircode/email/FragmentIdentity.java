@@ -401,8 +401,11 @@ public class FragmentIdentity extends FragmentEx {
                         if (TextUtils.isEmpty(password) && !insecure)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
+                        email = email.toLowerCase();
                         if (TextUtils.isEmpty(replyto))
                             replyto = null;
+                        else
+                            replyto = replyto.toLowerCase();
                         if (Color.TRANSPARENT == color)
                             color = null;
 
