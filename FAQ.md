@@ -174,6 +174,8 @@ To encrypt a message before sending, just select the menu *Encrypt*. Similarly, 
 Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
 Encryption/decryption is a pro feature.
 
+Inline PGP is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) why not.
+
 Note that signed only or encrypted only messages are not supported, see here for some considerations:
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
