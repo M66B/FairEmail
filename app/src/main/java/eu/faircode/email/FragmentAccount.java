@@ -336,13 +336,18 @@ public class FragmentAccount extends FragmentEx {
         btnAuthorize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String permission = Manifest.permission.GET_ACCOUNTS;
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
-                        ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
-                    Log.i(Helper.TAG, "Requesting " + permission);
-                    requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
-                } else
-                    selectAccount();
+                Provider provider = (Provider) spProvider.getSelectedItem();
+                Log.i(Helper.TAG, "Authorize " + provider);
+
+                if ("com.google".equals(provider.type)) {
+                    String permission = Manifest.permission.GET_ACCOUNTS;
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
+                            ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                        Log.i(Helper.TAG, "Requesting " + permission);
+                        requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
+                    } else
+                        selectAccount();
+                }
             }
         });
 
@@ -1043,6 +1048,7 @@ public class FragmentAccount extends FragmentEx {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i(Helper.TAG, "Activity result request=" + requestCode + " result=" + resultCode + " data=" + data);
+
         if (resultCode == Activity.RESULT_OK)
             if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
                 String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
