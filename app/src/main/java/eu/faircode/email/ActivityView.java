@@ -573,10 +573,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate() {
-        final long now = new Date().getTime();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        long now = new Date().getTime();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!prefs.getBoolean("updates", true))
+            return;
         if (prefs.getLong("last_update_check", 0) + UPDATE_INTERVAL > now)
             return;
+        prefs.edit().putLong("last_update_check", now).apply();
 
         new SimpleTask<UpdateInfo>() {
             @Override
@@ -593,17 +596,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         json.append(line);
 
                     JSONObject jroot = new JSONObject(json.toString());
+
                     if (jroot.has("tag_name") &&
                             jroot.has("html_url") &&
                             jroot.has("assets")) {
-                        prefs.edit().putLong("last_update_check", now).apply();
-
+                        // Get update info
                         UpdateInfo info = new UpdateInfo();
                         info.tag_name = jroot.getString("tag_name");
                         info.html_url = jroot.getString("html_url");
                         if (TextUtils.isEmpty(info.html_url))
                             return null;
 
+                        // Check if new release
                         JSONArray jassets = jroot.getJSONArray("assets");
                         for (int i = 0; i < jassets.length(); i++) {
                             JSONObject jasset = jassets.getJSONObject(i);
@@ -622,12 +626,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             }
                         }
                     }
+
+                    return null;
                 } finally {
                     if (urlConnection != null)
                         urlConnection.disconnect();
                 }
-
-                return null;
             }
 
             @Override

@@ -53,6 +53,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swSender;
     private SwitchCompat swInsecure;
     private Spinner spDownload;
+    private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
 
     @Override
@@ -75,6 +76,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swSender = view.findViewById(R.id.swSender);
         swInsecure = view.findViewById(R.id.swInsecure);
         spDownload = view.findViewById(R.id.spDownload);
+        swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
 
         // Wire controls
@@ -221,6 +223,15 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                 prefs.edit().remove("download").apply();
             }
         });
+
+        swUpdates.setChecked(prefs.getBoolean("updates", true));
+        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("updates", checked).apply();
+            }
+        });
+        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
 
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
