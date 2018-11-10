@@ -184,6 +184,7 @@
     <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
     <string name="title_fix">修复</string>

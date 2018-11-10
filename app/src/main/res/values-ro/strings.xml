@@ -194,6 +194,7 @@
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
     <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_fix">Remediere</string>

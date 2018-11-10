@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargés et ne seront pas transférées, continuer ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
     <string name="title_fix">Corriger</string>

@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
     <string name="title_ask_delete_selected">¿Eliminar los mensajes seleccionados permanentemente?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
     <string name="title_fix">Reparar</string>

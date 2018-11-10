@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
     <string name="title_ask_delete_selected">Ausgewählte E-Mails unwiderruflich löschen?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Entwurf verwerfen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_fix">Problem beheben</string>

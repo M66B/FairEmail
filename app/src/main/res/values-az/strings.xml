@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və yönləndirilməyəcək, davam edək?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
     <string name="title_ask_spam">Mesajı spam kimi bildirilsin?</string>
     <string name="title_fix">Düzəlt</string>

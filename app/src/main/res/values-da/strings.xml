@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
     <string name="title_ask_delete">Slet meddelelsen permanent?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_spam">Rapportér meddelelse som spam?</string>
     <string name="title_fix">Fix</string>

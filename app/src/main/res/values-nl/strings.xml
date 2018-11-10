@@ -189,6 +189,7 @@
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet doorgestuurd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
+    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_spam">Rapporteren als spam?</string>
     <string name="title_fix">Oplossen</string>
