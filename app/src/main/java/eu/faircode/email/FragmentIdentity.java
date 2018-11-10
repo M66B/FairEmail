@@ -406,8 +406,15 @@ public class FragmentIdentity extends FragmentEx {
                         if (Color.TRANSPARENT == color)
                             color = null;
 
+                        DB db = DB.getInstance(context);
+                        EntityIdentity identity = db.identity().getIdentity(id);
+
+                        boolean check = (identity == null || (synchronize &&
+                                (!host.equals(identity.host) || Integer.parseInt(port) != identity.port) ||
+                                !user.equals(identity.user) || !password.equals(identity.password)));
+
                         // Check SMTP server
-                        if (synchronize) {
+                        if (check) {
                             Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
@@ -427,11 +434,9 @@ public class FragmentIdentity extends FragmentEx {
                             }
                         }
 
-                        DB db = DB.getInstance(getContext());
                         try {
                             db.beginTransaction();
 
-                            EntityIdentity identity = db.identity().getIdentity(id);
                             boolean update = (identity != null);
                             if (identity == null)
                                 identity = new EntityIdentity();
@@ -467,7 +472,8 @@ public class FragmentIdentity extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.reload(getContext(), "save identity");
+                        if (check)
+                            ServiceSynchronize.reload(getContext(), "save identity");
 
                         return null;
                     }

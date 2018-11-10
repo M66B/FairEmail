@@ -631,6 +631,7 @@ public class FragmentAccount extends FragmentEx {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
                         String host = args.getString("host");
                         boolean starttls = args.getBoolean("starttls");
                         boolean insecure = args.getBoolean("insecure");
@@ -665,11 +666,19 @@ public class FragmentAccount extends FragmentEx {
                             interval = "19";
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
+
                         if (Color.TRANSPARENT == color)
                             color = null;
 
+                        DB db = DB.getInstance(context);
+                        EntityAccount account = db.account().getAccount(id);
+
+                        boolean check = (account == null || (synchronize &&
+                                (!host.equals(account.host) || Integer.parseInt(port) != account.port) ||
+                                !user.equals(account.user) || !password.equals(account.password)));
+
                         // Check IMAP server
-                        if (synchronize) {
+                        if (check) {
                             Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type, insecure), null);
                             isession.setDebug(true);
                             IMAPStore istore = null;
@@ -696,11 +705,9 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(name))
                             name = user;
 
-                        DB db = DB.getInstance(getContext());
                         try {
                             db.beginTransaction();
 
-                            EntityAccount account = db.account().getAccount(args.getLong("id"));
                             boolean update = (account != null);
                             if (account == null)
                                 account = new EntityAccount();
@@ -785,7 +792,8 @@ public class FragmentAccount extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.reload(getContext(), "save account");
+                        if (check)
+                            ServiceSynchronize.reload(getContext(), "save account");
 
                         return null;
                     }
