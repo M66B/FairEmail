@@ -65,6 +65,8 @@ public class MessageHelper {
 
     final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
     final static int CLOSE_TIMEOUT = 20 * 1000; // milliseconds
+    final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
+    final static int POOL_TIMEOUT = 3 * 60 * 1000; // milliseconds, default 45 sec
 
     static Properties getSessionProperties(int auth_type, boolean insecure) {
         Properties props = new Properties();
@@ -82,7 +84,7 @@ public class MessageHelper {
         props.put("mail.imaps.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
 
         props.put("mail.imaps.connectionpool.debug", "true");
-        props.put("mail.imaps.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+        props.put("mail.imaps.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
         // https://tools.ietf.org/html/rfc4978
         // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
@@ -90,7 +92,7 @@ public class MessageHelper {
         //props.put("mail.imaps.compress.level", "-1");
         //props.put("mail.imaps.compress.strategy", "0");
 
-        props.put("mail.imaps.fetchsize", Integer.toString(48 * 1024)); // default 16K
+        props.put("mail.imaps.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imaps.peek", "true");
 
         props.put("mail.imap.ssl.checkserveridentity", checkserveridentity);
@@ -104,11 +106,11 @@ public class MessageHelper {
         props.put("mail.imap.writetimeout", Integer.toString(NETWORK_TIMEOUT)); // one thread overhead
 
         props.put("mail.imap.connectionpool.debug", "true");
-        props.put("mail.imap.connectionpooltimeout", Integer.toString(3 * 60 * 1000)); // default: 45 sec
+        props.put("mail.imap.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
         props.put("mail.imap.compress.enable", "true");
 
-        props.put("mail.imap.fetchsize", Integer.toString(48 * 1024)); // default 16K
+        props.put("mail.imap.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imap.peek", "true");
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
