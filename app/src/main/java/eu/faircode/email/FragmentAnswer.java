@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -108,30 +109,39 @@ public class FragmentAnswer extends FragmentEx {
     }
 
     private void onActionTrash() {
-        Helper.setViewsEnabled(view, false);
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_ask_delete_answer)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Helper.setViewsEnabled(view, false);
 
-        Bundle args = new Bundle();
-        args.putLong("id", id);
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
 
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onLoad(Context context, Bundle args) {
-                long id = args.getLong("id");
-                DB.getInstance(context).answer().deleteAnswer(id);
-                return null;
-            }
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                DB.getInstance(context).answer().deleteAnswer(id);
+                                return null;
+                            }
 
-            @Override
-            protected void onLoaded(Bundle args, Void data) {
-                finish();
-            }
+                            @Override
+                            protected void onLoaded(Bundle args, Void data) {
+                                finish();
+                            }
 
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.setViewsEnabled(view, true);
-                Helper.unexpectedError(getContext(), ex);
-            }
-        }.load(this, args);
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.setViewsEnabled(view, true);
+                                Helper.unexpectedError(getContext(), ex);
+                            }
+                        }.load(FragmentAnswer.this, args);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void onActionSave() {
