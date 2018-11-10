@@ -139,11 +139,12 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
 
-    static final int PI_CLEAR = 1;
-    static final int PI_SEEN = 2;
-    static final int PI_ARCHIVE = 2;
-    static final int PI_TRASH = 4;
-    static final int PI_IGNORED = 5;
+    static final int PI_WHY = 1;
+    static final int PI_CLEAR = 2;
+    static final int PI_SEEN = 3;
+    static final int PI_ARCHIVE = 4;
+    static final int PI_TRASH = 5;
+    static final int PI_IGNORED = 6;
 
     static final String ACTION_SYNCHRONIZE_FOLDER = BuildConfig.APPLICATION_ID + ".SYNCHRONIZE_FOLDER";
     static final String ACTION_PROCESS_OPERATIONS = BuildConfig.APPLICATION_ID + ".PROCESS_OPERATIONS";
@@ -239,7 +240,22 @@ public class ServiceSynchronize extends LifecycleService {
         super.onStartCommand(intent, flags, startId);
 
         if (action != null) {
-            if ("start".equals(action))
+            if ("why".equals(action)) {
+                Intent why = new Intent(Intent.ACTION_VIEW);
+                why.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq2"));
+                why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                PackageManager pm = getPackageManager();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                if (prefs.getBoolean("why", false) || why.resolveActivity(pm) == null) {
+                    Intent main = new Intent(this, ActivityView.class);
+                    main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(main);
+                } else {
+                    prefs.edit().putBoolean("why", true).apply();
+                    startActivity(why);
+                }
+            } else if ("start".equals(action))
                 serviceManager.queue_start();
             else if ("stop".equals(action))
                 serviceManager.queue_stop();
@@ -318,10 +334,9 @@ public class ServiceSynchronize extends LifecycleService {
             stats = new TupleAccountStats();
 
         // Build pending intent
-        Intent intent = new Intent(this, ActivityView.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_UNIFIED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(this, ServiceSynchronize.class);
+        intent.setAction("why");
+        PendingIntent pi = PendingIntent.getService(this, PI_WHY, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;

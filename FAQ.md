@@ -68,6 +68,8 @@ Most, if not all, other email apps don't show a notification with the "side effe
 
 Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
 
+If you came here by clicking on the notification, you should known that the next click will open the unified inbox.
+
 <a name="faq3"></a>
 **(3) What are operations and why are they pending?**
 
