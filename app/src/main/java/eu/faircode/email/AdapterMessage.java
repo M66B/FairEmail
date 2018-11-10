@@ -1446,7 +1446,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.preview = prefs.getBoolean("preview", false);
         this.debug = prefs.getBoolean("debug", false);
 
-        this.dp24 = Math.round(24 * Resources.getSystem().getDisplayMetrics().density);
+        this.dp24 = Math.round(24 * context.getResources().getDisplayMetrics().density);
         this.theme = prefs.getString("theme", "light");
     }
 

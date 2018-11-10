@@ -347,7 +347,7 @@ public class FragmentMessages extends FragmentEx {
                 boolean inbox = (EntityFolder.ARCHIVE.equals(message.folderType) || EntityFolder.TRASH.equals(message.folderType));
 
                 View itemView = viewHolder.itemView;
-                int margin = Math.round(12 * (getResources().getDisplayMetrics().density));
+                int margin = Math.round(12 * (getContext().getResources().getDisplayMetrics().density));
 
                 if (dX > margin) {
                     // Right swipe
