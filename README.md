@@ -100,8 +100,8 @@ are preferred in the form of [pull requests](https://help.github.com/articles/cr
 
 *Translations*
 
-* You can translate the in-app texts of FairEmail [here](https://crowdin.com/project/open-source-email)
-* If your language is not listed, please send a message through [this contact form](https://contact.faircode.eu/)
+* You can translate the in-app texts of FairEmail [on Crowdin](https://crowdin.com/project/open-source-email)
+* If your language is not listed, please send a message through [this contact form](https://contact.faircode.eu/?product=other)
 
 *Source code*
 
@@ -109,7 +109,7 @@ Building FairEmail from source code is straightforward with [Android Studio](htt
 It is expected that you can solve build problems yourself, so there is no support on building.
 
 Source code contributions are preferred in the form of [pull requests](https://help.github.com/articles/creating-a-pull-request/).
-Please [contact me](https://contact.faircode.eu/) first to tell me what your plans are.
+Please [contact me](https://contact.faircode.eu/?product=other) first to tell me what your plans are.
 
 Please note that you agree to the license below by contributing, including the copyright.
 
