@@ -222,7 +222,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 });
 
                 for (EntityAccount account : accounts)
-                    drawerArray.add(new DrawerItem(R.layout.item_drawer, -1, R.drawable.baseline_folder_24, account.color, account.name, account.id));
+                    drawerArray.add(new DrawerItem(
+                            R.layout.item_drawer, -1,
+                            "connected".equals(account.state) ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24,
+                            account.color, account.name, account.id));
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
