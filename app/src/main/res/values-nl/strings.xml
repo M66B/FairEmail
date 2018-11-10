@@ -86,6 +86,7 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>

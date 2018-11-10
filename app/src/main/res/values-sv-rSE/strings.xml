@@ -86,6 +86,7 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>

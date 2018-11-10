@@ -86,6 +86,7 @@
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
+    <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
@@ -189,7 +190,7 @@
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargés et ne seront pas transférées, continuer ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
     <string name="title_fix">Corriger</string>
@@ -238,7 +239,7 @@
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l’expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l’adresse e-mail de l’expéditeur</string>
-    <string name="title_action_seen">Marquer lu</string>
+    <string name="title_action_seen">Marquer comme lu</string>
     <string name="title_action_archive">Archiver</string>
     <string name="title_action_trash">Supprimer</string>
     <string name="title_legend_inbox">Boîte de réception</string>

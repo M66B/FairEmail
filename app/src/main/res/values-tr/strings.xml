@@ -86,6 +86,7 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>

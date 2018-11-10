@@ -91,6 +91,7 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
@@ -194,7 +195,7 @@
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
     <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_fix">Remediere</string>

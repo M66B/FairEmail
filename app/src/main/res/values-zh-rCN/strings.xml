@@ -81,6 +81,7 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
+    <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
