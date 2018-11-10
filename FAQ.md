@@ -407,6 +407,18 @@ This means that the edited sender address was automatically replaced by a valida
 
 Note that this is independent of receiving messages.
 
+<a name="faq34"></a>
+**(34) How are identities matched?**
+
+Identities are matched on e-mail address in this order:
+
+1. *To* header address
+1. *To* header address without extra (see [this FAQ](#user-content-faq33))
+1. *Delivered-To* header address
+
+Matched identities can be used to color code messages. The identity color takes precedence over the account color.
+Setting colors is a pro feature.
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
