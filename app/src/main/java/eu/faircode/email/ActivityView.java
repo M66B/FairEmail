@@ -62,6 +62,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.Collator;
@@ -124,6 +125,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
     static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
+
+    private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
+    private static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -976,75 +980,109 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 DB db = DB.getInstance(context);
 
+                boolean inline = false;
+                InputStream encrypted = null;
+
                 // Find encrypted data
-                boolean found = false;
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : attachments)
                     if ("encrypted.asc".equals(attachment.name)) {
                         if (!attachment.available)
                             throw new IllegalArgumentException(getString(R.string.title_attachments_missing));
 
-                        found = true;
-
-                        // Serialize encrypted data
-                        FileInputStream encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
-                        ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
-
-                        // Decrypt message
-                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                        Intent result = api.executeApi(data, encrypted, decrypted);
-                        switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
-                            case OpenPgpApi.RESULT_CODE_SUCCESS:
-                                // Decode message
-                                Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
-                                Session isession = Session.getInstance(props, null);
-                                ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
-                                MimeMessage imessage = new MimeMessage(isession, is);
-                                MessageHelper helper = new MessageHelper(imessage);
-
-                                try {
-                                    db.beginTransaction();
-
-                                    // Write decrypted body
-                                    EntityMessage m = db.message().getMessage(id);
-                                    m.write(context, helper.getHtml());
-
-                                    // Remove previously decrypted attachments
-                                    for (EntityAttachment a : attachments)
-                                        if (!"encrypted.asc".equals(a.name))
-                                            db.attachment().deleteAttachment(a.id);
-
-                                    // Add decrypted attachments
-                                    int sequence = db.attachment().getAttachmentSequence(id);
-                                    for (EntityAttachment a : helper.getAttachments()) {
-                                        a.message = id;
-                                        a.sequence = ++sequence;
-                                        a.id = db.attachment().insertAttachment(a);
-                                    }
-
-                                    db.message().setMessageStored(id, new Date().getTime());
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                break;
-
-                            case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                                message = id;
-                                return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
-
-                            case OpenPgpApi.RESULT_CODE_ERROR:
-                                OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                                throw new IllegalArgumentException(error.getMessage());
-                        }
-
+                        encrypted = new FileInputStream(EntityAttachment.getFile(context, attachment.id));
                         break;
                     }
 
-                if (!found)
+                if (encrypted == null) {
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message.content) {
+                        String body = message.read(context);
+                        if (body != null) {
+                            int begin = body.indexOf(PGP_BEGIN_MESSAGE);
+                            int end = body.indexOf(PGP_END_MESSAGE);
+                            if (begin >= 0 && begin < end) {
+                                String section = body.substring(begin, end + PGP_END_MESSAGE.length());
+                                section = section.replace("<br />", "\n\r");
+
+                                inline = true;
+                                encrypted = new ByteArrayInputStream(section.getBytes());
+                            }
+                        }
+                    }
+                }
+
+                if (encrypted == null)
                     throw new IllegalArgumentException(getString(R.string.title_not_encrypted));
+
+                ByteArrayOutputStream decrypted = new ByteArrayOutputStream();
+
+                // Decrypt message
+                OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                Intent result = api.executeApi(data, encrypted, decrypted);
+                switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
+                    case OpenPgpApi.RESULT_CODE_SUCCESS:
+                        if (inline) {
+                            try {
+                                db.beginTransaction();
+
+                                // Write decrypted body
+                                EntityMessage m = db.message().getMessage(id);
+                                m.write(context, decrypted.toString());
+
+                                db.message().setMessageStored(id, new Date().getTime());
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                        } else {
+                            // Decode message
+                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Session isession = Session.getInstance(props, null);
+                            ByteArrayInputStream is = new ByteArrayInputStream(decrypted.toByteArray());
+                            MimeMessage imessage = new MimeMessage(isession, is);
+                            MessageHelper helper = new MessageHelper(imessage);
+
+                            try {
+                                db.beginTransaction();
+
+                                // Write decrypted body
+                                EntityMessage m = db.message().getMessage(id);
+                                m.write(context, helper.getHtml());
+
+                                // Remove previously decrypted attachments
+                                for (EntityAttachment a : attachments)
+                                    if (!"encrypted.asc".equals(a.name))
+                                        db.attachment().deleteAttachment(a.id);
+
+                                // Add decrypted attachments
+                                int sequence = db.attachment().getAttachmentSequence(id);
+                                for (EntityAttachment a : helper.getAttachments()) {
+                                    a.message = id;
+                                    a.sequence = ++sequence;
+                                    a.id = db.attachment().insertAttachment(a);
+                                }
+
+                                db.message().setMessageStored(id, new Date().getTime());
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+                        }
+
+                        break;
+
+                    case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                        message = id;
+                        return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+
+                    case OpenPgpApi.RESULT_CODE_ERROR:
+                        OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                        throw new IllegalArgumentException(error.getMessage());
+                }
 
                 return null;
             }
