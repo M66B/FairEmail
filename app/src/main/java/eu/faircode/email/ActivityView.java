@@ -980,7 +980,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean found = false;
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : attachments)
-                    if (attachment.available && "encrypted.asc".equals(attachment.name)) {
+                    if ("encrypted.asc".equals(attachment.name)) {
+                        if (!attachment.available)
+                            throw new IllegalArgumentException(getString(R.string.title_attachments_missing));
+
                         found = true;
 
                         // Serialize encrypted data
