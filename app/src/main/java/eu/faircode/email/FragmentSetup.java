@@ -60,7 +60,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -103,21 +102,6 @@ public class FragmentSetup extends FragmentEx {
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
     };
-
-    static final List<String> EXPORT_SETTINGS = Arrays.asList(
-            "enabled",
-            "compact",
-            "avatars",
-            "identicons",
-            "preview",
-            "light",
-            "browse",
-            "swipe",
-            "navigation",
-            "sender",
-            "insecure",
-            "sort"
-    );
 
     @Override
     @Nullable
@@ -582,7 +566,7 @@ public class FragmentSetup extends FragmentEx {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     JSONArray jsettings = new JSONArray();
                     for (String key : prefs.getAll().keySet())
-                        if (EXPORT_SETTINGS.contains(key)) {
+                        if (!"pro".equals(key)) {
                             JSONObject jsetting = new JSONObject();
                             jsetting.put("key", key);
                             jsetting.put("value", prefs.getAll().get(key));
@@ -688,10 +672,14 @@ public class FragmentSetup extends FragmentEx {
                         for (int s = 0; s < jsettings.length(); s++) {
                             JSONObject jsetting = (JSONObject) jsettings.get(s);
                             String key = jsetting.getString("key");
-                            if (EXPORT_SETTINGS.contains(key)) {
+                            if (!"pro".equals(key)) {
                                 Object value = jsetting.get("value");
                                 if (value instanceof Boolean)
                                     editor.putBoolean(key, (Boolean) value);
+                                else if (value instanceof Integer)
+                                    editor.putInt(key, (Integer) value);
+                                else if (value instanceof Long)
+                                    editor.putLong(key, (Long) value);
                                 else if (value instanceof String)
                                     editor.putString(key, (String) value);
                                 else

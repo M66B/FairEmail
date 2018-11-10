@@ -17,9 +17,9 @@ android {
         }
     }
 
-    //lintOptions {
-    //    disable 'MissingTranslation'
-    //}
+    lintOptions {
+        disable 'MissingTranslation'
+    }
 
     buildTypes {
         release {

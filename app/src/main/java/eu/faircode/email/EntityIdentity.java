@@ -79,16 +79,19 @@ public class EntityIdentity {
         json.put("name", name);
         json.put("email", email);
         json.put("replyto", replyto);
+        // not account
         json.put("host", host);
-        json.put("port", port);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
+        json.put("port", port);
         json.put("user", user);
         json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
         json.put("synchronize", false);
         json.put("store_sent", store_sent);
+        // not state
+        // not error
         return json;
     }
 
@@ -99,9 +102,9 @@ public class EntityIdentity {
         if (json.has("replyto"))
             identity.replyto = json.getString("replyto");
         identity.host = json.getString("host");
-        identity.port = json.getInt("port");
         identity.starttls = json.getBoolean("starttls");
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
+        identity.port = json.getInt("port");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
         identity.auth_type = json.getInt("auth_type");
@@ -120,8 +123,9 @@ public class EntityIdentity {
                     (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
                     this.account.equals(other.account) &&
                     this.host.equals(other.host) &&
-                    this.port.equals(other.port) &&
                     this.starttls.equals(other.starttls) &&
+                    this.insecure.equals(other.insecure) &&
+                    this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&

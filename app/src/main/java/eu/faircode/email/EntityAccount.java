@@ -66,27 +66,6 @@ public class EntityAccount {
     public String state;
     public String error;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof EntityAccount) {
-            EntityAccount other = (EntityAccount) obj;
-            return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
-                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
-                    this.host.equals(other.host) &&
-                    this.port.equals(other.port) &&
-                    this.user.equals(other.user) &&
-                    this.password.equals(other.password) &&
-                    this.auth_type.equals(other.auth_type) &&
-                    this.synchronize.equals(other.synchronize) &&
-                    this.primary.equals(other.primary) &&
-                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
-                    this.poll_interval.equals(other.poll_interval) &&
-                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
-        } else
-            return false;
-    }
-
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("name", name);
@@ -103,6 +82,9 @@ public class EntityAccount {
         if (color != null)
             json.put("color", color);
         json.put("poll_interval", poll_interval);
+        // not created
+        // not state
+        // not error
         return json;
     }
 
@@ -125,6 +107,30 @@ public class EntityAccount {
             account.color = json.getInt("color");
         account.poll_interval = json.getInt("poll_interval");
         return account;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof EntityAccount) {
+            EntityAccount other = (EntityAccount) obj;
+            return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
+                    this.host.equals(other.host) &&
+                    this.starttls == other.starttls &&
+                    this.insecure == other.insecure &&
+                    this.port.equals(other.port) &&
+                    this.user.equals(other.user) &&
+                    this.password.equals(other.password) &&
+                    this.auth_type.equals(other.auth_type) &&
+                    this.synchronize.equals(other.synchronize) &&
+                    this.primary.equals(other.primary) &&
+                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    this.poll_interval.equals(other.poll_interval) &&
+                    (this.created == null ? other.created == null : this.created.equals(other.created)) &&
+                    (this.state == null ? other.state == null : this.state.equals(other.state)) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+        } else
+            return false;
     }
 
     @Override
