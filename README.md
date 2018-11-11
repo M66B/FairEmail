@@ -59,6 +59,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * No special permissions required
 * No advertisements
 * No analytics and no tracking
+* No [Google backup](https://developer.android.com/guide/topics/data/backup)
 
 ## Efficient
 
