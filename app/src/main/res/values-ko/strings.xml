@@ -189,8 +189,9 @@
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_spam">Report message as spam?</string>
+    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_fix">Fix</string>
-    <string name="title_compose">Compose %1$s</string>
+    <string name="title_compose">Compose</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>
     <string name="title_reply_to">Reply to:</string>
@@ -261,7 +262,7 @@
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
-    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_open_link">Open link</string>
     <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>

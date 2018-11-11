@@ -204,8 +204,9 @@
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
+    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_fix">Popraw</string>
-    <string name="title_compose">Napisz %1$s</string>
+    <string name="title_compose">Compose</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
     <string name="title_reply_to">Odpisz do:</string>
@@ -276,7 +277,7 @@
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
     <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>
-    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>

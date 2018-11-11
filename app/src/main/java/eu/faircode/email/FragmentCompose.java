@@ -110,7 +110,8 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentEx {
     private ViewGroup view;
-    private Spinner spFrom;
+    private Spinner spAccount;
+    private Spinner spIdentity;
     private ImageView ivIdentityAdd;
     private TextView tvExtraPrefix;
     private EditText etExtra;
@@ -145,7 +146,8 @@ public class FragmentCompose extends FragmentEx {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get controls
-        spFrom = view.findViewById(R.id.spFrom);
+        spAccount = view.findViewById(R.id.spAccount);
+        spIdentity = view.findViewById(R.id.spIdentity);
         ivIdentityAdd = view.findViewById(R.id.ivIdentityAdd);
         tvExtraPrefix = view.findViewById(R.id.tvExtraPrefix);
         etExtra = view.findViewById(R.id.etExtra);
@@ -168,7 +170,7 @@ public class FragmentCompose extends FragmentEx {
         grpAttachments = view.findViewById(R.id.grpAttachments);
 
         // Wire controls
-        spFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
@@ -272,6 +274,7 @@ public class FragmentCompose extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Initialize
+        setSubtitle(R.string.title_compose);
         tvExtraPrefix.setText(null);
         tvExtraSuffix.setText(null);
 
@@ -285,7 +288,6 @@ public class FragmentCompose extends FragmentEx {
         pbWait.setVisibility(View.VISIBLE);
 
         getActivity().invalidateOptionsMenu();
-        spFrom.setEnabled(false);
         Helper.setViewsEnabled(view, false);
 
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
@@ -881,11 +883,12 @@ public class FragmentCompose extends FragmentEx {
         Helper.setViewsEnabled(view, false);
         getActivity().invalidateOptionsMenu();
 
-        EntityIdentity identity = (EntityIdentity) spFrom.getSelectedItem();
+        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
 
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putInt("action", action);
+        args.putLong("account", identity == null ? -1 : identity.account);
         args.putLong("identity", identity == null ? -1 : identity.id);
         args.putString("extra", etExtra.getText().toString());
         args.putString("to", etTo.getText().toString());
@@ -998,7 +1001,6 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private SimpleTask<DraftAccount> draftLoader = new SimpleTask<DraftAccount>() {
-
         @Override
         protected DraftAccount onLoad(Context context, Bundle args) throws IOException {
             String action = args.getString("action");
@@ -1249,8 +1251,6 @@ public class FragmentCompose extends FragmentEx {
             final String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + result.draft.id + " action=" + action);
 
-            setSubtitle(getString(R.string.title_compose, result.account.name));
-
             etExtra.setText(result.draft.extra);
             etTo.setText(MessageHelper.getFormattedAddresses(result.draft.to, true));
             etCc.setText(MessageHelper.getFormattedAddresses(result.draft.cc, true));
@@ -1297,64 +1297,107 @@ public class FragmentCompose extends FragmentEx {
             edit_bar.setVisibility(View.VISIBLE);
             bottom_navigation.setVisibility(View.VISIBLE);
 
-            DB db = DB.getInstance(getContext());
+            final DB db = DB.getInstance(getContext());
 
-            db.identity().liveIdentities(result.draft.account, true).removeObservers(getViewLifecycleOwner());
-            db.identity().liveIdentities(result.draft.account, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+            db.account().liveAccounts(true).removeObservers(getViewLifecycleOwner());
+            db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
                 @Override
-                public void onChanged(@Nullable List<EntityIdentity> identities) {
-                    if (identities == null)
-                        identities = new ArrayList<>();
+                public void onChanged(List<EntityAccount> accounts) {
+                    if (accounts == null)
+                        accounts = new ArrayList<>();
 
-                    Log.i(Helper.TAG, "Set identities=" + identities.size());
+                    Log.i(Helper.TAG, "Set accounts=" + accounts.size());
 
-                    // Sort identities
-                    Collections.sort(identities, new Comparator<EntityIdentity>() {
+                    // Sort accounts
+                    Collections.sort(accounts, new Comparator<EntityAccount>() {
                         @Override
-                        public int compare(EntityIdentity i1, EntityIdentity i2) {
-                            return i1.name.compareTo(i2.name);
+                        public int compare(EntityAccount a1, EntityAccount a2) {
+                            return a1.name.compareTo(a2.name);
                         }
                     });
 
-                    // Show identities
-                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
+                    // Show accounts
+                    AccountAdapter adapter = new AccountAdapter(getContext(), accounts);
                     adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                    spFrom.setAdapter(adapter);
+                    spAccount.setAdapter(adapter);
 
-                    boolean found = false;
+                    spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            EntityAccount account = (EntityAccount) parent.getAdapter().getItem(position);
 
-                    // Select earlier selected identity
-                    if (result.draft.identity != null)
-                        for (int pos = 0; pos < identities.size(); pos++) {
-                            if (identities.get(pos).id.equals(result.draft.identity)) {
-                                spFrom.setSelection(pos);
-                                found = true;
-                                break;
-                            }
+                            db.identity().liveIdentities(account.id, true).removeObservers(getViewLifecycleOwner());
+                            db.identity().liveIdentities(account.id, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+                                @Override
+                                public void onChanged(@Nullable List<EntityIdentity> identities) {
+                                    if (identities == null)
+                                        identities = new ArrayList<>();
+
+                                    Log.i(Helper.TAG, "Set identities=" + identities.size());
+
+                                    // Sort identities
+                                    Collections.sort(identities, new Comparator<EntityIdentity>() {
+                                        @Override
+                                        public int compare(EntityIdentity i1, EntityIdentity i2) {
+                                            return i1.name.compareTo(i2.name);
+                                        }
+                                    });
+
+                                    // Show identities
+                                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
+                                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                                    spIdentity.setAdapter(adapter);
+
+                                    boolean found = false;
+
+                                    // Select earlier selected identity
+                                    if (result.draft.identity != null)
+                                        for (int pos = 0; pos < identities.size(); pos++) {
+                                            if (identities.get(pos).id.equals(result.draft.identity)) {
+                                                spIdentity.setSelection(pos);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+
+                                    // Select identity matching from address
+                                    if (!found && result.draft.from != null && result.draft.from.length > 0) {
+                                        String from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
+                                        for (int pos = 0; pos < identities.size(); pos++) {
+                                            String email = Helper.canonicalAddress(identities.get(pos).email);
+                                            if (email.equals(from)) {
+                                                spIdentity.setSelection(pos);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Select primary identity
+                                    if (!found)
+                                        for (int pos = 0; pos < identities.size(); pos++)
+                                            if (identities.get(pos).primary) {
+                                                spIdentity.setSelection(pos);
+                                                break;
+                                            }
+                                }
+                            });
                         }
 
-                    // Select identity matching from address
-                    if (!found && result.draft.from != null && result.draft.from.length > 0) {
-                        String from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
-                        for (int pos = 0; pos < identities.size(); pos++) {
-                            String email = Helper.canonicalAddress(identities.get(pos).email);
-                            if (email.equals(from)) {
-                                spFrom.setSelection(pos);
-                                found = true;
-                                break;
-                            }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                            IdentityAdapter adapter = new IdentityAdapter(getContext(), new ArrayList<EntityIdentity>());
+                            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                            spIdentity.setAdapter(adapter);
                         }
-                    }
+                    });
 
-                    // Select primary identity
-                    if (!found)
-                        for (int pos = 0; pos < identities.size(); pos++)
-                            if (identities.get(pos).primary) {
-                                spFrom.setSelection(pos);
-                                break;
-                            }
-
-                    spFrom.setEnabled(true);
+                    // Select account
+                    for (int pos = 0; pos < accounts.size(); pos++)
+                        if (accounts.get(pos).id == result.draft.account) {
+                            spAccount.setSelection(pos);
+                            break;
+                        }
                 }
             });
 
@@ -1394,6 +1437,7 @@ public class FragmentCompose extends FragmentEx {
             // Get data
             long id = args.getLong("id");
             int action = args.getInt("action");
+            long aid = args.getLong("account");
             long iid = args.getLong("identity");
             String extra = args.getString("extra");
             String to = args.getString("to");
@@ -1417,6 +1461,31 @@ public class FragmentCompose extends FragmentEx {
                     throw new MessageRemovedException("Draft for action was deleted");
 
                 Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
+
+                // Move draft to new account
+                if (draft.account != aid) {
+                    long uid = draft.uid;
+                    String msgid = draft.msgid;
+
+                    draft.uid = null;
+                    draft.msgid = null;
+                    db.message().updateMessage(draft);
+
+                    draft.id = null;
+                    draft.uid = uid;
+                    draft.msgid = msgid;
+                    draft.content = false;
+                    draft.ui_hide = true;
+                    draft.id = db.message().insertMessage(draft);
+                    EntityOperation.queue(db, draft, EntityOperation.DELETE);
+
+                    draft.id = id;
+                    draft.account = aid;
+                    draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                    draft.content = true;
+                    draft.ui_hide = false;
+                    EntityOperation.queue(db, draft, EntityOperation.ADD);
+                }
 
                 // Convert data
                 InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
@@ -1593,6 +1662,39 @@ public class FragmentCompose extends FragmentEx {
         EntityAccount account;
     }
 
+    public class AccountAdapter extends ArrayAdapter<EntityAccount> {
+        private Context context;
+        private List<EntityAccount> accounts;
+
+        AccountAdapter(@NonNull Context context, List<EntityAccount> accounts) {
+            super(context, 0, accounts);
+            this.context = context;
+            this.accounts = accounts;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            return getLayout(position, convertView, parent);
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            return getLayout(position, convertView, parent);
+        }
+
+        View getLayout(int position, View convertView, ViewGroup parent) {
+            View view = LayoutInflater.from(context).inflate(R.layout.spinner_item1, parent, false);
+
+            EntityAccount account = accounts.get(position);
+
+            TextView text1 = view.findViewById(android.R.id.text1);
+            text1.setText(account.name);
+
+            return view;
+        }
+    }
+
     public class IdentityAdapter extends ArrayAdapter<EntityIdentity> {
         private Context context;
         private List<EntityIdentity> identities;
@@ -1619,11 +1721,11 @@ public class FragmentCompose extends FragmentEx {
 
             EntityIdentity identity = identities.get(position);
 
-            TextView name = view.findViewById(android.R.id.text1);
-            name.setText(identity.name);
+            TextView text1 = view.findViewById(android.R.id.text1);
+            text1.setText(identity.name);
 
-            TextView email = view.findViewById(android.R.id.text2);
-            email.setText(identity.email);
+            TextView text2 = view.findViewById(android.R.id.text2);
+            text2.setText(identity.email);
 
             return view;
         }

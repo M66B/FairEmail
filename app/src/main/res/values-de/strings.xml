@@ -194,8 +194,9 @@
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf verwerfen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
+    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_fix">Problem beheben</string>
-    <string name="title_compose">Erstelle %1$s</string>
+    <string name="title_compose">Compose</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
     <string name="title_reply_to">Antworten an:</string>

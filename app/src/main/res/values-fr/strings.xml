@@ -194,8 +194,9 @@
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
+    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_fix">Corriger</string>
-    <string name="title_compose">Composer %1$s</string>
+    <string name="title_compose">Compose</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>
