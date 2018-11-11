@@ -415,6 +415,8 @@ Identities are matched on e-mail address in this order:
 
 1. *To* header address
 1. *To* header address without extra (see [this FAQ](#user-content-faq33))
+1. *From* header address
+1. *From* header address without extra
 1. *Delivered-To* header address
 
 Matched identities can be used to color code messages. The identity color takes precedence over the account color.
