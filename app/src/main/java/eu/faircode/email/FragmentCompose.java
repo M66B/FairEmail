@@ -1318,7 +1318,7 @@ public class FragmentCompose extends FragmentEx {
 
                     // Show accounts
                     AccountAdapter adapter = new AccountAdapter(getContext(), accounts);
-                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                    adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                     spAccount.setAdapter(adapter);
 
                     spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -1345,7 +1345,7 @@ public class FragmentCompose extends FragmentEx {
 
                                     // Show identities
                                     IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
-                                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                                    adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                                     spIdentity.setAdapter(adapter);
 
                                     boolean found = false;
@@ -1387,7 +1387,7 @@ public class FragmentCompose extends FragmentEx {
                         @Override
                         public void onNothingSelected(AdapterView<?> parent) {
                             IdentityAdapter adapter = new IdentityAdapter(getContext(), new ArrayList<EntityIdentity>());
-                            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+                            adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                             spIdentity.setAdapter(adapter);
                         }
                     });
@@ -1675,16 +1675,16 @@ public class FragmentCompose extends FragmentEx {
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            return getLayout(position, convertView, parent);
+            return getLayout(position, convertView, parent, R.layout.spinner_item1);
         }
 
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getLayout(position, convertView, parent);
+            return getLayout(position, convertView, parent, R.layout.spinner_item1_dropdown);
         }
 
-        View getLayout(int position, View convertView, ViewGroup parent) {
-            View view = LayoutInflater.from(context).inflate(R.layout.spinner_item1, parent, false);
+        View getLayout(int position, View convertView, ViewGroup parent, int resid) {
+            View view = LayoutInflater.from(context).inflate(resid, parent, false);
 
             EntityAccount account = accounts.get(position);
 

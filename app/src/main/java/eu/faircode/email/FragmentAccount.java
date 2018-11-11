@@ -864,8 +864,8 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
-        adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, new ArrayList<EntityFolder>());
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
         spDrafts.setAdapter(adapter);
         spSent.setAdapter(adapter);
@@ -931,9 +931,10 @@ public class FragmentAccount extends FragmentEx {
                 providers.add(0, new Provider(getString(R.string.title_select)));
                 providers.add(1, new Provider(getString(R.string.title_custom)));
 
-                ArrayAdapter<Provider> padapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
-                padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                spProvider.setAdapter(padapter);
+                ArrayAdapter<Provider> aaProvider =
+                        new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
+                aaProvider.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+                spProvider.setAdapter(aaProvider);
 
                 if (savedInstanceState == null) {
                     if (account != null) {

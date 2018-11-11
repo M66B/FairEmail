@@ -645,17 +645,19 @@ public class FragmentIdentity extends FragmentEx {
                         unselected.primary = false;
                         accounts.add(0, unselected);
 
-                        ArrayAdapter<EntityAccount> aa = new ArrayAdapter<>(getContext(), R.layout.spinner_item, accounts);
-                        aa.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                        spAccount.setAdapter(aa);
+                        ArrayAdapter<EntityAccount> aaAccount =
+                                new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, accounts);
+                        aaAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+                        spAccount.setAdapter(aaAccount);
 
                         // Get providers
                         List<Provider> providers = Provider.loadProfiles(getContext());
                         providers.add(0, new Provider(getString(R.string.title_custom)));
 
-                        ArrayAdapter<Provider> adapterProfile = new ArrayAdapter<>(getContext(), R.layout.spinner_item, providers);
-                        adapterProfile.setDropDownViewResource(R.layout.spinner_dropdown_item);
-                        spProvider.setAdapter(adapterProfile);
+                        ArrayAdapter<Provider> aaProfile =
+                                new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, providers);
+                        aaProfile.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+                        spProvider.setAdapter(aaProfile);
 
                         if (savedInstanceState == null) {
                             spProvider.setTag(0);
