@@ -126,6 +126,14 @@ public class EntityFolder implements Serializable {
     public EntityFolder() {
     }
 
+    boolean isOutgoing() {
+        return isOutgoing(this.type);
+    }
+
+    static boolean isOutgoing(String type) {
+        return DRAFTS.equals(type) || OUTBOX.equals(type) || SENT.equals(type);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {

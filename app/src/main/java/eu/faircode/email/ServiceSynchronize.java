@@ -1924,10 +1924,7 @@ public class ServiceSynchronize extends LifecycleService {
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                     == PackageManager.PERMISSION_GRANTED) {
                 try {
-                    boolean outgoing = EntityFolder.DRAFTS.equals(folder.type) ||
-                            EntityFolder.OUTBOX.equals(folder.type) ||
-                            EntityFolder.SENT.equals(folder.type);
-                    Address[] addresses = (outgoing ? message.to : message.from);
+                    Address[] addresses = (folder.isOutgoing() ? message.to : message.from);
 
                     if (addresses != null)
                         for (int i = 0; i < addresses.length; i++) {

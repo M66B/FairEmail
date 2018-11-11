@@ -1258,8 +1258,7 @@ public class FragmentMessages extends FragmentEx {
                         TupleMessageEx see = null;
                         for (TupleMessageEx message : messages)
                             if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
-                                    !EntityFolder.SENT.equals(message.folderType) &&
-                                    !EntityFolder.OUTBOX.equals(message.folderType)) {
+                                    !EntityFolder.isOutgoing(message.folderType)) {
                                 autoCount++;
                                 single = message;
                                 if (!message.ui_seen) {
@@ -1291,10 +1290,8 @@ public class FragmentMessages extends FragmentEx {
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
                                 if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
-                                        !EntityFolder.SENT.equals(message.folderType) &&
-                                        !EntityFolder.OUTBOX.equals(message.folderType)) {
+                                        !EntityFolder.isOutgoing(message.folderType))
                                     count++;
-                                }
                             }
 
                             // Auto close when:

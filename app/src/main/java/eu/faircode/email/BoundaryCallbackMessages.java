@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 

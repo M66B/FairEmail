@@ -26,7 +26,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -291,9 +290,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             final boolean show_expanded = properties.isExpanded(message.id);
             boolean show_addresses = properties.showAddresses(message.id);
             boolean show_headers = properties.showHeaders(message.id);
-            boolean outgoing = EntityFolder.DRAFTS.equals(message.folderType) ||
-                    EntityFolder.OUTBOX.equals(message.folderType) ||
-                    EntityFolder.SENT.equals(message.folderType);
 
             pbLoading.setVisibility(View.GONE);
 
@@ -312,7 +308,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     }
             }
             if (!photo && identicons) {
-                Address[] addresses = (outgoing ? message.to : message.from);
+                Address[] addresses = (EntityFolder.isOutgoing(message.folderType) ? message.to : message.from);
                 if (addresses != null && addresses.length > 0) {
                     ivAvatar.setImageBitmap(Identicon.generate(addresses[0].toString(), dp24, 5, "light".equals(theme)));
                     photo = true;
@@ -332,7 +328,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
-            if (outgoing) {
+            if (EntityFolder.isOutgoing(message.folderType)) {
                 tvFrom.setText(MessageHelper.getFormattedAddresses(message.to, !compact));
                 tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.sent == null ? message.received : message.sent));
             } else {
@@ -423,9 +419,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             if (show_expanded) {
                 ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-                if (EntityFolder.DRAFTS.equals(message.folderType) ||
-                        EntityFolder.OUTBOX.equals(message.folderType) ||
-                        EntityFolder.SENT.equals(message.folderType))
+                if (EntityFolder.isOutgoing(message.folderType))
                     tvTimeEx.setText(df.format(new Date(message.sent == null ? message.received : message.sent)));
                 else
                     tvTimeEx.setText(df.format(new Date(message.received)));
