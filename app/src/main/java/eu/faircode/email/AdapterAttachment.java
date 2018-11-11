@@ -196,6 +196,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
                     final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
                             .setView(dview)
+                            .setNegativeButton(android.R.string.cancel, null)
                             .create();
 
                     TextView tvName = dview.findViewById(R.id.tvName);
