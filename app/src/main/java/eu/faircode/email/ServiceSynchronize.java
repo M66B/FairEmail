@@ -1870,23 +1870,42 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         if (message == null) {
-            Address[] tos = (EntityFolder.SENT.equals(folder.type) ? helper.getFrom() : helper.getTo());
-            EntityIdentity identity = null;
-            if (tos != null && tos.length > 0) {
-                String to = ((InternetAddress) tos[0]).getAddress();
+            // Build list of addresses
+            Address[] recipients = helper.getTo();
+            Address[] senders = helper.getFrom();
+            if (recipients == null)
+                recipients = new Address[0];
+            if (senders == null)
+                senders = new Address[0];
+            Address[] all = Arrays.copyOf(recipients, recipients.length + senders.length);
+            System.arraycopy(senders, 0, all, recipients.length, senders.length);
+
+            List<String> emails = new ArrayList<>();
+            for (Address address : all) {
+                String to = ((InternetAddress) address).getAddress();
                 if (!TextUtils.isEmpty(to)) {
                     to = to.toLowerCase();
-                    identity = db.identity().getIdentity(folder.account, to);
-
-                    if (identity == null)
-                        identity = db.identity().getIdentity(folder.account, Helper.canonicalAddress(to));
-
-                    if (identity == null && !EntityFolder.SENT.equals(folder.type)) {
-                        to = helper.getDeliveredTo();
-                        if (!TextUtils.isEmpty(to))
-                            identity = db.identity().getIdentity(folder.account, to);
-                    }
+                    emails.add(to);
+                    String canonical = Helper.canonicalAddress(to);
+                    if (!to.equals(canonical))
+                        emails.add(canonical);
                 }
+            }
+            String delivered = helper.getDeliveredTo();
+            if (!TextUtils.isEmpty(delivered)) {
+                delivered = delivered.toLowerCase();
+                emails.add(delivered);
+                String canonical = Helper.canonicalAddress(delivered);
+                if (!delivered.equals(canonical))
+                    emails.add(canonical);
+            }
+
+            // Search for identity
+            EntityIdentity identity = null;
+            for (String email : emails) {
+                identity = db.identity().getIdentity(folder.account, email);
+                if (identity != null)
+                    break;
             }
 
             message = new EntityMessage();
