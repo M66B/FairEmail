@@ -422,6 +422,15 @@ Identities are matched on e-mail address in this order:
 Matched identities can be used to color code messages. The identity color takes precedence over the account color.
 Setting colors is a pro feature.
 
+<a name="faq35"></a>
+**(35) Why should I be careful with viewing images, attachments and the original message?**
+
+Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message,
+but will also leak your IP address.
+
+Opening attachments or viewing an original message might execute scripts,
+that might not only cause privacy sensitive information to leak, but can also be a security risk.
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
