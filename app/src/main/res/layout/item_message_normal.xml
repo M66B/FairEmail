@@ -15,7 +15,7 @@
             android:layout_width="6dp"
             android:layout_height="0dp"
             android:background="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@id/vSeparator"
+            app:layout_constraintBottom_toTopOf="@+id/vSeparatorAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -226,10 +226,9 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="3dp"
-            android:layout_marginEnd="6dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/paddingBottom" />
 
         <ImageView
@@ -241,7 +240,7 @@
             android:src="@drawable/baseline_expand_less_24"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
 
         <TextView
@@ -251,7 +250,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/title_from"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
 
         <TextView
@@ -283,7 +282,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/title_to"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFromEx" />
 
         <TextView
@@ -306,7 +305,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/title_reply_to"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
         <TextView
@@ -329,7 +328,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/title_cc"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
         <TextView
@@ -352,7 +351,7 @@
             android:layout_marginStart="6dp"
             android:text="@string/title_bcc"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
         <TextView
@@ -376,7 +375,7 @@
             android:text="12:34:56"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
         <TextView
@@ -389,7 +388,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
 
         <View
@@ -399,7 +398,7 @@
             android:layout_marginTop="3dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubjectEx" />
 
         <TextView
@@ -415,7 +414,7 @@
             android:textIsSelectable="true"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
 
         <ProgressBar
@@ -439,7 +438,7 @@
             app:itemTextColor="@color/bottomnav_background"
             app:labelVisibilityMode="labeled"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeaders"
             app:menu="@menu/action_message" />
 
@@ -450,7 +449,7 @@
             android:layout_marginTop="3dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <Button
@@ -492,7 +491,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnHtml" />
 
         <ProgressBar
@@ -513,7 +512,7 @@
             android:layout_marginTop="3dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -526,14 +525,14 @@
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
+            app:layout_goneMarginBottom="3dp" />
 
         <View
             android:id="@+id/vSeparator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="3dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
