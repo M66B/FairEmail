@@ -178,6 +178,7 @@
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
     <string name="title_moving">移动邮件至%1$s</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
     <string name="title_no_saf">存储访问框架不可用</string>
@@ -260,7 +261,7 @@
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
-    <string name="title_hint_sync">下载消息会花一些时间，取决于消息数量，您的网络连接以及您的邮件提供商</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_updated">有新的版本%1$s可用</string>
     <string name="title_issue">您要提问或有问题吗？</string>

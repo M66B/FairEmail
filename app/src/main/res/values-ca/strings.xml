@@ -183,6 +183,7 @@
     <string name="title_archive">Arxivar</string>
     <string name="title_reply">Respon</string>
     <string name="title_moving">Movent el missatge a %1$s</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">No reply templates defined</string>
     <string name="title_no_viewer">No hi ha cap visor disponible per a %1$s</string>
     <string name="title_no_saf">Storage access framework not available</string>
@@ -265,7 +266,7 @@
     <string name="title_hint_support">Si tens algun problema o pregunta, per favor utilitza el menú d\'ajuda per obtenir assistència</string>
     <string name="title_hint_message_actions">Llisca cap a l\'esquerra per enviar a la paperera; o bé cap a la dreta per arxivar (si és possible)</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
-    <string name="title_hint_sync">Descarregar missatges pot trigar, depenent del nombre de missatges, de la velocitat de la teva connexió a Internet i del teu proveïdor de correu-e</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
     <string name="title_updated">Hi ha disponible una actualització a la versió %1$s</string>
     <string name="title_issue">Tens alguna pregunta o problema?</string>

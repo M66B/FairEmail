@@ -183,6 +183,7 @@
     <string name="title_archive">Arxivlə</string>
     <string name="title_reply">Cavabla</string>
     <string name="title_moving">Mesaj %1$s qovluğuna köçürülür</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">Heç bir cavab şablonu təyin edilmədi</string>
     <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
@@ -265,7 +266,7 @@
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantı üçün sola; arxiv üçün sağa sürüşdür (əgər varsa)</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
-    <string name="title_hint_sync">Mesajların sayından, internet bağlantınızın sürətindən və e-poçt təchizatçınızdan asılı olaraq mesajlarınızın endirilməsi biraz vaxt apara bilər</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
     <string name="title_open_link">Bağlantını aç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>

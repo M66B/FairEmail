@@ -91,7 +91,7 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
-    <string name="title_advanced_updates">Check for updates</string>
+    <string name="title_advanced_updates">Verificați dacă există actualizări</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
@@ -188,6 +188,7 @@
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
     <string name="title_moving">Mesajul se mută în %1$s</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
@@ -270,7 +271,7 @@
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
-    <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcţie de numărul de mesaje, viteza de conexiunea la internet și furnizorul dumneavostră de e-mail</string>
+    <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
     <string name="title_issue">Aveți o întrebare sau problemă?</string>

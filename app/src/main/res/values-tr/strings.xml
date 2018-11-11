@@ -183,6 +183,7 @@
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
     <string name="title_moving">İleti şuraya taşınıyor %1$s</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">Yanıt şablonları tanımlanmadı</string>
     <string name="title_no_viewer">%1$s için kullanılabilir hiçbir görüntüleme uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
@@ -265,7 +266,7 @@
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp kutusu için sola kaydırın; arşivlemek için sağa kaydırın (eğer varsa)</string>
     <string name="title_hint_message_selection">Birden çok mesaj seçmeye başlamak için bir mesaja uzun basın</string>
-    <string name="title_hint_sync">Mesajların sayısına, İnternet bağlantınızın hızına ve e-posta sağlayıcınıza bağlı olarak mesajların indirilmesi biraz zaman alabilir</string>
+    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might be responding slower.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleştirme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>

@@ -86,7 +86,7 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
-    <string name="title_advanced_updates">Check for updates</string>
+    <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
@@ -183,14 +183,15 @@
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_moving">Bericht verplaatsen naar %1$s</string>
+    <string name="title_open_with">Openen met</string>
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
     <string name="title_no_viewer">Geen app beschikbaar om %1$s te tonen</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet doorgestuurd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
-    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_selected">Verwijder geselecteerde berichten permanent?</string>
+    <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_spam">Rapporteren als spam?</string>
     <string name="title_fix">Oplossen</string>
@@ -265,7 +266,7 @@
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; veeg naar rechts om te archiveren (indien beschikbaar)</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om te beginnen met het selecteren van meerdere berichten</string>
-    <string name="title_hint_sync">Berichten downloaden kan enige tijd duren, afhankelijk van het aantal berichten, de snelheid van uw internetverbinding en uw e-mailprovider</string>
+    <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_open_link">Link openen</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>
     <string name="title_issue">Heeft u een vraag of probleem?</string>

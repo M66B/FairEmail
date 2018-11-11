@@ -140,7 +140,7 @@
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
-    <string name="title_empty_trash_ask">Alle ausgewählten Dateien unwiderruflich löschen?</string>
+    <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Name</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
@@ -183,13 +183,14 @@
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
+    <string name="title_open_with">Open with</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
-    <string name="title_ask_delete_selected">Ausgewählte E-Mails unwiderruflich löschen?</string>
+    <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf verwerfen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
@@ -265,7 +266,7 @@
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
-    <string name="title_hint_sync">Das Herunterladen der Nachrichten kann einige Zeit beanspruchen, abhängig von der Anzahl der Nachrichten, der Geschwindigkeit Ihrer Internetverbindung und Ihrem E-Mail-Anbieter</string>
+    <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_updated">Es ist ein Update auf Version %1$s verfügbar</string>
     <string name="title_issue">Haben Sie eine Frage oder ein Problem?</string>
