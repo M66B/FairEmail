@@ -673,8 +673,8 @@ public class FragmentAccount extends FragmentEx {
                         DB db = DB.getInstance(context);
                         EntityAccount account = db.account().getAccount(id);
 
-                        boolean check = (account == null || (synchronize &&
-                                (!host.equals(account.host) || Integer.parseInt(port) != account.port) ||
+                        boolean check = (synchronize && (account == null ||
+                                !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                                 !user.equals(account.user) || !password.equals(account.password)));
 
                         // Check IMAP server

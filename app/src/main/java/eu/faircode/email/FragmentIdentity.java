@@ -412,8 +412,8 @@ public class FragmentIdentity extends FragmentEx {
                         DB db = DB.getInstance(context);
                         EntityIdentity identity = db.identity().getIdentity(id);
 
-                        boolean check = (identity == null || (synchronize &&
-                                (!host.equals(identity.host) || Integer.parseInt(port) != identity.port) ||
+                        boolean check = (synchronize && (identity == null ||
+                                !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                                 !user.equals(identity.user) || !password.equals(identity.password)));
 
                         // Check SMTP server
