@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -31,7 +32,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +47,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -158,7 +163,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     File file = EntityAttachment.getFile(context, attachment.id);
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
-                    Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                     Log.i(Helper.TAG, "uri=" + uri);
 
                     // Build intent
@@ -170,20 +175,49 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
                     Log.i(Helper.TAG, "Intent=" + intent);
 
-                    // Set permissions
-                    List<ResolveInfo> targets = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-                    for (ResolveInfo resolveInfo : targets) {
-                        Log.i(Helper.TAG, "Target=" + resolveInfo);
-                        context.grantUriPermission(resolveInfo.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    // Get targets
+                    PackageManager pm = context.getPackageManager();
+                    List<NameResolveInfo> targets = new ArrayList<>();
+                    List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                    for (ResolveInfo ri : ris) {
+                        Log.i(Helper.TAG, "Target=" + ri);
+                        targets.add(new NameResolveInfo(
+                                pm.getApplicationIcon(ri.activityInfo.applicationInfo),
+                                pm.getApplicationLabel(ri.activityInfo.applicationInfo).toString(),
+                                ri));
                     }
 
                     // Check if viewer available
-                    if (targets.size() == 0) {
+                    if (ris.size() == 0) {
                         Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
                         return;
                     }
 
-                    Helper.view(context, intent);
+                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
+                    final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
+                            .setView(dview)
+                            .create();
+
+                    TextView tvName = dview.findViewById(R.id.tvName);
+                    TextView tvType = dview.findViewById(R.id.tvType);
+                    ListView lvApp = dview.findViewById(R.id.lvApp);
+
+                    tvName.setText(attachment.name);
+                    tvType.setText(attachment.type);
+
+                    lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
+                    lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
+                            context.grantUriPermission(selected.info.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setPackage(selected.info.activityInfo.packageName);
+                            context.startActivity(intent);
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
                 } else {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
@@ -219,6 +253,40 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         }.load(context, owner, args);
                     }
                 }
+            }
+        }
+
+        private class NameResolveInfo {
+            Drawable icon;
+            String name;
+            ResolveInfo info;
+
+            NameResolveInfo(Drawable icon, String name, ResolveInfo info) {
+                this.icon = icon;
+                this.name = name;
+                this.info = info;
+            }
+        }
+
+        public class TargetAdapter extends ArrayAdapter<NameResolveInfo> {
+            private Context context;
+
+            TargetAdapter(Context context, int resid, List<NameResolveInfo> items) {
+                super(context, resid, items);
+                this.context = context;
+            }
+
+            public View getView(int position, View convertView, ViewGroup parent) {
+                NameResolveInfo item = getItem(position);
+
+                View view = LayoutInflater.from(context).inflate(R.layout.item_target, null);
+                ImageView ivIcon = view.findViewById(R.id.ivIcon);
+                TextView tvName = view.findViewById(R.id.tvName);
+
+                ivIcon.setImageDrawable(item.icon);
+                tvName.setText(item.name);
+
+                return view;
             }
         }
     }

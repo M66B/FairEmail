@@ -56,6 +56,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Accept valid security certificates only
 * Authentication required
 * Safe message view (styling, scripting and unsafe HTML removed)
+* Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
 * No analytics and no tracking

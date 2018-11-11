@@ -36,7 +36,8 @@ For:
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Show images without confirmation
-* Show original message without confirmation
+* Show attachments without confirmation
+* show original message without confirmation
 * Open links without confirmation
 * Hide addresses by default: addresses play an important role in determining if a message is authentic
 
