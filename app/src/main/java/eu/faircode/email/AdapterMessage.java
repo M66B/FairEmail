@@ -525,13 +525,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else if (viewType == ViewType.THREAD) {
                 if (view.getId() == R.id.ivExpanderAddress)
                     onToggleAddresses(pos, message);
-                else if (view.getId() == R.id.btnHtml) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_VIEW_FULL)
-                                    .putExtra("id", message.id)
-                                    .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
-                } else if (view.getId() == R.id.btnImages)
+                else if (view.getId() == R.id.btnHtml)
+                    onShowHtml(message);
+                else if (view.getId() == R.id.btnImages)
                     onShowImages(message);
                 else
                     onToggleMessage(pos, message);
@@ -609,6 +605,23 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             boolean addresses = !properties.showAddresses(message.id);
             properties.setAddresses(message.id, addresses);
             notifyItemChanged(pos);
+        }
+
+        private void onShowHtml(final EntityMessage message) {
+            new DialogBuilderLifecycle(context, owner)
+                    .setMessage(R.string.title_ask_show_html)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_FULL)
+                                            .putExtra("id", message.id)
+                                            .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         }
 
         private void onShowImages(EntityMessage message) {
