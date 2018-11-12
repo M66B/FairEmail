@@ -48,4 +48,4 @@ Tap *Disable battery optimizations* and follow the instructions.
 
 ## Questions
 
-If you have a question or problem, please check [the FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md).
+If you have a question or problem, please check [the FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md) first.
