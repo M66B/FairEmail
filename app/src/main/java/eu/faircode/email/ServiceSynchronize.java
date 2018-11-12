@@ -691,7 +691,8 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wl.acquire();
                                 Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
-                                db.account().setAccountError(account.id, e.getMessage());
+                                if (BuildConfig.DEBUG)
+                                    db.account().setAccountError(account.id, e.getMessage());
                                 state.thread.interrupt();
                                 yieldWakelock();
                             } finally {
