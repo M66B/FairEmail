@@ -1482,6 +1482,7 @@ public class FragmentCompose extends FragmentEx {
                     draft.id = id;
                     draft.account = aid;
                     draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                    draft.msgid = EntityMessage.generateMessageId();
                     draft.content = true;
                     draft.ui_hide = false;
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
