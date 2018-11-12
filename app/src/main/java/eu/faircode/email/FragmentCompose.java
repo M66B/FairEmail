@@ -1708,16 +1708,16 @@ public class FragmentCompose extends FragmentEx {
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            return getLayout(position, convertView, parent);
+            return getLayout(position, convertView, parent, R.layout.spinner_item2);
         }
 
         @Override
         public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getLayout(position, convertView, parent);
+            return getLayout(position, convertView, parent, R.layout.spinner_item2_dropdown);
         }
 
-        View getLayout(int position, View convertView, ViewGroup parent) {
-            View view = LayoutInflater.from(context).inflate(R.layout.spinner_item2, parent, false);
+        View getLayout(int position, View convertView, ViewGroup parent, int resid) {
+            View view = LayoutInflater.from(context).inflate(resid, parent, false);
 
             EntityIdentity identity = identities.get(position);
 
