@@ -919,35 +919,15 @@ public class FragmentMessages extends FragmentEx {
             bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
             bottom_navigation.setVisibility(!nav || (pn[0] == null && pn[1] == null) ? View.GONE : View.VISIBLE);
         } else {
-            // Compose FAB
-            Bundle args = new Bundle();
-            args.putLong("account", account);
-
-            new SimpleTask<Long>() {
+            db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
-                protected Long onLoad(Context context, Bundle args) {
-                    long account = args.getLong("account", -1);
-
-                    if (account < 0) {
-                        EntityFolder primary = DB.getInstance(context).folder().getPrimaryDrafts();
-                        return (primary == null ? null : primary.account);
-                    } else
-                        return account;
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, Long account) {
+                public void onChanged(EntityAccount account) {
                     if (account != null) {
-                        fab.setTag(account);
+                        fab.setTag(account.id);
                         fab.show();
                     }
                 }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), ex);
-                }
-            }.load(this, args);
+            });
         }
     }
 

@@ -56,6 +56,12 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE id = :id")
     LiveData<EntityAccount> liveAccount(long id);
 
+    @Query("SELECT account.* FROM account" +
+            " JOIN folder ON folder.account = account.id" +
+            " WHERE (account.id = :id OR (:id IS NULL AND account.`primary`))" +
+            " AND folder.type = '" + EntityFolder.DRAFTS + "'")
+    LiveData<EntityAccount> liveAccountDraft(Long id);
+
     @Query("SELECT" +
             " (SELECT COUNT(account.id) FROM account WHERE synchronize AND state = 'connected') AS accounts" +
             ", (SELECT COUNT(operation.id) FROM operation" +
