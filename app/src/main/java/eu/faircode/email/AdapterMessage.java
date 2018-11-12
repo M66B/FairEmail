@@ -624,13 +624,22 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     .show();
         }
 
-        private void onShowImages(EntityMessage message) {
-            properties.setImages(message.id, true);
-            btnImages.setEnabled(false);
+        private void onShowImages(final EntityMessage message) {
+            new DialogBuilderLifecycle(context, owner)
+                    .setMessage(R.string.title_ask_show_image)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            properties.setImages(message.id, true);
+                            btnImages.setEnabled(false);
 
-            Bundle args = new Bundle();
-            args.putSerializable("message", message);
-            bodyTask.load(context, owner, args);
+                            Bundle args = new Bundle();
+                            args.putSerializable("message", message);
+                            bodyTask.load(context, owner, args);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
         }
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
