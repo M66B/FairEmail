@@ -183,7 +183,7 @@
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
     <string name="title_moving">Moviendo mensaje a %1$s</string>
-    <string name="title_open_with">Open with</string>
+    <string name="title_open_with">Abrir con</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
@@ -194,9 +194,10 @@
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
+    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_fix">Reparar</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
     <string name="title_reply_to">Responder a:</string>
@@ -267,7 +268,7 @@
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes para obtener ayuda</string>
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
-    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
+    <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>
     <string name="title_issue">¿Tiene una pregunta o problema?</string>

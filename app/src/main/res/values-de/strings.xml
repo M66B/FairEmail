@@ -195,6 +195,7 @@
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann ungewollt sensible Informationen zur Privatsphäre preisgeben</string>
+    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>

@@ -200,6 +200,7 @@
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_fix">Remediere</string>
     <string name="title_compose">Compose</string>
     <string name="title_from">De la:</string>

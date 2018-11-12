@@ -195,6 +195,7 @@
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_spam">Rapportér meddelelse som spam?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_fix">Fix</string>
     <string name="title_compose">Compose</string>
     <string name="title_from">Fra:</string>
