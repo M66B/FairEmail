@@ -183,7 +183,7 @@
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
     <string name="title_moving">Déplacement du message vers %1$s</string>
-    <string name="title_open_with">Open with</string>
+    <string name="title_open_with">Ouvrir avec</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>
     <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
     <string name="title_no_saf">Programme d’accès au stockage non disponible</string>
@@ -194,9 +194,9 @@
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_fix">Corriger</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
     <string name="title_reply_to">Répondre à :</string>

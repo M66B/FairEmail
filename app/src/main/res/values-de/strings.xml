@@ -183,7 +183,7 @@
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_moving">Verschiebe E-Mail nach %1$s</string>
-    <string name="title_open_with">Open with</string>
+    <string name="title_open_with">Öffnen mit</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
@@ -192,11 +192,11 @@
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
     <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
-    <string name="title_ask_discard">Entwurf verwerfen?</string>
+    <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann ungewollt sensible Informationen zur Privatsphäre preisgeben</string>
     <string name="title_fix">Problem beheben</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
     <string name="title_reply_to">Antworten an:</string>
@@ -219,7 +219,7 @@
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_attachments_missing">Anhänge werden noch geladen</string>
-    <string name="title_draft_deleted">Entwurf verworfen</string>
+    <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_queued">Nachricht senden\u2026</string>
     <string name="title_encrypt">Verschlüsseln</string>
