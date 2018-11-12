@@ -41,6 +41,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
+import static androidx.room.ForeignKey.SET_NULL;
 
 // https://developer.android.com/training/data-storage/room/defining-data
 
@@ -49,8 +50,8 @@ import static androidx.room.ForeignKey.CASCADE;
         foreignKeys = {
                 @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE),
                 @ForeignKey(childColumns = "folder", entity = EntityFolder.class, parentColumns = "id", onDelete = CASCADE),
-                @ForeignKey(childColumns = "identity", entity = EntityIdentity.class, parentColumns = "id", onDelete = CASCADE),
-                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = CASCADE)
+                @ForeignKey(childColumns = "identity", entity = EntityIdentity.class, parentColumns = "id", onDelete = SET_NULL),
+                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = SET_NULL)
         },
         indices = {
                 @Index(value = {"account"}),
@@ -72,6 +73,7 @@ public class EntityMessage implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
+    @NonNull
     public Long account; // performance
     @NonNull
     public Long folder;

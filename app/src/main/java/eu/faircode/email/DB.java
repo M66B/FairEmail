@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 27,
+        version = 28,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -313,6 +313,85 @@ public abstract class DB extends RoomDatabase {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `color` INTEGER");
                         db.execSQL("CREATE INDEX `index_identity_account_email` ON `identity` (`account`, `email`)");
+                    }
+                })
+                .addMigrations(new Migration(27, 28) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+
+                        db.execSQL("ALTER TABLE `message` RENAME TO `message_old`;");
+
+                        db.execSQL("CREATE TABLE `message`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                " `account` INTEGER NOT NULL," +
+                                " `folder` INTEGER NOT NULL," +
+                                " `identity` INTEGER," +
+                                " `extra` TEXT," +
+                                " `replying` INTEGER," +
+                                " `uid` INTEGER," +
+                                " `msgid` TEXT," +
+                                " `references` TEXT," +
+                                " `deliveredto` TEXT," +
+                                " `inreplyto` TEXT," +
+                                " `thread` TEXT," +
+                                " `avatar` TEXT," +
+                                " `from` TEXT," +
+                                " `to` TEXT," +
+                                " `cc` TEXT," +
+                                " `bcc` TEXT," +
+                                " `reply` TEXT," +
+                                " `headers` TEXT," +
+                                " `subject` TEXT," +
+                                " `size` INTEGER," +
+                                " `content` INTEGER NOT NULL," +
+                                " `preview` TEXT," +
+                                " `sent` INTEGER," +
+                                " `received` INTEGER NOT NULL," +
+                                " `stored` INTEGER NOT NULL," +
+                                " `seen` INTEGER NOT NULL," +
+                                " `flagged` INTEGER NOT NULL," +
+                                " `ui_seen` INTEGER NOT NULL," +
+                                " `ui_flagged` INTEGER NOT NULL," +
+                                " `ui_hide` INTEGER NOT NULL," +
+                                " `ui_found` INTEGER NOT NULL," +
+                                " `ui_ignored` INTEGER NOT NULL," +
+                                " `error` TEXT," +
+                                " FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE ," +
+                                " FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE ," +
+                                " FOREIGN KEY(`identity`) REFERENCES `identity`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL ," +
+                                " FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL" +
+                                " )");
+
+                        db.execSQL("INSERT INTO `message` SELECT * FROM `message_old`;");
+
+                        db.execSQL("DROP  INDEX `index_message_account`");
+                        db.execSQL("DROP  INDEX `index_message_folder`");
+                        db.execSQL("DROP  INDEX `index_message_identity`");
+                        db.execSQL("DROP  INDEX `index_message_replying`");
+                        db.execSQL("DROP  INDEX `index_message_folder_uid_ui_found`");
+                        db.execSQL("DROP  INDEX `index_message_msgid_folder_ui_found`");
+                        db.execSQL("DROP  INDEX `index_message_thread`");
+                        db.execSQL("DROP  INDEX `index_message_received`");
+                        db.execSQL("DROP  INDEX `index_message_ui_seen`");
+                        db.execSQL("DROP  INDEX `index_message_ui_hide`");
+                        db.execSQL("DROP  INDEX `index_message_ui_found`");
+                        db.execSQL("DROP  INDEX `index_message_ui_ignored`");
+
+                        db.execSQL("CREATE  INDEX `index_message_account` ON `message` (`account`)");
+                        db.execSQL("CREATE  INDEX `index_message_folder` ON `message` (`folder`)");
+                        db.execSQL("CREATE  INDEX `index_message_identity` ON `message` (`identity`)");
+                        db.execSQL("CREATE  INDEX `index_message_replying` ON `message` (`replying`)");
+                        db.execSQL("CREATE UNIQUE INDEX `index_message_folder_uid_ui_found` ON `message` (`folder`, `uid`, `ui_found`)");
+                        db.execSQL("CREATE UNIQUE INDEX `index_message_msgid_folder_ui_found` ON `message` (`msgid`, `folder`, `ui_found`)");
+                        db.execSQL("CREATE  INDEX `index_message_thread` ON `message` (`thread`)");
+                        db.execSQL("CREATE  INDEX `index_message_received` ON `message` (`received`)");
+                        db.execSQL("CREATE  INDEX `index_message_ui_seen` ON `message` (`ui_seen`)");
+                        db.execSQL("CREATE  INDEX `index_message_ui_hide` ON `message` (`ui_hide`)");
+                        db.execSQL("CREATE  INDEX `index_message_ui_found` ON `message` (`ui_found`)");
+                        db.execSQL("CREATE  INDEX `index_message_ui_ignored` ON `message` (`ui_ignored`)");
+
+                        db.execSQL("DROP TABLE `message_old`;");
                     }
                 })
                 .build();
