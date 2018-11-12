@@ -32,6 +32,7 @@ For:
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-faq2).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
+* Microsoft OAuth: to get the email address, [access to the user information](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_get) is needed, which contains privacy sensitive information.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
