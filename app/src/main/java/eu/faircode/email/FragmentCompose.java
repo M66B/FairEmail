@@ -1123,7 +1123,7 @@ public class FragmentCompose extends FragmentEx {
                         body = body.replaceAll("\\r?\\n", "<br />");
 
                     if (pro && !TextUtils.isEmpty(result.account.signature))
-                        body += result.account.signature;
+                        body += "<br><br>" + result.account.signature;
                 } else {
                     result.draft.thread = ref.thread;
 
