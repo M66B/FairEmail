@@ -55,8 +55,12 @@ import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.Type;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.mail.AuthenticationFailedException;
@@ -91,7 +95,7 @@ public class FragmentIdentity extends FragmentEx {
     private ImageView ibColorDefault;
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
-    private CheckBox cbStoreSent;
+    private Spinner spSent;
     private Button btnSave;
     private ProgressBar pbSave;
     private ImageButton ibDelete;
@@ -100,6 +104,7 @@ public class FragmentIdentity extends FragmentEx {
 
     private long id = -1;
     private int color = Color.TRANSPARENT;
+    private ArrayAdapter<EntityFolder> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -147,7 +152,7 @@ public class FragmentIdentity extends FragmentEx {
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
-        cbStoreSent = view.findViewById(R.id.cbStoreSent);
+        spSent = view.findViewById(R.id.spSent);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -204,10 +209,13 @@ public class FragmentIdentity extends FragmentEx {
 
                 // Copy account password
                 tilPassword.getEditText().setText(account.password);
+
+                setFolders(account.id);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+                adapter.clear();
             }
         });
 
@@ -366,7 +374,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putInt("color", color);
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
-                args.putBoolean("store_sent", cbStoreSent.isChecked());
+                args.putSerializable("sent", (EntityFolder) spSent.getSelectedItem());
 
                 new SimpleTask<Void>() {
                     @Override
@@ -386,7 +394,7 @@ public class FragmentIdentity extends FragmentEx {
                         int auth_type = args.getInt("auth_type");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
-                        boolean store_sent = args.getBoolean("store_sent");
+                        EntityFolder sent = (EntityFolder) args.getSerializable("sent");
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
@@ -457,7 +465,8 @@ public class FragmentIdentity extends FragmentEx {
                             identity.auth_type = auth_type;
                             identity.synchronize = synchronize;
                             identity.primary = (identity.synchronize && primary);
-                            identity.store_sent = store_sent;
+                            identity.store_sent = false;
+                            identity.sent_folder = (sent == null ? null : sent.id);
 
                             if (!identity.synchronize)
                                 identity.error = null;
@@ -546,6 +555,10 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spSent.setAdapter(adapter);
+
         // Initialize
         Helper.setViewsEnabled(view, false);
         cbInsecure.setVisibility(View.GONE);
@@ -596,7 +609,6 @@ public class FragmentIdentity extends FragmentEx {
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
-                    cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 
@@ -675,15 +687,18 @@ public class FragmentIdentity extends FragmentEx {
 
                             spAccount.setTag(0);
                             spAccount.setSelection(0);
-                            for (int pos = 0; pos < accounts.size(); pos++)
-                                if (accounts.get(pos).id == (identity == null ? -1 : identity.account)) {
+                            for (int pos = 0; pos < accounts.size(); pos++) {
+                                EntityAccount account = accounts.get(pos);
+                                if (account.id.equals((identity == null ? -1 : identity.account))) {
                                     spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
                                     // OAuth token could be updated
                                     if (pos > 0 && accounts.get(pos).auth_type != Helper.AUTH_TYPE_PASSWORD)
                                         tilPassword.getEditText().setText(accounts.get(pos).password);
+                                    setFolders(account.id);
                                     break;
                                 }
+                            }
                         } else {
                             int provider = savedInstanceState.getInt("provider");
                             spProvider.setTag(provider);
@@ -706,5 +721,77 @@ public class FragmentIdentity extends FragmentEx {
         border.setColor(color);
         border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
         vwColor.setBackground(border);
+    }
+
+    private void setFolders(long account) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putLong("identity", id);
+
+        new SimpleTask<IdentityFolders>() {
+            @Override
+            protected IdentityFolders onLoad(Context context, Bundle args) {
+                long aid = args.getLong("account");
+                long iid = args.getLong("identity");
+
+                DB db = DB.getInstance(context);
+                IdentityFolders result = new IdentityFolders();
+                result.identity = db.identity().getIdentity(iid);
+                result.folders = db.folder().getFolders(aid);
+
+                final Collator collator = Collator.getInstance(Locale.getDefault());
+                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+                Collections.sort(result.folders, new Comparator<EntityFolder>() {
+                    @Override
+                    public int compare(EntityFolder f1, EntityFolder f2) {
+                        int s = Integer.compare(
+                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                        if (s != 0)
+                            return s;
+                        int c = -f1.synchronize.compareTo(f2.synchronize);
+                        if (c != 0)
+                            return c;
+                        return collator.compare(
+                                f1.name == null ? "" : f1.name,
+                                f2.name == null ? "" : f2.name);
+                    }
+                });
+
+                return result;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, IdentityFolders result) {
+                EntityFolder none = new EntityFolder();
+                none.name = "";
+                result.folders.add(0, none);
+
+                adapter.clear();
+                adapter.addAll(result.folders);
+
+                if (result.identity != null)
+                    for (int pos = 0; pos < result.folders.size(); pos++) {
+                        EntityFolder folder = result.folders.get(pos);
+                        if (result.identity.store_sent) {
+                            if (EntityFolder.SENT.equals(folder.type)) {
+                                spSent.setSelection(pos);
+                                break;
+                            }
+                        } else if (result.identity.sent_folder != null) {
+                            if (result.identity.sent_folder.equals(folder.id)) {
+                                spSent.setSelection(pos);
+                                break;
+                            }
+                        }
+                    }
+            }
+        }.load(this, args);
+    }
+
+    class IdentityFolders {
+        EntityIdentity identity;
+        List<EntityFolder> folders;
     }
 }

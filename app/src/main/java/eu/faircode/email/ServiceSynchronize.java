@@ -1514,8 +1514,12 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_seen = true;
                 db.message().updateMessage(message);
 
-                if (ident.store_sent) {
-                    EntityFolder sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
+                if (ident.store_sent || ident.sent_folder != null) {
+                    EntityFolder sent;
+                    if (ident.store_sent)
+                        sent = db.folder().getFolderByType(ident.account, EntityFolder.SENT);
+                    else
+                        sent = db.folder().getFolder(ident.sent_folder);
                     if (sent != null) {
                         message.folder = sent.id;
                         message.uid = null;
