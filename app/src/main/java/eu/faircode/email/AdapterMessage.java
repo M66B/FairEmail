@@ -115,6 +115,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean avatars;
     private boolean identicons;
     private boolean preview;
+    private boolean confirm;
     private boolean debug;
 
     private int dp24;
@@ -618,38 +619,52 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onShowHtml(final TupleMessageEx message) {
-            new DialogBuilderLifecycle(context, owner)
-                    .setMessage(R.string.title_ask_show_html)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_VIEW_FULL)
-                                            .putExtra("id", message.id)
-                                            .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            if (confirm)
+                new DialogBuilderLifecycle(context, owner)
+                        .setMessage(R.string.title_ask_show_html)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                onShowHtmlConfirmed(message);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            else
+                onShowHtmlConfirmed(message);
+        }
+
+        private void onShowHtmlConfirmed(final TupleMessageEx message) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_VIEW_FULL)
+                            .putExtra("id", message.id)
+                            .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
         }
 
         private void onShowImages(final TupleMessageEx message) {
-            new DialogBuilderLifecycle(context, owner)
-                    .setMessage(R.string.title_ask_show_image)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            properties.setImages(message.id, true);
-                            btnImages.setEnabled(false);
+            if (confirm)
+                new DialogBuilderLifecycle(context, owner)
+                        .setMessage(R.string.title_ask_show_image)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                onShowImagesConfirmed(message);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            else
+                onShowImagesConfirmed(message);
+        }
 
-                            Bundle args = new Bundle();
-                            args.putSerializable("message", message);
-                            bodyTask.load(context, owner, args);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+        private void onShowImagesConfirmed(final TupleMessageEx message) {
+            properties.setImages(message.id, true);
+            btnImages.setEnabled(false);
+
+            Bundle args = new Bundle();
+            args.putSerializable("message", message);
+            bodyTask.load(context, owner, args);
         }
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
@@ -1469,6 +1484,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         this.avatars = (prefs.getBoolean("avatars", true) && this.contacts);
         this.identicons = prefs.getBoolean("identicons", false);
         this.preview = prefs.getBoolean("preview", false);
+        this.confirm = prefs.getBoolean("confirm", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp24 = Math.round(24 * context.getResources().getDisplayMetrics().density);

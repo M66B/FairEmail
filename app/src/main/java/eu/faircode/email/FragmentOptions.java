@@ -50,6 +50,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
     private SwitchCompat swNav;
+    private SwitchCompat swConfirm;
     private SwitchCompat swSender;
     private SwitchCompat swInsecure;
     private Spinner spDownload;
@@ -73,6 +74,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
         swNav = view.findViewById(R.id.swNav);
+        swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
         swInsecure = view.findViewById(R.id.swInsecure);
         spDownload = view.findViewById(R.id.spDownload);
@@ -178,6 +180,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("swipe", checked).apply();
+            }
+        });
+
+        swConfirm.setChecked(prefs.getBoolean("confirm", false));
+        swConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("confirm", checked).apply();
             }
         });
 

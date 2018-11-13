@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
@@ -59,6 +60,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     private Context context;
     private LifecycleOwner owner;
     private boolean readonly;
+    private boolean confirm;
     private boolean debug;
 
     private List<EntityAttachment> all = new ArrayList<>();
@@ -181,6 +183,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                     for (ResolveInfo ri : ris) {
                         Log.i(Helper.TAG, "Target=" + ri);
+                        context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         targets.add(new NameResolveInfo(
                                 pm.getApplicationIcon(ri.activityInfo.applicationInfo),
                                 pm.getApplicationLabel(ri.activityInfo.applicationInfo).toString(),
@@ -193,32 +196,34 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         return;
                     }
 
-                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
-                    final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
-                            .setView(dview)
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .create();
+                    if (confirm) {
+                        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_attachment, null);
+                        final AlertDialog dialog = new DialogBuilderLifecycle(context, owner)
+                                .setView(dview)
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .create();
 
-                    TextView tvName = dview.findViewById(R.id.tvName);
-                    TextView tvType = dview.findViewById(R.id.tvType);
-                    ListView lvApp = dview.findViewById(R.id.lvApp);
+                        TextView tvName = dview.findViewById(R.id.tvName);
+                        TextView tvType = dview.findViewById(R.id.tvType);
+                        ListView lvApp = dview.findViewById(R.id.lvApp);
 
-                    tvName.setText(attachment.name);
-                    tvType.setText(attachment.type);
+                        tvName.setText(attachment.name);
+                        tvType.setText(attachment.type);
 
-                    lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
-                    lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
-                            context.grantUriPermission(selected.info.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            intent.setPackage(selected.info.activityInfo.packageName);
-                            context.startActivity(intent);
-                            dialog.dismiss();
-                        }
-                    });
+                        lvApp.setAdapter(new TargetAdapter(context, R.layout.item_target, targets));
+                        lvApp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                NameResolveInfo selected = (NameResolveInfo) parent.getItemAtPosition(position);
+                                intent.setPackage(selected.info.activityInfo.packageName);
+                                context.startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        });
 
-                    dialog.show();
+                        dialog.show();
+                    } else
+                        context.startActivity(intent);
                 } else {
                     if (attachment.progress == null) {
                         Bundle args = new Bundle();
@@ -293,10 +298,12 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     }
 
     AdapterAttachment(Context context, LifecycleOwner owner, boolean readonly) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.context = context;
         this.owner = owner;
         this.readonly = readonly;
-        this.debug = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("debug", false);
+        this.confirm = prefs.getBoolean("confirm", false);
+        this.debug = prefs.getBoolean("debug", false);
         setHasStableIds(true);
     }
 
