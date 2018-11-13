@@ -190,6 +190,7 @@
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>

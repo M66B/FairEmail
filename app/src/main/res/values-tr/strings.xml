@@ -190,6 +190,7 @@
     <string name="title_no_answers">Yanıt şablonları tanımlanmadı</string>
     <string name="title_no_viewer">%1$s için kullanılabilir hiçbir görüntüleme uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachment_unavailable">Bazı ekler indirilmedi ve iletilmez, devam edilsin mi?</string>
     <string name="title_ask_delete">İletiyi kalıcı olarak sil?</string>

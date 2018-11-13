@@ -185,6 +185,7 @@
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
     <string name="title_no_saf">存储访问框架不可用</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>

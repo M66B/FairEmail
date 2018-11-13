@@ -190,6 +190,7 @@
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán reenviados, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>

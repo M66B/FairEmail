@@ -210,6 +210,7 @@
     <string name="title_no_answers">No reply templates defined</string>
     <string name="title_no_viewer">لا يوجد عارض التطبيق متاح ل %1$s</string>
     <string name="title_no_saf">Storage access framework not available</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">حفظ المرفقات</string>
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
     <string name="title_ask_delete">هل تريد حذف الرسالة بشكل دائم؟</string>

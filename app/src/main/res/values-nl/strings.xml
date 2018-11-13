@@ -190,6 +190,7 @@
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
     <string name="title_no_viewer">Geen app beschikbaar om %1$s te tonen</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
+    <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet doorgestuurd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>

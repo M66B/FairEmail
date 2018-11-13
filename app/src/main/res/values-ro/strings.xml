@@ -195,6 +195,7 @@
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
+    <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
