@@ -634,7 +634,6 @@ public class FragmentSetup extends FragmentEx {
                         for (int a = 0; a < jaccounts.length(); a++) {
                             JSONObject jaccount = (JSONObject) jaccounts.get(a);
                             EntityAccount account = EntityAccount.fromJSON(jaccount);
-                            account.store_sent = false;
                             account.created = new Date().getTime();
                             account.id = db.account().insertAccount(account);
                             Log.i(Helper.TAG, "Imported account=" + account.name);

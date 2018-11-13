@@ -60,7 +60,6 @@ public class EntityFolder implements Serializable {
     public String type;
     @NonNull
     public Boolean synchronize;
-    public Integer poll_interval; // obsolete
     @NonNull
     public Integer after; // days
     public String display;
@@ -143,7 +142,6 @@ public class EntityFolder implements Serializable {
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&
-                    (this.poll_interval == null ? other.poll_interval == null : this.poll_interval.equals(other.poll_interval)) && this.after.equals(other.after) &&
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
                     this.hide == other.hide &&
                     this.unified == other.unified &&
@@ -163,7 +161,6 @@ public class EntityFolder implements Serializable {
         json.put("name", name);
         json.put("type", type);
         json.put("synchronize", synchronize);
-        json.put("poll_interval", poll_interval);
         json.put("after", after);
         json.put("display", display);
         json.put("hide", hide);
@@ -176,8 +173,6 @@ public class EntityFolder implements Serializable {
         folder.name = json.getString("name");
         folder.type = json.getString("type");
         folder.synchronize = json.getBoolean("synchronize");
-        if (json.has("poll_interval"))
-            folder.poll_interval = json.getInt("poll_interval");
         folder.after = json.getInt("after");
         if (json.has("display"))
             folder.display = json.getString("display");

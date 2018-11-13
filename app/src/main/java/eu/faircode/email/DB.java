@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 28,
+        version = 1,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -79,7 +79,7 @@ public abstract class DB extends RoomDatabase {
 
     private static DB sInstance;
 
-    private static final String DB_NAME = "email";
+    private static final String DB_NAME = "fairemail";
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
@@ -111,6 +111,7 @@ public abstract class DB extends RoomDatabase {
     }
 
     private static DB migrate(RoomDatabase.Builder<DB> builder) {
+        // https://www.sqlite.org/lang_altertable.html
         return builder
                 .addCallback(new Callback() {
                     @Override
@@ -320,9 +321,10 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
 
-                        db.execSQL("ALTER TABLE `message` RENAME TO `message_old`;");
+                        // https://www.sqlite.org/lang_altertable.html
+                        db.execSQL("PRAGMA foreign_keys=OFF;");
 
-                        db.execSQL("CREATE TABLE `message`" +
+                        db.execSQL("CREATE TABLE `message_new`" +
                                 " (`id` INTEGER PRIMARY KEY AUTOINCREMENT," +
                                 " `account` INTEGER NOT NULL," +
                                 " `folder` INTEGER NOT NULL," +
@@ -363,20 +365,10 @@ public abstract class DB extends RoomDatabase {
                                 " FOREIGN KEY(`replying`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL" +
                                 " )");
 
-                        db.execSQL("INSERT INTO `message` SELECT * FROM `message_old`;");
-
-                        db.execSQL("DROP  INDEX `index_message_account`");
-                        db.execSQL("DROP  INDEX `index_message_folder`");
-                        db.execSQL("DROP  INDEX `index_message_identity`");
-                        db.execSQL("DROP  INDEX `index_message_replying`");
-                        db.execSQL("DROP  INDEX `index_message_folder_uid_ui_found`");
-                        db.execSQL("DROP  INDEX `index_message_msgid_folder_ui_found`");
-                        db.execSQL("DROP  INDEX `index_message_thread`");
-                        db.execSQL("DROP  INDEX `index_message_received`");
-                        db.execSQL("DROP  INDEX `index_message_ui_seen`");
-                        db.execSQL("DROP  INDEX `index_message_ui_hide`");
-                        db.execSQL("DROP  INDEX `index_message_ui_found`");
-                        db.execSQL("DROP  INDEX `index_message_ui_ignored`");
+                        db.execSQL("DELETE from `message` WHERE account IS NULL;");
+                        db.execSQL("INSERT INTO `message_new` SELECT * FROM `message`;");
+                        db.execSQL("DROP TABLE `message`;");
+                        db.execSQL("ALTER TABLE `message_new` RENAME TO `message`");
 
                         db.execSQL("CREATE  INDEX `index_message_account` ON `message` (`account`)");
                         db.execSQL("CREATE  INDEX `index_message_folder` ON `message` (`folder`)");
@@ -391,7 +383,8 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("CREATE  INDEX `index_message_ui_found` ON `message` (`ui_found`)");
                         db.execSQL("CREATE  INDEX `index_message_ui_ignored` ON `message` (`ui_ignored`)");
 
-                        db.execSQL("DROP TABLE `message_old`;");
+                        db.execSQL("PRAGMA foreign_key_check;");
+                        db.execSQL("PRAGMA foreign_keys=ON;");
                     }
                 })
                 .build();

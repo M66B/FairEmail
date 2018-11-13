@@ -73,6 +73,7 @@ public class EntityIdentity {
     public Boolean synchronize;
     @NonNull
     public Boolean store_sent;
+    public Long sent_folder;
     public String state;
     public String error;
 
@@ -94,6 +95,8 @@ public class EntityIdentity {
             json.put("color", color);
         json.put("synchronize", false);
         json.put("store_sent", store_sent);
+        if (sent_folder != null)
+            json.put("sent_folder", sent_folder);
         // not state
         // not error
         return json;
@@ -117,6 +120,8 @@ public class EntityIdentity {
             identity.color = json.getInt("color");
         identity.synchronize = json.getBoolean("synchronize");
         identity.store_sent = json.getBoolean("store_sent");
+        if (json.has("sent_folder"))
+            identity.sent_folder = json.getLong("sent_folder");
         return identity;
     }
 
@@ -138,6 +143,7 @@ public class EntityIdentity {
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.store_sent.equals(other.store_sent) &&
+                    (this.sent_folder == null ? other.sent_folder == null : this.sent_folder.equals(other.sent_folder)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

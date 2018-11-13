@@ -728,8 +728,6 @@ public class FragmentAccount extends FragmentEx {
                             account.primary = (account.synchronize && primary);
                             account.poll_interval = Integer.parseInt(interval);
 
-                            account.store_sent = false; // obsolete
-                            account.seen_until = null; // obsolete
                             account.created = new Date().getTime();
 
                             if (!synchronize)

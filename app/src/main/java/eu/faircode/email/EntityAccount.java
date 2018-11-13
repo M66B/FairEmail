@@ -58,10 +58,7 @@ public class EntityAccount {
     public Boolean primary;
     public Integer color;
     @NonNull
-    public Boolean store_sent; // obsolete
-    @NonNull
     public Integer poll_interval; // keep-alive interval
-    public Long seen_until; // obsolete
     public Long created;
     public String state;
     public String error;
