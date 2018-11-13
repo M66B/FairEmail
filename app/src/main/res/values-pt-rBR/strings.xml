@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
     <string name="menu_setup">Configurar</string>
-    <string name="menu_answers">Reply templates</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_legend">Legend</string>
-    <string name="menu_faq">FAQ/support</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Pro features</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Sobre</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Configurar</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Authorizing account &#8230;</string>
     <string name="title_setup_advanced">Advanced</string>
     <string name="title_store_sent">Store sent messages (normally not needed)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Sincronizar (receber mensagens)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
     <string name="title_primary_account">Primary (default account)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Add star</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Encaminhar</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Responder a todos</string>
     <string name="title_show_headers">Show headers</string>
     <string name="title_show_html">Show original</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Reportar mensagem com spam?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

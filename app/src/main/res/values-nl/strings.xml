@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
-    <string name="menu_answers">Antwoord sjablonen</string>
+    <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Acties</string>
     <string name="menu_legend">Legenda</string>
-    <string name="menu_faq">FAQ/ondersteuning</string>
+    <string name="menu_faq">Ondersteuning</string>
     <string name="menu_pro">Pro functies</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Over</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Installatie</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_export_do">Accounts en identiteiten worden geëxporteerd zonder wachtwoorden</string>
+    <string name="title_setup_export_do">Het exportbestand zal uw wachtwoorden bevatten, dus bewaar het veilig</string>
     <string name="title_setup_import_do">Geïmporteerde accounts zullen worden toegevoegd, niet overschreven</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
@@ -83,7 +83,7 @@
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
     <string name="title_advanced_nav">Vorige/volgende navigatie</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Account autoriseren &#8230;</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_store_sent">Bewaar verzonden berichten (normaliter niet nodig)</string>
+    <string name="title_store_copy">Sla een kopie van verzonden berichten op in:</string>
     <string name="title_synchronize_account">Synchroniseren (ontvang berichten)</string>
     <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Ster toevoegen</string>
     <string name="title_unflag">Ster verwijderen</string>
     <string name="title_forward">Doorsturen</string>
+    <string name="title_forward_raw">Ruw doorsturen</string>
     <string name="title_reply_all">Allen beantwoorden</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_show_html">Toon origineel</string>
@@ -194,11 +196,12 @@
     <string name="title_ask_delete_selected">Verwijder geselecteerde berichten permanent?</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
+    <string name="title_ask_save">Wijzigingen opslaan?</string>
     <string name="title_ask_spam">Rapporteren als spam?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_fix">Oplossen</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
     <string name="title_reply_to">Antwoord op:</string>

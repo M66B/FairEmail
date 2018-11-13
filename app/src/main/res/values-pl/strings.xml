@@ -8,7 +8,7 @@
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
     <string name="shortcut_compose">Napisz</string>
-    <string name="shortcut_setup">Setup</string>
+    <string name="shortcut_setup">Ustawienia</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synchronizuję %1$d konto</item>
         <item quantity="few">Synchronizuję %1$d kont</item>
@@ -41,10 +41,10 @@
     </plurals>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="menu_setup">Ustawienia</string>
-    <string name="menu_answers">Szablony odpowiedzi</string>
+    <string name="menu_answers">Szablony</string>
     <string name="menu_operations">Operacje</string>
     <string name="menu_legend">Legenda</string>
-    <string name="menu_faq">FAQ/Wsparcie</string>
+    <string name="menu_faq">Wsparcie</string>
     <string name="menu_pro">Funkcje pro</string>
     <string name="menu_privacy">Prywatność</string>
     <string name="menu_about">O programie</string>
@@ -63,7 +63,7 @@
     <string name="title_setup">Ustawienia</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
-    <string name="title_setup_export_do">Konta i tożsamości zostaną wyeksportowane bez haseł</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane, nie nadpisane</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
@@ -97,7 +97,7 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
-    <string name="title_advanced_updates">Check for updates</string>
+    <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
@@ -126,6 +126,7 @@
     <string name="title_authorizing">Autoryzowanie konta &#8230;</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_store_sent">Zachowuj wysłane wiadomości (normalnie nie potrzebne)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
@@ -183,6 +184,7 @@
     <string name="title_flag">Dodaj gwiazdkę</string>
     <string name="title_unflag">Usuń gwiazdkę</string>
     <string name="title_forward">Prześlij dalej</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Odpowiedz wszystkim</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_show_html">Pokaż oryginał</string>
@@ -201,9 +203,10 @@
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną przekazane, kontynuować?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
-    <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_selected">Trwale usunąć wybrane wiadomości?</string>
+    <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
+    <string name="title_ask_save">Zapisać zmiany?</string>
     <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
@@ -279,7 +282,7 @@
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
     <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>
-    <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
+    <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_updated">Jest dostępna aktualizacja do wersji %1$s</string>
     <string name="title_issue">Masz pytanie lub problem?</string>

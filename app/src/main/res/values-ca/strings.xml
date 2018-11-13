@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">%1$s ha fallat</string>
     <string name="menu_setup">Configuració</string>
-    <string name="menu_answers">Reply templates</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operacions</string>
     <string name="menu_legend">Llegenda</string>
-    <string name="menu_faq">Preguntes freqüents/suport</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Característiques Pro</string>
     <string name="menu_privacy">Privadesa</string>
     <string name="menu_about">Quant a</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Configuració</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_export_do">Els comptes i identitats seran exportats sense contrasenyes</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
     <string name="title_setup_exported">Configuració exportada</string>
     <string name="title_setup_imported">Configuració importada</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Autoritzant compte &#8230;</string>
     <string name="title_setup_advanced">Avançat</string>
     <string name="title_store_sent">Emmagatzema missatges enviats (normalment no és necessari)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Sincronitza (rebre missatges)</string>
     <string name="title_synchronize_identity">Sincronitza (envia missatges)</string>
     <string name="title_primary_account">Primària (compte per defecte)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Afegeix a destacats</string>
     <string name="title_unflag">Treure de destacats</string>
     <string name="title_forward">Següent</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Respon a tots</string>
     <string name="title_show_headers">Mostra les capçaleres</string>
     <string name="title_show_html">Veure l\'original</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Qualificar el missatge com correu brossa?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

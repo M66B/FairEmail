@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="menu_setup">Quraşdırma</string>
-    <string name="menu_answers">Cavab şablonları</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Əməliyyatlar</string>
     <string name="menu_legend">Mənalar</string>
-    <string name="menu_faq">TSS/dəstək</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Pro xüsusiyyətlər</string>
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Haqqında</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Quraşdırma</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
-    <string name="title_setup_export_do">Hesablar və kimliklər şifrəsiz ixrac ediləcək</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">İdxal edilmiş hesablar əlavə ediləcək, üzərinə yazılmayacaq</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Hesaba səlahiyyət verilir &#8230;</string>
     <string name="title_setup_advanced">Qabaqcıl</string>
     <string name="title_store_sent">Göndərilən mesajları saxla (normalda ehtiyac yoxdur)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Eyniləşdir (mesajları al)</string>
     <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Ulduz əlavə et</string>
     <string name="title_unflag">Ulduzu çıxart</string>
     <string name="title_forward">Yönləndir</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Hamısını cavabla</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_show_html">Həqiqisini göstər</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Seçilmiş mesajlar birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Mesajı spam kimi bildirilsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

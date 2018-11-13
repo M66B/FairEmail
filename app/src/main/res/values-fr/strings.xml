@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_setup">Configuration</string>
-    <string name="menu_answers">Modèles de réponse</string>
+    <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
     <string name="menu_legend">Légende</string>
-    <string name="menu_faq">FAQ / Aide</string>
+    <string name="menu_faq">Assistance</string>
     <string name="menu_pro">Fonctionnalités Pro</string>
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Configuration</string>
     <string name="title_setup_export">Exporter les paramètres</string>
     <string name="title_setup_import">Importer les paramètres</string>
-    <string name="title_setup_export_do">Les comptes et identités seront exportés sans les mots de passe</string>
+    <string name="title_setup_export_do">Le fichier d’exportation contiendra vos mots de passe, donc gardez-le en lieu sûr</string>
     <string name="title_setup_import_do">Les comptes importés seront ajoutés, pas remplacés</string>
     <string name="title_setup_exported">Paramètres exportés</string>
     <string name="title_setup_imported">Paramètres importés</string>
@@ -83,7 +83,7 @@
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_nav">Navigation précédente/suivante</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_store_sent">Stocker les messages envoyés (normalement pas nécessaire)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Marquer comme suivi</string>
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Répondre à tous</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_show_html">Afficher l\'original</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
+    <string name="title_ask_save">Enregistrer les modifications ?</string>
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>

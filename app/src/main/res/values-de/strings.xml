@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_setup">Einstellungen</string>
-    <string name="menu_answers">Antwortvorlagen</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_legend">Legende</string>
-    <string name="menu_faq">FAQ/Hilfe</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Pro-Funktionen</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
-    <string name="title_setup_export_do">Konten und Identitäten werden ohne Kennwörter exportiert</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, nicht überschrieben</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -83,7 +83,7 @@
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_nav">Vorherige/nächste E-Mail Navigation</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Autorisieren Konto &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_store_sent">Gesendete E-Mails speichern (normalerweise nicht nötig)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
     <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
     <string name="title_primary_account">Primäres Konto</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Als Favorit markieren</string>
     <string name="title_unflag">Von Favoriten entfernen</string>
     <string name="title_forward">Weiterleiten</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Antworten an alle</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
     <string name="title_show_html">Original anzeigen</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
@@ -266,7 +269,7 @@
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
-    <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte FAQ/Support-Menü, um Hilfe zu erhalten</string>
+    <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte das FAQ/Hilfe-Menü, um Hilfe zu erhalten</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>

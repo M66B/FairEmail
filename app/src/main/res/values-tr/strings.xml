@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="menu_setup">Kurulum</string>
-    <string name="menu_answers">Yanıt şablonları</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_legend">Açıklamalar</string>
-    <string name="menu_faq">SSS/destek</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Pro özellikleri</string>
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Hakkında</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Kurulum</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
-    <string name="title_setup_export_do">Hesaplar ve kimlikler şifreler olmadan dışa aktarılır</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">İçe aktarılan hesaplar eklenecek, üzerine yazılmayacak</string>
     <string name="title_setup_exported">Ayarları dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_store_sent">Gönderilen mesajları sakla (normalde gerekmez)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Senkronize et (iletileri al)</string>
     <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Yıldız Ekle</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
     <string name="title_forward">İlet</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Tümünü yanıtla</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_show_html">Orjinali göster</string>
@@ -194,6 +196,7 @@
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
     <string name="title_ask_discard">Taslağı sil?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">İletiyi spam olarak raporla?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

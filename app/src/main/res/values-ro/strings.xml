@@ -36,10 +36,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_setup">Setări</string>
-    <string name="menu_answers">Șabloane răspunsuri</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_legend">Legendă</string>
-    <string name="menu_faq">Întrebări/suport</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Caracteristici versiune Pro</string>
     <string name="menu_privacy">Confidențialitate</string>
     <string name="menu_about">Despre</string>
@@ -58,7 +58,7 @@
     <string name="title_setup">Setări</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_export_do">Conturile şi identităţile vor fi exportate fără parole</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
@@ -121,6 +121,7 @@
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_store_sent">Stochează mesajele trimise (în mod normal nu este necesar)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -178,6 +179,7 @@
     <string name="title_flag">Marcare</string>
     <string name="title_unflag">Anulare marcare</string>
     <string name="title_forward">Redirecționează</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Răspunde tuturor</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_show_html">Arată original</string>
@@ -199,6 +201,7 @@
     <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>

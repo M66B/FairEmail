@@ -26,10 +26,10 @@
     </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_setup">设置</string>
-    <string name="menu_answers">回复模板</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">操作</string>
     <string name="menu_legend">图例</string>
-    <string name="menu_faq">常见问题/支持</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">专业版功能</string>
     <string name="menu_privacy">隐私</string>
     <string name="menu_about">关于</string>
@@ -48,7 +48,7 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
-    <string name="title_setup_export_do">账户跟身份将会在没有密码的情况下导出</string>
+    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
     <string name="title_setup_import_do">导入的账号将被添加，但不会覆写</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
@@ -78,7 +78,7 @@
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_nav">上/下一则导航</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
@@ -111,6 +111,7 @@
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_store_sent">保存已发送的消息(通常不需要)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">同步（接收）</string>
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
@@ -168,6 +169,7 @@
     <string name="title_flag">加注星标</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">回复全部</string>
     <string name="title_show_headers">显示标题</string>
     <string name="title_show_html">显示原件</string>
@@ -189,9 +191,10 @@
     <string name="title_ask_delete_selected">是否永久性删除选定的邮件？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
+    <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_fix">修复</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>

@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="menu_setup">Configurazione</string>
-    <string name="menu_answers">Modelli di risposta</string>
+    <string name="menu_answers">Modelli</string>
     <string name="menu_operations">Operazioni</string>
     <string name="menu_legend">Legenda</string>
-    <string name="menu_faq">FAQ/supporto</string>
+    <string name="menu_faq">Supporto</string>
     <string name="menu_pro">Funzionalità a pagamento</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Configurazione</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
-    <string name="title_setup_export_do">Verranno esportati account e identità senza le password</string>
+    <string name="title_setup_export_do">Il file di esportazione conterrà le tue password, quindi tienilo al sicuro</string>
     <string name="title_setup_import_do">Gli account importati saranno aggiunti, non sovrascritti</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
@@ -83,7 +83,7 @@
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_nav">Navigazione precedente/successivo</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
@@ -116,6 +116,7 @@
     <string name="title_authorizing">Autorizzazione account &#8230;</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_store_sent">Memorizza i messaggi inviati (normalmente non necessario)</string>
+    <string name="title_store_copy">Store a copy of sent messages in:</string>
     <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
@@ -173,6 +174,7 @@
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_unflag">Rimuovi stella</string>
     <string name="title_forward">Inoltra</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Rispondi a tutti</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_show_html">Visualizza originale</string>
@@ -194,9 +196,10 @@
     <string name="title_ask_delete_selected">Eliminare definitivamente i messaggi selezionati?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
+    <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_spam">Segnalare il messaggio come posta indesiderata?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_fix">Correggi</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
