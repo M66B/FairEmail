@@ -133,7 +133,7 @@ If this doesn't work, see here for more solutions: [https://support.google.com/m
 Messages in the outbox are moved to the sent folder as soon as your provider adds the message to the sent folder.
 Note that this requires a sent folder to be selected and to be set to synchronizing.
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
-In these cases you can set the advanced identity setting *Store a copy of sent messages in* to the sent folder.
+In these cases you can use the advanced identity setting *Store a copy of sent messages in* and select the sent folder.
 There is a menu to move sent messages in the outbox to the sent folder.
 
 <a name="faq8"></a>
