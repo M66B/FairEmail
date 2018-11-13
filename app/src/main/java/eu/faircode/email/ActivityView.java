@@ -30,7 +30,6 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
@@ -55,6 +54,7 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -62,10 +62,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.Collator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -212,6 +217,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case -1:
                         drawerLayout.closeDrawer(drawerList);
                         onMenuInbox((long) item.getData());
+                        return true;
+                    case R.string.menu_about:
+                        onDebugInfo();
                         return true;
                     default:
                         return false;
@@ -496,25 +504,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     StringBuilder sb = new StringBuilder();
 
                     sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
-
-                    sb.append(String.format("%s: %s %s/%s\r\n",
-                            context.getString(R.string.app_name),
-                            BuildConfig.APPLICATION_ID,
-                            BuildConfig.VERSION_NAME,
-                            Helper.hasValidFingerprint(context) ? "1" : "3"));
-                    sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
-                    sb.append("\r\n");
-
-                    // Get device info
-                    sb.append(String.format("Brand: %s\r\n", Build.BRAND));
-                    sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
-                    sb.append(String.format("Model: %s\r\n", Build.MODEL));
-                    sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-                    sb.append(String.format("Device: %s\r\n", Build.DEVICE));
-                    sb.append(String.format("Host: %s\r\n", Build.HOST));
-                    sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
-                    sb.append(String.format("Id: %s\r\n", Build.ID));
-                    sb.append("\r\n");
+                    sb.append(Helper.getAppInfo(context));
 
                     BufferedReader in = null;
                     try {
@@ -787,6 +777,159 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
+    }
+
+    private void onDebugInfo() {
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
+                StringBuilder sb = new StringBuilder();
+
+                sb.append(context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+                sb.append(Helper.getAppInfo(context));
+
+                String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+                EntityMessage draft;
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityFolder drafts = db.folder().getPrimaryDrafts();
+                    if (drafts == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+
+                    draft = new EntityMessage();
+                    draft.account = drafts.account;
+                    draft.folder = drafts.id;
+                    draft.msgid = EntityMessage.generateMessageId();
+                    draft.to = new Address[]{Helper.myAddress()};
+                    draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
+                    draft.content = true;
+                    draft.received = new Date().getTime();
+                    draft.seen = false;
+                    draft.ui_seen = false;
+                    draft.flagged = false;
+                    draft.ui_flagged = false;
+                    draft.ui_hide = false;
+                    draft.ui_found = false;
+                    draft.ui_ignored = false;
+                    draft.id = db.message().insertMessage(draft);
+                    draft.write(context, body);
+
+                    // Attach recent log
+                    {
+                        EntityAttachment log = new EntityAttachment();
+                        log.message = draft.id;
+                        log.sequence = 1;
+                        log.name = "log.txt";
+                        log.type = "text/plain";
+                        log.size = null;
+                        log.progress = 0;
+                        log.id = db.attachment().insertAttachment(log);
+
+                        OutputStream os = null;
+                        File file = EntityAttachment.getFile(context, log.id);
+                        try {
+                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                            int size = 0;
+                            long from = new Date().getTime() - 24 * 3600 * 1000L;
+                            DateFormat DF = SimpleDateFormat.getTimeInstance();
+                            for (EntityLog entry : db.log().getLogs(from)) {
+                                String line = String.format("%s %s\r\n", DF.format(entry.time), entry.data);
+                                byte[] bytes = line.getBytes();
+                                os.write(bytes);
+                                size += bytes.length;
+                            }
+
+                            log.size = size;
+                            log.progress = null;
+                            log.available = true;
+                            db.attachment().updateAttachment(log);
+                        } finally {
+                            if (os != null)
+                                os.close();
+                        }
+                    }
+
+                    // Attach logcat
+                    {
+                        EntityAttachment logcat = new EntityAttachment();
+                        logcat.message = draft.id;
+                        logcat.sequence = 2;
+                        logcat.name = "logcat.txt";
+                        logcat.type = "text/plain";
+                        logcat.size = null;
+                        logcat.progress = 0;
+                        logcat.id = db.attachment().insertAttachment(logcat);
+
+                        Process proc = null;
+                        BufferedReader br = null;
+                        OutputStream os = null;
+                        File file = EntityAttachment.getFile(context, logcat.id);
+                        try {
+                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                            String[] cmd = new String[]{"logcat",
+                                    "-d",
+                                    "-v", "threadtime",
+                                    //"-t", "1000",
+                                    Helper.TAG + ":I"};
+                            proc = Runtime.getRuntime().exec(cmd);
+                            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+                            int size = 0;
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                line += "\r\n";
+                                byte[] bytes = line.getBytes();
+                                os.write(bytes);
+                                size += bytes.length;
+                            }
+
+                            logcat.size = size;
+                            logcat.progress = null;
+                            logcat.available = true;
+                            db.attachment().updateAttachment(logcat);
+                        } finally {
+                            if (os != null)
+                                os.close();
+                            if (br != null)
+                                br.close();
+                            if (proc != null)
+                                proc.destroy();
+                        }
+                    }
+
+                    EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                    db.setTransactionSuccessful();
+                } catch (IOException ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    return null;
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return draft.id;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Long id) {
+                if (id != null)
+                    startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                            .putExtra("action", "edit")
+                            .putExtra("id", id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ex);
+            }
+        }.load(this, new Bundle());
     }
 
     private void onMenuRate() {

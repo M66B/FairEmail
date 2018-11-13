@@ -21,13 +21,17 @@ package eu.faircode.email;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Build;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -275,6 +279,53 @@ public class Helper {
             Log.e(TAG, Log.getStackTraceString(ex));
             return false;
         }
+    }
+
+    static StringBuilder getAppInfo(Context context) {
+        StringBuilder sb = new StringBuilder();
+
+        // Get version info
+        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        sb.append(String.format("%s: %s/%s %s/%s%s\r\n",
+                context.getString(R.string.app_name),
+                BuildConfig.APPLICATION_ID,
+                installer,
+                BuildConfig.VERSION_NAME,
+                Helper.hasValidFingerprint(context) ? "1" : "3",
+                Helper.isPro(context) ? "+" : ""));
+        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+        sb.append("\r\n");
+
+        // Get device info
+        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+        sb.append(String.format("Host: %s\r\n", Build.HOST));
+        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+        sb.append(String.format("Id: %s\r\n", Build.ID));
+        sb.append("\r\n");
+
+        PowerManager pm = context.getSystemService(PowerManager.class);
+        boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            UsageStatsManager usm = context.getSystemService(UsageStatsManager.class);
+            int bucket = usm.getAppStandbyBucket();
+            sb.append(String.format("Standby bucket: %d\r\n", bucket));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+            sb.append(String.format("Data saving: %b\r\n", saving));
+        }
+
+        sb.append("\r\n");
+
+        return sb;
     }
 
     static String sha256(String data) throws NoSuchAlgorithmException {
