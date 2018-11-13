@@ -263,13 +263,7 @@ public class FragmentCompose extends FragmentEx {
             }
         });
 
-        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
-            @Override
-            public boolean onBackPressed() {
-                handleExit();
-                return true;
-            }
-        });
+        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         setHasOptionsMenu(true);
 
@@ -371,6 +365,8 @@ public class FragmentCompose extends FragmentEx {
 
         if (pgpService != null)
             pgpService.unbindFromService();
+
+        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
 
         super.onDestroyView();
     }
@@ -1731,4 +1727,12 @@ public class FragmentCompose extends FragmentEx {
             return view;
         }
     }
+
+    private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+        @Override
+        public boolean onBackPressed() {
+            handleExit();
+            return true;
+        }
+    };
 }

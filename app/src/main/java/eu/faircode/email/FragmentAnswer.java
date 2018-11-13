@@ -35,6 +35,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 
 public class FragmentAnswer extends FragmentEx {
@@ -84,11 +85,19 @@ public class FragmentAnswer extends FragmentEx {
             }
         });
 
+        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
+
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
+        super.onDestroyView();
     }
 
     @Override
@@ -187,4 +196,31 @@ public class FragmentAnswer extends FragmentEx {
             }
         }.load(this, args);
     }
+
+    private void handleExit() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setMessage(R.string.title_ask_save)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            onActionSave();
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
+    }
+
+    ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+        @Override
+        public boolean onBackPressed() {
+            handleExit();
+            return true;
+        }
+    };
 }

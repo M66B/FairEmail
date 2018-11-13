@@ -754,16 +754,7 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
-            @Override
-            public boolean onBackPressed() {
-                if (selectionTracker != null && selectionTracker.hasSelection()) {
-                    selectionTracker.clearSelection();
-                    return true;
-                }
-                return false;
-            }
-        });
+        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         // Initialize
         tvNoEmail.setVisibility(View.GONE);
@@ -776,6 +767,12 @@ public class FragmentMessages extends FragmentEx {
         fabDelete.hide();
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
+        super.onDestroyView();
     }
 
     @Override
@@ -1329,4 +1326,15 @@ public class FragmentMessages extends FragmentEx {
             }
         }.load(this, args);
     }
+
+    ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+        @Override
+        public boolean onBackPressed() {
+            if (selectionTracker != null && selectionTracker.hasSelection()) {
+                selectionTracker.clearSelection();
+                return true;
+            }
+            return false;
+        }
+    };
 }

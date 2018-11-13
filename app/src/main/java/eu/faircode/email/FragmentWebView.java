@@ -39,13 +39,16 @@ import androidx.annotation.Nullable;
 // https://developer.android.com/reference/android/webkit/WebView
 
 public class FragmentWebView extends FragmentEx {
+    private ProgressBar progressBar;
+    private WebView webview;
+
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_webview, container, false);
 
-        final ProgressBar progressBar = view.findViewById(R.id.progressbar);
-        final WebView webview = view.findViewById(R.id.webview);
+        progressBar = view.findViewById(R.id.progressbar);
+        webview = view.findViewById(R.id.webview);
 
         progressBar.setProgress(0);
         progressBar.setVisibility(View.VISIBLE);
@@ -105,21 +108,29 @@ public class FragmentWebView extends FragmentEx {
             }.load(this, args);
         }
 
-        ((ActivityBase) getActivity()).addBackPressedListener(new ActivityBase.IBackPressedListener() {
-            @Override
-            public boolean onBackPressed() {
-                boolean can = webview.canGoBack();
-                if (can)
-                    webview.goBack();
-
-                Bundle args = getArguments();
-                if (args.containsKey("from") && !webview.canGoBack())
-                    setSubtitle(args.getString("from"));
-
-                return can;
-            }
-        });
+        ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         return view;
     }
+
+    @Override
+    public void onDestroyView() {
+        ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
+        super.onDestroyView();
+    }
+
+    ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+        @Override
+        public boolean onBackPressed() {
+            boolean can = webview.canGoBack();
+            if (can)
+                webview.goBack();
+
+            Bundle args = getArguments();
+            if (args.containsKey("from") && !webview.canGoBack())
+                setSubtitle(args.getString("from"));
+
+            return can;
+        }
+    };
 }

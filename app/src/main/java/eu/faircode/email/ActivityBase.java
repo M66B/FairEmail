@@ -97,6 +97,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         backPressedListeners.add(listener);
     }
 
+    public void removeBackPressedListener(IBackPressedListener listener) {
+        backPressedListeners.remove(listener);
+    }
+
     @Override
     public void onBackPressed() {
         for (IBackPressedListener listener : backPressedListeners)
