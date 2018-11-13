@@ -482,6 +482,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="btnHtml,btnImages" />
+
         <TextView
             android:id="@+id/tvBody"
             android:layout_width="0dp"
@@ -496,7 +503,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHtml" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_body" />
 
         <ProgressBar
             android:id="@+id/pbBody"
