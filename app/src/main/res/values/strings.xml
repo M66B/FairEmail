@@ -201,6 +201,7 @@
     <string name="title_flag">Add star</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
+    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Reply to all</string>
     <string name="title_show_headers">Show headers</string>
     <string name="title_show_html">Show original</string>

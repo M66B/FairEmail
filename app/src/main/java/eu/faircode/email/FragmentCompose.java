@@ -388,6 +388,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putLong("id", getArguments().getLong("id", -1));
                 args.putLong("account", getArguments().getLong("account", -1));
                 args.putLong("reference", getArguments().getLong("reference", -1));
+                args.putBoolean("raw", getArguments().getBoolean("raw", false));
                 args.putLong("answer", getArguments().getLong("answer", -1));
                 args.putString("to", getArguments().getString("to"));
                 args.putString("cc", getArguments().getString("cc"));
@@ -1002,6 +1003,7 @@ public class FragmentCompose extends FragmentEx {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
+            boolean raw = args.getBoolean("raw", false);
             long answer = args.getLong("answer", -1);
             boolean pro = Helper.isPro(getContext());
 
@@ -1225,6 +1227,30 @@ public class FragmentCompose extends FragmentEx {
                             File target = EntityAttachment.getFile(context, copy.id);
                             Helper.copy(source, target);
                         }
+
+                    if (raw) {
+                        EntityAttachment headers = new EntityAttachment();
+                        headers.message = result.draft.id;
+                        headers.sequence = ++sequence;
+                        headers.name = "headers.txt";
+                        headers.type = "text/plan";
+                        headers.available = true;
+                        headers.id = db.attachment().insertAttachment(headers);
+
+                        headers.write(context, ref.headers);
+
+                        EntityAttachment content = new EntityAttachment();
+                        content.message = result.draft.id;
+                        content.sequence = ++sequence;
+                        content.name = "content.html";
+                        content.type = "text/html";
+                        content.available = true;
+                        content.id = db.attachment().insertAttachment(content);
+
+                        File csource = EntityMessage.getFile(context, ref.id);
+                        File ctarget = EntityAttachment.getFile(context, content.id);
+                        Helper.copy(csource, ctarget);
+                    }
                 }
 
                 EntityOperation.queue(db, result.draft, EntityOperation.ADD);

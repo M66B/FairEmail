@@ -23,8 +23,10 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -79,6 +81,22 @@ public class EntityAttachment {
         File dir = new File(context.getFilesDir(), "attachments");
         dir.mkdir();
         return new File(dir, Long.toString(id));
+    }
+
+    void write(Context context, String body) throws IOException {
+        File file = getFile(context, id);
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new FileWriter(file));
+            out.write(body == null ? "" : body);
+        } finally {
+            if (out != null)
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                }
+        }
     }
 
     void download(Context context, DB db) throws MessagingException, IOException {

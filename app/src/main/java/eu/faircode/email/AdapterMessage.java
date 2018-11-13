@@ -973,7 +973,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     .show();
         }
 
-        private void onForward(final ActionData data) {
+        private void onForward(final ActionData data, final boolean raw) {
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
 
@@ -992,7 +992,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 protected void onLoaded(Bundle args, Boolean available) {
                     final Intent forward = new Intent(context, ActivityCompose.class)
                             .putExtra("action", "forward")
-                            .putExtra("reference", data.message.id);
+                            .putExtra("reference", data.message.id)
+                            .putExtra("raw", raw);
                     if (available)
                         context.startActivity(forward);
                     else
@@ -1193,6 +1194,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(!inOutbox);
 
+            popupMenu.getMenu().findItem(R.id.menu_forward_raw).setVisible(
+                    data.message.content && data.message.headers != null && !inOutbox);
+
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(!inOutbox);
 
@@ -1217,7 +1221,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             onJunk(data);
                             return true;
                         case R.id.menu_forward:
-                            onForward(data);
+                            onForward(data, false);
+                            return true;
+                        case R.id.menu_forward_raw:
+                            onForward(data, true);
                             return true;
                         case R.id.menu_reply_all:
                             onReplyAll(data);
