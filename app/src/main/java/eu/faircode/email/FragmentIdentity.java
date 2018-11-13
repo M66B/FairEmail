@@ -521,8 +521,11 @@ public class FragmentIdentity extends FragmentEx {
                                     @Override
                                     protected Void onLoad(Context context, Bundle args) {
                                         long id = args.getLong("id");
-                                        DB.getInstance(context).identity().deleteIdentity(id);
-                                        ServiceSynchronize.reload(getContext(), "delete identity");
+                                        DB db = DB.getInstance(context);
+                                        EntityIdentity identity = db.identity().getIdentity(id);
+                                        db.identity().deleteIdentity(id);
+                                        if (identity.synchronize)
+                                            ServiceSynchronize.reload(getContext(), "delete identity");
                                         return null;
                                     }
 
