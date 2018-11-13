@@ -412,6 +412,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,cbSynchronize,cbPrimary,cbStoreSent,tvSent,spSent" />
+            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,cbSynchronize,cbPrimary,tvSent,spSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
