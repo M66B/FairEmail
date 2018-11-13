@@ -83,6 +83,7 @@
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_nav">Navegación anterior/siguiente</string>
+    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
@@ -195,7 +196,7 @@
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_fix">Reparar</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>

@@ -83,6 +83,7 @@
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_nav">Vorherige/nächste E-Mail Navigation</string>
+    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
@@ -194,8 +195,8 @@
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
-    <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann ungewollt sensible Informationen zur Privatsphäre preisgeben</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
