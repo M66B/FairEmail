@@ -320,7 +320,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
 
             ivExpander.setImageResource(show_expanded ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-            ivExpander.setVisibility(viewType == ViewType.THREAD ? View.VISIBLE : View.GONE);
+            if (viewType == ViewType.THREAD)
+                ivExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
+            else
+                ivExpander.setVisibility(View.GONE);
 
             if (viewType == ViewType.THREAD)
                 ivFlagged.setVisibility(message.unflagged == 1 ? View.GONE : View.VISIBLE);
@@ -548,7 +551,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
         }
 
-        private void onAddContact(EntityMessage message) {
+        private void onAddContact(TupleMessageEx message) {
             for (Address address : message.from) {
                 InternetAddress ia = (InternetAddress) address;
                 String name = ia.getPersonal();
@@ -595,19 +598,26 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             }
         }
 
-        private void onToggleMessage(int pos, EntityMessage message) {
-            boolean expanded = !properties.isExpanded(message.id);
-            properties.setExpanded(message.id, expanded);
-            notifyItemChanged(pos);
+        private void onToggleMessage(int pos, TupleMessageEx message) {
+            if (EntityFolder.DRAFTS.equals(message.folderType))
+                context.startActivity(
+                        new Intent(context, ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", message.id));
+            else {
+                boolean expanded = !properties.isExpanded(message.id);
+                properties.setExpanded(message.id, expanded);
+                notifyItemChanged(pos);
+            }
         }
 
-        private void onToggleAddresses(int pos, EntityMessage message) {
+        private void onToggleAddresses(int pos, TupleMessageEx message) {
             boolean addresses = !properties.showAddresses(message.id);
             properties.setAddresses(message.id, addresses);
             notifyItemChanged(pos);
         }
 
-        private void onShowHtml(final EntityMessage message) {
+        private void onShowHtml(final TupleMessageEx message) {
             new DialogBuilderLifecycle(context, owner)
                     .setMessage(R.string.title_ask_show_html)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -624,7 +634,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     .show();
         }
 
-        private void onShowImages(final EntityMessage message) {
+        private void onShowImages(final TupleMessageEx message) {
             new DialogBuilderLifecycle(context, owner)
                     .setMessage(R.string.title_ask_show_image)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
