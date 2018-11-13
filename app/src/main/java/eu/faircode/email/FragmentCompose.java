@@ -1464,7 +1464,7 @@ public class FragmentCompose extends FragmentEx {
 
                 // Move draft to new account
                 if (draft.account != aid) {
-                    long uid = draft.uid;
+                    Long uid = draft.uid;
                     String msgid = draft.msgid;
 
                     draft.uid = null;
