@@ -36,9 +36,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Signatures
 * Dark/black theme
 * Account/identity colors
-* Multiple select
 * Reply templates
-* Sort on time, unread or starred
 * Search on server
 * Preview sender/subject/photo in new message notifications
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
