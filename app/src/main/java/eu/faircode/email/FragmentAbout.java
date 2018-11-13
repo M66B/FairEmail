@@ -23,16 +23,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentAbout extends FragmentEx {
     private TextView tvVersion;
-    private Button btnLog;
 
     @Override
     @Nullable
@@ -42,18 +39,8 @@ public class FragmentAbout extends FragmentEx {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         tvVersion = view.findViewById(R.id.tvVersion);
-        btnLog = view.findViewById(R.id.btnLog);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
-
-        btnLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
-                fragmentTransaction.commit();
-            }
-        });
 
         return view;
     }

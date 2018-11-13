@@ -218,7 +218,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         drawerLayout.closeDrawer(drawerList);
                         onMenuInbox((long) item.getData());
                         return true;
-                    case R.string.menu_about:
+                    case R.string.menu_setup:
+                        onShowLog();
+                        return true;
+                    case R.string.menu_faq:
                         onDebugInfo();
                         return true;
                     default:
@@ -776,6 +779,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onMenuAbout() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
+        fragmentTransaction.commit();
+    }
+
+    private void onShowLog() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
         fragmentTransaction.commit();
     }
 
