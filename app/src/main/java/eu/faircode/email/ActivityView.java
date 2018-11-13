@@ -204,6 +204,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerLayout.closeDrawer(drawerList);
             }
         });
+        drawerList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
+                switch (item.getId()) {
+                    case -1:
+                        drawerLayout.closeDrawer(drawerList);
+                        onMenuInbox((long) item.getData());
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
@@ -705,6 +719,32 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folders");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuInbox(long account) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onLoad(Context context, Bundle args) throws Throwable {
+                long account = args.getLong("account");
+                return DB.getInstance(context).folder().getFolderByType(account, EntityFolder.INBOX).id;
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, Long folder) {
+                long account = args.getLong("account");
+
+                getSupportFragmentManager().popBackStack("unified", 0);
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ActivityView.this);
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", account)
+                                .putExtra("folder", folder));
+            }
+        }.load(this, args);
     }
 
     private void onMenuSetup() {
