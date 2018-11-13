@@ -29,8 +29,8 @@
 
         <ImageView
             android:id="@+id/ivExpander"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:src="@drawable/baseline_expand_less_24"
             android:visibility="visible"

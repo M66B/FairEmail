@@ -213,7 +213,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center_vertical"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/fab_padding"
         android:src="@drawable/baseline_folder_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorSeparator" />
@@ -242,7 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/fab_padding"
         android:src="@drawable/baseline_edit_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorAccent" />
