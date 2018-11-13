@@ -78,7 +78,7 @@ dependencies {
     // https://developer.android.com/jetpack/docs/release-notes
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
-    implementation "androidx.appcompat:appcompat:appcompat_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
 
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
