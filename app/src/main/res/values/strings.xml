@@ -43,10 +43,10 @@
     <string name="title_notification_failed">\'%1$s\' failed</string>
 
     <string name="menu_setup">Setup</string>
-    <string name="menu_answers">Reply templates</string>
+    <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_legend">Legend</string>
-    <string name="menu_faq">FAQ/support</string>
+    <string name="menu_faq">Support</string>
     <string name="menu_pro">Pro features</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">About</string>
