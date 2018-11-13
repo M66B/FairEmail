@@ -201,29 +201,35 @@ public class FragmentCompose extends FragmentEx {
             }
         });
 
-        ivToAdd.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener onPick = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_TO);
-            }
-        });
+                int request;
+                switch (view.getId()) {
+                    case R.id.ivToAdd:
+                        request = ActivityCompose.REQUEST_CONTACT_TO;
+                        break;
+                    case R.id.ivCcAdd:
+                        request = ActivityCompose.REQUEST_CONTACT_CC;
+                        break;
+                    case R.id.ivBccAdd:
+                        request = ActivityCompose.REQUEST_CONTACT_BCC;
+                        break;
+                    default:
+                        return;
+                }
 
-        ivCcAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_CC);
+                Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
+                if (pick.resolveActivity(getContext().getPackageManager()) == null)
+                    Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
+                else
+                    startActivityForResult(pick, request);
             }
-        });
+        };
 
-        ivBccAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
-                startActivityForResult(intent, ActivityCompose.REQUEST_CONTACT_BCC);
-            }
-        });
+        ivToAdd.setOnClickListener(onPick);
+        ivCcAdd.setOnClickListener(onPick);
+        ivBccAdd.setOnClickListener(onPick);
 
         edit_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
