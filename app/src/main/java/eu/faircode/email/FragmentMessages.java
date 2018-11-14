@@ -906,7 +906,9 @@ public class FragmentMessages extends FragmentEx {
             db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(EntityAccount account) {
-                    if (account != null) {
+                    if (account == null)
+                        fab.hide();
+                    else {
                         fab.setTag(account.id);
                         fab.show();
                     }
