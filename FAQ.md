@@ -3,6 +3,7 @@
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
 
+
 ## Authorizing accounts
 
 For support on authorizing an account you should consult the documentation of your provider.
@@ -18,6 +19,19 @@ For:
 * Outlook: see [question 14](#user-content-faq14)
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 
+
+## Planned features
+
+* Notifications per account
+* Fixed action bar conversations
+* Password protected export file
+* Signature per identity
+* Keep conversations open (for previous/next navigation)
+* Microsoft OAuth
+
+Anything on this list is in random order and *might* be added in the near future.
+
+
 ## Frequently requested features
 
 * Previewing message text in notifications: this is not possible because the message text is initially not downloaded.
@@ -32,7 +46,7 @@ For:
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-faq2).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
-* Microsoft OAuth: to get the email address, [access to the user information](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_get) is needed, which contains privacy sensitive information.
+* Notification per account: this would result in multiple icons in the status bar and most people don't like this. Note that the account colors are shown in the notifications too.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -42,6 +56,7 @@ Since FairEmail is meant to be privacy friendly, the following will not be added
 Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
+
 
 ## Frequently Asked Questions
 
@@ -428,6 +443,7 @@ but will also leak your IP address.
 
 Opening attachments or viewing an original message might execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
+
 
 ## Support
 
