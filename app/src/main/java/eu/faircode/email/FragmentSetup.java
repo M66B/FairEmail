@@ -46,6 +46,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -59,9 +60,19 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -98,6 +109,9 @@ public class FragmentSetup extends FragmentEx {
     private Button btnOptions;
 
     private Drawable check;
+
+    private static final int KEY_ITERATIONS = 65536;
+    private static final int KEY_LENGTH = 256;
 
     private static final String[] permissions = new String[]{
             Manifest.permission.READ_CONTACTS
@@ -423,17 +437,34 @@ public class FragmentSetup extends FragmentEx {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(final int requestCode, int resultCode, final Intent data) {
         Log.i(Helper.TAG, "Request=" + requestCode + " result=" + resultCode + " data=" + data);
 
-        if (requestCode == ActivitySetup.REQUEST_EXPORT) {
-            if (resultCode == RESULT_OK && data != null)
-                handleExport(data);
+        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT)
+            if (resultCode == RESULT_OK && data != null) {
+                final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                EditText etPassword1 = dview.findViewById(R.id.etPassword1);
+                                EditText etPassword2 = dview.findViewById(R.id.etPassword2);
 
-        } else if (requestCode == ActivitySetup.REQUEST_IMPORT) {
-            if (resultCode == RESULT_OK && data != null)
-                handleImport(data);
-        }
+                                String password1 = etPassword1.getText().toString();
+                                String password2 = etPassword2.getText().toString();
+                                if (password1.equals(password2))
+                                    if (requestCode == ActivitySetup.REQUEST_EXPORT)
+                                        handleExport(data, password1);
+                                    else
+                                        handleImport(data, password1);
+                                else
+                                    Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
+                            }
+                        })
+                        .show();
+            } else
+                Snackbar.make(view, R.string.title_canceled, Snackbar.LENGTH_LONG).show();
     }
 
     private void onMenuPrivacy() {
@@ -448,20 +479,11 @@ public class FragmentSetup extends FragmentEx {
 
     private void onMenuExport() {
         if (Helper.isPro(getContext()))
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(R.string.title_setup_export_do)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            try {
-                                startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            }
-                        }
-                    })
-                    .create()
-                    .show();
+            try {
+                startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
+            } catch (Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
         else {
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
@@ -470,20 +492,11 @@ public class FragmentSetup extends FragmentEx {
     }
 
     private void onMenuImport() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_setup_import_do)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                    }
-                })
-                .create()
-                .show();
+        try {
+            startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+        } catch (Throwable ex) {
+            Helper.unexpectedError(getContext(), ex);
+        }
     }
 
     private void onMenuAbout() {
@@ -521,19 +534,36 @@ public class FragmentSetup extends FragmentEx {
                 .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
     }
 
-    private void handleExport(Intent data) {
+    private void handleExport(Intent data, String password) {
         Bundle args = new Bundle();
         args.putParcelable("uri", data.getData());
+        args.putString("password", password);
 
         new SimpleTask<Void>() {
             @Override
             protected Void onLoad(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                String password = args.getString("password");
 
                 OutputStream out = null;
                 try {
                     Log.i(Helper.TAG, "Writing URI=" + uri);
-                    out = getContext().getContentResolver().openOutputStream(uri);
+
+                    byte[] salt = new byte[16];
+                    SecureRandom random = new SecureRandom();
+                    random.nextBytes(salt);
+
+                    // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#Cipher
+                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                    SecretKey secret = keyFactory.generateSecret(keySpec);
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(Cipher.ENCRYPT_MODE, secret);
+
+                    OutputStream raw = getContext().getContentResolver().openOutputStream(uri);
+                    raw.write(salt);
+                    raw.write(cipher.getIV());
+                    out = new CipherOutputStream(raw, cipher);
 
                     DB db = DB.getInstance(context);
 
@@ -602,21 +632,38 @@ public class FragmentSetup extends FragmentEx {
         }.load(this, args);
     }
 
-    private void handleImport(Intent data) {
+    private void handleImport(Intent data, String password) {
         Bundle args = new Bundle();
         args.putParcelable("uri", data.getData());
+        args.putString("password", password);
 
         new SimpleTask<Void>() {
             @Override
             protected Void onLoad(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
+                String password = args.getString("password");
+
                 InputStream in = null;
                 try {
                     Log.i(Helper.TAG, "Reading URI=" + uri);
                     ContentResolver resolver = getContext().getContentResolver();
                     AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                    in = descriptor.createInputStream();
+                    InputStream raw = descriptor.createInputStream();
+
+                    byte[] salt = new byte[16];
+                    byte[] prefix = new byte[16];
+                    raw.read(salt);
+                    raw.read(prefix);
+
+                    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);
+                    SecretKey secret = keyFactory.generateSecret(keySpec);
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    IvParameterSpec iv = new IvParameterSpec(prefix);
+                    cipher.init(Cipher.DECRYPT_MODE, secret, iv);
+
+                    in = new CipherInputStream(raw, cipher);
 
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                     StringBuilder response = new StringBuilder();

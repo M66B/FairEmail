@@ -24,7 +24,7 @@ For:
 
 * Notifications per account
 * Fixed action bar conversations
-* Password protected export file
+* Password protected export file: next release
 * Keep conversations open (for previous/next navigation)
 * Microsoft OAuth
 
