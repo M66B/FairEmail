@@ -58,8 +58,10 @@
     <string name="title_setup">Setări</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_account">Gestionarea conturilor</string>
@@ -286,6 +288,7 @@
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>
     <string name="title_undo">Anulează</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

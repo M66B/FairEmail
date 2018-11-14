@@ -53,8 +53,10 @@
     <string name="title_setup">Setup</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
     <string name="title_setup_account">Manage accounts</string>
@@ -281,6 +283,7 @@
     <string name="title_yes">Yes</string>
     <string name="title_no">No</string>
     <string name="title_undo">Undo</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
     <string name="title_pro_feature">This is a pro feature</string>
     <string name="title_pro_list">List of pro features</string>

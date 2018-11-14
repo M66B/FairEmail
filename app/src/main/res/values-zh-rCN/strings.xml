@@ -48,8 +48,10 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">导入的账号将被添加，但不会覆写</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_account">管理账户</string>
@@ -276,6 +278,7 @@
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
     <string name="title_undo">撤销</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

@@ -53,8 +53,10 @@
     <string name="title_setup">Installatie</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Geïmporteerde accounts zullen worden toegevoegd, niet overschreven</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_account">Beheer accounts</string>
@@ -281,6 +283,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
     <string name="title_undo">Ongedaan maken</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

@@ -53,8 +53,10 @@
     <string name="title_setup">Ställ in</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Importerade konton kommer att läggas till, inte skrivas över</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
     <string name="title_setup_account">Hantera konton</string>
@@ -281,6 +283,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>
     <string name="title_undo">Ångra</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">Prova FairEmail, en e-postapp för Android med öppen källkod som respekterar din integritet</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
     <string name="title_pro_list">Lista över pro-funktioner</string>

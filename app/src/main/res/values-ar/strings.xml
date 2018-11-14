@@ -73,8 +73,10 @@
     <string name="title_setup">اعداد</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
-    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+    <string name="title_setup_password">Password</string>
+    <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_different">Passwords different</string>
     <string name="title_setup_exported">إعدادات تصدير</string>
     <string name="title_setup_imported">استيراد إعدادات</string>
     <string name="title_setup_account">إدارة الحسابات</string>
@@ -301,6 +303,7 @@
     <string name="title_yes">Yes</string>
     <string name="title_no">No</string>
     <string name="title_undo">التراجع عن</string>
+    <string name="title_canceled">Canceled</string>
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
     <string name="title_pro_feature">هذه ميزة برو</string>
     <string name="title_pro_list">قائمة ميزات برو</string>
