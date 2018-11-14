@@ -88,12 +88,12 @@ public class EntityIdentity {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
-        json.put("password", password);
+        json.put("password", "");
         json.put("auth_type", auth_type);
         json.put("primary", primary);
         if (color != null)
             json.put("color", color);
-        json.put("synchronize", synchronize);
+        json.put("synchronize", false);
         json.put("store_sent", store_sent);
         if (sent_folder != null)
             json.put("sent_folder", sent_folder);
