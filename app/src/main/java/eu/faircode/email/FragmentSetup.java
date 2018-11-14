@@ -298,7 +298,8 @@ public class FragmentSetup extends FragmentEx {
                         outbox.name = "OUTBOX";
                         outbox.type = EntityFolder.OUTBOX;
                         outbox.synchronize = false;
-                        outbox.after = 0;
+                        outbox.sync_days = 0;
+                        outbox.keep_days = 0;
                         outbox.id = db.folder().insertFolder(outbox);
                     }
 

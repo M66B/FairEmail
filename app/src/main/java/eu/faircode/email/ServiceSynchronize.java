@@ -1631,7 +1631,8 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.name = ifolder.getFullName();
                         folder.type = EntityFolder.USER;
                         folder.synchronize = false;
-                        folder.after = EntityFolder.DEFAULT_USER_SYNC;
+                        folder.sync_days = EntityFolder.DEFAULT_USER_SYNC;
+                        folder.keep_days = EntityFolder.DEFAULT_USER_SYNC;
                         db.folder().insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
                     } else {
@@ -1657,35 +1658,46 @@ public class ServiceSynchronize extends LifecycleService {
     private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, ServiceState state) throws MessagingException, IOException {
         DB db = DB.getInstance(this);
         try {
-            Log.v(Helper.TAG, folder.name + " start sync after=" + folder.after);
+            Log.v(Helper.TAG, folder.name + " start sync after=" + folder.sync_days + "/" + folder.keep_days);
 
             db.folder().setFolderState(folder.id, "syncing");
 
             // Get reference times
-            Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DAY_OF_MONTH, -folder.after);
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
+            Calendar cal_sync = Calendar.getInstance();
+            cal_sync.add(Calendar.DAY_OF_MONTH, -folder.sync_days);
+            cal_sync.set(Calendar.HOUR_OF_DAY, 0);
+            cal_sync.set(Calendar.MINUTE, 0);
+            cal_sync.set(Calendar.SECOND, 0);
+            cal_sync.set(Calendar.MILLISECOND, 0);
 
-            long ago = cal.getTimeInMillis();
-            if (ago < 0)
-                ago = 0;
+            Calendar cal_keep = Calendar.getInstance();
+            cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
+            cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+            cal_keep.set(Calendar.MINUTE, 0);
+            cal_keep.set(Calendar.SECOND, 0);
+            cal_keep.set(Calendar.MILLISECOND, 0);
 
-            Log.i(Helper.TAG, folder.name + " ago=" + new Date(ago));
+            long sync = cal_sync.getTimeInMillis();
+            if (sync < 0)
+                sync = 0;
+
+            long keep = cal_sync.getTimeInMillis();
+            if (keep < 0)
+                keep = 0;
+
+            Log.i(Helper.TAG, folder.name + " sync=" + new Date(sync) + " keep=" + new Date(keep));
 
             // Delete old local messages
-            int old = db.message().deleteMessagesBefore(folder.id, ago);
+            int old = db.message().deleteMessagesBefore(folder.id, keep);
             Log.i(Helper.TAG, folder.name + " local old=" + old);
 
             // Get list of local uids
-            List<Long> uids = db.message().getUids(folder.id, ago);
+            List<Long> uids = db.message().getUids(folder.id, sync);
             Log.i(Helper.TAG, folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
             long search = SystemClock.elapsedRealtime();
-            Message[] imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(ago)));
+            Message[] imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync)));
             Log.i(Helper.TAG, folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 

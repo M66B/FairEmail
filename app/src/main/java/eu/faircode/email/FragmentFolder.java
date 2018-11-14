@@ -53,7 +53,8 @@ public class FragmentFolder extends FragmentEx {
     private CheckBox cbHide;
     private CheckBox cbSynchronize;
     private CheckBox cbUnified;
-    private EditText etAfter;
+    private EditText etSyncDays;
+    private EditText etKeepDays;
     private Button btnSave;
     private ImageButton ibDelete;
     private ProgressBar pbSave;
@@ -85,7 +86,8 @@ public class FragmentFolder extends FragmentEx {
         cbHide = view.findViewById(R.id.cbHide);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbUnified = view.findViewById(R.id.cbUnified);
-        etAfter = view.findViewById(R.id.etAfter);
+        etSyncDays = view.findViewById(R.id.etSyncDays);
+        etKeepDays = view.findViewById(R.id.etKeepDays);
         btnSave = view.findViewById(R.id.btnSave);
         ibDelete = view.findViewById(R.id.ibDelete);
         pbSave = view.findViewById(R.id.pbSave);
@@ -107,7 +109,8 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("hide", cbHide.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
-                args.putString("after", etAfter.getText().toString());
+                args.putString("sync", etSyncDays.getText().toString());
+                args.putString("keep", etKeepDays.getText().toString());
 
                 new SimpleTask<Void>() {
                     @Override
@@ -119,11 +122,15 @@ public class FragmentFolder extends FragmentEx {
                         boolean hide = args.getBoolean("hide");
                         boolean unified = args.getBoolean("unified");
                         boolean synchronize = args.getBoolean("synchronize");
-                        String after = args.getString("after");
+                        String sync = args.getString("sync");
+                        String keep = args.getString("keep");
 
                         if (TextUtils.isEmpty(display) || display.equals(name))
                             display = null;
-                        int days = (TextUtils.isEmpty(after) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(after));
+                        int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(sync));
+                        int keep_days = (TextUtils.isEmpty(keep) ? sync_days : Integer.parseInt(keep));
+                        if (keep_days < sync_days)
+                            keep_days = sync_days;
 
                         IMAPStore istore = null;
                         DB db = DB.getInstance(getContext());
@@ -156,7 +163,8 @@ public class FragmentFolder extends FragmentEx {
                                     create.type = EntityFolder.USER;
                                     create.unified = unified;
                                     create.synchronize = synchronize;
-                                    create.after = days;
+                                    create.sync_days = sync_days;
+                                    create.keep_days = keep_days;
                                     db.folder().insertFolder(create);
                                 } else {
                                     Log.i(Helper.TAG, "Renaming folder=" + name);
@@ -171,7 +179,7 @@ public class FragmentFolder extends FragmentEx {
 
                             if (folder != null) {
                                 Log.i(Helper.TAG, "Updating folder=" + name);
-                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, days);
+                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, sync_days, keep_days);
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
                             }
@@ -319,7 +327,8 @@ public class FragmentFolder extends FragmentEx {
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
-                    etAfter.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.after));
+                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.sync_days));
+                    etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
                 }
 
                 // Consider previous save as cancelled

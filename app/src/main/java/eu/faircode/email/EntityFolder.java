@@ -61,7 +61,9 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Boolean synchronize;
     @NonNull
-    public Integer after; // days
+    public Integer sync_days;
+    @NonNull
+    public Integer keep_days;
     public String display;
     @NonNull
     public Boolean hide = false;
@@ -161,7 +163,8 @@ public class EntityFolder implements Serializable {
         json.put("name", name);
         json.put("type", type);
         json.put("synchronize", synchronize);
-        json.put("after", after);
+        json.put("sync_days", sync_days);
+        json.put("keep_days", keep_days);
         json.put("display", display);
         json.put("hide", hide);
         json.put("unified", unified);
@@ -173,7 +176,17 @@ public class EntityFolder implements Serializable {
         folder.name = json.getString("name");
         folder.type = json.getString("type");
         folder.synchronize = json.getBoolean("synchronize");
-        folder.after = json.getInt("after");
+
+        if (json.has("after"))
+            folder.sync_days = json.getInt("after");
+        else
+            folder.sync_days = json.getInt("sync_days");
+
+        if (json.has("keep_days"))
+            folder.keep_days = json.getInt("keep_days");
+        else
+            folder.keep_days = folder.sync_days;
+
         if (json.has("display"))
             folder.display = json.getString("display");
         if (json.has("hide"))

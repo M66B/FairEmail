@@ -521,7 +521,8 @@ public class FragmentAccount extends FragmentEx {
                                         folder.name = ifolder.getFullName();
                                         folder.type = (type == null ? EntityFolder.USER : type);
                                         folder.synchronize = (type != null && EntityFolder.SYSTEM_FOLDER_SYNC.contains(type));
-                                        folder.after = (type == null ? EntityFolder.DEFAULT_USER_SYNC : EntityFolder.DEFAULT_SYSTEM_SYNC);
+                                        folder.sync_days = (type == null ? EntityFolder.DEFAULT_USER_SYNC : EntityFolder.DEFAULT_SYSTEM_SYNC);
+                                        folder.keep_days = folder.sync_days;
                                     }
                                     result.folders.add(folder);
 
@@ -748,7 +749,8 @@ public class FragmentAccount extends FragmentEx {
                             inbox.type = EntityFolder.INBOX;
                             inbox.synchronize = true;
                             inbox.unified = true;
-                            inbox.after = EntityFolder.DEFAULT_INBOX_SYNC;
+                            inbox.sync_days = EntityFolder.DEFAULT_INBOX_SYNC;
+                            inbox.keep_days = inbox.sync_days;
 
                             folders.add(inbox);
 
