@@ -1681,7 +1681,7 @@ public class ServiceSynchronize extends LifecycleService {
             if (sync < 0)
                 sync = 0;
 
-            long keep = cal_sync.getTimeInMillis();
+            long keep = cal_keep.getTimeInMillis();
             if (keep < 0)
                 keep = 0;
 
