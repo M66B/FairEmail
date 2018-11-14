@@ -747,6 +747,7 @@ public class FragmentSetup extends FragmentEx {
                     }
 
                     Log.i(Helper.TAG, "Imported data");
+                    ServiceSynchronize.reload(context, "import");
                 } finally {
                     if (in != null)
                         in.close();
