@@ -36,6 +36,7 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -454,10 +455,14 @@ public class FragmentSetup extends FragmentEx {
                                 String password1 = etPassword1.getText().toString();
                                 String password2 = etPassword2.getText().toString();
                                 if (password1.equals(password2))
-                                    if (requestCode == ActivitySetup.REQUEST_EXPORT)
-                                        handleExport(data, password1);
-                                    else
-                                        handleImport(data, password1);
+                                    if (TextUtils.isEmpty(password1))
+                                        Snackbar.make(view, R.string.title_canceled, Snackbar.LENGTH_LONG).show();
+                                    else {
+                                        if (requestCode == ActivitySetup.REQUEST_EXPORT)
+                                            handleExport(data, password1);
+                                        else
+                                            handleImport(data, password1);
+                                    }
                                 else
                                     Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
                             }
