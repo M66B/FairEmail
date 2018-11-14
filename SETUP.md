@@ -3,6 +3,7 @@
 Setting up FairEmail is fairly simple.
 You'll need to add at least one account to receive email and at least one identity if you want to send email.
 
+
 ## Requirements
 
 An internet connection is required to add accounts and identities.
@@ -12,6 +13,7 @@ If your provider doesn't support secure connections and you care at least a litt
 you are strongly advised to switch to another provider.
 
 For security reasons, your account need to have a non empty password set.
+
 
 ## Account - to receive email
 
@@ -27,6 +29,7 @@ If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186),
 else check the setup instructions of your provider for the right IMAP host name and port number.
 For more about this, please see [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#authorizing-accounts).
 
+
 ## Identity - to send email
 
 Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom.
@@ -35,10 +38,12 @@ Tap *Save* to add the identity.
 
 See [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ9) about using aliases.
 
+
 ## Permissions - to access contact information
 
 If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail.
 Just tap *Grant permissions* and select *Allow*.
+
 
 ## Battery optimizations - to continuously receive email
 
@@ -46,6 +51,7 @@ On recent Android versions, Android will put apps to sleep when the screen is of
 If you want to receive new emails without delays, you should disable battery optimizations for FairEmail.
 Tap *Disable battery optimizations* and follow the instructions.
 
+
 ## Questions
 
-If you have a question or problem, please check [the FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md) first.
+If you have a question or problem, please [see here](https://github.com/M66B/open-source-email/blob/master/FAQ.md).
