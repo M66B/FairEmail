@@ -53,7 +53,7 @@
     <string name="title_setup">Quraşdırma</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">İdxal edilmiş hesablar əlavə ediləcək, üzərinə yazılmayacaq</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Gizli qovluqları göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
-    <string name="title_after">Eyniləşdir (günlər)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
     <string name="title_folder_delete">Qovluğu birdəfəlik silinsin?</string>
     <string name="title_folder_unified">Birləşmiş gələn qutusu</string>

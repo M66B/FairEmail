@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_setup">Einstellungen</string>
-    <string name="menu_answers">Templates</string>
+    <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_legend">Legende</string>
-    <string name="menu_faq">Support</string>
+    <string name="menu_faq">Hilfe</string>
     <string name="menu_pro">Pro-Funktionen</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
@@ -53,7 +53,7 @@
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Konten und Identitäten werden ohne Kennwörter exportiert</string>
     <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, nicht überschrieben</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -116,9 +116,9 @@
     <string name="title_authorizing">Autorisieren Konto &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_store_sent">Gesendete E-Mails speichern (normalerweise nicht nötig)</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">Kopien von gesendeten E-Mails aufbewahren in:</string>
     <string name="title_synchronize_account">Synchronisiere (empfange E-Mails)</string>
-    <string name="title_synchronize_identity">Synchronisiere (sende E-Mails)</string>
+    <string name="title_synchronize_identity">Synchronisiere (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_keep_alive_interval">Verbindung auf­recht­er­hal­ten Intervall (Minuten)</string>
@@ -133,7 +133,7 @@
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
     <string name="title_no_primary_archive">Kein Hauptkonto oder kein Archiv-Ordner</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Dies verzögert den Empfang neuer Nachrichten und erhöht den Batterie-Verbrauch.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, lesen Sie die FAQ</string>
+    <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, schauen Sie bitte in die Hilfe</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
@@ -148,9 +148,10 @@
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
     <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
-    <string name="title_synchronize_folder">Synchronisiere (empfange E-Mails)</string>
+    <string name="title_synchronize_folder">Synchronisiere (E-Mails empfangen)</string>
     <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
-    <string name="title_after">Synchronisiere (Tage)</string>
+    <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
+    <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
     <string name="title_folder_delete">Ordner unwiderruflich löschen?</string>
     <string name="title_folder_unified">Gemeinsamer Posteingang</string>
@@ -174,7 +175,7 @@
     <string name="title_flag">Als Favorit markieren</string>
     <string name="title_unflag">Von Favoriten entfernen</string>
     <string name="title_forward">Weiterleiten</string>
-    <string name="title_forward_raw">Forward raw</string>
+    <string name="title_forward_raw">Weiterleiten in Rohform</string>
     <string name="title_reply_all">Antworten an alle</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
     <string name="title_show_html">Original anzeigen</string>
@@ -190,14 +191,14 @@
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
-    <string name="title_no_contacts">Contact picker not available</string>
+    <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht weitergeleitet, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
     <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
-    <string name="title_ask_save">Save changes?</string>
+    <string name="title_ask_save">Änderungen speichern?</string>
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
@@ -270,7 +271,7 @@
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
-    <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte das FAQ/Hilfe-Menü, um Hilfe zu erhalten</string>
+    <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
@@ -285,7 +286,7 @@
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
-    <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in den <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">FAQ</a></string>
+    <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
     <string name="title_pro_valid">Alle Pro-Funktionen aktiviert</string>
     <string name="title_pro_invalid">Ungültige Antwort</string>

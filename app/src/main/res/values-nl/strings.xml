@@ -53,7 +53,7 @@
     <string name="title_setup">Installatie</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_export_do">Het exportbestand zal uw wachtwoorden bevatten, dus bewaar het veilig</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Geïmporteerde accounts zullen worden toegevoegd, niet overschreven</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
-    <string name="title_after">Synchroniseren (dagen)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Verwijder map permanent?</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>

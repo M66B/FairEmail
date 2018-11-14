@@ -53,7 +53,7 @@
     <string name="title_setup">Ställ in</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Importerade konton kommer att läggas till, inte skrivas över</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
-    <string name="title_after">Synkronisering (dagar)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
     <string name="title_folder_delete">Ta bort mappen permanent?</string>
     <string name="title_folder_unified">Samlad inkorg</string>

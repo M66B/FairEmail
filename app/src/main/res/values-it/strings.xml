@@ -53,7 +53,7 @@
     <string name="title_setup">Configurazione</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
-    <string name="title_setup_export_do">Il file di esportazione conterrà le tue password, quindi tienilo al sicuro</string>
+    <string name="title_setup_export_do">Account e identità verranno esportati senza le password</string>
     <string name="title_setup_import_do">Gli account importati saranno aggiunti, non sovrascritti</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
@@ -116,7 +116,7 @@
     <string name="title_authorizing">Autorizzazione account &#8230;</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_store_sent">Memorizza i messaggi inviati (normalmente non necessario)</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">Salva una copia dei messaggi inviati in:</string>
     <string name="title_synchronize_account">Sincronizza (ricevi messaggi)</string>
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
-    <string name="title_after">Sincronizza (giorni)</string>
+    <string name="title_sync_days">Sincronizza i messaggi (giorni)</string>
+    <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
     <string name="title_folder_delete">Eliminare la cartella permanentemente?</string>
     <string name="title_folder_unified">Posta in arrivo unificata</string>
@@ -190,7 +191,7 @@
     <string name="title_no_answers">Nessun modello di risposta definito</string>
     <string name="title_no_viewer">Nessuna app di visualizzazione disponibile per %1$s</string>
     <string name="title_no_saf">Storage access framework non disponibile</string>
-    <string name="title_no_contacts">Contact picker not available</string>
+    <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno inoltrati, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>

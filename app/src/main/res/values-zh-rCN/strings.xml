@@ -26,10 +26,10 @@
     </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_setup">设置</string>
-    <string name="menu_answers">Templates</string>
+    <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
     <string name="menu_legend">图例</string>
-    <string name="menu_faq">Support</string>
+    <string name="menu_faq">支持</string>
     <string name="menu_pro">专业版功能</string>
     <string name="menu_privacy">隐私</string>
     <string name="menu_about">关于</string>
@@ -48,7 +48,7 @@
     <string name="title_setup">设置</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">导入的账号将被添加，但不会覆写</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
@@ -111,7 +111,7 @@
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_store_sent">保存已发送的消息(通常不需要)</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">将已发送邮件的副本保存在:</string>
     <string name="title_synchronize_account">同步（接收）</string>
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
@@ -145,7 +145,8 @@
     <string name="title_show_folders">显示隐藏的文件夹</string>
     <string name="title_synchronize_folder">同步文件夹（接收）</string>
     <string name="title_unified_folder">在统一的收件箱中显示</string>
-    <string name="title_after">同步天数</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除文件夹？</string>
     <string name="title_folder_unified">聚合收件箱</string>
@@ -185,14 +186,14 @@
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
     <string name="title_no_saf">存储访问框架不可用</string>
-    <string name="title_no_contacts">Contact picker not available</string>
+    <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_selected">是否永久性删除选定的邮件？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
-    <string name="title_ask_save">Save changes?</string>
+    <string name="title_ask_save">保存更改？</string>
     <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>

@@ -53,7 +53,7 @@
     <string name="title_setup">Configuració</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
     <string name="title_setup_exported">Configuració exportada</string>
     <string name="title_setup_imported">Configuració importada</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Mostra les carpetes ocultes</string>
     <string name="title_synchronize_folder">Sincronitza (rebre missatges)</string>
     <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
-    <string name="title_after">Sincronitza (dies)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">La carpeta %1$s existeix</string>
     <string name="title_folder_delete">Esborrar la carpeta per sempre?</string>
     <string name="title_folder_unified">Safata d\'entrada unificada</string>

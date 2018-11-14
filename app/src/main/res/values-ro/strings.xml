@@ -36,10 +36,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_setup">Setări</string>
-    <string name="menu_answers">Templates</string>
+    <string name="menu_answers">Șabloane</string>
     <string name="menu_operations">Operaţii</string>
     <string name="menu_legend">Legendă</string>
-    <string name="menu_faq">Support</string>
+    <string name="menu_faq">Suport tehnic</string>
     <string name="menu_pro">Caracteristici versiune Pro</string>
     <string name="menu_privacy">Confidențialitate</string>
     <string name="menu_about">Despre</string>
@@ -58,7 +58,7 @@
     <string name="title_setup">Setări</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
@@ -88,7 +88,7 @@
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_nav">Navigare înainte/înapoi</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
@@ -121,7 +121,7 @@
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_store_sent">Stochează mesajele trimise (în mod normal nu este necesar)</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">Păstrează o copie a mesajelor trimise în:</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
@@ -155,7 +155,8 @@
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
-    <string name="title_after">Sincronizare (zile)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
     <string name="title_folder_delete">Ștergeți dosarul definitiv?</string>
     <string name="title_folder_unified">Căsuță poștală comună</string>
@@ -179,7 +180,7 @@
     <string name="title_flag">Marcare</string>
     <string name="title_unflag">Anulare marcare</string>
     <string name="title_forward">Redirecționează</string>
-    <string name="title_forward_raw">Forward raw</string>
+    <string name="title_forward_raw">Redirecționează mesajul original</string>
     <string name="title_reply_all">Răspunde tuturor</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_show_html">Arată original</string>
@@ -195,19 +196,19 @@
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
-    <string name="title_no_contacts">Contact picker not available</string>
+    <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate şi nu vor fi redirecționate, continuaţi?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>
     <string name="title_ask_delete_selected">Se șterg permanent toate mesajele selectate?</string>
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
-    <string name="title_ask_save">Save changes?</string>
+    <string name="title_ask_save">Salvează modificările?</string>
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_fix">Remediere</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
     <string name="title_reply_to">Răspunde la:</string>

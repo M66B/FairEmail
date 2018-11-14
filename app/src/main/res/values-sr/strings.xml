@@ -58,7 +58,7 @@
     <string name="title_setup">Setup</string>
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
@@ -155,7 +155,8 @@
     <string name="title_show_folders">Show hidden folders</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_unified_folder">Show in unified inbox</string>
-    <string name="title_after">Synchronize (days)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
     <string name="title_folder_delete">Delete folder permanently?</string>
     <string name="title_folder_unified">Unified inbox</string>

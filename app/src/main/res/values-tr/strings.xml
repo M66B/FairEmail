@@ -53,7 +53,7 @@
     <string name="title_setup">Kurulum</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
-    <string name="title_setup_export_do">The export file will contain your passwords, so keep it safe</string>
+    <string name="title_setup_export_do">Accounts and identities will be exported without passwords</string>
     <string name="title_setup_import_do">İçe aktarılan hesaplar eklenecek, üzerine yazılmayacak</string>
     <string name="title_setup_exported">Ayarları dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
@@ -150,7 +150,8 @@
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
-    <string name="title_after">Senkronize (günler)</string>
+    <string name="title_sync_days">Synchronize messages (days)</string>
+    <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Klasör %1$s var</string>
     <string name="title_folder_delete">Klasörü kalıcı olarak sil?</string>
     <string name="title_folder_unified">Birleştirilmiş gelen kutusu</string>
