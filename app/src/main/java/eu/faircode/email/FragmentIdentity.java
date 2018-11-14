@@ -27,6 +27,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -90,12 +91,17 @@ public class FragmentIdentity extends FragmentEx {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+
     private Button btnColor;
     private View vwColor;
     private ImageView ibColorDefault;
+    private EditText etSignature;
+    private ImageButton ibPro;
+
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
     private Spinner spSent;
+
     private Button btnSave;
     private ProgressBar pbSave;
     private ImageButton ibDelete;
@@ -149,6 +155,8 @@ public class FragmentIdentity extends FragmentEx {
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
+        etSignature = view.findViewById(R.id.etSignature);
+        ibPro = view.findViewById(R.id.ibPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -342,6 +350,16 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
+        ibPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.hide(FragmentIdentity.this);
+                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.commit();
+            }
+        });
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -372,6 +390,7 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("user", etUser.getText().toString());
                 args.putString("password", tilPassword.getEditText().getText().toString());
                 args.putInt("color", color);
+                args.putString("signature", Html.toHtml(etSignature.getText()));
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
                 args.putSerializable("sent", (EntityFolder) spSent.getSelectedItem());
@@ -391,6 +410,7 @@ public class FragmentIdentity extends FragmentEx {
                         String user = args.getString("user");
                         String password = args.getString("password");
                         Integer color = args.getInt("color");
+                        String signature = args.getString("signature");
                         int auth_type = args.getInt("auth_type");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
@@ -462,6 +482,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.user = user;
                             identity.password = password;
                             identity.color = color;
+                            identity.signature = signature;
                             identity.auth_type = auth_type;
                             identity.synchronize = synchronize;
                             identity.primary = (identity.synchronize && primary);
@@ -607,6 +628,7 @@ public class FragmentIdentity extends FragmentEx {
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
+                    etSignature.setText(identity == null || identity.signature == null ? null : Html.fromHtml(identity.signature));
                     cbSynchronize.setChecked(identity == null ? true : identity.synchronize);
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 
@@ -635,6 +657,17 @@ public class FragmentIdentity extends FragmentEx {
                 Helper.setViewsEnabled(view, true);
 
                 setColor(color);
+
+                boolean pro = Helper.isPro(getContext());
+                etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
+                etSignature.setEnabled(pro);
+                if (pro) {
+                    ViewGroup.LayoutParams lp = ibPro.getLayoutParams();
+                    lp.height = 0;
+                    lp.width = 0;
+                    ibPro.setLayoutParams(lp);
+                }
+
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous save/delete as cancelled

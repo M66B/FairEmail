@@ -333,6 +333,38 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
+        <TextView
+            android:id="@+id/tvSignature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_account_signature"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
+
+        <EditText
+            android:id="@+id/etSignature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="@string/title_optional"
+            android:inputType="textCapSentences|textMultiLine"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ibPro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
+
+        <ImageButton
+            android:id="@+id/ibPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="@id/etSignature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etSignature" />
+
         <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
@@ -340,7 +372,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_identity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnColor" />
+            app:layout_constraintTop_toBottomOf="@id/etSignature" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -412,6 +444,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,cbSynchronize,cbPrimary,tvSent,spSent" />
+            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

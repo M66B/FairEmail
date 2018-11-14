@@ -69,6 +69,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean primary;
     public Integer color;
+    public String signature;
     @NonNull
     public Boolean synchronize;
     @NonNull
@@ -93,6 +94,7 @@ public class EntityIdentity {
         json.put("primary", primary);
         if (color != null)
             json.put("color", color);
+        json.put("signature", signature);
         json.put("synchronize", false);
         json.put("store_sent", store_sent);
         if (sent_folder != null)
@@ -118,6 +120,8 @@ public class EntityIdentity {
         identity.primary = json.getBoolean("primary");
         if (json.has("color"))
             identity.color = json.getInt("color");
+        if (json.has("signature"))
+            identity.signature = json.getString("signature");
         identity.synchronize = json.getBoolean("synchronize");
         identity.store_sent = json.getBoolean("store_sent");
         if (json.has("sent_folder"))
@@ -141,6 +145,7 @@ public class EntityIdentity {
                     this.password.equals(other.password) &&
                     this.primary.equals(other.primary) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.store_sent.equals(other.store_sent) &&
                     (this.sent_folder == null ? other.sent_folder == null : this.sent_folder.equals(other.sent_folder)) &&

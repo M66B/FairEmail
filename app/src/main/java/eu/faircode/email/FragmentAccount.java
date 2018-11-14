@@ -37,7 +37,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Editable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -116,8 +115,6 @@ public class FragmentAccount extends FragmentEx {
     private Button btnColor;
     private View vwColor;
     private ImageView ibColorDefault;
-    private EditText etSignature;
-    private ImageButton ibPro;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -190,8 +187,6 @@ public class FragmentAccount extends FragmentEx {
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
-        etSignature = view.findViewById(R.id.etSignature);
-        ibPro = view.findViewById(R.id.ibPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -394,16 +389,6 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onClick(View v) {
                 setColor(Color.TRANSPARENT);
-            }
-        });
-
-        ibPro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.hide(FragmentAccount.this);
-                fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                fragmentTransaction.commit();
             }
         });
 
@@ -617,7 +602,6 @@ public class FragmentAccount extends FragmentEx {
 
                 args.putString("name", etName.getText().toString());
                 args.putInt("color", color);
-                args.putString("signature", Html.toHtml(etSignature.getText()));
 
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
@@ -643,7 +627,6 @@ public class FragmentAccount extends FragmentEx {
 
                         String name = args.getString("name");
                         Integer color = args.getInt("color");
-                        String signature = args.getString("signature");
 
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
@@ -723,7 +706,6 @@ public class FragmentAccount extends FragmentEx {
 
                             account.name = name;
                             account.color = color;
-                            account.signature = signature;
 
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
@@ -965,7 +947,6 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
-                    etSignature.setText(account == null || account.signature == null ? null : Html.fromHtml(account.signature));
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);
@@ -999,17 +980,6 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, true);
 
                 setColor(color);
-
-                boolean pro = Helper.isPro(getContext());
-                etSignature.setHint(pro ? R.string.title_optional : R.string.title_pro_feature);
-                etSignature.setEnabled(pro);
-                if (pro) {
-                    ViewGroup.LayoutParams lp = ibPro.getLayoutParams();
-                    lp.height = 0;
-                    lp.width = 0;
-                    ibPro.setLayoutParams(lp);
-                }
-
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous check/save/delete as cancelled

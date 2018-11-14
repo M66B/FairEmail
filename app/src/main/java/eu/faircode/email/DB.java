@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 2,
+        version = 3,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -127,6 +127,15 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `folder` RENAME COLUMN `after` TO `sync_days`");
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `keep_days` INTEGER NOT NULL DEFAULT 30");
                         db.execSQL("UPDATE `folder` SET keep_days = sync_days");
+                    }
+                })
+                .addMigrations(new Migration(2, 3) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `identity` ADD COLUMN `signature` TEXT");
+                        db.execSQL("UPDATE `identity` SET signature =" +
+                                " (SELECT account.signature FROM account WHERE account.id = identity.account)");
                     }
                 })
                 .build();

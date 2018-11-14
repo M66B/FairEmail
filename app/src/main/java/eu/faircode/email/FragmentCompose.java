@@ -37,6 +37,7 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -44,6 +45,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
@@ -71,6 +73,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
+import org.xml.sax.XMLReader;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -177,6 +180,19 @@ public class FragmentCompose extends FragmentEx {
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
                 tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at) + "+");
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
+
+                String signature = (identity == null ? null : identity.signature);
+                if (TextUtils.isEmpty(signature))
+                    signature = "&nbsp;";
+
+                String html = Html.toHtml(etBody.getText());
+                Log.i(Helper.TAG, html);
+                int cstart = html.indexOf("<tt>");
+                int cend = html.indexOf("</tt>");
+                if (cstart >= 0 && cend > cstart) {
+                    html = html.substring(0, cstart + 4) + signature + html.substring(cend);
+                    etBody.setText(Html.fromHtml(html));
+                }
             }
 
             @Override
@@ -1126,8 +1142,8 @@ public class FragmentCompose extends FragmentEx {
                     else
                         body = body.replaceAll("\\r?\\n", "<br />");
 
-                    if (pro && !TextUtils.isEmpty(result.account.signature))
-                        body += "<br><br>" + result.account.signature;
+                    if (pro)
+                        body += "<p>&nbsp;</p><p><tt>&nbsp;</tt></p>";
                 } else {
                     result.draft.thread = ref.thread;
 
@@ -1175,8 +1191,8 @@ public class FragmentCompose extends FragmentEx {
                                 HtmlHelper.sanitize(ref.read(context)));
                     }
 
-                    if (pro && !TextUtils.isEmpty(result.account.signature))
-                        body = result.account.signature + body;
+                    if (pro)
+                        body = "<p><tt>&nbsp;</tt></p>" + body;
 
                     if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
                         String text = db.answer().getAnswer(answer).text;
@@ -1192,7 +1208,7 @@ public class FragmentCompose extends FragmentEx {
 
                         body = text + body;
                     } else
-                        body = "<br><br>" + body;
+                        body = "<p>&nbsp;</p>" + body;
                 }
 
                 result.draft.content = true;
@@ -1683,6 +1699,42 @@ public class FragmentCompose extends FragmentEx {
             Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_warning_24, getContext().getTheme());
             d.setBounds(0, 0, px, px);
             return d;
+        }
+    };
+
+    private Html.TagHandler tagHandler = new Html.TagHandler() {
+        @Override
+        public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
+            if (tag.equalsIgnoreCase("tt"))
+                processTt(opening, output);
+        }
+
+        private void processTt(boolean opening, Editable output) {
+            Log.i(Helper.TAG, "Handling tt");
+            int len = output.length();
+            if (opening)
+                output.setSpan(new TypefaceSpan("monospace"), len, len, Spannable.SPAN_MARK_MARK);
+            else {
+                Object span = getLast(output, TypefaceSpan.class);
+                if (span != null) {
+                    int pos = output.getSpanStart(span);
+                    output.removeSpan(span);
+                    if (pos != len)
+                        output.setSpan(new TypefaceSpan("monospace"), pos, len, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
+            }
+        }
+
+        private Object getLast(Editable text, Class kind) {
+            Object[] spans = text.getSpans(0, text.length(), kind);
+            if (spans.length == 0)
+                return null;
+
+            for (int i = spans.length; i > 0; i--)
+                if (text.getSpanFlags(spans[i - 1]) == Spannable.SPAN_MARK_MARK)
+                    return spans[i - 1];
+
+            return null;
         }
     };
 
