@@ -71,9 +71,9 @@ public class EntityAccount {
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
-        json.put("password", "");
+        json.put("password", password);
         json.put("auth_type", auth_type);
-        json.put("synchronize", false);
+        json.put("synchronize", synchronize);
         json.put("primary", primary);
         if (color != null)
             json.put("color", color);
