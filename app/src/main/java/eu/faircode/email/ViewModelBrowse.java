@@ -49,55 +49,55 @@ import javax.mail.search.SubjectTerm;
 import androidx.lifecycle.ViewModel;
 
 public class ViewModelBrowse extends ViewModel {
-    private Context context;
-    private long fid;
-    private String search;
-    private int pageSize;
+    private State currentState = null;
 
-    private int local = 0;
-    private List<Long> messages = null;
-    private IMAPStore istore = null;
-    private IMAPFolder ifolder = null;
-    private Message[] imessages = null;
+    private class State {
+        private Context context;
+        private long fid;
+        private String search;
+        private int pageSize;
 
-    private int index = -1;
+        int local = 0;
+        List<Long> messages = null;
+        IMAPStore istore = null;
+        IMAPFolder ifolder = null;
+        Message[] imessages = null;
 
-    void set(Context context, long folder, String search, int pageSize) {
-        this.context = context;
-        this.fid = folder;
-        this.search = search;
-        this.pageSize = pageSize;
-
-        this.index = -1;
+        int index = -1;
     }
 
-    @Override
-    protected void onCleared() {
-        context = null;
-        istore = null;
-        ifolder = null;
-        imessages = null;
+    void set(Context context, long folder, String search, int pageSize) {
+        currentState = new State();
+        currentState.context = context;
+        currentState.fid = folder;
+        currentState.search = search;
+        currentState.pageSize = pageSize;
+        currentState.index = -1;
     }
 
     void load() throws MessagingException, IOException {
-        DB db = DB.getInstance(context);
-        EntityFolder folder = db.folder().getFolder(fid);
+        State state = currentState;
+        if (state == null)
+            return;
 
-        if (search != null)
+        DB db = DB.getInstance(state.context);
+        EntityFolder folder = db.folder().getFolder(state.fid);
+
+        if (state.search != null)
             try {
                 db.beginTransaction();
 
-                if (messages == null)
-                    messages = db.message().getMessageByFolder(fid);
+                if (state.messages == null)
+                    state.messages = db.message().getMessageByFolder(state.fid);
 
                 int matched = 0;
-                for (int i = local; i < messages.size() && matched < pageSize; i++) {
-                    local = i + 1;
+                for (int i = state.local; i < state.messages.size() && matched < state.pageSize; i++) {
+                    state.local = i + 1;
 
                     boolean match = false;
-                    String find = search.toLowerCase();
-                    EntityMessage message = db.message().getMessage(messages.get(i));
-                    String body = (message.content ? message.read(context) : null);
+                    String find = state.search.toLowerCase();
+                    EntityMessage message = db.message().getMessage(state.messages.get(i));
+                    String body = (message.content ? message.read(state.context) : null);
 
                     if (message.from != null)
                         for (int j = 0; j < message.from.length && !match; j++)
@@ -119,19 +119,19 @@ public class ViewModelBrowse extends ViewModel {
                         message.ui_found = true;
                         message.id = db.message().insertMessage(message);
                         if (message.content)
-                            message.write(context, body);
+                            message.write(state.context, body);
                     }
                 }
 
                 db.setTransactionSuccessful();
 
-                if (++matched >= pageSize)
+                if (++matched >= state.pageSize)
                     return;
             } finally {
                 db.endTransaction();
             }
 
-        if (imessages == null) {
+        if (state.imessages == null) {
             if (folder.account == null) // outbox
                 return;
 
@@ -142,40 +142,40 @@ public class ViewModelBrowse extends ViewModel {
             Session isession = Session.getInstance(props, null);
 
             Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
-            istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
-            Helper.connect(context, istore, account);
+            state.istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
+            Helper.connect(state.context, state.istore, account);
 
             Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
-            ifolder = (IMAPFolder) istore.getFolder(folder.name);
-            ifolder.open(Folder.READ_WRITE);
+            state.ifolder = (IMAPFolder) state.istore.getFolder(folder.name);
+            state.ifolder.open(Folder.READ_WRITE);
 
-            Log.i(Helper.TAG, "Boundary searching=" + search);
-            if (search == null)
-                imessages = ifolder.getMessages();
+            Log.i(Helper.TAG, "Boundary searching=" + state.search);
+            if (state.search == null)
+                state.imessages = state.ifolder.getMessages();
             else
-                imessages = ifolder.search(
+                state.imessages = state.ifolder.search(
                         new OrTerm(
                                 new OrTerm(
-                                        new FromStringTerm(search),
-                                        new RecipientStringTerm(Message.RecipientType.TO, search)
+                                        new FromStringTerm(state.search),
+                                        new RecipientStringTerm(Message.RecipientType.TO, state.search)
                                 ),
                                 new OrTerm(
-                                        new SubjectTerm(search),
-                                        new BodyTerm(search)
+                                        new SubjectTerm(state.search),
+                                        new BodyTerm(state.search)
                                 )
                         )
                 );
-            Log.i(Helper.TAG, "Boundary found messages=" + imessages.length);
+            Log.i(Helper.TAG, "Boundary found messages=" + state.imessages.length);
 
-            index = imessages.length - 1;
+            state.index = state.imessages.length - 1;
         }
 
         int count = 0;
-        while (index >= 0 && count < pageSize) {
-            Log.i(Helper.TAG, "Boundary index=" + index);
-            int from = Math.max(0, index - (pageSize - count) + 1);
-            Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
-            index -= (pageSize - count);
+        while (state.index >= 0 && count < state.pageSize && currentState != null) {
+            Log.i(Helper.TAG, "Boundary index=" + state.index);
+            int from = Math.max(0, state.index - (state.pageSize - count) + 1);
+            Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
+            state.index -= (state.pageSize - count);
 
             FetchProfile fp = new FetchProfile();
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -185,18 +185,19 @@ public class ViewModelBrowse extends ViewModel {
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(isub, fp);
+            state.ifolder.fetch(isub, fp);
 
             try {
                 db.beginTransaction();
 
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
-                        long uid = ifolder.getUID(isub[j]);
+                        long uid = state.ifolder.getUID(isub[j]);
                         Log.i(Helper.TAG, "Boundary sync uid=" + uid);
-                        EntityMessage message = db.message().getMessageByUid(fid, uid, search != null);
+                        EntityMessage message = db.message().getMessageByUid(state.fid, uid, state.search != null);
                         if (message == null) {
-                            ServiceSynchronize.synchronizeMessage(context, folder, ifolder, (IMAPMessage) isub[j], search != null);
+                            ServiceSynchronize.synchronizeMessage(
+                                    state.context, folder, state.ifolder, (IMAPMessage) isub[j], state.search != null);
                             count++;
                         }
                     } catch (MessageRemovedException ex) {
@@ -221,19 +222,23 @@ public class ViewModelBrowse extends ViewModel {
     }
 
     void clear() {
+        State state = currentState;
+        if (state == null)
+            return;
+        currentState = null;
+
         Log.i(Helper.TAG, "Boundary clear");
         try {
-            if (istore != null)
-                istore.close();
+            if (state.istore != null)
+                state.istore.close();
         } catch (Throwable ex) {
             Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
         } finally {
-            context = null;
-            local = 0;
-            messages = null;
-            istore = null;
-            ifolder = null;
-            imessages = null;
+            state.context = null;
+            state.messages = null;
+            state.istore = null;
+            state.ifolder = null;
+            state.imessages = null;
         }
     }
 }
