@@ -72,7 +72,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 
 public class FragmentIdentity extends FragmentEx {
     private ViewGroup view;
@@ -609,16 +608,18 @@ public class FragmentIdentity extends FragmentEx {
 
         final DB db = DB.getInstance(getContext());
 
-        // Observe identity
-        db.identity().liveIdentity(id).observe(getViewLifecycleOwner(), new Observer<EntityIdentity>() {
-            private boolean once = false;
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityIdentity>() {
+            @Override
+            protected EntityIdentity onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                return DB.getInstance(context).identity().getIdentity(id);
+            }
 
             @Override
-            public void onChanged(@Nullable final EntityIdentity identity) {
-                if (once)
-                    return;
-                once = true;
-
+            protected void onLoaded(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
@@ -674,16 +675,14 @@ public class FragmentIdentity extends FragmentEx {
                 ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
 
-                db.account().liveAccounts().removeObservers(getViewLifecycleOwner());
-                db.account().liveAccounts().observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
-                    private boolean once = false;
+                new SimpleTask<List<EntityAccount>>() {
+                    @Override
+                    protected List<EntityAccount> onLoad(Context context, Bundle args) throws Throwable {
+                        return DB.getInstance(context).account().getAccounts();
+                    }
 
                     @Override
-                    public void onChanged(List<EntityAccount> accounts) {
-                        if (once)
-                            return;
-                        once = true;
-
+                    protected void onLoaded(Bundle args, List<EntityAccount> accounts) {
                         if (accounts == null)
                             accounts = new ArrayList<>();
 
@@ -742,9 +741,9 @@ public class FragmentIdentity extends FragmentEx {
                             spAccount.setSelection(account);
                         }
                     }
-                });
+                }.load(FragmentIdentity.this, args);
             }
-        });
+        }.load(this, args);
     }
 
     private void setColor(int color) {

@@ -87,7 +87,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
 
@@ -899,18 +898,18 @@ public class FragmentAccount extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final DB db = DB.getInstance(getContext());
+        Bundle args = new Bundle();
+        args.putLong("id", id);
 
-        // Observe
-        db.account().liveAccount(id).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
-            private boolean once = false;
+        new SimpleTask<EntityAccount>() {
+            @Override
+            protected EntityAccount onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                return DB.getInstance(context).account().getAccount(id);
+            }
 
             @Override
-            public void onChanged(@Nullable EntityAccount account) {
-                if (once)
-                    return;
-                once = true;
-
+            protected void onLoaded(Bundle args, EntityAccount account) {
                 // Get providers
                 List<Provider> providers = Provider.loadProfiles(getContext());
                 providers.add(0, new Provider(getString(R.string.title_select)));
@@ -986,24 +985,24 @@ public class FragmentAccount extends FragmentEx {
                 ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
 
-                if (account != null) {
-                    db.folder().liveFolders(account.id).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
-                        @Override
-                        public void onChanged(final List<TupleFolderEx> _folders) {
-                            new Handler().post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    List<EntityFolder> folders = new ArrayList<>();
-                                    if (_folders != null)
-                                        folders.addAll(_folders);
-                                    setFolders(folders);
-                                }
-                            });
-                        }
-                    });
-                }
+                args.putLong("account", account == null ? -1 : account.id);
+
+                new SimpleTask<List<EntityFolder>>() {
+                    @Override
+                    protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
+                        long account = args.getLong("account");
+                        return DB.getInstance(context).folder().getFolders(account);
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, List<EntityFolder> folders) {
+                        if (folders == null)
+                            folders = new ArrayList<>();
+                        setFolders(folders);
+                    }
+                }.load(FragmentAccount.this, args);
             }
-        });
+        }.load(this, args);
     }
 
     private void selectAccount() {

@@ -52,9 +52,6 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE account = :account AND email = :email")
     EntityIdentity getIdentity(long account, String email);
 
-    @Query("SELECT * FROM identity WHERE id = :id")
-    LiveData<EntityIdentity> liveIdentity(long id);
-
     @Query("SELECT COUNT(*) FROM identity WHERE synchronize")
     int getSynchronizingIdentityCount();
 

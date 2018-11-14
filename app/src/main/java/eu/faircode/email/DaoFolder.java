@@ -72,9 +72,6 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
-    @Query("SELECT folder.* FROM folder WHERE folder.id = :id")
-    LiveData<EntityFolder> liveFolder(long id);
-
     @Query("SELECT folder.*, account.name AS accountName" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +

@@ -44,7 +44,6 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
@@ -310,16 +309,18 @@ public class FragmentFolder extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Observe
-        DB.getInstance(getContext()).folder().liveFolder(id).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-            private boolean once = false;
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityFolder>() {
+            @Override
+            protected EntityFolder onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                return DB.getInstance(context).folder().getFolder(id);
+            }
 
             @Override
-            public void onChanged(@Nullable final EntityFolder folder) {
-                if (once)
-                    return;
-                once = true;
-
+            protected void onLoaded(Bundle args, EntityFolder folder) {
                 if (savedInstanceState == null) {
                     etRename.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
@@ -338,6 +339,6 @@ public class FragmentFolder extends FragmentEx {
                 btnSave.setEnabled(true);
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
-        });
+        }.load(this, args);
     }
 }

@@ -36,7 +36,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.Observer;
 
 public class FragmentAnswer extends FragmentEx {
     private ViewGroup view;
@@ -104,9 +103,18 @@ public class FragmentAnswer extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        DB.getInstance(getContext()).answer().liveAnswer(id).observe(getViewLifecycleOwner(), new Observer<EntityAnswer>() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityAnswer>() {
             @Override
-            public void onChanged(EntityAnswer answer) {
+            protected EntityAnswer onLoad(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                return DB.getInstance(context).answer().getAnswer(id);
+            }
+
+            @Override
+            protected void onLoaded(Bundle args, EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
                 etText.setText(answer == null ? null : Html.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
@@ -114,7 +122,7 @@ public class FragmentAnswer extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
-        });
+        }.load(this, args);
     }
 
     private void onActionTrash() {

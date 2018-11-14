@@ -38,9 +38,6 @@ public interface DaoAnswer {
     @Query("SELECT * FROM answer")
     LiveData<List<EntityAnswer>> liveAnswers();
 
-    @Query("SELECT * FROM answer WHERE id = :id")
-    LiveData<EntityAnswer> liveAnswer(long id);
-
     @Insert
     long insertAnswer(EntityAnswer answer);
 
