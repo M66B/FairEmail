@@ -24,7 +24,6 @@ For:
 
 * Notifications per account
 * Fixed action bar conversations
-* Password protected export file: next release
 * Keep conversations open (for previous/next navigation)
 * Microsoft OAuth
 
@@ -443,6 +442,23 @@ but will also leak your IP address.
 Opening attachments or viewing an original message might execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
+<a name="faq36"></a>
+**(36) How are settings files encrypted?**
+
+Short version: AES 256 bit
+
+Long version:
+
+* The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
+* The cipher is *AES/CBC/PKCS5Padding*
+
+<a name="faq37"></a>
+**(37) How are passwords stored?**
+
+Providers require passwords in plain text, so the background service that takes care of synchronizing messages needs to send passwords in plain text.
+Since encrypting passwords would require a secret and the background service needs to know this secret, this could only be done by storing that secret.
+Storing a secret together with encrypted passwords would not add anything, so passwords are stored in plain text in a safe, inaccessible place.
+Recent Android versions encrypt all data anyway.
 
 ## Support
 
