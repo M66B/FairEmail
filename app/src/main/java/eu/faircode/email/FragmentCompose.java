@@ -183,7 +183,7 @@ public class FragmentCompose extends FragmentEx {
 
                 String signature = (identity == null ? null : identity.signature);
                 if (TextUtils.isEmpty(signature))
-                    signature = "&nbsp;";
+                    signature = "&zwnj;";
 
                 String html = Html.toHtml(etBody.getText());
                 int cstart = html.indexOf("<tt>");
@@ -1142,7 +1142,7 @@ public class FragmentCompose extends FragmentEx {
                         body = body.replaceAll("\\r?\\n", "<br />");
 
                     if (pro)
-                        body += "<br /><p><tt>&nbsp;</tt></p>";
+                        body += "<p>&zwnj;</p><p><tt>&zwnj;</tt></p>";
                 } else {
                     result.draft.thread = ref.thread;
 
@@ -1191,7 +1191,7 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     if (pro)
-                        body = "<p><tt>&nbsp;</tt></p>" + body;
+                        body = "<p><tt>&zwnj;</tt></p>" + body;
 
                     if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
                         String text = db.answer().getAnswer(answer).text;
@@ -1207,7 +1207,7 @@ public class FragmentCompose extends FragmentEx {
 
                         body = text + body;
                     } else
-                        body = "<br />" + body;
+                        body = "<p>&zwnj;</p>" + body;
                 }
 
                 result.draft.content = true;
