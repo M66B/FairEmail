@@ -59,9 +59,9 @@
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password">Parolă</string>
+    <string name="title_setup_password_repeat">Repetă parola</string>
+    <string name="title_setup_password_different">Parolele sunt diferite</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_account">Gestionarea conturilor</string>
@@ -157,8 +157,8 @@
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
-    <string name="title_sync_days">Synchronize messages (days)</string>
-    <string name="title_keep_days">Keep messages (days)</string>
+    <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
+    <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
     <string name="title_folder_delete">Ștergeți dosarul definitiv?</string>
     <string name="title_folder_unified">Căsuță poștală comună</string>
@@ -288,7 +288,7 @@
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>
     <string name="title_undo">Anulează</string>
-    <string name="title_canceled">Canceled</string>
+    <string name="title_canceled">Anulat</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>
