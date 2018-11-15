@@ -114,12 +114,15 @@ public class ViewModelBrowse extends ViewModel {
                         match = body.toLowerCase().contains(find);
 
                     if (match) {
-                        matched++;
-                        message.id = null;
-                        message.ui_found = true;
-                        message.id = db.message().insertMessage(message);
-                        if (message.content)
-                            message.write(state.context, body);
+                        EntityMessage exists = db.message().getMessageByUid(state.fid, message.uid, state.search != null);
+                        if (exists == null) {
+                            matched++;
+                            message.id = null;
+                            message.ui_found = true;
+                            message.id = db.message().insertMessage(message);
+                            if (message.content)
+                                message.write(state.context, body);
+                        }
                     }
                 }
 
