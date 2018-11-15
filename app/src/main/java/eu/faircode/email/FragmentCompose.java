@@ -188,9 +188,10 @@ public class FragmentCompose extends FragmentEx {
                 String html = Html.toHtml(etBody.getText());
                 Log.i(Helper.TAG, html);
                 int cstart = html.indexOf("<tt>");
-                int cend = html.indexOf("</tt>");
+                int cend = html.lastIndexOf("</tt>");
                 if (cstart >= 0 && cend > cstart) {
                     html = html.substring(0, cstart + 4) + signature + html.substring(cend);
+                    Log.i(Helper.TAG, "tt html="+html);
                     etBody.setText(Html.fromHtml(html));
                 }
             }
