@@ -186,12 +186,10 @@ public class FragmentCompose extends FragmentEx {
                     signature = "&nbsp;";
 
                 String html = Html.toHtml(etBody.getText());
-                Log.i(Helper.TAG, html);
                 int cstart = html.indexOf("<tt>");
                 int cend = html.lastIndexOf("</tt>");
                 if (cstart >= 0 && cend > cstart) {
                     html = html.substring(0, cstart + 4) + signature + html.substring(cend);
-                    Log.i(Helper.TAG, "tt html="+html);
                     etBody.setText(Html.fromHtml(html));
                 }
             }
@@ -1508,7 +1506,7 @@ public class FragmentCompose extends FragmentEx {
                 Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
 
                 // Move draft to new account
-                if (draft.account != aid) {
+                if (draft.account != aid && aid >= 0) {
                     Long uid = draft.uid;
                     String msgid = draft.msgid;
 
