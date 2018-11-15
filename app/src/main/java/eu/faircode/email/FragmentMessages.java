@@ -45,12 +45,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -591,22 +587,7 @@ public class FragmentMessages extends FragmentEx {
                             if (!f.id.equals(folder) && !EntityFolder.DRAFTS.equals(f.type))
                                 targets.add(f);
 
-                        final Collator collator = Collator.getInstance(Locale.getDefault());
-                        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                        Collections.sort(targets, new Comparator<EntityFolder>() {
-                            @Override
-                            public int compare(EntityFolder f1, EntityFolder f2) {
-                                int s = Integer.compare(
-                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                                if (s != 0)
-                                    return s;
-                                return collator.compare(
-                                        f1.name == null ? "" : f1.name,
-                                        f2.name == null ? "" : f2.name);
-                            }
-                        });
+                        EntityFolder.sort(targets);
 
                         return targets;
                     }

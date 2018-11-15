@@ -23,8 +23,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.Collator;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -193,5 +197,27 @@ public class EntityFolder implements Serializable {
             folder.hide = json.getBoolean("hide");
         folder.unified = json.getBoolean("unified");
         return folder;
+    }
+
+    static void sort(List<EntityFolder> folders) {
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(folders, new Comparator<EntityFolder>() {
+            @Override
+            public int compare(EntityFolder f1, EntityFolder f2) {
+                int s = Integer.compare(
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
+                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                if (s != 0)
+                    return s;
+                int c = -f1.synchronize.compareTo(f2.synchronize);
+                if (c != 0)
+                    return c;
+                return collator.compare(
+                        f1.name == null ? "" : f1.name,
+                        f2.name == null ? "" : f2.name);
+            }
+        });
     }
 }

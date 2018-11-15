@@ -56,12 +56,8 @@ import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.Type;
 
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Properties;
 
 import javax.mail.AuthenticationFailedException;
@@ -771,25 +767,7 @@ public class FragmentIdentity extends FragmentEx {
                 result.identity = db.identity().getIdentity(iid);
                 result.folders = db.folder().getFolders(aid);
 
-                final Collator collator = Collator.getInstance(Locale.getDefault());
-                collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-
-                Collections.sort(result.folders, new Comparator<EntityFolder>() {
-                    @Override
-                    public int compare(EntityFolder f1, EntityFolder f2) {
-                        int s = Integer.compare(
-                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                                EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                        if (s != 0)
-                            return s;
-                        int c = -f1.synchronize.compareTo(f2.synchronize);
-                        if (c != 0)
-                            return c;
-                        return collator.compare(
-                                f1.name == null ? "" : f1.name,
-                                f2.name == null ? "" : f2.name);
-                    }
-                });
+                EntityFolder.sort(result.folders);
 
                 return result;
             }
