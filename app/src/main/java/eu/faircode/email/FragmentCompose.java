@@ -1144,7 +1144,7 @@ public class FragmentCompose extends FragmentEx {
                         body = body.replaceAll("\\r?\\n", "<br />");
 
                     if (pro)
-                        body += "<p>&nbsp;</p><p><tt>&nbsp;</tt></p>";
+                        body += "<br /><p><tt>&nbsp;</tt></p>";
                 } else {
                     result.draft.thread = ref.thread;
 
@@ -1209,7 +1209,7 @@ public class FragmentCompose extends FragmentEx {
 
                         body = text + body;
                     } else
-                        body = "<p>&nbsp;</p>" + body;
+                        body = "<br />" + body;
                 }
 
                 result.draft.content = true;
