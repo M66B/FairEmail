@@ -236,6 +236,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
 
             tvBody.setMovementMethod(new UrlHandler());
+
+            if (viewType == ViewType.THREAD)
+                itemView.setHasTransientState(true);
         }
 
         private void wire() {
@@ -448,47 +451,42 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 }
 
                 if (!EntityFolder.OUTBOX.equals(message.folderType)) {
-                    bnvActions.setHasTransientState(true);
                     db.folder().liveSystemFolders(message.account).observe(owner, new Observer<List<EntityFolder>>() {
                         @Override
                         public void onChanged(@Nullable List<EntityFolder> folders) {
-                            if (bnvActions.hasTransientState()) {
-                                boolean hasJunk = false;
-                                boolean hasTrash = false;
-                                boolean hasArchive = false;
+                            boolean hasJunk = false;
+                            boolean hasTrash = false;
+                            boolean hasArchive = false;
 
-                                if (folders != null)
-                                    for (EntityFolder folder : folders) {
-                                        if (EntityFolder.JUNK.equals(folder.type))
-                                            hasJunk = true;
-                                        else if (EntityFolder.TRASH.equals(folder.type))
-                                            hasTrash = true;
-                                        else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                            hasArchive = true;
-                                    }
+                            if (folders != null)
+                                for (EntityFolder folder : folders) {
+                                    if (EntityFolder.JUNK.equals(folder.type))
+                                        hasJunk = true;
+                                    else if (EntityFolder.TRASH.equals(folder.type))
+                                        hasTrash = true;
+                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                        hasArchive = true;
+                                }
 
-                                boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                                boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                                boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                            boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                            boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                            boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
 
-                                ActionData data = new ActionData();
-                                data.hasJunk = hasJunk;
-                                data.delete = (inTrash || !hasTrash || inOutbox);
-                                data.message = message;
-                                bnvActions.setTag(data);
+                            ActionData data = new ActionData();
+                            data.hasJunk = hasJunk;
+                            data.delete = (inTrash || !hasTrash || inOutbox);
+                            data.message = message;
+                            bnvActions.setTag(data);
 
-                                bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                                bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
-                                bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                            bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                            bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
+                            bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
 
-                                bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
-                                bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                            bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
+                            bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
 
-                                bnvActions.setVisibility(View.VISIBLE);
-                                vSeparatorBody.setVisibility(View.GONE);
-
-                                bnvActions.setHasTransientState(false);
-                            }
+                            bnvActions.setVisibility(View.VISIBLE);
+                            vSeparatorBody.setVisibility(View.GONE);
                         }
                     });
                 }
@@ -671,14 +669,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             private String body = null;
 
             @Override
-            protected void onInit(Bundle args) {
-                btnHtml.setHasTransientState(true);
-                btnImages.setHasTransientState(true);
-                tvBody.setHasTransientState(true);
-                pbBody.setHasTransientState(true);
-            }
-
-            @Override
             protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 if (body == null)
@@ -699,20 +689,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 pbBody.setVisibility(View.GONE);
-
-                btnHtml.setHasTransientState(false);
-                btnImages.setHasTransientState(false);
-                tvBody.setHasTransientState(false);
-                pbBody.setHasTransientState(false);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                btnHtml.setHasTransientState(false);
-                btnImages.setHasTransientState(false);
-                tvBody.setHasTransientState(false);
-                pbBody.setHasTransientState(false);
-
                 Helper.unexpectedError(context, ex);
             }
         };
