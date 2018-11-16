@@ -87,6 +87,8 @@ FairEmail requires at least Android 6 Marshmallow.
 
 FairEmail will work properly on devices without any Google service installed.
 
+See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#known-problems) for known problems.
+
 ## Support / frequently asked questions
 
 See [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md) for a list of often asked questions and about how to get support.

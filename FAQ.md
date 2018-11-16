@@ -31,6 +31,13 @@ For:
 Anything on this list is in random order and *might* be added in the near future.
 
 
+## Known problems
+
+* Large replied/forwarded texts resulting in [ANR](https://developer.android.com/topic/performance/vitals/anr)s
+* Occasional redrawing of conversation thread on new/updated messages
+* Message text sometimes hidden under *Show original*
+
+
 ## Frequently requested features
 
 * Previewing message text in notifications: this is not possible because the message text is initially not downloaded.
