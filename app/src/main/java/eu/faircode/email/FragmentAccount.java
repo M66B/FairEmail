@@ -229,8 +229,6 @@ public class FragmentAccount extends FragmentEx {
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
-                grpFolders.setVisibility(View.GONE);
-                btnSave.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
                 if (tag != null && (Integer) tag == position)
@@ -245,6 +243,9 @@ public class FragmentAccount extends FragmentEx {
                 tilPassword.getEditText().setText(null);
 
                 etName.setText(position > 1 ? provider.name : null);
+
+                grpFolders.setVisibility(View.GONE);
+                btnSave.setVisibility(View.GONE);
             }
 
             @Override
@@ -985,7 +986,7 @@ public class FragmentAccount extends FragmentEx {
 
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
-                    protected List<EntityFolder> onLoad(Context context, Bundle args) throws Throwable {
+                    protected List<EntityFolder> onLoad(Context context, Bundle args) {
                         long account = args.getLong("account");
                         return DB.getInstance(context).folder().getFolders(account);
                     }
