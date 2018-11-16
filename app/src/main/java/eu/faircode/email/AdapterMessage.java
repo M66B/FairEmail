@@ -261,6 +261,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
+            ivAddContact.setVisibility(View.GONE);
             tvSize.setText(null);
             tvTime.setText(null);
             ivAttachments.setVisibility(View.GONE);
@@ -272,7 +273,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvError.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
 
-            ivAddContact.setVisibility(View.GONE);
             pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
