@@ -36,6 +36,7 @@ Anything on this list is in random order and *might* be added in the near future
 * Large replied/forwarded texts resulting in [ANR](https://developer.android.com/topic/performance/vitals/anr)s
 * Occasional redrawing of conversation thread on new/updated messages
 * Message text sometimes hidden under *Show original*
+* File not selected (canceled) when using a file manager instead of the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider)
 
 
 ## Frequently requested features
