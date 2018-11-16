@@ -205,10 +205,50 @@
                 android:gravity="top"
                 android:hint="@string/title_body_hint"
                 android:inputType="textCapSentences|textMultiLine"
-                android:minHeight="480dp"
+                android:minHeight="90dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+            <View
+                android:id="@+id/vSeparatorSignature"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etBody" />
+
+            <TextView
+                android:id="@+id/tvSignature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="monospace"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
+
+            <View
+                android:id="@+id/vSeparatorReference"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignature" />
+
+            <TextView
+                android:id="@+id/tvReference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="monospace"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorReference" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHeader"
@@ -233,6 +273,18 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpSignature"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="vSeparatorSignature,tvSignature" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpReference"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="vSeparatorReference,tvReference" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -128,6 +128,8 @@ public class FragmentCompose extends FragmentEx {
     private EditText etSubject;
     private RecyclerView rvAttachment;
     private EditText etBody;
+    private TextView tvSignature;
+    private TextView tvReference;
     private BottomNavigationView edit_bar;
     private BottomNavigationView bottom_navigation;
     private ProgressBar pbWait;
@@ -135,13 +137,22 @@ public class FragmentCompose extends FragmentEx {
     private Group grpExtra;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpSignature;
+    private Group grpReference;
 
     private AdapterAttachment adapter;
 
     private long working = -1;
     private boolean autosave = false;
+    private boolean pro = false;
 
     private OpenPgpServiceConnection pgpService;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        pro = Helper.isPro(getContext());
+    }
 
     @Override
     @Nullable
@@ -164,6 +175,8 @@ public class FragmentCompose extends FragmentEx {
         etSubject = view.findViewById(R.id.etSubject);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         etBody = view.findViewById(R.id.etBody);
+        tvSignature = view.findViewById(R.id.tvSignature);
+        tvReference = view.findViewById(R.id.tvReference);
         edit_bar = view.findViewById(R.id.edit_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
         pbWait = view.findViewById(R.id.pbWait);
@@ -171,6 +184,8 @@ public class FragmentCompose extends FragmentEx {
         grpExtra = view.findViewById(R.id.grpExtra);
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
+        grpSignature = view.findViewById(R.id.grpSignature);
+        grpReference = view.findViewById(R.id.grpReference);
 
         // Wire controls
         spIdentity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -180,17 +195,9 @@ public class FragmentCompose extends FragmentEx {
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
                 tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at) + "+");
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
-
-                String signature = (identity == null ? null : identity.signature);
-                if (TextUtils.isEmpty(signature))
-                    signature = "&zwnj;";
-
-                String html = Html.toHtml(etBody.getText());
-                int cstart = html.indexOf("<tt>");
-                int cend = html.lastIndexOf("</tt>");
-                if (cstart >= 0 && cend > cstart) {
-                    html = html.substring(0, cstart + 4) + signature + html.substring(cend);
-                    etBody.setText(Html.fromHtml(html));
+                if (pro) {
+                    tvSignature.setText(identity == null ? null : Html.fromHtml(identity.signature));
+                    grpSignature.setVisibility(identity == null || TextUtils.isEmpty(identity.signature) ? View.GONE : View.VISIBLE);
                 }
             }
 
@@ -198,6 +205,8 @@ public class FragmentCompose extends FragmentEx {
             public void onNothingSelected(AdapterView<?> parent) {
                 tvExtraPrefix.setText(null);
                 tvExtraSuffix.setText(null);
+                tvSignature.setText(null);
+                grpSignature.setVisibility(View.GONE);
             }
         });
 
@@ -298,6 +307,8 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         etBody.setVisibility(View.GONE);
+        grpSignature.setVisibility(View.GONE);
+        grpReference.setVisibility(View.GONE);
         edit_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -640,7 +651,7 @@ public class FragmentCompose extends FragmentEx {
                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, message, attachments, imessage);
+                MessageHelper.build(context, message, imessage);
 
                 // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -918,6 +929,7 @@ public class FragmentCompose extends FragmentEx {
         UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
         for (UnderlineSpan uspan : uspans)
             spannable.removeSpan(uspan);
+
         args.putString("body", Html.toHtml(spannable));
 
         Log.i(Helper.TAG, "Run load id=" + working);
@@ -1026,7 +1038,6 @@ public class FragmentCompose extends FragmentEx {
             long reference = args.getLong("reference", -1);
             boolean raw = args.getBoolean("raw", false);
             long answer = args.getLong("answer", -1);
-            boolean pro = Helper.isPro(getContext());
 
             Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -1140,9 +1151,6 @@ public class FragmentCompose extends FragmentEx {
                         body = "";
                     else
                         body = body.replaceAll("\\r?\\n", "<br />");
-
-                    if (pro)
-                        body += "<p>&zwnj;</p><p><tt>&zwnj;</tt></p>";
                 } else {
                     result.draft.thread = ref.thread;
 
@@ -1170,28 +1178,14 @@ public class FragmentCompose extends FragmentEx {
                         }
 
                     } else if ("forward".equals(action)) {
-                        //msg.replying = ref.id;
+                        result.draft.forwarding = ref.id;
                         result.draft.from = ref.to;
                     }
 
-                    long time = (ref.sent == null ? ref.received : ref.sent);
-
-                    if ("reply".equals(action) || "reply_all".equals(action)) {
+                    if ("reply".equals(action) || "reply_all".equals(action))
                         result.draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                        body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                                Html.escapeHtml(new Date(time).toString()),
-                                Html.escapeHtml(MessageHelper.getFormattedAddresses(result.draft.to, true)),
-                                HtmlHelper.sanitize(ref.read(context)));
-                    } else if ("forward".equals(action)) {
+                    else if ("forward".equals(action))
                         result.draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
-                        body = String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                                Html.escapeHtml(new Date(time).toString()),
-                                Html.escapeHtml(MessageHelper.getFormattedAddresses(ref.from, true)),
-                                HtmlHelper.sanitize(ref.read(context)));
-                    }
-
-                    if (pro)
-                        body = "<p><tt>&zwnj;</tt></p>" + body;
 
                     if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
                         String text = db.answer().getAnswer(answer).text;
@@ -1206,8 +1200,7 @@ public class FragmentCompose extends FragmentEx {
                         text = text.replace("$email$", email == null ? "" : email);
 
                         body = text + body;
-                    } else
-                        body = "<p>&zwnj;</p>" + body;
+                    }
                 }
 
                 result.draft.content = true;
@@ -1302,22 +1295,36 @@ public class FragmentCompose extends FragmentEx {
 
             etBody.setText(null);
 
-            Bundle a = new Bundle();
+            final Bundle a = new Bundle();
             a.putLong("id", result.draft.id);
+            if (result.draft.replying != null)
+                a.putLong("reference", result.draft.replying);
+            else if (result.draft.forwarding != null)
+                a.putLong("reference", result.draft.forwarding);
 
-            new SimpleTask<Spanned>() {
+            new SimpleTask<Spanned[]>() {
                 @Override
-                protected Spanned onLoad(final Context context, Bundle args) throws Throwable {
-                    final long id = args.getLong("id");
+                protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    long reference = args.getLong("reference", -1);
+
                     String body = EntityMessage.read(context, id);
-                    return Html.fromHtml(body, cidGetter, null);
+                    String quote = (reference < 0 ? null : EntityMessage.getQuote(context, reference));
+
+                    return new Spanned[]{
+                            Html.fromHtml(body, cidGetter, null),
+                            quote == null ? null : Html.fromHtml(quote)};
                 }
 
                 @Override
-                protected void onLoaded(Bundle args, Spanned body) {
+                protected void onLoaded(Bundle args, Spanned[] texts) {
                     getActivity().invalidateOptionsMenu();
-                    etBody.setText(body);
+                    etBody.setText(texts[0]);
                     etBody.setSelection(0);
+
+                    tvReference.setText(texts[1]);
+                    grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
+
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {

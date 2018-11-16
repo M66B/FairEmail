@@ -1398,8 +1398,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        MimeMessage imessage = MessageHelper.from(this, message, null, attachments, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, isession);
         AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
         db.message().setMessageUid(message.id, uid[0].uid);
         Log.i(Helper.TAG, "Appended uid=" + uid[0].uid);
@@ -1432,14 +1431,12 @@ public class ServiceSynchronize extends LifecycleService {
         } else {
             Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
 
-            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-
             if (!EntityFolder.ARCHIVE.equals(folder.type)) {
                 imessage.setFlag(Flags.Flag.DELETED, true);
                 ifolder.expunge();
             }
 
-            MimeMessageEx icopy = MessageHelper.from(this, message, null, attachments, isession);
+            MimeMessageEx icopy = MessageHelper.from(this, message, isession);
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
@@ -1470,10 +1467,7 @@ public class ServiceSynchronize extends LifecycleService {
         final Session isession = Session.getInstance(props, null);
 
         // Create message
-        MimeMessage imessage;
-        EntityMessage reply = (message.replying == null ? null : db.message().getMessage(message.replying));
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        imessage = MessageHelper.from(this, message, reply, attachments, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, isession);
 
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});

@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.Html;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -51,13 +52,15 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @ForeignKey(childColumns = "account", entity = EntityAccount.class, parentColumns = "id", onDelete = CASCADE),
                 @ForeignKey(childColumns = "folder", entity = EntityFolder.class, parentColumns = "id", onDelete = CASCADE),
                 @ForeignKey(childColumns = "identity", entity = EntityIdentity.class, parentColumns = "id", onDelete = SET_NULL),
-                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = SET_NULL)
+                @ForeignKey(childColumns = "replying", entity = EntityMessage.class, parentColumns = "id", onDelete = SET_NULL),
+                @ForeignKey(childColumns = "forwarding", entity = EntityMessage.class, parentColumns = "id", onDelete = SET_NULL)
         },
         indices = {
                 @Index(value = {"account"}),
                 @Index(value = {"folder"}),
                 @Index(value = {"identity"}),
                 @Index(value = {"replying"}),
+                @Index(value = {"forwarding"}),
                 @Index(value = {"folder", "uid", "ui_found"}, unique = true),
                 @Index(value = {"msgid", "folder", "ui_found"}, unique = true),
                 @Index(value = {"thread"}),
@@ -80,6 +83,7 @@ public class EntityMessage implements Serializable {
     public Long identity;
     public String extra; // plus
     public Long replying;
+    public Long forwarding;
     public Long uid; // compose = null
     public String msgid;
     public String references;
@@ -178,6 +182,14 @@ public class EntityMessage implements Serializable {
         }
     }
 
+    static String getQuote(Context context, long id) throws IOException {
+        EntityMessage message = DB.getInstance(context).message().getMessage(id);
+        return String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
+                Html.escapeHtml(new Date(message.sent == null ? message.received : message.sent).toString()),
+                Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
+                HtmlHelper.sanitize(EntityMessage.read(context, id)));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {
@@ -186,6 +198,7 @@ public class EntityMessage implements Serializable {
                     this.folder.equals(other.folder) &&
                     (this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
                     (this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
+                    (this.forwarding == null ? other.forwarding == null : this.replying.equals(other.forwarding)) &&
                     (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&

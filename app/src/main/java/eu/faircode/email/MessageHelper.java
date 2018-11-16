@@ -173,14 +173,19 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, EntityMessage reply, List<EntityAttachment> attachments, Session isession) throws MessagingException, IOException {
+    static MimeMessageEx from(Context context, EntityMessage message, Session isession) throws MessagingException, IOException {
+        DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
-        if (reply == null)
+        EntityMessage replying = null;
+        if (message.replying != null)
+            replying = db.message().getMessage(message.replying);
+
+        if (replying == null)
             imessage.addHeader("References", message.msgid);
         else {
-            imessage.addHeader("In-Reply-To", reply.msgid);
-            imessage.addHeader("References", (reply.references == null ? "" : reply.references + " ") + reply.msgid);
+            imessage.addHeader("In-Reply-To", replying.msgid);
+            imessage.addHeader("References", (replying.references == null ? "" : replying.references + " ") + replying.msgid);
         }
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
@@ -209,6 +214,8 @@ public class MessageHelper {
             imessage.setSubject(message.subject);
 
         imessage.setSentDate(new Date());
+
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
         if (message.from != null && message.from.length > 0)
             for (EntityAttachment attachment : attachments)
@@ -265,13 +272,24 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, attachments, imessage);
+        build(context, message, imessage);
 
         return imessage;
     }
 
-    static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, MimeMessage imessage) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
+        DB db = DB.getInstance(context);
+
         String body = message.read(context);
+
+        if (Helper.isPro(context) && message.identity != null) {
+            EntityIdentity identity = db.identity().getIdentity(message.identity);
+            if (!TextUtils.isEmpty(identity.signature))
+                body += identity.signature;
+        }
+
+        if (message.replying != null || message.forwarding != null)
+            body += EntityMessage.getQuote(context, message.replying == null ? message.forwarding : message.replying);
 
         BodyPart plain = new MimeBodyPart();
         plain.setContent(Jsoup.parse(body).text(), "text/plain; charset=" + Charset.defaultCharset().name());
@@ -283,6 +301,7 @@ public class MessageHelper {
         alternative.addBodyPart(plain);
         alternative.addBodyPart(html);
 
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         if (attachments.size() == 0) {
             imessage.setContent(alternative);
         } else {
