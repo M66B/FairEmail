@@ -28,7 +28,6 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -105,16 +104,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 startActivity(new Intent(this, ActivityView.class));
             finish();
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == RESULT_CANCELED) {
-            int request = requestCode & 0xffff;
-            if (request == REQUEST_EXPORT || request == REQUEST_IMPORT)
-                return;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
