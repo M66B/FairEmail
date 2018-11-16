@@ -23,9 +23,7 @@ For:
 ## Planned features
 
 * Notifications per account
-* Disable autoclose for conversations(for previous/next navigation)
 * IMAP namespaces
-* Fixed action bar conversations
 * Microsoft OAuth
 
 Anything on this list is in random order and *might* be added in the near future.

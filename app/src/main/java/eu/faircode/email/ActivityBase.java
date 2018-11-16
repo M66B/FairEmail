@@ -97,6 +97,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         "identicons".equals(key) ||
                         "preview".equals(key) ||
                         "confirm".equals(key) ||
+                        "navigation".equals(key) ||
                         "debug".equals(key)))
             finish();
     }

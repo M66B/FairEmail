@@ -96,6 +96,8 @@ public class FragmentMessages extends FragmentEx {
     private boolean found = false;
     private String search = null;
 
+    private boolean navigation = true;
+
     private long primary = -1;
     private boolean outbox = false;
     private boolean connected = false;
@@ -134,6 +136,9 @@ public class FragmentMessages extends FragmentEx {
         thread = args.getString("thread");
         found = args.getBoolean("found", false);
         search = args.getString("search");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        navigation = prefs.getBoolean("navigation", true);
 
         if (TextUtils.isEmpty(search))
             if (thread == null)
@@ -876,13 +881,12 @@ public class FragmentMessages extends FragmentEx {
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
             // Navigation
-            boolean nav = prefs.getBoolean("navigation", true);
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
             ViewModelMessages.Target[] pn = model.getPrevNext(thread);
             bottom_navigation.setTag(pn);
             bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
             bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
-            bottom_navigation.setVisibility(!nav || (pn[0] == null && pn[1] == null) ? View.GONE : View.VISIBLE);
+            bottom_navigation.setVisibility(!navigation || (pn[0] == null && pn[1] == null) ? View.GONE : View.VISIBLE);
         } else {
             db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
@@ -1226,7 +1230,7 @@ public class FragmentMessages extends FragmentEx {
                             handleExpand(expand.id);
                         }
                     } else {
-                        if (autoCount > 0) {
+                        if (autoCount > 0 && navigation) {
                             int count = 0;
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
