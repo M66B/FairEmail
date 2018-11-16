@@ -359,15 +359,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Intent intent = getIntent();
         String action = intent.getAction();
         Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
-        if (action != null && action.startsWith("thread")) {
+        if (action != null) {
             intent.setAction(null);
             setIntent(intent);
 
-            ViewModelMessages model = ViewModelProviders.of(this).get(ViewModelMessages.class);
-            model.setMessages(null);
+            if ("unified".equals(action))
+                getSupportFragmentManager().popBackStack("unified", 0);
 
-            intent.putExtra("thread", action.split(":", 2)[1]);
-            onViewThread(intent);
+            else if (action.startsWith("thread")) {
+                ViewModelMessages model = ViewModelProviders.of(this).get(ViewModelMessages.class);
+                model.setMessages(null);
+
+                intent.putExtra("thread", action.split(":", 2)[1]);
+                onViewThread(intent);
+            }
         }
 
         if (getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {

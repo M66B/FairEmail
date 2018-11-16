@@ -384,6 +384,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
+        view.setAction("unified");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent piView = PendingIntent.getActivity(
                 this, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
