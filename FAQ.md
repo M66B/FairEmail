@@ -26,6 +26,7 @@ For:
 * Fixed action bar conversations
 * Keep conversations open (for previous/next navigation)
 * Microsoft OAuth
+* IMAP namespaces
 
 Anything on this list is in random order and *might* be added in the near future.
 
