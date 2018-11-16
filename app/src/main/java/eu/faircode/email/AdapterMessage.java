@@ -120,6 +120,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     private int dp24;
     private String theme;
+    private boolean hasWebView;
 
     private SelectionTracker<Long> selectionTracker = null;
 
@@ -466,7 +467,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                             hasArchive = true;
                                     }
 
-                                boolean inInbox = EntityFolder.INBOX.equals(message.folderType);
                                 boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
                                 boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
                                 boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
@@ -695,7 +695,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 boolean show_expanded = properties.isExpanded(message.id);
                 boolean show_images = properties.showImages(message.id);
 
-                btnHtml.setVisibility(Helper.classExists("android.webkit.WebView") && show_expanded ? View.VISIBLE : View.GONE);
+                btnHtml.setVisibility(hasWebView && show_expanded ? View.VISIBLE : View.GONE);
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 pbBody.setVisibility(View.GONE);
@@ -1481,6 +1481,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         this.dp24 = Math.round(24 * context.getResources().getDisplayMetrics().density);
         this.theme = prefs.getString("theme", "light");
+        this.hasWebView = Helper.classExists("android.webkit.WebView");
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
