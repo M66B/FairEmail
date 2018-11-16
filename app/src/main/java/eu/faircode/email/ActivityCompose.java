@@ -27,6 +27,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -138,5 +139,15 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
             default:
                 return false;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == RESULT_CANCELED) {
+            int request = requestCode & 0xffff;
+            if (request == REQUEST_IMAGE || request == REQUEST_ATTACHMENT)
+                return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
