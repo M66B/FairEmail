@@ -1203,6 +1203,7 @@ public class FragmentMessages extends FragmentEx {
                         TupleMessageEx see = null;
                         for (TupleMessageEx message : messages)
                             if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                    !EntityFolder.TRASH.equals(message.folderType) &&
                                     !EntityFolder.isOutgoing(message.folderType)) {
                                 autoCount++;
                                 single = message;
@@ -1211,10 +1212,11 @@ public class FragmentMessages extends FragmentEx {
                                     see = message;
                                 }
                             }
+                        Log.i(Helper.TAG, "Auto count=" + autoCount);
 
                         // Auto expand when:
-                        // - single, non archived/sent message
-                        // - one unread, non archived/sent message in conversation
+                        // - single, non archived/trashed/outgoing message
+                        // - one unread, non archived/trashed/outgoing message in conversation
                         // - sole message
 
                         TupleMessageEx expand = null;
@@ -1230,17 +1232,19 @@ public class FragmentMessages extends FragmentEx {
                             handleExpand(expand.id);
                         }
                     } else {
-                        if (autoCount > 0 && navigation) {
+                        if (autoCount > 0 && !navigation) {
                             int count = 0;
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
                                 if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                        !EntityFolder.TRASH.equals(message.folderType) &&
                                         !EntityFolder.isOutgoing(message.folderType))
                                     count++;
                             }
+                            Log.i(Helper.TAG, "Auto close=" + count);
 
                             // Auto close when:
-                            // - no more non archived/sent messages
+                            // - no more non archived/trashed/outgoing messages
 
                             if (count == 0)
                                 finish();
