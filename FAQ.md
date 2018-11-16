@@ -461,14 +461,6 @@ Since encrypting passwords would require a secret and the background service nee
 Storing a secret together with encrypted passwords would not add anything, so passwords are stored in plain text in a safe, inaccessible place.
 Recent Android versions encrypt all data anyway.
 
-<a name="faq38"></a>
-**(38) Why can't I select a (settings) file?**
-
-Normally the Android [storage access framework](https://developer.android.com/guide/topics/providers/document-provider) is used to select files and folder.
-However, some file explorers can be used to select files and folders too
-in which case you get a choice which app to use to select the file or folder and the choice to do this once or always.
-On some Android versions selecting 'once' results in the file/folder selection to be canceled, so you will need to select 'always' for the file/folder selection to work.
-
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
