@@ -54,9 +54,9 @@
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_import_do">Las Cuentas importadas serán agregadas, no sobreescritas</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password">Contraseña</string>
+    <string name="title_setup_password_repeat">Confirmar contraseña</string>
+    <string name="title_setup_password_different">Las contraseñas no coinciden</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_account">Gestionar cuentas</string>
@@ -283,7 +283,7 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_undo">Deshacer</string>
-    <string name="title_canceled">Canceled</string>
+    <string name="title_canceled">Cancelado</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

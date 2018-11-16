@@ -152,8 +152,8 @@
     <string name="title_show_folders">Afficher les dossiers cachés</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
-    <string name="title_sync_days">Synchroniser les messages (jours)</string>
-    <string name="title_keep_days">Conserver les emails (jours)</string>
+    <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
+    <string name="title_keep_days">Conserver les e-mails (jours)</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
     <string name="title_folder_delete">Supprimer définitivement le dossier ?</string>
     <string name="title_folder_unified">Boite de réception unifiée</string>
@@ -274,7 +274,7 @@
     <string name="title_legend_closing">Fermeture en cours</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l’aide</string>
-    <string name="title_hint_message_actions">Balayer à gauche pour supprimer ; balayer à droite pour archiver (si disponible)</string>
+    <string name="title_hint_message_actions">Balayer à gauche pour supprimer, balayer à droite pour archiver (si disponible)</string>
     <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l’application peut répondre plus lentement.</string>
     <string name="title_open_link">Ouvrir le lien</string>
