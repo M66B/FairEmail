@@ -1315,7 +1315,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(Helper.TAG, "View onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == Activity.RESULT_OK)
             if (requestCode == REQUEST_ATTACHMENT) {
                 if (data != null) {

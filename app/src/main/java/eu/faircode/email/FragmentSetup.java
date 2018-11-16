@@ -439,8 +439,6 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onActivityResult(final int requestCode, int resultCode, final Intent data) {
-        Log.i(Helper.TAG, "Request=" + requestCode + " result=" + resultCode + " data=" + data);
-
         if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT)
             if (resultCode == RESULT_OK && data != null) {
                 final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);

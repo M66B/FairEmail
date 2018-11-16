@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -73,6 +75,14 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroy();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Log.i(Helper.TAG, "Result class=" + this.getClass().getSimpleName() +
+                " request=" + requestCode + " result=" + resultCode + " data=" + data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {

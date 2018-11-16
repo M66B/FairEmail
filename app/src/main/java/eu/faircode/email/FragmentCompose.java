@@ -777,7 +777,6 @@ public class FragmentCompose extends FragmentEx {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(Helper.TAG, "Compose onActivityResult request=" + requestCode + " result=" + resultCode + " data=" + data);
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_IMAGE) {
                 if (data != null)

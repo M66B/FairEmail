@@ -1025,8 +1025,6 @@ public class FragmentAccount extends FragmentEx {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(Helper.TAG, "Activity result request=" + requestCode + " result=" + resultCode + " data=" + data);
-
         if (resultCode == Activity.RESULT_OK)
             if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
                 String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
