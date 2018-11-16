@@ -199,7 +199,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swSender.setChecked(prefs.getBoolean("sender", true));
+        swSender.setChecked(prefs.getBoolean("sender", false));
         swSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
