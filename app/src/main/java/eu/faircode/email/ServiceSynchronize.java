@@ -19,14 +19,12 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.Manifest;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Person;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -1954,49 +1952,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_hide = false;
             message.ui_found = found;
             message.ui_ignored = false;
-
-            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                    == PackageManager.PERMISSION_GRANTED) {
-                try {
-                    Address[] addresses = (folder.isOutgoing() ? message.to : message.from);
-
-                    if (addresses != null)
-                        for (int i = 0; i < addresses.length; i++) {
-                            String email = ((InternetAddress) addresses[i]).getAddress();
-                            Cursor cursor = null;
-                            try {
-                                ContentResolver resolver = context.getContentResolver();
-                                cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                        new String[]{
-                                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                                ContactsContract.Contacts.LOOKUP_KEY,
-                                                ContactsContract.Contacts.DISPLAY_NAME
-                                        },
-                                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                                        new String[]{email}, null);
-                                if (cursor.moveToNext()) {
-                                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-                                    int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-
-                                    long contactId = cursor.getLong(colContactId);
-                                    String lookupKey = cursor.getString(colLookupKey);
-                                    String displayName = cursor.getString(colDisplayName);
-
-                                    message.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
-
-                                    if (!TextUtils.isEmpty(displayName))
-                                        ((InternetAddress) addresses[i]).setPersonal(displayName);
-                                }
-                            } finally {
-                                if (cursor != null)
-                                    cursor.close();
-                            }
-                        }
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-            }
+            message.getAvatar(context, folder.isOutgoing());
 
             message.id = db.message().insertMessage(message);
 

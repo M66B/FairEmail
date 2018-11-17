@@ -67,6 +67,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
@@ -761,7 +762,10 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                if (ex.getCause() instanceof BadPaddingException)
+                    Snackbar.make(view, R.string.title_setup_password_invalid, Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }

@@ -19,8 +19,14 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.provider.ContactsContract;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -34,8 +40,10 @@ import java.util.Date;
 import java.util.Random;
 
 import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -178,6 +186,51 @@ public class EntityMessage implements Serializable {
                 } catch (IOException ex) {
                     Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                 }
+            }
+        }
+    }
+
+    void getAvatar(Context context, boolean outgoing) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED) {
+            try {
+                Address[] addresses = (outgoing ? this.to : this.from);
+
+                if (addresses != null)
+                    for (int i = 0; i < addresses.length; i++) {
+                        String email = ((InternetAddress) addresses[i]).getAddress();
+                        Cursor cursor = null;
+                        try {
+                            ContentResolver resolver = context.getContentResolver();
+                            cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                    new String[]{
+                                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                            ContactsContract.Contacts.LOOKUP_KEY,
+                                            ContactsContract.Contacts.DISPLAY_NAME
+                                    },
+                                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
+                                    new String[]{email}, null);
+                            if (cursor.moveToNext()) {
+                                int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                                int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+                                int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+
+                                long contactId = cursor.getLong(colContactId);
+                                String lookupKey = cursor.getString(colLookupKey);
+                                String displayName = cursor.getString(colDisplayName);
+
+                                this.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
+
+                                if (!TextUtils.isEmpty(displayName))
+                                    ((InternetAddress) addresses[i]).setPersonal(displayName);
+                            }
+                        } finally {
+                            if (cursor != null)
+                                cursor.close();
+                        }
+                    }
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
         }
     }
