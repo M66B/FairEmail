@@ -1369,7 +1369,7 @@ public class FragmentMessages extends FragmentEx {
                     List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
 
                     for (EntityMessage message : messages)
-                        if (!target.id.equals(message.folder)) {
+                        if (message.uid != null && !target.id.equals(message.folder)) {
                             db.message().setMessageUiHide(message.id, true);
                             EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
                         }
