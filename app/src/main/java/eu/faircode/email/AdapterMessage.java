@@ -450,46 +450,43 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     bodyTask.load(context, owner, args);
                 }
 
-                if (!EntityFolder.OUTBOX.equals(message.folderType)) {
-                    db.folder().liveSystemFolders(message.account).observe(owner, new Observer<List<EntityFolder>>() {
-                        @Override
-                        public void onChanged(@Nullable List<EntityFolder> folders) {
-                            boolean hasJunk = false;
-                            boolean hasTrash = false;
-                            boolean hasArchive = false;
+                db.folder().liveSystemFolders(message.account).observe(owner, new Observer<List<EntityFolder>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityFolder> folders) {
+                        boolean hasJunk = false;
+                        boolean hasTrash = false;
+                        boolean hasArchive = false;
 
-                            if (folders != null)
-                                for (EntityFolder folder : folders) {
-                                    if (EntityFolder.JUNK.equals(folder.type))
-                                        hasJunk = true;
-                                    else if (EntityFolder.TRASH.equals(folder.type))
-                                        hasTrash = true;
-                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                        hasArchive = true;
-                                }
+                        if (folders != null)
+                            for (EntityFolder folder : folders) {
+                                if (EntityFolder.JUNK.equals(folder.type))
+                                    hasJunk = true;
+                                else if (EntityFolder.TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
+                            }
 
-                            boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
-                            boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
-                            boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
+                        boolean inOutbox = EntityFolder.OUTBOX.equals(message.folderType);
+                        boolean inArchive = EntityFolder.ARCHIVE.equals(message.folderType);
+                        boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
 
-                            ActionData data = new ActionData();
-                            data.hasJunk = hasJunk;
-                            data.delete = (inTrash || !hasTrash || inOutbox);
-                            data.message = message;
-                            bnvActions.setTag(data);
+                        ActionData data = new ActionData();
+                        data.hasJunk = hasJunk;
+                        data.delete = (inTrash || !hasTrash || inOutbox);
+                        data.message = message;
+                        bnvActions.setTag(data);
 
-                            bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
-                            bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
-                            bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                        bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
+                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
+                        bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
+                        bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
+                        bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
 
-                            bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
-                            bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-
-                            bnvActions.setVisibility(View.VISIBLE);
-                            vSeparatorBody.setVisibility(View.GONE);
-                        }
-                    });
-                }
+                        bnvActions.setVisibility(View.VISIBLE);
+                        vSeparatorBody.setVisibility(View.GONE);
+                    }
+                });
 
                 // Observe attachments
                 db.attachment().liveAttachments(message.id).observe(owner,
@@ -1163,30 +1160,24 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onMore(final ActionData data) {
-            boolean inOutbox = EntityFolder.OUTBOX.equals(data.message.folderType);
             boolean show_headers = properties.showHeaders(data.message.id);
 
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
             popupMenu.inflate(R.menu.menu_message);
-            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(data.message.uid != null && data.hasJunk && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(data.message.uid != null && data.hasJunk);
 
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_forward).setVisible(!inOutbox);
-
-            popupMenu.getMenu().findItem(R.id.menu_forward_raw).setVisible(
-                    data.message.content && data.message.headers != null && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_forward_raw).setVisible(data.message.content && data.message.headers != null);
 
             popupMenu.getMenu().findItem(R.id.menu_reply_all).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_reply_all).setVisible(!inOutbox);
 
             popupMenu.getMenu().findItem(R.id.menu_answer).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_answer).setVisible(!inOutbox);
 
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.unflagged != 1);
-            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null && !inOutbox);
+            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
