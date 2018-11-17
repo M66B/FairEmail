@@ -56,7 +56,9 @@
     <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_missing">Password missing</string>
     <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Configuració exportada</string>
     <string name="title_setup_imported">Configuració importada</string>
     <string name="title_setup_account">Gestiona els comptes</string>
@@ -283,7 +285,6 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_undo">Desfés</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">Prova FairEmail, una aplicació de correu-e per a Android, de codi obert i que respecta la privacitat</string>
     <string name="title_pro_feature">Això es una característica Pro</string>
     <string name="title_pro_list">Llista de característiques Pro</string>

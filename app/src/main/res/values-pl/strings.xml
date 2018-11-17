@@ -66,7 +66,9 @@
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane, nie nadpisane</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_missing">Password missing</string>
     <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_account">Zarządzaj kontami</string>
@@ -293,7 +295,6 @@
     <string name="title_yes">Tak</string>
     <string name="title_no">Nie</string>
     <string name="title_undo">Cofnij</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>

@@ -56,7 +56,9 @@
     <string name="title_setup_import_do">İçe aktarılan hesaplar eklenecek, üzerine yazılmayacak</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_missing">Password missing</string>
     <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Ayarları dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
     <string name="title_setup_account">Hesapları Yönet</string>
@@ -283,7 +285,6 @@
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>
     <string name="title_undo">Geri Al</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>

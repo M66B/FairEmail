@@ -31,10 +31,10 @@
     </plurals>
     <string name="title_notification_failed">\'%1$s\' uğursuz oldu</string>
     <string name="menu_setup">Quraşdırma</string>
-    <string name="menu_answers">Templates</string>
+    <string name="menu_answers">Şablonlar</string>
     <string name="menu_operations">Əməliyyatlar</string>
     <string name="menu_legend">Mənalar</string>
-    <string name="menu_faq">Support</string>
+    <string name="menu_faq">Dəstək</string>
     <string name="menu_pro">Pro xüsusiyyətlər</string>
     <string name="menu_privacy">Gizlilik</string>
     <string name="menu_about">Haqqında</string>
@@ -54,9 +54,11 @@
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
     <string name="title_setup_import_do">İdxal edilmiş hesablar əlavə ediləcək, üzərinə yazılmayacaq</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password">Şifrə</string>
+    <string name="title_setup_password_repeat">Şifrəni təkrarla</string>
+    <string name="title_setup_password_missing">Password missing</string>
+    <string name="title_setup_password_different">Şifrələr fərqlidir</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
     <string name="title_setup_account">Hesabları idarә et</string>
@@ -85,7 +87,7 @@
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_nav">Əvvəlki/növbəti naviqasiya</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_hint">Bir çox təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
@@ -118,7 +120,7 @@
     <string name="title_authorizing">Hesaba səlahiyyət verilir &#8230;</string>
     <string name="title_setup_advanced">Qabaqcıl</string>
     <string name="title_store_sent">Göndərilən mesajları saxla (normalda ehtiyac yoxdur)</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">Göndərilmiş mesajların bir nüsxəsini saxlayacaq yer seçin:</string>
     <string name="title_synchronize_account">Eyniləşdir (mesajları al)</string>
     <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>
@@ -152,8 +154,8 @@
     <string name="title_show_folders">Gizli qovluqları göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
-    <string name="title_sync_days">Synchronize messages (days)</string>
-    <string name="title_keep_days">Keep messages (days)</string>
+    <string name="title_sync_days">Eyniləşdirilmiş mesajlar (gün)</string>
+    <string name="title_keep_days">Saxlanılmış mesajlar (gün)</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
     <string name="title_folder_delete">Qovluğu birdəfəlik silinsin?</string>
     <string name="title_folder_unified">Birləşmiş gələn qutusu</string>
@@ -177,7 +179,7 @@
     <string name="title_flag">Ulduz əlavə et</string>
     <string name="title_unflag">Ulduzu çıxart</string>
     <string name="title_forward">Yönləndir</string>
-    <string name="title_forward_raw">Forward raw</string>
+    <string name="title_forward_raw">Yönləndirmə sətri</string>
     <string name="title_reply_all">Hamısını cavabla</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_show_html">Həqiqisini göstər</string>
@@ -193,17 +195,17 @@
     <string name="title_no_answers">Heç bir cavab şablonu təyin edilmədi</string>
     <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
-    <string name="title_no_contacts">Contact picker not available</string>
+    <string name="title_no_contacts">Şəxs seçici mövcud deyil</string>
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və yönləndirilməyəcək, davam edək?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
     <string name="title_ask_delete_selected">Seçilmiş mesajlar birdəfəlik silinsin?</string>
     <string name="title_ask_delete_answer">Cavab şablonu birdəfəlik silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
-    <string name="title_ask_save">Save changes?</string>
+    <string name="title_ask_save">Dəyişikliklər saxlanılsın?</string>
     <string name="title_ask_spam">Mesajı spam kimi bildirilsin?</string>
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
     <string name="title_fix">Düzəlt</string>
     <string name="title_compose">Yaz</string>
     <string name="title_from">Göndərən:</string>
@@ -283,7 +285,6 @@
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
     <string name="title_undo">Geri qaytar</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>

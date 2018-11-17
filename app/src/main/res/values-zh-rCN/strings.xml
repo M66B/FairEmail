@@ -22,7 +22,7 @@
         <item quantity="other">%1$d条消息未发送</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="other">%1$d new</item>
+        <item quantity="other">%1$d则新邮件</item>
     </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_setup">设置</string>
@@ -49,9 +49,11 @@
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_import_do">导入的账号将被添加，但不会覆写</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password">密码</string>
+    <string name="title_setup_password_repeat">再次输入密码</string>
+    <string name="title_setup_password_missing">密码缺失</string>
+    <string name="title_setup_password_different">两次输入密码不同</string>
+    <string name="title_setup_password_invalid">密码无效</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_account">管理账户</string>
@@ -147,8 +149,8 @@
     <string name="title_show_folders">显示隐藏的文件夹</string>
     <string name="title_synchronize_folder">同步文件夹（接收）</string>
     <string name="title_unified_folder">在统一的收件箱中显示</string>
-    <string name="title_sync_days">Synchronize messages (days)</string>
-    <string name="title_keep_days">Keep messages (days)</string>
+    <string name="title_sync_days">同步邮件(天)</string>
+    <string name="title_keep_days">保留邮件(天)</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除文件夹？</string>
     <string name="title_folder_unified">聚合收件箱</string>
@@ -278,7 +280,6 @@
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
     <string name="title_undo">撤销</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

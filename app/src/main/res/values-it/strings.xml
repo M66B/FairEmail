@@ -56,7 +56,9 @@
     <string name="title_setup_import_do">Gli account importati saranno aggiunti, non sovrascritti</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Repeat password</string>
+    <string name="title_setup_password_missing">Password missing</string>
     <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
     <string name="title_setup_account">Gestisci account</string>
@@ -283,7 +285,6 @@
     <string name="title_yes">Sì</string>
     <string name="title_no">No</string>
     <string name="title_undo">Annulla</string>
-    <string name="title_canceled">Canceled</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
