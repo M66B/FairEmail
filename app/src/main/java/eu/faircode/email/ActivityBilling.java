@@ -42,6 +42,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener {
@@ -192,7 +193,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     };
 
     @Override
-    public void onPurchasesUpdated(int responseCode, @android.support.annotation.Nullable List<Purchase> purchases) {
+    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
         String text = Helper.getBillingResponseText(responseCode);
         Log.i(Helper.TAG, "IAB purchases updated response=" + text);
         if (responseCode == BillingClient.BillingResponse.OK)
