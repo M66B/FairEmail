@@ -96,7 +96,7 @@ public class FragmentMessages extends FragmentEx {
     private boolean found = false;
     private String search = null;
 
-    private boolean navigation = true;
+    private boolean autoclose = false;
 
     private long primary = -1;
     private boolean outbox = false;
@@ -138,7 +138,7 @@ public class FragmentMessages extends FragmentEx {
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        navigation = prefs.getBoolean("navigation", true);
+        autoclose = prefs.getBoolean("autoclose", false);
 
         if (TextUtils.isEmpty(search))
             if (thread == null)
@@ -552,14 +552,27 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 ViewModelMessages.Target[] pn = (ViewModelMessages.Target[]) bottom_navigation.getTag();
-                ViewModelMessages.Target target = (menuItem.getItemId() == R.id.action_prev ? pn[0] : pn[1]);
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                .putExtra("account", target.account)
-                                .putExtra("thread", target.thread)
-                                .putExtra("found", target.found));
-                return true;
+
+                switch (menuItem.getItemId()) {
+                    case R.id.action_delete:
+                        onActionMove(EntityFolder.TRASH);
+                        return true;
+
+                    case R.id.action_archive:
+                        onActionMove(EntityFolder.ARCHIVE);
+                        return true;
+
+                    case R.id.action_prev:
+                        onActionNavigate(pn[0]);
+                        return true;
+
+                    case R.id.action_next:
+                        onActionNavigate(pn[1]);
+                        return true;
+
+                    default:
+                        return false;
+                }
             }
         });
 
@@ -879,15 +892,31 @@ public class FragmentMessages extends FragmentEx {
         else
             fabMove.hide();
 
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            // Navigation
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-            ViewModelMessages.Target[] pn = model.getPrevNext(thread);
-            bottom_navigation.setTag(pn);
-            bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
-            bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
-            bottom_navigation.setVisibility(!navigation || (pn[0] == null && pn[1] == null) ? View.GONE : View.VISIBLE);
-        } else {
+        if (viewType == AdapterMessage.ViewType.THREAD)
+            db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
+                @Override
+                public void onChanged(@Nullable List<EntityFolder> folders) {
+                    boolean hasTrash = false;
+                    boolean hasArchive = false;
+                    if (folders != null)
+                        for (EntityFolder folder : folders)
+                            if (EntityFolder.TRASH.equals(folder.type))
+                                hasTrash = true;
+                            else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                hasArchive = true;
+
+                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                    ViewModelMessages.Target[] pn = model.getPrevNext(thread);
+                    bottom_navigation.setTag(pn);
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
+
+                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
+                    bottom_navigation.setVisibility(View.VISIBLE);
+                }
+            });
+        else {
             db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(EntityAccount account) {
@@ -1189,7 +1218,7 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null ||
-                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && !navigation)) {
+                        (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
                     finish();
                     return;
                 }
@@ -1232,7 +1261,7 @@ public class FragmentMessages extends FragmentEx {
                             handleExpand(expand.id);
                         }
                     } else {
-                        if (autoCount > 0 && !navigation) {
+                        if (autoCount > 0 && autoclose) {
                             int count = 0;
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
@@ -1316,6 +1345,57 @@ public class FragmentMessages extends FragmentEx {
                 Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
+    }
+
+    private void onActionMove(String folderType) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putString("thread", thread);
+        args.putString("folderType", folderType);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                long account = args.getLong("account");
+                String thread = args.getString("thread");
+                String folderType = args.getString("folderType");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+                    EntityFolder target = db.folder().getFolderByType(account, folderType);
+                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
+
+                    for (EntityMessage message : messages)
+                        if (message.uid != null && !target.id.equals(message.folder)) {
+                            db.message().setMessageUiHide(message.id, true);
+                            EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
+                        }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                EntityOperation.process(context);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
+        }.load(this, args);
+    }
+
+    private void onActionNavigate(ViewModelMessages.Target target) {
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(
+                new Intent(ActivityView.ACTION_VIEW_THREAD)
+                        .putExtra("account", target.account)
+                        .putExtra("thread", target.thread)
+                        .putExtra("found", target.found));
     }
 
     ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {

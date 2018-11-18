@@ -49,7 +49,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swLight;
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
-    private SwitchCompat swNav;
+    private SwitchCompat swAutoclose;
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
     private SwitchCompat swInsecure;
@@ -73,7 +73,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swLight = view.findViewById(R.id.swLight);
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
-        swNav = view.findViewById(R.id.swNav);
+        swAutoclose = view.findViewById(R.id.swAutoclose);
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
         swInsecure = view.findViewById(R.id.swInsecure);
@@ -191,11 +191,11 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swNav.setChecked(prefs.getBoolean("navigation", true));
-        swNav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAutoclose.setChecked(prefs.getBoolean("autoclose", false));
+        swAutoclose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("navigation", checked).apply();
+                prefs.edit().putBoolean("autoclose", checked).apply();
             }
         });
 
