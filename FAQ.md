@@ -22,7 +22,6 @@ For:
 
 ## Planned features
 
-* Notifications per account
 * IMAP namespaces
 * Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
 
@@ -49,6 +48,8 @@ Anything on this list is in random order and *might* be added in the near future
 * Pull down to refresh: new messages are received in real-time, so manual refreshing is not needed, see also [this FAQ](#user-content-faq2).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Notification per account: this would result in multiple icons in the status bar and most people don't like this. Note that the account colors are shown in the notifications too.
+* Select identities to show in unified inbox: this would add complexity for something which would hardly be used
+* Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
