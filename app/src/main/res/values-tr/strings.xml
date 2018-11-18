@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
-    <string name="title_advanced_nav">Önceki/sonraki gezinme</string>
+    <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>

@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
-    <string name="title_advanced_nav">Vorherige/nächste E-Mail Navigation</string>
+    <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
