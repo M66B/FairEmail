@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
-    <string name="title_advanced_autoclose">Automatically close conversations</string>
+    <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
