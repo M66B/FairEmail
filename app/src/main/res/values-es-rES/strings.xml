@@ -56,9 +56,9 @@
     <string name="title_setup_import_do">Las Cuentas importadas serán agregadas, no sobreescritas</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
-    <string name="title_setup_password_missing">Password missing</string>
+    <string name="title_setup_password_missing">Falta contraseña</string>
     <string name="title_setup_password_different">Las contraseñas no coinciden</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password_invalid">Contraseña no válida</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_account">Gestionar cuentas</string>
@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
-    <string name="title_advanced_autoclose">Automatically close conversations</string>
+    <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_confirm">Confirmar acciones que podrían filtrar información privada sensible</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
