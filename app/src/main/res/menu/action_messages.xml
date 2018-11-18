@@ -7,16 +7,6 @@
         android:title="@string/title_previous" />
 
     <item
-        android:id="@+id/action_delete"
-        android:icon="@drawable/baseline_delete_24"
-        android:title="@string/title_trash" />
-
-    <item
-        android:id="@+id/action_archive"
-        android:icon="@drawable/baseline_archive_24"
-        android:title="@string/title_archive" />
-
-    <item
         android:id="@+id/action_next"
         android:icon="@drawable/baseline_navigate_next_24"
         android:title="@string/title_next" />
