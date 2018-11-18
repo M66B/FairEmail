@@ -421,7 +421,7 @@ public class FragmentIdentity extends FragmentEx {
                             port = (starttls ? "587" : "465");
                         if (TextUtils.isEmpty(user))
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password) && !insecure)
+                        if (synchronize && TextUtils.isEmpty(password) && !insecure)
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
                         email = email.toLowerCase();

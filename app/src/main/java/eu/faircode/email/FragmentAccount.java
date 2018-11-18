@@ -640,7 +640,7 @@ public class FragmentAccount extends FragmentEx {
                             port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
                             throw new Throwable(getContext().getString(R.string.title_no_user));
-                        if (TextUtils.isEmpty(password) && !insecure)
+                        if (synchronize && TextUtils.isEmpty(password) && !insecure)
                             throw new Throwable(getContext().getString(R.string.title_no_password));
                         if (TextUtils.isEmpty(interval))
                             interval = "19";
