@@ -381,6 +381,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 "\n" + message.id + " " + df.format(new Date(message.received)) +
                                 "\n" + (message.ui_hide ? "HIDDEN " : "") +
                                 "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
+                                "found=" + message.ui_found +
                                 " " + message.uid + "/" + message.id +
                                 "\n" + message.msgid;
                         if (operations != null)
