@@ -61,9 +61,9 @@
     <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
-    <string name="title_setup_password_missing">Password missing</string>
+    <string name="title_setup_password_missing">Lipsește parola</string>
     <string name="title_setup_password_different">Parolele sunt diferite</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
     <string name="title_setup_account">Gestionarea conturilor</string>
@@ -124,7 +124,6 @@
     <string name="title_authorize">Selectare cont</string>
     <string name="title_authorizing">Autorizare cont &#8230;</string>
     <string name="title_setup_advanced">Setări avansate</string>
-    <string name="title_store_sent">Stochează mesajele trimise (în mod normal nu este necesar)</string>
     <string name="title_store_copy">Păstrează o copie a mesajelor trimise în:</string>
     <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>

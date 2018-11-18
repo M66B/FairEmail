@@ -58,7 +58,7 @@
     <string name="title_setup_password_repeat">Confirmer le mot de passe</string>
     <string name="title_setup_password_missing">Mot de passe manquant</string>
     <string name="title_setup_password_different">Les mots de passe sont différents</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password_invalid">Mot de passe non valide</string>
     <string name="title_setup_exported">Paramètres exportés</string>
     <string name="title_setup_imported">Paramètres importés</string>
     <string name="title_setup_account">Gérer les comptes</string>
@@ -119,7 +119,6 @@
     <string name="title_authorize">Sélectionner un compte</string>
     <string name="title_authorizing">Autorisation du compte en cours &#8230;</string>
     <string name="title_setup_advanced">Avancé</string>
-    <string name="title_store_sent">Stocker les messages envoyés (normalement pas nécessaire)</string>
     <string name="title_store_copy">Stocker une copie des messages envoyés dans :</string>
     <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
     <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>

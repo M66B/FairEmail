@@ -114,7 +114,6 @@
     <string name="title_authorize">选择账户</string>
     <string name="title_authorizing">授权帐户 &#8230;</string>
     <string name="title_setup_advanced">高级选项</string>
-    <string name="title_store_sent">保存已发送的消息(通常不需要)</string>
     <string name="title_store_copy">将已发送邮件的副本保存在:</string>
     <string name="title_synchronize_account">同步（接收）</string>
     <string name="title_synchronize_identity">同步（发送）</string>
