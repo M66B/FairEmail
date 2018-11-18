@@ -305,7 +305,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="?android:attr/colorPrimary"
         app:itemIconTint="@color/bottomnav_background"
         app:itemTextColor="@color/bottomnav_background"
         app:labelVisibilityMode="labeled"
