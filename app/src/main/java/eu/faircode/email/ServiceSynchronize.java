@@ -1463,6 +1463,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Create session
         Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.insecure);
+        props.put("mail.smtp.localhost", ident.host);
         final Session isession = Session.getInstance(props, null);
 
         // Create message
