@@ -251,7 +251,7 @@ public class EntityMessage implements Serializable {
                     this.folder.equals(other.folder) &&
                     (this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
                     (this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
-                    (this.forwarding == null ? other.forwarding == null : this.replying.equals(other.forwarding)) &&
+                    (this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
                     (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) &&
                     (this.references == null ? other.references == null : this.references.equals(other.references)) &&
