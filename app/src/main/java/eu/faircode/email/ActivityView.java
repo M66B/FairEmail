@@ -788,6 +788,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onShowLog() {
+        getSupportFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
         fragmentTransaction.commit();
