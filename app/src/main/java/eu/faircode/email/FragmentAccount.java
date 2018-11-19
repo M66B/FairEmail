@@ -25,6 +25,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -777,6 +778,11 @@ public class FragmentAccount extends FragmentEx {
 
                         if (reload)
                             ServiceSynchronize.reload(getContext(), "save account");
+
+                        if (!synchronize) {
+                            NotificationManager nm = getContext().getSystemService(NotificationManager.class);
+                            nm.cancel("receive", account.id.intValue());
+                        }
 
                         return null;
                     }

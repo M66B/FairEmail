@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -1244,9 +1245,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                             db.beginTransaction();
 
                                             EntityMessage message = db.message().getMessage(id);
-                                            if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
+                                            if (message.uid == null && !TextUtils.isEmpty(message.error)) {
+                                                // outbox
                                                 db.message().deleteMessage(id);
-                                            else {
+                                                NotificationManager nm = context.getSystemService(NotificationManager.class);
+                                                nm.cancel("send", message.account.intValue());
+                                            } else {
                                                 db.message().setMessageUiHide(message.id, true);
                                                 EntityOperation.queue(db, message, EntityOperation.DELETE);
                                             }
