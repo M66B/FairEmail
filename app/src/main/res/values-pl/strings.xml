@@ -34,7 +34,7 @@
         <item quantity="other">%1$d niewysłanych wiadomości</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d new</item>
+        <item quantity="one">%1$d nowych</item>
         <item quantity="few">%1$d new</item>
         <item quantity="many">%1$d new</item>
         <item quantity="other">%1$d new</item>
@@ -64,11 +64,11 @@
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane, nie nadpisane</string>
-    <string name="title_setup_password">Password</string>
-    <string name="title_setup_password_repeat">Repeat password</string>
-    <string name="title_setup_password_missing">Password missing</string>
-    <string name="title_setup_password_different">Passwords different</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password">Hasło</string>
+    <string name="title_setup_password_repeat">Powtórz hasło</string>
+    <string name="title_setup_password_missing">Brak hasła</string>
+    <string name="title_setup_password_different">Hasła się różnią</string>
+    <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
     <string name="title_setup_account">Zarządzaj kontami</string>
@@ -91,15 +91,15 @@
     <string name="title_advanced_enabled">Synchronizuj</string>
     <string name="title_advanced_compact">Widok kompaktowy</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
-    <string name="title_advanced_identicons">Show identicons</string>
+    <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_swipe">Gesty przesuwania</string>
-    <string name="title_advanced_autoclose">Automatically close conversations</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
-    <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
+    <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
+    <string name="title_advanced_confirm">Potwierdź działania, które mogą spowodować wyciek wrażliwych informacji</string>
+    <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
+    <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
@@ -129,7 +129,7 @@
     <string name="title_authorize">Wybierz konto</string>
     <string name="title_authorizing">Autoryzowanie konta &#8230;</string>
     <string name="title_setup_advanced">Zaawansowane</string>
-    <string name="title_store_copy">Store a copy of sent messages in:</string>
+    <string name="title_store_copy">Zachwouj kopię wysłanej wiadomości w:</string>
     <string name="title_synchronize_account">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
@@ -163,8 +163,8 @@
     <string name="title_show_folders">Pokaż ukryte foldery</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
-    <string name="title_sync_days">Synchronize messages (days)</string>
-    <string name="title_keep_days">Keep messages (days)</string>
+    <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
+    <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Usunąć folder bezpowrotnie?</string>
     <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>
@@ -200,7 +200,7 @@
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
     <string name="title_moving">Przenoszenie wiadomości do %1$s</string>
-    <string name="title_open_with">Open with</string>
+    <string name="title_open_with">Otwórz z</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
@@ -213,10 +213,10 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_save">Zapisać zmiany?</string>
     <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
-    <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
-    <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_fix">Popraw</string>
-    <string name="title_compose">Compose</string>
+    <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
     <string name="title_reply_to">Odpisz do:</string>
@@ -299,7 +299,7 @@
     <string name="title_pro_list">Lista funkcji pro</string>
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
-    <string name="title_pro_price">Please see <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">this FAQ</a> about the price of the pro features</string>
+    <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_activated">Wszystkie funkcje pro są aktywowane</string>
     <string name="title_pro_valid">Wszystkie funkcje pro aktywne</string>
     <string name="title_pro_invalid">Nieprawidłowa odpowiedź</string>
