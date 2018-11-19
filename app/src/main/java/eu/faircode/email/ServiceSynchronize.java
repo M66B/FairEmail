@@ -596,6 +596,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setAutoCancel(false)
                 .setShowWhen(true)
                 .setPriority(Notification.PRIORITY_MAX)
+                .setOnlyAlertOnce(true)
                 .setCategory(Notification.CATEGORY_ERROR)
                 .setVisibility(Notification.VISIBILITY_SECRET);
 
