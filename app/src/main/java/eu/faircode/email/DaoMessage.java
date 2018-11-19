@@ -26,6 +26,7 @@ import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.RoomWarnings;
 import androidx.room.Update;
 
 @Dao
@@ -63,6 +64,7 @@ public interface DaoMessage {
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(String sort, boolean debug);
 
     @Query("SELECT message.*" +
@@ -94,6 +96,7 @@ public interface DaoMessage {
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
             " END DESC, message.received DESC, message.sent DESC")
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, String sort, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
