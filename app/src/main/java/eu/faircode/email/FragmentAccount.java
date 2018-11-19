@@ -656,6 +656,7 @@ public class FragmentAccount extends FragmentEx {
                         boolean check = (synchronize && (account == null ||
                                 !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                                 !user.equals(account.user) || !password.equals(account.password)));
+                        boolean reload = (account == null || account.synchronize != synchronize || check);
 
                         // Check IMAP server
                         if (check) {
@@ -770,7 +771,7 @@ public class FragmentAccount extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        if (check)
+                        if (reload)
                             ServiceSynchronize.reload(getContext(), "save account");
 
                         return null;

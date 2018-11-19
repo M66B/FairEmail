@@ -438,6 +438,7 @@ public class FragmentIdentity extends FragmentEx {
                         boolean check = (synchronize && (identity == null ||
                                 !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                                 !user.equals(identity.user) || !password.equals(identity.password)));
+                        boolean reload = (identity == null || identity.synchronize != synchronize || check);
 
                         // Check SMTP server
                         if (check) {
@@ -500,7 +501,7 @@ public class FragmentIdentity extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        if (check)
+                        if (reload)
                             ServiceSynchronize.reload(getContext(), "save identity");
 
                         return null;

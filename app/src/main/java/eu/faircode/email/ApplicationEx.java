@@ -84,7 +84,6 @@ public class ApplicationEx extends Application {
                     "error",
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
-            error.setShowBadge(false);
             error.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(error);
         }
