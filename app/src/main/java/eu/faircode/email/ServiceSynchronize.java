@@ -79,6 +79,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.mail.Address;
@@ -693,7 +694,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
                                 if (BuildConfig.DEBUG)
                                     db.account().setAccountError(account.id, e.getMessage());
-                                state.thread.interrupt();
+                                state.semaphore.release();
                                 yieldWakelock();
                             } finally {
                                 wl.release();
@@ -712,7 +713,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
-                                state.thread.interrupt();
+                                reload(ServiceSynchronize.this, "folder created");
                                 yieldWakelock();
                             } finally {
                                 wl.release();
@@ -730,7 +731,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 int count = db.folder().renameFolder(account.id, old, name);
                                 Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
 
-                                state.thread.interrupt();
+                                reload(ServiceSynchronize.this, "folder renamed");
                                 yieldWakelock();
                             } finally {
                                 wl.release();
@@ -742,7 +743,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
-                                state.thread.interrupt();
+                                reload(ServiceSynchronize.this, "folder deleted");
                                 yieldWakelock();
                             } finally {
                                 wl.release();
@@ -869,7 +870,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                                    state.thread.interrupt();
+                                                    state.semaphore.release();
                                                     yieldWakelock();
                                                 } finally {
                                                     wl.release();
@@ -900,7 +901,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                                    state.thread.interrupt();
+                                                    state.semaphore.release();
                                                 } finally {
                                                     wl.release();
                                                 }
@@ -951,7 +952,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                                    state.thread.interrupt();
+                                                    state.semaphore.release();
                                                     yieldWakelock();
                                                 } finally {
                                                     wl.release();
@@ -965,7 +966,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                    state.thread.interrupt();
+                                    state.semaphore.release();
                                     yieldWakelock();
                                 } finally {
                                     wl.release();
@@ -994,7 +995,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
 
-                                        state.thread.interrupt();
+                                        state.semaphore.release();
                                         yieldWakelock();
                                     } finally {
                                         Log.i(Helper.TAG, folder.name + " end idle");
@@ -1117,7 +1118,7 @@ public class ServiceSynchronize extends LifecycleService {
                             // Receiver runs on main thread
                             // Receiver has a wake lock for ~10 seconds
                             EntityLog.log(context, account.name + " keep alive wake lock=" + wl0.isHeld());
-                            state.thread.interrupt();
+                            state.semaphore.release();
                             yieldWakelock();
                         }
                     };
@@ -1237,7 +1238,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (backoff <= CONNECT_BACKOFF_MAX) {
                             // Short back-off period, keep device awake
                             EntityLog.log(this, account.name + " backoff=" + backoff);
-                            Thread.sleep(backoff * 1000L);
+                            state.semaphore.tryAcquire(backoff, TimeUnit.SECONDS);
                         } else {
                             // Long back-off period, let device sleep
                             EntityLog.log(this, account.name + " backoff alarm=" + CONNECT_BACKOFF_AlARM);
@@ -1245,7 +1246,7 @@ public class ServiceSynchronize extends LifecycleService {
                             BroadcastReceiver alarm = new BroadcastReceiver() {
                                 @Override
                                 public void onReceive(Context context, Intent intent) {
-                                    state.thread.interrupt();
+                                    state.semaphore.release();
                                     yieldWakelock();
                                 }
                             };
@@ -1263,7 +1264,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 try {
                                     wl0.release();
-                                    Thread.sleep(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
+                                    state.semaphore.tryAcquire(2 * CONNECT_BACKOFF_AlARM, TimeUnit.MINUTES);
                                 } finally {
                                     wl0.acquire();
                                 }
@@ -1274,7 +1275,7 @@ public class ServiceSynchronize extends LifecycleService {
                             }
                         }
 
-                        if (backoff < CONNECT_BACKOFF_MAX)
+                        if (backoff <= CONNECT_BACKOFF_MAX)
                             backoff *= 2;
                     } catch (InterruptedException ex) {
                         Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
@@ -2198,7 +2199,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 long backoff = RECONNECT_BACKOFF - ago;
                                 EntityLog.log(ServiceSynchronize.this, "Main backoff=" + (backoff / 1000));
-                                Thread.sleep(backoff);
+                                state.semaphore.tryAcquire(backoff, TimeUnit.MILLISECONDS);
                             } catch (InterruptedException ex) {
                                 Log.w(Helper.TAG, "main backoff " + ex.toString());
                                 return;
