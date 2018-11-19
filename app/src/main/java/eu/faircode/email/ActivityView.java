@@ -113,7 +113,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_THREAD = 2;
-    static final int REQUEST_ERROR = 3;
 
     static final int REQUEST_ATTACHMENT = 1;
     static final int REQUEST_INVITE = 2;

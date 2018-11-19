@@ -650,6 +650,8 @@ public class FragmentAccount extends FragmentEx {
                         if (Color.TRANSPARENT == color)
                             color = null;
 
+                        long now = new Date().getTime();
+
                         DB db = DB.getInstance(context);
                         EntityAccount account = db.account().getAccount(id);
 
@@ -708,7 +710,9 @@ public class FragmentAccount extends FragmentEx {
                             account.primary = (account.synchronize && primary);
                             account.poll_interval = Integer.parseInt(interval);
 
-                            account.created = new Date().getTime();
+                            account.created = now;
+                            if (synchronize)
+                                account.last_connected = now;
 
                             if (!synchronize)
                                 account.error = null;

@@ -263,6 +263,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET stored = :stored WHERE id = :id")
     int setMessageStored(long id, long stored);
 
+    @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id")
+    int setMessageLastAttempt(long id, long last_attempt);
+
     @Query("UPDATE message SET ui_ignored = 1" +
             " WHERE NOT ui_ignored" +
             " AND folder IN (SELECT id FROM folder WHERE type = '" + EntityFolder.INBOX + "')")

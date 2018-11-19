@@ -84,6 +84,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET state = :state WHERE id = :id")
     int setAccountState(long id, String state);
 
+    @Query("UPDATE account SET last_connected = :last_connected WHERE id = :id")
+    int setAccountConnected(long id, long last_connected);
+
     @Query("UPDATE account SET password = :password WHERE id = :id")
     int setAccountPassword(long id, String password);
 

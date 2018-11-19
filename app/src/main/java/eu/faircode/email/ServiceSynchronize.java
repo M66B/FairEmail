@@ -136,6 +136,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
+    private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
 
     static final int PI_WHY = 1;
     static final int PI_CLEAR = 2;
@@ -574,10 +575,10 @@ public class ServiceSynchronize extends LifecycleService {
 
     private Notification.Builder getNotificationError(String action, Throwable ex) {
         // Build pending intent
-        Intent intent = new Intent(this, ActivityView.class);
+        Intent intent = new Intent(this, ActivitySetup.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
-                this, ActivityView.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build notification
         Notification.Builder builder;
@@ -772,11 +773,18 @@ public class ServiceSynchronize extends LifecycleService {
                     for (EntityFolder folder : db.folder().getFolders(account.id))
                         db.folder().setFolderState(folder.id, null);
                     db.account().setAccountState(account.id, "connecting");
+
                     Helper.connect(this, istore, account);
+
                     final boolean capIdle = istore.hasCapability("IDLE");
                     Log.i(Helper.TAG, account.name + " idle=" + capIdle);
+
                     db.account().setAccountState(account.id, "connected");
+                    db.account().setAccountConnected(account.id, new Date().getTime());
                     db.account().setAccountError(account.id, null);
+
+                    NotificationManager nm = getSystemService(NotificationManager.class);
+                    nm.cancel("receive", account.id.intValue());
 
                     EntityLog.log(this, account.name + " connected");
 
@@ -1164,6 +1172,15 @@ public class ServiceSynchronize extends LifecycleService {
                     reportError(account.name, null, ex);
 
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+
+                    if (account.last_connected != null) {
+                        EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
+                        long now = new Date().getTime();
+                        if (now - account.last_connected > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                            NotificationManager nm = getSystemService(NotificationManager.class);
+                            nm.notify("receive", account.id.intValue(), getNotificationError(account.name, ex).build());
+                        }
+                    }
                 } finally {
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
@@ -1461,6 +1478,11 @@ public class ServiceSynchronize extends LifecycleService {
             return;
         }
 
+        if (message.last_attempt == null) {
+            message.last_attempt = new Date().getTime();
+            db.message().setMessageLastAttempt(message.id, message.last_attempt);
+        }
+
         // Create session
         Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.insecure);
         props.put("mail.smtp.localhost", ident.host);
@@ -1489,8 +1511,12 @@ public class ServiceSynchronize extends LifecycleService {
                 } else
                     throw ex;
             }
+
             db.identity().setIdentityState(ident.id, "connected");
             db.identity().setIdentityError(ident.id, null);
+
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            nm.cancel("send", message.account.intValue());
 
             // Send message
             Address[] to = imessage.getAllRecipients();
@@ -1531,6 +1557,15 @@ public class ServiceSynchronize extends LifecycleService {
             EntityOperation.process(this);
         } catch (MessagingException ex) {
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
+
+            EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
+
+            long now = new Date().getTime();
+            if (now - message.last_attempt > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                NotificationManager nm = getSystemService(NotificationManager.class);
+                nm.notify("send", message.account.intValue(), getNotificationError(ident.name, ex).build());
+            }
+
             throw ex;
         } finally {
             try {

@@ -130,6 +130,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean ui_ignored;
     public String error;
+    public Long last_attempt; // send
 
     static String generateMessageId() {
         StringBuffer sb = new StringBuffer();

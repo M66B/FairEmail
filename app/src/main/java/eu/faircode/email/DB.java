@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 4,
+        version = 5,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -145,6 +145,14 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `forwarding` INTEGER" +
                                 " REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL");
                         db.execSQL("CREATE  INDEX `index_message_forwarding` ON `message` (`forwarding`)");
+                    }
+                })
+                .addMigrations(new Migration(4, 5) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `last_connected` INTEGER");
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `last_attempt` INTEGER");
                     }
                 })
                 .build();

@@ -62,6 +62,7 @@ public class EntityAccount {
     public Long created;
     public String state;
     public String error;
+    public Long last_connected;
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -81,6 +82,7 @@ public class EntityAccount {
         // not created
         // not state
         // not error
+        // not last connected
         return json;
     }
 
