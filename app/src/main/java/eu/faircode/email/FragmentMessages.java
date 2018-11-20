@@ -422,8 +422,7 @@ public class FragmentMessages extends FragmentEx {
                                     target = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
                             }
 
-                            result.target = target.name;
-                            result.display = (target.display == null ? target.name : target.display);
+                            result.target = target;
 
                             if (thread) {
                                 List<EntityMessage> messages =
@@ -436,7 +435,7 @@ public class FragmentMessages extends FragmentEx {
                                 result.ids.add(message.id);
 
                             for (long mid : result.ids) {
-                                Log.i(Helper.TAG, "Move hide id=" + mid + " target=" + result.target);
+                                Log.i(Helper.TAG, "Move hide id=" + mid + " target=" + result.target.name);
                                 db.message().setMessageUiHide(mid, true);
                             }
 
@@ -450,88 +449,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onLoaded(final Bundle args, final MessageTarget result) {
-                        // Show undo snackbar
-                        final Snackbar snackbar = Snackbar.make(
-                                view,
-                                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), result.display)),
-                                Snackbar.LENGTH_INDEFINITE);
-                        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                snackbar.dismiss();
-
-                                Bundle args = new Bundle();
-                                args.putSerializable("result", result);
-
-                                // Show message again
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onLoad(Context context, Bundle args) {
-                                        MessageTarget result = (MessageTarget) args.getSerializable("result");
-                                        for (long id : result.ids) {
-                                            Log.i(Helper.TAG, "Move undo id=" + id);
-                                            DB.getInstance(context).message().setMessageUiHide(id, false);
-                                        }
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        super.onException(args, ex);
-                                    }
-                                }.load(FragmentMessages.this, args);
-                            }
-                        });
-                        snackbar.show();
-
-                        // Wait
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.i(Helper.TAG, "Move timeout");
-
-                                // Remove snackbar
-                                if (snackbar.isShown())
-                                    snackbar.dismiss();
-
-                                final Bundle args = new Bundle();
-                                args.putSerializable("result", result);
-
-                                // Process move in a thread
-                                // - the fragment could be gone
-                                executor.submit(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            MessageTarget result = (MessageTarget) args.getSerializable("result");
-
-                                            DB db = DB.getInstance(snackbar.getContext());
-                                            try {
-                                                db.beginTransaction();
-
-                                                for (long id : result.ids) {
-                                                    EntityMessage message = db.message().getMessage(id);
-                                                    if (message != null && message.ui_hide) {
-                                                        Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target);
-                                                        EntityFolder folder = db.folder().getFolderByName(message.account, result.target);
-                                                        EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
-                                                    }
-                                                }
-
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
-
-                                            EntityOperation.process(snackbar.getContext());
-
-                                        } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                                        }
-                                    }
-                                });
-                            }
-                        }, UNDO_TIMEOUT);
+                        moveUndo(result);
                     }
 
                     @Override
@@ -539,12 +457,6 @@ public class FragmentMessages extends FragmentEx {
                         Helper.unexpectedError(getContext(), ex);
                     }
                 }.load(FragmentMessages.this, args);
-            }
-
-            class MessageTarget implements Serializable {
-                List<Long> ids = new ArrayList<>();
-                String target;
-                String display;
             }
         }).attachToRecyclerView(rvMessage);
 
@@ -1078,7 +990,7 @@ public class FragmentMessages extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onLoad(Context context, Bundle args) {
                 long outbox = args.getLong("folder");
 
                 DB db = DB.getInstance(context);
@@ -1353,23 +1265,26 @@ public class FragmentMessages extends FragmentEx {
         args.putString("thread", thread);
         args.putString("folderType", folderType);
 
-        new SimpleTask<Void>() {
+        new SimpleTask<MessageTarget>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected MessageTarget onLoad(Context context, Bundle args) {
                 long account = args.getLong("account");
                 String thread = args.getString("thread");
                 String folderType = args.getString("folderType");
 
+                MessageTarget result = new MessageTarget();
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
-                    EntityFolder target = db.folder().getFolderByType(account, folderType);
-                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
 
+                    result.target = db.folder().getFolderByType(account, folderType);
+
+                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
                     for (EntityMessage message : messages)
-                        if (message.uid != null && !target.id.equals(message.folder)) {
+                        if (message.uid != null && !result.target.id.equals(message.folder)) {
+                            result.ids.add(message.id);
                             db.message().setMessageUiHide(message.id, true);
-                            EntityOperation.queue(db, message, EntityOperation.MOVE, target.id);
                         }
 
                     db.setTransactionSuccessful();
@@ -1377,9 +1292,12 @@ public class FragmentMessages extends FragmentEx {
                     db.endTransaction();
                 }
 
-                EntityOperation.process(context);
+                return result;
+            }
 
-                return null;
+            @Override
+            protected void onLoaded(Bundle args, MessageTarget result) {
+                moveUndo(result);
             }
 
             @Override
@@ -1398,7 +1316,93 @@ public class FragmentMessages extends FragmentEx {
                         .putExtra("found", target.found));
     }
 
-    ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
+    private void moveUndo(final MessageTarget result) {
+        // Show undo snackbar
+        String display = (result.target.display == null ? result.target.name : result.target.display);
+        final Snackbar snackbar = Snackbar.make(
+                view,
+                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), display)),
+                Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+
+                Bundle args = new Bundle();
+                args.putSerializable("result", result);
+
+                // Show message again
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        MessageTarget result = (MessageTarget) args.getSerializable("result");
+                        for (long id : result.ids) {
+                            Log.i(Helper.TAG, "Move undo id=" + id);
+                            DB.getInstance(context).message().setMessageUiHide(id, false);
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        super.onException(args, ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+        });
+        snackbar.show();
+
+        // Wait
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(Helper.TAG, "Move timeout");
+
+                // Remove snackbar
+                if (snackbar.isShown())
+                    snackbar.dismiss();
+
+                final Bundle args = new Bundle();
+                args.putSerializable("result", result);
+
+                // Process move in a thread
+                // - the fragment could be gone
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            MessageTarget result = (MessageTarget) args.getSerializable("result");
+
+                            DB db = DB.getInstance(snackbar.getContext());
+                            try {
+                                db.beginTransaction();
+
+                                for (long id : result.ids) {
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message != null && message.ui_hide) {
+                                        Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                        EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                    }
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            EntityOperation.process(snackbar.getContext());
+
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+                    }
+                });
+            }
+        }, UNDO_TIMEOUT);
+    }
+
+    private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
         @Override
         public boolean onBackPressed() {
             if (selectionTracker != null && selectionTracker.hasSelection()) {
@@ -1408,4 +1412,9 @@ public class FragmentMessages extends FragmentEx {
             return false;
         }
     };
+
+    private class MessageTarget implements Serializable {
+        List<Long> ids = new ArrayList<>();
+        EntityFolder target;
+    }
 }
