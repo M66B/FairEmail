@@ -188,6 +188,8 @@ public class MessageHelper {
             imessage.addHeader("References", (replying.references == null ? "" : replying.references + " ") + replying.msgid);
         }
 
+        imessage.addHeader("X-FairEmail-Thread", message.thread);
+
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
 
         if (message.from != null && message.from.length > 0) {
@@ -376,6 +378,10 @@ public class MessageHelper {
     }
 
     String getThreadId(long uid) throws MessagingException {
+        String[] xThread = imessage.getHeader("X-FairEmail-Thread");
+        if (xThread != null && xThread.length > 0)
+            return xThread[0];
+
         for (String ref : getReferences())
             if (!TextUtils.isEmpty(ref))
                 return ref;
