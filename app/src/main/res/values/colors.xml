@@ -31,7 +31,7 @@
     <color name="darkColorDrawerBackground">#222</color>
 
     <!-- default: #323232 -->
-    <color name="design_snackbar_background_color" tools:override="true">#ff000000</color>
+    <color name="design_snackbar_background_color" tools:override="true">#222</color>
 
     <!-- color picker -->
     <color name="red">#F6402C</color>
