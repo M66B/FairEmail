@@ -274,7 +274,57 @@ public class FragmentMessages extends FragmentEx {
             public boolean showImages(long id) {
                 return images.contains(id);
             }
+
+            @Override
+            public void move(long id, String name, boolean type) {
+                Bundle args = new Bundle();
+                args.putLong("id", id);
+                args.putString("name", name);
+                args.putBoolean("type", type);
+
+                new SimpleTask<MessageTarget>() {
+                    @Override
+                    protected MessageTarget onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        String name = args.getString("name");
+                        boolean type = args.getBoolean("type");
+
+                        MessageTarget result = new MessageTarget();
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage message = db.message().getMessage(id);
+                            if (type)
+                                result.target = db.folder().getFolderByType(message.account, name);
+                            else
+                                result.target = db.folder().getFolderByName(message.account, name);
+                            result.ids.add(message.id);
+
+                            db.message().setMessageUiHide(id, true);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return result;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, MessageTarget result) {
+                        moveUndo(result);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
         });
+
         rvMessage.setAdapter(adapter);
 
         if (viewType == AdapterMessage.ViewType.FOLDER) {

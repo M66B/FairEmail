@@ -1274,40 +1274,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         })
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
-            } else {
-                Bundle args = new Bundle();
-                args.putLong("id", data.message.id);
-
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            db.message().setMessageUiHide(id, true);
-
-                            EntityMessage message = db.message().getMessage(id);
-                            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        EntityOperation.process(context);
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, ex);
-                    }
-                }.load(context, owner, args);
-            }
+            } else
+                properties.move(data.message.id, EntityFolder.TRASH, true);
         }
 
         private void onMove(ActionData data) {
@@ -1348,29 +1316,17 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         public boolean onMenuItemClick(final MenuItem target) {
                             args.putLong("target", target.getItemId());
 
-                            new SimpleTask<Void>() {
+                            new SimpleTask<String>() {
                                 @Override
-                                protected Void onLoad(Context context, Bundle args) {
-                                    long id = args.getLong("id");
+                                protected String onLoad(Context context, Bundle args) {
                                     long target = args.getLong("target");
+                                    return DB.getInstance(context).folder().getFolder(target).name;
+                                }
 
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        db.message().setMessageUiHide(id, true);
-
-                                        EntityMessage message = db.message().getMessage(id);
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, target);
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    EntityOperation.process(context);
-
-                                    return null;
+                                @Override
+                                protected void onLoaded(Bundle args, String folderName) {
+                                    long id = args.getLong("id");
+                                    properties.move(id, folderName, false);
                                 }
 
                                 @Override
@@ -1389,39 +1345,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onArchive(ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        db.message().setMessageUiHide(id, true);
-
-                        EntityMessage message = db.message().getMessage(id);
-                        EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                        EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    EntityOperation.process(context);
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
-                }
-            }.load(context, owner, args);
+            properties.move(data.message.id, EntityFolder.ARCHIVE, true);
         }
 
         private void onReply(ActionData data) {
@@ -1516,5 +1440,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         boolean showHeaders(long id);
 
         boolean showImages(long id);
+
+        void move(long id, String target, boolean type);
     }
 }
