@@ -1328,7 +1328,12 @@ public class FragmentCompose extends FragmentEx {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            etTo.requestFocus();
+                            if (TextUtils.isEmpty(etTo.getText()))
+                                etTo.requestFocus();
+                            else if (TextUtils.isEmpty(etSubject.getText()))
+                                etSubject.requestFocus();
+                            else
+                                etBody.requestFocus();
                         }
                     });
                 }
