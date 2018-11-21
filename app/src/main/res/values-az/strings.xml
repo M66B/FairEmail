@@ -56,9 +56,9 @@
     <string name="title_setup_import_do">İdxal edilmiş hesablar əlavə ediləcək, üzərinə yazılmayacaq</string>
     <string name="title_setup_password">Şifrə</string>
     <string name="title_setup_password_repeat">Şifrəni təkrarla</string>
-    <string name="title_setup_password_missing">Password missing</string>
+    <string name="title_setup_password_missing">Şifrə əskikdir</string>
     <string name="title_setup_password_different">Şifrələr fərqlidir</string>
-    <string name="title_setup_password_invalid">Password invalid</string>
+    <string name="title_setup_password_invalid">Şifrə etibarsızdır</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
     <string name="title_setup_account">Hesabları idarә et</string>
@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
-    <string name="title_advanced_autoclose">Automatically close conversations</string>
+    <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_hint">Bir çox təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>
