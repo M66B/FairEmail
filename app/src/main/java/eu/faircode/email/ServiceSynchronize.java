@@ -776,7 +776,20 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().setFolderState(folder.id, null);
                     db.account().setAccountState(account.id, "connecting");
 
-                    Helper.connect(this, istore, account);
+                    try {
+                        Helper.connect(this, istore, account);
+                    } catch (Throwable ex) {
+                        if (account.last_connected != null) {
+                            EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
+                            long now = new Date().getTime();
+                            if (now - account.last_connected > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                                NotificationManager nm = getSystemService(NotificationManager.class);
+                                nm.notify("receive", account.id.intValue(), getNotificationError(account.name, ex).build());
+                            }
+                        }
+
+                        throw ex;
+                    }
 
                     final boolean capIdle = istore.hasCapability("IDLE");
                     Log.i(Helper.TAG, account.name + " idle=" + capIdle);
@@ -1174,15 +1187,6 @@ public class ServiceSynchronize extends LifecycleService {
                     reportError(account.name, null, ex);
 
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
-
-                    if (account.last_connected != null) {
-                        EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
-                        long now = new Date().getTime();
-                        if (now - account.last_connected > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
-                            NotificationManager nm = getSystemService(NotificationManager.class);
-                            nm.notify("receive", account.id.intValue(), getNotificationError(account.name, ex).build());
-                        }
-                    }
                 } finally {
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
