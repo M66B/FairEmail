@@ -360,8 +360,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvFolder.setText(message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay);
-                tvFolder.setAlpha(EntityFolder.ARCHIVE.equals(message.folderType) ||
-                        EntityFolder.SENT.equals(message.folderType) ? 0.5f : 1.0f);
+                tvFolder.setAlpha(message.duplicate ? 0.5f : 1.0f);
             }
             tvFolder.setVisibility(viewType == ViewType.FOLDER ? View.GONE : View.VISIBLE);
 

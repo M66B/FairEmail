@@ -1906,7 +1906,8 @@ public class ServiceSynchronize extends LifecycleService {
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
 
-                if (dup.folder.equals(folder.id) || outbox) {
+                if (!EntityFolder.ARCHIVE.equals(dfolder.type) &&
+                        dup.folder.equals(folder.id) || outbox) {
                     String thread = helper.getThreadId(uid);
                     Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
@@ -1966,11 +1967,9 @@ public class ServiceSynchronize extends LifecycleService {
             message.identity = (identity == null ? null : identity.id);
             message.uid = uid;
 
-            if (!EntityFolder.ARCHIVE.equals(folder.type)) {
-                message.msgid = helper.getMessageID();
-                if (TextUtils.isEmpty(message.msgid))
-                    Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
-            }
+            message.msgid = helper.getMessageID();
+            if (TextUtils.isEmpty(message.msgid))
+                Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
 
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();

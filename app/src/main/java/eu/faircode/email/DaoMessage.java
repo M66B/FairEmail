@@ -49,6 +49,7 @@ public interface DaoMessage {
             "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -80,6 +81,7 @@ public interface DaoMessage {
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -106,6 +108,16 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+
+            ", ((folder.type = '" + EntityFolder.ARCHIVE + "' " +
+            "  OR folder.type = '" + EntityFolder.SENT + "')" +
+            "  AND EXISTS (" +
+            "   SELECT * FROM message m1" +
+            "   JOIN folder f1 ON f1.id = m1.folder" +
+            "   WHERE m1.id <> message.id" +
+            "   AND m1.msgid = message.msgid" +
+            "   AND f1.type <> folder.type)) AS duplicate" +
+
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -177,6 +189,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -191,6 +204,7 @@ public interface DaoMessage {
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
             ", 0 AS attachments" +
+            ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +

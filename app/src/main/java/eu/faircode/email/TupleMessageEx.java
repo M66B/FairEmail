@@ -29,6 +29,7 @@ public class TupleMessageEx extends EntityMessage {
     public int unseen;
     public int unflagged;
     public int attachments;
+    public boolean duplicate;
 
     @Override
     public boolean equals(Object obj) {
@@ -43,7 +44,8 @@ public class TupleMessageEx extends EntityMessage {
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&
-                    this.attachments == other.attachments);
+                    this.attachments == other.attachments &&
+                    this.duplicate == other.duplicate);
         }
         return super.equals(obj);
     }
