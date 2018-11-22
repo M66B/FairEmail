@@ -132,7 +132,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View itemView;
         private View vwColor;
         private ImageView ivExpander;
@@ -180,9 +180,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private Group grpExpanded;
 
         private ItemDetailsMessage itemDetails = null;
-
-        private final static int action_seen = 1;
-        private final static int action_unseen = 2;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -247,28 +244,20 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void wire() {
             itemView.setOnClickListener(this);
-            if (viewType != ViewType.THREAD)
-                itemView.setOnLongClickListener(this);
-
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
+            bnvActions.setOnNavigationItemSelectedListener(this);
             btnHtml.setOnClickListener(this);
             btnImages.setOnClickListener(this);
-
-            bnvActions.setOnNavigationItemSelectedListener(this);
         }
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            if (viewType != ViewType.THREAD)
-                itemView.setOnLongClickListener(null);
-
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
+            bnvActions.setOnNavigationItemSelectedListener(null);
             btnHtml.setOnClickListener(null);
             btnImages.setOnClickListener(null);
-
-            bnvActions.setOnNavigationItemSelectedListener(null);
         }
 
         private void clear() {
@@ -556,77 +545,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     .putExtra("found", message.ui_found));
                 }
             }
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return false;
-
-            final TupleMessageEx message = getItem(pos);
-
-            PopupMenu popupMenu = new PopupMenu(context, itemView);
-
-            if (message.ui_seen)
-                popupMenu.getMenu().add(Menu.NONE, action_unseen, 1, R.string.title_unseen);
-            else
-                popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case action_seen:
-                            onActionSeen(true);
-                            return true;
-                        case action_unseen:
-                            onActionSeen(false);
-                            return true;
-                        default:
-                            return false;
-                    }
-                }
-
-                private void onActionSeen(boolean seen) {
-                    Bundle args = new Bundle();
-                    args.putLong("account", message.account);
-                    args.putString("thread", message.thread);
-                    args.putBoolean("seen", seen);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onLoad(Context context, Bundle args) throws Throwable {
-                            long account = args.getLong("account");
-                            String thread = args.getString("thread");
-                            boolean seen = args.getBoolean("seen");
-
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
-
-                                List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
-                                for (EntityMessage message : messages) {
-                                    db.message().setMessageUiSeen(message.id, seen);
-                                    db.message().setMessageUiIgnored(message.id, true);
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
-                                }
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            EntityOperation.process(context);
-
-                            return null;
-                        }
-                    }.load(context, owner, args);
-                }
-            });
-
-            popupMenu.show();
-
-            return false;
         }
 
         private void onAddContact(TupleMessageEx message) {
@@ -1157,7 +1075,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                         EntityMessage message = db.message().getMessage(id);
                         db.message().setMessageUiSeen(message.id, false);
-                        db.message().setMessageUiIgnored(message.id, true);
                         EntityOperation.queue(db, message, EntityOperation.SEEN, false);
 
                         db.setTransactionSuccessful();

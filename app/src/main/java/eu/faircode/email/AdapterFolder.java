@@ -190,27 +190,25 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     switch (target.getItemId()) {
                         case action_synchronize_now:
                             onActionSynchronizeNow();
-                            return true;
+                            break;
 
                         case action_delete_local:
                             OnActionDeleteLocal();
-                            return true;
+                            break;
 
                         case action_empty_trash:
                             onActionEmptyTrash();
-                            return true;
+                            break;
 
                         case action_edit_properties:
                             onActionEditProperties();
-                            return true;
+                            break;
 
                         case action_legend:
                             onActionLegend();
-                            return true;
-
-                        default:
-                            return false;
+                            break;
                     }
+                    return true;
                 }
 
                 private void onActionSynchronizeNow() {
