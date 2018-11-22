@@ -52,6 +52,7 @@ Anything on this list is in random order and *might* be added in the near future
 * Notification per account: this would result in multiple icons in the status bar and most people don't like this. Note that the account colors are shown in the notifications too.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
+* Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
