@@ -247,7 +247,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void wire() {
             itemView.setOnClickListener(this);
-            if (viewType != ViewType.THREAD)
+            if (viewType == ViewType.UNIFIED)
                 itemView.setOnLongClickListener(this);
 
             ivExpanderAddress.setOnClickListener(this);
@@ -260,7 +260,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            if (viewType != ViewType.THREAD)
+            if (viewType == ViewType.UNIFIED)
                 itemView.setOnLongClickListener(null);
 
             ivExpanderAddress.setOnClickListener(null);
