@@ -126,6 +126,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
+    static final String ACTION_SHOW_LEGEND = BuildConfig.APPLICATION_ID + ".SHOW_LEGEND";
 
     static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
     static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
@@ -350,6 +351,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_STORE_ATTACHMENT);
         iff.addAction(ACTION_DECRYPT);
         iff.addAction(ACTION_SHOW_PRO);
+        iff.addAction(ACTION_SHOW_LEGEND);
         lbm.registerReceiver(receiver, iff);
 
         if (!pgpService.isBound())
@@ -1060,6 +1062,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 onDecrypt(intent);
             else if (ACTION_SHOW_PRO.equals(intent.getAction()))
                 onShowPro(intent);
+            else if (ACTION_SHOW_LEGEND.equals(intent.getAction()))
+                onMenuLegend();
         }
     };
 

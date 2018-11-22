@@ -71,6 +71,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private final static int action_delete_local = 2;
         private final static int action_empty_trash = 3;
         private final static int action_edit_properties = 4;
+        private final static int action_legend = 5;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -181,98 +182,125 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
 
+            popupMenu.getMenu().add(Menu.NONE, action_legend, 5, R.string.menu_legend);
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     switch (target.getItemId()) {
                         case action_synchronize_now:
-                            Log.i(Helper.TAG, folder.name + " requesting sync");
-                            lbm.sendBroadcast(
-                                    new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
-                                            .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
-                                            .putExtra("folder", folder.id));
+                            onActionSynchronizeNow();
                             break;
 
                         case action_delete_local:
-                            Bundle args = new Bundle();
-                            args.putLong("id", folder.id);
-                            args.putBoolean("outbox", folder.account == null);
-
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onLoad(Context context, Bundle args) {
-                                    long id = args.getLong("id");
-                                    boolean outbox = args.getBoolean("outbox");
-                                    Log.i(Helper.TAG, "Delete local messages outbox=" + outbox);
-                                    if (outbox)
-                                        DB.getInstance(context).message().deleteSeenMessages(id);
-                                    else
-                                        DB.getInstance(context).message().deleteLocalMessages(id);
-                                    return null;
-                                }
-
-                                @Override
-                                public void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, ex);
-                                }
-                            }.load(context, owner, args);
-
+                            OnActionDeleteLocal();
                             break;
 
                         case action_empty_trash:
-                            new DialogBuilderLifecycle(context, owner)
-                                    .setMessage(R.string.title_empty_trash_ask)
-                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-
-                                            Bundle args = new Bundle();
-                                            args.putLong("id", folder.id);
-
-                                            new SimpleTask<Void>() {
-                                                @Override
-                                                protected Void onLoad(Context context, Bundle args) {
-                                                    long id = args.getLong("id");
-
-                                                    DB db = DB.getInstance(context);
-                                                    try {
-                                                        db.beginTransaction();
-
-                                                        for (Long mid : db.message().getMessageByFolder(id)) {
-                                                            EntityMessage message = db.message().getMessage(mid);
-                                                            db.message().setMessageUiHide(message.id, true);
-                                                            EntityOperation.queue(db, message, EntityOperation.DELETE);
-                                                        }
-
-                                                        db.setTransactionSuccessful();
-                                                    } finally {
-                                                        db.endTransaction();
-                                                    }
-
-                                                    EntityOperation.process(context);
-
-                                                    return null;
-                                                }
-
-                                                @Override
-                                                protected void onException(Bundle args, Throwable ex) {
-                                                    Helper.unexpectedError(context, ex);
-                                                }
-                                            }.load(context, owner, args);
-                                        }
-                                    })
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .show();
+                            onActionEmptyTrash();
                             break;
 
                         case action_edit_properties:
-                            lbm.sendBroadcast(
-                                    new Intent(ActivityView.ACTION_EDIT_FOLDER)
-                                            .putExtra("id", folder.id));
+                            onActionEditProperties();
+                            break;
+
+                        case action_legend:
+                            onActionLegend();
                             break;
                     }
                     return true;
+                }
+
+                private void onActionSynchronizeNow() {
+                    Log.i(Helper.TAG, folder.name + " requesting sync");
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
+                                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
+                                    .putExtra("folder", folder.id));
+                }
+
+                private void OnActionDeleteLocal() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("outbox", folder.account == null);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onLoad(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean outbox = args.getBoolean("outbox");
+                            Log.i(Helper.TAG, "Delete local messages outbox=" + outbox);
+                            if (outbox)
+                                DB.getInstance(context).message().deleteSeenMessages(id);
+                            else
+                                DB.getInstance(context).message().deleteLocalMessages(id);
+                            return null;
+                        }
+
+                        @Override
+                        public void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, ex);
+                        }
+                    }.load(context, owner, args);
+                }
+
+                private void onActionEmptyTrash() {
+                    new DialogBuilderLifecycle(context, owner)
+                            .setMessage(R.string.title_empty_trash_ask)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    Bundle args = new Bundle();
+                                    args.putLong("id", folder.id);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onLoad(Context context, Bundle args) {
+                                            long id = args.getLong("id");
+
+                                            DB db = DB.getInstance(context);
+                                            try {
+                                                db.beginTransaction();
+
+                                                for (Long mid : db.message().getMessageByFolder(id)) {
+                                                    EntityMessage message = db.message().getMessage(mid);
+                                                    db.message().setMessageUiHide(message.id, true);
+                                                    EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                                }
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            EntityOperation.process(context);
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(context, ex);
+                                        }
+                                    }.load(context, owner, args);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
+                }
+
+                private void onActionEditProperties() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_FOLDER)
+                                    .putExtra("id", folder.id));
+                }
+
+                private void onActionLegend() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_LEGEND));
                 }
             });
 
