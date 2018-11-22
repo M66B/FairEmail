@@ -151,16 +151,16 @@ public interface DaoMessage {
     @Query("SELECT id" +
             " FROM message" +
             " WHERE folder = :folder" +
-            " AND NOT ui_found" +
+            " AND ui_found = :found" +
             " ORDER BY message.received DESC, message.sent DESC")
-    List<Long> getMessageByFolder(long folder);
+    List<Long> getMessageByFolder(long folder, boolean found);
 
     @Query("SELECT *" +
             " FROM message" +
             " WHERE account = :account" +
             " AND thread = :thread" +
-            " AND NOT ui_found")
-    List<EntityMessage> getMessageByThread(long account, String thread);
+            " AND ui_found = :found")
+    List<EntityMessage> getMessageByThread(long account, String thread, boolean found);
 
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
@@ -172,8 +172,9 @@ public interface DaoMessage {
 
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
-            " AND ui_seen")
-    List<EntityMessage> getMessageSeen(long folder);
+            " AND ui_seen" +
+            " AND ui_found = :found")
+    List<EntityMessage> getMessageSeen(long folder, boolean found);
 
     @Query("SELECT id FROM message" +
             " WHERE content" +

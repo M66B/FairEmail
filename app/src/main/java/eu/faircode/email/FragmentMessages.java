@@ -475,8 +475,8 @@ public class FragmentMessages extends FragmentEx {
                             result.target = target;
 
                             if (thread) {
-                                List<EntityMessage> messages =
-                                        db.message().getMessageByThread(message.account, message.thread);
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        message.account, message.thread, message.ui_found);
                                 for (EntityMessage threaded : messages) {
                                     if (!threaded.ui_hide && threaded.folder.equals(message.folder))
                                         result.ids.add(threaded.id);
@@ -612,8 +612,8 @@ public class FragmentMessages extends FragmentEx {
 
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
-                                                List<EntityMessage> messages =
-                                                        db.message().getMessageByThread(message.account, message.thread);
+                                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                                        message.account, message.thread, message.ui_found);
                                                 for (EntityMessage threaded : messages) {
                                                     if (threaded.folder.equals(message.folder)) {
                                                         db.message().setMessageUiHide(threaded.id, true);
@@ -1047,7 +1047,7 @@ public class FragmentMessages extends FragmentEx {
                 try {
                     db.beginTransaction();
 
-                    for (EntityMessage message : db.message().getMessageSeen(outbox)) {
+                    for (EntityMessage message : db.message().getMessageSeen(outbox, false)) {
                         EntityIdentity identity = db.identity().getIdentity(message.identity);
                         EntityFolder sent = db.folder().getFolderByType(identity.account, EntityFolder.SENT);
                         if (sent != null) {
@@ -1313,6 +1313,7 @@ public class FragmentMessages extends FragmentEx {
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putString("thread", thread);
+        args.putBoolean("found", found);
         args.putString("folderType", folderType);
 
         new SimpleTask<MessageTarget>() {
@@ -1320,6 +1321,7 @@ public class FragmentMessages extends FragmentEx {
             protected MessageTarget onLoad(Context context, Bundle args) {
                 long account = args.getLong("account");
                 String thread = args.getString("thread");
+                boolean found = args.getBoolean("found");
                 String folderType = args.getString("folderType");
 
                 MessageTarget result = new MessageTarget();
@@ -1330,7 +1332,7 @@ public class FragmentMessages extends FragmentEx {
 
                     result.target = db.folder().getFolderByType(account, folderType);
 
-                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
+                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread, found);
                     for (EntityMessage message : messages)
                         if (message.uid != null && !result.target.id.equals(message.folder)) {
                             result.ids.add(message.id);

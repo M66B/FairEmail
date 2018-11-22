@@ -88,7 +88,7 @@ public class ViewModelBrowse extends ViewModel {
                 db.beginTransaction();
 
                 if (state.messages == null)
-                    state.messages = db.message().getMessageByFolder(state.fid);
+                    state.messages = db.message().getMessageByFolder(state.fid, false);
 
                 int matched = 0;
                 for (int i = state.local; i < state.messages.size() && matched < state.pageSize; i++) {

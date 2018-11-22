@@ -598,6 +598,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     Bundle args = new Bundle();
                     args.putLong("account", message.account);
                     args.putString("thread", message.thread);
+                    args.putBoolean("found", message.ui_found);
                     args.putBoolean("seen", seen);
 
                     new SimpleTask<Void>() {
@@ -605,13 +606,14 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         protected Void onLoad(Context context, Bundle args) throws Throwable {
                             long account = args.getLong("account");
                             String thread = args.getString("thread");
+                            boolean found = args.getBoolean("found");
                             boolean seen = args.getBoolean("seen");
 
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
 
-                                List<EntityMessage> messages = db.message().getMessageByThread(account, thread);
+                                List<EntityMessage> messages = db.message().getMessageByThread(account, thread, found);
                                 for (EntityMessage message : messages) {
                                     db.message().setMessageUiSeen(message.id, seen);
                                     db.message().setMessageUiIgnored(message.id, true);
@@ -679,8 +681,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                             try {
                                                 db.beginTransaction();
 
-                                                List<EntityMessage> messages =
-                                                        db.message().getMessageByThread(message.account, message.thread);
+                                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                                        message.account, message.thread, message.ui_found);
                                                 for (EntityMessage threaded : messages) {
                                                     db.message().setMessageUiHide(threaded.id, true);
                                                     EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
