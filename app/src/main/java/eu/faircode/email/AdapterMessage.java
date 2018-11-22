@@ -611,6 +611,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     db.message().setMessageUiIgnored(message.id, true);
                                     EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
                                 }
+
                                 db.setTransactionSuccessful();
                             } finally {
                                 db.endTransaction();
@@ -1008,8 +1009,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                         db.message().setMessageUiHide(id, true);
 
                                         EntityMessage message = db.message().getMessage(id);
-                                        EntityFolder spam = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, spam.id);
+                                        EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, junk.id);
 
                                         db.setTransactionSuccessful();
                                     } finally {
