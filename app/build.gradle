@@ -6,8 +6,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 169
-        versionName "1.169"
+        versionCode 170
+        versionName "1.170"
         archivesBaseName = "FairEmail-v$versionName"
 
         javaCompileOptions {
@@ -30,8 +30,8 @@ android {
         }
         debug {
             debuggable = true
-            minifyEnabled = true
-            useProguard = true
+            minifyEnabled = false
+            useProguard = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
