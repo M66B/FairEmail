@@ -1360,7 +1360,7 @@ public class ServiceSynchronize extends LifecycleService {
                             if (ex instanceof SendFailedException)
                                 reportError(null, folder.name, ex);
 
-                            if (message != null)
+                            if (message != null && !(ex instanceof MessageRemovedException))
                                 db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                             if (ex instanceof MessageRemovedException ||
