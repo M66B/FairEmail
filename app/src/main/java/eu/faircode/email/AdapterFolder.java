@@ -143,7 +143,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             tvError.setText(folder.error);
-            tvError.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
+            tvError.setVisibility(folder.error != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
 
         @Override
