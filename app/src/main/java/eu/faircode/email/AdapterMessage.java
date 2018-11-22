@@ -183,6 +183,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private final static int action_seen = 1;
         private final static int action_unseen = 2;
+        private final static int action_move = 3;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -573,6 +574,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
 
+            popupMenu.getMenu().add(Menu.NONE, action_move, 2, R.string.title_move);
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
@@ -582,6 +585,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             return true;
                         case action_unseen:
                             onActionSeen(false);
+                            return true;
+                        case action_move:
+                            onActionMove();
                             return true;
                         default:
                             return false;
@@ -620,6 +626,92 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             EntityOperation.process(context);
 
                             return null;
+                        }
+                    }.load(context, owner, args);
+                }
+
+                private void onActionMove() {
+                    Bundle args = new Bundle();
+                    args.putSerializable("message", message);
+
+                    new SimpleTask<List<EntityFolder>>() {
+                        @Override
+                        protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                            TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+
+                            DB db = DB.getInstance(context);
+
+                            List<EntityFolder> folders = db.folder().getFolders(message.account);
+                            List<EntityFolder> targets = new ArrayList<>();
+                            for (EntityFolder f : folders)
+                                if (!f.unified && !EntityFolder.DRAFTS.equals(f.type))
+                                    targets.add(f);
+
+                            EntityFolder.sort(targets);
+
+                            return targets;
+                        }
+
+                        @Override
+                        protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
+                            PopupMenu popupMenu = new PopupMenu(context, itemView);
+
+                            int order = 0;
+                            for (EntityFolder folder : folders) {
+                                String name = (folder.display == null
+                                        ? Helper.localizeFolderName(context, folder.name)
+                                        : folder.display);
+                                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
+                            }
+
+                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                @Override
+                                public boolean onMenuItemClick(final MenuItem target) {
+                                    args.putLong("target", target.getItemId());
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onLoad(Context context, Bundle args) {
+                                            long target = args.getLong("target");
+                                            TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+
+                                            DB db = DB.getInstance(context);
+                                            try {
+                                                db.beginTransaction();
+
+                                                List<EntityMessage> messages =
+                                                        db.message().getMessageByThread(message.account, message.thread);
+                                                for (EntityMessage threaded : messages) {
+                                                    db.message().setMessageUiHide(threaded.id, true);
+                                                    EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
+                                                }
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            EntityOperation.process(context);
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(context, ex);
+                                        }
+                                    }.load(context, owner, args);
+
+                                    return true;
+                                }
+                            });
+
+                            popupMenu.show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, ex);
                         }
                     }.load(context, owner, args);
                 }
