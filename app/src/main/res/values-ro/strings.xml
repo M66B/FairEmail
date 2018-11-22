@@ -278,8 +278,8 @@
     <string name="title_legend_synchronizing">Sincronizare</string>
     <string name="title_legend_downloading">Descărcare</string>
     <string name="title_legend_closing">Închidere</string>
-    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
-    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
+    <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
+    <string name="title_legend_download_fetch">Numărul de mesaje / antete de descărcat</string>
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>

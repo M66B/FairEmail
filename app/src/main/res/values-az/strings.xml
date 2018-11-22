@@ -273,8 +273,8 @@
     <string name="title_legend_synchronizing">Eyniləşdirilir</string>
     <string name="title_legend_downloading">Endirilir</string>
     <string name="title_legend_closing">Bağlanır</string>
-    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
-    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
+    <string name="title_legend_sync_keep">Mesajları eyniləşdirmək / saxlamaq üçün gün sayı</string>
+    <string name="title_legend_download_fetch">Endirilmiş mesaj məzmunu / alınmış başlıq sayı</string>
     <string name="title_hint_folder_actions">Variantlar üçün uzun basın</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantı üçün sola; arxiv üçün sağa sürüşdür (əgər varsa)</string>
