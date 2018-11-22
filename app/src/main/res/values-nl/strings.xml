@@ -273,6 +273,8 @@
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>
     <string name="title_legend_closing">Sluiten</string>
+    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
+    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; veeg naar rechts om te archiveren (indien beschikbaar)</string>

@@ -268,6 +268,8 @@
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">下载中</string>
     <string name="title_legend_closing">正在结束</string>
+    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
+    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>

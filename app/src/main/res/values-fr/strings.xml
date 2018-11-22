@@ -273,6 +273,8 @@
     <string name="title_legend_synchronizing">Synchronisation en cours</string>
     <string name="title_legend_downloading">Téléchargement en cours</string>
     <string name="title_legend_closing">Fermeture en cours</string>
+    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
+    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayer à gauche pour supprimer, balayer à droite pour archiver (si disponible)</string>

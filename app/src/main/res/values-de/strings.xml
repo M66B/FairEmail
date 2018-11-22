@@ -273,6 +273,8 @@
     <string name="title_legend_synchronizing">Synchronisiere</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
+    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
+    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>

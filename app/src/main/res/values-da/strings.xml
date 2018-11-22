@@ -273,6 +273,8 @@
     <string name="title_legend_synchronizing">Synkroniserer</string>
     <string name="title_legend_downloading">Downloading</string>
     <string name="title_legend_closing">Lukker</string>
+    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
+    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
