@@ -24,7 +24,6 @@ For:
 
 * IMAP namespaces
 * Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
-* Save all attachments ([ACTION_OPEN_DOCUMENT_TREE](https://developer.android.com/reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT_TREE))
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -52,7 +51,8 @@ Anything on this list is in random order and *might* be added in the near future
 * Notification per account: this would result in multiple icons in the status bar and most people don't like this. Note that the account colors are shown in the notifications too.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
-* Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
+* Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact
+* Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
