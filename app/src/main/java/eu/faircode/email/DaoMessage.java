@@ -50,7 +50,7 @@ public interface DaoMessage {
             "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", 0 AS duplicate" +
-            ", MAX(CASE WHEN folder.unified THEN message.id ELSE 0 END) AS dummy" +
+            ", MAX(CASE WHEN folder.unified THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -82,7 +82,7 @@ public interface DaoMessage {
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", 0 AS duplicate" +
-            ", MAX(CASE WHEN folder.id = :folder THEN message.id ELSE 0 END) AS dummy" +
+            ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
