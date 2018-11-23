@@ -49,6 +49,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swLight;
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
+    private SwitchCompat swActionbar;
     private SwitchCompat swAutoclose;
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
@@ -73,6 +74,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swLight = view.findViewById(R.id.swLight);
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
+        swActionbar = view.findViewById(R.id.swActionbar);
         swAutoclose = view.findViewById(R.id.swAutoclose);
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
@@ -183,11 +185,11 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swConfirm.setChecked(prefs.getBoolean("confirm", false));
-        swConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+        swActionbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("confirm", checked).apply();
+                prefs.edit().putBoolean("actionbar", checked).apply();
             }
         });
 
@@ -196,6 +198,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoclose", checked).apply();
+            }
+        });
+
+        swConfirm.setChecked(prefs.getBoolean("confirm", false));
+        swConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("confirm", checked).apply();
             }
         });
 

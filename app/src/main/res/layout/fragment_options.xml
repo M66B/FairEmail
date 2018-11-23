@@ -84,13 +84,22 @@
             app:layout_constraintTop_toBottomOf="@id/swBrowse" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swActionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_actionbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSwipe" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAutoclose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_autoclose"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSwipe" />
+            app:layout_constraintTop_toBottomOf="@id/swActionbar" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swConfirm"

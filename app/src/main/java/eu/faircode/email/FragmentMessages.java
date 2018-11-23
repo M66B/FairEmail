@@ -95,6 +95,7 @@ public class FragmentMessages extends FragmentEx {
     private boolean found = false;
     private String search = null;
 
+    private boolean actionbar = false;
     private boolean autoclose = false;
 
     private long primary = -1;
@@ -137,6 +138,7 @@ public class FragmentMessages extends FragmentEx {
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", false);
 
         if (TextUtils.isEmpty(search))
@@ -965,31 +967,32 @@ public class FragmentMessages extends FragmentEx {
         else
             fabMore.hide();
 
-        if (viewType == AdapterMessage.ViewType.THREAD)
-            db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
-                @Override
-                public void onChanged(@Nullable List<EntityFolder> folders) {
-                    boolean hasTrash = false;
-                    boolean hasArchive = false;
-                    if (folders != null)
-                        for (EntityFolder folder : folders)
-                            if (EntityFolder.TRASH.equals(folder.type))
-                                hasTrash = true;
-                            else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                hasArchive = true;
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            if (actionbar)
+                db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityFolder> folders) {
+                        boolean hasTrash = false;
+                        boolean hasArchive = false;
+                        if (folders != null)
+                            for (EntityFolder folder : folders)
+                                if (EntityFolder.TRASH.equals(folder.type))
+                                    hasTrash = true;
+                                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                    hasArchive = true;
 
-                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                    ViewModelMessages.Target[] pn = model.getPrevNext(thread);
-                    bottom_navigation.setTag(pn);
-                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
-                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
+                        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                        ViewModelMessages.Target[] pn = model.getPrevNext(thread);
+                        bottom_navigation.setTag(pn);
+                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
+                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
 
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
-                    bottom_navigation.setVisibility(View.VISIBLE);
-                }
-            });
-        else {
+                        bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
+                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
+                        bottom_navigation.setVisibility(View.VISIBLE);
+                    }
+                });
+        } else {
             db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
                 public void onChanged(EntityAccount account) {
