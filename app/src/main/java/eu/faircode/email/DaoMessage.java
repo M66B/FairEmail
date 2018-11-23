@@ -109,7 +109,9 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
 
-            ", (folder.type = '" + EntityFolder.ARCHIVE + "' AND EXISTS (" +
+            ", ((folder.type = '" + EntityFolder.ARCHIVE + "'" +
+            "  OR folder.type = '" + EntityFolder.SENT + "')" +
+            "   AND EXISTS (" +
             "   SELECT * FROM message m1" +
             "   JOIN folder f1 ON f1.id = m1.folder" +
             "   WHERE m1.id <> message.id" +
