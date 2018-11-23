@@ -1292,7 +1292,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     List<EntityFolder> folders = db.folder().getFolders(message.account);
                     List<EntityFolder> targets = new ArrayList<>();
                     for (EntityFolder f : folders)
-                        if (!f.id.equals(message.folder) && !EntityFolder.DRAFTS.equals(f.type))
+                        if (!f.id.equals(message.folder))
                             targets.add(f);
 
                     EntityFolder.sort(targets);

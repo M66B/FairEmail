@@ -696,9 +696,8 @@ public class FragmentMessages extends FragmentEx {
 
                         List<EntityFolder> targets = new ArrayList<>();
                         for (EntityFolder folder : folders)
-                            if (!EntityFolder.DRAFTS.equals(folder.type))
-                                if (fid < 0 ? !folder.unified : !folder.id.equals(fid))
-                                    targets.add(folder);
+                            if (fid < 0 ? !folder.unified : !folder.id.equals(fid))
+                                targets.add(folder);
 
                         EntityFolder.sort(targets);
 
