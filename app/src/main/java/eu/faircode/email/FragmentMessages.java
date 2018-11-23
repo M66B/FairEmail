@@ -556,37 +556,45 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
+                args.putLong("folder", folder);
                 args.putLongArray("ids", getSelection());
 
-                new SimpleTask<Integer[]>() {
+                new SimpleTask<Boolean[]>() {
                     @Override
-                    protected Integer[] onLoad(Context context, Bundle args) {
+                    protected Boolean[] onLoad(Context context, Bundle args) {
+                        long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Integer[] result = new Integer[2];
-                        result[0] = 0;
-                        result[1] = 0;
+                        Boolean[] result = new Boolean[3];
+                        result[0] = false;
+                        result[1] = false;
+                        result[2] = false;
 
                         DB db = DB.getInstance(context);
 
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
-                            result[message.ui_seen ? 1 : 0]++;
+                            result[message.ui_seen ? 1 : 0] = true;
                         }
+
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder != null && EntityFolder.TRASH.equals(folder.type))
+                            result[2] = true;
 
                         return result;
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Integer[] result) {
+                    protected void onLoaded(Bundle args, Boolean[] result) {
                         PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
-                        if (result[0] > 0)
+                        if (result[0])
                             popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                        if (result[1] > 0)
+                        if (result[1])
                             popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
                         popupMenu.getMenu().add(Menu.NONE, action_move, 3, R.string.title_move);
-                        popupMenu.getMenu().add(Menu.NONE, action_trash, 4, R.string.title_trash);
+                        if (result[2])
+                            popupMenu.getMenu().add(Menu.NONE, action_trash, 4, R.string.title_trash);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -670,14 +678,14 @@ public class FragmentMessages extends FragmentEx {
 
             private void onActionMove() {
                 Bundle args = new Bundle();
-                args.putLongArray("ids", getSelection());
                 args.putLong("folder", folder);
+                args.putLongArray("ids", getSelection());
 
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
                     protected List<EntityFolder> onLoad(Context context, Bundle args) {
-                        long[] ids = args.getLongArray("ids");
                         long fid = args.getLong("folder");
+                        long[] ids = args.getLongArray("ids");
 
                         DB db = DB.getInstance(context);
 
