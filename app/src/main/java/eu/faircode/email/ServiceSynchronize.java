@@ -137,7 +137,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
-    private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
+    private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
 
     static final int PI_WHY = 1;
     static final int PI_CLEAR = 2;
