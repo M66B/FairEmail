@@ -1357,10 +1357,12 @@ public class ServiceSynchronize extends LifecycleService {
                             db.operation().deleteOperation(op.id);
                         } catch (Throwable ex) {
                             // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
-                            if (ex instanceof SendFailedException)
-                                reportError(null, folder.name, ex);
+                            reportError(null, folder.name, ex);
 
-                            if (message != null && !(ex instanceof MessageRemovedException))
+                            if (message != null &&
+                                    !(ex instanceof MessageRemovedException) &&
+                                    !(ex instanceof FolderClosedException) &&
+                                    !(ex instanceof IllegalStateException))
                                 db.message().setMessageError(message.id, Helper.formatThrowable(ex));
 
                             if (ex instanceof MessageRemovedException ||
