@@ -640,6 +640,7 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof IllegalStateException) &&
                 !(ex instanceof AuthenticationFailedException) && // Also: Too many simultaneous connections
                 !(ex instanceof StoreClosedException) &&
+                !(ex instanceof MessageRemovedException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof UnknownHostException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof ConnectionException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketException) &&
@@ -1908,8 +1909,7 @@ public class ServiceSynchronize extends LifecycleService {
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
 
-                if (!EntityFolder.ARCHIVE.equals(dfolder.type) &&
-                        dup.folder.equals(folder.id) || outbox) {
+                if (dup.folder.equals(folder.id) || outbox) {
                     String thread = helper.getThreadId(uid);
                     Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
