@@ -53,7 +53,6 @@ Anything on this list is in random order and *might* be added in the near future
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168)
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact
 * Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save
-* Multiple select unified inbox: cross account moving means moving messages across servers which is not desirable
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
