@@ -25,11 +25,15 @@ import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectionPredicateMessage extends SelectionTracker.SelectionPredicate<Long> {
-
     private RecyclerView recyclerView;
+    private long account = -1;
 
     SelectionPredicateMessage(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
+    }
+
+    void clearAccount() {
+        account = -1;
     }
 
     @Override
@@ -39,8 +43,13 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (messages != null)
             for (int i = 0; i < messages.size(); i++) {
                 TupleMessageEx message = messages.get(i);
-                if (message != null && message.id.equals(key))
-                    return (message.uid != null);
+                if (message != null && message.id.equals(key)) {
+                    if (message.uid != null && (account < 0 || account == message.account)) {
+                        account = message.account;
+                        return true;
+                    } else
+                        return false;
+                }
             }
         return false;
     }
@@ -48,7 +57,15 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
     @Override
     public boolean canSetStateAtPosition(int position, boolean nextState) {
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
-        return (adapter.getCurrentList().get(position).uid != null);
+        PagedList<TupleMessageEx> messages = adapter.getCurrentList();
+        if (messages != null) {
+            TupleMessageEx message = messages.get(position);
+            if (message.uid != null && (account < 0 || account == message.account)) {
+                account = message.account;
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

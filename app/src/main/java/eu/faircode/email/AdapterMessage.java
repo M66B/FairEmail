@@ -132,7 +132,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
         private View itemView;
         private View vwColor;
         private ImageView ivExpander;
@@ -180,10 +180,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private Group grpExpanded;
 
         private ItemDetailsMessage itemDetails = null;
-
-        private final static int action_seen = 1;
-        private final static int action_unseen = 2;
-        private final static int action_move = 3;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -248,9 +244,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void wire() {
             itemView.setOnClickListener(this);
-            if (viewType == ViewType.UNIFIED)
-                itemView.setOnLongClickListener(this);
-
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
             btnHtml.setOnClickListener(this);
@@ -261,9 +254,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            if (viewType == ViewType.UNIFIED)
-                itemView.setOnLongClickListener(null);
-
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnHtml.setOnClickListener(null);
@@ -557,171 +547,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     .putExtra("found", message.ui_found));
                 }
             }
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return false;
-
-            final TupleMessageEx message = getItem(pos);
-
-            PopupMenu popupMenu = new PopupMenu(context, itemView);
-
-            if (message.ui_seen)
-                popupMenu.getMenu().add(Menu.NONE, action_unseen, 1, R.string.title_unseen);
-            else
-                popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-
-            popupMenu.getMenu().add(Menu.NONE, action_move, 2, R.string.title_move);
-
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case action_seen:
-                            onActionSeen(true);
-                            return true;
-                        case action_unseen:
-                            onActionSeen(false);
-                            return true;
-                        case action_move:
-                            onActionMove();
-                            return true;
-                        default:
-                            return false;
-                    }
-                }
-
-                private void onActionSeen(boolean seen) {
-                    Bundle args = new Bundle();
-                    args.putLong("account", message.account);
-                    args.putString("thread", message.thread);
-                    args.putBoolean("found", message.ui_found);
-                    args.putBoolean("seen", seen);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onLoad(Context context, Bundle args) throws Throwable {
-                            long account = args.getLong("account");
-                            String thread = args.getString("thread");
-                            boolean found = args.getBoolean("found");
-                            boolean seen = args.getBoolean("seen");
-
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
-
-                                List<EntityMessage> messages = db.message().getMessageByThread(account, thread, found);
-                                for (EntityMessage message : messages) {
-                                    db.message().setMessageUiSeen(message.id, seen);
-                                    db.message().setMessageUiIgnored(message.id, true);
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
-                                }
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            EntityOperation.process(context);
-
-                            return null;
-                        }
-                    }.load(context, owner, args);
-                }
-
-                private void onActionMove() {
-                    Bundle args = new Bundle();
-                    args.putSerializable("message", message);
-
-                    new SimpleTask<List<EntityFolder>>() {
-                        @Override
-                        protected List<EntityFolder> onLoad(Context context, Bundle args) {
-                            TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                            DB db = DB.getInstance(context);
-
-                            List<EntityFolder> folders = db.folder().getFolders(message.account);
-                            List<EntityFolder> targets = new ArrayList<>();
-                            for (EntityFolder f : folders)
-                                if (!f.unified && !EntityFolder.DRAFTS.equals(f.type))
-                                    targets.add(f);
-
-                            EntityFolder.sort(targets);
-
-                            return targets;
-                        }
-
-                        @Override
-                        protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
-                            PopupMenu popupMenu = new PopupMenu(context, itemView);
-
-                            int order = 0;
-                            for (EntityFolder folder : folders) {
-                                String name = (folder.display == null
-                                        ? Helper.localizeFolderName(context, folder.name)
-                                        : folder.display);
-                                popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
-                            }
-
-                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                                @Override
-                                public boolean onMenuItemClick(final MenuItem target) {
-                                    args.putLong("target", target.getItemId());
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onLoad(Context context, Bundle args) {
-                                            long target = args.getLong("target");
-                                            TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                                            DB db = DB.getInstance(context);
-                                            try {
-                                                db.beginTransaction();
-
-                                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, message.ui_found);
-                                                for (EntityMessage threaded : messages) {
-                                                    db.message().setMessageUiHide(threaded.id, true);
-                                                    EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
-                                                }
-
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
-
-                                            EntityOperation.process(context);
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, ex);
-                                        }
-                                    }.load(context, owner, args);
-
-                                    return true;
-                                }
-                            });
-
-                            popupMenu.show();
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, ex);
-                        }
-                    }.load(context, owner, args);
-                }
-            });
-
-            popupMenu.show();
-
-            return false;
         }
 
         private void onAddContact(TupleMessageEx message) {

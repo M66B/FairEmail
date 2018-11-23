@@ -209,33 +209,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMove"
+        android:id="@+id/fabMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center_vertical"
         android:layout_margin="@dimen/fab_padding"
-        android:src="@drawable/baseline_folder_24"
+        android:src="@drawable/baseline_more_vert_24"
         android:tint="@color/colorActionForeground"
         app:backgroundTint="?attr/colorSeparator" />
-
-    <View
-        android:id="@+id/fabAnchor"
-        android:layout_width="0dp"
-        android:layout_height="15dp"
-        android:layout_gravity="bottom|end"
-        app:layout_anchor="@+id/fabMove"
-        app:layout_anchorGravity="bottom" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/baseline_delete_24"
-        android:tint="@color/colorActionForeground"
-        app:backgroundTint="?attr/colorSeparator"
-        app:layout_anchor="@+id/fabAnchor"
-        app:layout_anchorGravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
