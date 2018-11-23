@@ -654,9 +654,11 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                db.message().setMessageUiSeen(message.id, seen);
-                                db.message().setMessageUiIgnored(message.id, true);
-                                EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
+                                if (message.ui_seen != seen) {
+                                    db.message().setMessageUiSeen(message.id, seen);
+                                    db.message().setMessageUiIgnored(message.id, true);
+                                    EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
+                                }
                             }
 
                             db.setTransactionSuccessful();
