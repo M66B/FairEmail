@@ -547,8 +547,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.content = true;
                             draft.received = new Date().getTime();
                             draft.seen = false;
-                            draft.ui_seen = false;
+                            draft.answered =false;
                             draft.flagged = false;
+                            draft.ui_seen = false;
+                            draft.ui_answered = false;
                             draft.ui_flagged = false;
                             draft.ui_hide = false;
                             draft.ui_found = false;
@@ -828,8 +830,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     draft.content = true;
                     draft.received = new Date().getTime();
                     draft.seen = false;
-                    draft.ui_seen = false;
+                    draft.answered = false;
                     draft.flagged = false;
+                    draft.ui_seen = false;
+                    draft.ui_answered = false;
                     draft.ui_flagged = false;
                     draft.ui_hide = false;
                     draft.ui_found = false;
