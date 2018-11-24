@@ -36,8 +36,21 @@ public class HtmlHelper {
 
     public static String sanitize(String html) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist.relaxed().addProtocols("img", "src", "cid")));
+
         for (Element tr : document.select("tr"))
             tr.after("<br>");
+
+        for (Element img : document.select("img"))
+            if (img.hasParent() && !"a".equals(img.parent().tagName())) {
+                String src = img.attr("src");
+                if (src.startsWith("http://") || src.startsWith("https://")) {
+                    Element a = document.createElement("a");
+                    a.attr("href", src);
+                    img.replaceWith(a);
+                    a.appendChild(img);
+                }
+            }
+
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
             public void head(Node node, int depth) {

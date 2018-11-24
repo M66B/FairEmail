@@ -701,7 +701,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 @Override
                 public Drawable getDrawable(String source) {
                     float scale = context.getResources().getDisplayMetrics().density;
-                    int px = (int) (24 * scale + 0.5f);
+                    int px = (int) (48 * scale + 0.5f);
 
                     if (source != null && source.startsWith("cid")) {
                         String[] cids = source.split(":");
