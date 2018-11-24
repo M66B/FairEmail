@@ -91,6 +91,7 @@
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
+    <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_autoclose">Închide automat conversaţiile</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>

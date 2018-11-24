@@ -81,6 +81,7 @@
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_swipe">Swipe actions</string>
+    <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Allow editing sender address</string>

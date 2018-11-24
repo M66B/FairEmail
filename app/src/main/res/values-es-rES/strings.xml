@@ -86,6 +86,7 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
+    <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_confirm">Confirmar acciones que podrían filtrar información privada sensible</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>

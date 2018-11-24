@@ -86,6 +86,7 @@
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_swipe">Accions per lliscar</string>
+    <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Allow editing sender address</string>

@@ -86,6 +86,7 @@
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
+    <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>

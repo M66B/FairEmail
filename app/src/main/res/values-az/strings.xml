@@ -86,6 +86,7 @@
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
+    <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
