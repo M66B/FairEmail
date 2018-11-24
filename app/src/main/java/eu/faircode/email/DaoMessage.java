@@ -64,7 +64,7 @@ public interface DaoMessage {
             "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
-            " END DESC, message.received DESC, message.sent DESC")
+            " END DESC, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(String sort, boolean debug);
 
@@ -97,7 +97,7 @@ public interface DaoMessage {
             "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
-            " END DESC, message.received DESC, message.sent DESC")
+            " END DESC, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, String sort, boolean found, boolean debug);
 
@@ -131,7 +131,7 @@ public interface DaoMessage {
             "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
             "  WHEN 'starred' = :sort THEN message.ui_flagged" +
             "  ELSE 0" +
-            " END DESC, message.received DESC, message.sent DESC")
+            " END DESC, message.received DESC")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, boolean found, String sort, boolean debug);
 
     @Query("SELECT COUNT(id)" +
@@ -155,7 +155,7 @@ public interface DaoMessage {
             " FROM message" +
             " WHERE folder = :folder" +
             " AND ui_found = :found" +
-            " ORDER BY message.received DESC, message.sent DESC")
+            " ORDER BY message.received DESC")
     List<Long> getMessageByFolder(long folder, boolean found);
 
     @Query("SELECT *" +
@@ -213,7 +213,7 @@ public interface DaoMessage {
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
-            " AND (account.created IS NULL OR IFNULL(message.sent, message.received) > account.created)" +
+            " AND (account.created IS NULL OR message.received > account.created)" +
             " AND NOT message.ui_seen" +
             " AND NOT message.ui_hide" +
             " AND NOT message.ui_found" +

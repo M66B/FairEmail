@@ -471,7 +471,7 @@ public class ServiceSynchronize extends LifecycleService {
                 sb.append("<strong>").append(MessageHelper.getFormattedAddresses(message.from, false)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(new Date(message.sent == null ? message.received : message.sent)));
+                sb.append(" ").append(df.format(new Date(message.received)));
                 sb.append("<br>");
             }
 
@@ -536,7 +536,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
                     .setContentIntent(piContent)
                     .setSound(uri)
-                    .setWhen(message.sent == null ? message.received : message.sent)
+                    .setWhen(message.received)
                     .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
                     .setCategory(Notification.CATEGORY_MESSAGE)
@@ -2015,7 +2015,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_hide = false;
             message.ui_found = found;
             message.ui_ignored = false;
-            message.getAvatar(context, folder.isOutgoing());
+            message.getAvatar(context);
 
             message.id = db.message().insertMessage(message);
 

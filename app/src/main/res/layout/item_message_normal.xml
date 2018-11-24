@@ -369,7 +369,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
         <TextView
-            android:id="@+id/tvTimeEx"
+            android:id="@+id/tvTimeSent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -378,6 +378,17 @@
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <TextView
+            android:id="@+id/tvTimeReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="12:34:56"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTimeSent" />
 
         <TextView
             android:id="@+id/tvSubjectEx"
@@ -390,7 +401,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
+            app:layout_constraintTop_toBottomOf="@id/tvTimeReceived" />
 
         <View
             android:id="@+id/vSeparatorHeaders"
@@ -549,7 +560,7 @@
             android:id="@+id/grpAddress"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeEx,tvSubjectEx" />
+            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeSent,tvTimeReceived,tvSubjectEx" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"

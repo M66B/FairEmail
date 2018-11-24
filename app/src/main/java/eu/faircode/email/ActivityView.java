@@ -553,7 +553,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.ui_hide = false;
                             draft.ui_found = false;
                             draft.ui_ignored = false;
-                            draft.getAvatar(context, true);
+                            draft.getAvatar(context);
                             draft.id = db.message().insertMessage(draft);
                             draft.write(context, body);
                         }
@@ -831,7 +831,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     draft.ui_hide = false;
                     draft.ui_found = false;
                     draft.ui_ignored = false;
-                    draft.getAvatar(context, true);
+                    draft.getAvatar(context);
                     draft.id = db.message().insertMessage(draft);
                     draft.write(context, body);
 

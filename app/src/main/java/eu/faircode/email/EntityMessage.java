@@ -191,15 +191,13 @@ public class EntityMessage implements Serializable {
         }
     }
 
-    void getAvatar(Context context, boolean outgoing) {
+    void getAvatar(Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
             try {
-                Address[] addresses = (outgoing ? this.to : this.from);
-
-                if (addresses != null)
-                    for (int i = 0; i < addresses.length; i++) {
-                        String email = ((InternetAddress) addresses[i]).getAddress();
+                if (this.from != null)
+                    for (int i = 0; i < this.from.length; i++) {
+                        String email = ((InternetAddress) this.from[i]).getAddress();
                         Cursor cursor = null;
                         try {
                             ContentResolver resolver = context.getContentResolver();
@@ -223,7 +221,7 @@ public class EntityMessage implements Serializable {
                                 this.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
 
                                 if (!TextUtils.isEmpty(displayName))
-                                    ((InternetAddress) addresses[i]).setPersonal(displayName);
+                                    ((InternetAddress) this.from[i]).setPersonal(displayName);
                             }
                         } finally {
                             if (cursor != null)
@@ -239,7 +237,7 @@ public class EntityMessage implements Serializable {
     static String getQuote(Context context, long id) throws IOException {
         EntityMessage message = DB.getInstance(context).message().getMessage(id);
         return String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                Html.escapeHtml(new Date(message.sent == null ? message.received : message.sent).toString()),
+                Html.escapeHtml(new Date(message.received).toString()),
                 Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
                 HtmlHelper.sanitize(EntityMessage.read(context, id)));
     }
