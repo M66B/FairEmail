@@ -40,8 +40,14 @@ public class HtmlHelper {
         for (Element tr : document.select("tr"))
             tr.after("<br>");
 
-        for (Element img : document.select("img"))
-            if (img.hasParent() && !"a".equals(img.parent().tagName())) {
+        for (Element img : document.select("img")) {
+            boolean linked = false;
+            for (Element parent : img.parents())
+                if ("a".equals(parent.tagName())) {
+                    linked = true;
+                    break;
+                }
+            if (!linked) {
                 String src = img.attr("src");
                 if (src.startsWith("http://") || src.startsWith("https://")) {
                     Element a = document.createElement("a");
@@ -50,6 +56,7 @@ public class HtmlHelper {
                     a.appendChild(img);
                 }
             }
+        }
 
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
