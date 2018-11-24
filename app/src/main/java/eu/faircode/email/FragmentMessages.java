@@ -1135,7 +1135,8 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void onMenuFolders() {
-        getFragmentManager().popBackStack("unified", 0);
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getFragmentManager().popBackStack("unified", 0);
 
         Bundle args = new Bundle();
         args.putLong("account", primary);
