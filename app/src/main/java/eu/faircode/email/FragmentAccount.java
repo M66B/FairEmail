@@ -391,6 +391,20 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
+        cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked && !Helper.isPro(getContext())) {
+                    cbNotify.setChecked(false);
+
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.hide(FragmentAccount.this);
+                    fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
+            }
+        });
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -725,6 +739,11 @@ public class FragmentAccount extends FragmentEx {
 
                             if (account.primary)
                                 db.account().resetPrimary();
+
+                            if (!Helper.isPro(context)) {
+                                account.color = null;
+                                account.notify = false;
+                            }
 
                             if (update)
                                 db.account().updateAccount(account);
