@@ -110,7 +110,7 @@ public class FragmentMessages extends FragmentEx {
     private SelectionTracker<Long> selectionTracker = null;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
 
-    private int autoCount = 0;
+    private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private List<Long> expanded = new ArrayList<>();
     private List<Long> addresses = new ArrayList<>();
@@ -853,7 +853,7 @@ public class FragmentMessages extends FragmentEx {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("autoExpand", autoExpand);
-        outState.putInt("autoCount", autoCount);
+        outState.putInt("autoCloseCount", autoCloseCount);
         outState.putLongArray("expanded", Helper.toLongArray(expanded));
         outState.putLongArray("headers", Helper.toLongArray(headers));
         outState.putLongArray("images", Helper.toLongArray(images));
@@ -867,7 +867,7 @@ public class FragmentMessages extends FragmentEx {
 
         if (savedInstanceState != null) {
             autoExpand = savedInstanceState.getBoolean("autoExpand");
-            autoCount = savedInstanceState.getInt("autoCount");
+            autoCloseCount = savedInstanceState.getInt("autoCloseCount");
             expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
             headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
             images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
@@ -1303,19 +1303,25 @@ public class FragmentMessages extends FragmentEx {
                     if (autoExpand) {
                         autoExpand = false;
 
+                        int count = 0;
                         int unseen = 0;
                         TupleMessageEx single = null;
                         TupleMessageEx see = null;
-                        for (TupleMessageEx message : messages)
+                        for (TupleMessageEx message : messages) {
                             if (!message.duplicate && !EntityFolder.TRASH.equals(message.folderType)) {
-                                autoCount++;
+                                count++;
                                 single = message;
                                 if (!message.ui_seen) {
                                     unseen++;
                                     see = message;
                                 }
                             }
-                        Log.i(Helper.TAG, "Auto count=" + autoCount);
+
+                            if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                    !EntityFolder.SENT.equals(message.folderType) &&
+                                    !EntityFolder.TRASH.equals(message.folderType))
+                                autoCloseCount++;
+                        }
 
                         // Auto expand when:
                         // - single, non archived/trashed/outgoing message
@@ -1323,7 +1329,7 @@ public class FragmentMessages extends FragmentEx {
                         // - sole message
 
                         TupleMessageEx expand = null;
-                        if (autoCount == 1)
+                        if (count == 1)
                             expand = single;
                         else if (unseen == 1)
                             expand = see;
@@ -1335,11 +1341,13 @@ public class FragmentMessages extends FragmentEx {
                             handleExpand(expand.id);
                         }
                     } else {
-                        if (autoCount > 0 && autoclose) {
+                        if (autoCloseCount > 0 && autoclose) {
                             int count = 0;
                             for (int i = 0; i < messages.size(); i++) {
                                 TupleMessageEx message = messages.get(i);
-                                if (!message.duplicate && !EntityFolder.TRASH.equals(message.folderType))
+                                if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                                        !EntityFolder.SENT.equals(message.folderType) &&
+                                        !EntityFolder.TRASH.equals(message.folderType))
                                     count++;
                             }
                             Log.i(Helper.TAG, "Auto close=" + count);
