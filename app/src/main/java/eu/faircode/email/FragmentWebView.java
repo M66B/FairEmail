@@ -56,6 +56,8 @@ public class FragmentWebView extends FragmentEx {
         WebSettings settings = webview.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setUseWideViewPort(true);
+        settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
