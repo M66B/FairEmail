@@ -129,13 +129,33 @@
             app:layout_constraintTop_toTopOf="@id/ivPrimaryConnected" />
 
         <ImageView
+            android:id="@+id/ivThread"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_message_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
+
+        <TextView
+            android:id="@+id/tvThread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_thread"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivThread"
+            app:layout_constraintStart_toEndOf="@id/ivThread"
+            app:layout_constraintTop_toTopOf="@id/ivThread" />
+
+        <ImageView
             android:id="@+id/ivCC"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_people_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
+            app:layout_constraintTop_toBottomOf="@id/ivThread" />
 
         <TextView
             android:id="@+id/tvCC"
@@ -169,33 +189,13 @@
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
         <ImageView
-            android:id="@+id/ivThread"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_message_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
-
-        <TextView
-            android:id="@+id/tvThread"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_thread"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivThread"
-            app:layout_constraintStart_toEndOf="@id/ivThread"
-            app:layout_constraintTop_toTopOf="@id/ivThread" />
-
-        <ImageView
             android:id="@+id/ivContacts"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivThread" />
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
 
         <TextView
             android:id="@+id/tvContacts"
@@ -209,13 +209,33 @@
             app:layout_constraintTop_toTopOf="@id/ivContacts" />
 
         <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_image_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+
+        <TextView
+            android:id="@+id/tvImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivImage"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toTopOf="@id/ivImage" />
+
+        <ImageView
             android:id="@+id/ivSynchronize"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_sync_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+            app:layout_constraintTop_toBottomOf="@id/ivImage" />
 
         <TextView
             android:id="@+id/tvSynchronize"
