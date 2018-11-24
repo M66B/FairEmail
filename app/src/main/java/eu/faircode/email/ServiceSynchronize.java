@@ -1429,7 +1429,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.SEEN, seen);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.SEEN), seen);
 
         db.message().setMessageSeen(message.id, seen);
     }
@@ -1445,7 +1444,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.ANSWERED, answered);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.ANSWERED), answered);
 
         db.message().setMessageAnswered(message.id, answered);
     }
@@ -1458,7 +1456,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.FLAGGED), flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
     }
@@ -1699,9 +1696,8 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
 
             for (Folder ifolder : ifolders) {
-                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-
                 boolean selectable = true;
+                String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr))
                         selectable = false;
