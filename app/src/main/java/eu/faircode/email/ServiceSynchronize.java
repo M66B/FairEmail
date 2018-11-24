@@ -1629,12 +1629,15 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        Enumeration<Header> headers = imessage.getAllHeaders();
         StringBuilder sb = new StringBuilder();
+        sb.append(imessage.getFlags().toString()).append("\n");
+
+        Enumeration<Header> headers = imessage.getAllHeaders();
         while (headers.hasMoreElements()) {
             Header header = headers.nextElement();
             sb.append(header.getName()).append(": ").append(header.getValue()).append("\n");
         }
+
         db.message().setMessageHeaders(message.id, sb.toString());
     }
 
