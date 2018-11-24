@@ -20,18 +20,26 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -83,6 +91,26 @@ public class FragmentWebView extends FragmentEx {
             }
         });
 
+        webview.setDownloadListener(new DownloadListener() {
+            public void onDownloadStart(
+                    String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                Log.i(Helper.TAG, "Download url=" + url + " mime type=" + mimetype);
+
+                Uri uri = Uri.parse(url);
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(uri);
+
+                PackageManager pm = getContext().getPackageManager();
+                if (intent.resolveActivity(pm) == null)
+                    Toast.makeText(getContext(), getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                else
+                    startActivity(intent);
+            }
+        });
+
+        registerForContextMenu(webview);
+
         Bundle args = getArguments();
         if (args.containsKey("url")) {
             String url = args.getString("url");
@@ -119,6 +147,38 @@ public class FragmentWebView extends FragmentEx {
     public void onDestroyView() {
         ((ActivityBase) getActivity()).removeBackPressedListener(onBackPressedListener);
         super.onDestroyView();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, view, menuInfo);
+
+        if (view instanceof WebView) {
+            final WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+            if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                    result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                Log.i(Helper.TAG, "Context menu url=" + result.getExtra());
+
+                menu.add(Menu.NONE, 1, 0, R.string.title_open)
+                        .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                Uri uri = Uri.parse(result.getExtra());
+
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(uri);
+
+                                PackageManager pm = getContext().getPackageManager();
+                                if (intent.resolveActivity(pm) == null)
+                                    Toast.makeText(getContext(), getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                                else
+                                    startActivity(intent);
+
+                                return true;
+                            }
+                        });
+            }
+        }
     }
 
     ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
