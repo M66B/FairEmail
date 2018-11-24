@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
-    <string name="title_advanced_actionbar">Conversation action bar</string>
+    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
@@ -104,7 +104,7 @@
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Farbe</string>
-    <string name="title_account_notify">Separate notifications</string>
+    <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
     <string name="title_no_settings">Einstellungen nicht gefunden</string>
@@ -275,8 +275,8 @@
     <string name="title_legend_synchronizing">Synchronisiere</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
-    <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
-    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
+    <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
+    <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichtentexte / empfangenen Kopfzeilen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
