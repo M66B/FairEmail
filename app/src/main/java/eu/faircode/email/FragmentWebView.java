@@ -26,6 +26,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -40,6 +41,13 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.File;
+import java.io.FileInputStream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -121,7 +129,46 @@ public class FragmentWebView extends FragmentEx {
                 @Override
                 protected String onLoad(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
-                    return EntityMessage.read(context, id);
+
+                    String html = EntityMessage.read(context, id);
+
+                    Document doc = Jsoup.parse(html);
+                    for (Element img : doc.select("img"))
+                        try {
+                            String src = img.attr("src");
+                            if (src.startsWith("cid")) {
+                                String[] cids = src.split(":");
+                                if (cids.length > 1) {
+                                    String cid = "<" + cids[1] + ">";
+                                    EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
+                                    if (attachment != null && attachment.available) {
+                                        FileInputStream fis = null;
+                                        try {
+                                            File file = EntityAttachment.getFile(context, attachment.id);
+
+                                            fis = new FileInputStream(file);
+                                            byte[] bytes = new byte[(int) file.length()];
+                                            fis.read(bytes);
+
+                                            StringBuilder sb = new StringBuilder();
+                                            sb.append("data:");
+                                            sb.append(attachment.type);
+                                            sb.append(";base64,");
+                                            sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+
+                                            img.attr("src", sb.toString());
+                                        } finally {
+                                            if (fis != null)
+                                                fis.close();
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
+
+                    return doc.html();
                 }
 
                 @Override
