@@ -22,6 +22,7 @@ For:
 
 ## Planned features
 
+* IMAP answered flag
 * IMAP namespaces
 * Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
 
@@ -52,6 +53,7 @@ Anything on this list is in random order and *might* be added in the near future
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save.
+* IMAP keywords: IMAP flags are not widely supported, so not many people would benefit from this feature.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -466,6 +468,29 @@ Providers require passwords in plain text, so the background service that takes 
 Since encrypting passwords would require a secret and the background service needs to know this secret, this could only be done by storing that secret.
 Storing a secret together with encrypted passwords would not add anything, so passwords are stored in plain text in a safe, inaccessible place.
 Recent Android versions encrypt all data anyway.
+
+
+<a name="faq38"></a>
+**(38) Can you help me restore my Play store purchase?**
+
+Google manages all purchases, so as developer I have no control over purchases.
+So, the only thing I can do, is give some advice:
+
+* Make sure you have an active, working internet connection
+* Make sure the Google Play store / Play services are not blocked in any way, for example by a firewall
+* Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
+* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
+* Open FairEmail to check the purchase again
+
+Note that:
+
+* Purchases are stored in the Google cloud and cannot get lost
+* There is no time limit on purchases, so they cannot expire
+* Google does not expose details (name, e-mail, etc) about buyers to developers
+* An application like FairEmail cannot select which Google account to use
+
+If you cannot solve the problem with the purchase, you will have to contact Google about it.
+
 
 ## Support
 
