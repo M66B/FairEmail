@@ -159,7 +159,7 @@ public class FragmentWebView extends FragmentEx {
                     result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
                 Log.i(Helper.TAG, "Context menu url=" + result.getExtra());
 
-                menu.add(Menu.NONE, 1, 0, R.string.title_open)
+                menu.add(Menu.NONE, 1, 0, R.string.title_view)
                         .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
