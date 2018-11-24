@@ -141,6 +141,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
+        private ImageView ivAnswered;
         private ImageView ivAttachments;
         private TextView tvSubject;
         private TextView tvFolder;
@@ -196,6 +197,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime = itemView.findViewById(R.id.tvTime);
             tvTimeSent = itemView.findViewById(R.id.tvTimeSent);
             tvTimeReceived = itemView.findViewById(R.id.tvTimeReceived);
+            ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvPreview = itemView.findViewById(R.id.tvPreview);
@@ -273,6 +275,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAddContact.setVisibility(View.GONE);
             tvSize.setText(null);
             tvTime.setText(null);
+            ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
             tvFolder.setText(null);
@@ -346,6 +349,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvSize.setAlpha(message.content ? 1.0f : 0.5f);
             tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
 
+            ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 

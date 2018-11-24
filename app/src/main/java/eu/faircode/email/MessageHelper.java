@@ -356,6 +356,10 @@ public class MessageHelper {
         return imessage.isSet(Flags.Flag.SEEN);
     }
 
+    boolean getAnsered() throws MessagingException {
+        return imessage.isSet(Flags.Flag.ANSWERED);
+    }
+
     boolean getFlagged() throws MessagingException {
         return imessage.isSet(Flags.Flag.FLAGGED);
     }

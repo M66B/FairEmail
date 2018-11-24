@@ -118,9 +118,13 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean seen;
     @NonNull
+    public Boolean answered;
+    @NonNull
     public Boolean flagged;
     @NonNull
     public Boolean ui_seen;
+    @NonNull
+    public Boolean ui_answered;
     @NonNull
     public Boolean ui_flagged;
     @NonNull
@@ -272,8 +276,10 @@ public class EntityMessage implements Serializable {
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) &&
                     this.seen.equals(other.seen) &&
+                    this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
                     this.ui_seen.equals(other.ui_seen) &&
+                    this.ui_answered.equals(other.ui_answered) &&
                     this.ui_flagged.equals(other.ui_flagged) &&
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&

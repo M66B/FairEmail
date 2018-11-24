@@ -109,13 +109,23 @@
             app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
         <ImageView
+            android:id="@+id/ivAnswered"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_reply_24"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+
+        <ImageView
             android:id="@+id/ivAttachments"
             android:layout_width="21dp"
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_attachment_24"
             app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintStart_toEndOf="@id/ivAnswered"
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <TextView

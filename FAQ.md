@@ -22,7 +22,6 @@ For:
 
 ## Planned features
 
-* IMAP answered flag
 * IMAP namespaces
 * Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
 
@@ -101,7 +100,8 @@ The low priority status bar notification shows the number of pending operations,
 * delete: delete message from remote folder
 * send: send message
 * seen: mark message as seen/unseen in remote folder
-* flag: add/remove stars
+* answered: mark message as answered in remote folder
+* flag: add/remove star in remote folder
 * headers: download message headers
 * body: download message text
 * attachment: download attachment

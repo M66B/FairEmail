@@ -1205,8 +1205,10 @@ public class FragmentCompose extends FragmentEx {
                 result.draft.content = true;
                 result.draft.received = new Date().getTime();
                 result.draft.seen = false;
-                result.draft.ui_seen = false;
+                result.draft.answered = false;
                 result.draft.flagged = false;
+                result.draft.ui_seen = false;
+                result.draft.ui_answered = false;
                 result.draft.ui_flagged = false;
                 result.draft.ui_hide = false;
                 result.draft.ui_found = false;
@@ -1640,6 +1642,12 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     EntityOperation.queue(db, draft, EntityOperation.SEND);
+
+                    if (draft.replying != null) {
+                        EntityMessage replying = db.message().getMessage(draft.replying);
+                        db.message().setMessageUiAnswered(replying.id, true);
+                        EntityOperation.queue(db, replying, EntityOperation.ANSWERED, true);
+                    }
                 }
 
                 db.setTransactionSuccessful();
