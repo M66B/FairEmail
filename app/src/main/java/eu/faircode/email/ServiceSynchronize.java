@@ -1429,6 +1429,7 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.SEEN, seen);
+        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.SEEN), seen);
 
         db.message().setMessageSeen(message.id, seen);
     }
@@ -1444,6 +1445,7 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.ANSWERED, answered);
+        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.ANSWERED), answered);
 
         db.message().setMessageAnswered(message.id, answered);
     }
@@ -1456,6 +1458,7 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
+        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.FLAGGED), flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
     }
@@ -1472,6 +1475,7 @@ public class ServiceSynchronize extends LifecycleService {
             if (iprev != null) {
                 Log.i(Helper.TAG, "Deleting existing uid=" + message.uid);
                 iprev.setFlag(Flags.Flag.DELETED, true);
+                ifolder.setFlags(new Message[]{iprev}, new Flags(Flags.Flag.DELETED), true);
                 ifolder.expunge();
             }
         }
@@ -1497,6 +1501,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (!EntityFolder.ARCHIVE.equals(folder.type)) {
                 imessage.setFlag(Flags.Flag.DELETED, true);
+                ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.DELETED), true);
                 ifolder.expunge();
             }
 
@@ -1513,6 +1518,7 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.DELETED, true);
+        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.DELETED), true);
         ifolder.expunge();
 
         db.message().deleteMessage(message.id);
