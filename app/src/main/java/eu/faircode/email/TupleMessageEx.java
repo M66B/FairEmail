@@ -22,6 +22,7 @@ package eu.faircode.email;
 public class TupleMessageEx extends EntityMessage {
     public String accountName;
     public Integer accountColor;
+    public boolean accountNotify;
     public String folderName;
     public String folderDisplay;
     public String folderType;
@@ -38,6 +39,7 @@ public class TupleMessageEx extends EntityMessage {
             return (super.equals(obj) &&
                     (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
                     (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
+                    this.accountNotify == other.accountNotify &&
                     this.folderName.equals(other.folderName) &&
                     (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
                     this.folderType.equals(other.folderType) &&

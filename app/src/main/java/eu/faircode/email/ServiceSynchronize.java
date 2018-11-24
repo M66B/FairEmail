@@ -48,6 +48,7 @@ import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.imap.AppendUID;
@@ -173,40 +174,60 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         db.message().liveUnseenUnified().observe(this, new Observer<List<TupleMessageEx>>() {
-            private List<Integer> notifying = new ArrayList<>();
+            private LongSparseArray<List<Integer>> notifying = new LongSparseArray<>();
 
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 NotificationManager nm = getSystemService(NotificationManager.class);
-                List<Notification> notifications = getNotificationUnseen(messages);
 
-                List<Integer> all = new ArrayList<>();
-                List<Integer> added = new ArrayList<>();
-                List<Integer> removed = new ArrayList<>(notifying);
-                for (Notification notification : notifications) {
-                    Integer id = (int) notification.extras.getLong("id", 0);
-                    if (id > 0) {
-                        all.add(id);
-                        if (removed.contains(id))
-                            removed.remove(id);
-                        else
-                            added.add(id);
+                Widget.update(ServiceSynchronize.this, messages.size());
+
+                LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
+
+                for (int i = 0; i < notifying.size(); i++)
+                    accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
+
+                for (TupleMessageEx message : messages) {
+                    long account = (message.accountNotify ? message.account : 0);
+                    if (accountMessages.indexOfKey(account) < 0)
+                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
+                    accountMessages.get(account).add(message);
+                    if (notifying.indexOfKey(account) < 0)
+                        notifying.put(account, new ArrayList<Integer>());
+                }
+
+                for (int i = 0; i < accountMessages.size(); i++) {
+                    long account = accountMessages.keyAt(i);
+                    List<Notification> notifications = getNotificationUnseen(account, accountMessages.get(account));
+
+                    List<Integer> all = new ArrayList<>();
+                    List<Integer> added = new ArrayList<>();
+                    List<Integer> removed = notifying.get(account);
+                    for (Notification notification : notifications) {
+                        Integer id = (int) notification.extras.getLong("id", 0);
+                        if (id > 0) {
+                            all.add(id);
+                            if (removed.contains(id))
+                                removed.remove(id);
+                            else
+                                added.add(id);
+                        }
                     }
+
+                    if (notifications.size() == 0)
+                        nm.cancel("unseen:" + account, 0);
+
+                    for (Integer id : removed)
+                        nm.cancel("unseen:" + account, id);
+
+                    for (Notification notification : notifications) {
+                        Integer id = (int) notification.extras.getLong("id", 0);
+                        if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                            nm.notify("unseen:" + account, id, notification);
+                    }
+
+                    notifying.put(account, all);
                 }
-
-                if (notifications.size() == 0)
-                    nm.cancel("unseen", 0);
-
-                for (Integer id : removed)
-                    nm.cancel("unseen", id);
-
-                for (Notification notification : notifications) {
-                    Integer id = (int) notification.extras.getLong("id", 0);
-                    if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
-                        nm.notify("unseen", id, notification);
-                }
-
-                notifying = all;
             }
         });
     }
@@ -264,7 +285,7 @@ public class ServiceSynchronize extends LifecycleService {
             else if ("clear".equals(action)) {
                 new SimpleTask<Void>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    protected Void onLoad(Context context, Bundle args) {
                         DB.getInstance(context).message().ignoreAll();
                         return null;
                     }
@@ -370,17 +391,17 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private List<Notification> getNotificationUnseen(List<TupleMessageEx> messages) {
-        // https://developer.android.com/training/notify-user/group
+    private List<Notification> getNotificationUnseen(long account, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
-
-        Widget.update(this, messages.size());
 
         if (messages.size() == 0)
             return notifications;
 
         boolean pro = Helper.isPro(this);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // https://developer.android.com/training/notify-user/group
+        String group = Long.toString(account);
 
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
@@ -429,7 +450,7 @@ public class ServiceSynchronize extends LifecycleService {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PRIVATE)
                 .setPublicVersion(pbuilder.build())
-                .setGroup(BuildConfig.APPLICATION_ID)
+                .setGroup(group)
                 .setGroupSummary(true);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -520,7 +541,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setPriority(Notification.PRIORITY_DEFAULT)
                     .setCategory(Notification.CATEGORY_MESSAGE)
                     .setVisibility(Notification.VISIBILITY_PRIVATE)
-                    .setGroup(BuildConfig.APPLICATION_ID)
+                    .setGroup(group)
                     .setGroupSummary(false)
                     .addAction(actionSeen.build())
                     .addAction(actionArchive.build())

@@ -111,6 +111,7 @@ public class FragmentAccount extends FragmentEx {
     private Button btnColor;
     private View vwColor;
     private ImageView ibColorDefault;
+    private CheckBox cbNotify;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -183,6 +184,7 @@ public class FragmentAccount extends FragmentEx {
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
+        cbNotify = view.findViewById(R.id.cbNotify);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -599,6 +601,7 @@ public class FragmentAccount extends FragmentEx {
 
                 args.putString("name", etName.getText().toString());
                 args.putInt("color", color);
+                args.putBoolean("notify", cbNotify.isChecked());
 
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
@@ -624,6 +627,7 @@ public class FragmentAccount extends FragmentEx {
 
                         String name = args.getString("name");
                         Integer color = args.getInt("color");
+                        boolean notify = args.getBoolean("notify");
 
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
@@ -706,6 +710,7 @@ public class FragmentAccount extends FragmentEx {
 
                             account.name = name;
                             account.color = color;
+                            account.notify = notify;
 
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
@@ -954,6 +959,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
+                    cbNotify.setChecked(account == null ? false : account.notify);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? true : account.primary);

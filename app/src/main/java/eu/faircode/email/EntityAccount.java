@@ -58,6 +58,8 @@ public class EntityAccount {
     public Boolean primary;
     public Integer color;
     @NonNull
+    public Boolean notify;
+    @NonNull
     public Integer poll_interval; // keep-alive interval
     public Long created;
     public String state;
@@ -78,6 +80,7 @@ public class EntityAccount {
         json.put("primary", primary);
         if (color != null)
             json.put("color", color);
+        json.put("notify", notify);
         json.put("poll_interval", poll_interval);
         // not created
         // not state
@@ -101,6 +104,8 @@ public class EntityAccount {
         account.primary = json.getBoolean("primary");
         if (json.has("color"))
             account.color = json.getInt("color");
+        if (json.has("notify"))
+            account.notify = json.getBoolean("notify");
         account.poll_interval = json.getInt("poll_interval");
         return account;
     }
@@ -120,6 +125,7 @@ public class EntityAccount {
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    this.notify.equals(other.notify) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     (this.created == null ? other.created == null : this.created.equals(other.created)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&

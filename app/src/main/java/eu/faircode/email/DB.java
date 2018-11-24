@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 5,
+        version = 6,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -153,6 +153,13 @@ public abstract class DB extends RoomDatabase {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `last_connected` INTEGER");
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `last_attempt` INTEGER");
+                    }
+                })
+                .addMigrations(new Migration(5, 6) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `notify` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
                 .build();
