@@ -99,6 +99,7 @@
     <string name="title_account_name_hint">用于区分文件夹</string>
     <string name="title_account_signature">签名文本</string>
     <string name="title_account_color">颜色</string>
+    <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
     <string name="title_no_settings">设置未找到</string>

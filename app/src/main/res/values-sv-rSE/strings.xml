@@ -104,6 +104,7 @@
     <string name="title_account_name_hint">Används för att differentiera mappar</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Färg</string>
+    <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">Domännamn</string>
     <string name="title_autoconfig">Hämta inställningar</string>
     <string name="title_no_settings">Inställningar hittades inte</string>

@@ -104,6 +104,7 @@
     <string name="title_account_name_hint">Utilisé pour différencier les dossiers</string>
     <string name="title_account_signature">Texte de la signature</string>
     <string name="title_account_color">Couleur</string>
+    <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
     <string name="title_no_settings">Paramètres non trouvés</string>

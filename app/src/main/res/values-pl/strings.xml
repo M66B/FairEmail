@@ -114,6 +114,7 @@
     <string name="title_account_name_hint">Używany do odróżnienia folderów</string>
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_account_color">Kolor</string>
+    <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
     <string name="title_no_settings">Ustawienia nie znalezione</string>

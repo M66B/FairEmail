@@ -104,6 +104,7 @@
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_signature">Signature text</string>
     <string name="title_account_color">Color</string>
+    <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">Domain name</string>
     <string name="title_autoconfig">Get settings</string>
     <string name="title_no_settings">Settings not found</string>
