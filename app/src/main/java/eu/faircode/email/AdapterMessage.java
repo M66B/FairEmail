@@ -1282,12 +1282,14 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 @Override
                 protected List<EntityFolder> onLoad(Context context, Bundle args) {
                     DB db = DB.getInstance(context);
+
                     EntityMessage message = db.message().getMessage(args.getLong("id"));
+
                     List<EntityFolder> folders = db.folder().getFolders(message.account);
                     List<EntityFolder> targets = new ArrayList<>();
-                    for (EntityFolder f : folders)
-                        if (!f.id.equals(message.folder))
-                            targets.add(f);
+                    for (EntityFolder folder : folders)
+                        if (!folder.hide && !folder.id.equals(message.folder))
+                            targets.add(folder);
 
                     EntityFolder.sort(targets);
 
