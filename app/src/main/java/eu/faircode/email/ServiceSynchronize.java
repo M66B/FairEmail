@@ -1505,9 +1505,10 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlags(flags, set);
 
         List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
-        if (set)
-            keywords.add(keyword);
-        else
+        if (set) {
+            if (!keywords.contains(keyword))
+                keywords.add(keyword);
+        } else
             keywords.remove(keyword);
         db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
     }
@@ -2155,7 +2156,6 @@ public class ServiceSynchronize extends LifecycleService {
             if (message.ui_hide && full) {
                 update = true;
                 message.ui_hide = false;
-                db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 

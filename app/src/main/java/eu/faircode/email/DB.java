@@ -186,7 +186,7 @@ public abstract class DB extends RoomDatabase {
             if (value == null)
                 return new String[0];
             else
-                return TextUtils.split(" ", value);
+                return TextUtils.split(value, " ");
         }
 
         @TypeConverter

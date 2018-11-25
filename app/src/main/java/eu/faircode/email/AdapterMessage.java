@@ -162,6 +162,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvTimeSent;
         private TextView tvTimeReceived;
         private TextView tvSubjectEx;
+        private TextView tvKeywords;
 
         private TextView tvHeaders;
         private ProgressBar pbHeaders;
@@ -215,6 +216,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvCc = itemView.findViewById(R.id.tvCc);
             tvBcc = itemView.findViewById(R.id.tvBcc);
             tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
+            tvKeywords = itemView.findViewById(R.id.tvKeywords);
 
             tvHeaders = itemView.findViewById(R.id.tvHeaders);
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
@@ -411,6 +413,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setTextColor(colorUnseen);
 
             grpAddress.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses ? View.VISIBLE : View.GONE);
+            tvKeywords.setVisibility(View.GONE);
             ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts && message.from != null ? View.VISIBLE : View.GONE);
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
@@ -438,6 +441,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
                 tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
                 tvSubjectEx.setText(message.subject);
+                tvKeywords.setText(TextUtils.join(" ", message.keywords));
+                tvKeywords.setVisibility(message.keywords.length > 0 ? View.VISIBLE : View.GONE);
 
                 tvHeaders.setText(show_headers ? message.headers : null);
 
