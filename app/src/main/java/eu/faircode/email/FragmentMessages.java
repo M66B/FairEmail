@@ -703,8 +703,7 @@ public class FragmentMessages extends FragmentEx {
 
                         List<EntityFolder> targets = new ArrayList<>();
                         for (EntityFolder folder : folders)
-                            if (!folder.hide &&
-                                    (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
+                            if (!folder.hide && (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
                                 targets.add(folder);
 
                         EntityFolder.sort(targets);
@@ -747,8 +746,8 @@ public class FragmentMessages extends FragmentEx {
                                                         message.account, message.thread, message.ui_found);
                                                 for (EntityMessage threaded : messages) {
                                                     if (threaded.folder.equals(message.folder)) {
-                                                        db.message().setMessageUiHide(threaded.id, true);
                                                         EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
+                                                        db.message().setMessageUiHide(threaded.id, true);
                                                     }
                                                 }
                                             }

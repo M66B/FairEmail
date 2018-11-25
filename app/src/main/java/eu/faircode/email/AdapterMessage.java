@@ -924,11 +924,10 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     try {
                                         db.beginTransaction();
 
-                                        db.message().setMessageUiHide(id, true);
-
                                         EntityMessage message = db.message().getMessage(id);
                                         EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                                         EntityOperation.queue(db, message, EntityOperation.MOVE, junk.id);
+                                        db.message().setMessageUiHide(id, true);
 
                                         db.setTransactionSuccessful();
                                     } finally {
