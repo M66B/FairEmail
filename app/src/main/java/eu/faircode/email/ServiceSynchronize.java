@@ -1963,6 +1963,7 @@ public class ServiceSynchronize extends LifecycleService {
                     dup.uid = uid;
                     dup.msgid = msgid;
                     dup.thread = thread;
+                    dup.ui_hide = false;
                     dup.error = null;
                     db.message().updateMessage(dup);
                     message = dup;
