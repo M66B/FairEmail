@@ -434,4 +434,15 @@ public class Helper {
             result.add(array[i]);
         return result;
     }
+
+    static boolean equal(String[] a1, String[] a2) {
+        if (a1.length != a2.length)
+            return false;
+
+        for (int i = 0; i < a1.length; i++)
+            if (!a1[i].equals(a2[i]))
+                return false;
+
+        return true;
+    }
 }

@@ -102,6 +102,7 @@ The low priority status bar notification shows the number of pending operations,
 * seen: mark message as seen/unseen in remote folder
 * answered: mark message as answered in remote folder
 * flag: add/remove star in remote folder
+* keyword: add/remove IMAP flag in remote folder
 * headers: download message headers
 * body: download message text
 * attachment: download attachment

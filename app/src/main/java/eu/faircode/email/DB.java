@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 7,
+        version = 8,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -170,18 +170,31 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_answered` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
+                .addMigrations(new Migration(7, 8) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `keywords` TEXT");
+                    }
+                })
                 .build();
     }
 
     public static class Converters {
         @TypeConverter
-        public static String[] fromStringArray(String value) {
-            return value.split(",");
+        public static String[] toStringArray(String value) {
+            if (value == null)
+                return new String[0];
+            else
+                return TextUtils.split(" ", value);
         }
 
         @TypeConverter
-        public static String toStringArray(String[] value) {
-            return TextUtils.join(",", value);
+        public static String fromStringArray(String[] value) {
+            if (value == null || value.length == 0)
+                return null;
+            else
+                return TextUtils.join(" ", value);
         }
 
         @TypeConverter

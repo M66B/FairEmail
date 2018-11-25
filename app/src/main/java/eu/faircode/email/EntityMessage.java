@@ -133,6 +133,7 @@ public class EntityMessage implements Serializable {
     public Boolean ui_found;
     @NonNull
     public Boolean ui_ignored;
+    public String[] keywords;
     public String error;
     public Long last_attempt; // send
 

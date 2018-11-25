@@ -252,20 +252,23 @@ public interface DaoMessage {
     @Query("UPDATE message SET seen = :seen WHERE id = :id")
     int setMessageSeen(long id, boolean seen);
 
-    @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id")
-    int setMessageUiSeen(long id, boolean ui_seen);
+    @Query("UPDATE message SET flagged = :flagged WHERE id = :id")
+    int setMessageFlagged(long id, boolean flagged);
 
     @Query("UPDATE message SET answered = :answered WHERE id = :id")
     int setMessageAnswered(long id, boolean answered);
 
-    @Query("UPDATE message SET ui_answered = :ui_answered WHERE id = :id")
-    int setMessageUiAnswered(long id, boolean ui_answered);
+    @Query("UPDATE message SET keywords = :keywords WHERE id = :id")
+    int setMessageKeywords(long id, String keywords);
 
-    @Query("UPDATE message SET flagged = :flagged WHERE id = :id")
-    int setMessageFlagged(long id, boolean flagged);
+    @Query("UPDATE message SET ui_seen = :ui_seen WHERE id = :id")
+    int setMessageUiSeen(long id, boolean ui_seen);
 
     @Query("UPDATE message SET ui_flagged = :ui_flagged WHERE id = :id")
     int setMessageUiFlagged(long id, boolean ui_flagged);
+
+    @Query("UPDATE message SET ui_answered = :ui_answered WHERE id = :id")
+    int setMessageUiAnswered(long id, boolean ui_answered);
 
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, boolean ui_hide);

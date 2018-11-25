@@ -846,6 +846,8 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().setFolderState(folder.id, "connected");
                         db.folder().setFolderError(folder.id, null);
 
+                        Log.i(Helper.TAG, account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
+
                         // Synchronize folder
                         Thread sync = new Thread(new Runnable() {
                             PowerManager.WakeLock wl = pm.newWakeLock(
@@ -1354,6 +1356,9 @@ public class ServiceSynchronize extends LifecycleService {
                             else if (EntityOperation.FLAG.equals(op.name))
                                 doFlag(folder, ifolder, message, jargs, db);
 
+                            else if (EntityOperation.KEYWORD.equals(op.name))
+                                doKeyword(folder, ifolder, message, jargs, db);
+
                             else if (EntityOperation.ADD.equals(op.name))
                                 doAdd(folder, isession, ifolder, message, jargs, db);
 
@@ -1461,6 +1466,27 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
+    }
+
+    private void doKeyword(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+        // Set/reset user flag
+        // https://tools.ietf.org/html/rfc3501#section-2.3.2
+        String keyword = jargs.getString(0);
+        boolean set = jargs.getBoolean(1);
+
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        Flags flags = new Flags(keyword);
+        imessage.setFlags(flags, set);
+
+        List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
+        if (set)
+            keywords.add(keyword);
+        else
+            keywords.remove(keyword);
+        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
@@ -1633,7 +1659,8 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         StringBuilder sb = new StringBuilder();
-        sb.append(imessage.getFlags().toString()).append("\n");
+        if (BuildConfig.DEBUG)
+            sb.append(imessage.getFlags().toString()).append("\n");
 
         Enumeration<Header> headers = imessage.getAllHeaders();
         while (headers.hasMoreElements()) {
@@ -1933,6 +1960,7 @@ public class ServiceSynchronize extends LifecycleService {
         boolean seen = helper.getSeen();
         boolean answered = helper.getAnsered();
         boolean flagged = helper.getFlagged();
+        String[] keywords = helper.getKeywords();
 
         DB db = DB.getInstance(context);
 
@@ -2042,6 +2070,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_hide = false;
             message.ui_found = found;
             message.ui_ignored = false;
+            message.keywords = keywords;
             message.getAvatar(context);
 
             message.id = db.message().insertMessage(message);
@@ -2087,6 +2116,13 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_hide = false;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
+            }
+
+            if (!Helper.equal(message.keywords, keywords)) {
+                message.keywords = keywords;
+                db.message().updateMessage(message);
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid +
+                        " keywords=" + TextUtils.join(" ", keywords));
             }
         }
 
