@@ -1959,11 +1959,10 @@ public class ServiceSynchronize extends LifecycleService {
                     String thread = helper.getThreadId(uid);
                     Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
-                    dup.folder = folder.id;
+                    dup.folder = folder.id; // From outbox
                     dup.uid = uid;
                     dup.msgid = msgid;
                     dup.thread = thread;
-                    dup.ui_hide = false;
                     dup.error = null;
                     db.message().updateMessage(dup);
                     message = dup;
@@ -2082,6 +2081,12 @@ public class ServiceSynchronize extends LifecycleService {
                 message.ui_flagged = flagged;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+            }
+
+            if (message.ui_hide) {
+                message.ui_hide = false;
+                db.message().updateMessage(message);
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
         }
 
