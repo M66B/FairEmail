@@ -1421,7 +1421,7 @@ public class ServiceSynchronize extends LifecycleService {
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
         boolean seen = jargs.getBoolean(0);
-        if (message.seen == seen)
+        if (message.seen.equals(seen))
             return;
 
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -1429,7 +1429,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.SEEN, seen);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.SEEN), seen);
 
         db.message().setMessageSeen(message.id, seen);
     }
@@ -1437,7 +1436,7 @@ public class ServiceSynchronize extends LifecycleService {
     private void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)answered
         boolean answered = jargs.getBoolean(0);
-        if (message.answered != answered)
+        if (message.answered.equals(answered))
             return;
 
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -1445,7 +1444,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.ANSWERED, answered);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.ANSWERED), answered);
 
         db.message().setMessageAnswered(message.id, answered);
     }
@@ -1453,12 +1451,14 @@ public class ServiceSynchronize extends LifecycleService {
     private void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Star/unstar message
         boolean flagged = jargs.getBoolean(0);
+        if (message.flagged.equals(flagged))
+            return;
+
         Message imessage = ifolder.getMessageByUID(message.uid);
         if (imessage == null)
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.FLAGGED), flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
     }
@@ -1475,7 +1475,6 @@ public class ServiceSynchronize extends LifecycleService {
             if (iprev != null) {
                 Log.i(Helper.TAG, "Deleting existing uid=" + message.uid);
                 iprev.setFlag(Flags.Flag.DELETED, true);
-                ifolder.setFlags(new Message[]{iprev}, new Flags(Flags.Flag.DELETED), true);
                 ifolder.expunge();
             }
         }
@@ -1501,7 +1500,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (!EntityFolder.ARCHIVE.equals(folder.type)) {
                 imessage.setFlag(Flags.Flag.DELETED, true);
-                ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.DELETED), true);
                 ifolder.expunge();
             }
 
@@ -1518,7 +1516,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         imessage.setFlag(Flags.Flag.DELETED, true);
-        ifolder.setFlags(new Message[]{imessage}, new Flags(Flags.Flag.DELETED), true);
         ifolder.expunge();
 
         db.message().deleteMessage(message.id);
