@@ -1561,6 +1561,9 @@ public class ServiceSynchronize extends LifecycleService {
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
+
+        if (EntityFolder.ARCHIVE.equals(folder.type))
+            db.message().setMessageUiHide(message.id, false);
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
