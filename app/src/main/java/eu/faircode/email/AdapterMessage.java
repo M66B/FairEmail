@@ -109,6 +109,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private LifecycleOwner owner;
     private FragmentManager fragmentManager;
     private ViewType viewType;
+    private boolean outgoing;
     private IProperties properties;
 
     private boolean compact;
@@ -307,7 +308,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbLoading.setVisibility(View.GONE);
 
             boolean photo = false;
-            if (avatars) {
+            if (avatars && !outgoing) {
                 if (message.avatar != null)
                     try {
                         ContentResolver resolver = context.getContentResolver();
@@ -342,7 +343,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             else
                 ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
 
-            tvFrom.setText(MessageHelper.getFormattedAddresses(message.from, !compact));
+            tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, !compact));
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
@@ -1361,12 +1362,14 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager, ViewType viewType, IProperties properties) {
+    AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager,
+                   ViewType viewType, boolean outgoing, IProperties properties) {
         super(DIFF_CALLBACK);
         this.context = context;
         this.owner = owner;
         this.fragmentManager = fragmentManager;
         this.viewType = viewType;
+        this.outgoing = outgoing;
         this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

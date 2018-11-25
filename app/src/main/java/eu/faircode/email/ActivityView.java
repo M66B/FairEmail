@@ -547,7 +547,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.content = true;
                             draft.received = new Date().getTime();
                             draft.seen = false;
-                            draft.answered =false;
+                            draft.answered = false;
                             draft.flagged = false;
                             draft.ui_seen = false;
                             draft.ui_answered = false;
@@ -1078,6 +1078,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putLong("folder", intent.getLongExtra("folder", -1));
+        args.putBoolean("outgoing", intent.getBooleanExtra("outgoing", false));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);

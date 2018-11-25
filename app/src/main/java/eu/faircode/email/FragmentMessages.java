@@ -89,8 +89,9 @@ public class FragmentMessages extends FragmentEx {
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
 
-    private long folder = -1;
     private long account = -1;
+    private long folder = -1;
+    private boolean outgoing = false;
     private String thread = null;
     private boolean found = false;
     private String search = null;
@@ -133,6 +134,7 @@ public class FragmentMessages extends FragmentEx {
         Bundle args = getArguments();
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
+        outgoing = args.getBoolean("outgoing", false);
         thread = args.getString("thread");
         found = args.getBoolean("found", false);
         search = args.getString("search");
@@ -221,109 +223,112 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
-        adapter = new AdapterMessage(getContext(), getViewLifecycleOwner(), getFragmentManager(), viewType, new AdapterMessage.IProperties() {
-            @Override
-            public void setExpanded(long id, boolean expand) {
-                if (expand) {
-                    expanded.add(id);
-                    handleExpand(id);
-                } else
-                    expanded.remove(id);
-            }
-
-            @Override
-            public void setAddresses(long id, boolean show) {
-                if (show)
-                    addresses.remove(id);
-                else
-                    addresses.add(id);
-            }
-
-            @Override
-            public void setHeaders(long id, boolean show) {
-                if (show)
-                    headers.add(id);
-                else
-                    headers.remove(id);
-            }
-
-            @Override
-            public void setImages(long id, boolean show) {
-                if (show)
-                    images.add(id);
-                else
-                    images.remove(id);
-            }
-
-            @Override
-            public boolean isExpanded(long id) {
-                return expanded.contains(id);
-            }
-
-            @Override
-            public boolean showAddresses(long id) {
-                return !addresses.contains(id);
-            }
-
-            @Override
-            public boolean showHeaders(long id) {
-                return headers.contains(id);
-            }
-
-            @Override
-            public boolean showImages(long id) {
-                return images.contains(id);
-            }
-
-            @Override
-            public void move(long id, String name, boolean type) {
-                Bundle args = new Bundle();
-                args.putLong("id", id);
-                args.putString("name", name);
-                args.putBoolean("type", type);
-
-                new SimpleTask<MessageTarget>() {
+        adapter = new AdapterMessage(
+                getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                viewType, outgoing,
+                new AdapterMessage.IProperties() {
                     @Override
-                    protected MessageTarget onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        String name = args.getString("name");
-                        boolean type = args.getBoolean("type");
-
-                        MessageTarget result = new MessageTarget();
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage message = db.message().getMessage(id);
-                            if (type)
-                                result.target = db.folder().getFolderByType(message.account, name);
-                            else
-                                result.target = db.folder().getFolderByName(message.account, name);
-                            result.ids.add(message.id);
-
-                            db.message().setMessageUiHide(id, true);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
+                    public void setExpanded(long id, boolean expand) {
+                        if (expand) {
+                            expanded.add(id);
+                            handleExpand(id);
+                        } else
+                            expanded.remove(id);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, MessageTarget result) {
-                        moveUndo(result);
+                    public void setAddresses(long id, boolean show) {
+                        if (show)
+                            addresses.remove(id);
+                        else
+                            addresses.add(id);
                     }
 
                     @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                    public void setHeaders(long id, boolean show) {
+                        if (show)
+                            headers.add(id);
+                        else
+                            headers.remove(id);
                     }
-                }.load(FragmentMessages.this, args);
-            }
-        });
+
+                    @Override
+                    public void setImages(long id, boolean show) {
+                        if (show)
+                            images.add(id);
+                        else
+                            images.remove(id);
+                    }
+
+                    @Override
+                    public boolean isExpanded(long id) {
+                        return expanded.contains(id);
+                    }
+
+                    @Override
+                    public boolean showAddresses(long id) {
+                        return !addresses.contains(id);
+                    }
+
+                    @Override
+                    public boolean showHeaders(long id) {
+                        return headers.contains(id);
+                    }
+
+                    @Override
+                    public boolean showImages(long id) {
+                        return images.contains(id);
+                    }
+
+                    @Override
+                    public void move(long id, String name, boolean type) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+                        args.putString("name", name);
+                        args.putBoolean("type", type);
+
+                        new SimpleTask<MessageTarget>() {
+                            @Override
+                            protected MessageTarget onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                String name = args.getString("name");
+                                boolean type = args.getBoolean("type");
+
+                                MessageTarget result = new MessageTarget();
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (type)
+                                        result.target = db.folder().getFolderByType(message.account, name);
+                                    else
+                                        result.target = db.folder().getFolderByName(message.account, name);
+                                    result.ids.add(message.id);
+
+                                    db.message().setMessageUiHide(id, true);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return result;
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, MessageTarget result) {
+                                moveUndo(result);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), ex);
+                            }
+                        }.load(FragmentMessages.this, args);
+                    }
+                });
 
         rvMessage.setAdapter(adapter);
 
