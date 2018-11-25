@@ -121,6 +121,7 @@ public class EntityMessage implements Serializable {
     public Boolean answered;
     @NonNull
     public Boolean flagged;
+    public String[] keywords; // user flags
     @NonNull
     public Boolean ui_seen;
     @NonNull
@@ -133,7 +134,6 @@ public class EntityMessage implements Serializable {
     public Boolean ui_found;
     @NonNull
     public Boolean ui_ignored;
-    public String[] keywords;
     public String error;
     public Long last_attempt; // send
 
