@@ -730,26 +730,29 @@ public class FragmentMessages extends FragmentEx {
 
                                 selectionTracker.clearSelection();
 
-                                new SimpleTask<Void>() {
+                                new SimpleTask<MessageTarget>() {
                                     @Override
-                                    protected Void onLoad(Context context, Bundle args) {
+                                    protected MessageTarget onLoad(Context context, Bundle args) {
                                         long[] ids = args.getLongArray("ids");
                                         long target = args.getLong("target");
+
+                                        MessageTarget result = new MessageTarget();
 
                                         DB db = DB.getInstance(context);
                                         try {
                                             db.beginTransaction();
 
+                                            result.target = db.folder().getFolder(target);
+
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 List<EntityMessage> messages = db.message().getMessageByThread(
                                                         message.account, message.thread, message.ui_found);
-                                                for (EntityMessage threaded : messages) {
+                                                for (EntityMessage threaded : messages)
                                                     if (threaded.folder.equals(message.folder)) {
-                                                        EntityOperation.queue(db, threaded, EntityOperation.MOVE, target);
+                                                        result.ids.add(threaded.id);
                                                         db.message().setMessageUiHide(threaded.id, true);
                                                     }
-                                                }
                                             }
 
                                             db.setTransactionSuccessful();
@@ -759,7 +762,12 @@ public class FragmentMessages extends FragmentEx {
 
                                         EntityOperation.process(context);
 
-                                        return null;
+                                        return result;
+                                    }
+
+                                    @Override
+                                    protected void onLoaded(Bundle args, MessageTarget result) {
+                                        moveUndo(result);
                                     }
 
                                     @Override
