@@ -219,6 +219,7 @@
     <string name="title_discard">Weggooien</string>
     <string name="title_save">Bewaren</string>
     <string name="title_send">Verzenden</string>
+    <string name="title_view">Weergeven</string>
     <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_clipboard_empty">Klembord is leeg</string>
     <string name="title_style_bold">Vet</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Prullenbak</string>
     <string name="title_legend_primary_disconnected">Account niet verbonden</string>
     <string name="title_legend_primary_connected">Account verbonden</string>
+    <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Bijlage</string>
-    <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_contacts">Contacten</string>
+    <string name="title_legend_image">Placeholder afbeelding</string>
     <string name="title_legend_synchronize_on">Synchronisatie aan</string>
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
     <string name="title_legend_primary">Primair/ster</string>

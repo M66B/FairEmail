@@ -219,6 +219,7 @@
     <string name="title_discard">Discard</string>
     <string name="title_save">Salvar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_view">View</string>
     <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Clipboard empty</string>
     <string name="title_style_bold">Bold</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Trash</string>
     <string name="title_legend_primary_disconnected">Account disconnected</string>
     <string name="title_legend_primary_connected">Account connected</string>
+    <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Attachment</string>
-    <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_contacts">Contacts</string>
+    <string name="title_legend_image">Image placeholder</string>
     <string name="title_legend_synchronize_on">Synchronize on</string>
     <string name="title_legend_synchronize_off">Synchronize off</string>
     <string name="title_legend_primary">Primary/starred</string>

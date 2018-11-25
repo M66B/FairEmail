@@ -219,6 +219,7 @@
     <string name="title_discard">Släng</string>
     <string name="title_save">Spara</string>
     <string name="title_send">Skicka</string>
+    <string name="title_view">View</string>
     <string name="title_no_selection">Inget valt</string>
     <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Papperskorg</string>
     <string name="title_legend_primary_disconnected">Kontot frånkopplat</string>
     <string name="title_legend_primary_connected">Kontot anslutet</string>
+    <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">Kopia/Dold kopia</string>
     <string name="title_legend_attachment">Bilaga</string>
-    <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_contacts">Kontakter</string>
+    <string name="title_legend_image">Image placeholder</string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>
     <string name="title_legend_synchronize_off">Synkronisera av</string>
     <string name="title_legend_primary">Primär/stjärnmärkta</string>

@@ -219,6 +219,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Saxla</string>
     <string name="title_send">Göndər</string>
+    <string name="title_view">View</string>
     <string name="title_no_selection">Heçnə seçilmədi</string>
     <string name="title_clipboard_empty">Lövhə boşdur</string>
     <string name="title_style_bold">Qalın</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Tullantı</string>
     <string name="title_legend_primary_disconnected">Hesab bağlantısı kəsildi</string>
     <string name="title_legend_primary_connected">Hesab bağlantısı quruldu</string>
+    <string name="title_legend_thread">Söhbət</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Qoşma</string>
-    <string name="title_legend_thread">Söhbət</string>
     <string name="title_legend_contacts">Şəxslər</string>
+    <string name="title_legend_image">Image placeholder</string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
     <string name="title_legend_synchronize_off">Eyniləşdirmə bağlı</string>
     <string name="title_legend_primary">Üstünlük verilən/ulduzlu</string>

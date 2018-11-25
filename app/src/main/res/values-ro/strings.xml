@@ -224,6 +224,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
+    <string name="title_view">View</string>
     <string name="title_no_selection">Nimic selectat</string>
     <string name="title_clipboard_empty">Clipboardul este gol</string>
     <string name="title_style_bold">Îngroșat</string>
@@ -267,10 +268,11 @@
     <string name="title_legend_trash">Gunoi</string>
     <string name="title_legend_primary_disconnected">Cont deconectat</string>
     <string name="title_legend_primary_connected">Cont conectat</string>
+    <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
-    <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_contacts">Contacte</string>
+    <string name="title_legend_image">Loc imagine</string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
     <string name="title_legend_primary">Primar/marcat</string>

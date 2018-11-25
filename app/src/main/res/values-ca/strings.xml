@@ -219,6 +219,7 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Desa</string>
     <string name="title_send">Enviar</string>
+    <string name="title_view">View</string>
     <string name="title_no_selection">Nothing selected</string>
     <string name="title_clipboard_empty">Porta-retalls buit</string>
     <string name="title_style_bold">Negreta</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Paperera</string>
     <string name="title_legend_primary_disconnected">Compte desconnectat</string>
     <string name="title_legend_primary_connected">Compte connectat</string>
+    <string name="title_legend_thread">Conversació</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunt</string>
-    <string name="title_legend_thread">Conversació</string>
     <string name="title_legend_contacts">Contactes</string>
+    <string name="title_legend_image">Image placeholder</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>
     <string name="title_legend_synchronize_off">Sincronització apagada</string>
     <string name="title_legend_primary">Primària/destacada</string>

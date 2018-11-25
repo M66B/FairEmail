@@ -219,6 +219,7 @@
     <string name="title_discard">Eliminar</string>
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
+    <string name="title_view">Vista</string>
     <string name="title_no_selection">Nada seleccionado</string>
     <string name="title_clipboard_empty">Portapapeles vacío</string>
     <string name="title_style_bold">Negrita</string>
@@ -262,10 +263,11 @@
     <string name="title_legend_trash">Papelera</string>
     <string name="title_legend_primary_disconnected">Cuenta desconectada</string>
     <string name="title_legend_primary_connected">Cuenta conectada</string>
+    <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
-    <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_contacts">Contactos</string>
+    <string name="title_legend_image">Marcador de posición de imagen</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_primary">Primario/destacado</string>
