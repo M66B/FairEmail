@@ -1425,8 +1425,11 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+            db.message().setMessageSeen(message.id, false);
+            db.message().setMessageUiSeen(message.id, false);
             return;
+        }
 
         boolean seen = jargs.getBoolean(0);
         if (message.seen.equals(seen))
@@ -1443,8 +1446,11 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)answered
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED))
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
+            db.message().setMessageAnswered(message.id, false);
+            db.message().setMessageUiAnswered(message.id, false);
             return;
+        }
 
         boolean answered = jargs.getBoolean(0);
         if (message.answered.equals(answered))
@@ -1461,8 +1467,11 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Star/unstar message
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
+            db.message().setMessageFlagged(message.id, false);
+            db.message().setMessageUiFlagged(message.id, false);
             return;
+        }
 
         boolean flagged = jargs.getBoolean(0);
         if (message.flagged.equals(flagged))
@@ -1479,8 +1488,10 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doKeyword(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Set/reset user flag
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+            db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(null));
             return;
+        }
 
         // https://tools.ietf.org/html/rfc3501#section-2.3.2
         String keyword = jargs.getString(0);
