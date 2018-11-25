@@ -1425,6 +1425,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doSeen(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)seen
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+            return;
+
         boolean seen = jargs.getBoolean(0);
         if (message.seen.equals(seen))
             return;
@@ -1440,6 +1443,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Mark message (un)answered
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED))
+            return;
+
         boolean answered = jargs.getBoolean(0);
         if (message.answered.equals(answered))
             return;
@@ -1455,6 +1461,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Star/unstar message
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+            return;
+
         boolean flagged = jargs.getBoolean(0);
         if (message.flagged.equals(flagged))
             return;
@@ -1470,6 +1479,9 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doKeyword(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Set/reset user flag
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.USER))
+            return;
+
         // https://tools.ietf.org/html/rfc3501#section-2.3.2
         String keyword = jargs.getString(0);
         boolean set = jargs.getBoolean(1);
@@ -2096,39 +2108,45 @@ public class ServiceSynchronize extends LifecycleService {
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
         } else {
+            boolean update = false;
+
             if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
+                update = true;
                 message.seen = seen;
                 message.ui_seen = seen;
-                db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
             if (!message.answered.equals(answered) || !message.answered.equals(message.ui_answered)) {
+                update = true;
                 message.answered = answered;
                 message.ui_answered = answered;
-                db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
             }
 
             if (!message.flagged.equals(flagged) || !message.flagged.equals(message.ui_flagged)) {
+                update = true;
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
-                db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
             }
 
-            if (message.ui_hide) {
+            if (!Helper.equal(message.keywords, keywords)) {
+                update = true;
+                message.keywords = keywords;
+                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid +
+                        " keywords=" + TextUtils.join(" ", keywords));
+            }
+
+            if (!update && message.ui_hide) {
+                update = true;
                 message.ui_hide = false;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
-            if (!Helper.equal(message.keywords, keywords)) {
-                message.keywords = keywords;
+            if (update)
                 db.message().updateMessage(message);
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid +
-                        " keywords=" + TextUtils.join(" ", keywords));
-            }
         }
 
         return message.id;
