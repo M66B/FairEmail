@@ -200,7 +200,7 @@ public class ViewModelBrowse extends ViewModel {
                         EntityMessage message = db.message().getMessageByUid(state.fid, uid, state.search != null);
                         if (message == null) {
                             ServiceSynchronize.synchronizeMessage(
-                                    state.context, folder, state.ifolder, (IMAPMessage) isub[j], state.search != null);
+                                    state.context, folder, state.ifolder, (IMAPMessage) isub[j], state.search != null, false);
                             count++;
                         }
                     } catch (MessageRemovedException ex) {
