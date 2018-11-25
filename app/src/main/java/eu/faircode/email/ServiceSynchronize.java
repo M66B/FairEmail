@@ -2063,21 +2063,21 @@ public class ServiceSynchronize extends LifecycleService {
                 attachment.id = db.attachment().insertAttachment(attachment);
             }
         } else {
-            if (message.seen != seen || message.seen != message.ui_seen) {
+            if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
                 message.seen = seen;
                 message.ui_seen = seen;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
-            if (message.answered != answered || message.answered != message.ui_answered) {
+            if (!message.answered.equals(answered) || !message.answered.equals(message.ui_answered)) {
                 message.answered = answered;
                 message.ui_answered = answered;
                 db.message().updateMessage(message);
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
             }
 
-            if (message.flagged != flagged || message.flagged != message.ui_flagged) {
+            if (!message.flagged.equals(flagged) || !message.flagged.equals(message.ui_flagged)) {
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
                 db.message().updateMessage(message);
