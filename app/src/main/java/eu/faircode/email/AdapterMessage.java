@@ -159,7 +159,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvReplyTo;
         private TextView tvCc;
         private TextView tvBcc;
-        private TextView tvTimeSent;
         private TextView tvTimeReceived;
         private TextView tvSubjectEx;
         private TextView tvKeywords;
@@ -197,7 +196,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAddContact = itemView.findViewById(R.id.ivAddContact);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
-            tvTimeSent = itemView.findViewById(R.id.tvTimeSent);
             tvTimeReceived = itemView.findViewById(R.id.tvTimeReceived);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
@@ -432,7 +430,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             if (show_expanded) {
                 ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-                tvTimeSent.setText(message.sent == null ? null : df.format(new Date(message.sent)));
                 tvTimeReceived.setText(df.format(new Date(message.received)));
 
                 tvFromEx.setText(MessageHelper.getFormattedAddresses(message.from, true));
