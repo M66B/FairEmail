@@ -1518,8 +1518,6 @@ public class ServiceSynchronize extends LifecycleService {
         } else
             keywords.remove(keyword);
         db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
-
-        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(ifolder.getPermanentFlags().getUserFlags()));
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
