@@ -1158,6 +1158,12 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         }
 
         private void onManageKeywords(ActionData data) {
+            if (!Helper.isPro(context)) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                return;
+            }
+
             Bundle args = new Bundle();
             args.putSerializable("message", data.message);
 
@@ -1235,10 +1241,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    final EditText etKeyword = new EditText(context);
+                                    View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword, null);
+                                    final EditText etKeyword = view.findViewById(R.id.etKeyword);
+                                    etKeyword.setText(null);
                                     new DialogBuilderLifecycle(context, owner)
-                                            .setTitle(R.string.title_add)
-                                            .setView(etKeyword)
+                                            .setView(view)
                                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {

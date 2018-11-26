@@ -22,8 +22,10 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,6 +55,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private Context context;
     private LifecycleOwner owner;
     private String accountState = null;
+    private boolean debug;
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
@@ -146,7 +149,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             tvKeywords.setText(TextUtils.join(" ", folder.keywords));
-            tvKeywords.setVisibility(folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
+            tvKeywords.setVisibility(debug && folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
@@ -322,6 +325,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     AdapterFolder(Context context, LifecycleOwner owner) {
         this.context = context;
         this.owner = owner;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.debug = prefs.getBoolean("debug", false);
+
         setHasStableIds(true);
     }
 
