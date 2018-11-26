@@ -210,7 +210,7 @@ If you like, you can verify a signature by opening the *signature.asc* attachmen
 <a name="faq13"></a>
 **(13) How does search on server work?**
 
-You can start searching for messages on sender, recipient, subject or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
+You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder (not in the unified inbox because it could be a collection of folders).
 First local messages will be searched and after that the server will execute the search.
 Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
