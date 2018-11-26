@@ -494,6 +494,21 @@ Note that:
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
 
+<a name="faq39"></a>
+**(39) How can I reduce the battery usage of FairEmail?**
+
+First of all, upgrade to [the latest version](https://github.com/M66B/open-source-email/releases/).
+
+Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
+So, to reduce the battery usage, set the number of days to synchronize message for to a lower value,
+especially if there are a lot of recent messages in a folder.
+Long press a folder name in the folders list to access this setting.
+
+Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for.
+You could for example initially synchronize messages for a large number of days and after this has been completed
+reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
