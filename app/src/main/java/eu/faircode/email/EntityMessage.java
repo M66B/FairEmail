@@ -76,7 +76,8 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"ui_seen"}),
                 @Index(value = {"ui_hide"}),
                 @Index(value = {"ui_found"}),
-                @Index(value = {"ui_ignored"})
+                @Index(value = {"ui_ignored"}),
+                @Index(value = {"ui_browsed"})
         }
 )
 public class EntityMessage implements Serializable {
@@ -134,6 +135,8 @@ public class EntityMessage implements Serializable {
     public Boolean ui_found = false;
     @NonNull
     public Boolean ui_ignored = false;
+    @NonNull
+    public Boolean ui_browsed = false;
     public String error;
     public Long last_attempt; // send
 

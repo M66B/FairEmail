@@ -37,6 +37,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
+import java.util.Calendar;
 import java.util.Properties;
 
 import javax.mail.Folder;
@@ -177,8 +178,22 @@ public class FragmentFolder extends FragmentEx {
                             }
 
                             if (folder != null) {
+                                Calendar cal_keep = Calendar.getInstance();
+                                cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
+                                cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                                cal_keep.set(Calendar.MINUTE, 0);
+                                cal_keep.set(Calendar.SECOND, 0);
+                                cal_keep.set(Calendar.MILLISECOND, 0);
+
+                                long keep_time = cal_keep.getTimeInMillis();
+                                if (keep_time < 0)
+                                    keep_time = 0;
+
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, sync_days, keep_days);
+
+                                db.message().deleteMessagesBefore(id, keep_time, true);
+
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
                             }

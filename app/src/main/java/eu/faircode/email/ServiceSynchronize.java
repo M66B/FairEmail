@@ -888,7 +888,10 @@ public class ServiceSynchronize extends LifecycleService {
                                                             long id;
                                                             try {
                                                                 db.beginTransaction();
-                                                                id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, false, false);
+                                                                id = synchronizeMessage(
+                                                                        ServiceSynchronize.this,
+                                                                        folder, ifolder, (IMAPMessage) imessage,
+                                                                        false, false, false);
                                                                 db.setTransactionSuccessful();
                                                             } finally {
                                                                 db.endTransaction();
@@ -971,7 +974,10 @@ public class ServiceSynchronize extends LifecycleService {
                                                         long id;
                                                         try {
                                                             db.beginTransaction();
-                                                            id = synchronizeMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), false, false);
+                                                            id = synchronizeMessage(
+                                                                    ServiceSynchronize.this,
+                                                                    folder, ifolder, (IMAPMessage) e.getMessage(),
+                                                                    false, false, false);
                                                             db.setTransactionSuccessful();
                                                         } finally {
                                                             db.endTransaction();
@@ -1822,27 +1828,27 @@ public class ServiceSynchronize extends LifecycleService {
             cal_keep.set(Calendar.SECOND, 0);
             cal_keep.set(Calendar.MILLISECOND, 0);
 
-            long sync = cal_sync.getTimeInMillis();
-            if (sync < 0)
-                sync = 0;
+            long sync_time = cal_sync.getTimeInMillis();
+            if (sync_time < 0)
+                sync_time = 0;
 
-            long keep = cal_keep.getTimeInMillis();
-            if (keep < 0)
-                keep = 0;
+            long keep_time = cal_keep.getTimeInMillis();
+            if (keep_time < 0)
+                keep_time = 0;
 
-            Log.i(Helper.TAG, folder.name + " sync=" + new Date(sync) + " keep=" + new Date(keep));
+            Log.i(Helper.TAG, folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
-            int old = db.message().deleteMessagesBefore(folder.id, keep);
+            int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
             Log.i(Helper.TAG, folder.name + " local old=" + old);
 
             // Get list of local uids
-            List<Long> uids = db.message().getUids(folder.id, sync);
+            List<Long> uids = db.message().getUids(folder.id, sync_time);
             Log.i(Helper.TAG, folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
             long search = SystemClock.elapsedRealtime();
-            Message[] imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync)));
+            Message[] imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
             Log.i(Helper.TAG, folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
@@ -1913,7 +1919,10 @@ public class ServiceSynchronize extends LifecycleService {
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
                         db.beginTransaction();
-                        ids[from + j] = synchronizeMessage(this, folder, ifolder, (IMAPMessage) isub[j], false, true);
+                        ids[from + j] = synchronizeMessage(
+                                this,
+                                folder, ifolder, (IMAPMessage) isub[j],
+                                false, false, true);
                         db.setTransactionSuccessful();
                         Thread.sleep(20);
                     } catch (MessageRemovedException ex) {
@@ -1979,7 +1988,10 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    static Long synchronizeMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, boolean found, boolean full) throws MessagingException, IOException {
+    static Long synchronizeMessage(
+            Context context,
+            EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
+            boolean found, boolean browsed, boolean full) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
 
         if (imessage.isExpunged()) {
