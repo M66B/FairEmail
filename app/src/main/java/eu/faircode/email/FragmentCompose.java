@@ -1204,15 +1204,6 @@ public class FragmentCompose extends FragmentEx {
 
                 result.draft.content = true;
                 result.draft.received = new Date().getTime();
-                result.draft.seen = false;
-                result.draft.answered = false;
-                result.draft.flagged = false;
-                result.draft.ui_seen = false;
-                result.draft.ui_answered = false;
-                result.draft.ui_flagged = false;
-                result.draft.ui_hide = false;
-                result.draft.ui_found = false;
-                result.draft.ui_ignored = false;
                 result.draft.getAvatar(context);
 
                 result.draft.id = db.message().insertMessage(result.draft);

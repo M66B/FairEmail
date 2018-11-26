@@ -2098,10 +2098,10 @@ public class ServiceSynchronize extends LifecycleService {
             message.sent = (imessage.getSentDate() == null ? null : imessage.getSentDate().getTime());
             message.seen = seen;
             message.answered = answered;
-            message.flagged = false;
+            message.flagged = flagged;
             message.ui_seen = seen;
             message.ui_answered = answered;
-            message.ui_flagged = false;
+            message.ui_flagged = flagged;
             message.ui_hide = false;
             message.ui_found = found;
             message.ui_ignored = false;

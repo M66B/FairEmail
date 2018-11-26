@@ -116,24 +116,24 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Long stored = new Date().getTime();
     @NonNull
-    public Boolean seen;
+    public Boolean seen = false;
     @NonNull
-    public Boolean answered;
+    public Boolean answered = false;
     @NonNull
-    public Boolean flagged;
+    public Boolean flagged = false;
     public String[] keywords; // user flags
     @NonNull
-    public Boolean ui_seen;
+    public Boolean ui_seen = false;
     @NonNull
-    public Boolean ui_answered;
+    public Boolean ui_answered = false;
     @NonNull
-    public Boolean ui_flagged;
+    public Boolean ui_flagged = false;
     @NonNull
-    public Boolean ui_hide;
+    public Boolean ui_hide = false;
     @NonNull
-    public Boolean ui_found;
+    public Boolean ui_found = false;
     @NonNull
-    public Boolean ui_ignored;
+    public Boolean ui_ignored = false;
     public String error;
     public Long last_attempt; // send
 
