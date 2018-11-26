@@ -279,6 +279,7 @@ public class EntityMessage implements Serializable {
                     this.seen.equals(other.seen) &&
                     this.answered.equals(other.answered) &&
                     this.flagged.equals(other.flagged) &&
+                    Helper.equal(this.keywords, other.keywords) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
                     this.ui_flagged.equals(other.ui_flagged) &&
