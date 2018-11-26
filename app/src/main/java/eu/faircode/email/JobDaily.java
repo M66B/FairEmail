@@ -28,6 +28,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -65,6 +66,25 @@ public class JobDaily extends JobService {
                     db.beginTransaction();
 
                     Log.i(Helper.TAG, "Start daily job");
+
+                    // Cleanup folders
+                    Log.i(Helper.TAG, "Cleanup folders");
+                    for (EntityFolder folder : db.folder().getFolders()) {
+                        Calendar cal_keep = Calendar.getInstance();
+                        cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
+                        cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                        cal_keep.set(Calendar.MINUTE, 0);
+                        cal_keep.set(Calendar.SECOND, 0);
+                        cal_keep.set(Calendar.MILLISECOND, 0);
+
+                        long keep_time = cal_keep.getTimeInMillis();
+                        if (keep_time < 0)
+                            keep_time = 0;
+
+                        int messages = db.message().deleteMessagesBefore(folder.id, keep_time, false);
+                        Log.i(Helper.TAG, "Cleanup folder=" + folder.account + ":" + folder.name +
+                                " deleted before=" + new Date(keep_time) + " count=" + messages);
+                    }
 
                     // Cleanup message files
                     Log.i(Helper.TAG, "Cleanup message files");
