@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -57,15 +58,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> filtered = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        View itemView;
-        ImageView ivState;
-        TextView tvName;
-        TextView tvMessages;
-        ImageView ivUnified;
-        TextView tvType;
-        TextView tvAfter;
-        ImageView ivSync;
-        TextView tvError;
+        private View itemView;
+        private ImageView ivState;
+        private TextView tvName;
+        private TextView tvMessages;
+        private ImageView ivUnified;
+        private TextView tvType;
+        private TextView tvAfter;
+        private ImageView ivSync;
+        private TextView tvKeywords;
+        private TextView tvError;
 
         private final static int action_synchronize_now = 1;
         private final static int action_delete_local = 2;
@@ -84,6 +86,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ivSync = itemView.findViewById(R.id.ivSync);
+            tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -141,6 +144,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvAfter.setText(String.format("%d/%d", folder.sync_days, folder.keep_days));
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
+
+            tvKeywords.setText(TextUtils.join(" ", folder.keywords));
+            tvKeywords.setVisibility(folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
 
             tvError.setText(folder.error);
             tvError.setVisibility(folder.error != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
@@ -321,7 +327,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private boolean showAll = false;
 
-    public void showHidden(boolean show) {
+    void showHidden(boolean show) {
         showAll = show;
         set(all);
     }
@@ -385,7 +391,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    public void setAccountState(String state) {
+    void setAccountState(String state) {
         this.accountState = state;
     }
 

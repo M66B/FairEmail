@@ -134,6 +134,9 @@ public interface DaoFolder {
             " WHERE id = :id")
     int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int sync_days, int keep_days);
 
+    @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")
+    int setFolderKeywords(long id, String keywords);
+
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);
 

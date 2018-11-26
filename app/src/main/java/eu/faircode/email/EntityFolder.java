@@ -73,6 +73,7 @@ public class EntityFolder implements Serializable {
     public Boolean hide = false;
     @NonNull
     public Boolean unified = false;
+    public String[] keywords;
     public String state;
     public String error;
 

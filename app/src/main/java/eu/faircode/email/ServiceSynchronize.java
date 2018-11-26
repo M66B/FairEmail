@@ -846,6 +846,12 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().setFolderState(folder.id, "connected");
                         db.folder().setFolderError(folder.id, null);
 
+                        List<String> keywords = new ArrayList<>();
+                        for (String keyword : ifolder.getPermanentFlags().getUserFlags())
+                            if (!keyword.startsWith("$"))
+                                keywords.add(keyword);
+                        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+
                         Log.i(Helper.TAG, account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
 
                         // Synchronize folder
