@@ -36,7 +36,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
     private boolean searching = false;
 
-    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     interface IBoundaryCallbackMessages {
         void onLoading();
