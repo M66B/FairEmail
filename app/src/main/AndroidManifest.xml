@@ -11,8 +11,12 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.android.vending.BILLING" />
 
+    <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
     <uses-feature
         android:name="android.software.app_widgets"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.webview"
         android:required="false" />
 
     <application

@@ -187,15 +187,6 @@ public class Helper {
         return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
-    static boolean classExists(String className) {
-        try {
-            Class.forName(className);
-            return true;
-        } catch (ClassNotFoundException ignored) {
-            return false;
-        }
-    }
-
     static Address myAddress() throws UnsupportedEncodingException {
         return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
     }

@@ -1513,7 +1513,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         this.dp24 = Math.round(24 * context.getResources().getDisplayMetrics().density);
         this.theme = prefs.getString("theme", "light");
-        this.hasWebView = Helper.classExists("android.webkit.WebView");
+
+        PackageManager pm = context.getPackageManager();
+        this.hasWebView = pm.hasSystemFeature("android.software.webview");
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
