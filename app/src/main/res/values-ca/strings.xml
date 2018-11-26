@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Respon a tots</string>
     <string name="title_show_headers">Mostra les capçaleres</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Veure l\'original</string>
     <string name="title_trash">Paperera</string>
     <string name="title_delete">Eliminar</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_undo">Desfés</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Prova FairEmail, una aplicació de correu-e per a Android, de codi obert i que respecta la privacitat</string>
     <string name="title_pro_feature">Això es una característica Pro</string>
     <string name="title_pro_list">Llista de característiques Pro</string>

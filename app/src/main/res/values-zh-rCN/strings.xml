@@ -178,6 +178,8 @@
     <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">回复全部</string>
     <string name="title_show_headers">显示标题</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">显示原件</string>
     <string name="title_trash">回收站</string>
     <string name="title_delete">删除</string>
@@ -285,6 +287,7 @@
     <string name="title_yes">是</string>
     <string name="title_no">否</string>
     <string name="title_undo">撤销</string>
+    <string name="title_add">Add</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

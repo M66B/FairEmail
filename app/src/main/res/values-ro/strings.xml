@@ -188,7 +188,9 @@
     <string name="title_forward_raw">Redirecționează mesajul original</string>
     <string name="title_reply_all">Răspunde tuturor</string>
     <string name="title_show_headers">Arată antetul</string>
-    <string name="title_show_html">Arată original</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
+    <string name="title_show_html">Arată originalul</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_delete">Şterge</string>
     <string name="title_more">Mai mult</string>
@@ -224,7 +226,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
-    <string name="title_view">View</string>
+    <string name="title_view">Afisare</string>
     <string name="title_no_selection">Nimic selectat</string>
     <string name="title_clipboard_empty">Clipboardul este gol</string>
     <string name="title_style_bold">Îngroșat</string>
@@ -295,6 +297,7 @@
     <string name="title_yes">Da</string>
     <string name="title_no">Nu</string>
     <string name="title_undo">Anulează</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

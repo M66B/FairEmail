@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Svara till alla</string>
     <string name="title_show_headers">Show headers</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Visa originalet</string>
     <string name="title_trash">Papperskorg</string>
     <string name="title_delete">Ta bort</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>
     <string name="title_undo">Ångra</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Prova FairEmail, en e-postapp för Android med öppen källkod som respekterar din integritet</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
     <string name="title_pro_list">Lista över pro-funktioner</string>

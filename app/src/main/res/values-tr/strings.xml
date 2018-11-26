@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">Tümünü yanıtla</string>
     <string name="title_show_headers">Başlıkları Göster</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Orjinali göster</string>
     <string name="title_trash">Çöp Kutusu</string>
     <string name="title_delete">Sil</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Evet</string>
     <string name="title_no">Hayır</string>
     <string name="title_undo">Geri Al</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>

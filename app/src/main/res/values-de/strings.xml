@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Weiterleiten in Rohform</string>
     <string name="title_reply_all">Antworten an alle</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Original anzeigen</string>
     <string name="title_trash">Löschen</string>
     <string name="title_delete">Löschen</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
     <string name="title_undo">Rückgängig</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>

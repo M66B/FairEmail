@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Yönləndirmə sətri</string>
     <string name="title_reply_all">Hamısını cavabla</string>
     <string name="title_show_headers">Başlıqları göstər</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Həqiqisini göstər</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_delete">Sil</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
     <string name="title_undo">Geri qaytar</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>

@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Transférer en mode brut</string>
     <string name="title_reply_all">Répondre à tous</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Afficher l\'original</string>
     <string name="title_trash">Corbeille</string>
     <string name="title_delete">Supprimer</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Oui</string>
     <string name="title_no">Non</string>
     <string name="title_undo">Annuler</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s’agit d’une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>

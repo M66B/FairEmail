@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Reenviar sin formato</string>
     <string name="title_reply_all">Responder a todos</string>
     <string name="title_show_headers">Mostrar encabezados</string>
+    <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_html">Mostrar original</string>
     <string name="title_trash">Papelera</string>
     <string name="title_delete">Eliminar</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Sí</string>
     <string name="title_no">No</string>
     <string name="title_undo">Deshacer</string>
+    <string name="title_add">Add</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

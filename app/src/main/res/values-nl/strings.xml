@@ -183,6 +183,8 @@
     <string name="title_forward_raw">Ruw doorsturen</string>
     <string name="title_reply_all">Allen beantwoorden</string>
     <string name="title_show_headers">Toon koppen</string>
+    <string name="title_manage_keywords">Trefwoorden beheren</string>
+    <string name="title_add_keyword">Trefwoord toevoegen</string>
     <string name="title_show_html">Toon origineel</string>
     <string name="title_trash">Weggooien</string>
     <string name="title_delete">Verwijder</string>
@@ -290,6 +292,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
     <string name="title_undo">Ongedaan maken</string>
+    <string name="title_add">Toevoegen</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>
