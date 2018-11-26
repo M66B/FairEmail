@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.mail.FetchProfile;
+import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.FolderClosedException;
 import javax.mail.Message;
@@ -41,6 +42,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.UIDFolder;
 import javax.mail.search.BodyTerm;
+import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.RecipientStringTerm;
@@ -159,13 +161,16 @@ public class ViewModelBrowse extends ViewModel {
                 state.imessages = state.ifolder.search(
                         new OrTerm(
                                 new OrTerm(
-                                        new FromStringTerm(state.search),
-                                        new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                        new OrTerm(
+                                                new FromStringTerm(state.search),
+                                                new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                        ),
+                                        new OrTerm(
+                                                new SubjectTerm(state.search),
+                                                new BodyTerm(state.search)
+                                        )
                                 ),
-                                new OrTerm(
-                                        new SubjectTerm(state.search),
-                                        new BodyTerm(state.search)
-                                )
+                                new FlagTerm(new Flags(Helper.sanitizeKeyword(state.search)), true)
                         )
                 );
             Log.i(Helper.TAG, "Boundary found messages=" + state.imessages.length);
