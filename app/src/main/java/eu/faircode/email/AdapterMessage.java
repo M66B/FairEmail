@@ -286,6 +286,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvError.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
 
+            tvKeywords.setVisibility(View.GONE);
+
             pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
