@@ -35,6 +35,10 @@
         android:title="@string/title_show_headers" />
 
     <item
+        android:id="@+id/menu_manage_keywords"
+        android:title="@string/title_manage_keywords" />
+
+    <item
         android:id="@+id/menu_decrypt"
         android:title="@string/title_decrypt" />
 </menu>

@@ -1500,7 +1500,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         // https://tools.ietf.org/html/rfc3501#section-2.3.2
-        String keyword = jargs.getString(0);
+        String keyword = Helper.sanitizeKeyword(jargs.getString(0));
         boolean set = jargs.getBoolean(1);
 
         Message imessage = ifolder.getMessageByUID(message.uid);

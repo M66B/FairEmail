@@ -78,6 +78,7 @@ import java.text.Collator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -1156,6 +1157,86 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 notifyDataSetChanged();
         }
 
+        private void onManageKeywords(ActionData data) {
+            Bundle args = new Bundle();
+            args.putSerializable("message", data.message);
+
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onLoad(Context context, Bundle args) throws Throwable {
+                    EntityMessage message = (EntityMessage) args.getSerializable("message");
+                    return DB.getInstance(context).folder().getFolder(message.folder);
+                }
+
+                @Override
+                protected void onLoaded(final Bundle args, EntityFolder folder) {
+                    EntityMessage message = (EntityMessage) args.getSerializable("message");
+
+                    List<String> keywords = Arrays.asList(message.keywords);
+
+                    final List<String> items = new ArrayList<>(keywords);
+                    for (String keyword : folder.keywords)
+                        if (!items.contains(keyword))
+                            items.add(keyword);
+
+                    Collections.sort(items);
+
+                    final boolean selected[] = new boolean[items.size()];
+                    final boolean dirty[] = new boolean[items.size()];
+                    for (int i = 0; i < selected.length; i++) {
+                        selected[i] = keywords.contains(items.get(i));
+                        dirty[i] = false;
+                    }
+
+                    new DialogBuilderLifecycle(context, owner)
+                            .setTitle(R.string.title_manage_keywords)
+                            .setMultiChoiceItems(items.toArray(new String[0]), selected, new DialogInterface.OnMultiChoiceClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                    dirty[which] = true;
+                                }
+                            })
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    args.putStringArray("keywords", items.toArray(new String[0]));
+                                    args.putBooleanArray("selected", selected);
+                                    args.putBooleanArray("dirty", dirty);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                            EntityMessage message = (EntityMessage) args.getSerializable("message");
+                                            String[] keywords = args.getStringArray("keywords");
+                                            boolean[] selected = args.getBooleanArray("selected");
+                                            boolean[] dirty = args.getBooleanArray("dirty");
+
+                                            DB db = DB.getInstance(context);
+
+                                            try {
+                                                db.beginTransaction();
+
+                                                for (int i = 0; i < selected.length; i++)
+                                                    if (dirty[i])
+                                                        EntityOperation.queue(db, message, EntityOperation.KEYWORD, keywords[i], selected[i]);
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
+                                            }
+
+                                            EntityOperation.process(context);
+
+                                            return null;
+                                        }
+                                    }.load(context, owner, args);
+                                }
+                            })
+                            .show();
+                }
+            }.load(context, owner, args);
+        }
+
         private void onDecrypt(ActionData data) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
@@ -1187,6 +1268,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
 
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(data.message.uid != null);
+
             popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(data.message.to != null && data.message.to.length > 0);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -1216,6 +1299,9 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);
+                            return true;
+                        case R.id.menu_manage_keywords:
+                            onManageKeywords(data);
                             return true;
                         case R.id.menu_decrypt:
                             onDecrypt(data);

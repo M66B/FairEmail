@@ -445,4 +445,9 @@ public class Helper {
 
         return true;
     }
+
+    static String sanitizeKeyword(String keyword) {
+        // ()}%*"\]
+        return keyword.replaceAll("[^A-Za-z0-9]", "");
+    }
 }
