@@ -86,7 +86,7 @@
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
-    <string name="title_advanced_actionbar">Conversation action bar</string>
+    <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
@@ -104,7 +104,7 @@
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
     <string name="title_account_signature">İmza mətni</string>
     <string name="title_account_color">Rəng</string>
-    <string name="title_account_notify">Separate notifications</string>
+    <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>
     <string name="title_no_settings">Tənzimləmələr tapılmadı</string>
@@ -183,8 +183,8 @@
     <string name="title_forward_raw">Yönləndirmə sətri</string>
     <string name="title_reply_all">Hamısını cavabla</string>
     <string name="title_show_headers">Başlıqları göstər</string>
-    <string name="title_manage_keywords">Manage keywords</string>
-    <string name="title_add_keyword">Add keyword</string>
+    <string name="title_manage_keywords">Açar sözləri idarə et</string>
+    <string name="title_add_keyword">Açarsöz əlavə et</string>
     <string name="title_show_html">Həqiqisini göstər</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_delete">Sil</string>
@@ -221,7 +221,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Saxla</string>
     <string name="title_send">Göndər</string>
-    <string name="title_view">View</string>
+    <string name="title_view">Bax</string>
     <string name="title_no_selection">Heçnə seçilmədi</string>
     <string name="title_clipboard_empty">Lövhə boşdur</string>
     <string name="title_style_bold">Qalın</string>
@@ -269,7 +269,7 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Qoşma</string>
     <string name="title_legend_contacts">Şəxslər</string>
-    <string name="title_legend_image">Image placeholder</string>
+    <string name="title_legend_image">Təsvir yeri</string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
     <string name="title_legend_synchronize_off">Eyniləşdirmə bağlı</string>
     <string name="title_legend_primary">Üstünlük verilən/ulduzlu</string>
@@ -292,7 +292,7 @@
     <string name="title_yes">Bəli</string>
     <string name="title_no">Xeyr</string>
     <string name="title_undo">Geri qaytar</string>
-    <string name="title_add">Add</string>
+    <string name="title_add">Əlavə et</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>
