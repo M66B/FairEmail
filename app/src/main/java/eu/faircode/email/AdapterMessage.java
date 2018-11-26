@@ -1232,6 +1232,38 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                     }.load(context, owner, args);
                                 }
                             })
+                            .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    final EditText etKeyword = new EditText(context);
+                                    new DialogBuilderLifecycle(context, owner)
+                                            .setTitle(R.string.title_add)
+                                            .setView(etKeyword)
+                                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    String keyword = Helper.sanitizeKeyword(etKeyword.getText().toString());
+                                                    if (!TextUtils.isEmpty(keyword)) {
+                                                        args.putString("keyword", keyword);
+
+                                                        new SimpleTask<Void>() {
+                                                            @Override
+                                                            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                                                EntityMessage message = (EntityMessage) args.getSerializable("message");
+                                                                String keyword = args.getString("keyword");
+
+                                                                DB db = DB.getInstance(context);
+                                                                EntityOperation.queue(db, message, EntityOperation.KEYWORD, keyword, true);
+                                                                EntityOperation.process(context);
+
+                                                                return null;
+                                                            }
+                                                        }.load(context, owner, args);
+                                                    }
+                                                }
+                                            }).show();
+                                }
+                            })
                             .show();
                 }
             }.load(context, owner, args);
