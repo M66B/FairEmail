@@ -267,7 +267,7 @@
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
     <string name="title_legend_contacts">Contactos</string>
-    <string name="title_legend_image">Marcador de posición de imagen</string>
+    <string name="title_legend_image">Imagen</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_primary">Primario/destacado</string>
