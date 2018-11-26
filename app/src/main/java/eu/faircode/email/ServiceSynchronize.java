@@ -2109,13 +2109,14 @@ public class ServiceSynchronize extends LifecycleService {
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;
+            message.keywords = keywords;
             message.ui_seen = seen;
             message.ui_answered = answered;
             message.ui_flagged = flagged;
             message.ui_hide = false;
             message.ui_found = found;
             message.ui_ignored = false;
-            message.keywords = keywords;
+            message.ui_browsed = browsed;
             message.getAvatar(context);
 
             message.id = db.message().insertMessage(message);
