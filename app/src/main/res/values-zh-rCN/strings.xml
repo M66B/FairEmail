@@ -74,6 +74,7 @@
     <string name="title_setup_black_background">黑色背景</string>
     <string name="title_advanced">高级选项</string>
     <string name="title_advanced_enabled">同步</string>
+    <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>

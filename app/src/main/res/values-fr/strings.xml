@@ -79,6 +79,7 @@
     <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_enabled">Synchroniser</string>
+    <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>

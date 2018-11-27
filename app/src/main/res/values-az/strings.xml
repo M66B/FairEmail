@@ -79,6 +79,7 @@
     <string name="title_setup_black_background">Qara arxafon</string>
     <string name="title_advanced">Qabaqcıl variantlar</string>
     <string name="title_advanced_enabled">Eyniləşdirmə</string>
+    <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_compact">Yığcam mesaj görünüşü</string>
     <string name="title_advanced_avatars">Şəxs fotolarını göstər</string>
     <string name="title_advanced_identicons">İdentikon-ları göstər</string>

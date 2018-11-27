@@ -79,6 +79,7 @@
     <string name="title_setup_black_background">Sfondo nero</string>
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_enabled">Sincronizza</string>
+    <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_compact">Visualizzazione messaggio compatto</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
