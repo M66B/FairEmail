@@ -818,7 +818,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     db.account().setAccountState(account.id, "connected");
                     db.account().setAccountConnected(account.id, new Date().getTime());
-                    db.account().setAccountError(account.id, null);
+                    db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                     NotificationManager nm = getSystemService(NotificationManager.class);
                     nm.cancel("receive", account.id.intValue());
