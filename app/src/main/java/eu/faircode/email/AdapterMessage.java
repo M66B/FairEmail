@@ -1130,7 +1130,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private void onShowHeaders(ActionData data) {
             boolean show_headers = !properties.showHeaders(data.message.id);
             properties.setHeaders(data.message.id, show_headers);
-            if (show_headers) {
+            if (show_headers && data.message.headers == null) {
                 grpHeaders.setVisibility(View.VISIBLE);
                 pbHeaders.setVisibility(View.VISIBLE);
 
