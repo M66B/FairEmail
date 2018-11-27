@@ -53,6 +53,7 @@ Anything on this list is in random order and *might* be added in the near future
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save.
 * Show single messages: listing single messages just clutters the list without much benefit, so this will not be added.
+* S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -197,6 +198,9 @@ Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reaso
 Encryption/decryption is a pro feature.
 
 Sending inline PGP encrypted messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+
+S/MIME is not supported because it is not used much and because key management is complex.
+There are also [security concerns](https://security.stackexchange.com/a/83752).
 
 Note that signed only or encrypted only messages are not supported, see here for some considerations:
 
