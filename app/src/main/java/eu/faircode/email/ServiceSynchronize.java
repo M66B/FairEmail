@@ -182,6 +182,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 Widget.update(ServiceSynchronize.this, messages.size());
 
+                LongSparseArray<String> accountName = new LongSparseArray<>();
                 LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
 
                 for (int i = 0; i < notifying.size(); i++)
@@ -189,6 +190,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                 for (TupleMessageEx message : messages) {
                     long account = (message.accountNotify ? message.account : 0);
+                    accountName.put(account, account > 0 ? message.accountName : null);
                     if (accountMessages.indexOfKey(account) < 0)
                         accountMessages.put(account, new ArrayList<TupleMessageEx>());
                     accountMessages.get(account).add(message);
@@ -198,7 +200,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                 for (int i = 0; i < accountMessages.size(); i++) {
                     long account = accountMessages.keyAt(i);
-                    List<Notification> notifications = getNotificationUnseen(account, accountMessages.get(account));
+                    List<Notification> notifications = getNotificationUnseen(
+                            account, accountName.get(account), accountMessages.get(account));
 
                     List<Integer> all = new ArrayList<>();
                     List<Integer> added = new ArrayList<>();
@@ -391,7 +394,7 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private List<Notification> getNotificationUnseen(long account, List<TupleMessageEx> messages) {
+    private List<Notification> getNotificationUnseen(long account, String accountName, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
         if (messages.size() == 0)
@@ -432,6 +435,9 @@ public class ServiceSynchronize extends LifecycleService {
                 .setCategory(Notification.CATEGORY_STATUS)
                 .setVisibility(Notification.VISIBILITY_PUBLIC);
 
+        if (!TextUtils.isEmpty(accountName))
+            pbuilder.setSubText(accountName);
+
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -452,6 +458,9 @@ public class ServiceSynchronize extends LifecycleService {
                 .setPublicVersion(pbuilder.build())
                 .setGroup(group)
                 .setGroupSummary(true);
+
+        if (!TextUtils.isEmpty(accountName))
+            builder.setSubText(accountName);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             builder.setSound(null);
@@ -534,6 +543,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_mail_24)
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
+                    .setSubText(message.accountName)
                     .setContentIntent(piContent)
                     .setSound(uri)
                     .setWhen(message.received)
