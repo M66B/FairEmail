@@ -1206,6 +1206,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             throw new FolderClosedException(folders.get(folder));
                                     } else
                                         synchronizeMessages(account, folder, folders.get(folder), state);
+
+                                db.account().setAccountConnected(account.id, new Date().getTime());
                             }
 
                         }
