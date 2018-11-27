@@ -131,6 +131,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
+    private static final float LOW_LIGHT = 0.6f;
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
@@ -310,6 +311,22 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             pbLoading.setVisibility(View.GONE);
 
+            if (viewType == ViewType.THREAD) {
+                ivFlagged.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivAvatar.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvFrom.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvSize.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvTime.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivAnswered.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivAttachments.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvSubject.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvFolder.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvCount.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivThread.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvPreview.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                tvError.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+            }
+
             boolean photo = false;
             if (avatars && !outgoing) {
                 if (message.avatar != null)
@@ -350,25 +367,24 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
 
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
-            tvSize.setAlpha(message.content ? 1.0f : 0.5f);
+            if (!message.duplicate)
+                tvSize.setAlpha(message.content ? 1.0f : LOW_LIGHT);
             tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
 
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvSubject.setText(message.subject);
 
-            tvPreview.setText(message.preview);
-            tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
-
             if (viewType == ViewType.UNIFIED)
                 tvFolder.setText(message.accountName);
-            else {
+            else
                 tvFolder.setText(message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay);
-                tvFolder.setAlpha(message.duplicate ? 0.5f : 1.0f);
-            }
             tvFolder.setVisibility(viewType == ViewType.FOLDER ? View.GONE : View.VISIBLE);
+
+            tvPreview.setText(message.preview);
+            tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.THREAD) {
                 tvCount.setVisibility(View.GONE);
@@ -402,6 +418,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
             }
 
+            // Unseen
             int typeface = (message.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
             tvFrom.setTypeface(null, typeface);
             tvTime.setTypeface(null, typeface);
