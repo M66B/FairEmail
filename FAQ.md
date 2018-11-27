@@ -514,8 +514,20 @@ reduce the number of days to synchronize messages for, but leave the number of d
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
+If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
+you can save battery usage while viewing messages by switching to the black theme (this is a pro features).
+
+
 <a name="faq40"></a>
-**(40) How can I fix the error 'xxx failed' ?**
+**(40) How can I reduce the network usage of FairEmail?**
+
+You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
+Additionally, you can set FairEmail to download small messages and attachments on a metered (mobile, paid) connection only.
+This is an account specific setting accessible via *Setup* > *Manage accounts*.
+
+
+<a name="faq41"></a>
+**(41) How can I fix the error 'xxx failed' ?**
 
 If the error message is *Couldn't connect to host ...*,
 please make sure FairEmail can connect to the configured server and isn't blocked by a firewall, etc.
