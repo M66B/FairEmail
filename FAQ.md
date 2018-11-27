@@ -514,6 +514,12 @@ reduce the number of days to synchronize messages for, but leave the number of d
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
+<a name="faq40"></a>
+**(40) How can I fix the error 'xxx failed' ?**
+
+If the error message is *Couldn't connect to host ...*,
+please make sure FairEmail can connect to the configured server and isn't blocked by a firewall, etc.
+
 
 ## Support
 
