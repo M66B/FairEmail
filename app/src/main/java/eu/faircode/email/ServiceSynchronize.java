@@ -690,7 +690,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             int backoff = CONNECT_BACKOFF_START;
             while (state.running) {
-                EntityLog.log(this, account.name + " run");
+                Log.i(Helper.TAG, account.name + " run");
 
                 // Debug
                 boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
@@ -797,7 +797,7 @@ public class ServiceSynchronize extends LifecycleService {
                     });
 
                     // Initiate connection
-                    Log.i(Helper.TAG, account.name + " connect");
+                    EntityLog.log(this, account.name + " connecting");
                     for (EntityFolder folder : db.folder().getFolders(account.id))
                         db.folder().setFolderState(folder.id, null);
                     db.account().setAccountState(account.id, "connecting");
