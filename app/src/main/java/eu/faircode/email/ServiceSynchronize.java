@@ -602,6 +602,10 @@ public class ServiceSynchronize extends LifecycleService {
         PendingIntent pi = PendingIntent.getActivity(
                 this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        String text = ex.getMessage();
+        if (TextUtils.isEmpty(text))
+            text = ex.getClass().getName();
+
         // Build notification
         Notification.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -612,7 +616,7 @@ public class ServiceSynchronize extends LifecycleService {
         builder
                 .setSmallIcon(android.R.drawable.stat_notify_error)
                 .setContentTitle(getString(R.string.title_notification_failed, action))
-                .setContentText(Helper.formatThrowable(ex))
+                .setContentText(text)
                 .setContentIntent(pi)
                 .setAutoCancel(false)
                 .setShowWhen(true)
