@@ -508,6 +508,9 @@ Note that you can set the number of days to *keep* messages for to a higher numb
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
 
+If you got the message *This provider does not support push messages* while configuring an account,
+consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
+
 
 ## Support
 
