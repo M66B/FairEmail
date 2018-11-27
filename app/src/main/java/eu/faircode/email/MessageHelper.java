@@ -63,10 +63,9 @@ public class MessageHelper {
     private MimeMessage imessage;
     private String raw = null;
 
-    final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
-    final static int CLOSE_TIMEOUT = 20 * 1000; // milliseconds
-    final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
-    final static int POOL_TIMEOUT = 3 * 60 * 1000; // milliseconds, default 45 sec
+    private final static int NETWORK_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int FETCH_SIZE = 1024 * 1024; // bytes, default 16K
+    private final static int POOL_TIMEOUT = 3 * 60 * 1000; // milliseconds, default 45 sec
 
     static Properties getSessionProperties(int auth_type, boolean insecure) {
         Properties props = new Properties();

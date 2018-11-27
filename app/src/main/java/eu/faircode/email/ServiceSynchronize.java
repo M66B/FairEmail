@@ -36,7 +36,6 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
@@ -136,9 +135,10 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
-    private static final long RECONNECT_BACKOFF = 60 * 1000L; // milliseconds
+    private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
+    private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_WHY = 1;
     static final int PI_CLEAR = 2;
@@ -242,7 +242,7 @@ public class ServiceSynchronize extends LifecycleService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
 
-        serviceManager.onLost(null);
+        serviceManager.service_destroy();
 
         Widget.update(this, -1);
 
@@ -279,13 +279,15 @@ public class ServiceSynchronize extends LifecycleService {
                     prefs.edit().putBoolean("why", true).apply();
                     startActivity(why);
                 }
-            } else if ("start".equals(action))
-                serviceManager.queue_start();
-            else if ("stop".equals(action))
-                serviceManager.queue_stop();
-            else if ("reload".equals(action))
-                serviceManager.queue_reload();
-            else if ("clear".equals(action)) {
+
+            } else if ("init".equals(action)) {
+                // Network events will manage the service
+                serviceManager.service_init();
+
+            } else if ("reload".equals(action)) {
+                serviceManager.queue_reload(true, intent.getStringExtra("reason"));
+
+            } else if ("clear".equals(action)) {
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
@@ -293,6 +295,7 @@ public class ServiceSynchronize extends LifecycleService {
                         return null;
                     }
                 }.load(this, new Bundle());
+
             } else if (action.startsWith("seen:") ||
                     action.startsWith("archive:") ||
                     action.startsWith("trash:") ||
@@ -668,6 +671,8 @@ public class ServiceSynchronize extends LifecycleService {
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
 
+        // connection failure: Too many simultaneous connections
+
         if (BuildConfig.DEBUG &&
                 !(ex instanceof SendFailedException) &&
                 !(ex instanceof MailConnectException) &&
@@ -731,7 +736,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
                                 if (BuildConfig.DEBUG)
                                     db.account().setAccountError(account.id, e.getMessage());
-                                state.semaphore.release();
+                                state.thread.interrupt();
                                 yieldWakelock();
                             } finally {
                                 wl.release();
@@ -751,7 +756,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder created");
-                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -769,7 +773,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
 
                                 reload(ServiceSynchronize.this, "folder renamed");
-                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -781,7 +784,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 wl.acquire();
                                 Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder deleted");
-                                yieldWakelock();
                             } finally {
                                 wl.release();
                             }
@@ -852,7 +854,11 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             ifolder.open(Folder.READ_WRITE);
                         } catch (Throwable ex) {
-                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                            if (ex instanceof MessagingException && "connection failure".equals(ex.getMessage())) {
+                                Throwable ex1 = new MessagingException("Too many simultaneous connections?", (MessagingException) ex);
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1));
+                            } else
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                             throw ex;
                         }
                         folders.put(folder, ifolder);
@@ -923,10 +929,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 } catch (Throwable ex) {
                                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     reportError(account.name, folder.name, ex);
-
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                                    state.semaphore.release();
+                                                    state.thread.interrupt();
                                                     yieldWakelock();
                                                 } finally {
                                                     wl.release();
@@ -954,10 +958,9 @@ public class ServiceSynchronize extends LifecycleService {
                                                 } catch (Throwable ex) {
                                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     reportError(account.name, folder.name, ex);
-
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                                    state.semaphore.release();
+                                                    state.thread.interrupt();
+                                                    yieldWakelock();
                                                 } finally {
                                                     wl.release();
                                                 }
@@ -1008,10 +1011,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 } catch (Throwable ex) {
                                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                     reportError(account.name, folder.name, ex);
-
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                                    state.semaphore.release();
+                                                    state.thread.interrupt();
                                                     yieldWakelock();
                                                 } finally {
                                                     wl.release();
@@ -1022,10 +1023,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                     reportError(account.name, folder.name, ex);
-
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                    state.semaphore.release();
+                                    state.thread.interrupt();
                                     yieldWakelock();
                                 } finally {
                                     wl.release();
@@ -1051,10 +1050,8 @@ public class ServiceSynchronize extends LifecycleService {
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account.name, folder.name, ex);
-
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-
-                                        state.semaphore.release();
+                                        state.thread.interrupt();
                                         yieldWakelock();
                                     } finally {
                                         Log.i(Helper.TAG, folder.name + " end idle");
@@ -1129,7 +1126,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             reportError(account.name, folder.name, ex);
-
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         } finally {
                                             if (shouldClose) {
@@ -1248,29 +1244,11 @@ public class ServiceSynchronize extends LifecycleService {
 
                     // Close store
                     try {
-                        Thread t = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    EntityLog.log(ServiceSynchronize.this, account.name + " store closing");
-                                    istore.close();
-                                    EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
-                                } catch (Throwable ex) {
-                                    Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                }
-                            }
-                        });
-                        t.start();
-                        try {
-                            t.join(MessageHelper.CLOSE_TIMEOUT);
-                            if (t.isAlive()) {
-                                Log.w(Helper.TAG, account.name + " Close timeout");
-                                t.interrupt();
-                            }
-                        } catch (InterruptedException ex) {
-                            Log.w(Helper.TAG, account.name + " close wait " + ex.toString());
-                            t.interrupt();
-                        }
+                        EntityLog.log(ServiceSynchronize.this, account.name + " store closing");
+                        istore.close();
+                        EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
+                    } catch (Throwable ex) {
+                        Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
                         EntityLog.log(this, account.name + " closed");
                         db.account().setAccountState(account.id, null);
@@ -2271,7 +2249,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private class ServiceManager extends ConnectivityManager.NetworkCallback {
         private ServiceState state;
-        private boolean running = false;
+        private boolean started = false;
         private int queued = 0;
         private long lastLost = 0;
         private EntityFolder outbox = null;
@@ -2279,60 +2257,70 @@ public class ServiceSynchronize extends LifecycleService {
         private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            boolean metered = prefs.getBoolean("metered", true);
+
+            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+            NetworkCapabilities nc = cm.getNetworkCapabilities(network);
+            boolean unmetered = nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+
+            if (!started && (metered || unmetered))
+                EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
+
+            if (!started && suitableNetwork())
+                queue_reload(true, "connect " + network);
+        }
+
+        @Override
         public void onAvailable(Network network) {
             ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            NetworkInfo ni = cm.getNetworkInfo(network);
-            EntityLog.log(ServiceSynchronize.this, "Network available " + network + " running=" + running + " " + ni);
+            EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
 
-            if (!running) {
-                running = true;
-                queued++;
-                lifecycle.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Log.i(Helper.TAG, "Starting service");
-                            start();
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            queued--;
-                        }
-                    }
-                });
-            }
+            if (!started && suitableNetwork())
+                queue_reload(true, "connect " + network);
         }
 
         @Override
         public void onLost(Network network) {
-            EntityLog.log(ServiceSynchronize.this, "Network lost " + network + " running=" + running);
+            EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
-            if (running) {
-                ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-                NetworkInfo ani = (network == null ? null : cm.getActiveNetworkInfo());
-                EntityLog.log(ServiceSynchronize.this, "Network active=" + (ani == null ? null : ani.toString()));
-                if (ani == null || !ani.isConnected()) {
-                    EntityLog.log(ServiceSynchronize.this, "Network disconnected=" + ani);
-                    running = false;
-                    lastLost = new Date().getTime();
-                    queued++;
-                    lifecycle.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                stop();
-                            } catch (Throwable ex) {
-                                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            } finally {
-                                queued--;
-                            }
-                        }
-                    });
-                }
+            if (started && !suitableNetwork()) {
+                lastLost = new Date().getTime();
+                queue_reload(false, "disconnect " + network);
             }
         }
 
-        private void start() {
+        private boolean suitableNetwork() {
+            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+            Network network = cm.getActiveNetwork();
+            NetworkCapabilities nc = (network == null ? null : cm.getNetworkCapabilities(network));
+            boolean unmetered = (!cm.isActiveNetworkMetered() ||
+                    (nc != null && nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)));
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            boolean metered = prefs.getBoolean("metered", true);
+
+            // The connected state is deliberately ignored
+            return (metered || unmetered);
+        }
+
+        private boolean isEnabled() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+            return prefs.getBoolean("enabled", true);
+        }
+
+        private void service_init() {
+            EntityLog.log(ServiceSynchronize.this, "Service init");
+        }
+
+        private void service_destroy() {
+            EntityLog.log(ServiceSynchronize.this, "Service destroy");
+            if (started)
+                queue_reload(false, "service destroy");
+        }
+
+        private void _start() {
             EntityLog.log(ServiceSynchronize.this, "Main start queued=" + queued);
 
             state = new ServiceState();
@@ -2352,15 +2340,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                         outbox = db.folder().getOutbox();
                         if (outbox == null) {
-                            EntityLog.log(ServiceSynchronize.this, "No outbox, halt");
-                            serviceManager.queue_stop();
-                            return;
-                        }
-
-                        List<EntityAccount> accounts = db.account().getAccounts(true);
-                        if (accounts.size() == 0) {
-                            EntityLog.log(ServiceSynchronize.this, "No accounts, halt");
-                            serviceManager.queue_stop();
+                            EntityLog.log(ServiceSynchronize.this, "No outbox");
                             return;
                         }
 
@@ -2391,6 +2371,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 .putExtra("folder", outbox.id));
 
                         // Start monitoring accounts
+                        List<EntityAccount> accounts = db.account().getAccounts(true);
                         for (final EntityAccount account : accounts) {
                             Log.i(Helper.TAG, account.host + "/" + account.user + " run");
                             final ServiceState astate = new ServiceState();
@@ -2425,8 +2406,9 @@ public class ServiceSynchronize extends LifecycleService {
                         for (ServiceState astate : threadState) {
                             astate.running = false;
                             astate.semaphore.release();
-                            join(astate.thread);
                         }
+                        for (ServiceState astate : threadState)
+                            join(astate.thread);
                         threadState.clear();
 
                         // Stop monitoring outbox
@@ -2449,7 +2431,7 @@ public class ServiceSynchronize extends LifecycleService {
             yieldWakelock();
         }
 
-        private void stop() {
+        private void _stop() {
             PowerManager pm = getSystemService(PowerManager.class);
             PowerManager.WakeLock wl = pm.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK,
@@ -2471,68 +2453,41 @@ public class ServiceSynchronize extends LifecycleService {
             }
         }
 
-        private void queue_reload() {
-            if (running) {
-                queued++;
-                lifecycle.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            stop();
-                            start();
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            queued--;
-                        }
-                    }
-                });
-            }
-        }
+        private void queue_reload(final boolean start, String reason) {
+            EntityLog.log(ServiceSynchronize.this, "Reload start=" + start +
+                    " started=" + started + " queued=" + queued + " " + reason);
 
-        private void queue_start() {
-            if (!running) {
-                running = true;
-                queued++;
-                lifecycle.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            start();
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            queued--;
-                        }
-                    }
-                });
-            }
-        }
+            final boolean doStop = started;
+            final boolean doStart = (start && isEnabled() && suitableNetwork());
 
-        private void queue_stop() {
-            if (running) {
-                running = false;
-                queued++;
-                lifecycle.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            stop();
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            if (--queued == 0) {
-                                try {
-                                    Thread.sleep(3000);
-                                } catch (InterruptedException ignored) {
-                                }
-                                if (queued == 0)
-                                    stopSelf();
+            queued++;
+            lifecycle.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        if (doStop)
+                            _stop();
+                        if (doStart)
+                            _start();
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        queued--;
+                        if (queued == 0 && !isEnabled()) {
+                            try {
+                                Thread.sleep(STOP_DELAY);
+                            } catch (InterruptedException ignored) {
+                            }
+                            if (queued == 0 && !isEnabled()) {
+                                EntityLog.log(ServiceSynchronize.this, "Service stop");
+                                stopSelf();
                             }
                         }
                     }
-                });
-            }
+                }
+            });
+
+            started = doStart;
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
@@ -2598,24 +2553,20 @@ public class ServiceSynchronize extends LifecycleService {
 
     public static void init(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (prefs.getBoolean("enabled", true))
-            start(context);
-    }
-
-    public static void start(Context context) {
-        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("start"));
-    }
-
-    public static void stop(Context context) {
-        ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("stop"));
+        if (prefs.getBoolean("enabled", true)) {
+            ContextCompat.startForegroundService(context,
+                    new Intent(context, ServiceSynchronize.class)
+                            .setAction("init"));
+            JobDaily.schedule(context);
+        }
     }
 
     public static void reload(Context context, String reason) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (prefs.getBoolean("enabled", true)) {
-            Log.i(Helper.TAG, "Reload because of '" + reason + "'");
-            ContextCompat.startForegroundService(context, new Intent(context, ServiceSynchronize.class).setAction("reload"));
-        }
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("reload")
+                        .putExtra("reason", reason));
+        JobDaily.schedule(context);
     }
 
     private class ServiceState {

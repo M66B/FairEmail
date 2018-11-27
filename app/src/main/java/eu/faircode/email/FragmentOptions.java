@@ -42,6 +42,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 public class FragmentOptions extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
+    private SwitchCompat swMetered;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCompact;
@@ -67,6 +68,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+        swMetered = view.findViewById(R.id.swMetered);
         swCompact = view.findViewById(R.id.swCompact);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
@@ -92,10 +94,16 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
-                if (checked)
-                    ServiceSynchronize.start(getContext());
-                else
-                    ServiceSynchronize.stop(getContext());
+                ServiceSynchronize.reload(getContext(), "enabled=" + checked);
+            }
+        });
+
+        swMetered.setChecked(prefs.getBoolean("metered", true));
+        swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("metered", checked).apply();
+                ServiceSynchronize.reload(getContext(), "metered=" + checked);
             }
         });
 

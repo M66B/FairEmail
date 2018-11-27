@@ -69,9 +69,6 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = !prefs.getBoolean("enabled", false);
         prefs.edit().putBoolean("enabled", enabled).apply();
-        if (enabled)
-            ServiceSynchronize.start(this);
-        else
-            ServiceSynchronize.stop(this);
+        ServiceSynchronize.reload(this, "tile=" + enabled);
     }
 }
