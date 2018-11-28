@@ -2330,14 +2330,14 @@ public class ServiceSynchronize extends LifecycleService {
 
             state = new ServiceState();
             state.thread = new Thread(new Runnable() {
+                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK,
+                        BuildConfig.APPLICATION_ID + ":start");
                 private List<ServiceState> threadState = new ArrayList<>();
 
                 @Override
                 public void run() {
-                    PowerManager pm = getSystemService(PowerManager.class);
-                    PowerManager.WakeLock wl = pm.newWakeLock(
-                            PowerManager.PARTIAL_WAKE_LOCK,
-                            BuildConfig.APPLICATION_ID + ":start");
                     try {
                         wl.acquire();
 
@@ -2457,13 +2457,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             queued++;
             lifecycle.submit(new Runnable() {
+                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK,
+                        BuildConfig.APPLICATION_ID + ":reload");
+
                 @Override
                 public void run() {
-                    PowerManager pm = getSystemService(PowerManager.class);
-                    PowerManager.WakeLock wl = pm.newWakeLock(
-                            PowerManager.PARTIAL_WAKE_LOCK,
-                            BuildConfig.APPLICATION_ID + ":reload");
-
                     try {
                         wl.acquire();
 
@@ -2502,13 +2502,13 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.v(Helper.TAG, outbox.name + " run operations");
 
                 executor.submit(new Runnable() {
+                    PowerManager pm = getSystemService(PowerManager.class);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK,
+                            BuildConfig.APPLICATION_ID + ":outbox");
+
                     @Override
                     public void run() {
-                        PowerManager pm = getSystemService(PowerManager.class);
-                        PowerManager.WakeLock wl = pm.newWakeLock(
-                                PowerManager.PARTIAL_WAKE_LOCK,
-                                BuildConfig.APPLICATION_ID + ":outbox");
-
                         try {
                             wl.acquire();
                             DB db = DB.getInstance(context);
