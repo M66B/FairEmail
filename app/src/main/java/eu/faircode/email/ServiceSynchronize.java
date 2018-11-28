@@ -2320,7 +2320,7 @@ public class ServiceSynchronize extends LifecycleService {
                 queue_reload(false, "service destroy");
         }
 
-        private void _start() {
+        private void start() {
             EntityLog.log(ServiceSynchronize.this, "Main start queued=" + queued);
 
             state = new ServiceState();
@@ -2431,47 +2431,48 @@ public class ServiceSynchronize extends LifecycleService {
             yieldWakelock();
         }
 
-        private void _stop() {
-            PowerManager pm = getSystemService(PowerManager.class);
-            PowerManager.WakeLock wl = pm.newWakeLock(
-                    PowerManager.PARTIAL_WAKE_LOCK,
-                    BuildConfig.APPLICATION_ID + ":stop");
-            try {
-                wl.acquire();
-                EntityLog.log(ServiceSynchronize.this, "Main stop");
+        private void stop() {
+            EntityLog.log(ServiceSynchronize.this, "Main stop");
 
-                state.running = false;
-                state.semaphore.release();
-                join(state.thread);
+            state.running = false;
+            state.semaphore.release();
+            join(state.thread);
 
-                EntityLog.log(ServiceSynchronize.this, "Main stopped queued=" + queued);
+            EntityLog.log(ServiceSynchronize.this, "Main stopped queued=" + queued);
 
-                state = null;
-            } finally {
-                wl.release();
-                EntityLog.log(ServiceSynchronize.this, "Stop wake lock=" + wl.isHeld());
-            }
+            state = null;
         }
 
         private void queue_reload(final boolean start, String reason) {
-            EntityLog.log(ServiceSynchronize.this, "Reload start=" + start +
-                    " started=" + started + " queued=" + queued + " " + reason);
-
             final boolean doStop = started;
             final boolean doStart = (start && isEnabled() && suitableNetwork());
+
+            EntityLog.log(ServiceSynchronize.this, "Reload start=" + start +
+                    " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
             queued++;
             lifecycle.submit(new Runnable() {
                 @Override
                 public void run() {
+                    PowerManager pm = getSystemService(PowerManager.class);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK,
+                            BuildConfig.APPLICATION_ID + ":reload");
+
                     try {
+                        wl.acquire();
+
                         if (doStop)
-                            _stop();
+                            stop();
+
                         if (doStart)
-                            _start();
+                            start();
+
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
+                        wl.release();
+
                         queued--;
                         if (queued == 0 && !isEnabled()) {
                             try {
