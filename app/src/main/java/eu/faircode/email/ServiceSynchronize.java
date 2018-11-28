@@ -839,7 +839,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
-                    db.account().setAccountConnected(account.id, new Date().getTime());
                     db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                     NotificationManager nm = getSystemService(NotificationManager.class);
@@ -1069,9 +1068,6 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     }
 
-                    // Successfully connected: reset back off time
-                    backoff = CONNECT_BACKOFF_START;
-
                     // Process folder actions
                     BroadcastReceiver processFolder = new BroadcastReceiver() {
                         @Override
@@ -1192,6 +1188,22 @@ public class ServiceSynchronize extends LifecycleService {
                     AlarmManager am = getSystemService(AlarmManager.class);
                     try {
                         while (state.running) {
+                            if (!istore.isConnected())
+                                throw new StoreClosedException(istore);
+
+                            for (EntityFolder folder : folders.keySet())
+                                if (capIdle) {
+                                    if (!folders.get(folder).isOpen())
+                                        throw new FolderClosedException(folders.get(folder));
+                                } else
+                                    synchronizeMessages(account, folder, folders.get(folder), state);
+
+                            // Successfully connected: reset back off time
+                            backoff = CONNECT_BACKOFF_START;
+
+                            // Record successful connection
+                            db.account().setAccountConnected(account.id, new Date().getTime());
+
                             // Schedule keep alive alarm
                             EntityLog.log(this, account.name + " wait=" + account.poll_interval);
                             am.setAndAllowWhileIdle(
@@ -1207,21 +1219,6 @@ public class ServiceSynchronize extends LifecycleService {
                             } finally {
                                 wl0.acquire();
                             }
-
-                            if (state.running) {
-                                if (!istore.isConnected())
-                                    throw new StoreClosedException(istore);
-
-                                for (EntityFolder folder : folders.keySet())
-                                    if (capIdle) {
-                                        if (!folders.get(folder).isOpen())
-                                            throw new FolderClosedException(folders.get(folder));
-                                    } else
-                                        synchronizeMessages(account, folder, folders.get(folder), state);
-
-                                db.account().setAccountConnected(account.id, new Date().getTime());
-                            }
-
                         }
                     } finally {
                         // Cleanup
