@@ -1887,7 +1887,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0; i -= SYNC_BATCH_SIZE) {
+            for (int i = imessages.length - 1; i >= 0 && state.running; i -= SYNC_BATCH_SIZE) {
                 int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                 //Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
@@ -1908,7 +1908,7 @@ public class ServiceSynchronize extends LifecycleService {
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
-                for (int j = isub.length - 1; j >= 0; j--)
+                for (int j = isub.length - 1; j >= 0 && state.running; j--)
                     try {
                         db.beginTransaction();
                         ids[from + j] = synchronizeMessage(
@@ -1931,10 +1931,11 @@ public class ServiceSynchronize extends LifecycleService {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
 
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ignored) {
-                }
+                if (state.running)
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ignored) {
+                    }
             }
 
             db.folder().setFolderState(folder.id, "downloading");
@@ -1943,14 +1944,14 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Download messages/attachments
             Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0; i -= DOWNLOAD_BATCH_SIZE) {
+            for (int i = imessages.length - 1; i >= 0 && state.running; i -= DOWNLOAD_BATCH_SIZE) {
                 int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
                 //Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                 // Fetch on demand
 
-                for (int j = isub.length - 1; j >= 0; j--)
+                for (int j = isub.length - 1; j >= 0 && state.running; j--)
                     try {
                         //Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
                         if (ids[from + j] != null) {
@@ -1968,14 +1969,15 @@ public class ServiceSynchronize extends LifecycleService {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
 
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ignored) {
-                }
+                if (state.running)
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ignored) {
+                    }
             }
 
         } finally {
-            Log.v(Helper.TAG, folder.name + " end sync");
+            Log.v(Helper.TAG, folder.name + " end sync running=" + state.running);
             db.folder().setFolderState(folder.id, ifolder.isOpen() ? "connected" : "disconnected");
         }
     }
