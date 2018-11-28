@@ -2251,7 +2251,7 @@ public class ServiceSynchronize extends LifecycleService {
         private int queued = 0;
         private long lastLost = 0;
         private EntityFolder outbox = null;
-        private ExecutorService lifecycle = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+        private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
         private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
@@ -2435,52 +2435,59 @@ public class ServiceSynchronize extends LifecycleService {
             state = null;
         }
 
-        private void queue_reload(final boolean start, String reason) {
-            final boolean doStop = started;
-            final boolean doStart = (start && isEnabled() && suitableNetwork());
+        private void queue_reload(final boolean start, final String reason) {
+            synchronized (queue) {
+                final boolean doStop = started;
+                final boolean doStart = (start && isEnabled() && suitableNetwork());
 
-            EntityLog.log(ServiceSynchronize.this, "Reload start=" + start +
-                    " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
+                EntityLog.log(ServiceSynchronize.this, "Queue reload " +
+                        " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
-            queued++;
-            lifecycle.submit(new Runnable() {
-                PowerManager pm = getSystemService(PowerManager.class);
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                        PowerManager.PARTIAL_WAKE_LOCK,
-                        BuildConfig.APPLICATION_ID + ":reload");
+                queued++;
+                queue.submit(new Runnable() {
+                    PowerManager pm = getSystemService(PowerManager.class);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK,
+                            BuildConfig.APPLICATION_ID + ":reload");
 
-                @Override
-                public void run() {
-                    try {
-                        wl.acquire();
+                    @Override
+                    public void run() {
+                        EntityLog.log(ServiceSynchronize.this, "Reload " +
+                                " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
-                        if (doStop)
-                            stop();
+                        try {
+                            wl.acquire();
 
-                        if (doStart)
-                            start();
+                            if (doStop)
+                                stop();
 
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    } finally {
-                        wl.release();
+                            if (doStart)
+                                start();
 
-                        queued--;
-                        if (queued == 0 && !isEnabled()) {
-                            try {
-                                Thread.sleep(STOP_DELAY);
-                            } catch (InterruptedException ignored) {
-                            }
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            wl.release();
+
+                            queued--;
+                            EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
+
                             if (queued == 0 && !isEnabled()) {
-                                EntityLog.log(ServiceSynchronize.this, "Service stop");
-                                stopSelf();
+                                try {
+                                    Thread.sleep(STOP_DELAY);
+                                } catch (InterruptedException ignored) {
+                                }
+                                if (queued == 0 && !isEnabled()) {
+                                    EntityLog.log(ServiceSynchronize.this, "Service stop");
+                                    stopSelf();
+                                }
                             }
                         }
                     }
-                }
-            });
+                });
 
-            started = doStart;
+                started = doStart;
+            }
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
