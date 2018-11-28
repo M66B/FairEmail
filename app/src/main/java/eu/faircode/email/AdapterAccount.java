@@ -21,7 +21,9 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +35,7 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,6 +47,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
+    private boolean debug;
 
     private List<EntityAccount> all = new ArrayList<>();
     private List<EntityAccount> filtered = new ArrayList<>();
@@ -57,6 +61,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         TextView tvUser;
         TextView tvHost;
         ImageView ivState;
+        TextView tvLast;
         TextView tvError;
 
         ViewHolder(View itemView) {
@@ -70,6 +75,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvUser = itemView.findViewById(R.id.tvUser);
             tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
+            tvLast = itemView.findViewById(R.id.tvLast);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -99,6 +105,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
 
+            tvLast.setText(new Date(account.last_connected).toString());
+            tvLast.setVisibility(debug ? View.VISIBLE : View.GONE);
+
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
         }
@@ -119,6 +128,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     AdapterAccount(Context context) {
         this.context = context;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.debug = prefs.getBoolean("debug", false);
+
         setHasStableIds(true);
     }
 

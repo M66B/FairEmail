@@ -23,8 +23,8 @@
         android:id="@+id/ivPrimary"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_star_24"
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@id/vwColor"
@@ -34,8 +34,8 @@
         android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Name"
@@ -58,8 +58,8 @@
         android:id="@+id/tvUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="user"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/ivSync"
@@ -70,8 +70,8 @@
         android:id="@+id/ivState"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:src="@drawable/baseline_cloud_off_24"
         app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toBottomOf="@id/tvUser" />
@@ -80,8 +80,8 @@
         android:id="@+id/tvHost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="host"
@@ -92,17 +92,31 @@
         app:layout_constraintTop_toTopOf="@id/ivState" />
 
     <TextView
+        android:id="@+id/tvLast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Last connected time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivState"
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
+
+    <TextView
         android:id="@+id/tvError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/vwColor"
-        app:layout_constraintTop_toBottomOf="@id/tvHost" />
+        app:layout_constraintTop_toBottomOf="@id/tvLast" />
 
     <View
         android:id="@+id/marginBottom"
