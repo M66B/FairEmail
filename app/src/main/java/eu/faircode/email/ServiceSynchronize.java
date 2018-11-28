@@ -2440,6 +2440,9 @@ public class ServiceSynchronize extends LifecycleService {
                 final boolean doStop = started;
                 final boolean doStart = (start && isEnabled() && suitableNetwork());
 
+                if (!doStop && !doStart)
+                    return;
+
                 EntityLog.log(ServiceSynchronize.this, "Queue reload " +
                         " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
