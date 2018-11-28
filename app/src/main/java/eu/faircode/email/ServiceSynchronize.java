@@ -886,7 +886,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     wl.acquire();
 
                                     // Process pending operations
-                                    processOperations(folder, isession, istore, ifolder);
+                                    processOperations(folder, isession, istore, ifolder, state);
 
                                     // Listen for new and deleted messages
                                     ifolder.addMessageCountListener(new MessageCountAdapter() {
@@ -1118,10 +1118,10 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
 
                                             if (ACTION_PROCESS_OPERATIONS.equals(intent.getAction()))
-                                                processOperations(folder, isession, istore, ifolder);
+                                                processOperations(folder, isession, istore, ifolder, state);
 
                                             else if (ACTION_SYNCHRONIZE_FOLDER.equals(intent.getAction())) {
-                                                processOperations(folder, isession, istore, ifolder);
+                                                processOperations(folder, isession, istore, ifolder, state);
                                                 synchronizeMessages(account, folder, ifolder, state);
                                             }
 
@@ -1320,7 +1320,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
+    private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, ServiceState state) throws MessagingException, JSONException, IOException {
         synchronized (lock) {
             try {
                 Log.i(Helper.TAG, folder.name + " start process");
@@ -1328,7 +1328,8 @@ public class ServiceSynchronize extends LifecycleService {
                 DB db = DB.getInstance(this);
                 List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
                 Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
-                for (EntityOperation op : ops)
+                for (int i = 0; i < ops.size() && state.running; i++) {
+                    EntityOperation op = ops.get(i);
                     try {
                         Log.i(Helper.TAG, folder.name +
                                 " start op=" + op.id + "/" + op.name +
@@ -1421,8 +1422,9 @@ public class ServiceSynchronize extends LifecycleService {
                     } finally {
                         Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
                     }
+                }
             } finally {
-                Log.i(Helper.TAG, folder.name + " end process");
+                Log.i(Helper.TAG, folder.name + " end process running=" + state.running);
             }
         }
     }
@@ -2515,7 +2517,7 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 Log.i(Helper.TAG, outbox.name + " start operations");
                                 db.folder().setFolderState(outbox.id, "syncing");
-                                processOperations(outbox, null, null, null);
+                                processOperations(outbox, null, null, null, state);
                                 db.folder().setFolderError(outbox.id, null);
                             } catch (Throwable ex) {
                                 Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
