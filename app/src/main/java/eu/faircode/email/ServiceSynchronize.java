@@ -2319,7 +2319,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void start() {
-            EntityLog.log(ServiceSynchronize.this, "Main start queued=" + queued);
+            EntityLog.log(ServiceSynchronize.this, "Main start");
 
             state = new ServiceState();
             state.runnable(new Runnable() {
@@ -2347,10 +2347,10 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 long backoff = RECONNECT_BACKOFF - ago;
                                 EntityLog.log(ServiceSynchronize.this, "Main backoff=" + (backoff / 1000));
-                                state.acquire(backoff);
+                                if (state.acquire(backoff))
+                                    return;
                             } catch (InterruptedException ex) {
                                 Log.w(Helper.TAG, "main backoff " + ex.toString());
-                                return;
                             }
 
                         // Start monitoring outbox
@@ -2570,8 +2570,8 @@ public class ServiceSynchronize extends LifecycleService {
             semaphore.acquire();
         }
 
-        void acquire(long milliseconds) throws InterruptedException {
-            semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
+        boolean acquire(long milliseconds) throws InterruptedException {
+            return semaphore.tryAcquire(milliseconds, TimeUnit.MILLISECONDS);
         }
 
         void error() {
