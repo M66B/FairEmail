@@ -874,8 +874,6 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().setFolderState(folder.id, "connected");
                         db.folder().setFolderError(folder.id, null);
 
-                        updateKeywords(db, folder, ifolder.getPermanentFlags().getUserFlags());
-
                         Log.i(Helper.TAG, account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
 
                         // Synchronize folder
@@ -1316,17 +1314,6 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void updateKeywords(DB db, EntityFolder folder, String[] merge) {
-        List<String> keywords = new ArrayList<>(Arrays.asList(folder.keywords));
-        for (String keyword : merge)
-            if (!keywords.contains(keyword))
-                keywords.add(keyword);
-
-        Collections.sort(keywords);
-
-        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
-    }
-
     private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, ServiceState state) throws MessagingException, JSONException, IOException {
         synchronized (lock) {
             try {
@@ -1524,10 +1511,6 @@ public class ServiceSynchronize extends LifecycleService {
         } else
             keywords.remove(keyword);
         db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
-
-        if (!set)
-            keywords.add(keyword);
-        updateKeywords(db, folder, keywords.toArray(new String[0]));
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
@@ -2191,6 +2174,19 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (update)
                 db.message().updateMessage(message);
+        }
+
+        List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));
+
+        for (String keyword : keywords)
+            if (!fkeywords.contains(keyword)) {
+                Log.i(Helper.TAG, folder.name + " adding keyword=" + keyword);
+                fkeywords.add(keyword);
+            }
+
+        if (folder.keywords.length != fkeywords.size()) {
+            Collections.sort(fkeywords);
+            db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
         }
 
         return message.id;
