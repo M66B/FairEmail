@@ -2167,11 +2167,10 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
-            if (TextUtils.isEmpty(message.avatar)) {
-                message.getAvatar(context);
-                if (!TextUtils.isEmpty(message.avatar))
-                    update = true;
-            }
+            boolean noavatar = TextUtils.isEmpty(message.avatar);
+            message.getAvatar(context);
+            if (noavatar != TextUtils.isEmpty(message.avatar))
+                update = true;
 
             if (update)
                 db.message().updateMessage(message);

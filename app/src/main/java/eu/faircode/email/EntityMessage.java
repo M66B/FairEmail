@@ -202,6 +202,8 @@ public class EntityMessage implements Serializable {
     void getAvatar(Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
+            this.avatar = null;
+
             try {
                 if (this.from != null)
                     for (int i = 0; i < this.from.length; i++) {
