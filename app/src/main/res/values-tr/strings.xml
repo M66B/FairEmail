@@ -8,7 +8,7 @@
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_compose">Eposta Oluştur</string>
-    <string name="shortcut_setup">Setup</string>
+    <string name="shortcut_setup">Kurulum</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d Hesap senkronize ediliyor</item>
         <item quantity="other">%1$d Hesap senkronize ediliyor</item>
@@ -26,8 +26,8 @@
         <item quantity="other">%1$d gönderilmemiş ileti</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">%1$d new</item>
-        <item quantity="other">%1$d new</item>
+        <item quantity="one">%1$d yeni</item>
+        <item quantity="other">%1$d yeni</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="menu_setup">Kurulum</string>
@@ -66,7 +66,7 @@
     <string name="title_setup_identity">Kimlikleri Yönet</string>
     <string name="title_setup_identity_remark">E-posta göndermek için</string>
     <string name="title_setup_permissions">İzin Ver</string>
-    <string name="title_setup_permissions_remark">To access contact information (optional)</string>
+    <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_doze">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="title_setup_doze_remark">Sürekli e-posta almak için (isteğe bağlı)</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
@@ -79,7 +79,7 @@
     <string name="title_setup_black_background">Siyah arkaplan</string>
     <string name="title_advanced">Gelişmiş ayarlar</string>
     <string name="title_advanced_enabled">Eşzamanlama</string>
-    <string name="title_advanced_metered">Use metered connections</string>
+    <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_compact">Kompakt mesaj görünümü</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
@@ -90,7 +90,7 @@
     <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
-    <string name="title_advanced_sender">Allow editing sender address</string>
+    <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>

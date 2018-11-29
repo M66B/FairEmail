@@ -79,7 +79,7 @@
     <string name="title_setup_black_background">Sfondo nero</string>
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_enabled">Sincronizza</string>
-    <string name="title_advanced_metered">Use metered connections</string>
+    <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_compact">Visualizzazione messaggio compatto</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
@@ -87,7 +87,7 @@
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_swipe">Azioni swipe</string>
-    <string name="title_advanced_actionbar">Conversation action bar</string>
+    <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
@@ -105,7 +105,7 @@
     <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
     <string name="title_account_signature">Testo della firma</string>
     <string name="title_account_color">Colore</string>
-    <string name="title_account_notify">Separate notifications</string>
+    <string name="title_account_notify">Notifiche separate</string>
     <string name="title_domain">Nome dominio</string>
     <string name="title_autoconfig">Ottieni impostazioni</string>
     <string name="title_no_settings">Impostazioni non trovate</string>
@@ -184,8 +184,8 @@
     <string name="title_forward_raw">Inoltra formato raw</string>
     <string name="title_reply_all">Rispondi a tutti</string>
     <string name="title_show_headers">Visualizza header</string>
-    <string name="title_manage_keywords">Manage keywords</string>
-    <string name="title_add_keyword">Add keyword</string>
+    <string name="title_manage_keywords">Gestione parole chiave</string>
+    <string name="title_add_keyword">Aggiungi parola chiave</string>
     <string name="title_show_html">Visualizza originale</string>
     <string name="title_trash">Cestino</string>
     <string name="title_delete">Elimina</string>
@@ -222,7 +222,7 @@
     <string name="title_discard">Elimina</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
-    <string name="title_view">View</string>
+    <string name="title_view">Visualizza</string>
     <string name="title_no_selection">Nessuna selezione</string>
     <string name="title_clipboard_empty">Appunti vuoti</string>
     <string name="title_style_bold">Grassetto</string>
@@ -270,7 +270,7 @@
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
     <string name="title_legend_contacts">Contatti</string>
-    <string name="title_legend_image">Image placeholder</string>
+    <string name="title_legend_image">Segnaposto immagine</string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_primary">Primario/stellato</string>
@@ -293,7 +293,7 @@
     <string name="title_yes">Sì</string>
     <string name="title_no">No</string>
     <string name="title_undo">Annulla</string>
-    <string name="title_add">Add</string>
+    <string name="title_add">Aggiungi</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
