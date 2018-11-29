@@ -143,7 +143,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private ImageView ivFlagged;
         private ImageView ivAvatar;
         private TextView tvFrom;
-        private TextView tvSize;
         private TextView tvTime;
         private ImageView ivAnswered;
         private ImageView ivAttachments;
@@ -162,7 +161,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
         private TextView tvReplyTo;
         private TextView tvCc;
         private TextView tvBcc;
-        private TextView tvTimeReceived;
+        private TextView tvTimeEx;
+        private TextView tvSize;
         private TextView tvSubjectEx;
         private TextView tvKeywords;
 
@@ -197,9 +197,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvFrom = itemView.findViewById(R.id.tvFrom);
             ivAddContact = itemView.findViewById(R.id.ivAddContact);
-            tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
-            tvTimeReceived = itemView.findViewById(R.id.tvTimeReceived);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -216,6 +214,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvReplyTo = itemView.findViewById(R.id.tvReplyTo);
             tvCc = itemView.findViewById(R.id.tvCc);
             tvBcc = itemView.findViewById(R.id.tvBcc);
+            tvTimeEx = itemView.findViewById(R.id.tvTimeEx);
+            tvSize = itemView.findViewById(R.id.tvSize);
             tvSubjectEx = itemView.findViewById(R.id.tvSubjectEx);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
 
@@ -277,7 +277,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
             ivAddContact.setVisibility(View.GONE);
-            tvSize.setText(null);
             tvTime.setText(null);
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
@@ -316,7 +315,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 ivFlagged.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAvatar.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
-                tvSize.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
@@ -366,11 +364,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, !compact));
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
-
-            tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
-            if (!message.duplicate)
-                tvSize.setAlpha(message.content ? 1.0f : LOW_LIGHT);
-            tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
 
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
@@ -451,13 +444,20 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             if (show_expanded) {
                 ivExpanderAddress.setImageResource(show_addresses ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-                tvTimeReceived.setText(df.format(new Date(message.received)));
 
                 tvFromEx.setText(MessageHelper.getFormattedAddresses(message.from, true));
                 tvTo.setText(MessageHelper.getFormattedAddresses(message.to, true));
                 tvReplyTo.setText(MessageHelper.getFormattedAddresses(message.reply, true));
                 tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
                 tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
+
+                tvTimeEx.setText(df.format(new Date(message.received)));
+
+                tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
+                if (!message.duplicate)
+                    tvSize.setAlpha(message.content ? 1.0f : LOW_LIGHT);
+                tvSize.setVisibility(message.size == null ? View.GONE : View.VISIBLE);
+
                 tvSubjectEx.setText(message.subject);
                 tvKeywords.setText(TextUtils.join(" ", message.keywords));
                 tvKeywords.setVisibility(message.keywords.length > 0 ? View.VISIBLE : View.GONE);
