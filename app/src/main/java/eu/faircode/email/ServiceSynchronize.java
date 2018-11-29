@@ -1184,7 +1184,7 @@ public class ServiceSynchronize extends LifecycleService {
                     // Keep alive
                     AlarmManager am = getSystemService(AlarmManager.class);
                     try {
-                        while (state.alive()) {
+                        while (state.running()) {
                             if (!istore.isConnected())
                                 throw new StoreClosedException(istore);
 
