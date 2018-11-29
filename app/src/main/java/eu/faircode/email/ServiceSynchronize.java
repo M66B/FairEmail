@@ -740,10 +740,12 @@ public class ServiceSynchronize extends LifecycleService {
                         public void notification(StoreEvent e) {
                             try {
                                 wl.acquire();
-                                Log.i(Helper.TAG, account.name + " event: " + e.getMessage());
-                                if (BuildConfig.DEBUG)
+                                String type = (e.getMessageType() == StoreEvent.ALERT ? "alert" : "notice");
+                                EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
+                                if (e.getMessageType() == StoreEvent.ALERT) {
                                     db.account().setAccountError(account.id, e.getMessage());
-                                state.error();
+                                    state.error();
+                                }
                             } finally {
                                 wl.release();
                             }
@@ -841,7 +843,6 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
-                    db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                     NotificationManager nm = getSystemService(NotificationManager.class);
                     nm.cancel("receive", account.id.intValue());
@@ -1199,6 +1200,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // Record successful connection
                             db.account().setAccountConnected(account.id, new Date().getTime());
+                            db.account().setAccountError(account.id, capIdle ? null : getString(R.string.title_no_idle));
 
                             // Schedule keep alive alarm
                             EntityLog.log(this, account.name + " wait=" + account.poll_interval);
