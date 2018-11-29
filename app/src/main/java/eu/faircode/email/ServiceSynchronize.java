@@ -711,7 +711,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             int backoff = CONNECT_BACKOFF_START;
             while (state.running()) {
-                state.reset();
                 Log.i(Helper.TAG, account.name + " run");
 
                 // Debug
@@ -1045,7 +1044,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 public void run() {
                                     try {
                                         Log.i(Helper.TAG, folder.name + " start idle");
-                                        while (state.alive()) {
+                                        while (state.running()) {
                                             Log.i(Helper.TAG, folder.name + " do idle");
                                             ifolder.idle(false);
                                             //Log.i(Helper.TAG, folder.name + " done idle");
@@ -1323,7 +1322,7 @@ public class ServiceSynchronize extends LifecycleService {
                 DB db = DB.getInstance(this);
                 List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
                 Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
-                for (int i = 0; i < ops.size() && state.alive(); i++) {
+                for (int i = 0; i < ops.size() && state.running(); i++) {
                     EntityOperation op = ops.get(i);
                     try {
                         Log.i(Helper.TAG, folder.name +
@@ -1852,7 +1851,7 @@ public class ServiceSynchronize extends LifecycleService {
             long fetch = SystemClock.elapsedRealtime();
             Log.i(Helper.TAG, folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
-            for (int i = 0; i < imessages.length && state.alive(); i++) {
+            for (int i = 0; i < imessages.length && state.running(); i++) {
                 Message imessage = imessages[i];
 
                 try {
@@ -1886,7 +1885,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
             Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0 && state.alive(); i -= SYNC_BATCH_SIZE) {
+            for (int i = imessages.length - 1; i >= 0 && state.running(); i -= SYNC_BATCH_SIZE) {
                 int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                 //Log.i(Helper.TAG, folder.name + " update " + from + " .. " + i);
 
@@ -1907,7 +1906,7 @@ public class ServiceSynchronize extends LifecycleService {
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
-                for (int j = isub.length - 1; j >= 0 && state.alive(); j--)
+                for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                     try {
                         db.beginTransaction();
                         ids[from + j] = synchronizeMessage(
@@ -1930,7 +1929,7 @@ public class ServiceSynchronize extends LifecycleService {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
 
-                if (state.alive())
+                if (state.running())
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException ignored) {
@@ -1943,14 +1942,14 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Download messages/attachments
             Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
-            for (int i = imessages.length - 1; i >= 0 && state.alive(); i -= DOWNLOAD_BATCH_SIZE) {
+            for (int i = imessages.length - 1; i >= 0 && state.running(); i -= DOWNLOAD_BATCH_SIZE) {
                 int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
                 //Log.i(Helper.TAG, folder.name + " download " + from + " .. " + i);
 
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                 // Fetch on demand
 
-                for (int j = isub.length - 1; j >= 0 && state.alive(); j--)
+                for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                     try {
                         //Log.i(Helper.TAG, folder.name + " download index=" + (from + j) + " id=" + ids[from + j]);
                         if (ids[from + j] != null) {
@@ -1968,7 +1967,7 @@ public class ServiceSynchronize extends LifecycleService {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }
 
-                if (state.alive())
+                if (state.running())
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException ignored) {
@@ -2556,7 +2555,6 @@ public class ServiceSynchronize extends LifecycleService {
         private Thread thread;
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
-        private boolean error = false;
 
         void runnable(Runnable runnable, String name) {
             thread = new Thread(runnable, name);
@@ -2576,7 +2574,6 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         void error() {
-            error = true;
             thread.interrupt();
             yield();
         }
@@ -2587,10 +2584,6 @@ public class ServiceSynchronize extends LifecycleService {
                 Thread.sleep(500L);
             } catch (InterruptedException ignored) {
             }
-        }
-
-        void reset() {
-            error = false;
         }
 
         void start() {
@@ -2612,10 +2605,6 @@ public class ServiceSynchronize extends LifecycleService {
             return running;
         }
 
-        boolean alive() {
-            return (running && !error);
-        }
-
         void join(Thread thread) {
             boolean joined = false;
             while (!joined)
@@ -2632,7 +2621,7 @@ public class ServiceSynchronize extends LifecycleService {
         @NonNull
         @Override
         public String toString() {
-            return "[running=" + running + " error=" + error + "]";
+            return "[running=" + running + "]";
         }
     }
 }
