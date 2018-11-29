@@ -80,6 +80,7 @@
     <string name="title_advanced">Gelişmiş ayarlar</string>
     <string name="title_advanced_enabled">Eşzamanlama</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
+    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">Kompakt mesaj görünümü</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>

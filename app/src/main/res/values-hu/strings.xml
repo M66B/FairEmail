@@ -80,6 +80,7 @@
     <string name="title_advanced">Advanced options</string>
     <string name="title_advanced_enabled">Synchronize</string>
     <string name="title_advanced_metered">Use metered connections</string>
+    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">Compact message view</string>
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_identicons">Show identicons</string>

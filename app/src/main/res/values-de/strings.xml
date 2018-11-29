@@ -80,6 +80,7 @@
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_enabled">Synchronisieren</string>
     <string name="title_advanced_metered">Mobilfunknetz zulassen</string>
+    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">Kompakte Nachrichtenansicht</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>

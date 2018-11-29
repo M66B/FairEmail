@@ -90,6 +90,7 @@
     <string name="title_advanced">Opcje zaawansowane</string>
     <string name="title_advanced_enabled">Synchronizuj</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
+    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">Widok kompaktowy</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>

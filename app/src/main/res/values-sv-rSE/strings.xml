@@ -80,6 +80,7 @@
     <string name="title_advanced">Avancerade inställningar</string>
     <string name="title_advanced_enabled">Synkronisera</string>
     <string name="title_advanced_metered">Use metered connections</string>
+    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">Kompakt meddelandevisning</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_identicons">Visa identicons</string>
