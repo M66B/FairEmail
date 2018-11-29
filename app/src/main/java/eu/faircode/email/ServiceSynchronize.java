@@ -2431,7 +2431,7 @@ public class ServiceSynchronize extends LifecycleService {
             state.stop();
             state.join();
 
-            EntityLog.log(ServiceSynchronize.this, "Main stopped queued=" + queued);
+            EntityLog.log(ServiceSynchronize.this, "Main stopped");
 
             state = null;
         }
