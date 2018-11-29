@@ -80,7 +80,7 @@
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
-    <string name="title_advanced_threading">Conversation threading</string>
+    <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -271,7 +271,9 @@
     <string name="title_legend_cc">Cc/Cci</string>
     <string name="title_legend_attachment">Pièce jointe</string>
     <string name="title_legend_contacts">Contacts</string>
-    <string name="title_legend_image">Emplacement pour une image</string>
+    <string name="title_legend_external_image">Espace réservé pour une image externe</string>
+    <string name="title_legend_embedded_image">Espace réservé pour une image intégrée</string>
+    <string name="title_legend_broken_image">Image non disponible</string>
     <string name="title_legend_synchronize_on">Synchronisation activée</string>
     <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
     <string name="title_legend_primary">Primaire / Favori</string>

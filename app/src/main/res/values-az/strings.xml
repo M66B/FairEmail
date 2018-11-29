@@ -271,7 +271,9 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Qoşma</string>
     <string name="title_legend_contacts">Şəxslər</string>
-    <string name="title_legend_image">Təsvir yeri</string>
+    <string name="title_legend_external_image">External image placeholder</string>
+    <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_broken_image">Broken image</string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
     <string name="title_legend_synchronize_off">Eyniləşdirmə bağlı</string>
     <string name="title_legend_primary">Üstünlük verilən/ulduzlu</string>

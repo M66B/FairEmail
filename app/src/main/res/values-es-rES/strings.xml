@@ -271,7 +271,9 @@
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
     <string name="title_legend_contacts">Contactos</string>
-    <string name="title_legend_image">Imagen</string>
+    <string name="title_legend_external_image">Imagen externa</string>
+    <string name="title_legend_embedded_image">Imagen insertada</string>
+    <string name="title_legend_broken_image">Imagen rota</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_primary">Primario/destacado</string>

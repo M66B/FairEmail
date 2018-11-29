@@ -271,7 +271,9 @@
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
     <string name="title_legend_contacts">Contatti</string>
-    <string name="title_legend_image">Segnaposto immagine</string>
+    <string name="title_legend_external_image">External image placeholder</string>
+    <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_broken_image">Broken image</string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_primary">Primario/stellato</string>

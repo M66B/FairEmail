@@ -271,7 +271,9 @@
     <string name="title_legend_cc">Kopia/Dold kopia</string>
     <string name="title_legend_attachment">Bilaga</string>
     <string name="title_legend_contacts">Kontakter</string>
-    <string name="title_legend_image">Bildplatshållare</string>
+    <string name="title_legend_external_image">External image placeholder</string>
+    <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_broken_image">Broken image</string>
     <string name="title_legend_synchronize_on">Synkronisera nu</string>
     <string name="title_legend_synchronize_off">Synkronisera av</string>
     <string name="title_legend_primary">Primär/stjärnmärkta</string>

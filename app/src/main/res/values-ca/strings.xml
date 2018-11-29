@@ -271,7 +271,9 @@
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunt</string>
     <string name="title_legend_contacts">Contactes</string>
-    <string name="title_legend_image">Image placeholder</string>
+    <string name="title_legend_external_image">External image placeholder</string>
+    <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_broken_image">Broken image</string>
     <string name="title_legend_synchronize_on">Sincronitza engegada</string>
     <string name="title_legend_synchronize_off">Sincronització apagada</string>
     <string name="title_legend_primary">Primària/destacada</string>
