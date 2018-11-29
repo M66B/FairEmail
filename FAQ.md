@@ -532,10 +532,15 @@ This is an account specific setting accessible via *Setup* > *Manage accounts*.
 
 
 <a name="faq41"></a>
-**(41) How can I fix the error 'xxx failed' ?**
+**(41) How can I fix the error 'Handshake failed' ?**
 
-If the error message is *Couldn't connect to host ...*,
-please make sure FairEmail can connect to the configured server and isn't blocked by a firewall, etc.
+The error '*Handshake failed ... WRONG_VERSION_NUMBER*' might mean that you are trying to connect to an IMAP or SMTP server
+without an encrypted connection, typically using port 143 (IMAP) and port 25 (SMTP).
+
+Most providers provide encrypted connections using different ports, typically port 993 (IMAP) and port 465/587 (SMTP).
+
+If your provider doesn't support encrypted connections, you should ask to make this possible.
+If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
 
 ## Support
