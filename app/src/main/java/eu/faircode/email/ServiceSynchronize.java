@@ -1230,6 +1230,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     reportError(account.name, null, ex);
 
+                    EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     EntityLog.log(this, account.name + " closing");
@@ -2381,6 +2382,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         monitorAccount(account, astate);
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
                                         db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                                     }
                                 }
