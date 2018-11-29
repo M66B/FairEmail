@@ -2436,61 +2436,59 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void queue_reload(final boolean start, final String reason) {
-            synchronized (queue) {
-                final boolean doStop = started;
-                final boolean doStart = (start && isEnabled() && suitableNetwork());
+            final boolean doStop = started;
+            final boolean doStart = (start && isEnabled() && suitableNetwork());
 
-                if (!doStop && !doStart)
-                    return;
+            if (!doStop && !doStart)
+                return;
 
-                EntityLog.log(ServiceSynchronize.this, "Queue reload " +
-                        " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
+            EntityLog.log(ServiceSynchronize.this, "Queue reload " +
+                    " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
-                queued++;
-                queue.submit(new Runnable() {
-                    PowerManager pm = getSystemService(PowerManager.class);
-                    PowerManager.WakeLock wl = pm.newWakeLock(
-                            PowerManager.PARTIAL_WAKE_LOCK,
-                            BuildConfig.APPLICATION_ID + ":reload");
+            queued++;
+            queue.submit(new Runnable() {
+                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK,
+                        BuildConfig.APPLICATION_ID + ":reload");
 
-                    @Override
-                    public void run() {
-                        EntityLog.log(ServiceSynchronize.this, "Reload " +
-                                " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
+                @Override
+                public void run() {
+                    EntityLog.log(ServiceSynchronize.this, "Reload " +
+                            " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
 
-                        try {
-                            wl.acquire();
+                    try {
+                        wl.acquire();
 
-                            if (doStop)
-                                stop();
+                        if (doStop)
+                            stop();
 
-                            if (doStart)
-                                start();
+                        if (doStart)
+                            start();
 
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            wl.release();
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        wl.release();
 
-                            queued--;
-                            EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
+                        queued--;
+                        EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
+                        if (queued == 0 && !isEnabled()) {
+                            try {
+                                Thread.sleep(STOP_DELAY);
+                            } catch (InterruptedException ignored) {
+                            }
                             if (queued == 0 && !isEnabled()) {
-                                try {
-                                    Thread.sleep(STOP_DELAY);
-                                } catch (InterruptedException ignored) {
-                                }
-                                if (queued == 0 && !isEnabled()) {
-                                    EntityLog.log(ServiceSynchronize.this, "Service stop");
-                                    stopSelf();
-                                }
+                                EntityLog.log(ServiceSynchronize.this, "Service stop");
+                                stopSelf();
                             }
                         }
                     }
-                });
+                }
+            });
 
-                started = doStart;
-            }
+            started = doStart;
         }
 
         private BroadcastReceiver outboxReceiver = new BroadcastReceiver() {
