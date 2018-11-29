@@ -486,7 +486,7 @@ public class FragmentMessages extends FragmentEx {
 
                             if (thread) {
                                 List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, message.ui_found);
+                                        message.account, message.thread, threading ? null : id, message.ui_found);
                                 for (EntityMessage threaded : messages) {
                                     if (!threaded.ui_hide && threaded.folder.equals(message.folder))
                                         result.ids.add(threaded.id);
@@ -751,7 +751,7 @@ public class FragmentMessages extends FragmentEx {
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, message.ui_found);
+                                                        message.account, message.thread, threading ? null : id, message.ui_found);
                                                 for (EntityMessage threaded : messages)
                                                     if (threaded.folder.equals(message.folder)) {
                                                         result.ids.add(threaded.id);
@@ -1469,7 +1469,7 @@ public class FragmentMessages extends FragmentEx {
 
                     result.target = db.folder().getFolderByType(account, folderType);
 
-                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread, found);
+                    List<EntityMessage> messages = db.message().getMessageByThread(account, thread, threading ? null : id, found);
                     for (EntityMessage message : messages)
                         if (message.uid != null && !result.target.id.equals(message.folder)) {
                             result.ids.add(message.id);
