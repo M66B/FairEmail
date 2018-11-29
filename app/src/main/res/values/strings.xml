@@ -311,7 +311,9 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Attachment</string>
     <string name="title_legend_contacts">Contacts</string>
-    <string name="title_legend_image">Image placeholder</string>
+    <string name="title_legend_external_image">External image placeholder</string>
+    <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_broken_image">Broken image</string>
     <string name="title_legend_synchronize_on">Synchronize on</string>
     <string name="title_legend_synchronize_off">Synchronize off</string>
     <string name="title_legend_primary">Primary/starred</string>

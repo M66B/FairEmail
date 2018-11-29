@@ -209,7 +209,7 @@
             app:layout_constraintTop_toTopOf="@id/ivContacts" />
 
         <ImageView
-            android:id="@+id/ivImage"
+            android:id="@+id/ivExternalImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
@@ -218,15 +218,55 @@
             app:layout_constraintTop_toBottomOf="@id/ivContacts" />
 
         <TextView
-            android:id="@+id/tvImage"
+            android:id="@+id/tvExternalImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="@string/title_legend_image"
+            android:text="@string/title_legend_external_image"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivImage"
-            app:layout_constraintStart_toEndOf="@id/ivImage"
-            app:layout_constraintTop_toTopOf="@id/ivImage" />
+            app:layout_constraintBottom_toBottomOf="@id/ivExternalImage"
+            app:layout_constraintStart_toEndOf="@id/ivExternalImage"
+            app:layout_constraintTop_toTopOf="@id/ivExternalImage" />
+
+        <ImageView
+            android:id="@+id/ivEmbeddedImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_photo_library_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivExternalImage" />
+
+        <TextView
+            android:id="@+id/tvEmbeddedImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_embedded_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivEmbeddedImage"
+            app:layout_constraintStart_toEndOf="@id/ivEmbeddedImage"
+            app:layout_constraintTop_toTopOf="@id/ivEmbeddedImage" />
+
+        <ImageView
+            android:id="@+id/ivBrokenImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_broken_image_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEmbeddedImage" />
+
+        <TextView
+            android:id="@+id/tvBrokenImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_broken_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivBrokenImage"
+            app:layout_constraintStart_toEndOf="@id/ivBrokenImage"
+            app:layout_constraintTop_toTopOf="@id/ivBrokenImage" />
 
         <ImageView
             android:id="@+id/ivSynchronize"
@@ -235,7 +275,7 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_sync_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivImage" />
+            app:layout_constraintTop_toBottomOf="@id/ivBrokenImage" />
 
         <TextView
             android:id="@+id/tvSynchronize"
