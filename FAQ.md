@@ -52,7 +52,6 @@ Anything on this list is in random order and *might* be added in the near future
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save.
-* Show single messages: listing single messages just clutters the list without much benefit, so this will not be added.
 * S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:

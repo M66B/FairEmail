@@ -93,9 +93,11 @@ public class FragmentMessages extends FragmentEx {
     private long folder = -1;
     private boolean outgoing = false;
     private String thread = null;
+    private long id = -1;
     private boolean found = false;
     private String search = null;
 
+    private boolean threading = true;
     private boolean actionbar = false;
     private boolean autoclose = false;
 
@@ -136,10 +138,12 @@ public class FragmentMessages extends FragmentEx {
         folder = args.getLong("folder", -1);
         outgoing = args.getBoolean("outgoing", false);
         thread = args.getString("thread");
+        id = args.getLong("id", -1);
         found = args.getBoolean("found", false);
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", false);
 
@@ -1222,7 +1226,7 @@ public class FragmentMessages extends FragmentEx {
 
             switch (viewType) {
                 case UNIFIED:
-                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(sort, debug), LOCAL_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
                 case FOLDER:
                     if (searchCallback == null)
@@ -1255,14 +1259,15 @@ public class FragmentMessages extends FragmentEx {
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .build();
                     LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, sort, false, debug), config);
+                            db.message().pagedFolder(folder, threading, sort, false, debug), config);
                     if (browse)
                         builder.setBoundaryCallback(searchCallback);
                     messages = builder.build();
 
                     break;
                 case THREAD:
-                    messages = new LivePagedListBuilder<>(db.message().pagedThread(account, thread, found, sort, debug), LOCAL_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(
+                            db.message().pagedThread(account, thread, threading ? null : id, found, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {
@@ -1299,7 +1304,7 @@ public class FragmentMessages extends FragmentEx {
                     .setPrefetchDistance(REMOTE_PAGE_SIZE)
                     .build();
             LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                    db.message().pagedFolder(folder, "time", true, false), config);
+                    db.message().pagedFolder(folder, threading, "time", true, false), config);
             builder.setBoundaryCallback(searchCallback);
             messages = builder.build();
         }
@@ -1497,6 +1502,7 @@ public class FragmentMessages extends FragmentEx {
                 new Intent(ActivityView.ACTION_VIEW_THREAD)
                         .putExtra("account", target.account)
                         .putExtra("thread", target.thread)
+                        .putExtra("id", target.id)
                         .putExtra("found", target.found));
     }
 

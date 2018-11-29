@@ -56,18 +56,20 @@ public class ViewModelMessages extends ViewModel {
                 next = item;
         }
         return new Target[]{
-                prev == null ? null : new Target(prev.account, prev.thread, prev.ui_found),
-                next == null ? null : new Target(next.account, next.thread, next.ui_found)};
+                prev == null ? null : new Target(prev.account, prev.thread, prev.id, prev.ui_found),
+                next == null ? null : new Target(next.account, next.thread, next.id, next.ui_found)};
     }
 
     class Target {
         long account;
         String thread;
+        long id;
         boolean found;
 
-        Target(long account, String thread, boolean found) {
+        Target(long account, String thread, long id, boolean found) {
             this.account = account;
             this.thread = thread;
+            this.id = id;
             this.found = found;
         }
     }

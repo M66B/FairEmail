@@ -113,6 +113,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean outgoing;
     private IProperties properties;
 
+    private boolean threading;
     private boolean compact;
     private boolean contacts;
     private boolean avatars;
@@ -353,7 +354,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
 
             ivExpander.setImageResource(show_expanded ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
-            if (viewType == ViewType.THREAD)
+            if (viewType == ViewType.THREAD && threading)
                 ivExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
             else
                 ivExpander.setVisibility(View.GONE);
@@ -386,7 +387,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
-            if (viewType == ViewType.THREAD) {
+            if (viewType == ViewType.THREAD || !threading) {
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
@@ -565,6 +566,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                             new Intent(ActivityView.ACTION_VIEW_THREAD)
                                     .putExtra("account", message.account)
                                     .putExtra("thread", message.thread)
+                                    .putExtra("id", message.id)
                                     .putExtra("found", message.ui_found));
                 }
             }
@@ -1519,6 +1521,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        this.threading = prefs.getBoolean("threading", true);
         this.compact = prefs.getBoolean("compact", false);
         this.contacts = (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
