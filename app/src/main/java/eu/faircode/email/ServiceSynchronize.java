@@ -70,6 +70,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -872,7 +873,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                         db.folder().setFolderState(folder.id, "connected");
                         db.folder().setFolderError(folder.id, null);
-                        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(ifolder.getPermanentFlags().getUserFlags()));
+
+                        updateKeywords(db, folder, ifolder.getPermanentFlags().getUserFlags());
 
                         Log.i(Helper.TAG, account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
 
@@ -1314,6 +1316,17 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
+    private void updateKeywords(DB db, EntityFolder folder, String[] merge) {
+        List<String> keywords = new ArrayList<>(Arrays.asList(folder.keywords));
+        for (String keyword : merge)
+            if (!keywords.contains(keyword))
+                keywords.add(keyword);
+
+        Collections.sort(keywords);
+
+        db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+    }
+
     private void processOperations(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, ServiceState state) throws MessagingException, JSONException, IOException {
         synchronized (lock) {
             try {
@@ -1511,6 +1524,10 @@ public class ServiceSynchronize extends LifecycleService {
         } else
             keywords.remove(keyword);
         db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+
+        if (!set)
+            keywords.add(keyword);
+        updateKeywords(db, folder, keywords.toArray(new String[0]));
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
