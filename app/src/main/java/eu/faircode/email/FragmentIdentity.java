@@ -603,14 +603,12 @@ public class FragmentIdentity extends FragmentEx {
     public void onActivityCreated(@Nullable final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        final DB db = DB.getInstance(getContext());
-
         Bundle args = new Bundle();
         args.putLong("id", id);
 
         new SimpleTask<EntityIdentity>() {
             @Override
-            protected EntityIdentity onLoad(Context context, Bundle args) throws Throwable {
+            protected EntityIdentity onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).identity().getIdentity(id);
             }
@@ -623,6 +621,7 @@ public class FragmentIdentity extends FragmentEx {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etHost.setText(identity == null ? null : identity.host);
                     cbStartTls.setChecked(identity == null ? false : identity.starttls);
+                    cbInsecure.setChecked(identity == null ? false : identity.insecure);
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
@@ -674,7 +673,7 @@ public class FragmentIdentity extends FragmentEx {
 
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
-                    protected List<EntityAccount> onLoad(Context context, Bundle args) throws Throwable {
+                    protected List<EntityAccount> onLoad(Context context, Bundle args) {
                         return DB.getInstance(context).account().getAccounts();
                     }
 

@@ -730,7 +730,8 @@ public class FragmentAccount extends FragmentEx {
                             account.primary = (account.synchronize && primary);
                             account.poll_interval = Integer.parseInt(interval);
 
-                            account.created = now;
+                            if (!update)
+                                account.created = now;
                             if (synchronize)
                                 account.last_connected = now;
 
@@ -935,7 +936,7 @@ public class FragmentAccount extends FragmentEx {
 
         new SimpleTask<EntityAccount>() {
             @Override
-            protected EntityAccount onLoad(Context context, Bundle args) throws Throwable {
+            protected EntityAccount onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).account().getAccount(id);
             }
@@ -972,6 +973,9 @@ public class FragmentAccount extends FragmentEx {
                         etHost.setText(account.host);
                         etPort.setText(Long.toString(account.port));
                     }
+
+                    cbStartTls.setChecked(account == null ? false : account.starttls);
+                    cbInsecure.setChecked(account == null ? false : account.insecure);
 
                     authorized = (account != null && account.auth_type != Helper.AUTH_TYPE_PASSWORD ? account.password : null);
                     etUser.setText(account == null ? null : account.user);
