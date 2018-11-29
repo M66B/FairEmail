@@ -353,15 +353,21 @@ Yes, you can translate the texts of FairEmail in your own language [here](https:
 Registration is free.
 
 <a name="faq27"></a>
-**(27) ~~Why are images shown without tapping 'Show images' ?~~**
+**(27) How can I differentiate external and embedded images?**
 
-~~There are two types of images:~~
+External image:
 
-* ~~Images embedded into a message~~
-* ~~Images stored on a remote server~~
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_image_black_48dp.png)
 
-~~Embedded images, also visible as an attachment, are always shown, but images stored on a remote server need to be downloaded by tapping *Show images*.~~
-~~Note that downloading images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.~~
+Embedded image:
+
+![Embedded image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_photo_library_black_48dp.png)
+
+Broken image:
+
+![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
+
+Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**

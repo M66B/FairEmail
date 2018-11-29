@@ -1705,8 +1705,8 @@ public class FragmentCompose extends FragmentEx {
             }
 
             float scale = getContext().getResources().getDisplayMetrics().density;
-            int px = (int) (24 * scale + 0.5f);
-            Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_warning_24, getContext().getTheme());
+            int px = Math.round(12 * scale);
+            Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
             d.setBounds(0, 0, px, px);
             return d;
         }

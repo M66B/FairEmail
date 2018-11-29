@@ -724,29 +724,34 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                 @Override
                 public Drawable getDrawable(String source) {
                     float scale = context.getResources().getDisplayMetrics().density;
-                    int px = (int) (48 * scale + 0.5f);
+                    int px = Math.round(48 * scale);
+
+                    if (TextUtils.isEmpty(source)) {
+                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                        d.setBounds(0, 0, px / 2, px / 2);
+                        return d;
+                    }
+
+                    boolean embedded = (source.startsWith("cid") && source.split(":").length > 1);
 
                     if (properties.showImages(message.id)) {
                         // Embedded images
-                        if (source != null && source.startsWith("cid")) {
-                            String[] cids = source.split(":");
-                            if (cids.length > 1) {
-                                String cid = "<" + cids[1] + ">";
-                                EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(message.id, cid);
-                                if (attachment == null || !attachment.available) {
-                                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                                    d.setBounds(0, 0, px, px);
-                                    return d;
-                                } else {
-                                    File file = EntityAttachment.getFile(context, attachment.id);
-                                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                                    if (d == null) {
-                                        d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                                        d.setBounds(0, 0, px, px);
-                                    } else
-                                        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                                    return d;
-                                }
+                        if (embedded) {
+                            String cid = "<" + source.split(":")[1] + ">";
+                            EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(message.id, cid);
+                            if (attachment == null || !attachment.available) {
+                                Drawable d = context.getResources().getDrawable(R.drawable.baseline_photo_library_24, context.getTheme());
+                                d.setBounds(0, 0, px, px);
+                                return d;
+                            } else {
+                                File file = EntityAttachment.getFile(context, attachment.id);
+                                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                                if (d == null) {
+                                    d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                                    d.setBounds(0, 0, px / 2, px / 2);
+                                } else
+                                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                                return d;
                             }
                         }
 
@@ -767,9 +772,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         InputStream is = null;
                         FileOutputStream os = null;
                         try {
-                            if (source == null)
-                                throw new IllegalArgumentException("Html.ImageGetter.getDrawable(source == null)");
-
                             // Create unique file name
                             File file = new File(dir, message.id + "_" + source.hashCode());
 
@@ -800,8 +802,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         } catch (Throwable ex) {
                             // Show warning icon
                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                            Drawable d = context.getResources().getDrawable(R.drawable.baseline_warning_24, context.getTheme());
-                            d.setBounds(0, 0, px, px);
+                            Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                            d.setBounds(0, 0, px / 2, px / 2);
                             return d;
                         } finally {
                             // Close streams
@@ -822,7 +824,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         }
                     } else {
                         // Show placeholder icon
-                        Drawable d = context.getResources().getDrawable(R.drawable.baseline_image_24, context.getTheme());
+                        int resid = (embedded ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
+                        Drawable d = context.getResources().getDrawable(resid, context.getTheme());
                         d.setBounds(0, 0, px, px);
                         return d;
                     }
