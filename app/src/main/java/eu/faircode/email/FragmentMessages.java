@@ -562,8 +562,10 @@ public class FragmentMessages extends FragmentEx {
         fabMore.setOnClickListener(new View.OnClickListener() {
             private final int action_seen = 1;
             private final int action_unseen = 2;
-            private final int action_move = 3;
-            private final int action_trash = 4;
+            private final int action_flag = 3;
+            private final int action_unflag = 4;
+            private final int action_move = 5;
+            private final int action_trash = 6;
 
             @Override
             public void onClick(View v) {
@@ -577,21 +579,24 @@ public class FragmentMessages extends FragmentEx {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Boolean[] result = new Boolean[3];
+                        Boolean[] result = new Boolean[5];
                         result[0] = false;
                         result[1] = false;
                         result[2] = false;
+                        result[3] = false;
+                        result[4] = false;
 
                         DB db = DB.getInstance(context);
 
                         for (Long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
                             result[message.ui_seen ? 1 : 0] = true;
+                            result[message.flagged ? 3 : 2] = true;
                         }
 
                         EntityFolder folder = db.folder().getFolder(fid);
                         if (folder != null && EntityFolder.TRASH.equals(folder.type))
-                            result[2] = true;
+                            result[4] = true;
 
                         return result;
                     }
@@ -604,9 +609,16 @@ public class FragmentMessages extends FragmentEx {
                             popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
                         if (result[1])
                             popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
-                        popupMenu.getMenu().add(Menu.NONE, action_move, 3, R.string.title_move);
+
                         if (result[2])
-                            popupMenu.getMenu().add(Menu.NONE, action_trash, 4, R.string.title_trash);
+                            popupMenu.getMenu().add(Menu.NONE, action_flag, 3, R.string.title_flag);
+                        if (result[3])
+                            popupMenu.getMenu().add(Menu.NONE, action_unflag, 4, R.string.title_unflag);
+
+                        popupMenu.getMenu().add(Menu.NONE, action_move, 5, R.string.title_move);
+
+                        if (result[4])
+                            popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -617,6 +629,12 @@ public class FragmentMessages extends FragmentEx {
                                         return true;
                                     case action_unseen:
                                         onActionSeen(false);
+                                        return true;
+                                    case action_flag:
+                                        onActionFlag(true);
+                                        return true;
+                                    case action_unflag:
+                                        onActionFlag(false);
                                         return true;
                                     case action_move:
                                         onActionMove();
@@ -670,6 +688,48 @@ public class FragmentMessages extends FragmentEx {
                                     db.message().setMessageUiSeen(message.id, seen);
                                     db.message().setMessageUiIgnored(message.id, true);
                                     EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
+                                }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        EntityOperation.process(context);
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+
+            private void onActionFlag(boolean flagged) {
+                Bundle args = new Bundle();
+                args.putLongArray("ids", getSelection());
+                args.putBoolean("flagged", flagged);
+
+                selectionTracker.clearSelection();
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        long[] ids = args.getLongArray("ids");
+                        boolean flagged = args.getBoolean("flagged");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            for (long id : ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message.ui_flagged != flagged) {
+                                    db.message().setMessageUiFlagged(message.id, flagged);
+                                    EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
                                 }
                             }
 
