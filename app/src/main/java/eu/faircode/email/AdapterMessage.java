@@ -300,6 +300,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             pbBody.setVisibility(View.GONE);
 
             grpAddress.setVisibility(View.GONE);
+            ivAddContact.setVisibility(View.GONE);
             grpHeaders.setVisibility(View.GONE);
             grpAttachments.setVisibility(View.GONE);
             grpExpanded.setVisibility(View.GONE);
