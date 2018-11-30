@@ -403,7 +403,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 "\n" + (message.ui_hide ? "HIDDEN " : "") +
                                 "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
                                 " found=" + message.ui_found +
-                                "\n" + message.msgid;
+                                "\n" + message.msgid +
+                                "\n" + message.thread;
                         if (operations != null)
                             for (EntityOperation op : operations)
                                 text += "\n" + op.id + ":" + op.name + " " + df.format(new Date(op.created));
