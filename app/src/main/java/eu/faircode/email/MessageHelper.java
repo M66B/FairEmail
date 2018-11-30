@@ -197,7 +197,8 @@ public class MessageHelper {
             String name = ((InternetAddress) message.from[0]).getPersonal();
             if (email != null && !TextUtils.isEmpty(message.extra)) {
                 int at = email.indexOf('@');
-                email = email.substring(0, at) + "+" + message.extra + email.substring(at);
+                boolean separator = Character.isLetterOrDigit(message.extra.charAt(0));
+                email = email.substring(0, at) + (separator ? "+" : "") + message.extra + email.substring(at);
                 Log.i(Helper.TAG, "extra=" + email);
             }
             imessage.setFrom(new InternetAddress(email, name));
