@@ -1552,31 +1552,24 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        if (EntityFolder.ARCHIVE.equals(folder.type) &&
-                !(EntityFolder.JUNK.equals(target.type) || EntityFolder.TRASH.equals(target.type))) {
+        if (istore.hasCapability("MOVE")) {
+            Folder itarget = istore.getFolder(target.name);
+            ifolder.moveMessages(new Message[]{imessage}, itarget);
+        } else {
+            Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
+
+            // Delete source
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            ifolder.expunge();
+
+            // Append target
             MimeMessageEx icopy = MessageHelper.from(this, message, isession);
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
-
-            db.message().setMessageUiHide(message.id, false);
-
-        } else {
-            if (istore.hasCapability("MOVE")) {
-                Folder itarget = istore.getFolder(target.name);
-                ifolder.moveMessages(new Message[]{imessage}, itarget);
-            } else {
-                Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
-
-                if (!EntityFolder.ARCHIVE.equals(folder.type)) {
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                    ifolder.expunge();
-                }
-
-                MimeMessageEx icopy = MessageHelper.from(this, message, isession);
-                Folder itarget = istore.getFolder(target.name);
-                itarget.appendMessages(new Message[]{icopy});
-            }
         }
+
+        if (EntityFolder.ARCHIVE.equals(folder.type))
+            db.message().setMessageUiHide(message.id, false);
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
