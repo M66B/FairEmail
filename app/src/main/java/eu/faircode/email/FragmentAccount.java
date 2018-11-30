@@ -76,7 +76,6 @@ import java.util.Properties;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 
 import androidx.annotation.NonNull;
@@ -476,9 +475,6 @@ public class FragmentAccount extends FragmentEx {
                                     throw ex;
                             }
 
-                            if (!istore.hasCapability("UIDPLUS"))
-                                throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
-
                             result.idle = istore.hasCapability("IDLE");
 
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
@@ -695,9 +691,6 @@ public class FragmentAccount extends FragmentEx {
                                     } else
                                         throw ex;
                                 }
-
-                                if (!istore.hasCapability("UIDPLUS"))
-                                    throw new MessagingException(getContext().getString(R.string.title_no_uidplus));
                             } finally {
                                 if (istore != null)
                                     istore.close();

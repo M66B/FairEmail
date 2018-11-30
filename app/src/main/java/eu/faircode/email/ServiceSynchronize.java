@@ -1360,7 +1360,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 doKeyword(folder, ifolder, message, jargs, db);
 
                             else if (EntityOperation.ADD.equals(op.name))
-                                doAdd(folder, isession, ifolder, message, jargs, db);
+                                doAdd(folder, isession, istore, ifolder, message, jargs, db);
 
                             else if (EntityOperation.MOVE.equals(op.name))
                                 doMove(folder, isession, istore, ifolder, message, jargs, db);
@@ -1514,17 +1514,21 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
     }
 
-    private void doAdd(EntityFolder folder, Session isession, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
+    private void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
         MimeMessage imessage = MessageHelper.from(this, message, isession);
 
         if (EntityFolder.DRAFTS.equals(folder.type) && ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
             imessage.setFlag(Flags.Flag.DRAFT, true);
 
-        AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
-        Log.i(Helper.TAG, "Appended uid=" + uid[0].uid + " draft=" + imessage.getFlags().contains(Flags.Flag.DRAFT));
-
-        db.message().setMessageUid(message.id, uid[0].uid);
+        if (istore.hasCapability("UIDPLUS")) {
+            AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
+            Log.i(Helper.TAG, "Appended uid=" + uid[0].uid + " draft=" + imessage.getFlags().contains(Flags.Flag.DRAFT));
+            db.message().setMessageUid(message.id, uid[0].uid);
+        } else {
+            ifolder.appendMessages(new Message[]{imessage});
+            db.message().setMessageUid(message.id, null);
+        }
 
         if (message.uid != null) {
             Message iprev = ifolder.getMessageByUID(message.uid);
