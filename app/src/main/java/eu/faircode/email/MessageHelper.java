@@ -187,6 +187,7 @@ public class MessageHelper {
             imessage.addHeader("References", (replying.references == null ? "" : replying.references + " ") + replying.msgid);
         }
 
+        imessage.addHeader("X-FairEmail-ID", message.msgid);
         imessage.addHeader("X-FairEmail-Thread", message.thread);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
@@ -368,6 +369,11 @@ public class MessageHelper {
     }
 
     String getMessageID() throws MessagingException {
+        // Outlook outbox -> sent
+        String[] xID = imessage.getHeader("X-FairEmail-ID");
+        if (xID != null && xID.length > 0)
+            return xID[0];
+
         return imessage.getHeader("Message-ID", null);
     }
 
@@ -385,6 +391,7 @@ public class MessageHelper {
     }
 
     String getThreadId(long uid) throws MessagingException {
+        // Some providers break references when moving messages
         String[] xThread = imessage.getHeader("X-FairEmail-Thread");
         if (xThread != null && xThread.length > 0)
             return xThread[0];
@@ -392,6 +399,7 @@ public class MessageHelper {
         for (String ref : getReferences())
             if (!TextUtils.isEmpty(ref))
                 return ref;
+
         String msgid = getMessageID();
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }

@@ -170,10 +170,9 @@ public interface DaoMessage {
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
-            " AND (message.msgid = :msgid" +
-            " OR message.msgid = :reference)" +
+            " AND message.msgid = :msgid" +
             " AND ui_found = :found")
-    List<EntityMessage> getMessageByMsgId(long account, String msgid, String reference, boolean found);
+    List<EntityMessage> getMessageByMsgId(long account, String msgid, boolean found);
 
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
