@@ -80,7 +80,7 @@
     <string name="title_advanced">Opzioni avanzate</string>
     <string name="title_advanced_enabled">Sincronizza</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
-    <string name="title_advanced_threading">Conversation threading</string>
+    <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_compact">Visualizzazione messaggio compatto</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
@@ -218,6 +218,8 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">Oggetto:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
     <string name="title_discard">Elimina</string>
@@ -271,9 +273,9 @@
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
     <string name="title_legend_contacts">Contatti</string>
-    <string name="title_legend_external_image">External image placeholder</string>
-    <string name="title_legend_embedded_image">Embedded image placeholder</string>
-    <string name="title_legend_broken_image">Broken image</string>
+    <string name="title_legend_external_image">Segnaposto immagine esterna</string>
+    <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
+    <string name="title_legend_broken_image">Immagine spezzata</string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_primary">Primario/stellato</string>

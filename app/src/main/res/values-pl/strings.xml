@@ -228,6 +228,8 @@
     <string name="title_reply_to">Odpisz do:</string>
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">Temat:</string>
     <string name="title_body_hint">Twoja wiadomość</string>
     <string name="title_discard">Odrzuć</string>

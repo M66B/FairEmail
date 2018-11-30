@@ -218,6 +218,8 @@
     <string name="title_reply_to">Antwoord op:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_received">Ontvangen:</string>
+    <string name="title_size">Grootte:</string>
     <string name="title_subject">Onderwerp:</string>
     <string name="title_body_hint">Uw bericht</string>
     <string name="title_discard">Weggooien</string>

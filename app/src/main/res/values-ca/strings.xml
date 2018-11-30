@@ -218,6 +218,8 @@
     <string name="title_reply_to">Respondre a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">Assumpte:</string>
     <string name="title_body_hint">El teu missatge</string>
     <string name="title_discard">Descartar</string>

@@ -218,6 +218,8 @@
     <string name="title_reply_to">Reply to:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">Assunto:</string>
     <string name="title_body_hint">Sua mensagem</string>
     <string name="title_discard">Discard</string>

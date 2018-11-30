@@ -238,6 +238,8 @@
     <string name="title_reply_to">الرد على:</string>
     <string name="title_cc">نسخة:</string>
     <string name="title_bcc">نسخة مخفية:</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">الموضوع:</string>
     <string name="title_body_hint">الرسالة الخاصة بك</string>
     <string name="title_discard">Discard</string>

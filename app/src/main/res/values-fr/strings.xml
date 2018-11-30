@@ -218,6 +218,8 @@
     <string name="title_reply_to">Répondre à :</string>
     <string name="title_cc">Cc :</string>
     <string name="title_bcc">Cci :</string>
+    <string name="title_received">Reçu :</string>
+    <string name="title_size">Taille :</string>
     <string name="title_subject">Objet :</string>
     <string name="title_body_hint">Votre message</string>
     <string name="title_discard">Supprimer</string>

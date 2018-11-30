@@ -213,6 +213,8 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
+    <string name="title_received">Received:</string>
+    <string name="title_size">Size:</string>
     <string name="title_subject">主题：</string>
     <string name="title_body_hint">您的邮件内容……</string>
     <string name="title_discard">舍弃</string>
