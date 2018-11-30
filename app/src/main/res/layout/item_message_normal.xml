@@ -77,9 +77,21 @@
             android:ellipsize="end"
             android:text="From"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toStartOf="@+id/tvTime"
+            app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:maxLines="1"
+            android:text="123 KB"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintEnd_toStartOf="@id/tvTime"
+            app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
         <TextView
             android:id="@+id/tvTime"
@@ -390,7 +402,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
         <TextView
-            android:id="@+id/tvSizeTitle"
+            android:id="@+id/tvSizeExTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -400,7 +412,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
 
         <TextView
-            android:id="@+id/tvSize"
+            android:id="@+id/tvSizeEx"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -409,7 +421,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvSizeTitle"
+            app:layout_constraintStart_toEndOf="@id/tvSizeExTitle"
             app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
 
         <TextView
@@ -423,7 +435,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSize" />
+            app:layout_constraintTop_toBottomOf="@id/tvSizeEx" />
 
         <TextView
             android:id="@+id/tvKeywords"
@@ -595,7 +607,7 @@
             android:id="@+id/grpAddress"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeExTitle,tvTimeEx,tvSizeTitle,tvSize,tvSubjectEx" />
+            app:constraint_referenced_ids="tvFromExTitle,tvFromEx,tvToTitle,tvTo,tvReplyToTitle,tvReplyTo,tvCcTitle,tvCc,tvBccTitle,tvBcc,tvTimeExTitle,tvTimeEx,tvSizeExTitle,tvSizeEx,tvSubjectEx" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpHeaders"

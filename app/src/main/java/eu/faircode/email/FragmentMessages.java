@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -1322,12 +1323,22 @@ public class FragmentMessages extends FragmentEx {
                     if (autoExpand) {
                         autoExpand = false;
 
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        long download = prefs.getInt("download", 32768);
+                        if (download == 0)
+                            download = Long.MAX_VALUE;
+
+                        ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
+                        boolean metered = (cm == null || cm.isActiveNetworkMetered());
+
                         int count = 0;
                         int unseen = 0;
                         TupleMessageEx single = null;
                         TupleMessageEx see = null;
                         for (TupleMessageEx message : messages) {
-                            if (!message.duplicate && !EntityFolder.TRASH.equals(message.folderType)) {
+                            if (!message.duplicate &&
+                                    !EntityFolder.TRASH.equals(message.folderType) &&
+                                    (!metered || (message.size != null && message.size < download))) {
                                 count++;
                                 single = message;
                                 if (!message.ui_seen) {
