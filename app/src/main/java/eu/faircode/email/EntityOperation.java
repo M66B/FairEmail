@@ -80,29 +80,29 @@ public class EntityOperation {
     private static List<Intent> queue = new ArrayList<>();
 
     static void queue(DB db, EntityMessage message, String name) {
-        JSONArray jsonArray = new JSONArray();
-        queue(db, message, name, jsonArray);
+        JSONArray jargs = new JSONArray();
+        queue(db, message, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value) {
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(value);
-        queue(db, message, name, jsonArray);
+        JSONArray jargs = new JSONArray();
+        jargs.put(value);
+        queue(db, message, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(value1);
-        jsonArray.put(value2);
-        queue(db, message, name, jsonArray);
+        JSONArray jargs = new JSONArray();
+        jargs.put(value1);
+        jargs.put(value2);
+        queue(db, message, name, jargs);
     }
 
-    private static void queue(DB db, EntityMessage message, String name, JSONArray jsonArray) {
+    private static void queue(DB db, EntityMessage message, String name, JSONArray jargs) {
         EntityOperation operation = new EntityOperation();
         operation.folder = message.folder;
         operation.message = message.id;
         operation.name = name;
-        operation.args = jsonArray.toString();
+        operation.args = jargs.toString();
         operation.created = new Date().getTime();
         operation.id = db.operation().insertOperation(operation);
 
@@ -137,7 +137,8 @@ public class EntityOperation {
             return (this.folder.equals(other.folder) &&
                     this.message.equals(other.message) &&
                     this.name.equals(other.name) &&
-                    this.args.equals(other.args));
+                    this.args.equals(other.args) &&
+                    this.created.equals(other.created));
         } else
             return false;
     }

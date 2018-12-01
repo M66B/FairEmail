@@ -52,6 +52,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         View itemView;
         TextView tvMessage;
         TextView tvName;
+        TextView tvArgs;
         TextView tvTime;
 
         ViewHolder(View itemView) {
@@ -60,6 +61,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             this.itemView = itemView;
             tvMessage = itemView.findViewById(R.id.tvMessage);
             tvName = itemView.findViewById(R.id.tvName);
+            tvArgs = itemView.findViewById(R.id.tvArgs);
             tvTime = itemView.findViewById(R.id.tvTime);
         }
 
@@ -74,6 +76,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         private void bindTo(EntityOperation operation) {
             tvMessage.setText(Long.toString(operation.message));
             tvName.setText(operation.name);
+            tvArgs.setText(operation.args);
             tvTime.setText(df.format(new Date(operation.created)));
         }
 

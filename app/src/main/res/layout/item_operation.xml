@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="3dp"
-    android:layout_marginTop="3dp">
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp">
 
     <TextView
         android:id="@+id/tvMessage"
@@ -27,6 +27,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvArgs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="Arguments"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@+id/tvTime"
+        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,4 +47,5 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
