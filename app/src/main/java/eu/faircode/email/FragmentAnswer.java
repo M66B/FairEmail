@@ -125,7 +125,7 @@ public class FragmentAnswer extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -157,7 +157,7 @@ public class FragmentAnswer extends FragmentEx {
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.setViewsEnabled(view, true);
-                                Helper.unexpectedError(getContext(), ex);
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
                         }.load(FragmentAnswer.this, args);
                     }
@@ -205,7 +205,7 @@ public class FragmentAnswer extends FragmentEx {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.setViewsEnabled(view, true);
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }

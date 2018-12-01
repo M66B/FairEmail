@@ -419,7 +419,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(ActivityView.this, ex);
+                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
                     }
                 }.load(this, args);
             } else {
@@ -581,7 +581,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ex);
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(this, new Bundle());
     }
@@ -665,7 +665,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Helper.view(ActivityView.this, update);
+                                    Helper.view(ActivityView.this, ActivityView.this, update);
                                 }
                             })
                             .show();
@@ -674,7 +674,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (BuildConfig.DEBUG)
-                    Helper.unexpectedError(ActivityView.this, ex);
+                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(this, new Bundle());
     }
@@ -749,7 +749,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ex);
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(this, args);
     }
@@ -777,7 +777,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, getIntentFAQ());
+        Helper.view(this, this, getIntentFAQ());
     }
 
     private void onMenuPro() {
@@ -787,7 +787,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, Helper.getIntentPrivacy());
+        Helper.view(this, this, Helper.getIntentPrivacy());
     }
 
     private void onMenuAbout() {
@@ -799,20 +799,20 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onMenuRate() {
         Intent faq = getIntentFAQ();
         if (faq.resolveActivity(getPackageManager()) == null)
-            Helper.view(this, getIntentRate());
+            Helper.view(this, this, getIntentRate());
         else {
             new DialogBuilderLifecycle(this, this)
                     .setMessage(R.string.title_issue)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, getIntentFAQ());
+                            Helper.view(ActivityView.this, ActivityView.this, getIntentFAQ());
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, getIntentRate());
+                            Helper.view(ActivityView.this, ActivityView.this, getIntentRate());
                         }
                     })
                     .show();
@@ -824,7 +824,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuOtherApps() {
-        Helper.view(this, getIntentOtherApps());
+        Helper.view(this, this, getIntentOtherApps());
     }
 
     private void onReload() {
@@ -973,7 +973,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ex);
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(this, new Bundle());
     }
@@ -1314,7 +1314,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 ActivityView.REQUEST_DECRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
-                        Helper.unexpectedError(ActivityView.this, ex);
+                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
                     }
             }
 
@@ -1323,7 +1323,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(ActivityView.this, ex);
+                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(ActivityView.this, args);
     }
@@ -1389,7 +1389,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(ActivityView.this, ex);
+                            Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
                         }
                     }.load(this, args);
                 }

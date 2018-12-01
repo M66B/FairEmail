@@ -329,7 +329,7 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), ex);
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
                         }.load(FragmentMessages.this, args);
                     }
@@ -515,7 +515,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -653,7 +653,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -708,7 +708,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -750,7 +750,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -838,7 +838,7 @@ public class FragmentMessages extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), ex);
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
                                 }.load(FragmentMessages.this, args);
 
@@ -851,7 +851,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -898,7 +898,7 @@ public class FragmentMessages extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), ex);
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
                                 }.load(FragmentMessages.this, args);
                             }
@@ -1143,7 +1143,7 @@ public class FragmentMessages extends FragmentEx {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getContext(), ex);
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
                     }.load(FragmentMessages.this, args);
                 } else {
@@ -1268,7 +1268,7 @@ public class FragmentMessages extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -1515,7 +1515,7 @@ public class FragmentMessages extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -1565,7 +1565,7 @@ public class FragmentMessages extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }

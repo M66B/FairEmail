@@ -68,8 +68,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -90,15 +91,15 @@ public class Helper {
         }
     };
 
-    static void view(Context context, Intent intent) {
+    static void view(Context context, LifecycleOwner owner, Intent intent) {
         Uri uri = intent.getData();
         if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-            view(context, intent.getData());
+            view(context, owner, intent.getData());
         else
             context.startActivity(intent);
     }
 
-    static void view(Context context, Uri uri) {
+    static void view(Context context, LifecycleOwner owner, Uri uri) {
         Log.i(Helper.TAG, "Custom tab=" + uri);
 
         // https://developer.chrome.com/multidevice/android/customtabs
@@ -111,7 +112,7 @@ public class Helper {
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
         } catch (Throwable ex) {
-            Helper.unexpectedError(context, ex);
+            Helper.unexpectedError(context, owner, ex);
         }
     }
 
@@ -171,11 +172,11 @@ public class Helper {
         return sb.toString();
     }
 
-    static void unexpectedError(final Context context, final Throwable ex) {
+    static void unexpectedError(final Context context, LifecycleOwner owner, final Throwable ex) {
         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
-        if (context != null) {
-            new AlertDialog.Builder(context)
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            new DialogBuilderLifecycle(context, owner)
                     .setTitle(R.string.title_unexpected_error)
                     .setMessage(ex.toString())
                     .setPositiveButton(android.R.string.cancel, null)

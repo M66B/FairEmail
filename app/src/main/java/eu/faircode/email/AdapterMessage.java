@@ -724,7 +724,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(context, ex);
+                Helper.unexpectedError(context, owner, ex);
             }
         };
 
@@ -898,7 +898,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                             return;
                                         }
 
-                                        Helper.view(context, uri);
+                                        Helper.view(context, owner, uri);
                                     }
                                 })
                                 .setNegativeButton(R.string.title_no, null)
@@ -978,7 +978,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, ex);
+                                    Helper.unexpectedError(context, owner, ex);
                                 }
                             }.load(context, owner, args);
                         }
@@ -1025,7 +1025,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.load(context, owner, args);
         }
@@ -1133,7 +1133,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.load(context, owner, args);
         }
@@ -1159,7 +1159,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.load(context, owner, args);
         }
@@ -1187,7 +1187,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, ex);
+                        Helper.unexpectedError(context, owner, ex);
                     }
                 }.load(context, owner, args);
             } else
@@ -1275,7 +1275,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                         @Override
                                         protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, ex);
+                                            Helper.unexpectedError(context, owner, ex);
                                         }
                                     }.load(context, owner, args);
                                 }
@@ -1310,7 +1310,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                                             @Override
                                                             protected void onException(Bundle args, Throwable ex) {
-                                                                Helper.unexpectedError(context, ex);
+                                                                Helper.unexpectedError(context, owner, ex);
                                                             }
                                                         }.load(context, owner, args);
                                                     }
@@ -1323,7 +1323,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.load(context, owner, args);
         }
@@ -1448,7 +1448,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(context, ex);
+                                        Helper.unexpectedError(context, owner, ex);
                                     }
                                 }.load(context, owner, args);
                             }
@@ -1510,7 +1510,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(context, ex);
+                                    Helper.unexpectedError(context, owner, ex);
                                 }
                             }.load(context, owner, args);
 
@@ -1523,7 +1523,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, ex);
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.load(context, owner, args);
         }

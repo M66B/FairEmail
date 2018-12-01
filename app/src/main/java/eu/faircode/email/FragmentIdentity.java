@@ -285,7 +285,7 @@ public class FragmentIdentity extends FragmentEx {
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
-                            Helper.unexpectedError(getContext(), ex);
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentIdentity.this, args);
             }
@@ -562,7 +562,7 @@ public class FragmentIdentity extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), ex);
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
                                 }.load(FragmentIdentity.this, args);
                             }
@@ -647,7 +647,7 @@ public class FragmentIdentity extends FragmentEx {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), ex);
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
                         }.load(FragmentIdentity.this, new Bundle());
                 } else {
@@ -745,14 +745,14 @@ public class FragmentIdentity extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentIdentity.this, args);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -815,7 +815,7 @@ public class FragmentIdentity extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }

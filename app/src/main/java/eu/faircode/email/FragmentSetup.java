@@ -329,7 +329,7 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, new Bundle());
 
@@ -472,7 +472,7 @@ public class FragmentSetup extends FragmentEx {
     }
 
     private void onMenuPrivacy() {
-        Helper.view(getContext(), Helper.getIntentPrivacy());
+        Helper.view(getContext(), getViewLifecycleOwner(), Helper.getIntentPrivacy());
     }
 
     private void onMenuLegend() {
@@ -486,7 +486,7 @@ public class FragmentSetup extends FragmentEx {
             try {
                 startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
             } catch (Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         else {
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -499,7 +499,7 @@ public class FragmentSetup extends FragmentEx {
         try {
             startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
         } catch (Throwable ex) {
-            Helper.unexpectedError(getContext(), ex);
+            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     }
 
@@ -631,7 +631,7 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -765,7 +765,7 @@ public class FragmentSetup extends FragmentEx {
                 if (ex.getCause() instanceof BadPaddingException)
                     Snackbar.make(view, R.string.title_setup_password_invalid, Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), ex);
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }

@@ -85,7 +85,7 @@ public class FragmentWebView extends FragmentEx {
                     setSubtitle(url);
                     return false;
                 } else {
-                    Helper.view(getContext(), Uri.parse(url));
+                    Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url));
                     return true;
                 }
             }
@@ -180,7 +180,7 @@ public class FragmentWebView extends FragmentEx {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), ex);
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
             }.load(this, args);
         }

@@ -138,7 +138,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (responseCode != BillingClient.BillingResponse.OK)
                 Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
         } else
-            Helper.view(this, getIntentPro());
+            Helper.view(this, this, getIntentPro());
     }
 
     private void onActivatePro(Intent intent) {
@@ -160,7 +160,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             }
         } catch (NoSuchAlgorithmException ex) {
             Log.e(Helper.TAG, Log.getStackTraceString(ex));
-            Helper.unexpectedError(this, ex);
+            Helper.unexpectedError(this, this, ex);
         }
     }
 

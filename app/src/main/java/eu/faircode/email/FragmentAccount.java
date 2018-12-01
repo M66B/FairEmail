@@ -297,7 +297,7 @@ public class FragmentAccount extends FragmentEx {
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
-                            Helper.unexpectedError(getContext(), ex);
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -864,7 +864,7 @@ public class FragmentAccount extends FragmentEx {
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), ex);
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
                                 }.load(FragmentAccount.this, args);
                             }
@@ -997,7 +997,7 @@ public class FragmentAccount extends FragmentEx {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), ex);
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
                         }.load(FragmentAccount.this, new Bundle());
                 } else {
@@ -1038,14 +1038,14 @@ public class FragmentAccount extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentAccount.this, args);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }

@@ -606,7 +606,7 @@ public class FragmentCompose extends FragmentEx {
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
             else {
                 Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
@@ -761,7 +761,7 @@ public class FragmentCompose extends FragmentEx {
                                 ActivityCompose.REQUEST_ENCRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
-                        Helper.unexpectedError(getContext(), ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
             }
 
@@ -770,7 +770,7 @@ public class FragmentCompose extends FragmentEx {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), ex);
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -834,7 +834,7 @@ public class FragmentCompose extends FragmentEx {
             }
         } catch (Throwable ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-            Helper.unexpectedError(getContext(), ex);
+            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         } finally {
             if (cursor != null)
                 cursor.close();
@@ -877,7 +877,7 @@ public class FragmentCompose extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -1333,7 +1333,7 @@ public class FragmentCompose extends FragmentEx {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), ex);
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
             }.load(FragmentCompose.this, a);
 
@@ -1480,7 +1480,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            Helper.unexpectedError(getContext(), ex);
+            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
 
@@ -1689,7 +1689,7 @@ public class FragmentCompose extends FragmentEx {
             if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
-                Helper.unexpectedError(getContext(), ex);
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
 

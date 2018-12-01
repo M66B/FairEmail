@@ -250,7 +250,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         public void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, ex);
+                            Helper.unexpectedError(context, owner, ex);
                         }
                     }.load(context, owner, args);
                 }
@@ -292,7 +292,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                                         @Override
                                         protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, ex);
+                                            Helper.unexpectedError(context, owner, ex);
                                         }
                                     }.load(context, owner, args);
                                 }
