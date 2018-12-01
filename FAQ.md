@@ -175,11 +175,11 @@ Some providers allow you to have multiple email aliases.
 You can configure these by setting the email address field to the alias address and setting the user name field to your main email address.
 
 <a name="faq10"></a>
-**(10) What does 'UIDPLUS not supported' mean?**
+**~~(10) What does 'UIDPLUS not supported' mean?~~**
 
-The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
-This IMAP extension is required to implement two way synchronization, which is not an optional feature.
-So, unless your provider can enable this extension, you cannot use FairEmail for this provider.
+~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).~~
+~~This IMAP extension is required to implement two way synchronization, which is not an optional feature.~~
+~~So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 <a name="faq11"></a>
 **(11) Why is POP not supported?**
@@ -541,6 +541,8 @@ Most providers provide encrypted connections using different ports, typically po
 
 If your provider doesn't support encrypted connections, you should ask to make this possible.
 If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
+
+See also [this FAQ](#user-content-faq4).
 
 
 ## Support
