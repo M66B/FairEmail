@@ -611,12 +611,14 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private Notification.Builder getNotificationError(String action, Throwable ex) {
-        return getNotificationError(action, new Date().getTime(), ex);
+        return getNotificationError(action, new Date().getTime(), ex, true);
     }
 
-    private Notification.Builder getNotificationError(String action, long when, Throwable ex) {
+    private Notification.Builder getNotificationError(String action, long when, Throwable ex, boolean debug) {
         // Build pending intent
         Intent intent = new Intent(this, ActivitySetup.class);
+        if (debug)
+            intent.setAction("error");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(
                 this, ActivitySetup.REQUEST_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -832,7 +834,7 @@ public class ServiceSynchronize extends LifecycleService {
                             if (now - account.last_connected > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
                                 NotificationManager nm = getSystemService(NotificationManager.class);
                                 nm.notify("receive", account.id.intValue(),
-                                        getNotificationError(account.name, account.last_connected, ex).build());
+                                        getNotificationError(account.name, account.last_connected, ex, false).build());
                             }
                         }
 

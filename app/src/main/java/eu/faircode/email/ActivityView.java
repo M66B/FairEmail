@@ -370,6 +370,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if ("unified".equals(action))
                 getSupportFragmentManager().popBackStack("unified", 0);
 
+            else if ("error".equals(action))
+                onDebugInfo();
+
             else if (action.startsWith("thread")) {
                 ViewModelMessages model = ViewModelProviders.of(this).get(ViewModelMessages.class);
                 model.setMessages(null);
