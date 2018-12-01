@@ -898,11 +898,51 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         }
                     }
 
+                    // Attach operations
+                    {
+                        EntityAttachment ops = new EntityAttachment();
+                        ops.message = draft.id;
+                        ops.sequence = 2;
+                        ops.name = "operations.txt";
+                        ops.type = "text/plain";
+                        ops.size = null;
+                        ops.progress = 0;
+                        ops.id = db.attachment().insertAttachment(ops);
+
+                        OutputStream os = null;
+                        File file = EntityAttachment.getFile(context, ops.id);
+                        try {
+                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                            int size = 0;
+                            DateFormat DF = SimpleDateFormat.getTimeInstance();
+                            for (EntityOperation op : db.operation().getOperations()) {
+                                String line = String.format("%s %d %s %s %s\r\n",
+                                        DF.format(op.created),
+                                        op.message,
+                                        op.name,
+                                        op.args,
+                                        op.error);
+                                byte[] bytes = line.getBytes();
+                                os.write(bytes);
+                                size += bytes.length;
+                            }
+
+                            ops.size = size;
+                            ops.progress = null;
+                            ops.available = true;
+                            db.attachment().updateAttachment(ops);
+                        } finally {
+                            if (os != null)
+                                os.close();
+                        }
+                    }
+
                     // Attach logcat
                     {
                         EntityAttachment logcat = new EntityAttachment();
                         logcat.message = draft.id;
-                        logcat.sequence = 2;
+                        logcat.sequence = 3;
                         logcat.name = "logcat.txt";
                         logcat.type = "text/plain";
                         logcat.size = null;

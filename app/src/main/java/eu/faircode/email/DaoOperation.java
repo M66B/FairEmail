@@ -37,6 +37,9 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation ORDER BY id")
     LiveData<List<EntityOperation>> liveOperations();
 
+    @Query("SELECT * FROM operation ORDER BY id")
+    List<EntityOperation> getOperations();
+
     @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
 
