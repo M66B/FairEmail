@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,7 +50,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         View itemView;
         TextView tvMessage;
         TextView tvName;
@@ -66,10 +68,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
 
         private void wire() {
+            itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
+            itemView.setOnClickListener(null);
             itemView.setOnLongClickListener(null);
         }
 
@@ -78,6 +82,37 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             tvName.setText(operation.name);
             tvArgs.setText(operation.args);
             tvTime.setText(df.format(new Date(operation.created)));
+        }
+
+        @Override
+        public void onClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            EntityOperation operation = filtered.get(pos);
+
+            Bundle args = new Bundle();
+            args.putLong("id", operation.message);
+
+            new SimpleTask<EntityMessage>() {
+                @Override
+                protected EntityMessage onLoad(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    return DB.getInstance(context).message().getMessage(id);
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, EntityMessage message) {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                    .putExtra("account", message.account)
+                                    .putExtra("thread", message.thread)
+                                    .putExtra("id", message.id)
+                                    .putExtra("found", message.ui_found));
+                }
+            }.load(context, owner, args);
         }
 
         @Override
