@@ -171,12 +171,23 @@ public class Helper {
         return sb.toString();
     }
 
-    static void unexpectedError(Context context, Throwable ex) {
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.title_unexpected_error)
-                .setMessage(ex.toString())
-                .setPositiveButton(android.R.string.cancel, null)
-                .show();
+    static void unexpectedError(final Context context, final Throwable ex) {
+        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+
+        if (context != null) {
+            new AlertDialog.Builder(context)
+                    .setTitle(R.string.title_unexpected_error)
+                    .setMessage(ex.toString())
+                    .setPositiveButton(android.R.string.cancel, null)
+                    .show();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ApplicationEx.writeCrashLog(context, ex);
+                }
+            }).start();
+        }
     }
 
     static String humanReadableByteCount(long bytes, boolean si) {

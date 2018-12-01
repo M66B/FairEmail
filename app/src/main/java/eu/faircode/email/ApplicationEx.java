@@ -23,6 +23,7 @@ import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
@@ -46,7 +47,7 @@ public class ApplicationEx extends Application {
             public void uncaughtException(Thread thread, Throwable ex) {
                 if (ownFault(ex)) {
                     Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
-                    writeCrashLog(ex);
+                    writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
                         prev.uncaughtException(thread, ex);
@@ -112,8 +113,8 @@ public class ApplicationEx extends Application {
         return false;
     }
 
-    private void writeCrashLog(Throwable ex) {
-        File file = new File(getCacheDir(), "crash.log");
+    static void writeCrashLog(Context context, Throwable ex) {
+        File file = new File(context.getCacheDir(), "crash.log");
         Log.w(Helper.TAG, "Writing exception to " + file);
 
         FileWriter out = null;
