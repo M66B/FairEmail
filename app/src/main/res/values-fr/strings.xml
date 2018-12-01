@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Pas de compte principal ou pas de dossier Brouillons</string>
     <string name="title_no_primary_archive">Pas de compte principal ou pas de dossier Archives</string>
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l’utilisation de la batterie.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS non pris en charge, consulter la FAQ</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>

@@ -150,7 +150,6 @@
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
     <string name="title_no_primary_archive">Brak konta podstawowego lub brak folderu archiwum</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS nie jest wspierane, zobacz FAQ</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_pop">POP nie jest wspierane</string>
@@ -228,8 +227,8 @@
     <string name="title_reply_to">Odpisz do:</string>
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
-    <string name="title_received">Received:</string>
-    <string name="title_size">Size:</string>
+    <string name="title_received">Odebrano:</string>
+    <string name="title_size">Rozmiar:</string>
     <string name="title_subject">Temat:</string>
     <string name="title_body_hint">Twoja wiadomość</string>
     <string name="title_discard">Odrzuć</string>
@@ -285,7 +284,7 @@
     <string name="title_legend_contacts">Kontakty</string>
     <string name="title_legend_external_image">External image placeholder</string>
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
-    <string name="title_legend_broken_image">Broken image</string>
+    <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
     <string name="title_legend_primary">Podstawowej/gwiazdką</string>

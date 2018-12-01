@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Birincil hesap yok veya taslak klasörü yok</string>
     <string name="title_no_primary_archive">Birincil hesap yok veya arşiv klasörü yok</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS desteklenmiyor, SSS bölümüne bakın</string>
     <string name="title_account_delete">Bu hesabı kalıcı olarak sil?</string>
     <string name="title_identity_delete">Bu kimliği kalıcı olarak sil?</string>
     <string name="title_pop">POP desteklenmiyor</string>

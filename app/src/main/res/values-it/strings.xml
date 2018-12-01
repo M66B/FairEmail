@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
     <string name="title_no_primary_archive">Nessun account principale o nessuna cartella di archivio</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS non supportato, vedi le FAQ</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
@@ -218,8 +217,8 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
-    <string name="title_received">Received:</string>
-    <string name="title_size">Size:</string>
+    <string name="title_received">Ricevuto:</string>
+    <string name="title_size">Dimensioni:</string>
     <string name="title_subject">Oggetto:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
     <string name="title_discard">Elimina</string>

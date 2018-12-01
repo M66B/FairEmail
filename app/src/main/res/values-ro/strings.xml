@@ -85,7 +85,7 @@
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
-    <string name="title_advanced_threading">Conversation threading</string>
+    <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_compact">Afișarea compactă a mesajelor</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
@@ -145,7 +145,6 @@
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
     <string name="title_no_primary_archive">Nici un cont principal sau nici un dosar pentru arhive</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS nu este suportat, consultați lista de întrebări și răspunsuri</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_pop">POP nu este acceptat</string>
@@ -223,8 +222,8 @@
     <string name="title_reply_to">Răspunde la:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_received">Received:</string>
-    <string name="title_size">Size:</string>
+    <string name="title_received">Primit:</string>
+    <string name="title_size">Mărime:</string>
     <string name="title_subject">Subiect:</string>
     <string name="title_body_hint">Mesajul dumneavoastră</string>
     <string name="title_discard">Renunță</string>
@@ -278,9 +277,9 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
     <string name="title_legend_contacts">Contacte</string>
-    <string name="title_legend_external_image">External image placeholder</string>
-    <string name="title_legend_embedded_image">Embedded image placeholder</string>
-    <string name="title_legend_broken_image">Broken image</string>
+    <string name="title_legend_external_image">Înlocuitor imagine externă</string>
+    <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
+    <string name="title_legend_broken_image">Imagine coruptă</string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
     <string name="title_legend_primary">Primar/marcat</string>

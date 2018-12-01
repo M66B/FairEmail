@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
     <string name="title_no_primary_archive">No primary account or no archive folder</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS no està suportat, per favor consulta les preguntes freqüents</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_pop">POP no està suportat</string>

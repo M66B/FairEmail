@@ -88,9 +88,9 @@
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>
-    <string name="title_advanced_actionbar">Conversation action bar</string>
+    <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
-    <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
+    <string name="title_advanced_confirm">Bekräfta åtgärder som kan läcka känslig information</string>
     <string name="title_advanced_sender">Tillåt redigering avsändaradress</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Inget primärt konto eller ingen utkastmapp</string>
     <string name="title_no_primary_archive">Inget primärt konto eller ingen arkivmapp</string>
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS stöds inte, se Vanliga frågor</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_pop">POP stöds inte</string>
@@ -205,7 +204,7 @@
     <string name="title_attachment_unavailable">Vissa bilagor hämtas inte och kommer inte att vidarebefordras, fortsätt?</string>
     <string name="title_ask_delete">Ta bort meddelandet permanent?</string>
     <string name="title_ask_delete_selected">Ta bort valda meddelanden permanent?</string>
-    <string name="title_ask_delete_answer">Delete reply template permanently?</string>
+    <string name="title_ask_delete_answer">Ta bort svarsmall permanent?</string>
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_save">Spara ändringarna?</string>
     <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
@@ -218,8 +217,8 @@
     <string name="title_reply_to">Svara till:</string>
     <string name="title_cc">Kopia:</string>
     <string name="title_bcc">Dold kopia:</string>
-    <string name="title_received">Received:</string>
-    <string name="title_size">Size:</string>
+    <string name="title_received">Mottaget:</string>
+    <string name="title_size">Storlek:</string>
     <string name="title_subject">Ämne:</string>
     <string name="title_body_hint">Ditt meddelande</string>
     <string name="title_discard">Släng</string>
@@ -230,7 +229,7 @@
     <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>
-    <string name="title_style_clear">Clear formatting</string>
+    <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_style_image">Infoga bild</string>
     <string name="title_add_attachment">Lägg till bilaga</string>

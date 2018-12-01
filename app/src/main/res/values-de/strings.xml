@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
     <string name="title_no_primary_archive">Kein Hauptkonto oder kein Archiv-Ordner</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Dies verzögert den Empfang neuer Nachrichten und erhöht den Batterie-Verbrauch.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS wird nicht unterstützt, schauen Sie bitte in die Hilfe</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>

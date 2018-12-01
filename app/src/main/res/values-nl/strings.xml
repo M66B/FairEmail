@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
     <string name="title_no_primary_archive">Geen primair account of geen archief</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS niet ondersteund, zie de FAQ</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_pop">POP wordt niet ondersteund</string>

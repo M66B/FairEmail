@@ -140,7 +140,6 @@
     <string name="title_no_primary_drafts">No primary account or no drafts folder</string>
     <string name="title_no_primary_archive">No primary account or no archive folder</string>
     <string name="title_no_idle">This provider does not support push messages. This will delay reception of new messages and increase battery usage.</string>
-    <string name="title_no_uidplus">IMAP UIDPLUS not supported, see the FAQ</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_pop">POP is not supported</string>
