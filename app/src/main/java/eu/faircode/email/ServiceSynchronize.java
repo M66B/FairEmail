@@ -81,7 +81,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -704,7 +703,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException, TimeoutException {
+    private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
         final PowerManager pm = getSystemService(PowerManager.class);
         final PowerManager.WakeLock wl0 = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK,
@@ -2321,8 +2320,11 @@ public class ServiceSynchronize extends LifecycleService {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean metered = prefs.getBoolean("metered", true);
 
+            boolean suitable = (network != null && (metered || unmetered));
+            EntityLog.log(ServiceSynchronize.this, "suitable=" + suitable + " active=" + cm.getActiveNetworkInfo());
+
             // The connected state is deliberately ignored
-            return (metered || unmetered);
+            return suitable;
         }
 
         private boolean isEnabled() {
