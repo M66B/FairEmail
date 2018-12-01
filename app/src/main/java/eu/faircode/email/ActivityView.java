@@ -219,10 +219,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         onMenuInbox((long) item.getData());
                         return true;
                     case R.string.menu_setup:
-                        onShowLog();
+                        onReload();
                         return true;
                     case R.string.menu_faq:
                         onDebugInfo();
+                        return true;
+                    case R.string.menu_about:
+                        onShowLog();
                         return true;
                     default:
                         return false;
@@ -783,13 +786,39 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void onShowLog() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    private void onMenuRate() {
+        Intent faq = getIntentFAQ();
+        if (faq.resolveActivity(getPackageManager()) == null)
+            Helper.view(this, getIntentRate());
+        else {
+            new DialogBuilderLifecycle(this, this)
+                    .setMessage(R.string.title_issue)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Helper.view(ActivityView.this, getIntentFAQ());
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Helper.view(ActivityView.this, getIntentRate());
+                        }
+                    })
+                    .show();
+        }
+    }
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
-        fragmentTransaction.commit();
+    private void onMenuInvite() {
+        startActivityForResult(getIntentInvite(), REQUEST_INVITE);
+    }
+
+    private void onMenuOtherApps() {
+        Helper.view(this, getIntentOtherApps());
+    }
+
+    private void onReload() {
+        ServiceSynchronize.reload(this, "manual reload");
     }
 
     private void onDebugInfo() {
@@ -939,35 +968,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.load(this, new Bundle());
     }
 
-    private void onMenuRate() {
-        Intent faq = getIntentFAQ();
-        if (faq.resolveActivity(getPackageManager()) == null)
-            Helper.view(this, getIntentRate());
-        else {
-            new DialogBuilderLifecycle(this, this)
-                    .setMessage(R.string.title_issue)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, getIntentFAQ());
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, getIntentRate());
-                        }
-                    })
-                    .show();
-        }
-    }
+    private void onShowLog() {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-    private void onMenuInvite() {
-        startActivityForResult(getIntentInvite(), REQUEST_INVITE);
-    }
-
-    private void onMenuOtherApps() {
-        Helper.view(this, getIntentOtherApps());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentLogs()).addToBackStack("logs");
+        fragmentTransaction.commit();
     }
 
     private class DrawerItem {
