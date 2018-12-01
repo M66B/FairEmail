@@ -36,7 +36,6 @@ Anything on this list is in random order and *might* be added in the near future
 
 ## Frequently requested features
 
-* Previewing message text in notifications: this is not possible because the message text is initially not downloaded.
 * Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful.

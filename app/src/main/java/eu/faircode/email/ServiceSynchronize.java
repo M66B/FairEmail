@@ -128,6 +128,7 @@ public class ServiceSynchronize extends LifecycleService {
     private final Object lock = new Object();
     private TupleAccountStats lastStats = null;
     private ServiceManager serviceManager = new ServiceManager();
+    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
 
@@ -178,60 +179,71 @@ public class ServiceSynchronize extends LifecycleService {
             private LongSparseArray<List<Integer>> notifying = new LongSparseArray<>();
 
             @Override
-            public void onChanged(List<TupleMessageEx> messages) {
-                NotificationManager nm = getSystemService(NotificationManager.class);
+            public void onChanged(final List<TupleMessageEx> messages) {
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            NotificationManager nm = getSystemService(NotificationManager.class);
 
-                Widget.update(ServiceSynchronize.this, messages.size());
+                            Widget.update(ServiceSynchronize.this, messages.size());
 
-                LongSparseArray<String> accountName = new LongSparseArray<>();
-                LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
+                            LongSparseArray<String> accountName = new LongSparseArray<>();
+                            LongSparseArray<List<TupleMessageEx>> accountMessages = new LongSparseArray<>();
 
-                for (int i = 0; i < notifying.size(); i++)
-                    accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
+                            for (int i = 0; i < notifying.size(); i++)
+                                accountMessages.put(notifying.keyAt(i), new ArrayList<TupleMessageEx>());
 
-                for (TupleMessageEx message : messages) {
-                    long account = (message.accountNotify ? message.account : 0);
-                    accountName.put(account, account > 0 ? message.accountName : null);
-                    if (accountMessages.indexOfKey(account) < 0)
-                        accountMessages.put(account, new ArrayList<TupleMessageEx>());
-                    accountMessages.get(account).add(message);
-                    if (notifying.indexOfKey(account) < 0)
-                        notifying.put(account, new ArrayList<Integer>());
-                }
+                            for (TupleMessageEx message : messages) {
+                                long account = (message.accountNotify ? message.account : 0);
+                                accountName.put(account, account > 0 ? message.accountName : null);
+                                if (accountMessages.indexOfKey(account) < 0)
+                                    accountMessages.put(account, new ArrayList<TupleMessageEx>());
+                                accountMessages.get(account).add(message);
+                                if (notifying.indexOfKey(account) < 0)
+                                    notifying.put(account, new ArrayList<Integer>());
+                            }
 
-                for (int i = 0; i < accountMessages.size(); i++) {
-                    long account = accountMessages.keyAt(i);
-                    List<Notification> notifications = getNotificationUnseen(
-                            account, accountName.get(account), accountMessages.get(account));
+                            for (int i = 0; i < accountMessages.size(); i++) {
+                                long account = accountMessages.keyAt(i);
+                                List<Notification> notifications = getNotificationUnseen(
+                                        account, accountName.get(account), accountMessages.get(account));
 
-                    List<Integer> all = new ArrayList<>();
-                    List<Integer> added = new ArrayList<>();
-                    List<Integer> removed = notifying.get(account);
-                    for (Notification notification : notifications) {
-                        Integer id = (int) notification.extras.getLong("id", 0);
-                        if (id > 0) {
-                            all.add(id);
-                            if (removed.contains(id))
-                                removed.remove(id);
-                            else
-                                added.add(id);
+                                List<Integer> all = new ArrayList<>();
+                                List<Integer> added = new ArrayList<>();
+                                List<Integer> removed = notifying.get(account);
+                                for (Notification notification : notifications) {
+                                    Integer id = (int) notification.extras.getLong("id", 0);
+                                    if (id != 0) {
+                                        all.add(id);
+                                        if (removed.contains(id))
+                                            removed.remove(id);
+                                        else {
+                                            removed.remove(Integer.valueOf(-id));
+                                            added.add(id);
+                                        }
+                                    }
+                                }
+
+                                if (notifications.size() == 0)
+                                    nm.cancel("unseen:" + account, 0);
+
+                                for (Integer id : removed)
+                                    nm.cancel("unseen:" + account, Math.abs(id));
+
+                                for (Notification notification : notifications) {
+                                    Integer id = (int) notification.extras.getLong("id", 0);
+                                    if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
+                                        nm.notify("unseen:" + account, Math.abs(id), notification);
+                                }
+
+                                notifying.put(account, all);
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                         }
                     }
-
-                    if (notifications.size() == 0)
-                        nm.cancel("unseen:" + account, 0);
-
-                    for (Integer id : removed)
-                        nm.cancel("unseen:" + account, id);
-
-                    for (Notification notification : notifications) {
-                        Integer id = (int) notification.extras.getLong("id", 0);
-                        if ((id == 0 && added.size() + removed.size() > 0) || added.contains(id))
-                            nm.notify("unseen:" + account, id, notification);
-                    }
-
-                    notifying.put(account, all);
-                }
+                });
             }
         });
     }
@@ -497,7 +509,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         for (TupleMessageEx message : messages) {
             Bundle args = new Bundle();
-            args.putLong("id", message.id);
+            args.putLong("id", message.content ? message.id : -message.id);
 
             Intent thread = new Intent(this, ActivityView.class);
             thread.setAction("thread:" + message.thread);
@@ -554,6 +566,7 @@ public class ServiceSynchronize extends LifecycleService {
                     .setWhen(message.received)
                     .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
+                    .setOnlyAlertOnce(true)
                     .setCategory(Notification.CATEGORY_MESSAGE)
                     .setVisibility(Notification.VISIBILITY_PRIVATE)
                     .setGroup(group)
@@ -565,6 +578,16 @@ public class ServiceSynchronize extends LifecycleService {
             if (pro) {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
+
+                if (message.content)
+                    try {
+                        String html = message.read(ServiceSynchronize.this);
+                        String text = (TextUtils.isEmpty(message.subject) ? "" : message.subject + ": ") + Jsoup.parse(html).text();
+                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(text));
+                    } catch (IOException ex) {
+                        Log.e(Helper.TAG, ex + "/n" + Log.getStackTraceString(ex));
+                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
+                    }
 
                 if (!TextUtils.isEmpty(message.avatar)) {
                     Cursor cursor = null;

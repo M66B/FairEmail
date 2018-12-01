@@ -37,9 +37,9 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Dark/black theme
 * Account/identity colors
 * Notifications per account
+* Notifications with message preview
 * Reply templates
 * Search on server
-* Preview sender/subject/photo in new message notifications
 * Keyword management
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
 * Export settings
