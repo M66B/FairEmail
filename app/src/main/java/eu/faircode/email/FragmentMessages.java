@@ -1583,6 +1583,8 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void moveUndo(final MessageTarget result) {
+        final boolean undo = !(viewType == AdapterMessage.ViewType.THREAD && autoclose);
+
         // Show undo snackbar
         final Snackbar snackbar = Snackbar.make(
                 view,
@@ -1615,7 +1617,8 @@ public class FragmentMessages extends FragmentEx {
                 }.load(FragmentMessages.this, args);
             }
         });
-        snackbar.show();
+        if (undo)
+            snackbar.show();
 
         // Wait
         new Handler().postDelayed(new Runnable() {
@@ -1664,7 +1667,7 @@ public class FragmentMessages extends FragmentEx {
                     }
                 });
             }
-        }, UNDO_TIMEOUT);
+        }, undo ? UNDO_TIMEOUT : 0);
     }
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
