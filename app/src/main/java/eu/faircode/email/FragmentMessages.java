@@ -1159,7 +1159,7 @@ public class FragmentMessages extends FragmentEx {
         menu.findItem(R.id.menu_search).setVisible(folder >= 0 && search == null);
         menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
-        //menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
         menu.findItem(R.id.menu_move_sent).setVisible(outbox);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -1170,30 +1170,6 @@ public class FragmentMessages extends FragmentEx {
             menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
         else if ("starred".equals(sort))
             menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
-
-
-        ImageButton ibFolders = new ImageButton(getContext());
-        ibFolders.setImageResource(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
-        ibFolders.setColorFilter(Helper.resolveColor(getContext(), android.R.attr.textColorPrimary));
-        ibFolders.setBackground(null);
-
-        ibFolders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onMenuFolders();
-            }
-        });
-
-        ibFolders.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                ServiceSynchronize.reload(getContext(), "folders");
-                return true;
-            }
-        });
-
-        MenuItem menuFolders = menu.findItem(R.id.menu_folders);
-        menuFolders.setActionView(ibFolders);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -1216,9 +1192,10 @@ public class FragmentMessages extends FragmentEx {
                 loadMessages();
                 return true;
 
-            //case R.id.menu_folders:
-            //    onMenuFolders();
-            //    return true;
+            case R.id.menu_folders:
+                onMenuFolders();
+                loadMessages();
+                return true;
 
             case R.id.menu_move_sent:
                 onMenuMoveSent();
