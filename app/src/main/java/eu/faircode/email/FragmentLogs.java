@@ -85,7 +85,7 @@ public class FragmentLogs extends FragmentEx {
                     logs = new ArrayList<>();
 
                 adapter.set(logs);
-                rvLog.scrollToPosition(0);
+                //rvLog.scrollToPosition(0);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
