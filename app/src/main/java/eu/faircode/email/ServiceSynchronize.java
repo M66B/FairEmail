@@ -164,8 +164,6 @@ public class ServiceSynchronize extends LifecycleService {
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), serviceManager);
 
-        registerReceiver(airplaneModeReceiver, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
-
         DB db = DB.getInstance(this);
 
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
@@ -244,8 +242,6 @@ public class ServiceSynchronize extends LifecycleService {
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
-
-        unregisterReceiver(airplaneModeReceiver);
 
         serviceManager.service_destroy();
 
@@ -2555,16 +2551,6 @@ public class ServiceSynchronize extends LifecycleService {
             }
         };
     }
-
-    private BroadcastReceiver airplaneModeReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getBooleanExtra("state", true)) // state = airplane mode on
-                reload(ServiceSynchronize.this, intent.getAction());
-            else
-                EntityLog.log(ServiceSynchronize.this, intent.getAction());
-        }
-    };
 
     public static void init(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
