@@ -120,9 +120,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(folder.synchronize || folder.state != null ? View.VISIBLE : View.INVISIBLE);
 
-            String name = (folder.display == null
-                    ? Helper.localizeFolderName(context, folder.name)
-                    : folder.display);
+            String name = folder.getDisplayName(context);
             if (folder.unseen > 0)
                 tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
             else

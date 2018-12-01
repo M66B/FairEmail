@@ -781,12 +781,8 @@ public class FragmentMessages extends FragmentEx {
                         PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
 
                         int order = 0;
-                        for (EntityFolder folder : folders) {
-                            String name = (folder.display == null
-                                    ? Helper.localizeFolderName(getContext(), folder.name)
-                                    : folder.display);
-                            popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
-                        }
+                        for (EntityFolder folder : folders)
+                            popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(getContext()));
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -996,9 +992,7 @@ public class FragmentMessages extends FragmentEx {
                         if (folder == null)
                             setSubtitle(null);
                         else {
-                            String name = (folder.display == null
-                                    ? Helper.localizeFolderName(getContext(), folder.name)
-                                    : folder.display);
+                            String name = folder.getDisplayName(getContext());
                             if (folder.unseen > 0)
                                 setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
                             else
@@ -1601,10 +1595,9 @@ public class FragmentMessages extends FragmentEx {
 
     private void moveUndo(final MessageTarget result) {
         // Show undo snackbar
-        String display = (result.target.display == null ? result.target.name : result.target.display);
         final Snackbar snackbar = Snackbar.make(
                 view,
-                getString(R.string.title_moving, Helper.localizeFolderName(getContext(), display)),
+                getString(R.string.title_moving, result.target.getDisplayName(getContext())),
                 Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
             @Override

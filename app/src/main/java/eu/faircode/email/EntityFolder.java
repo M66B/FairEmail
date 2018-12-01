@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -130,6 +132,10 @@ public class EntityFolder implements Serializable {
     );
 
     public EntityFolder() {
+    }
+
+    String getDisplayName(Context context) {
+        return (display == null ? Helper.localizeFolderName(context, name) : display);
     }
 
     boolean isOutgoing() {

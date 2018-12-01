@@ -1467,12 +1467,8 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     PopupMenu popupMenu = new PopupMenu(context, anchor);
 
                     int order = 0;
-                    for (EntityFolder folder : folders) {
-                        String name = (folder.display == null
-                                ? Helper.localizeFolderName(context, folder.name)
-                                : folder.display);
-                        popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, name);
-                    }
+                    for (EntityFolder folder : folders)
+                        popupMenu.getMenu().add(Menu.NONE, folder.id.intValue(), order++, folder.getDisplayName(context));
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
