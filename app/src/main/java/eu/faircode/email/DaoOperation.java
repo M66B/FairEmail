@@ -40,6 +40,9 @@ public interface DaoOperation {
     @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
     int getOperationCount(long folder);
 
+    @Query("UPDATE operation SET error = :error WHERE id = :id")
+    int setOperationError(long id, String error);
+
     @Insert
     long insertOperation(EntityOperation operation);
 

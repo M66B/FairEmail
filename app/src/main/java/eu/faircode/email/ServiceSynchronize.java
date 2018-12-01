@@ -1335,6 +1335,7 @@ public class ServiceSynchronize extends LifecycleService {
                             if (message == null)
                                 throw new MessageRemovedException();
 
+                            db.operation().setOperationError(op.id, null);
                             db.message().setMessageError(message.id, null);
 
                             if (message.uid == null &&
@@ -1388,6 +1389,7 @@ public class ServiceSynchronize extends LifecycleService {
                             // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
                             reportError(null, folder.name, ex);
 
+                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                             if (message != null &&
                                     !(ex instanceof MessageRemovedException) &&
                                     !(ex instanceof FolderClosedException) &&

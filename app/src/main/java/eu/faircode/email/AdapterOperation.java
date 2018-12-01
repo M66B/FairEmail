@@ -51,11 +51,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        View itemView;
-        TextView tvMessage;
-        TextView tvName;
-        TextView tvArgs;
-        TextView tvTime;
+        private View itemView;
+        private TextView tvMessage;
+        private TextView tvName;
+        private TextView tvArgs;
+        private TextView tvTime;
+        private TextView tvError;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -65,6 +66,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             tvName = itemView.findViewById(R.id.tvName);
             tvArgs = itemView.findViewById(R.id.tvArgs);
             tvTime = itemView.findViewById(R.id.tvTime);
+            tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire() {
@@ -82,6 +84,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             tvName.setText(operation.name);
             tvArgs.setText(operation.args);
             tvTime.setText(df.format(new Date(operation.created)));
+            tvError.setText(operation.error);
+            tvError.setVisibility(operation.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

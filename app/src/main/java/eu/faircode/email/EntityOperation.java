@@ -64,6 +64,7 @@ public class EntityOperation {
     public String args;
     @NonNull
     public Long created;
+    public String error;
 
     public static final String ADD = "add";
     public static final String MOVE = "move";
@@ -138,7 +139,8 @@ public class EntityOperation {
                     this.message.equals(other.message) &&
                     this.name.equals(other.name) &&
                     this.args.equals(other.args) &&
-                    this.created.equals(other.created));
+                    this.created.equals(other.created) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
     }
