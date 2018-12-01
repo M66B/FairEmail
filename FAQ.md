@@ -81,7 +81,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
-A permanent status bar notification with the number of accounts being synchronized and the number of operations pending is shown
+A permanent status bar notification with the number of accounts being synchronized, the number of messages to send and the number of operations pending (see next question) is shown
 to prevent Android from killing the service that takes care of receiving and sending email.
 
 Most, if not all, other email apps don't show a notification with the "side effect" that new email is often not or late being reported.
@@ -339,7 +339,7 @@ You can disable this feature under *Setup* > *Advanced options* > *Browse messag
 <a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
 
-If a menu item to select/open/save a file is disabled (dimmed),
+If a menu item to select/open/save a file is disabled (dimmed) or not available,
 the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider),
 a standard Android component, is probably not present,
 for example because your custom ROM does not include it or because it was removed.
