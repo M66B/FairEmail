@@ -1400,7 +1400,9 @@ public class FragmentMessages extends FragmentEx {
                         TupleMessageEx single = null;
                         TupleMessageEx see = null;
                         for (TupleMessageEx message : messages) {
-                            if (!message.duplicate && !EntityFolder.TRASH.equals(message.folderType)) {
+                            if (!message.duplicate &&
+                                    !EntityFolder.DRAFTS.equals(message.folderType) &&
+                                    !EntityFolder.TRASH.equals(message.folderType)) {
                                 count++;
                                 single = message;
                                 if (!message.ui_seen) {
