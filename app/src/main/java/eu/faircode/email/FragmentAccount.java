@@ -994,6 +994,11 @@ public class FragmentAccount extends FragmentEx {
                             protected void onLoaded(Bundle args, Integer count) {
                                 cbPrimary.setChecked(count == 0);
                             }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), ex);
+                            }
                         }.load(FragmentAccount.this, new Bundle());
                 } else {
                     int provider = savedInstanceState.getInt("provider");
@@ -1030,7 +1035,17 @@ public class FragmentAccount extends FragmentEx {
                             folders = new ArrayList<>();
                         setFolders(folders);
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
                 }.load(FragmentAccount.this, args);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }

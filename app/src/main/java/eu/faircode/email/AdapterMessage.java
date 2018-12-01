@@ -1130,6 +1130,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     properties.setExpanded(data.message.id, false);
                     notifyDataSetChanged();
                 }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, ex);
+                }
             }.load(context, owner, args);
         }
 
@@ -1267,6 +1272,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                             return null;
                                         }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(context, ex);
+                                        }
                                     }.load(context, owner, args);
                                 }
                             })
@@ -1297,6 +1307,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                                                 return null;
                                                             }
+
+                                                            @Override
+                                                            protected void onException(Bundle args, Throwable ex) {
+                                                                Helper.unexpectedError(context, ex);
+                                                            }
                                                         }.load(context, owner, args);
                                                     }
                                                 }
@@ -1304,6 +1319,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                 }
                             })
                             .show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, ex);
                 }
             }.load(context, owner, args);
         }
@@ -1499,6 +1519,11 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     });
 
                     popupMenu.show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, ex);
                 }
             }.load(context, owner, args);
         }

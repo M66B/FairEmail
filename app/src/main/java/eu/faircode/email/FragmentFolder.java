@@ -366,6 +366,11 @@ public class FragmentFolder extends FragmentEx {
                 btnSave.setEnabled(true);
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
         }.load(this, args);
     }
 }

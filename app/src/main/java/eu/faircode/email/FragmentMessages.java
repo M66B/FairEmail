@@ -650,6 +650,11 @@ public class FragmentMessages extends FragmentEx {
 
                         popupMenu.show();
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
                 }.load(FragmentMessages.this, args);
             }
 
@@ -1134,6 +1139,11 @@ public class FragmentMessages extends FragmentEx {
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
                             fragmentTransaction.commit();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), ex);
                         }
                     }.load(FragmentMessages.this, args);
                 } else {

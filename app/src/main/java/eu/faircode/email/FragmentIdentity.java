@@ -644,6 +644,11 @@ public class FragmentIdentity extends FragmentEx {
                             protected void onLoaded(Bundle args, Integer count) {
                                 cbPrimary.setChecked(count == 0);
                             }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), ex);
+                            }
                         }.load(FragmentIdentity.this, new Bundle());
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
@@ -737,7 +742,17 @@ public class FragmentIdentity extends FragmentEx {
                             spAccount.setSelection(account);
                         }
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), ex);
+                    }
                 }.load(FragmentIdentity.this, args);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }
@@ -796,6 +811,11 @@ public class FragmentIdentity extends FragmentEx {
                             }
                         }
                     }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
             }
         }.load(this, args);
     }

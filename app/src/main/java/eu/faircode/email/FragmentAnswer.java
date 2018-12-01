@@ -122,6 +122,11 @@ public class FragmentAnswer extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), ex);
+            }
         }.load(this, args);
     }
 

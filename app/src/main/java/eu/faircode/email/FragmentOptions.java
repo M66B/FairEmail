@@ -175,6 +175,11 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
                             return null;
                         }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), ex);
+                        }
                     }.load(FragmentOptions.this, null);
             }
         });

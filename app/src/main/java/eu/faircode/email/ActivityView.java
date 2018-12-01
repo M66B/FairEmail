@@ -578,6 +578,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     .putExtra("id", id));
 
             }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ex);
+            }
         }.load(this, new Bundle());
     }
 
@@ -740,6 +745,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("account", account)
                                 .putExtra("folder", folder));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ex);
             }
         }.load(this, args);
     }
@@ -1379,7 +1389,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                             Helper.unexpectedError(ActivityView.this, ex);
                         }
                     }.load(this, args);

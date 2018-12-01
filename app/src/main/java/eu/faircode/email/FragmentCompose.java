@@ -1330,6 +1330,11 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
                 }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), ex);
+                }
             }.load(FragmentCompose.this, a);
 
             getActivity().invalidateOptionsMenu();

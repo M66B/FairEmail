@@ -95,6 +95,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     EntityOperation.process(context);
                     return null;
                 }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, ex);
+                }
             }.load(context, owner, args);
 
             return true;

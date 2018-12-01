@@ -149,6 +149,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         EntityAttachment.getFile(context, attachment.id).delete();
                         return null;
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, ex);
+                    }
                 }.load(context, owner, args);
 
             } else if (view.getId() == R.id.ivSave) {
@@ -255,6 +260,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 EntityOperation.process(context);
 
                                 return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(context, ex);
                             }
                         }.load(context, owner, args);
                     }
