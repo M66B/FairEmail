@@ -193,7 +193,7 @@ public class FragmentCompose extends FragmentEx {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
                 int at = (identity == null ? -1 : identity.email.indexOf('@'));
-                tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at) + "+");
+                tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at));
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
                 if (pro) {
                     tvSignature.setText(identity == null ? null : Html.fromHtml(identity.signature));
