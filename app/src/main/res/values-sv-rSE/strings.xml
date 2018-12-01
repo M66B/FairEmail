@@ -298,6 +298,7 @@
     <string name="title_no">Nej</string>
     <string name="title_undo">Ångra</string>
     <string name="title_add">Lägg till</string>
+    <string name="title_report">Report</string>
     <string name="title_try">Prova FairEmail, en e-postapp för Android med öppen källkod som respekterar din integritet</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
     <string name="title_pro_list">Lista över pro-funktioner</string>

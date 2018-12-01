@@ -298,6 +298,7 @@
     <string name="title_no">Hayır</string>
     <string name="title_undo">Geri Al</string>
     <string name="title_add">Ekle</string>
+    <string name="title_report">Report</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>
