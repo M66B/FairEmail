@@ -24,6 +24,7 @@ import android.accounts.AccountManager;
 import android.app.usage.UsageStatsManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -31,6 +32,7 @@ import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -59,6 +61,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadFactory;
 
@@ -172,23 +175,77 @@ public class Helper {
         return sb.toString();
     }
 
-    static void unexpectedError(final Context context, LifecycleOwner owner, final Throwable ex) {
+    static void unexpectedError(final Context context, final LifecycleOwner owner, final Throwable ex) {
         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
 
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             new DialogBuilderLifecycle(context, owner)
                     .setTitle(R.string.title_unexpected_error)
                     .setMessage(ex.toString())
                     .setPositiveButton(android.R.string.cancel, null)
-                    .show();
+                    .setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            new SimpleTask<Long>() {
+                                @Override
+                                protected Long onLoad(Context context, Bundle args) throws Throwable {
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
+                                    sb.append(Helper.getAppInfo(context));
+                                    sb.append(ex + "\n" + Log.getStackTraceString(ex));
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    ApplicationEx.writeCrashLog(context, ex);
-                }
-            }).start();
-        }
+                                    String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+                                    EntityMessage draft = null;
+
+                                    DB db = DB.getInstance(context);
+                                    try {
+                                        db.beginTransaction();
+
+                                        EntityFolder drafts = db.folder().getPrimaryDrafts();
+                                        if (drafts != null) {
+                                            draft = new EntityMessage();
+                                            draft.account = drafts.account;
+                                            draft.folder = drafts.id;
+                                            draft.msgid = EntityMessage.generateMessageId();
+                                            draft.to = new Address[]{Helper.myAddress()};
+                                            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " crash log";
+                                            draft.content = true;
+                                            draft.received = new Date().getTime();
+                                            draft.getAvatar(context);
+                                            draft.id = db.message().insertMessage(draft);
+                                            draft.write(context, body);
+                                        }
+
+                                        EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+                                        db.setTransactionSuccessful();
+                                    } finally {
+                                        db.endTransaction();
+                                    }
+
+                                    EntityOperation.process(context);
+
+                                    return draft.id;
+                                }
+
+                                @Override
+                                protected void onLoaded(Bundle args, Long id) {
+                                    if (id != null)
+                                        context.startActivity(
+                                                new Intent(context, ActivityCompose.class)
+                                                        .putExtra("action", "edit")
+                                                        .putExtra("id", id));
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }.load(context, owner, new Bundle());
+                        }
+                    })
+                    .show();
     }
 
     static String humanReadableByteCount(long bytes, boolean si) {

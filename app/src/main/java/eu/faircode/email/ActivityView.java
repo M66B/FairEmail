@@ -512,9 +512,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected Long onLoad(Context context, Bundle args) throws Throwable {
                 File file = new File(context.getCacheDir(), "crash.log");
                 if (file.exists()) {
-                    // Get version info
                     StringBuilder sb = new StringBuilder();
-
                     sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
                     sb.append(Helper.getAppInfo(context));
 
@@ -576,7 +574,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             new Intent(ActivityView.this, ActivityCompose.class)
                                     .putExtra("action", "edit")
                                     .putExtra("id", id));
-
             }
 
             @Override
@@ -836,7 +833,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
                 StringBuilder sb = new StringBuilder();
-
                 sb.append(context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
                 sb.append(Helper.getAppInfo(context));
 
