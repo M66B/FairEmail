@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -45,6 +46,7 @@ import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
@@ -132,12 +134,14 @@ public class FragmentFolder extends FragmentEx {
                         if (keep_days < sync_days)
                             keep_days = sync_days;
 
+                        EntityFolder folder = null;
+
                         IMAPStore istore = null;
                         DB db = DB.getInstance(getContext());
                         try {
                             db.beginTransaction();
 
-                            EntityFolder folder = db.folder().getFolder(id);
+                            folder = db.folder().getFolder(id);
 
                             if (folder == null || !folder.name.equals(name)) {
                                 EntityAccount account = db.account().getAccount(folder == null ? aid : folder.account);
@@ -206,7 +210,15 @@ public class FragmentFolder extends FragmentEx {
                                 istore.close();
                         }
 
-                        ServiceSynchronize.reload(getContext(), "save folder");
+                        if (folder == null || !folder.name.equals(name))
+                            ServiceSynchronize.reload(getContext(), "save folder");
+                        else {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            lbm.sendBroadcast(
+                                    new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
+                                            .setType("account/" + folder.account)
+                                            .putExtra("folder", folder.id));
+                        }
 
                         return null;
                     }
