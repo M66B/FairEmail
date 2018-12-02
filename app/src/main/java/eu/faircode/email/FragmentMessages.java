@@ -579,12 +579,13 @@ public class FragmentMessages extends FragmentEx {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Boolean[] result = new Boolean[5];
+                        Boolean[] result = new Boolean[6];
                         result[0] = false;
                         result[1] = false;
                         result[2] = false;
                         result[3] = false;
                         result[4] = false;
+                        result[5] = false;
 
                         DB db = DB.getInstance(context);
 
@@ -598,11 +599,15 @@ public class FragmentMessages extends FragmentEx {
                         if (folder != null && EntityFolder.TRASH.equals(folder.type))
                             result[4] = true;
 
+                        EntityMessage m0 = db.message().getMessage(ids[0]);
+                        EntityFolder trash = db.folder().getFolderByType(m0.account, EntityFolder.TRASH);
+                        result[5] = (trash != null);
+
                         return result;
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Boolean[] result) {
+                    protected void onLoaded(Bundle args, final Boolean[] result) {
                         PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
                         if (result[0])
@@ -617,7 +622,7 @@ public class FragmentMessages extends FragmentEx {
 
                         popupMenu.getMenu().add(Menu.NONE, action_move, 5, R.string.title_move);
 
-                        if (result[4])
+                        if (result[4] || result[5]) // is trash or has trash
                             popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -640,7 +645,10 @@ public class FragmentMessages extends FragmentEx {
                                         onActionMove();
                                         return true;
                                     case action_trash:
-                                        onActionDelete();
+                                        if (result[4]) // is trash
+                                            onActionDelete();
+                                        else
+                                            onActionTrash();
                                         return true;
                                     default:
                                         return false;
@@ -764,12 +772,14 @@ public class FragmentMessages extends FragmentEx {
 
                         DB db = DB.getInstance(context);
 
-                        EntityMessage message = db.message().getMessage(ids[0]);
-                        List<EntityFolder> folders = db.folder().getFolders(message.account);
+                        EntityMessage m0 = db.message().getMessage(ids[0]);
+                        List<EntityFolder> folders = db.folder().getFolders(m0.account);
 
                         List<EntityFolder> targets = new ArrayList<>();
                         for (EntityFolder folder : folders)
-                            if (!folder.hide && (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
+                            if (!folder.hide &&
+                                    !EntityFolder.TRASH.equals(folder.type) &&
+                                    (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
                                 targets.add(folder);
 
                         EntityFolder.sort(targets);
@@ -841,6 +851,57 @@ public class FragmentMessages extends FragmentEx {
                         });
 
                         popupMenu.show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+
+            private void onActionTrash() {
+                Bundle args = new Bundle();
+                args.putLongArray("ids", getSelection());
+
+                selectionTracker.clearSelection();
+
+                new SimpleTask<MessageTarget>() {
+                    @Override
+                    protected MessageTarget onLoad(Context context, Bundle args) {
+                        long[] ids = args.getLongArray("ids");
+
+                        MessageTarget result = new MessageTarget();
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage m0 = db.message().getMessage(ids[0]);
+                            result.target = db.folder().getFolderByType(m0.account, EntityFolder.TRASH);
+
+                            for (long id : ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        message.account, message.thread, threading ? null : id, message.ui_found);
+                                for (EntityMessage threaded : messages)
+                                    if (threaded.folder.equals(message.folder)) {
+                                        result.ids.add(threaded.id);
+                                        db.message().setMessageUiHide(threaded.id, true);
+                                    }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return result;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, MessageTarget result) {
+                        moveUndo(result);
                     }
 
                     @Override
