@@ -2278,50 +2278,57 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-            boolean metered = prefs.getBoolean("metered", true);
+            try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                boolean metered = prefs.getBoolean("metered", true);
+                boolean unmetered = (capabilities != null &&
+                        capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
 
-            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            NetworkCapabilities nc = cm.getNetworkCapabilities(network);
-            boolean unmetered = nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+                if (!started && (metered || unmetered))
+                    EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
 
-            if (!started && (metered || unmetered))
-                EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
-
-            if (!started && suitableNetwork())
-                queue_reload(true, "connect " + network);
+                if (!started && suitableNetwork())
+                    queue_reload(true, "connect " + network);
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
         }
 
         @Override
         public void onAvailable(Network network) {
-            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
+            try {
+                ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+                EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
 
-            if (!started && suitableNetwork())
-                queue_reload(true, "connect " + network);
+                if (!started && suitableNetwork())
+                    queue_reload(true, "connect " + network);
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            }
         }
 
         @Override
         public void onLost(Network network) {
-            EntityLog.log(ServiceSynchronize.this, "Lost " + network);
+            try {
+                EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
-            if (started && !suitableNetwork()) {
-                lastLost = new Date().getTime();
-                queue_reload(false, "disconnect " + network);
+                if (started && !suitableNetwork()) {
+                    lastLost = new Date().getTime();
+                    queue_reload(false, "disconnect " + network);
+                }
+            } catch (Throwable ex) {
+                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
         }
 
         private boolean suitableNetwork() {
             ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            Network network = cm.getActiveNetwork();
-            NetworkCapabilities nc = (network == null ? null : cm.getNetworkCapabilities(network));
-            boolean unmetered = (!cm.isActiveNetworkMetered() ||
-                    (nc != null && nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)));
+            boolean unmetered = !cm.isActiveNetworkMetered();
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean metered = prefs.getBoolean("metered", true);
 
-            boolean suitable = (network != null && (metered || unmetered));
+            boolean suitable = (metered || unmetered);
             EntityLog.log(ServiceSynchronize.this, "suitable=" + suitable + " active=" + cm.getActiveNetworkInfo());
 
             // The connected state is deliberately ignored
