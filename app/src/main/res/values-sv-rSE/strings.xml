@@ -211,6 +211,7 @@
     <string name="title_ask_spam">Rapportera meddelandet som skräppost?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Åtgärda</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Från:</string>

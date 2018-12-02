@@ -211,6 +211,7 @@
     <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Reparar</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>

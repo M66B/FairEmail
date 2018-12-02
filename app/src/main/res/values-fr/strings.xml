@@ -80,7 +80,7 @@
     <string name="title_advanced">Options avancées</string>
     <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
-    <string name="title_advanced_unified">Unified inbox</string>
+    <string name="title_advanced_unified">Boite de réception unifiée</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
     <string name="title_advanced_avatars">Afficher les photos des contacts</string>
@@ -211,6 +211,7 @@
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Corriger</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>

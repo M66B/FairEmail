@@ -85,7 +85,7 @@
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
-    <string name="title_advanced_unified">Unified inbox</string>
+    <string name="title_advanced_unified">Căsuță poștală comună</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_compact">Afișarea compactă a mesajelor</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
@@ -216,6 +216,7 @@
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Remediere</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>

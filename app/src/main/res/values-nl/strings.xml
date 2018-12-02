@@ -211,6 +211,7 @@
     <string name="title_ask_spam">Rapporteren als spam?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
+    <string name="title_sync_queued">Synchronisatie zal plaatsvinden bij de volgende accountverbinding</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>

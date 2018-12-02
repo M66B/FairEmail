@@ -211,6 +211,7 @@
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>

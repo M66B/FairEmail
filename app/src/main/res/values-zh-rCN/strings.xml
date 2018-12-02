@@ -206,6 +206,7 @@
     <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">修复</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>

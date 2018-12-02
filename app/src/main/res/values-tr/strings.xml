@@ -211,6 +211,7 @@
     <string name="title_ask_spam">İletiyi spam olarak raporla?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
