@@ -1087,7 +1087,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             boolean process = false;
                                             List<Long> current = new ArrayList<>();
                                             for (EntityOperation op : operations) {
-                                                if (!handling.contains(op.id) || op.error != null)
+                                                if (!handling.contains(op.id))
                                                     process = true;
                                                 current.add(op.id);
                                             }
@@ -1391,7 +1391,10 @@ public class ServiceSynchronize extends LifecycleService {
                                 doAttachment(folder, op, ifolder, message, jargs, db);
 
                             else if (EntityOperation.SYNC.equals(op.name))
-                                synchronizeMessages(account, folder, ifolder, state);
+                                if (!EntityFolder.OUTBOX.equals(folder.type))
+                                    synchronizeMessages(account, folder, ifolder, state);
+                                else
+                                    db.folder().setFolderError(folder.id, null);
 
                             else
                                 throw new MessagingException("Unknown operation name=" + op.name);
@@ -2401,7 +2404,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 boolean process = false;
                                                 List<Long> current = new ArrayList<>();
                                                 for (EntityOperation op : operations) {
-                                                    if (!handling.contains(op.id) || op.error != null)
+                                                    if (!handling.contains(op.id))
                                                         process = true;
                                                     current.add(op.id);
                                                 }

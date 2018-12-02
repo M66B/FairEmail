@@ -38,6 +38,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -233,7 +235,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 private void onActionSynchronizeNow() {
                     Bundle args = new Bundle();
-                    args.putLong("account", folder.account);
+                    args.putLong("account", folder.account == null ? -1 : folder.account);
                     args.putLong("folder", folder.id);
 
                     new SimpleTask<EntityAccount>() {
@@ -245,13 +247,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             EntityOperation.sync(db, folder);
 
-                            return db.account().getAccount(account);
+                            return (account < 0 ? null : db.account().getAccount(account));
                         }
 
                         @Override
                         protected void onLoaded(Bundle args, EntityAccount account) {
-                            if (!"connected".equals(account.state))
-                                Toast.makeText(context, R.string.title_sync_queued, Toast.LENGTH_LONG).show();
+                            if (account != null && !"connected".equals(account.state))
+                                Snackbar.make(itemView, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
                         }
 
                         @Override
