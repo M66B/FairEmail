@@ -1469,8 +1469,7 @@ public class FragmentMessages extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
 
                 if (messages.size() == 0) {
-                    if (searchCallback == null)
-                        tvNoEmail.setVisibility(View.VISIBLE);
+                    tvNoEmail.setVisibility(searching ? View.GONE : View.VISIBLE);
                     rvMessage.setVisibility(View.GONE);
                 } else {
                     tvNoEmail.setVisibility(View.GONE);
