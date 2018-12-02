@@ -32,7 +32,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
@@ -211,35 +210,8 @@ public class FragmentFolder extends FragmentEx {
 
                         if (folder == null || !folder.name.equals(name))
                             ServiceSynchronize.reload(getContext(), "save folder");
-                        else {
-                            Bundle sargs = new Bundle();
-                            sargs.putLong("account", folder.account);
-                            sargs.putLong("folder", folder.id);
-
-                            new SimpleTask<EntityAccount>() {
-                                @Override
-                                protected EntityAccount onLoad(Context context, Bundle args) {
-                                    long account = args.getLong("account");
-                                    long folder = args.getLong("folder");
-
-                                    DB db = DB.getInstance(context);
-                                    EntityOperation.sync(db, folder);
-
-                                    return db.account().getAccount(account);
-                                }
-
-                                @Override
-                                protected void onLoaded(Bundle args, EntityAccount account) {
-                                    if (!"connected".equals(account.state))
-                                        Toast.makeText(getContext(), R.string.title_sync_queued, Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                }
-                            }.load(FragmentFolder.this, sargs);
-                        }
+                        else
+                            EntityOperation.sync(db, folder.id);
 
                         return null;
                     }
