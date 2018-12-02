@@ -95,30 +95,50 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 return;
 
             EntityOperation operation = filtered.get(pos);
-            if (operation.message == null)
-                return;
+            if (operation.message == null) {
+                Bundle args = new Bundle();
+                args.putLong("id", operation.folder);
 
-            Bundle args = new Bundle();
-            args.putLong("id", operation.message);
+                new SimpleTask<EntityFolder>() {
+                    @Override
+                    protected EntityFolder onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        return DB.getInstance(context).folder().getFolder(id);
+                    }
 
-            new SimpleTask<EntityMessage>() {
-                @Override
-                protected EntityMessage onLoad(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    return DB.getInstance(context).message().getMessage(id);
-                }
+                    @Override
+                    protected void onLoaded(Bundle args, EntityFolder folder) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", folder.account)
+                                        .putExtra("folder", folder.id)
+                                        .putExtra("outgoing", folder.isOutgoing()));
+                    }
+                }.load(context, owner, args);
+            } else {
+                Bundle args = new Bundle();
+                args.putLong("id", operation.message);
 
-                @Override
-                protected void onLoaded(Bundle args, EntityMessage message) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_VIEW_THREAD)
-                                    .putExtra("account", message.account)
-                                    .putExtra("thread", message.thread)
-                                    .putExtra("id", message.id)
-                                    .putExtra("found", message.ui_found));
-                }
-            }.load(context, owner, args);
+                new SimpleTask<EntityMessage>() {
+                    @Override
+                    protected EntityMessage onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        return DB.getInstance(context).message().getMessage(id);
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, EntityMessage message) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_THREAD)
+                                        .putExtra("account", message.account)
+                                        .putExtra("thread", message.thread)
+                                        .putExtra("id", message.id)
+                                        .putExtra("found", message.ui_found));
+                    }
+                }.load(context, owner, args);
+            }
         }
 
         @Override
