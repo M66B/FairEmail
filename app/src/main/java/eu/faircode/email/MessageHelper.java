@@ -70,6 +70,8 @@ public class MessageHelper {
     static Properties getSessionProperties(int auth_type, boolean insecure) {
         Properties props = new Properties();
 
+        props.put("mail.event.scope", "folder");
+
         String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
 
         // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
