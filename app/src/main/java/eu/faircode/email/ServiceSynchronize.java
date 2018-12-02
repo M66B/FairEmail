@@ -422,6 +422,9 @@ public class ServiceSynchronize extends LifecycleService {
         // https://developer.android.com/training/notify-user/group
         String group = Long.toString(account);
 
+        String summary = getResources().getQuantityString(
+                R.plurals.title_notification_unseen, messages.size(), messages.size());
+
         // Build pending intent
         Intent view = new Intent(this, ActivityView.class);
         view.setAction("unified");
@@ -442,7 +445,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         pbuilder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
-                .setContentTitle(getResources().getQuantityString(R.plurals.title_notification_unseen, messages.size(), messages.size()))
+                .setContentTitle(summary)
                 .setContentIntent(piView)
                 .setNumber(messages.size())
                 .setShowWhen(false)
@@ -500,7 +503,9 @@ public class ServiceSynchronize extends LifecycleService {
                 sb.append("<br>");
             }
 
-            builder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
+            builder.setStyle(new Notification.BigTextStyle()
+                    .bigText(Html.fromHtml(sb.toString()))
+                    .setSummaryText(summary));
         }
 
         notifications.add(builder.build());
@@ -582,8 +587,11 @@ public class ServiceSynchronize extends LifecycleService {
                 if (message.content)
                     try {
                         String html = message.read(ServiceSynchronize.this);
-                        String text = (TextUtils.isEmpty(message.subject) ? "" : message.subject + ": ") + Jsoup.parse(html).text();
-                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(text));
+                        StringBuilder sb = new StringBuilder();
+                        if (!TextUtils.isEmpty(message.subject))
+                            sb.append(message.subject).append("<br>");
+                        sb.append(Jsoup.parse(html).text());
+                        mbuilder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(Helper.TAG, ex + "/n" + Log.getStackTraceString(ex));
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
