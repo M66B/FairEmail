@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -54,7 +55,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
-    private String accountState = null;
+    private long account;
     private boolean debug;
 
     private List<TupleFolderEx> all = new ArrayList<>();
@@ -62,6 +63,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
+        private View vwColor;
         private ImageView ivState;
         private TextView tvName;
         private TextView tvMessages;
@@ -82,6 +84,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             super(itemView);
 
             this.itemView = itemView.findViewById(R.id.clItem);
+            vwColor = itemView.findViewById(R.id.vwColor);
             ivState = itemView.findViewById(R.id.ivState);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
@@ -105,6 +108,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(TupleFolderEx folder) {
             itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
+
+            vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
+            vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
 
             if ("connected".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
@@ -130,13 +136,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             tvMessages.setText(String.format("%d/%d", folder.content, folder.messages));
 
-            ivUnified.setVisibility(folder.unified ? View.VISIBLE : View.INVISIBLE);
+            ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.INVISIBLE);
 
-            int resid = context.getResources().getIdentifier(
-                    "title_folder_" + folder.type.toLowerCase(),
-                    "string",
-                    context.getPackageName());
-            tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+            if (account < 0)
+                tvType.setText(folder.accountName);
+            else {
+                int resid = context.getResources().getIdentifier(
+                        "title_folder_" + folder.type.toLowerCase(),
+                        "string",
+                        context.getPackageName());
+                tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
+            }
 
             if (folder.account == null) {
                 tvAfter.setText(null);
@@ -180,7 +190,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
-            popupMenu.getMenu().findItem(action_synchronize_now).setEnabled("connected".equals(accountState));
+            popupMenu.getMenu().findItem(action_synchronize_now).setEnabled("connected".equals(folder.state));
 
             if (!EntityFolder.DRAFTS.equals(folder.type))
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
@@ -334,11 +344,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     void showHidden(boolean show) {
         showAll = show;
-        set(all);
+        set(account, all);
     }
 
-    public void set(@NonNull List<TupleFolderEx> folders) {
-        Log.i(Helper.TAG, "Set folders=" + folders.size());
+    public void set(long account, @NonNull List<TupleFolderEx> folders) {
+        Log.i(Helper.TAG, "Set account=" + account + " folders=" + folders.size());
+
+        this.account = account;
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
@@ -394,10 +406,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
         });
         diff.dispatchUpdatesTo(this);
-    }
-
-    void setAccountState(String state) {
-        this.accountState = state;
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {

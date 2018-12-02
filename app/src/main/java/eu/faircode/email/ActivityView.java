@@ -98,6 +98,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
+    private boolean unified;
+
     private View view;
     private DrawerLayout drawerLayout;
     private Group grpPane;
@@ -137,6 +139,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        unified = prefs.getBoolean("unified", true);
 
         view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
         setContentView(view);
@@ -299,11 +304,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
-            Bundle args = new Bundle();
-            args.putLong("folder", -1);
-
-            FragmentMessages fragment = new FragmentMessages();
-            fragment.setArguments(args);
+            FragmentEx fragment = (unified ? new FragmentMessages() : new FragmentFolders());
+            fragment.setArguments(new Bundle());
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("unified");

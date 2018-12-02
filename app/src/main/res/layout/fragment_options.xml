@@ -30,13 +30,22 @@
             app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swUnified"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_unified"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swMetered" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swThreading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_advanced_threading"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swMetered" />
+            app:layout_constraintTop_toBottomOf="@id/swUnified" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCompact"

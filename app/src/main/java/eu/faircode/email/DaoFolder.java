@@ -44,23 +44,26 @@ public interface DaoFolder {
             " AND type = '" + EntityFolder.USER + "'")
     List<EntityFolder> getUserFolders(long account);
 
-    @Query("SELECT folder.*, account.name AS accountName" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide AND NOT message.ui_found" +
-            " WHERE folder.account = :account OR folder.account IS NULL" +
+            " WHERE CASE WHEN :account IS NULL" +
+            "  THEN folder.unified AND account.synchronize" +
+            "  ELSE folder.account = :account OR folder.account IS NULL" +
+            " END" +
             " GROUP BY folder.id")
-    LiveData<List<TupleFolderEx>> liveFolders(long account);
+    LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT * FROM folder" +
             " WHERE (:account < 0 OR folder.account = :account)" +
             " AND type <> '" + EntityFolder.USER + "'")
     LiveData<List<EntityFolder>> liveSystemFolders(long account);
 
-    @Query("SELECT folder.*, account.name AS accountName" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -72,7 +75,7 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
-    @Query("SELECT folder.*, account.name AS accountName" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -135,7 +138,13 @@ public interface DaoFolder {
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
             " WHERE id = :id")
-    int setFolderProperties(long id, String name, String display, boolean hide, boolean synchronize, boolean unified, int sync_days, int keep_days);
+    int setFolderProperties(
+            long id,
+            String name, String display,
+            boolean hide,
+            boolean synchronize,
+            boolean unified,
+            int sync_days, int keep_days);
 
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")
     int setFolderKeywords(long id, String keywords);

@@ -60,7 +60,7 @@ public class FragmentFolders extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        account = (args == null ? -1 : args.getLong("account"));
+        account = args.getLong("account", -1);
     }
 
     @Override
@@ -119,6 +119,8 @@ public class FragmentFolders extends FragmentEx {
         tbShowHidden.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
+        if (account < 0)
+            fab.hide();
 
         return view;
     }
@@ -133,16 +135,18 @@ public class FragmentFolders extends FragmentEx {
         DB db = DB.getInstance(getContext());
 
         // Observe account
-        db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
-            @Override
-            public void onChanged(@Nullable EntityAccount account) {
-                setSubtitle(account == null ? null : account.name);
-                adapter.setAccountState(account.state);
-            }
-        });
+        if (account < 0)
+            setSubtitle(R.string.title_folder_unified);
+        else
+            db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+                @Override
+                public void onChanged(@Nullable EntityAccount account) {
+                    setSubtitle(account == null ? null : account.name);
+                }
+            });
 
         // Observe folders
-        db.folder().liveFolders(account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+        db.folder().liveFolders(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleFolderEx> folders) {
                 if (folders == null) {
@@ -158,7 +162,7 @@ public class FragmentFolders extends FragmentEx {
                     }
                 tbShowHidden.setVisibility(hidden ? View.VISIBLE : View.GONE);
 
-                adapter.set(folders);
+                adapter.set(account, folders);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
