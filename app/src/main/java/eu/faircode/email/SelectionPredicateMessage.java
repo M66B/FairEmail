@@ -60,9 +60,11 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         PagedList<TupleMessageEx> messages = adapter.getCurrentList();
         if (messages != null) {
             TupleMessageEx message = messages.get(position);
-            if (message.uid != null && (account < 0 || account == message.account)) {
-                account = message.account;
-                return true;
+            if (message != null) {
+                if (message.uid != null && (account < 0 || account == message.account)) {
+                    account = message.account;
+                    return true;
+                }
             }
         }
         return false;
