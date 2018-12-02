@@ -64,7 +64,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
-import androidx.recyclerview.selection.MutableSelection;
+import androidx.recyclerview.selection.Selection;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -667,8 +667,7 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private long[] getSelection() {
-                MutableSelection<Long> selection = new MutableSelection<>();
-                selectionTracker.copySelection(selection);
+                Selection<Long> selection = selectionTracker.getSelection();
 
                 long[] ids = new long[selection.size()];
                 int i = 0;
