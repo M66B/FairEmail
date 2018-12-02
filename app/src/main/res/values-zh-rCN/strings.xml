@@ -75,6 +75,7 @@
     <string name="title_advanced">高级选项</string>
     <string name="title_advanced_enabled">同步</string>
     <string name="title_advanced_metered">Use metered connections</string>
+    <string name="title_advanced_unified">Unified inbox</string>
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>

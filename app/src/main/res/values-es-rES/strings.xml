@@ -80,6 +80,7 @@
     <string name="title_advanced">Opciones avanzadas</string>
     <string name="title_advanced_enabled">Sincronizar</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
+    <string name="title_advanced_unified">Unified inbox</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_compact">Vista de mensajes compacta</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>

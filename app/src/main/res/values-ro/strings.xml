@@ -85,6 +85,7 @@
     <string name="title_advanced">Opțiuni avansate</string>
     <string name="title_advanced_enabled">Sincronizare</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
+    <string name="title_advanced_unified">Unified inbox</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_compact">Afișarea compactă a mesajelor</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
