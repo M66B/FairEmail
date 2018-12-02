@@ -128,7 +128,7 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 public class ServiceSynchronize extends LifecycleService {
     private TupleAccountStats lastStats = null;
     private ServiceManager serviceManager = new ServiceManager();
-    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int NOTIFICATION_SYNCHRONIZE = 1;
 
@@ -274,88 +274,102 @@ public class ServiceSynchronize extends LifecycleService {
         super.onStartCommand(intent, flags, startId);
 
         if (action != null) {
-            if ("why".equals(action)) {
-                Intent why = new Intent(Intent.ACTION_VIEW);
-                why.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq2"));
-                why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            final String[] parts = action.split(":");
+            switch (parts[0]) {
+                case "why":
+                    Intent why = new Intent(Intent.ACTION_VIEW);
+                    why.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq2"));
+                    why.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                PackageManager pm = getPackageManager();
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                if (prefs.getBoolean("why", false) || why.resolveActivity(pm) == null) {
-                    Intent main = new Intent(this, ActivityView.class);
-                    main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(main);
-                } else {
-                    prefs.edit().putBoolean("why", true).apply();
-                    startActivity(why);
-                }
-
-            } else if ("init".equals(action)) {
-                // Network events will manage the service
-                serviceManager.service_init();
-
-            } else if ("reload".equals(action)) {
-                serviceManager.queue_reload(true, intent.getStringExtra("reason"));
-
-            } else if ("clear".equals(action)) {
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        DB.getInstance(context).message().ignoreAll();
-                        return null;
+                    PackageManager pm = getPackageManager();
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                    if (prefs.getBoolean("why", false) || why.resolveActivity(pm) == null) {
+                        Intent main = new Intent(this, ActivityView.class);
+                        main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(main);
+                    } else {
+                        prefs.edit().putBoolean("why", true).apply();
+                        startActivity(why);
                     }
-                }.load(this, new Bundle());
+                    break;
 
-            } else if (action.startsWith("seen:") ||
-                    action.startsWith("archive:") ||
-                    action.startsWith("trash:") ||
-                    action.startsWith("ignored:")) {
-                Bundle args = new Bundle();
-                args.putLong("id", Long.parseLong(action.split(":")[1]));
-                args.putString("action", action.split(":")[0]);
+                case "init":
+                    // Network events will manage the service
+                    serviceManager.service_init();
+                    break;
 
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        String action = args.getString("action");
+                case "reload":
+                    serviceManager.queue_reload(true, intent.getStringExtra("reason"));
+                    break;
 
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage message = db.message().getMessage(id);
-                            if ("seen".equals(action)) {
-                                db.message().setMessageUiSeen(message.id, true);
-                                db.message().setMessageUiIgnored(message.id, true);
-                                EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                            } else if ("archive".equals(action)) {
-                                EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                                if (archive == null)
-                                    archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (archive != null) {
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                                    EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
-                                    db.message().setMessageUiHide(message.id, true);
-                                }
-                            } else if ("trash".equals(action)) {
-                                EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                if (trash != null) {
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                                    EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-                                    db.message().setMessageUiHide(message.id, true);
-                                }
-                            } else if ("ignored".equals(action))
-                                db.message().setMessageUiIgnored(message.id, true);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
+                case "clear":
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            DB.getInstance(ServiceSynchronize.this).message().ignoreAll();
                         }
+                    });
+                    break;
 
-                        return null;
-                    }
-                }.load(this, args);
+                case "seen":
+                case "archive":
+                case "trash":
+                case "ignore":
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            long id = Long.parseLong(parts[1]);
+
+                            DB db = DB.getInstance(ServiceSynchronize.this);
+                            try {
+                                db.beginTransaction();
+
+                                EntityMessage message = db.message().getMessage(id);
+                                switch (parts[0]) {
+                                    case "seen":
+                                        db.message().setMessageUiSeen(message.id, true);
+                                        db.message().setMessageUiIgnored(message.id, true);
+                                        EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                        break;
+
+                                    case "archive":
+                                        EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                                        if (archive == null)
+                                            archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                        if (archive != null) {
+                                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                            EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
+                                            db.message().setMessageUiHide(message.id, true);
+                                        }
+                                        break;
+
+                                    case "trash":
+                                        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                                        if (trash != null) {
+                                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                            EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
+                                            db.message().setMessageUiHide(message.id, true);
+                                        }
+                                        break;
+
+                                    case "ignore":
+                                        db.message().setMessageUiIgnored(message.id, true);
+                                        break;
+
+                                    default:
+                                        Log.w(Helper.TAG, "Unknown action: " + parts[0]);
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+                        }
+                    });
+                    break;
+
+                default:
+                    Log.w(Helper.TAG, "Unknown action: " + action);
             }
         }
 
@@ -520,7 +534,7 @@ public class ServiceSynchronize extends LifecycleService {
                     this, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent ignored = new Intent(this, ServiceSynchronize.class);
-            ignored.setAction("ignored:" + message.id);
+            ignored.setAction("ignore:" + message.id);
             PendingIntent piDelete = PendingIntent.getService(this, PI_IGNORED, ignored, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent seen = new Intent(this, ServiceSynchronize.class);
