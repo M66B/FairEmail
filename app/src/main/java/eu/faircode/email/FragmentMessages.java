@@ -564,8 +564,10 @@ public class FragmentMessages extends FragmentEx {
             private final int action_unseen = 2;
             private final int action_flag = 3;
             private final int action_unflag = 4;
-            private final int action_move = 5;
+            private final int action_archive = 5;
             private final int action_trash = 6;
+            private final int action_delete = 7;
+            private final int action_move = 8;
 
             @Override
             public void onClick(View v) {
@@ -579,13 +581,9 @@ public class FragmentMessages extends FragmentEx {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Boolean[] result = new Boolean[6];
-                        result[0] = false;
-                        result[1] = false;
-                        result[2] = false;
-                        result[3] = false;
-                        result[4] = false;
-                        result[5] = false;
+                        Boolean[] result = new Boolean[8];
+                        for (int i = 0; i < result.length; i++)
+                            result[i] = false;
 
                         DB db = DB.getInstance(context);
 
@@ -595,13 +593,18 @@ public class FragmentMessages extends FragmentEx {
                             result[message.flagged ? 3 : 2] = true;
                         }
 
-                        EntityFolder folder = db.folder().getFolder(fid);
-                        if (folder != null && EntityFolder.TRASH.equals(folder.type))
-                            result[4] = true;
-
                         EntityMessage m0 = db.message().getMessage(ids[0]);
+                        EntityFolder archive = db.folder().getFolderByType(m0.account, EntityFolder.ARCHIVE);
                         EntityFolder trash = db.folder().getFolderByType(m0.account, EntityFolder.TRASH);
+
+                        result[4] = (archive != null);
                         result[5] = (trash != null);
+
+                        EntityFolder folder = db.folder().getFolder(fid);
+                        if (folder != null) {
+                            result[6] = EntityFolder.ARCHIVE.equals(folder.type);
+                            result[7] = EntityFolder.TRASH.equals(folder.type);
+                        }
 
                         return result;
                     }
@@ -620,10 +623,16 @@ public class FragmentMessages extends FragmentEx {
                         if (result[3])
                             popupMenu.getMenu().add(Menu.NONE, action_unflag, 4, R.string.title_unflag);
 
-                        popupMenu.getMenu().add(Menu.NONE, action_move, 5, R.string.title_move);
+                        if (result[4] && !result[6]) // has archive and not is archive
+                            popupMenu.getMenu().add(Menu.NONE, action_archive, 5, R.string.title_archive);
 
-                        if (result[4] || result[5]) // is trash or has trash
-                            popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
+                        if (result[5]) // has trash
+                            if (result[7]) // is trash
+                                popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_trash);
+                            else
+                                popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
+
+                        popupMenu.getMenu().add(Menu.NONE, action_move, 7, R.string.title_move);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -641,14 +650,17 @@ public class FragmentMessages extends FragmentEx {
                                     case action_unflag:
                                         onActionFlag(false);
                                         return true;
-                                    case action_move:
-                                        onActionMove();
+                                    case action_archive:
+                                        onActionMove(EntityFolder.ARCHIVE);
                                         return true;
                                     case action_trash:
-                                        if (result[4]) // is trash
-                                            onActionDelete();
-                                        else
-                                            onActionTrash();
+                                        onActionMove(EntityFolder.TRASH);
+                                        return true;
+                                    case action_delete:
+                                        onActionDelete();
+                                        return true;
+                                    case action_move:
+                                        onActionMove();
                                         return true;
                                     default:
                                         return false;
@@ -758,6 +770,59 @@ public class FragmentMessages extends FragmentEx {
                 }.load(FragmentMessages.this, args);
             }
 
+            private void onActionMove(String type) {
+                Bundle args = new Bundle();
+                args.putString("type", type);
+                args.putLongArray("ids", getSelection());
+
+                selectionTracker.clearSelection();
+
+                new SimpleTask<MessageTarget>() {
+                    @Override
+                    protected MessageTarget onLoad(Context context, Bundle args) {
+                        String type = args.getString("type");
+                        long[] ids = args.getLongArray("ids");
+
+                        MessageTarget result = new MessageTarget();
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage m0 = db.message().getMessage(ids[0]);
+                            result.target = db.folder().getFolderByType(m0.account, type);
+
+                            for (long id : ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        message.account, message.thread, threading ? null : id, message.ui_found);
+                                for (EntityMessage threaded : messages)
+                                    if (threaded.folder.equals(message.folder)) {
+                                        result.ids.add(threaded.id);
+                                        db.message().setMessageUiHide(threaded.id, true);
+                                    }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return result;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, MessageTarget result) {
+                        moveUndo(result);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+
             private void onActionMove() {
                 Bundle args = new Bundle();
                 args.putLong("folder", folder);
@@ -850,57 +915,6 @@ public class FragmentMessages extends FragmentEx {
                         });
 
                         popupMenu.show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.load(FragmentMessages.this, args);
-            }
-
-            private void onActionTrash() {
-                Bundle args = new Bundle();
-                args.putLongArray("ids", getSelection());
-
-                selectionTracker.clearSelection();
-
-                new SimpleTask<MessageTarget>() {
-                    @Override
-                    protected MessageTarget onLoad(Context context, Bundle args) {
-                        long[] ids = args.getLongArray("ids");
-
-                        MessageTarget result = new MessageTarget();
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityMessage m0 = db.message().getMessage(ids[0]);
-                            result.target = db.folder().getFolderByType(m0.account, EntityFolder.TRASH);
-
-                            for (long id : ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading ? null : id, message.ui_found);
-                                for (EntityMessage threaded : messages)
-                                    if (threaded.folder.equals(message.folder)) {
-                                        result.ids.add(threaded.id);
-                                        db.message().setMessageUiHide(threaded.id, true);
-                                    }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, MessageTarget result) {
-                        moveUndo(result);
                     }
 
                     @Override
