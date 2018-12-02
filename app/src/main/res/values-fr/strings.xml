@@ -211,7 +211,7 @@
     <string name="title_ask_spam">Signaler le message comme spam ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
-    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
+    <string name="title_sync_queued">La synchronisation sera effectuée à la prochaine connexion d\'un compte</string>
     <string name="title_fix">Corriger</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
