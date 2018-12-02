@@ -257,8 +257,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                     db.endTransaction();
                                 }
 
-                                EntityOperation.process(context);
-
                                 return null;
                             }
 

@@ -564,8 +564,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         db.endTransaction();
                     }
 
-                    EntityOperation.process(context);
-
                     return (draft == null ? null : draft.id);
                 }
 
@@ -921,7 +919,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             for (EntityOperation op : db.operation().getOperations()) {
                                 String line = String.format("%s %d %s %s %s\r\n",
                                         DF.format(op.created),
-                                        op.message,
+                                        op.message == null ? -1 : op.message,
                                         op.name,
                                         op.args,
                                         op.error);
@@ -998,8 +996,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 } finally {
                     db.endTransaction();
                 }
-
-                EntityOperation.process(context);
 
                 return draft.id;
             }

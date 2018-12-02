@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 11,
+        version = 12,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -197,6 +197,27 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `operation` ADD COLUMN `error` TEXT");
+                    }
+                })
+                .addMigrations(new Migration(11, 12) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP INDEX `index_operation_folder`");
+                        db.execSQL("DROP INDEX `index_operation_message`");
+                        db.execSQL("DROP TABLE `operation`");
+                        db.execSQL("CREATE TABLE `operation`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `folder` INTEGER NOT NULL" +
+                                ", `message` INTEGER" +
+                                ", `name` TEXT NOT NULL" +
+                                ", `args` TEXT NOT NULL" +
+                                ", `created` INTEGER NOT NULL" +
+                                ", `error` TEXT" +
+                                ", FOREIGN KEY(`folder`) REFERENCES `folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE" +
+                                ", FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
+                        db.execSQL("CREATE INDEX `index_operation_folder` ON `operation` (`folder`)");
+                        db.execSQL("CREATE INDEX `index_operation_message` ON `operation` (`message`)");
                     }
                 })
                 .build();

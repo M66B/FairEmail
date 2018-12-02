@@ -971,8 +971,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                         db.endTransaction();
                                     }
 
-                                    EntityOperation.process(context);
-
                                     return null;
                                 }
 
@@ -1120,8 +1118,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         db.endTransaction();
                     }
 
-                    EntityOperation.process(context);
-
                     return null;
                 }
 
@@ -1153,7 +1149,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                     EntityMessage message = db.message().getMessage(id);
                     db.message().setMessageUiFlagged(message.id, flagged);
                     EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
-                    EntityOperation.process(context);
                     return null;
                 }
 
@@ -1181,7 +1176,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                         DB db = DB.getInstance(context);
                         EntityMessage message = db.message().getMessage(id);
                         EntityOperation.queue(db, message, EntityOperation.HEADERS);
-                        EntityOperation.process(context);
                         return null;
                     }
 
@@ -1268,8 +1262,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                                 db.endTransaction();
                                             }
 
-                                            EntityOperation.process(context);
-
                                             return null;
                                         }
 
@@ -1303,7 +1295,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
                                                                 DB db = DB.getInstance(context);
                                                                 EntityOperation.queue(db, message, EntityOperation.KEYWORD, keyword, true);
-                                                                EntityOperation.process(context);
 
                                                                 return null;
                                                             }
@@ -1440,8 +1431,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
                                         } finally {
                                             db.endTransaction();
                                         }
-
-                                        EntityOperation.process(context);
 
                                         return null;
                                     }

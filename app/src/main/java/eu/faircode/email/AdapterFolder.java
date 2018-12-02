@@ -36,6 +36,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -190,7 +191,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             PopupMenu popupMenu = new PopupMenu(context, itemView);
 
             popupMenu.getMenu().add(Menu.NONE, action_synchronize_now, 1, R.string.title_synchronize_now);
-            popupMenu.getMenu().findItem(action_synchronize_now).setEnabled("connected".equals(folder.state));
 
             if (!EntityFolder.DRAFTS.equals(folder.type))
                 popupMenu.getMenu().add(Menu.NONE, action_delete_local, 2, R.string.title_delete_local);
@@ -232,12 +232,33 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void onActionSynchronizeNow() {
-                    Log.i(Helper.TAG, folder.name + " requesting sync");
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ServiceSynchronize.ACTION_SYNCHRONIZE_FOLDER)
-                                    .setType("account/" + (folder.account == null ? "outbox" : Long.toString(folder.account)))
-                                    .putExtra("folder", folder.id));
+                    Bundle args = new Bundle();
+                    args.putLong("account", folder.account);
+                    args.putLong("folder", folder.id);
+
+                    new SimpleTask<EntityAccount>() {
+                        @Override
+                        protected EntityAccount onLoad(Context context, Bundle args) {
+                            long account = args.getLong("account");
+                            long folder = args.getLong("folder");
+
+                            DB db = DB.getInstance(context);
+                            EntityOperation.sync(db, folder);
+
+                            return db.account().getAccount(account);
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, EntityAccount account) {
+                            if (!"connected".equals(account.state))
+                                Toast.makeText(context, R.string.title_sync_queued, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.load(context, owner, args);
                 }
 
                 private void OnActionDeleteLocal() {
@@ -294,8 +315,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                             } finally {
                                                 db.endTransaction();
                                             }
-
-                                            EntityOperation.process(context);
 
                                             return null;
                                         }

@@ -224,8 +224,6 @@ public class Helper {
                                         db.endTransaction();
                                     }
 
-                                    EntityOperation.process(context);
-
                                     return draft.id;
                                 }
 

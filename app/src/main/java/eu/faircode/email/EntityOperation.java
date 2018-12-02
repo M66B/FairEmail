@@ -19,18 +19,13 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import org.json.JSONArray;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -56,7 +51,6 @@ public class EntityOperation {
     public Long id;
     @NonNull
     public Long folder;
-    @NonNull
     public Long message;
     @NonNull
     public String name;
@@ -77,58 +71,43 @@ public class EntityOperation {
     public static final String HEADERS = "headers";
     public static final String BODY = "body";
     public static final String ATTACHMENT = "attachment";
-
-    private static List<Intent> queue = new ArrayList<>();
+    public static final String SYNC = "sync";
 
     static void queue(DB db, EntityMessage message, String name) {
         JSONArray jargs = new JSONArray();
-        queue(db, message, name, jargs);
+        queue(db, message.folder, message.id, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value) {
         JSONArray jargs = new JSONArray();
         jargs.put(value);
-        queue(db, message, name, jargs);
+        queue(db, message.folder, message.id, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {
         JSONArray jargs = new JSONArray();
         jargs.put(value1);
         jargs.put(value2);
-        queue(db, message, name, jargs);
+        queue(db, message.folder, message.id, name, jargs);
     }
 
-    private static void queue(DB db, EntityMessage message, String name, JSONArray jargs) {
+    static void sync(DB db, long folder) {
+        if (db.operation().getOperationCount(folder, EntityOperation.SYNC) == 0)
+            queue(db, folder, null, EntityOperation.SYNC, new JSONArray());
+    }
+
+    private static void queue(DB db, long folder, Long message, String name, JSONArray jargs) {
         EntityOperation operation = new EntityOperation();
-        operation.folder = message.folder;
-        operation.message = message.id;
+        operation.folder = folder;
+        operation.message = message;
         operation.name = name;
         operation.args = jargs.toString();
         operation.created = new Date().getTime();
         operation.id = db.operation().insertOperation(operation);
 
-        Intent intent = new Intent();
-        intent.setType("account/" + (SEND.equals(name) ? "outbox" : message.account));
-        intent.setAction(ServiceSynchronize.ACTION_PROCESS_OPERATIONS);
-        intent.putExtra("folder", message.folder);
-
-        synchronized (queue) {
-            queue.add(intent);
-        }
-
         Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + operation.name +
-                " msg=" + message.folder + "/" + operation.message +
+                " msg=" + operation.folder + "/" + operation.message +
                 " args=" + operation.args);
-    }
-
-    public static void process(Context context) {
-        // Processing needs to be done after committing to the database
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-        synchronized (queue) {
-            for (Intent intent : queue)
-                lbm.sendBroadcast(intent);
-            queue.clear();
-        }
     }
 
     @Override
@@ -136,7 +115,7 @@ public class EntityOperation {
         if (obj instanceof EntityOperation) {
             EntityOperation other = (EntityOperation) obj;
             return (this.folder.equals(other.folder) &&
-                    this.message.equals(other.message) &&
+                    (this.message == null ? other.message == null : this.message.equals(other.message)) &&
                     this.name.equals(other.name) &&
                     this.args.equals(other.args) &&
                     this.created.equals(other.created) &&

@@ -1267,8 +1267,6 @@ public class FragmentCompose extends FragmentEx {
                 db.endTransaction();
             }
 
-            EntityOperation.process(context);
-
             return result;
         }
 
@@ -1650,8 +1648,6 @@ public class FragmentCompose extends FragmentEx {
             } finally {
                 db.endTransaction();
             }
-
-            EntityOperation.process(context);
 
             return draft;
         }

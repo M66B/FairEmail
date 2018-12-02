@@ -37,11 +37,16 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation ORDER BY id")
     LiveData<List<EntityOperation>> liveOperations();
 
+    @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
+    LiveData<List<EntityOperation>> liveOperations(long folder);
+
     @Query("SELECT * FROM operation ORDER BY id")
     List<EntityOperation> getOperations();
 
-    @Query("SELECT COUNT(id) FROM operation WHERE folder = :folder")
-    int getOperationCount(long folder);
+    @Query("SELECT COUNT(id) FROM operation" +
+            " WHERE folder = :folder" +
+            " AND (:name IS NULL OR operation.name = :name)")
+    int getOperationCount(long folder, String name);
 
     @Query("UPDATE operation SET error = :error WHERE id = :id")
     int setOperationError(long id, String error);

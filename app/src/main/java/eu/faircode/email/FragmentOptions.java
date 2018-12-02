@@ -181,8 +181,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                                 }
                             }
 
-                            EntityOperation.process(context);
-
                             return null;
                         }
 

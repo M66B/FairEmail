@@ -80,7 +80,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
 
         private void bindTo(EntityOperation operation) {
-            tvMessage.setText(Long.toString(operation.message));
+            tvMessage.setText(operation.message == null ? null : Long.toString(operation.message));
             tvName.setText(operation.name);
             tvArgs.setText(operation.args);
             tvTime.setText(df.format(new Date(operation.created)));
@@ -95,6 +95,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 return;
 
             EntityOperation operation = filtered.get(pos);
+            if (operation.message == null)
+                return;
 
             Bundle args = new Bundle();
             args.putLong("id", operation.message);
@@ -134,7 +136,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 @Override
                 protected Void onLoad(Context context, Bundle args) throws Throwable {
                     DB.getInstance(context).operation().deleteOperation(args.getLong("id"));
-                    EntityOperation.process(context);
                     return null;
                 }
 

@@ -701,8 +701,6 @@ public class FragmentMessages extends FragmentEx {
                             db.endTransaction();
                         }
 
-                        EntityOperation.process(context);
-
                         return null;
                     }
 
@@ -742,8 +740,6 @@ public class FragmentMessages extends FragmentEx {
                         } finally {
                             db.endTransaction();
                         }
-
-                        EntityOperation.process(context);
 
                         return null;
                     }
@@ -826,8 +822,6 @@ public class FragmentMessages extends FragmentEx {
                                             db.endTransaction();
                                         }
 
-                                        EntityOperation.process(context);
-
                                         return result;
                                     }
 
@@ -890,8 +884,6 @@ public class FragmentMessages extends FragmentEx {
                                         } finally {
                                             db.endTransaction();
                                         }
-
-                                        EntityOperation.process(context);
 
                                         return null;
                                     }
@@ -1261,8 +1253,6 @@ public class FragmentMessages extends FragmentEx {
                     db.endTransaction();
                 }
 
-                EntityOperation.process(context);
-
                 return null;
             }
 
@@ -1509,8 +1499,6 @@ public class FragmentMessages extends FragmentEx {
                     db.endTransaction();
                 }
 
-                EntityOperation.process(context);
-
                 return null;
             }
 
@@ -1657,9 +1645,6 @@ public class FragmentMessages extends FragmentEx {
                             } finally {
                                 db.endTransaction();
                             }
-
-                            EntityOperation.process(snackbar.getContext());
-
                         } catch (Throwable ex) {
                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                         }
