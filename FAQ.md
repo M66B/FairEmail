@@ -131,6 +131,8 @@ Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
 
 In the advanced settings you can enable or disable:
 
+* *unified inbox*: to disable the unified inbox and to list the folders selected for the unified inbox instead
+* *conversation threading*: to disable conversation threading and to show individual messages instead
 * *compact message view*: for more condensed message items and a smaller message text font
 * *show contact photos*: to hide contact photos
 * *show identicons*: to show generated contact avatars
@@ -256,11 +258,11 @@ or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-
 stop apps and services too aggressively.
 
 <a name="faq17"></a>
-**(17) Why does manual synchronize not work?**
+**(17) ~~Why does manual synchronize not work?~~**
 
-If the *Synchronize now* menu is dimmed, there is no connection to the account.
+~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
-See the previous question for more information.
+~~See the previous question for more information.~~
 
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
