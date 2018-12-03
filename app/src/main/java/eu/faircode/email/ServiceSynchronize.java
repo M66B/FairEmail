@@ -912,114 +912,29 @@ public class ServiceSynchronize extends LifecycleService {
                         ifolder.addMessageCountListener(new MessageCountAdapter() {
                             @Override
                             public void messagesAdded(MessageCountEvent e) {
-                                synchronized (folder) {
-                                    try {
-                                        wlAccount.acquire();
-                                        Log.i(Helper.TAG, folder.name + " messages added");
+                                try {
+                                    wlAccount.acquire();
+                                    Log.i(Helper.TAG, folder.name + " messages added");
 
-                                        FetchProfile fp = new FetchProfile();
-                                        fp.add(FetchProfile.Item.ENVELOPE);
-                                        fp.add(FetchProfile.Item.FLAGS);
-                                        fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-                                        fp.add(UIDFolder.FetchProfileItem.UID);
-                                        fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-                                        fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-                                        fp.add(FetchProfile.Item.SIZE);
-                                        fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-                                        ifolder.fetch(e.getMessages(), fp);
+                                    FetchProfile fp = new FetchProfile();
+                                    fp.add(FetchProfile.Item.ENVELOPE);
+                                    fp.add(FetchProfile.Item.FLAGS);
+                                    fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                                    fp.add(UIDFolder.FetchProfileItem.UID);
+                                    fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                                    fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                                    fp.add(FetchProfile.Item.SIZE);
+                                    fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                                    ifolder.fetch(e.getMessages(), fp);
 
-                                        for (Message imessage : e.getMessages())
-                                            try {
-                                                long id;
-                                                try {
-                                                    db.beginTransaction();
-                                                    id = synchronizeMessage(
-                                                            ServiceSynchronize.this,
-                                                            folder, ifolder, (IMAPMessage) imessage,
-                                                            false, false, false);
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
-                                                }
-
-                                                try {
-                                                    db.beginTransaction();
-                                                    downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
-                                                }
-                                            } catch (MessageRemovedException ex) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                            } catch (IOException ex) {
-                                                if (ex.getCause() instanceof MessageRemovedException)
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                else
-                                                    throw ex;
-                                            }
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                        state.error();
-                                    } finally {
-                                        wlAccount.release();
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void messagesRemoved(MessageCountEvent e) {
-                                synchronized (folder) {
-                                    try {
-                                        wlAccount.acquire();
-                                        Log.i(Helper.TAG, folder.name + " messages removed");
-                                        for (Message imessage : e.getMessages())
-                                            try {
-                                                long uid = ifolder.getUID(imessage);
-
-                                                DB db = DB.getInstance(ServiceSynchronize.this);
-                                                int count = db.message().deleteMessage(folder.id, uid);
-
-                                                Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
-                                            } catch (MessageRemovedException ex) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                            }
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                        state.error();
-                                    } finally {
-                                        wlAccount.release();
-                                    }
-                                }
-                            }
-                        });
-
-                        // Flags (like "seen") at the remote could be changed while synchronizing
-
-                        // Listen for changed messages
-                        ifolder.addMessageChangedListener(new MessageChangedListener() {
-                            @Override
-                            public void messageChanged(MessageChangedEvent e) {
-                                synchronized (folder) {
-                                    try {
-                                        wlAccount.acquire();
+                                    for (Message imessage : e.getMessages())
                                         try {
-                                            Log.i(Helper.TAG, folder.name + " message changed");
-
-                                            FetchProfile fp = new FetchProfile();
-                                            fp.add(UIDFolder.FetchProfileItem.UID);
-                                            fp.add(IMAPFolder.FetchProfileItem.FLAGS);
-                                            ifolder.fetch(new Message[]{e.getMessage()}, fp);
-
                                             long id;
                                             try {
                                                 db.beginTransaction();
                                                 id = synchronizeMessage(
                                                         ServiceSynchronize.this,
-                                                        folder, ifolder, (IMAPMessage) e.getMessage(),
+                                                        folder, ifolder, (IMAPMessage) imessage,
                                                         false, false, false);
                                                 db.setTransactionSuccessful();
                                             } finally {
@@ -1028,7 +943,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             try {
                                                 db.beginTransaction();
-                                                downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
+                                                downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -1041,14 +956,93 @@ public class ServiceSynchronize extends LifecycleService {
                                             else
                                                 throw ex;
                                         }
-                                    } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                        state.error();
-                                    } finally {
-                                        wlAccount.release();
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                    state.error();
+                                } finally {
+                                    wlAccount.release();
+                                }
+                            }
+
+                            @Override
+                            public void messagesRemoved(MessageCountEvent e) {
+                                try {
+                                    wlAccount.acquire();
+                                    Log.i(Helper.TAG, folder.name + " messages removed");
+                                    for (Message imessage : e.getMessages())
+                                        try {
+                                            long uid = ifolder.getUID(imessage);
+
+                                            DB db = DB.getInstance(ServiceSynchronize.this);
+                                            int count = db.message().deleteMessage(folder.id, uid);
+
+                                            Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
+                                        } catch (MessageRemovedException ex) {
+                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        }
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                    state.error();
+                                } finally {
+                                    wlAccount.release();
+                                }
+                            }
+                        });
+
+                        // Flags (like "seen") at the remote could be changed while synchronizing
+
+                        // Listen for changed messages
+                        ifolder.addMessageChangedListener(new MessageChangedListener() {
+                            @Override
+                            public void messageChanged(MessageChangedEvent e) {
+                                try {
+                                    wlAccount.acquire();
+                                    try {
+                                        Log.i(Helper.TAG, folder.name + " message changed");
+
+                                        FetchProfile fp = new FetchProfile();
+                                        fp.add(UIDFolder.FetchProfileItem.UID);
+                                        fp.add(IMAPFolder.FetchProfileItem.FLAGS);
+                                        ifolder.fetch(new Message[]{e.getMessage()}, fp);
+
+                                        long id;
+                                        try {
+                                            db.beginTransaction();
+                                            id = synchronizeMessage(
+                                                    ServiceSynchronize.this,
+                                                    folder, ifolder, (IMAPMessage) e.getMessage(),
+                                                    false, false, false);
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        try {
+                                            db.beginTransaction();
+                                            downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+                                    } catch (MessageRemovedException ex) {
+                                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    } catch (IOException ex) {
+                                        if (ex.getCause() instanceof MessageRemovedException)
+                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        else
+                                            throw ex;
                                     }
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                    reportError(account.name, folder.name, ex);
+                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                    state.error();
+                                } finally {
+                                    wlAccount.release();
                                 }
                             }
                         });
@@ -1332,126 +1326,124 @@ public class ServiceSynchronize extends LifecycleService {
     }
 
     private void processOperations(EntityAccount account, EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, ServiceState state) throws MessagingException, JSONException, IOException {
-        synchronized (folder) {
-            try {
-                Log.i(Helper.TAG, folder.name + " start process");
+        try {
+            Log.i(Helper.TAG, folder.name + " start process");
 
-                DB db = DB.getInstance(this);
-                List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
-                Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
-                for (int i = 0; i < ops.size() && state.running(); i++) {
-                    EntityOperation op = ops.get(i);
+            DB db = DB.getInstance(this);
+            List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
+            Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
+            for (int i = 0; i < ops.size() && state.running(); i++) {
+                EntityOperation op = ops.get(i);
+                try {
+                    Log.i(Helper.TAG, folder.name +
+                            " start op=" + op.id + "/" + op.name +
+                            " msg=" + op.message +
+                            " args=" + op.args);
+
+                    // Fetch most recent copy of message
+                    EntityMessage message = null;
+                    if (op.message != null)
+                        message = db.message().getMessage(op.message);
+
                     try {
-                        Log.i(Helper.TAG, folder.name +
-                                " start op=" + op.id + "/" + op.name +
-                                " msg=" + op.message +
-                                " args=" + op.args);
+                        if (message == null && !EntityOperation.SYNC.equals(op.name))
+                            throw new MessageRemovedException();
 
-                        // Fetch most recent copy of message
-                        EntityMessage message = null;
-                        if (op.message != null)
-                            message = db.message().getMessage(op.message);
+                        db.operation().setOperationError(op.id, null);
+                        if (message != null)
+                            db.message().setMessageError(message.id, null);
 
-                        try {
-                            if (message == null && !EntityOperation.SYNC.equals(op.name))
-                                throw new MessageRemovedException();
+                        if (message != null && message.uid == null &&
+                                (EntityOperation.SEEN.equals(op.name) ||
+                                        EntityOperation.DELETE.equals(op.name) ||
+                                        EntityOperation.MOVE.equals(op.name) ||
+                                        EntityOperation.HEADERS.equals(op.name)))
+                            throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
-                            db.operation().setOperationError(op.id, null);
-                            if (message != null)
-                                db.message().setMessageError(message.id, null);
+                        JSONArray jargs = new JSONArray(op.args);
 
-                            if (message != null && message.uid == null &&
-                                    (EntityOperation.SEEN.equals(op.name) ||
-                                            EntityOperation.DELETE.equals(op.name) ||
-                                            EntityOperation.MOVE.equals(op.name) ||
-                                            EntityOperation.HEADERS.equals(op.name)))
-                                throw new IllegalArgumentException(op.name + " without uid " + op.args);
+                        // Operations should use database transaction when needed
 
-                            JSONArray jargs = new JSONArray(op.args);
+                        if (EntityOperation.SEEN.equals(op.name))
+                            doSeen(folder, ifolder, message, jargs, db);
 
-                            // Operations should use database transaction when needed
+                        else if (EntityOperation.ANSWERED.equals(op.name))
+                            doAnswered(folder, ifolder, message, jargs, db);
 
-                            if (EntityOperation.SEEN.equals(op.name))
-                                doSeen(folder, ifolder, message, jargs, db);
+                        else if (EntityOperation.FLAG.equals(op.name))
+                            doFlag(folder, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.ANSWERED.equals(op.name))
-                                doAnswered(folder, ifolder, message, jargs, db);
+                        else if (EntityOperation.KEYWORD.equals(op.name))
+                            doKeyword(folder, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.FLAG.equals(op.name))
-                                doFlag(folder, ifolder, message, jargs, db);
+                        else if (EntityOperation.ADD.equals(op.name))
+                            doAdd(folder, isession, istore, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.KEYWORD.equals(op.name))
-                                doKeyword(folder, ifolder, message, jargs, db);
+                        else if (EntityOperation.MOVE.equals(op.name))
+                            doMove(folder, isession, istore, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.ADD.equals(op.name))
-                                doAdd(folder, isession, istore, ifolder, message, jargs, db);
+                        else if (EntityOperation.DELETE.equals(op.name))
+                            doDelete(folder, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.MOVE.equals(op.name))
-                                doMove(folder, isession, istore, ifolder, message, jargs, db);
+                        else if (EntityOperation.SEND.equals(op.name))
+                            doSend(message, db);
 
-                            else if (EntityOperation.DELETE.equals(op.name))
-                                doDelete(folder, ifolder, message, jargs, db);
+                        else if (EntityOperation.HEADERS.equals(op.name))
+                            doHeaders(folder, ifolder, message, db);
 
-                            else if (EntityOperation.SEND.equals(op.name))
-                                doSend(message, db);
+                        else if (EntityOperation.BODY.equals(op.name))
+                            doBody(folder, ifolder, message, db);
 
-                            else if (EntityOperation.HEADERS.equals(op.name))
-                                doHeaders(folder, ifolder, message, db);
+                        else if (EntityOperation.ATTACHMENT.equals(op.name))
+                            doAttachment(folder, op, ifolder, message, jargs, db);
 
-                            else if (EntityOperation.BODY.equals(op.name))
-                                doBody(folder, ifolder, message, db);
-
-                            else if (EntityOperation.ATTACHMENT.equals(op.name))
-                                doAttachment(folder, op, ifolder, message, jargs, db);
-
-                            else if (EntityOperation.SYNC.equals(op.name))
-                                if (!EntityFolder.OUTBOX.equals(folder.type))
-                                    synchronizeMessages(account, folder, ifolder, state);
-                                else
-                                    db.folder().setFolderError(folder.id, null);
-
+                        else if (EntityOperation.SYNC.equals(op.name))
+                            if (!EntityFolder.OUTBOX.equals(folder.type))
+                                synchronizeMessages(account, folder, ifolder, state);
                             else
-                                throw new MessagingException("Unknown operation name=" + op.name);
+                                db.folder().setFolderError(folder.id, null);
 
-                            // Operation succeeded
+                        else
+                            throw new MessagingException("Unknown operation name=" + op.name);
+
+                        // Operation succeeded
+                        db.operation().deleteOperation(op.id);
+                    } catch (Throwable ex) {
+                        // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
+                        reportError(null, folder.name, ex);
+
+                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                        if (message != null &&
+                                !(ex instanceof MessageRemovedException) &&
+                                !(ex instanceof FolderClosedException) &&
+                                !(ex instanceof IllegalStateException))
+                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+
+                        if (ex instanceof MessageRemovedException ||
+                                ex instanceof FolderNotFoundException ||
+                                ex instanceof SendFailedException) {
+                            Log.w(Helper.TAG, "Unrecoverable " + ex + "\n" + Log.getStackTraceString(ex));
+
+                            // There is no use in repeating
                             db.operation().deleteOperation(op.id);
-                        } catch (Throwable ex) {
-                            // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
-                            reportError(null, folder.name, ex);
-
-                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                            if (message != null &&
-                                    !(ex instanceof MessageRemovedException) &&
-                                    !(ex instanceof FolderClosedException) &&
-                                    !(ex instanceof IllegalStateException))
-                                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-
-                            if (ex instanceof MessageRemovedException ||
-                                    ex instanceof FolderNotFoundException ||
-                                    ex instanceof SendFailedException) {
-                                Log.w(Helper.TAG, "Unrecoverable " + ex + "\n" + Log.getStackTraceString(ex));
-
-                                // There is no use in repeating
-                                db.operation().deleteOperation(op.id);
-                                continue;
-                            } else if (ex instanceof MessagingException) {
-                                // Socket timeout is a recoverable condition (send message)
-                                if (ex.getCause() instanceof SocketTimeoutException) {
-                                    Log.w(Helper.TAG, "Recoverable " + ex + "\n" + Log.getStackTraceString(ex));
-                                    // No need to inform user
-                                    return;
-                                }
+                            continue;
+                        } else if (ex instanceof MessagingException) {
+                            // Socket timeout is a recoverable condition (send message)
+                            if (ex.getCause() instanceof SocketTimeoutException) {
+                                Log.w(Helper.TAG, "Recoverable " + ex + "\n" + Log.getStackTraceString(ex));
+                                // No need to inform user
+                                return;
                             }
-
-                            throw ex;
                         }
-                    } finally {
-                        Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
+
+                        throw ex;
                     }
+                } finally {
+                    Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
                 }
-            } finally {
-                Log.i(Helper.TAG, folder.name + " end process state=" + state);
             }
+        } finally {
+            Log.i(Helper.TAG, folder.name + " end process state=" + state);
         }
     }
 
@@ -1536,13 +1528,23 @@ public class ServiceSynchronize extends LifecycleService {
         Flags flags = new Flags(keyword);
         imessage.setFlags(flags, set);
 
-        List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
-        if (set) {
-            if (!keywords.contains(keyword))
-                keywords.add(keyword);
-        } else
-            keywords.remove(keyword);
-        db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+        try {
+            db.beginTransaction();
+
+            message = db.message().getMessage(message.id);
+
+            List<String> keywords = new ArrayList<>(Arrays.asList(message.keywords));
+            if (set) {
+                if (!keywords.contains(keyword))
+                    keywords.add(keyword);
+            } else
+                keywords.remove(keyword);
+            db.message().setMessageKeywords(message.id, DB.Converters.fromStringArray(keywords.toArray(new String[0])));
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
     }
 
     private void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
@@ -1671,6 +1673,9 @@ public class ServiceSynchronize extends LifecycleService {
 
             try {
                 db.beginTransaction();
+
+                // Message could be moved
+                message = db.message().getMessage(message.id);
 
                 // Mark message as sent
                 // - will be moved to sent folder by synchronize message later
