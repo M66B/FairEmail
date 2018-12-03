@@ -202,17 +202,23 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onRefresh() {
                 Bundle args = new Bundle();
-                args.putLong("id", folder);
+                args.putLong("account", account);
+                args.putLong("folder", folder);
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
-                        long id = args.getLong("id");
+                        long account = args.getLong("account");
+                        long folder = args.getLong("folder");
 
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
-                            EntityOperation.sync(db, id);
+                            if (account < 0) {
+                                for (EntityFolder unified : db.folder().getUnifiedFolders())
+                                    EntityOperation.sync(db, unified.id);
+                            } else
+                                EntityOperation.sync(db, folder);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -1006,7 +1012,7 @@ public class FragmentMessages extends FragmentEx {
         ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         // Initialize
-        swipeRefresh.setEnabled(viewType == AdapterMessage.ViewType.FOLDER);
+        swipeRefresh.setEnabled(viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
         tvNoEmail.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -1082,6 +1088,14 @@ public class FragmentMessages extends FragmentEx {
                             setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
                         else
                             setSubtitle(name);
+
+                        boolean refreshing = false;
+                        for (TupleFolderEx folder : folders)
+                            if (folder.sync_state != null) {
+                                refreshing = true;
+                                break;
+                            }
+                        swipeRefresh.setRefreshing(refreshing);
                     }
                 });
                 break;
