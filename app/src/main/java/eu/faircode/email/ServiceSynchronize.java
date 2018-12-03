@@ -1839,6 +1839,9 @@ public class ServiceSynchronize extends LifecycleService {
     private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, ServiceState state) throws MessagingException, IOException {
         DB db = DB.getInstance(this);
         try {
+            // Refresh parameters
+            folder = db.folder().getFolder(folder.id);
+
             Log.v(Helper.TAG, folder.name + " start sync after=" + folder.sync_days + "/" + folder.keep_days);
 
             db.folder().setFolderState(folder.id, "syncing");
