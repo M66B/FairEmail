@@ -36,6 +36,7 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
@@ -2366,13 +2367,16 @@ public class ServiceSynchronize extends LifecycleService {
 
         private boolean suitableNetwork() {
             ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            boolean unmetered = !cm.isActiveNetworkMetered();
+            Network active = cm.getActiveNetwork();
+            NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
+            NetworkInfo ni = (active == null ? null : cm.getNetworkInfo(active));
+            boolean unmetered = (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean metered = prefs.getBoolean("metered", true);
 
-            boolean suitable = (metered || unmetered);
-            EntityLog.log(ServiceSynchronize.this, "suitable=" + suitable + " active=" + cm.getActiveNetworkInfo());
+            boolean suitable = (active != null && (metered || unmetered));
+            EntityLog.log(ServiceSynchronize.this, "suitable=" + suitable + " active=" + ni);
 
             // The connected state is deliberately ignored
             return suitable;
