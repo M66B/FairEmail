@@ -1523,12 +1523,6 @@ public class FragmentMessages extends FragmentEx {
                     model.setMessages(messages);
                 }
 
-                if (selectionTracker != null) {
-                    PagedList<TupleMessageEx> current = adapter.getCurrentList();
-                    if (messages.size() != (current == null ? 0 : current.size()))
-                        selectionTracker.clearSelection();
-                }
-
                 Log.i(Helper.TAG, "Submit messages=" + messages.size());
                 adapter.submitList(messages);
 
