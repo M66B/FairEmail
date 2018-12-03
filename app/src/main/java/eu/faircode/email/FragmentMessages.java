@@ -129,7 +129,7 @@ public class FragmentMessages extends FragmentEx {
 
     private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
-    private static final int LOCAL_PAGE_SIZE = 50;
+    private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
@@ -1407,8 +1407,10 @@ public class FragmentMessages extends FragmentEx {
 
             switch (viewType) {
                 case UNIFIED:
-                    messages = new LivePagedListBuilder<>(db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE).build();
+                    messages = new LivePagedListBuilder<>(
+                            db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
+
                 case FOLDER:
                     if (searchCallback == null)
                         searchCallback = new BoundaryCallbackMessages(this, model,
@@ -1436,7 +1438,6 @@ public class FragmentMessages extends FragmentEx {
 
                     PagedList.Config config = new PagedList.Config.Builder()
                             .setPageSize(LOCAL_PAGE_SIZE)
-                            .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .build();
                     LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
@@ -1446,6 +1447,7 @@ public class FragmentMessages extends FragmentEx {
                     messages = builder.build();
 
                     break;
+
                 case THREAD:
                     messages = new LivePagedListBuilder<>(
                             db.message().pagedThread(account, thread, threading ? null : id, found, sort, debug), LOCAL_PAGE_SIZE).build();
@@ -1481,7 +1483,6 @@ public class FragmentMessages extends FragmentEx {
 
             PagedList.Config config = new PagedList.Config.Builder()
                     .setPageSize(LOCAL_PAGE_SIZE)
-                    .setInitialLoadSizeHint(LOCAL_PAGE_SIZE)
                     .setPrefetchDistance(REMOTE_PAGE_SIZE)
                     .build();
             LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
