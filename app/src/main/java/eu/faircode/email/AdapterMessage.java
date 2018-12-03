@@ -188,8 +188,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Group grpAttachments;
         private Group grpExpanded;
 
-        private ItemDetailsMessage itemDetails = null;
-
         ViewHolder(View itemView) {
             super(itemView);
 
@@ -542,7 +540,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         });
             }
 
-            itemDetails = new ItemDetailsMessage(position, message.id);
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
         }
 
@@ -1530,7 +1527,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
-            return itemDetails;
+            return new ItemDetailsMessage(this);
+        }
+
+        Long getKey() {
+            return getKeyAtPosition(getAdapterPosition());
         }
     }
 
@@ -1575,6 +1576,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return differ.getItemCount();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<TupleMessageEx>() {
                 @Override
@@ -1614,6 +1620,54 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
         this.selectionTracker = selectionTracker;
+    }
+
+    int getPositionForKey(long key) {
+        PagedList<TupleMessageEx> messages = getCurrentList();
+        if (messages != null)
+            for (int i = 0; i < messages.size(); i++) {
+                TupleMessageEx message = messages.get(i);
+                if (message != null && message.id.equals(key)) {
+                    Log.i(Helper.TAG, "Position=" + i + " @Key=" + key);
+                    return i;
+                }
+            }
+        Log.i(Helper.TAG, "Position=" + RecyclerView.NO_POSITION + " @Key=" + key);
+        return RecyclerView.NO_POSITION;
+    }
+
+    TupleMessageEx getItemAtPosition(int pos) {
+        PagedList<TupleMessageEx> list = getCurrentList();
+        if (list != null && pos < list.size()) {
+            TupleMessageEx message = list.get(pos);
+            Long key = (message == null ? null : message.id);
+            Log.i(Helper.TAG, "Item=" + key + " @Position=" + pos);
+            return message;
+        } else {
+            Log.i(Helper.TAG, "Item=" + null + " @Position=" + pos);
+            return null;
+        }
+    }
+
+    TupleMessageEx getItemForKey(long key) {
+        PagedList<TupleMessageEx> messages = getCurrentList();
+        if (messages != null)
+            for (int i = 0; i < messages.size(); i++) {
+                TupleMessageEx message = messages.get(i);
+                if (message != null && message.id.equals(key)) {
+                    Log.i(Helper.TAG, "Item=" + message.id + " @Key=" + key);
+                    return message;
+                }
+            }
+        Log.i(Helper.TAG, "Item=" + null + " @Key" + key);
+        return null;
+    }
+
+    Long getKeyAtPosition(int pos) {
+        TupleMessageEx message = getItemAtPosition(pos);
+        Long key = (message == null ? null : message.id);
+        Log.i(Helper.TAG, "Key=" + key + " @Position=" + pos);
+        return key;
     }
 
     interface IProperties {

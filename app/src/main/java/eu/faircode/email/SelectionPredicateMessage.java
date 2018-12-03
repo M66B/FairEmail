@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import androidx.annotation.NonNull;
-import androidx.paging.PagedList;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,34 +38,26 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
     @Override
     public boolean canSetStateForKey(@NonNull Long key, boolean nextState) {
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
-        PagedList<TupleMessageEx> messages = adapter.getCurrentList();
-        if (messages != null)
-            for (int i = 0; i < messages.size(); i++) {
-                TupleMessageEx message = messages.get(i);
-                if (message != null && message.id.equals(key)) {
-                    if (message.uid != null && (account < 0 || account == message.account)) {
-                        account = message.account;
-                        return true;
-                    } else
-                        return false;
-                }
-            }
+        TupleMessageEx message = adapter.getItemForKey(key);
+
+        if (message != null && message.uid != null && (account < 0 || account == message.account)) {
+            account = message.account;
+            return true;
+        }
+
         return false;
     }
 
     @Override
     public boolean canSetStateAtPosition(int position, boolean nextState) {
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
-        PagedList<TupleMessageEx> messages = adapter.getCurrentList();
-        if (messages != null) {
-            TupleMessageEx message = messages.get(position);
-            if (message != null) {
-                if (message.uid != null && (account < 0 || account == message.account)) {
-                    account = message.account;
-                    return true;
-                }
-            }
+        TupleMessageEx message = adapter.getItemAtPosition(position);
+
+        if (message != null && message.uid != null && (account < 0 || account == message.account)) {
+            account = message.account;
+            return true;
         }
+
         return false;
     }
 

@@ -19,26 +19,31 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 
 public class ItemDetailsMessage extends ItemDetailsLookup.ItemDetails<Long> {
-    private int pos;
-    private Long key;
+    private AdapterMessage.ViewHolder viewHolder;
 
-    ItemDetailsMessage(int pos, Long id) {
-        this.pos = pos;
-        this.key = id;
+    ItemDetailsMessage(AdapterMessage.ViewHolder viewHolder) {
+        this.viewHolder = viewHolder;
     }
 
     @Override
     public int getPosition() {
+        int pos = viewHolder.getAdapterPosition();
+        Log.i(Helper.TAG, "ItemDetails pos=" + pos);
         return pos;
     }
 
     @Nullable
     @Override
     public Long getSelectionKey() {
+        int pos = viewHolder.getAdapterPosition();
+        Long key = viewHolder.getKey();
+        Log.i(Helper.TAG, "ItemDetails pos=" + pos + " key=" + key);
         return key;
     }
 }
