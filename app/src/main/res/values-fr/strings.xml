@@ -173,7 +173,7 @@
     <string name="title_folder_user">Utilisateur</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
     <string name="title_folder_thread">Fil de discussion</string>
-    <string name="title_folders_unified">Unified inbox folders</string>
+    <string name="title_folders_unified">Dossiers de boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_show_images">Afficher les images</string>
     <string name="title_subject_reply">Re : %1$s</string>
