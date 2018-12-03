@@ -744,11 +744,8 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_seen != seen) {
-                                    db.message().setMessageUiSeen(message.id, seen);
-                                    db.message().setMessageUiIgnored(message.id, true);
+                                if (message.ui_seen != seen)
                                     EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
-                                }
                             }
 
                             db.setTransactionSuccessful();
@@ -785,10 +782,8 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_flagged != flagged) {
-                                    db.message().setMessageUiFlagged(message.id, flagged);
+                                if (message.ui_flagged != flagged)
                                     EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
-                                }
                             }
 
                             db.setTransactionSuccessful();
@@ -984,10 +979,8 @@ public class FragmentMessages extends FragmentEx {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
                                                     db.message().deleteMessage(id);
-                                                else {
-                                                    db.message().setMessageUiHide(message.id, true);
+                                                else
                                                     EntityOperation.queue(db, message, EntityOperation.DELETE);
-                                                }
                                             }
 
                                             db.setTransactionSuccessful();
@@ -1601,11 +1594,8 @@ public class FragmentMessages extends FragmentEx {
                     if (!message.content)
                         EntityOperation.queue(db, message, EntityOperation.BODY);
 
-                    if (!message.ui_seen && !EntityFolder.OUTBOX.equals(folder.type)) {
-                        db.message().setMessageUiSeen(message.id, true);
-                        db.message().setMessageUiIgnored(message.id, true);
+                    if (!message.ui_seen && !EntityFolder.OUTBOX.equals(folder.type))
                         EntityOperation.queue(db, message, EntityOperation.SEEN, true);
-                    }
 
                     db.setTransactionSuccessful();
                 } finally {

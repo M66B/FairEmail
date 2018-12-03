@@ -330,8 +330,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 EntityMessage message = db.message().getMessage(id);
                                 switch (parts[0]) {
                                     case "seen":
-                                        db.message().setMessageUiSeen(message.id, true);
-                                        db.message().setMessageUiIgnored(message.id, true);
                                         EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                                         break;
 
@@ -342,7 +340,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (archive != null) {
                                             EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                                             EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
-                                            db.message().setMessageUiHide(message.id, true);
                                         }
                                         break;
 
@@ -351,7 +348,6 @@ public class ServiceSynchronize extends LifecycleService {
                                         if (trash != null) {
                                             EntityOperation.queue(db, message, EntityOperation.SEEN, true);
                                             EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-                                            db.message().setMessageUiHide(message.id, true);
                                         }
                                         break;
 
@@ -1117,7 +1113,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                             EntityFolder ofolder = null;
                                                             IMAPFolder ifolder = null;
                                                             for (EntityFolder f : folders.keySet())
-                                                                if (f.id == folder.id) {
+                                                                if (f.id.equals(folder.id)) {
                                                                     ofolder = f;
                                                                     ifolder = folders.get(f);
                                                                     break;
@@ -1357,10 +1353,9 @@ public class ServiceSynchronize extends LifecycleService {
                             db.message().setMessageError(message.id, null);
 
                         if (message != null && message.uid == null &&
-                                (EntityOperation.SEEN.equals(op.name) ||
-                                        EntityOperation.DELETE.equals(op.name) ||
-                                        EntityOperation.MOVE.equals(op.name) ||
-                                        EntityOperation.HEADERS.equals(op.name)))
+                                !(EntityOperation.ADD.equals(op.name) ||
+                                        EntityOperation.SEND.equals(op.name) ||
+                                        EntityOperation.SYNC.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid " + op.args);
 
                         JSONArray jargs = new JSONArray(op.args);
@@ -1370,11 +1365,11 @@ public class ServiceSynchronize extends LifecycleService {
                         if (EntityOperation.SEEN.equals(op.name))
                             doSeen(folder, ifolder, message, jargs, db);
 
-                        else if (EntityOperation.ANSWERED.equals(op.name))
-                            doAnswered(folder, ifolder, message, jargs, db);
-
                         else if (EntityOperation.FLAG.equals(op.name))
                             doFlag(folder, ifolder, message, jargs, db);
+
+                        else if (EntityOperation.ANSWERED.equals(op.name))
+                            doAnswered(folder, ifolder, message, jargs, db);
 
                         else if (EntityOperation.KEYWORD.equals(op.name))
                             doKeyword(folder, ifolder, message, jargs, db);
@@ -1401,10 +1396,10 @@ public class ServiceSynchronize extends LifecycleService {
                             doAttachment(folder, op, ifolder, message, jargs, db);
 
                         else if (EntityOperation.SYNC.equals(op.name))
-                            if (!EntityFolder.OUTBOX.equals(folder.type))
-                                synchronizeMessages(account, folder, ifolder, state);
-                            else
+                            if (EntityFolder.OUTBOX.equals(folder.type))
                                 db.folder().setFolderError(folder.id, null);
+                            else
+                                synchronizeMessages(account, folder, ifolder, state);
 
                         else
                             throw new MessagingException("Unknown operation name=" + op.name);
@@ -1471,27 +1466,6 @@ public class ServiceSynchronize extends LifecycleService {
         db.message().setMessageSeen(message.id, seen);
     }
 
-    private void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
-        // Mark message (un)answered
-        if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
-            db.message().setMessageAnswered(message.id, false);
-            db.message().setMessageUiAnswered(message.id, false);
-            return;
-        }
-
-        boolean answered = jargs.getBoolean(0);
-        if (message.answered.equals(answered))
-            return;
-
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
-        imessage.setFlag(Flags.Flag.ANSWERED, answered);
-
-        db.message().setMessageAnswered(message.id, answered);
-    }
-
     private void doFlag(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Star/unstar message
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
@@ -1511,6 +1485,27 @@ public class ServiceSynchronize extends LifecycleService {
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
 
         db.message().setMessageFlagged(message.id, flagged);
+    }
+
+    private void doAnswered(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
+        // Mark message (un)answered
+        if (!ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
+            db.message().setMessageAnswered(message.id, false);
+            db.message().setMessageUiAnswered(message.id, false);
+            return;
+        }
+
+        boolean answered = jargs.getBoolean(0);
+        if (message.answered.equals(answered))
+            return;
+
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        imessage.setFlag(Flags.Flag.ANSWERED, answered);
+
+        db.message().setMessageAnswered(message.id, answered);
     }
 
     private void doKeyword(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {

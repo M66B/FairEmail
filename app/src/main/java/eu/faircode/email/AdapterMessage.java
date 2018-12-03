@@ -963,7 +963,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         EntityMessage message = db.message().getMessage(id);
                                         EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                                         EntityOperation.queue(db, message, EntityOperation.MOVE, junk.id);
-                                        db.message().setMessageUiHide(id, true);
 
                                         db.setTransactionSuccessful();
                                     } finally {
@@ -1108,8 +1107,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(id);
-                        db.message().setMessageUiSeen(message.id, false);
-                        db.message().setMessageUiIgnored(message.id, true);
                         EntityOperation.queue(db, message, EntityOperation.SEEN, false);
 
                         db.setTransactionSuccessful();
@@ -1146,7 +1143,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean flagged = args.getBoolean("flagged");
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
-                    db.message().setMessageUiFlagged(message.id, flagged);
                     EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
                     return null;
                 }
@@ -1421,10 +1417,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 db.message().deleteMessage(id);
                                                 NotificationManager nm = context.getSystemService(NotificationManager.class);
                                                 nm.cancel("send", message.account.intValue());
-                                            } else {
-                                                db.message().setMessageUiHide(message.id, true);
+                                            } else
                                                 EntityOperation.queue(db, message, EntityOperation.DELETE);
-                                            }
 
                                             db.setTransactionSuccessful();
                                         } finally {

@@ -1639,7 +1639,6 @@ public class FragmentCompose extends FragmentEx {
 
                     if (draft.replying != null) {
                         EntityMessage replying = db.message().getMessage(draft.replying);
-                        db.message().setMessageUiAnswered(replying.id, true);
                         EntityOperation.queue(db, replying, EntityOperation.ANSWERED, true);
                     }
                 }

@@ -31,7 +31,9 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE message = :message ORDER BY id")
     LiveData<List<EntityOperation>> getOperationsByMessage(long message);
 
-    @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
+    @Query("SELECT * FROM operation" +
+            " WHERE folder = :folder" +
+            " ORDER BY CASE WHEN name = '" + EntityOperation.SYNC + "' THEN 1 ELSE 0 END, id")
     List<EntityOperation> getOperationsByFolder(long folder);
 
     @Query("SELECT * FROM operation ORDER BY id")

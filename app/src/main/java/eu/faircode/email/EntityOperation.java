@@ -82,6 +82,18 @@ public class EntityOperation {
         JSONArray jargs = new JSONArray();
         jargs.put(value);
         queue(db, message.folder, message.id, name, jargs);
+
+        if (SEEN.equals(name)) {
+            db.message().setMessageUiSeen(message.id, (boolean) value);
+            db.message().setMessageUiIgnored(message.id, true);
+        } else if (FLAG.equals(name))
+            db.message().setMessageUiFlagged(message.id, (boolean) value);
+        else if (ANSWERED.equals(name))
+            db.message().setMessageUiAnswered(message.id, (boolean) value);
+        else if (MOVE.equals(name))
+            db.message().setMessageUiHide(message.id, true);
+        else if (DELETE.equals(name))
+            db.message().setMessageUiHide(message.id, true);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {

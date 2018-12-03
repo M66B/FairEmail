@@ -328,7 +328,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                                                 for (Long mid : db.message().getMessageByFolder(id, false)) {
                                                     EntityMessage message = db.message().getMessage(mid);
-                                                    db.message().setMessageUiHide(message.id, true);
                                                     EntityOperation.queue(db, message, EntityOperation.DELETE);
                                                 }
 
