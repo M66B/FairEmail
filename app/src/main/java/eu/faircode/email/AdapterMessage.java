@@ -98,14 +98,15 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.paging.PagedListAdapter;
+import androidx.paging.AsyncPagedListDiffer;
+import androidx.paging.PagedList;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMessage.ViewHolder> {
+public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
     private FragmentManager fragmentManager;
@@ -127,13 +128,14 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     private boolean hasWebView;
 
     private SelectionTracker<Long> selectionTracker = null;
-
-    private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+    private AsyncPagedListDiffer<TupleMessageEx> differ = new AsyncPagedListDiffer<>(this, DIFF_CALLBACK);
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
     private static final float LOW_LIGHT = 0.6f;
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
+
+    private static DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
@@ -550,7 +552,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleMessageEx message = getItem(pos);
+            TupleMessageEx message = differ.getItem(pos);
 
             if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
@@ -1534,7 +1536,6 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
     AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager,
                    ViewType viewType, boolean outgoing, IProperties properties) {
-        super(DIFF_CALLBACK);
         this.context = context;
         this.owner = owner;
         this.fragmentManager = fragmentManager;
@@ -1559,6 +1560,19 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
 
         PackageManager pm = context.getPackageManager();
         this.hasWebView = pm.hasSystemFeature("android.software.webview");
+    }
+
+    void submitList(PagedList<TupleMessageEx> pagedList) {
+        differ.submitList(pagedList);
+    }
+
+    PagedList<TupleMessageEx> getCurrentList() {
+        return differ.getCurrentList();
+    }
+
+    @Override
+    public int getItemCount() {
+        return differ.getItemCount();
     }
 
     private static final DiffUtil.ItemCallback<TupleMessageEx> DIFF_CALLBACK =
@@ -1589,7 +1603,7 @@ public class AdapterMessage extends PagedListAdapter<TupleMessageEx, AdapterMess
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        TupleMessageEx message = getItem(position);
+        TupleMessageEx message = differ.getItem(position);
         if (message == null)
             holder.clear();
         else {
