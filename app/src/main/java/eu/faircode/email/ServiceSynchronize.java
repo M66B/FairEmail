@@ -1795,8 +1795,10 @@ public class ServiceSynchronize extends LifecycleService {
                 names.add(folder.name);
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
-            Folder[] ifolders = istore.getDefaultFolder().list("*");
-            Log.i(Helper.TAG, "Remote folder count=" + ifolders.length);
+            Folder defaultFolder = istore.getDefaultFolder();
+            char separator = defaultFolder.getSeparator();
+            Folder[] ifolders = defaultFolder.list("*");
+            Log.i(Helper.TAG, "Remote folder count=" + ifolders.length + " separator=" + separator);
 
             for (Folder ifolder : ifolders) {
                 boolean selectable = true;
@@ -1807,20 +1809,29 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 if (selectable) {
-                    EntityFolder folder = db.folder().getFolderByName(account.id, ifolder.getFullName());
+                    String fullName = ifolder.getFullName();
+
+                    int level = 0;
+                    for (int i = 0; i < fullName.length(); i++)
+                        if (fullName.charAt(i) == separator)
+                            level++;
+
+                    EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = ifolder.getFullName();
                         folder.type = EntityFolder.USER;
+                        folder.level = level;
                         folder.synchronize = false;
                         folder.sync_days = EntityFolder.DEFAULT_USER_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_USER_SYNC;
                         db.folder().insertFolder(folder);
-                        Log.i(Helper.TAG, folder.name + " added");
+                        Log.i(Helper.TAG, folder.name + " added level=" + level);
                     } else {
                         names.remove(folder.name);
-                        Log.i(Helper.TAG, folder.name + " exists");
+                        Log.i(Helper.TAG, folder.name + " exists level=" + level);
+                        db.folder().setFolderLevel(folder.id, level);
                     }
                 }
             }

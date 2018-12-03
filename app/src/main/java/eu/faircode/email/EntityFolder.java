@@ -65,6 +65,8 @@ public class EntityFolder implements Serializable {
     @NonNull
     public String type;
     @NonNull
+    public Integer level;
+    @NonNull
     public Boolean synchronize;
     @NonNull
     public Integer sync_days;
@@ -154,6 +156,7 @@ public class EntityFolder implements Serializable {
                     (this.account == null ? other.account == null : this.account.equals(other.account)) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
+                    this.level.equals(other.level) &&
                     this.synchronize.equals(other.synchronize) &&
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
                     this.hide == other.hide &&
@@ -173,6 +176,7 @@ public class EntityFolder implements Serializable {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("type", type);
+        json.put("level", level);
         json.put("synchronize", synchronize);
         json.put("sync_days", sync_days);
         json.put("keep_days", keep_days);
@@ -186,6 +190,10 @@ public class EntityFolder implements Serializable {
         EntityFolder folder = new EntityFolder();
         folder.name = json.getString("name");
         folder.type = json.getString("type");
+
+        if (json.has("level"))
+            folder.level = json.getInt("level");
+
         folder.synchronize = json.getBoolean("synchronize");
 
         if (json.has("after"))

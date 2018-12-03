@@ -36,7 +36,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -60,6 +59,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private LifecycleOwner owner;
     private long account;
     private boolean debug;
+    private int dp12;
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
@@ -67,6 +67,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View itemView;
         private View vwColor;
+        private View vwLevel;
         private ImageView ivState;
         private TextView tvName;
         private TextView tvMessages;
@@ -88,6 +89,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             this.itemView = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            vwLevel = itemView.findViewById(R.id.vwLevel);
             ivState = itemView.findViewById(R.id.ivState);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
@@ -114,6 +116,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
             vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
+
+            if (account > 0) {
+                ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
+                lp.width = folder.level * dp12;
+                vwLevel.setLayoutParams(lp);
+            }
 
             if ("connected".equals(folder.state))
                 ivState.setImageResource(R.drawable.baseline_cloud_24);
@@ -357,6 +365,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
+
+        this.dp12 = Math.round(12 * context.getResources().getDisplayMetrics().density);
 
         setHasStableIds(true);
     }

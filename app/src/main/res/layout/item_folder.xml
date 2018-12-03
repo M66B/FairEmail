@@ -28,6 +28,30 @@
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/ivUnified"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_folder_special_24"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@+id/barrier1" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="ivState" />
+
+        <View
+            android:id="@+id/vwLevel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvKeywords"
+            app:layout_constraintStart_toEndOf="@id/barrier0"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
@@ -40,7 +64,7 @@
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toStartOf="@+id/tvAfter"
-            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -70,15 +94,6 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="ivState,tvName,tvMessages,ivMessages" />
 
-        <ImageView
-            android:id="@+id/ivUnified"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="6dp"
-            android:src="@drawable/baseline_folder_special_24"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/barrier1" />
-
         <TextView
             android:id="@+id/tvType"
             android:layout_width="wrap_content"
@@ -87,7 +102,7 @@
             android:gravity="center_vertical"
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
-            app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
         <TextView
@@ -127,7 +142,7 @@
             android:text="Keywords"
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivUnified"
+            app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toBottomOf="@id/barrier2" />
 
         <TextView
