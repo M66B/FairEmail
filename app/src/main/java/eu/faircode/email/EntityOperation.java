@@ -92,8 +92,10 @@ public class EntityOperation {
     }
 
     static void sync(DB db, long folder) {
-        if (db.operation().getOperationCount(folder, EntityOperation.SYNC) == 0)
+        if (db.operation().getOperationCount(folder, EntityOperation.SYNC) == 0) {
             queue(db, folder, null, EntityOperation.SYNC, new JSONArray());
+            db.folder().setFolderSyncState(folder, "requested");
+        }
     }
 
     private static void queue(DB db, long folder, Long message, String name, JSONArray jargs) {

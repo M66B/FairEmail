@@ -135,7 +135,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else
                     ivState.setImageResource(android.R.drawable.stat_sys_warning);
             } else {
-                if ("syncing".equals(folder.sync_state))
+                if ("requested".equals(folder.sync_state))
+                    ivState.setImageResource(R.drawable.baseline_hourglass_empty_24);
+                else if ("syncing".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
                 else if ("downloading".equals(folder.sync_state))
                     ivState.setImageResource(R.drawable.baseline_cloud_download_24);

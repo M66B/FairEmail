@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -70,9 +72,11 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class FragmentMessages extends FragmentEx {
     private ViewGroup view;
+    private SwipeRefreshLayout swipeRefresh;
     private View popupAnchor;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
@@ -168,6 +172,7 @@ public class FragmentMessages extends FragmentEx {
         setHasOptionsMenu(true);
 
         // Get controls
+        swipeRefresh = view.findViewById(R.id.swipeRefresh);
         popupAnchor = view.findViewById(R.id.popupAnchor);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
@@ -188,6 +193,37 @@ public class FragmentMessages extends FragmentEx {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
+
+        TypedValue tv = new TypedValue();
+        getContext().getTheme().resolveAttribute(R.attr.colorAccent, tv, true);
+        swipeRefresh.setColorSchemeColors(tv.data, tv.data, tv.data);
+        swipeRefresh.setProgressBackgroundColorSchemeColor(Color.WHITE);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Bundle args = new Bundle();
+                args.putLong("id", folder);
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityOperation.sync(db, id);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return null;
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+        });
 
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -977,6 +1013,7 @@ public class FragmentMessages extends FragmentEx {
         ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         // Initialize
+        swipeRefresh.setEnabled(viewType == AdapterMessage.ViewType.FOLDER);
         tvNoEmail.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -1072,6 +1109,8 @@ public class FragmentMessages extends FragmentEx {
                             outbox = EntityFolder.OUTBOX.equals(folder.type);
                             getActivity().invalidateOptionsMenu();
                         }
+
+                        swipeRefresh.setRefreshing(folder != null && folder.sync_state != null);
                     }
                 });
                 break;
