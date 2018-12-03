@@ -1308,8 +1308,13 @@ public class FragmentMessages extends FragmentEx {
                 return true;
 
             case R.id.menu_sort_on_unread:
+                prefs.edit().putString("sort", "unread").apply();
+                item.setChecked(true);
+                loadMessages();
+                return true;
+
             case R.id.menu_sort_on_starred:
-                prefs.edit().putString("sort", item.getItemId() == R.id.menu_sort_on_unread ? "unread" : "starred").apply();
+                prefs.edit().putString("sort", "starred").apply();
                 item.setChecked(true);
                 loadMessages();
                 return true;
@@ -1396,6 +1401,7 @@ public class FragmentMessages extends FragmentEx {
             boolean browse = prefs.getBoolean("browse", true);
             boolean debug = prefs.getBoolean("debug", false);
 
+            // Sort changed
             if (messages != null)
                 messages.removeObservers(getViewLifecycleOwner());
 

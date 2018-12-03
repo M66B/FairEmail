@@ -27,12 +27,18 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private static String[] restart = new String[]{
+            "unified", "threading", "compact", "avatars", "identicons", "preview",
+            "browse", "actionbar", "autoclose", "confirm", "debug"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(Helper.TAG, "Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
@@ -83,7 +89,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         Log.i(Helper.TAG, "Preference " + key + "=" + prefs.getAll().get(key));
@@ -91,7 +96,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             if (this.getClass().equals(ActivitySetup.class))
                 startActivity(getIntent());
-        } else if (!this.getClass().equals(ActivitySetup.class))
+        } else if (!this.getClass().equals(ActivitySetup.class) && Arrays.asList(restart).contains(key))
             finish();
     }
 
