@@ -84,12 +84,19 @@ public class EntityOperation {
         queue(db, message.folder, message.id, name, jargs);
 
         if (SEEN.equals(name)) {
-            db.message().setMessageUiSeen(message.id, (boolean) value);
-            db.message().setMessageUiIgnored(message.id, true);
+            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid, message.ui_found)) {
+                db.message().setMessageUiSeen(similar.id, (boolean) value);
+                db.message().setMessageUiIgnored(similar.id, true);
+            }
+
         } else if (FLAG.equals(name))
-            db.message().setMessageUiFlagged(message.id, (boolean) value);
+            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid, message.ui_found))
+                db.message().setMessageUiFlagged(similar.id, (boolean) value);
+
         else if (ANSWERED.equals(name))
-            db.message().setMessageUiAnswered(message.id, (boolean) value);
+            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid, message.ui_found))
+                db.message().setMessageUiAnswered(similar.id, (boolean) value);
+
         else if (MOVE.equals(name))
             db.message().setMessageUiHide(message.id, true);
         else if (DELETE.equals(name))
