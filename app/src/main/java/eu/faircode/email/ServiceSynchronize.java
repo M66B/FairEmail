@@ -114,6 +114,8 @@ import javax.mail.event.StoreListener;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
+import javax.mail.search.FlagTerm;
+import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.net.ssl.SSLException;
 
@@ -1881,7 +1883,12 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Reduce list of local uids
             long search = SystemClock.elapsedRealtime();
-            Message[] imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
+            Message[] imessages = ifolder.search(
+                    new OrTerm(
+                            new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)),
+                            new FlagTerm(new Flags(Flags.Flag.FLAGGED), true)
+                    )
+            );
             Log.i(Helper.TAG, folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 

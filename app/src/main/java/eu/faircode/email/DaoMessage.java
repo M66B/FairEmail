@@ -300,20 +300,27 @@ public interface DaoMessage {
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 
-    @Query("DELETE FROM message WHERE folder = :folder AND uid = :uid")
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid = :uid")
     int deleteMessage(long folder, long uid);
 
-    @Query("DELETE FROM message WHERE folder = :folder AND NOT uid IS NULL")
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
+            " AND NOT uid IS NULL")
     int deleteLocalMessages(long folder);
 
-    @Query("DELETE FROM message WHERE folder = :folder AND seen")
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
+            " AND seen")
     int deleteSeenMessages(long folder);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND received < :received" +
             " AND NOT uid IS NULL" +
-            " AND (NOT ui_browsed OR :browsed)")
+            " AND (NOT ui_browsed OR :browsed)" +
+            " AND NOT ui_flagged")
     int deleteMessagesBefore(long folder, long received, boolean browsed);
 
     @Query("DELETE FROM message WHERE ui_found")

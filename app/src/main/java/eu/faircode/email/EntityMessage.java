@@ -74,6 +74,7 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"thread"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),
+                @Index(value = {"ui_flagged"}),
                 @Index(value = {"ui_hide"}),
                 @Index(value = {"ui_found"}),
                 @Index(value = {"ui_ignored"}),
