@@ -193,6 +193,7 @@
     <string name="title_folder_user">المستخدم</string>
     <string name="title_folder_primary">تعيين كحساب رئيسي</string>
     <string name="title_folder_thread">المحادثة</string>
+    <string name="title_folders_unified">Unified inbox folders</string>
     <string name="title_no_messages">لا توجد رسائل</string>
     <string name="title_show_images">إظهار الصور</string>
     <string name="title_subject_reply">رد: %s</string>

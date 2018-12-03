@@ -80,7 +80,7 @@
     <string name="title_advanced">Erweiterte Optionen</string>
     <string name="title_advanced_enabled">Synchronisieren</string>
     <string name="title_advanced_metered">Mobilfunknetz zulassen</string>
-    <string name="title_advanced_unified">Unified inbox</string>
+    <string name="title_advanced_unified">Sammeleingang</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_compact">Kompakte Nachrichtenansicht</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
     <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_unified_folder">Im gemeinsamen Posteingang anzeigen</string>
+    <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
     <string name="title_folder_delete">Ordner unwiderruflich löschen?</string>
-    <string name="title_folder_unified">Gemeinsamer Posteingang</string>
+    <string name="title_folder_unified">Sammeleingang</string>
     <string name="title_folder_inbox">Posteingang</string>
     <string name="title_folder_outbox">Postausgang</string>
     <string name="title_folder_all">Archiv</string>
@@ -173,6 +173,7 @@
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_primary">Ordner primäres Konto</string>
     <string name="title_folder_thread">Konversation</string>
+    <string name="title_folders_unified">Unified inbox folders</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_show_images">Bilder anzeigen</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -211,7 +212,7 @@
     <string name="title_ask_spam">Nachricht als Spam melden?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
-    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
+    <string name="title_sync_queued">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
@@ -265,7 +266,7 @@
     <string name="title_action_archive">Archivieren</string>
     <string name="title_action_trash">Löschen</string>
     <string name="title_legend_inbox">Posteingang</string>
-    <string name="title_legend_unified">Gemeinsamer Posteingang</string>
+    <string name="title_legend_unified">Sammeleingang</string>
     <string name="title_legend_archive">Archiv</string>
     <string name="title_legend_trash">Papierkorb</string>
     <string name="title_legend_primary_disconnected">Konto getrennt</string>

@@ -178,6 +178,7 @@
     <string name="title_folder_user">Utilizator</string>
     <string name="title_folder_primary">Dosare cont primar</string>
     <string name="title_folder_thread">Conversație</string>
+    <string name="title_folders_unified">Unified inbox folders</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_show_images">Afișare imagini</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
@@ -216,7 +217,7 @@
     <string name="title_ask_spam">Raportați mesajul drept spam?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
-    <string name="title_sync_queued">Synchronization will take place on next account connection</string>
+    <string name="title_sync_queued">Sincronizarea va avea loc la următoarea conexiune a contului</string>
     <string name="title_fix">Remediere</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
