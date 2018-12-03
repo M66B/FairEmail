@@ -118,6 +118,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET state = :state WHERE id = :id")
     int setFolderState(long id, String state);
 
+    @Query("UPDATE folder SET sync_state = :state WHERE id = :id")
+    int setFolderSyncState(long id, String state);
+
     @Query("UPDATE folder SET error = :error WHERE id = :id")
     int setFolderError(long id, String error);
 

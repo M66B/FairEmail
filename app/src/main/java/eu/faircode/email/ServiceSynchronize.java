@@ -1857,7 +1857,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             Log.v(Helper.TAG, folder.name + " start sync after=" + folder.sync_days + "/" + folder.keep_days);
 
-            db.folder().setFolderState(folder.id, "syncing");
+            db.folder().setFolderSyncState(folder.id, "syncing");
 
             // Get reference times
             Calendar cal_sync = Calendar.getInstance();
@@ -1990,7 +1990,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
             }
 
-            db.folder().setFolderState(folder.id, "downloading");
+            db.folder().setFolderSyncState(folder.id, "downloading");
 
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
 
@@ -2031,7 +2031,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync state=" + state);
-            db.folder().setFolderState(folder.id, ifolder.isOpen() ? "connected" : "disconnected");
+            db.folder().setFolderSyncState(folder.id, null);
         }
     }
 
@@ -2463,7 +2463,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                                 wl.acquire();
                                                                 Log.i(Helper.TAG, outbox.name + " process");
 
-                                                                db.folder().setFolderState(outbox.id, "syncing");
+                                                                db.folder().setFolderSyncState(outbox.id, "syncing");
                                                                 processOperations(null, outbox, null, null, null, state);
                                                                 db.folder().setFolderError(outbox.id, null);
                                                             } catch (Throwable ex) {
@@ -2471,7 +2471,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                                 reportError(null, outbox.name, ex);
                                                                 db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                                                             } finally {
-                                                                db.folder().setFolderState(outbox.id, null);
+                                                                db.folder().setFolderSyncState(outbox.id, null);
                                                                 wl.release();
                                                                 EntityLog.log(ServiceSynchronize.this, "Outbox wake lock=" + wl.isHeld());
                                                             }
@@ -2484,6 +2484,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             };
                             handler.sendEmptyMessage(1);
+                            db.folder().setFolderState(outbox.id, "connected");
                         }
 
                         // Start monitoring accounts

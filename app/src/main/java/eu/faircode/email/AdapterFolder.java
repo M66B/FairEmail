@@ -123,19 +123,28 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 vwLevel.setLayoutParams(lp);
             }
 
-            if ("connected".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_cloud_24);
-            else if ("connecting".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
-            else if ("closing".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_close_24);
-            else if ("syncing".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
-            else if ("downloading".equals(folder.state))
-                ivState.setImageResource(R.drawable.baseline_cloud_download_24);
-            else
-                ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-            ivState.setVisibility(folder.synchronize || folder.state != null ? View.VISIBLE : View.INVISIBLE);
+            if (folder.sync_state == null) {
+                if ("connected".equals(folder.state))
+                    ivState.setImageResource(R.drawable.baseline_cloud_24);
+                else if ("connecting".equals(folder.state))
+                    ivState.setImageResource(R.drawable.baseline_cloud_queue_24);
+                else if ("closing".equals(folder.state))
+                    ivState.setImageResource(R.drawable.baseline_close_24);
+                else if (folder.state == null)
+                    ivState.setImageResource(R.drawable.baseline_cloud_off_24);
+                else
+                    ivState.setImageResource(android.R.drawable.stat_sys_warning);
+            } else {
+                if ("syncing".equals(folder.sync_state))
+                    ivState.setImageResource(R.drawable.baseline_compare_arrows_24);
+                else if ("downloading".equals(folder.sync_state))
+                    ivState.setImageResource(R.drawable.baseline_cloud_download_24);
+                else
+                    ivState.setImageResource(android.R.drawable.stat_sys_warning);
+            }
+            ivState.setVisibility(
+                    folder.synchronize || folder.state != null || folder.sync_state != null
+                            ? View.VISIBLE : View.INVISIBLE);
 
             String name = folder.getDisplayName(context);
             if (folder.unseen > 0)

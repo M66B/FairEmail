@@ -79,6 +79,7 @@ public class EntityFolder implements Serializable {
     public Boolean unified = false;
     public String[] keywords;
     public String state;
+    public String sync_state;
     public String error;
 
     static final String INBOX = "Inbox";
@@ -162,6 +163,7 @@ public class EntityFolder implements Serializable {
                     this.hide == other.hide &&
                     this.unified == other.unified &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
+                    (this.sync_state == null ? other.sync_state == null : this.sync_state.equals(other.sync_state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else
             return false;
