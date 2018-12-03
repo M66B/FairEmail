@@ -395,6 +395,7 @@ public class FragmentMessages extends FragmentEx {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
+                    swipeRefresh.setEnabled(false);
                     if (selectionTracker.hasSelection()) {
                         if (messages != null) {
                             messages.removeObservers(getViewLifecycleOwner());
@@ -402,9 +403,10 @@ public class FragmentMessages extends FragmentEx {
                         }
                         fabMore.show();
                     } else {
-                        fabMore.hide();
                         predicate.clearAccount();
+                        fabMore.hide();
                         loadMessages();
+                        swipeRefresh.setEnabled(true);
                     }
                 }
             });
