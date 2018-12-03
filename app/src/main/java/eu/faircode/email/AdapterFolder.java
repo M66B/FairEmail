@@ -123,7 +123,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 vwLevel.setLayoutParams(lp);
             }
 
-            if (folder.sync_state == null) {
+            if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                 if ("connected".equals(folder.state))
                     ivState.setImageResource(R.drawable.baseline_cloud_24);
                 else if ("connecting".equals(folder.state))
