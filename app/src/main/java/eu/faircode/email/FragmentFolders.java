@@ -136,7 +136,7 @@ public class FragmentFolders extends FragmentEx {
 
         // Observe account
         if (account < 0)
-            setSubtitle(R.string.title_folder_unified);
+            setSubtitle(R.string.title_folders_unified);
         else
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override
