@@ -204,7 +204,7 @@
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_save">保存更改？</string>
-    <string name="title_ask_spam">确定将邮件标为垃圾邮件吗？</string>
+    <string name="title_ask_spam">Report as spam?</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_sync_queued">Synchronization will take place on next account connection</string>

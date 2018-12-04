@@ -209,7 +209,7 @@
     <string name="title_ask_delete_answer">¿Eliminar plantilla de respuesta permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_save">¿Guardar cambios?</string>
-    <string name="title_ask_spam">¿Reportar mensaje como spam?</string>
+    <string name="title_ask_spam">Report as spam?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_sync_queued">La sincronización se realizará en la próxima conexión de la cuenta</string>

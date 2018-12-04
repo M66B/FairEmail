@@ -219,7 +219,7 @@
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_save">Zapisać zmiany?</string>
-    <string name="title_ask_spam">Zgłosić wiadomość jako spam?</string>
+    <string name="title_ask_spam">Report as spam?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_sync_queued">Synchronization will take place on next account connection</string>

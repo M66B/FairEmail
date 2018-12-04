@@ -209,7 +209,7 @@
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_save">Änderungen speichern?</string>
-    <string name="title_ask_spam">Nachricht als Spam melden?</string>
+    <string name="title_ask_spam">Report as spam?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_sync_queued">Synchronisierung wird bei der nächsten Kontoverbindung ausgeführt</string>

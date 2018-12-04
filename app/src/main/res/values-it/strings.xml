@@ -209,7 +209,7 @@
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_save">Salvare le modifiche?</string>
-    <string name="title_ask_spam">Segnalare il messaggio come posta indesiderata?</string>
+    <string name="title_ask_spam">Report as spam?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_sync_queued">La sincronizzazione avverrà alla connessione del prossimo account</string>
