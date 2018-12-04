@@ -117,6 +117,7 @@ public class FragmentAccount extends FragmentEx {
     private EditText etInterval;
 
     private Button btnCheck;
+    private ImageButton ibDelete;
     private ProgressBar pbCheck;
 
     private TextView tvIdle;
@@ -130,7 +131,6 @@ public class FragmentAccount extends FragmentEx {
 
     private Button btnSave;
     private ProgressBar pbSave;
-    private ImageButton ibDelete;
     private ProgressBar pbWait;
 
     private Group grpServer;
@@ -148,7 +148,7 @@ public class FragmentAccount extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        id = (args == null ? -1 : args.getLong("id", -1));
+        id = args.getLong("id", -1);
     }
 
     @Override
@@ -190,6 +190,7 @@ public class FragmentAccount extends FragmentEx {
         etInterval = view.findViewById(R.id.etInterval);
 
         btnCheck = view.findViewById(R.id.btnCheck);
+        ibDelete = view.findViewById(R.id.ibDelete);
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvIdle = view.findViewById(R.id.tvIdle);
@@ -203,8 +204,6 @@ public class FragmentAccount extends FragmentEx {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
 
-        ibDelete = view.findViewById(R.id.ibDelete);
-
         pbWait = view.findViewById(R.id.pbWait);
 
         grpServer = view.findViewById(R.id.grpServer);
@@ -216,7 +215,7 @@ public class FragmentAccount extends FragmentEx {
 
         spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
                 Provider provider = (Provider) adapterView.getSelectedItem();
                 grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
                 cbStartTls.setVisibility(position == 1 && insecure ? View.VISIBLE : View.GONE);
@@ -230,6 +229,7 @@ public class FragmentAccount extends FragmentEx {
                     grpAdvanced.setVisibility(View.GONE);
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                ibDelete.setVisibility(position > 0 && id > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
@@ -417,6 +417,7 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
+                ibDelete.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
@@ -538,6 +539,7 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
+                        ibDelete.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
 
                         tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
@@ -557,6 +559,7 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
+                        ibDelete.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
@@ -577,6 +580,7 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
+                ibDelete.setEnabled(false);
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
@@ -822,6 +826,7 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
+                        ibDelete.setEnabled(true);
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
@@ -846,6 +851,7 @@ public class FragmentAccount extends FragmentEx {
                                 Helper.setViewsEnabled(view, false);
                                 btnAuthorize.setEnabled(false);
                                 btnCheck.setEnabled(false);
+                                ibDelete.setEnabled(false);
                                 btnSave.setEnabled(false);
                                 pbWait.setVisibility(View.VISIBLE);
 
@@ -902,12 +908,11 @@ public class FragmentAccount extends FragmentEx {
         tvIdle.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
+        ibDelete.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-
-        ibDelete.setVisibility(View.GONE);
 
         grpServer.setVisibility(View.GONE);
         grpAuthorize.setVisibility(View.GONE);
@@ -1154,8 +1159,8 @@ public class FragmentAccount extends FragmentEx {
                 spJunk.setSelection(pos);
         }
 
-        grpFolders.setVisibility(View.VISIBLE);
-        btnSave.setVisibility(View.VISIBLE);
+        grpFolders.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
+        btnSave.setVisibility(folders.size() > 1 ? View.VISIBLE : View.GONE);
     }
 
     private class CheckResult {

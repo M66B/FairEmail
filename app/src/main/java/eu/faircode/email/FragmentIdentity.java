@@ -113,7 +113,7 @@ public class FragmentIdentity extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        id = (args == null ? -1 : args.getLong("id", -1));
+        id = args.getLong("id", -1);
     }
 
     @Override

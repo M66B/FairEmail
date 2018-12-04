@@ -69,8 +69,8 @@ public class FragmentFolder extends FragmentEx {
 
         // Get arguments
         Bundle args = getArguments();
-        id = (args == null ? -1 : args.getLong("id"));
-        account = (args == null ? -1 : args.getLong("account"));
+        id = args.getLong("id", -1);
+        account = args.getLong("account", -1);
     }
 
     @Override

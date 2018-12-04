@@ -213,11 +213,8 @@ public class FragmentCompose extends FragmentEx {
         ivIdentityAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle args = new Bundle();
-                args.putLong("id", -1);
-
                 FragmentIdentity fragment = new FragmentIdentity();
-                fragment.setArguments(args);
+                fragment.setArguments(new Bundle());
 
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
