@@ -14,8 +14,8 @@
         <item quantity="other">Synchroniseren: %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d acties te doen</item>
-        <item quantity="other">%1$d handelingen te doen</item>
+        <item quantity="one">%1$d actie resterend</item>
+        <item quantity="other">%1$d acties resterend</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d nieuw bericht</item>
@@ -193,7 +193,7 @@
     <string name="title_delete">Verwijder</string>
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
-    <string name="title_move">Verplaats</string>
+    <string name="title_move">Verplaatsen</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_moving">Bericht verplaatsen naar %1$s</string>

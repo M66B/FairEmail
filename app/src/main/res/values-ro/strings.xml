@@ -178,7 +178,7 @@
     <string name="title_folder_user">Utilizator</string>
     <string name="title_folder_primary">Dosare cont primar</string>
     <string name="title_folder_thread">Conversație</string>
-    <string name="title_folders_unified">Unified inbox folders</string>
+    <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_show_images">Afișare imagini</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
