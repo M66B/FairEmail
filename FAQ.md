@@ -514,9 +514,14 @@ So, to reduce the battery usage, set the number of days to synchronize message f
 especially if there are a lot of recent messages in a folder.
 Long press a folder name in the folders list to access this setting.
 
+If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
+
 Note that you can set the number of days to *keep* messages for to a higher number than to *synchronize* messages for.
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
+
+Starred messages will always be synchronized,
+which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
