@@ -1,4 +1,4 @@
-# FairEmail
+# FairEmail support
 
 If you have a question, please check the frequently asked questions below first.
 At the bottom you can find how to ask other questions, request features and report bugs.
@@ -545,6 +545,36 @@ If your provider doesn't support encrypted connections, you should ask to make t
 If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
 See also [this FAQ](#user-content-faq4).
+
+
+<a name="faq42"></a>
+**(42) Can you add a new provider to the list of providers?**
+
+If the provider is used by more than a few people, yes, with pleasure.
+
+The following information is needed:
+
+```
+<provider
+	name="Gmail"
+	link="https://support.google.com/mail/answer/7126229" // setup instructions
+	type="com.google"> // this is not needed
+	<imap
+		host="imap.gmail.com"
+		port="993"
+		starttls="false" />
+	<smtp
+		host="smtp.gmail.com"
+		port="465"
+		starttls="false" />
+```
+
+Connections *without* [STARTTLS](https://en.wikipedia.org/wiki/Opportunistic_TLS) are safer and therefore prefered.
+
+Please make sure receiving and sending messages works properly.
+
+See below about how to contact me.
+
 
 
 ## Support
