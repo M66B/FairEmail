@@ -331,6 +331,9 @@ Possible causes are:
 * The same email client is connected multiple times to the same account
 * The previous connection was terminated abruptly for example by losing internet connectivity
 
+If only FairEmail is connecting to the email server, first try to wait half an hour to see if the problem resolves itself,
+else try to reduce the number of folders to synchronize.
+
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
