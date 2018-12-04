@@ -221,8 +221,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.account != null)
                 popupMenu.getMenu().add(Menu.NONE, action_edit_properties, 4, R.string.title_edit_properties);
 
-            popupMenu.getMenu().add(Menu.NONE, action_legend, 5, R.string.menu_legend);
-
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
@@ -241,10 +239,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         case action_edit_properties:
                             onActionEditProperties();
-                            return true;
-
-                        case action_legend:
-                            onActionLegend();
                             return true;
 
                         default:
@@ -355,11 +349,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("id", folder.id));
-                }
-
-                private void onActionLegend() {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_LEGEND));
                 }
             });
 
