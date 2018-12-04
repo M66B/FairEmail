@@ -253,6 +253,50 @@ public class EntityMessage implements Serializable {
                 HtmlHelper.sanitize(EntityMessage.read(context, id)));
     }
 
+    public boolean uiEquals(Object obj) {
+        if (obj instanceof EntityMessage) {
+            EntityMessage other = (EntityMessage) obj;
+            return (true &&
+                    //(this.account == null ? other.account == null : this.account.equals(other.account)) &&
+                    //this.folder.equals(other.folder) &&
+                    //(this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
+                    //(this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
+                    //(this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
+                    //(this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
+                    (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) && // debug info
+                    //(this.references == null ? other.references == null : this.references.equals(other.references)) &&
+                    //(this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
+                    //(this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
+                    (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
+                    (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
+                    equal(this.from, other.from) &&
+                    equal(this.to, other.to) &&
+                    equal(this.cc, other.cc) &&
+                    equal(this.bcc, other.bcc) &&
+                    equal(this.reply, other.reply) &&
+                    (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
+                    (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
+                    (this.size == null ? other.size == null : this.size.equals(other.size)) &&
+                    this.content == other.content &&
+                    (this.preview == null ? other.preview == null : this.preview.equals(other.preview)) &&
+                    //(this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
+                    this.received.equals(other.received) &&
+                    //this.stored.equals(other.stored) &&
+                    //this.seen.equals(other.seen) &&
+                    //this.answered.equals(other.answered) &&
+                    //this.flagged.equals(other.flagged) &&
+                    Helper.equal(this.keywords, other.keywords) &&
+                    this.ui_seen.equals(other.ui_seen) &&
+                    this.ui_answered.equals(other.ui_answered) &&
+                    this.ui_flagged.equals(other.ui_flagged) &&
+                    this.ui_hide.equals(other.ui_hide) &&
+                    this.ui_found.equals(other.ui_found) &&
+                    this.ui_ignored.equals(other.ui_ignored) &&
+                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityMessage) {

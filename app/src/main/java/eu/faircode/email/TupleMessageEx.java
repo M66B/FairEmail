@@ -33,6 +33,11 @@ public class TupleMessageEx extends EntityMessage {
     public boolean duplicate;
 
     @Override
+    public boolean uiEquals(Object obj) {
+        return super.uiEquals(obj);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
@@ -49,6 +54,6 @@ public class TupleMessageEx extends EntityMessage {
                     this.attachments == other.attachments &&
                     this.duplicate == other.duplicate);
         }
-        return super.equals(obj);
+        return false;
     }
 }

@@ -443,7 +443,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && contacts && message.from != null ? View.VISIBLE : View.GONE);
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
-            bnvActions.setVisibility(View.GONE);
+            bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             vSeparatorBody.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
@@ -1601,7 +1601,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean areContentsTheSame(
                         @NonNull TupleMessageEx prev, @NonNull TupleMessageEx next) {
-                    return prev.equals(next);
+                    return prev.uiEquals(next);
                 }
             };
 
