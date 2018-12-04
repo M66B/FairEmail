@@ -32,7 +32,6 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -194,10 +193,9 @@ public class FragmentMessages extends FragmentEx {
 
         // Wire controls
 
-        TypedValue tv = new TypedValue();
-        getContext().getTheme().resolveAttribute(R.attr.colorAccent, tv, true);
-        swipeRefresh.setColorSchemeColors(tv.data, tv.data, tv.data);
-        swipeRefresh.setProgressBackgroundColorSchemeColor(Color.WHITE);
+        int colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
+        swipeRefresh.setColorSchemeColors(Color.WHITE, Color.WHITE, Color.WHITE);
+        swipeRefresh.setProgressBackgroundColorSchemeColor(colorPrimary);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
