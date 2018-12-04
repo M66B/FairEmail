@@ -826,7 +826,7 @@ public class FragmentMessages extends FragmentEx {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                onActionMove(EntityFolder.TRASH);
+                                onActionMove(EntityFolder.JUNK);
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null)
