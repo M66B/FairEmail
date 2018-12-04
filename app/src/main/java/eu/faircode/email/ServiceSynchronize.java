@@ -893,11 +893,7 @@ public class ServiceSynchronize extends LifecycleService {
                         try {
                             ifolder.open(Folder.READ_WRITE);
                         } catch (Throwable ex) {
-                            if (ex instanceof MessagingException && "connection failure".equals(ex.getMessage())) {
-                                Throwable ex1 = new MessagingException("Too many simultaneous connections?", (MessagingException) ex);
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1));
-                            } else
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                             throw ex;
                         }
                         folders.put(folder, ifolder);
@@ -2019,6 +2015,8 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (InterruptedException ignored) {
                     }
             }
+
+            db.folder().setFolderError(folder.id, null);
 
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync state=" + state);
