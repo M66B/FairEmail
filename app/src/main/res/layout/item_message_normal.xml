@@ -47,18 +47,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ivFlagged"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="6dp"
-            android:src="@drawable/baseline_star_24"
-            android:tint="?attr/colorUnread"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
-            app:layout_constraintStart_toEndOf="@id/paddingStart"
-            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
-
-        <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="0dp"
             android:layout_height="24dp"
@@ -66,7 +54,7 @@
             android:src="@drawable/baseline_person_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toEndOf="@id/ivFlagged"
+            app:layout_constraintStart_toEndOf="@id/paddingStart"
             app:layout_constraintTop_toTopOf="@+id/tvFrom" />
 
         <TextView
@@ -86,7 +74,7 @@
             android:id="@+id/tvSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
+            android:layout_marginEnd="12dp"
             android:maxLines="1"
             android:text="123 KB"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -103,7 +91,7 @@
             android:text="Time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="@id/tvFrom"
-            app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+            app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
             app:layout_constraintTop_toTopOf="@id/tvFrom" />
 
         <ImageView
@@ -168,11 +156,22 @@
             android:id="@+id/ivThread"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginEnd="6dp"
+            android:layout_marginEnd="12dp"
             android:src="@drawable/baseline_message_24"
             app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-            app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+            app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
             app:layout_constraintTop_toTopOf="@id/tvSubject" />
+
+        <ImageView
+            android:id="@+id/ivFlagged"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_star_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintEnd_toEndOf="@id/paddingEnd"
+            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
 
         <TextView
             android:id="@+id/tvPreview"

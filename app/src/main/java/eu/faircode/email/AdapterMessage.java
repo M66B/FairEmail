@@ -254,6 +254,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void wire() {
             itemView.setOnClickListener(this);
+            ivFlagged.setOnClickListener(this);
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
             btnHtml.setOnClickListener(this);
@@ -264,6 +265,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnHtml.setOnClickListener(null);
@@ -362,9 +364,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivExpander.setVisibility(View.GONE);
 
             if (viewType == ViewType.THREAD)
-                ivFlagged.setVisibility(message.unflagged == 1 ? View.GONE : View.VISIBLE);
+                ivFlagged.setImageResource(message.unflagged == 1
+                        ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
             else
-                ivFlagged.setVisibility(message.count - message.unflagged > 0 ? View.VISIBLE : View.GONE);
+                ivFlagged.setImageResource(message.count - message.unflagged > 0
+                        ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFlagged.setVisibility(View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, !compact));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
@@ -551,7 +556,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             TupleMessageEx message = differ.getItem(pos);
 
-            if (view.getId() == R.id.ivAddContact)
+            if (view.getId() == R.id.ivFlagged)
+                onToggleFlag(message);
+            else if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
                 if (view.getId() == R.id.ivExpanderAddress)
@@ -1130,11 +1137,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.load(context, owner, args);
         }
 
-        private void onFlag(ActionData data) {
+        private void onToggleFlag(ActionData data) {
+            onToggleFlag(data.message);
+        }
+
+        private void onToggleFlag(TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-            args.putBoolean("flagged", !data.message.ui_flagged);
-            Log.i(Helper.TAG, "Set message id=" + data.message.id + " flagged=" + !data.message.ui_flagged);
+            args.putLong("id", message.id);
+            args.putBoolean("flagged", !message.ui_flagged);
+            Log.i(Helper.TAG, "Set message id=" + message.id + " flagged=" + !message.ui_flagged);
 
             new SimpleTask<Void>() {
                 @Override
@@ -1372,7 +1383,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onUnseen(data);
                             return true;
                         case R.id.menu_flag:
-                            onFlag(data);
+                            onToggleFlag(data);
                             return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);
@@ -1455,7 +1466,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     List<EntityFolder> folders = db.folder().getFolders(message.account);
                     List<EntityFolder> targets = new ArrayList<>();
                     for (EntityFolder folder : folders)
-                        if (!folder.hide && !folder.id.equals(message.folder))
+                        if (!folder.hide &&
+                                !folder.id.equals(message.folder) &&
+                                !EntityFolder.ARCHIVE.equals(folder.type) &&
+                                !EntityFolder.TRASH.equals(folder.type) &&
+                                !EntityFolder.JUNK.equals(folder.type))
                             targets.add(folder);
 
                     EntityFolder.sort(targets);
