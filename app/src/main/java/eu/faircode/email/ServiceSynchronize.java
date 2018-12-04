@@ -1806,27 +1806,22 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (selectable) {
                     String fullName = ifolder.getFullName();
-
-                    int level = 0;
-                    for (int i = 0; i < fullName.length(); i++)
-                        if (fullName.charAt(i) == separator)
-                            level++;
-
+                    int level = EntityFolder.getLevel(separator, fullName);
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
-                        folder.name = ifolder.getFullName();
+                        folder.name = fullName;
                         folder.type = EntityFolder.USER;
                         folder.level = level;
                         folder.synchronize = false;
                         folder.sync_days = EntityFolder.DEFAULT_USER_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_USER_SYNC;
                         db.folder().insertFolder(folder);
-                        Log.i(Helper.TAG, folder.name + " added level=" + level);
+                        Log.i(Helper.TAG, folder.name + " added");
                     } else {
                         names.remove(folder.name);
-                        Log.i(Helper.TAG, folder.name + " exists level=" + level);
+                        Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
                     }
                 }

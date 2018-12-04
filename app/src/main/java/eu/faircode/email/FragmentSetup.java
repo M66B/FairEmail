@@ -313,6 +313,7 @@ public class FragmentSetup extends FragmentEx {
                         outbox = new EntityFolder();
                         outbox.name = "OUTBOX";
                         outbox.type = EntityFolder.OUTBOX;
+                        outbox.level = 0;
                         outbox.synchronize = false;
                         outbox.sync_days = 0;
                         outbox.keep_days = 0;

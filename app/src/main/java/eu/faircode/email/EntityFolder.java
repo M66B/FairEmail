@@ -149,6 +149,15 @@ public class EntityFolder implements Serializable {
         return DRAFTS.equals(type) || OUTBOX.equals(type) || SENT.equals(type);
     }
 
+    static int getLevel(Character separator, String name) {
+        int level = 0;
+        if (separator != null)
+            for (int i = 0; i < name.length(); i++)
+                if (name.charAt(i) == separator)
+                    level++;
+        return level;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityFolder) {
@@ -195,6 +204,8 @@ public class EntityFolder implements Serializable {
 
         if (json.has("level"))
             folder.level = json.getInt("level");
+        else
+            folder.level = 0;
 
         folder.synchronize = json.getBoolean("synchronize");
 

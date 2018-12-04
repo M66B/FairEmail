@@ -666,6 +666,7 @@ public class FragmentAccount extends FragmentEx {
                             color = null;
 
                         long now = new Date().getTime();
+                        Character separator = null;
 
                         DB db = DB.getInstance(context);
                         EntityAccount account = db.account().getAccount(id);
@@ -677,8 +678,10 @@ public class FragmentAccount extends FragmentEx {
 
                         // Check IMAP server
                         if (check) {
-                            Session isession = Session.getInstance(MessageHelper.getSessionProperties(auth_type, insecure), null);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
+                            Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
+
                             IMAPStore istore = null;
                             try {
                                 istore = (IMAPStore) isession.getStore(starttls ? "imap" : "imaps");
@@ -692,6 +695,7 @@ public class FragmentAccount extends FragmentEx {
                                         throw ex;
                                 }
                             } finally {
+                                separator = istore.getDefaultFolder().getSeparator();
                                 if (istore != null)
                                     istore.close();
                             }
@@ -780,13 +784,16 @@ public class FragmentAccount extends FragmentEx {
 
                             db.folder().setFoldersUser(account.id);
                             for (EntityFolder folder : folders) {
+                                folder.level = EntityFolder.getLevel(separator, folder.name);
                                 EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                 if (existing == null) {
                                     folder.account = account.id;
                                     Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
                                     folder.id = db.folder().insertFolder(folder);
-                                } else
+                                } else {
                                     db.folder().setFolderType(existing.id, folder.type);
+                                    db.folder().setFolderLevel(existing.id, folder.level);
+                                }
                             }
 
                             db.setTransactionSuccessful();

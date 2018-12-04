@@ -148,6 +148,7 @@ public class FragmentFolder extends FragmentEx {
                                 Session isession = Session.getInstance(props, null);
                                 istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
                                 Helper.connect(context, istore, account);
+                                char separator = istore.getDefaultFolder().getSeparator();
 
                                 if (folder == null) {
                                     Log.i(Helper.TAG, "Creating folder=" + name);
@@ -160,6 +161,7 @@ public class FragmentFolder extends FragmentEx {
                                     EntityFolder create = new EntityFolder();
                                     create.account = aid;
                                     create.name = name;
+                                    create.level = EntityFolder.getLevel(separator, name);
                                     create.display = display;
                                     create.hide = hide;
                                     create.type = EntityFolder.USER;
