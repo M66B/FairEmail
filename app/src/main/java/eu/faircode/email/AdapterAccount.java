@@ -105,7 +105,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
             ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
 
-            tvLast.setText(new Date(account.last_connected).toString());
+            tvLast.setText(account.last_connected == null ? null : new Date(account.last_connected).toString());
             tvLast.setVisibility(debug ? View.VISIBLE : View.GONE);
 
             tvError.setText(account.error);
