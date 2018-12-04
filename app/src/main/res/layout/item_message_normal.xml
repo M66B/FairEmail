@@ -52,6 +52,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_star_24"
+            android:tint="?attr/colorUnread"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@id/tvFrom"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
