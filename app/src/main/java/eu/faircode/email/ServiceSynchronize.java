@@ -714,7 +714,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         EntityLog.log(this, action + " " + Helper.formatThrowable(ex));
 
-        if (ex instanceof SendFailedException) {
+        if ((ex instanceof SendFailedException) || (ex instanceof AlertException)) {
             NotificationManager nm = getSystemService(NotificationManager.class);
             nm.notify(action, 1, getNotificationError(action, ex).build());
         }
@@ -779,6 +779,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
                                 if (e.getMessageType() == StoreEvent.ALERT) {
                                     db.account().setAccountError(account.id, e.getMessage());
+                                    reportError(account.name, null, new AlertException(e.getMessage()));
                                     state.error();
                                 }
                             } finally {
@@ -2694,6 +2695,19 @@ public class ServiceSynchronize extends LifecycleService {
         @Override
         public String toString() {
             return "[running=" + running + "]";
+        }
+    }
+
+    private class AlertException extends Throwable {
+        private String alert;
+
+        AlertException(String alert) {
+            this.alert = alert;
+        }
+
+        @Override
+        public String getMessage() {
+            return alert;
         }
     }
 }
