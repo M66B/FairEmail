@@ -614,7 +614,8 @@ public class FragmentMessages extends FragmentEx {
             private final int action_archive = 5;
             private final int action_trash = 6;
             private final int action_delete = 7;
-            private final int action_move = 8;
+            private final int action_junk = 8;
+            private final int action_move = 9;
 
             @Override
             public void onClick(View v) {
@@ -628,7 +629,7 @@ public class FragmentMessages extends FragmentEx {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Boolean[] result = new Boolean[8];
+                        Boolean[] result = new Boolean[9];
                         for (int i = 0; i < result.length; i++)
                             result[i] = false;
 
@@ -651,6 +652,7 @@ public class FragmentMessages extends FragmentEx {
                         if (folder != null) {
                             result[6] = EntityFolder.ARCHIVE.equals(folder.type);
                             result[7] = EntityFolder.TRASH.equals(folder.type);
+                            result[8] = EntityFolder.JUNK.equals(folder.type);
                         }
 
                         return result;
@@ -679,6 +681,9 @@ public class FragmentMessages extends FragmentEx {
                             else
                                 popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
+                        if (!result[8])
+                            popupMenu.getMenu().add(Menu.NONE, action_junk, 6, R.string.title_spam);
+
                         popupMenu.getMenu().add(Menu.NONE, action_move, 7, R.string.title_move);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -705,6 +710,9 @@ public class FragmentMessages extends FragmentEx {
                                         return true;
                                     case action_delete:
                                         onActionDelete();
+                                        return true;
+                                    case action_junk:
+                                        onActionJunk();
                                         return true;
                                     case action_move:
                                         onActionMove();
@@ -812,6 +820,66 @@ public class FragmentMessages extends FragmentEx {
                 }.load(FragmentMessages.this, args);
             }
 
+            private void onActionJunk() {
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setMessage(R.string.title_ask_spam)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                onActionMove(EntityFolder.TRASH);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+
+            private void onActionDelete() {
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setMessage(R.string.title_ask_delete_selected)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Bundle args = new Bundle();
+                                args.putLongArray("ids", getSelection());
+
+                                selectionTracker.clearSelection();
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onLoad(Context context, Bundle args) {
+                                        long[] ids = args.getLongArray("ids");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            for (long id : ids) {
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
+                                                    db.message().deleteMessage(id);
+                                                else
+                                                    EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                            }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                    }
+                                }.load(FragmentMessages.this, args);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            }
+
             private void onActionMove(String type) {
                 Bundle args = new Bundle();
                 args.putString("type", type);
@@ -884,7 +952,9 @@ public class FragmentMessages extends FragmentEx {
                         List<EntityFolder> targets = new ArrayList<>();
                         for (EntityFolder folder : folders)
                             if (!folder.hide &&
+                                    !EntityFolder.ARCHIVE.equals(folder.type) &&
                                     !EntityFolder.TRASH.equals(folder.type) &&
+                                    !EntityFolder.JUNK.equals(folder.type) &&
                                     (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
                                 targets.add(folder);
 
@@ -964,53 +1034,6 @@ public class FragmentMessages extends FragmentEx {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
-            }
-
-            private void onActionDelete() {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_ask_delete_selected)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Bundle args = new Bundle();
-                                args.putLongArray("ids", getSelection());
-
-                                selectionTracker.clearSelection();
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onLoad(Context context, Bundle args) {
-                                        long[] ids = args.getLongArray("ids");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            for (long id : ids) {
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
-                                                    db.message().deleteMessage(id);
-                                                else
-                                                    EntityOperation.queue(db, message, EntityOperation.DELETE);
-                                            }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.load(FragmentMessages.this, args);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
             }
         });
 
