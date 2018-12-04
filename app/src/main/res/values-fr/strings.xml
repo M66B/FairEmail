@@ -209,7 +209,7 @@
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_save">Enregistrer les modifications ?</string>
-    <string name="title_ask_spam">Report as spam?</string>
+    <string name="title_ask_spam">Signaler comme spam ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_sync_queued">La synchronisation sera effectuée à la prochaine connexion d\'un compte</string>
