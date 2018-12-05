@@ -28,7 +28,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -44,13 +43,10 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -126,11 +122,8 @@ public class FragmentMessages extends FragmentEx {
 
     private BoundaryCallbackMessages searchCallback = null;
 
-    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
-
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
-    private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1737,89 +1730,11 @@ public class FragmentMessages extends FragmentEx {
                         .putExtra("found", target.found));
     }
 
-    private void moveUndo(final MessageTarget result) {
-        final boolean undo = !(viewType == AdapterMessage.ViewType.THREAD && autoclose);
-
-        // Show undo snackbar
-        final Snackbar snackbar = Snackbar.make(
-                view,
-                getString(R.string.title_moving, result.target.getDisplayName(getContext())),
-                Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                snackbar.dismiss();
-
-                Bundle args = new Bundle();
-                args.putSerializable("result", result);
-
-                // Show message again
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        MessageTarget result = (MessageTarget) args.getSerializable("result");
-                        for (long id : result.ids) {
-                            Log.i(Helper.TAG, "Move undo id=" + id);
-                            DB.getInstance(context).message().setMessageUiHide(id, false);
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        super.onException(args, ex);
-                    }
-                }.load(FragmentMessages.this, args);
-            }
-        });
-        if (undo)
-            snackbar.show();
-
-        // Wait
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i(Helper.TAG, "Move timeout");
-
-                // Remove snackbar
-                if (snackbar.isShown())
-                    snackbar.dismiss();
-
-                final Bundle args = new Bundle();
-                args.putSerializable("result", result);
-
-                // Process move in a thread
-                // - the fragment could be gone
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            MessageTarget result = (MessageTarget) args.getSerializable("result");
-
-                            DB db = DB.getInstance(snackbar.getContext());
-                            try {
-                                db.beginTransaction();
-
-                                for (long id : result.ids) {
-                                    EntityMessage message = db.message().getMessage(id);
-                                    if (message != null && message.ui_hide) {
-                                        Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
-                                        EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
-                                    }
-                                }
-
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                        }
-                    }
-                });
-            }
-        }, undo ? UNDO_TIMEOUT : 0);
+    private void moveUndo(MessageTarget target) {
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(
+                new Intent(ActivityView.ACTION_UNDO_MOVE)
+                        .putExtra("target", target));
     }
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
@@ -1832,9 +1747,4 @@ public class FragmentMessages extends FragmentEx {
             return false;
         }
     };
-
-    private class MessageTarget implements Serializable {
-        List<Long> ids = new ArrayList<>();
-        EntityFolder target;
-    }
 }
