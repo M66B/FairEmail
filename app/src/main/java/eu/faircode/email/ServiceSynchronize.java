@@ -649,11 +649,11 @@ public class ServiceSynchronize extends LifecycleService {
         return notifications;
     }
 
-    private Notification.Builder getNotificationError(String action, Throwable ex) {
-        return getNotificationError(action, new Date().getTime(), ex, true);
+    private Notification.Builder getNotificationError(String title, Throwable ex) {
+        return getNotificationError(title, new Date().getTime(), ex, true);
     }
 
-    private Notification.Builder getNotificationError(String action, long when, Throwable ex, boolean debug) {
+    private Notification.Builder getNotificationError(String title, long when, Throwable ex, boolean debug) {
         // Build pending intent
         Intent intent = new Intent(this, ActivitySetup.class);
         if (debug)
@@ -675,7 +675,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         builder
                 .setSmallIcon(android.R.drawable.stat_notify_error)
-                .setContentTitle(getString(R.string.title_notification_failed, action))
+                .setContentTitle(getString(R.string.title_notification_failed, title))
                 .setContentText(text)
                 .setContentIntent(pi)
                 .setAutoCancel(false)
@@ -691,7 +691,7 @@ public class ServiceSynchronize extends LifecycleService {
         return builder;
     }
 
-    private void reportError(String account, String folder, Throwable ex) {
+    private void reportError(EntityAccount account, EntityFolder folder, Throwable ex) {
         // FolderClosedException: can happen when no connectivity
 
         // IllegalStateException:
@@ -704,19 +704,21 @@ public class ServiceSynchronize extends LifecycleService {
         // MailConnectException
         // - on connectivity problems when connecting to store
 
-        String action;
-        if (TextUtils.isEmpty(account))
-            action = folder;
-        else if (TextUtils.isEmpty(folder))
-            action = account;
+        String title;
+        if (account == null)
+            title = folder.name;
+        else if (folder == null)
+            title = account.name;
         else
-            action = account + "/" + folder;
+            title = account.name + "/" + folder.name;
 
-        EntityLog.log(this, action + " " + Helper.formatThrowable(ex));
+        String tag = "error:" + (account == null ? 0 : account.id) + ":" + (folder == null ? 0 : folder.id);
+
+        EntityLog.log(this, title + " " + Helper.formatThrowable(ex));
 
         if ((ex instanceof SendFailedException) || (ex instanceof AlertException)) {
             NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.notify(action, 1, getNotificationError(action, ex).build());
+            nm.notify(tag, 1, getNotificationError(title, ex).build());
         }
 
         // connection failure: Too many simultaneous connections
@@ -736,7 +738,7 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof MessagingException && ex.getCause() instanceof SSLException) &&
                 !(ex instanceof MessagingException && "connection failure".equals(ex.getMessage()))) {
             NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.notify(action, 1, getNotificationError(action, ex).build());
+            nm.notify(tag, 1, getNotificationError(title, ex).build());
         }
     }
 
@@ -779,7 +781,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
                                 if (e.getMessageType() == StoreEvent.ALERT) {
                                     db.account().setAccountError(account.id, e.getMessage());
-                                    reportError(account.name, null, new AlertException(e.getMessage()));
+                                    reportError(account, null, new AlertException(e.getMessage()));
                                     state.error();
                                 }
                             } finally {
@@ -954,7 +956,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                    reportError(account.name, folder.name, ex);
+                                    reportError(account, folder, ex);
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                     state.error();
                                 } finally {
@@ -980,7 +982,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                    reportError(account.name, folder.name, ex);
+                                    reportError(account, folder, ex);
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                     state.error();
                                 } finally {
@@ -1034,7 +1036,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     }
                                 } catch (Throwable ex) {
                                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                    reportError(account.name, folder.name, ex);
+                                    reportError(account, folder, ex);
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                     state.error();
                                 } finally {
@@ -1056,7 +1058,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                        reportError(account.name, folder.name, ex);
+                                        reportError(account, folder, ex);
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
                                     } finally {
@@ -1142,7 +1144,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                             } catch (Throwable ex) {
                                                                 Log.e(Helper.TAG, ofolder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                                reportError(account.name, ofolder.name, ex);
+                                                                reportError(account, ofolder, ex);
                                                                 db.folder().setFolderError(ofolder.id, Helper.formatThrowable(ex));
                                                                 state.error();
                                                             } finally {
@@ -1237,7 +1239,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.i(Helper.TAG, account.name + " done state=" + state);
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    reportError(account.name, null, ex);
+                    reportError(account, null, ex);
 
                     EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
@@ -1405,7 +1407,7 @@ public class ServiceSynchronize extends LifecycleService {
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
                         // TODO: SMTP response codes: https://www.ietf.org/rfc/rfc821.txt
-                        reportError(null, folder.name, ex);
+                        reportError(account, folder, ex);
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
                         if (message != null &&
@@ -1906,7 +1908,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                 } catch (Throwable ex) {
                     Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                    reportError(account.name, folder.name, ex);
+                    reportError(account, folder, ex);
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
@@ -2461,7 +2463,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                                 db.folder().setFolderError(outbox.id, null);
                                                             } catch (Throwable ex) {
                                                                 Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                                reportError(null, outbox.name, ex);
+                                                                reportError(null, outbox, ex);
                                                                 db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                                                             } finally {
                                                                 db.folder().setFolderSyncState(outbox.id, null);
