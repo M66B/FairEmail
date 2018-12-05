@@ -78,6 +78,12 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderEx>> liveUnified();
 
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE folder.type = '" + EntityFolder.DRAFTS + "'" +
+            " AND (account.id = :account OR (:account IS NULL AND account.`primary`))")
+    LiveData<EntityFolder> liveDrafts(Long account);
+
     @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +

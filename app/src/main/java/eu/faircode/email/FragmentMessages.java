@@ -599,10 +599,28 @@ public class FragmentMessages extends FragmentEx {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EntityFolder drafts = (EntityFolder) fab.getTag();
+
                 startActivity(new Intent(getContext(), ActivityCompose.class)
                         .putExtra("action", "new")
-                        .putExtra("account", (Long) fab.getTag())
+                        .putExtra("account", drafts.account)
                 );
+            }
+        });
+
+        fab.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                EntityFolder drafts = (EntityFolder) fab.getTag();
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("account", drafts.account)
+                                .putExtra("folder", drafts.id)
+                                .putExtra("outgoing", drafts.isOutgoing()));
+
+                return true;
             }
         });
 
@@ -1210,13 +1228,13 @@ public class FragmentMessages extends FragmentEx {
                     }
                 });
         } else {
-            db.account().liveAccountDraft(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
+            db.folder().liveDrafts(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
                 @Override
-                public void onChanged(EntityAccount account) {
-                    if (account == null)
+                public void onChanged(EntityFolder drafts) {
+                    if (drafts == null)
                         fab.hide();
                     else {
-                        fab.setTag(account.id);
+                        fab.setTag(drafts);
                         fab.show();
                     }
                 }
