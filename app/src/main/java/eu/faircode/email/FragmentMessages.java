@@ -583,6 +583,7 @@ public class FragmentMessages extends FragmentEx {
             private void onActionMove(String folderType) {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
+                args.putString("thread", thread);
                 args.putBoolean("found", found);
                 args.putString("folderType", folderType);
 
@@ -604,10 +605,10 @@ public class FragmentMessages extends FragmentEx {
 
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     account, thread, threading ? null : id, null, found);
-                            for (EntityMessage message : messages)
-                                if (!result.target.id.equals(message.folder)) {
-                                    result.ids.add(message.id);
-                                    db.message().setMessageUiHide(message.id, true);
+                            for (EntityMessage threaded : messages)
+                                if (!result.target.id.equals(threaded.folder)) {
+                                    result.ids.add(threaded.id);
+                                    db.message().setMessageUiHide(threaded.id, true);
                                 }
 
                             db.setTransactionSuccessful();
