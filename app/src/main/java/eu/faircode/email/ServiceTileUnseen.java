@@ -86,8 +86,10 @@ public class ServiceTileUnseen extends TileService {
 
     public void onStopListening() {
         Log.i(Helper.TAG, "Stop tile unseen");
-        if (liveMessages != null)
+        if (liveMessages != null) {
             liveMessages.removeObservers(owner);
+            liveMessages = null;
+        }
     }
 
     public void onClick() {

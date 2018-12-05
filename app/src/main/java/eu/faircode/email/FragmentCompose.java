@@ -1376,10 +1376,9 @@ public class FragmentCompose extends FragmentEx {
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             EntityAccount account = (EntityAccount) parent.getAdapter().getItem(position);
 
-                            if (liveIdentities == null)
-                                liveIdentities = db.identity().liveIdentities(account.id, true);
-                            else
+                            if (liveIdentities != null)
                                 liveIdentities.removeObservers(getViewLifecycleOwner());
+                            liveIdentities = db.identity().liveIdentities(account.id, true);
 
                             liveIdentities.observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
                                 @Override
