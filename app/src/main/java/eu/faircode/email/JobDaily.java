@@ -37,6 +37,7 @@ public class JobDaily extends JobService {
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final long CLEANUP_INTERVAL = 4 * 3600 * 1000L; // milliseconds
+    private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     public static void schedule(Context context) {
         Log.i(Helper.TAG, "Scheduling daily job");
@@ -119,6 +120,18 @@ public class JobDaily extends JobService {
                             if (!file.delete())
                                 Log.w(Helper.TAG, "Error deleting " + file);
                         }
+                    }
+
+            // Cleanup cached images
+            Log.i(Helper.TAG, "Cleanup cached image files");
+            long now = new Date().getTime();
+            File[] images = new File(context.getCacheDir(), "images").listFiles();
+            if (images != null)
+                for (File file : images)
+                    if (file.isFile() && file.lastModified() + CACHE_IMAGE_DURATION < now) {
+                        Log.i(Helper.TAG, "Deleting cached image=" + file.getName());
+                        if (!file.delete())
+                            Log.w(Helper.TAG, "Error deleting " + file);
                     }
 
             Log.i(Helper.TAG, "Cleanup log");

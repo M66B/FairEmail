@@ -79,7 +79,8 @@ public class EntityAttachment {
 
     static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "attachments");
-        dir.mkdir();
+        if (!dir.exists())
+            dir.mkdir();
         return new File(dir, Long.toString(id));
     }
 

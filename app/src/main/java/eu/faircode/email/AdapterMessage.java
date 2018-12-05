@@ -134,7 +134,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
 
     private static final float LOW_LIGHT = 0.6f;
-    private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
 
     private static DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
@@ -786,17 +785,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         // Get cache folder
                         File dir = new File(context.getCacheDir(), "images");
-                        dir.mkdir();
-
-                        // Cleanup cache
-                        long now = new Date().getTime();
-                        File[] images = dir.listFiles();
-                        if (images != null)
-                            for (File image : images)
-                                if (image.isFile() && image.lastModified() + CACHE_IMAGE_DURATION < now) {
-                                    Log.i(Helper.TAG, "Deleting from image cache " + image.getName());
-                                    image.delete();
-                                }
+                        if (!dir.exists())
+                            dir.mkdir();
 
                         InputStream is = null;
                         FileOutputStream os = null;

@@ -153,7 +153,8 @@ public class EntityMessage implements Serializable {
 
     static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "messages");
-        dir.mkdir();
+        if (!dir.exists())
+            dir.mkdir();
         return new File(dir, id.toString());
     }
 
