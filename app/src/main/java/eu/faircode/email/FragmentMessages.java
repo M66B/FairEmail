@@ -1195,6 +1195,27 @@ public class FragmentMessages extends FragmentEx {
                         trashes.add(folder.account);
 
                 loadMessages();
+
+                if (actionbar && viewType == AdapterMessage.ViewType.THREAD) {
+                    boolean hasTrash = false;
+                    boolean hasArchive = false;
+                    if (folders != null)
+                        for (EntityFolder folder : folders)
+                            if (EntityFolder.TRASH.equals(folder.type))
+                                hasTrash = true;
+                            else if (EntityFolder.ARCHIVE.equals(folder.type))
+                                hasArchive = true;
+
+                    ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+                    ViewModelMessages.Target[] pn = model.getPrevNext(thread);
+                    bottom_navigation.setTag(pn);
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
+
+                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
+                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
+                    bottom_navigation.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -1203,32 +1224,7 @@ public class FragmentMessages extends FragmentEx {
         else
             fabMore.hide();
 
-        if (viewType == AdapterMessage.ViewType.THREAD) {
-            if (actionbar)
-                db.folder().liveSystemFolders(account).observe(getViewLifecycleOwner(), new Observer<List<EntityFolder>>() {
-                    @Override
-                    public void onChanged(@Nullable List<EntityFolder> folders) {
-                        boolean hasTrash = false;
-                        boolean hasArchive = false;
-                        if (folders != null)
-                            for (EntityFolder folder : folders)
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    hasTrash = true;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    hasArchive = true;
-
-                        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
-                        ViewModelMessages.Target[] pn = model.getPrevNext(thread);
-                        bottom_navigation.setTag(pn);
-                        bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
-                        bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
-
-                        bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
-                        bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
-                        bottom_navigation.setVisibility(View.VISIBLE);
-                    }
-                });
-        } else {
+        if (viewType != AdapterMessage.ViewType.THREAD) {
             db.folder().liveDrafts(account < 0 ? null : account).observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
                 @Override
                 public void onChanged(EntityFolder drafts) {
