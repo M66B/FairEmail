@@ -149,6 +149,7 @@ public interface DaoFolder {
             ", display = :display" +
             ", hide = :hide" +
             ", synchronize = :synchronize" +
+            ", poll = :poll" +
             ", unified = :unified" +
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
@@ -158,6 +159,7 @@ public interface DaoFolder {
             String name, String display,
             boolean hide,
             boolean synchronize,
+            boolean poll,
             boolean unified,
             int sync_days, int keep_days);
 

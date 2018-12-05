@@ -323,18 +323,19 @@ If you are using a VPN, the VPN provider might block the connection because it i
 <a name="faq23"></a>
 **(23) Why do I get 'Too many simultaneous connections' ?**
 
-The message *Too many simultaneous connections* is sent by the email server when there are too many connections to the same email account at the same time.
+The message *Too many simultaneous connections* is sent by the email server
+when there are too many folder connections for the same email account at the same time.
 
 Possible causes are:
 
 * There are multiple email clients connected to the same account
 * The same email client is connected multiple times to the same account
-* The previous connection was terminated abruptly for example by losing internet connectivity
+* The previous connection was terminated abruptly for example by abruptly losing internet connectivity, for example when turning on flight mode
 
 If only FairEmail is connecting to the email server, first try to wait half an hour to see if the problem resolves itself,
-else try to reduce the number of folders to synchronize.
+else enable the folder settings '*Poll instead of synchronize*' for some folders.
 
-The maximum number of simultaneous connections for Gmail is 15,
+The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
 See [here](https://support.google.com/mail/answer/7126229) for details.
 

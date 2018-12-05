@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -52,6 +53,7 @@ public class FragmentFolder extends FragmentEx {
     private EditText etDisplay;
     private CheckBox cbHide;
     private CheckBox cbSynchronize;
+    private CheckBox cbPoll;
     private CheckBox cbUnified;
     private EditText etSyncDays;
     private EditText etKeepDays;
@@ -85,6 +87,7 @@ public class FragmentFolder extends FragmentEx {
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
+        cbPoll = view.findViewById(R.id.cbPoll);
         cbUnified = view.findViewById(R.id.cbUnified);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
@@ -92,6 +95,13 @@ public class FragmentFolder extends FragmentEx {
         ibDelete = view.findViewById(R.id.ibDelete);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
+
+        cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbPoll.setEnabled(isChecked);
+            }
+        });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +119,7 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("hide", cbHide.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
+                args.putBoolean("poll", cbPoll.isChecked());
                 args.putString("sync", etSyncDays.getText().toString());
                 args.putString("keep", etKeepDays.getText().toString());
 
@@ -122,6 +133,7 @@ public class FragmentFolder extends FragmentEx {
                         boolean hide = args.getBoolean("hide");
                         boolean unified = args.getBoolean("unified");
                         boolean synchronize = args.getBoolean("synchronize");
+                        boolean poll = args.getBoolean("poll");
                         String sync = args.getString("sync");
                         String keep = args.getString("keep");
 
@@ -132,7 +144,8 @@ public class FragmentFolder extends FragmentEx {
                         if (keep_days < sync_days)
                             keep_days = sync_days;
 
-                        EntityFolder folder = null;
+                        boolean reload = false;
+                        EntityFolder folder;
 
                         IMAPStore istore = null;
                         DB db = DB.getInstance(getContext());
@@ -167,6 +180,7 @@ public class FragmentFolder extends FragmentEx {
                                     create.type = EntityFolder.USER;
                                     create.unified = unified;
                                     create.synchronize = synchronize;
+                                    create.poll = poll;
                                     create.sync_days = sync_days;
                                     create.keep_days = keep_days;
                                     db.folder().insertFolder(create);
@@ -182,6 +196,10 @@ public class FragmentFolder extends FragmentEx {
                             }
 
                             if (folder != null) {
+                                reload = (!folder.name.equals(name) ||
+                                        !folder.synchronize.equals(synchronize) ||
+                                        !folder.poll.equals(poll));
+
                                 Calendar cal_keep = Calendar.getInstance();
                                 cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
                                 cal_keep.set(Calendar.HOUR_OF_DAY, 0);
@@ -194,7 +212,12 @@ public class FragmentFolder extends FragmentEx {
                                     keep_time = 0;
 
                                 Log.i(Helper.TAG, "Updating folder=" + name);
-                                db.folder().setFolderProperties(id, name, display, hide, synchronize, unified, sync_days, keep_days);
+                                db.folder().setFolderProperties(id,
+                                        name, display,
+                                        hide,
+                                        synchronize, poll,
+                                        unified,
+                                        sync_days, keep_days);
 
                                 db.message().deleteMessagesBefore(id, keep_time, true);
 
@@ -210,7 +233,7 @@ public class FragmentFolder extends FragmentEx {
                                 istore.close();
                         }
 
-                        if (folder == null || !folder.name.equals(name))
+                        if (folder == null || !folder.name.equals(name) || reload)
                             ServiceSynchronize.reload(getContext(), "save folder");
                         else
                             EntityOperation.sync(db, folder.id);
@@ -350,6 +373,7 @@ public class FragmentFolder extends FragmentEx {
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
+                    cbPoll.setChecked(folder == null ? false : folder.poll);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.sync_days));
                     etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
                 }
@@ -358,6 +382,7 @@ public class FragmentFolder extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
+                cbPoll.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
                 ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
