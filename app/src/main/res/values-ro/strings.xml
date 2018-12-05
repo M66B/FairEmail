@@ -161,7 +161,7 @@
     <string name="title_hide_folders">Ascunde dosarele ascunse</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Verificare periodică în loc de sincronizare</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
@@ -202,7 +202,7 @@
     <string name="title_move">Mută</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
-    <string name="title_moving">Moving to %1$s</string>
+    <string name="title_moving">Mutare în %1$s</string>
     <string name="title_open_with">Deschide cu</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>

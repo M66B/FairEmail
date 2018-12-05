@@ -156,7 +156,7 @@
     <string name="title_hide_folders">Ocultar carpetas ocultas</string>
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Sondear en lugar de sincronizar</string>
     <string name="title_unified_folder">Mostrar en Bandeja de Entrada Unificada</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
@@ -197,7 +197,7 @@
     <string name="title_move">Mover</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
-    <string name="title_moving">Moving to %1$s</string>
+    <string name="title_moving">Moviendo a %1$s</string>
     <string name="title_open_with">Abrir con</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
