@@ -1120,6 +1120,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     };
 
     private void onViewMessages(Intent intent) {
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putLong("folder", intent.getLongExtra("folder", -1));
