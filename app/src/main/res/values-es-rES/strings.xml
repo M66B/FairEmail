@@ -197,7 +197,7 @@
     <string name="title_move">Mover</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
-    <string name="title_moving">Moviendo mensaje a %1$s</string>
+    <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Abrir con</string>
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>

@@ -197,7 +197,7 @@
     <string name="title_move">Taşı</string>
     <string name="title_archive">Arşivle</string>
     <string name="title_reply">Yanıtla</string>
-    <string name="title_moving">İleti şuraya taşınıyor %1$s</string>
+    <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Birlikte aç</string>
     <string name="title_no_answers">Yanıt şablonları tanımlanmadı</string>
     <string name="title_no_viewer">%1$s için kullanılabilir hiçbir görüntüleme uygulaması yok</string>

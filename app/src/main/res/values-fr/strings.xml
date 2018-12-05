@@ -156,7 +156,7 @@
     <string name="title_hide_folders">Masquer les dossiers cachés</string>
     <string name="title_show_folders">Afficher les dossiers cachés</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Interroger le serveur au lieu de synchroniser</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
     <string name="title_keep_days">Conserver les e-mails (jours)</string>
@@ -197,7 +197,7 @@
     <string name="title_move">Déplacer</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
-    <string name="title_moving">Déplacement du message vers %1$s</string>
+    <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Ouvrir avec</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>
     <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
