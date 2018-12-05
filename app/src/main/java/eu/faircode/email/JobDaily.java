@@ -79,7 +79,7 @@ public class JobDaily extends JobService {
             for (EntityFolder folder : db.folder().getFolders()) {
                 Calendar cal_keep = Calendar.getInstance();
                 cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
-                cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                cal_keep.set(Calendar.HOUR_OF_DAY, 12);
                 cal_keep.set(Calendar.MINUTE, 0);
                 cal_keep.set(Calendar.SECOND, 0);
                 cal_keep.set(Calendar.MILLISECOND, 0);

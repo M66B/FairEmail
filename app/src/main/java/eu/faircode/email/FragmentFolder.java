@@ -202,7 +202,7 @@ public class FragmentFolder extends FragmentEx {
 
                                 Calendar cal_keep = Calendar.getInstance();
                                 cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
-                                cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                                cal_keep.set(Calendar.HOUR_OF_DAY, 12);
                                 cal_keep.set(Calendar.MINUTE, 0);
                                 cal_keep.set(Calendar.SECOND, 0);
                                 cal_keep.set(Calendar.MILLISECOND, 0);
