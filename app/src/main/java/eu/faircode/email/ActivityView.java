@@ -233,6 +233,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     case R.string.menu_faq:
                         onDebugInfo();
                         return true;
+                    case R.string.menu_privacy:
+                        onCleanup();
+                        return true;
                     case R.string.menu_about:
                         onShowLog();
                         return true;
@@ -1011,6 +1014,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     startActivity(new Intent(ActivityView.this, ActivityCompose.class)
                             .putExtra("action", "edit")
                             .putExtra("id", id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.load(this, new Bundle());
+    }
+
+    private void onCleanup() {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                JobDaily.cleanup(ActivityView.this);
+                return null;
             }
 
             @Override

@@ -90,8 +90,9 @@ public class JobDaily extends JobService {
                     keep_time = 0;
 
                 int messages = db.message().deleteMessagesBefore(folder.id, keep_time, false);
-                Log.i(Helper.TAG, "Cleanup folder=" + folder.account + ":" + folder.name +
-                        " before=" + new Date(keep_time) + " deleted=" + messages);
+                if (messages > 0)
+                    Log.i(Helper.TAG, "Cleanup folder=" + folder.account + "/" + folder.name +
+                            " before=" + new Date(keep_time) + " deleted=" + messages);
             }
 
             // Cleanup message files
