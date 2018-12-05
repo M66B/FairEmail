@@ -97,6 +97,11 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder ORDER BY account, name")
     List<EntityFolder> getFolders();
 
+    @Query("SELECT * FROM folder" +
+            " WHERE folder.account = :account" +
+            " AND type <> '" + EntityFolder.USER + "'")
+    List<EntityFolder> getSystemFolders(long account);
+
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);
 

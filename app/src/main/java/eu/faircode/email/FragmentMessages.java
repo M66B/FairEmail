@@ -202,6 +202,7 @@ public class FragmentMessages extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putLong("folder", folder);
+
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {

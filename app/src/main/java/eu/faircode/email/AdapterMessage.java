@@ -96,6 +96,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.AsyncPagedListDiffer;
@@ -187,6 +188,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
+
+        private LiveData<List<EntityAttachment>> liveAttachments = null;
+        private Observer<List<EntityAttachment>> observerAttachments = null;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -400,25 +404,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (debug) {
-                db.operation().getOperationsByMessage(message.id).removeObservers(owner);
-                db.operation().getOperationsByMessage(message.id).observe(owner, new Observer<List<EntityOperation>>() {
-                    @Override
-                    public void onChanged(List<EntityOperation> operations) {
-                        String text = message.error +
-                                "\n" + message.uid + "/" + message.id + " " + df.format(new Date(message.received)) +
-                                "\n" + (message.ui_hide ? "HIDDEN " : "") +
-                                "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
-                                " found=" + message.ui_found +
-                                "\n" + message.msgid +
-                                "\n" + message.thread;
-                        if (operations != null)
-                            for (EntityOperation op : operations)
-                                text += "\n" + op.id + ":" + op.name + " " + df.format(new Date(op.created));
+                String text = message.error +
+                        "\n" + message.uid + "/" + message.id + " " + df.format(new Date(message.received)) +
+                        "\n" + (message.ui_hide ? "HIDDEN " : "") +
+                        "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
+                        " found=" + message.ui_found +
+                        "\n" + message.msgid +
+                        "\n" + message.thread;
 
-                        tvError.setText(text);
-                        tvError.setVisibility(View.VISIBLE);
-                    }
-                });
+                tvError.setText(text);
+                tvError.setVisibility(View.VISIBLE);
             } else {
                 tvError.setText(message.error);
                 tvError.setVisibility(message.error == null ? View.GONE : View.VISIBLE);
@@ -450,9 +445,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
             grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
-
-            db.folder().liveSystemFolders(message.account).removeObservers(owner);
-            db.attachment().liveAttachments(message.id).removeObservers(owner);
 
             bnvActions.setTag(null);
 
@@ -488,9 +480,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bodyTask.load(context, owner, args);
                 }
 
-                db.folder().liveSystemFolders(message.account).observe(owner, new Observer<List<EntityFolder>>() {
+                Bundle sargs = new Bundle();
+                sargs.putLong("account", message.account);
+
+                new SimpleTask<List<EntityFolder>>() {
                     @Override
-                    public void onChanged(@Nullable List<EntityFolder> folders) {
+                    protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                        long account = args.getLong("account");
+                        return DB.getInstance(context).folder().getSystemFolders(account);
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, List<EntityFolder> folders) {
                         boolean hasJunk = false;
                         boolean hasTrash = false;
                         boolean hasArchive = false;
@@ -524,28 +525,41 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bnvActions.setVisibility(View.VISIBLE);
                         vSeparatorBody.setVisibility(View.GONE);
                     }
-                });
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
+                    }
+                }.load(context, owner, sargs);
 
                 // Observe attachments
-                db.attachment().liveAttachments(message.id).observe(owner,
-                        new Observer<List<EntityAttachment>>() {
-                            @Override
-                            public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                                if (attachments == null)
-                                    attachments = new ArrayList<>();
+                observerAttachments = new Observer<List<EntityAttachment>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                        if (attachments == null)
+                            attachments = new ArrayList<>();
 
-                                adapter.set(attachments);
+                        adapter.set(attachments);
 
-                                if (message.content) {
-                                    Bundle args = new Bundle();
-                                    args.putSerializable("message", message);
-                                    bodyTask.load(context, owner, args);
-                                }
-                            }
-                        });
+                        if (message.content) {
+                            Bundle args = new Bundle();
+                            args.putSerializable("message", message);
+                            bodyTask.load(context, owner, args);
+                        }
+                    }
+                };
+                liveAttachments = db.attachment().liveAttachments(message.id);
+                liveAttachments.observe(owner, observerAttachments);
             }
 
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
+        }
+
+        void unbind() {
+            if (liveAttachments != null) {
+                liveAttachments.removeObserver(observerAttachments);
+                liveAttachments = null;
+            }
         }
 
         @Override
@@ -1040,10 +1054,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onAnswer(final ActionData data) {
-            final DB db = DB.getInstance(context);
-            db.answer().liveAnswers().observe(owner, new Observer<List<EntityAnswer>>() {
+            new SimpleTask<List<EntityAnswer>>() {
                 @Override
-                public void onChanged(List<EntityAnswer> answers) {
+                protected List<EntityAnswer> onLoad(Context context, Bundle args) {
+                    return DB.getInstance(context).answer().getAnswers();
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, List<EntityAnswer> answers) {
                     if (answers == null || answers.size() == 0) {
                         Snackbar snackbar = Snackbar.make(
                                 itemView,
@@ -1094,10 +1112,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         popupMenu.show();
                     }
-
-                    db.answer().liveAnswers().removeObservers(owner);
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.load(context, owner, new Bundle());
         }
 
         private void onUnseen(final ActionData data) {
@@ -1616,6 +1637,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.unbind();
         holder.unwire();
 
         TupleMessageEx message = differ.getItem(position);
@@ -1625,6 +1647,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             holder.bindTo(position, message);
             holder.wire();
         }
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.unbind();
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {

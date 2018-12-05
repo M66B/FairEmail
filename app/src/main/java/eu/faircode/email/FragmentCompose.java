@@ -105,6 +105,7 @@ import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -1347,8 +1348,9 @@ public class FragmentCompose extends FragmentEx {
 
             final DB db = DB.getInstance(getContext());
 
-            db.account().liveAccounts(true).removeObservers(getViewLifecycleOwner());
             db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+                private LiveData<List<EntityIdentity>> liveIdentities = null;
+
                 @Override
                 public void onChanged(List<EntityAccount> accounts) {
                     if (accounts == null)
@@ -1374,8 +1376,12 @@ public class FragmentCompose extends FragmentEx {
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             EntityAccount account = (EntityAccount) parent.getAdapter().getItem(position);
 
-                            db.identity().liveIdentities(account.id, true).removeObservers(getViewLifecycleOwner());
-                            db.identity().liveIdentities(account.id, true).observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
+                            if (liveIdentities == null)
+                                liveIdentities = db.identity().liveIdentities(account.id, true);
+                            else
+                                liveIdentities.removeObservers(getViewLifecycleOwner());
+
+                            liveIdentities.observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
                                 @Override
                                 public void onChanged(@Nullable List<EntityIdentity> identities) {
                                     if (identities == null)
@@ -1449,7 +1455,6 @@ public class FragmentCompose extends FragmentEx {
                 }
             });
 
-            db.attachment().liveAttachments(result.draft.id).removeObservers(getViewLifecycleOwner());
             db.attachment().liveAttachments(result.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
                         @Override
@@ -1462,7 +1467,6 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
 
-            db.message().liveMessage(result.draft.id).removeObservers(getViewLifecycleOwner());
             db.message().liveMessage(result.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
                 public void onChanged(final EntityMessage draft) {

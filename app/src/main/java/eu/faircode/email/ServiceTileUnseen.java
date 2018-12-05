@@ -31,11 +31,13 @@ import android.util.Log;
 import java.util.List;
 
 import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileUnseen extends TileService {
-    LifecycleService owner = new LifecycleService();
+    private LifecycleService owner = new LifecycleService();
+    private LiveData<List<TupleMessageEx>> liveMessages;
 
     @Override
     public void onCreate() {
@@ -63,9 +65,8 @@ public class ServiceTileUnseen extends TileService {
 
     public void onStartListening() {
         Log.i(Helper.TAG, "Start tile unseen");
-
-        DB db = DB.getInstance(this);
-        db.message().liveUnseenUnified().observe(owner, new Observer<List<TupleMessageEx>>() {
+        liveMessages = DB.getInstance(this).message().liveUnseenUnified();
+        liveMessages.observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 Log.i(Helper.TAG, "Update tile unseen=" + messages.size());
@@ -85,9 +86,8 @@ public class ServiceTileUnseen extends TileService {
 
     public void onStopListening() {
         Log.i(Helper.TAG, "Stop tile unseen");
-
-        DB db = DB.getInstance(this);
-        db.message().liveUnseenUnified().removeObservers(owner);
+        if (liveMessages != null)
+            liveMessages.removeObservers(owner);
     }
 
     public void onClick() {

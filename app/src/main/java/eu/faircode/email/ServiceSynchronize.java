@@ -124,6 +124,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleService;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -1075,94 +1076,111 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Observe operations
                         Handler handler = new Handler(getMainLooper()) {
-                            private List<Long> handling = new ArrayList<>();
-                            private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
-                                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
-                            private final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                            private LiveData<List<EntityOperation>> liveOperations;
 
                             @Override
                             public void handleMessage(android.os.Message msg) {
-                                Log.i(Helper.TAG, folder.name + " observe=" + msg.what);
-                                if (msg.what == 0)
-                                    db.operation().liveOperations(folder.id).removeObservers(ServiceSynchronize.this);
-                                else
-                                    db.operation().liveOperations(folder.id).observe(ServiceSynchronize.this, new Observer<List<EntityOperation>>() {
-                                        @Override
-                                        public void onChanged(List<EntityOperation> operations) {
-                                            boolean process = false;
-                                            List<Long> current = new ArrayList<>();
-                                            for (EntityOperation op : operations) {
-                                                if (!handling.contains(op.id))
-                                                    process = true;
-                                                current.add(op.id);
-                                            }
-                                            handling = current;
+                                Log.i(Helper.TAG, account.name + "/" + folder.name + " observe=" + msg.what);
+                                try {
+                                    if (msg.what == 0)
+                                        liveOperations.removeObserver(observer);
+                                    else {
+                                        liveOperations = db.operation().liveOperations(folder.id);
+                                        liveOperations.observe(ServiceSynchronize.this, observer);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                }
+                            }
 
-                                            if (handling.size() > 0 && process) {
-                                                Log.i(Helper.TAG, folder.name + " operations=" + operations.size());
-                                                executor.submit(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        try {
-                                                            wlFolder.acquire();
-                                                            Log.i(Helper.TAG, folder.name + " process");
+                            private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
+                                private List<Long> handling = new ArrayList<>();
+                                private final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                                private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
+                                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
-                                                            // Get folder
-                                                            IMAPFolder ifolder = null;
-                                                            for (EntityFolder f : folders.keySet())
-                                                                if (f.id.equals(folder.id)) {
-                                                                    ifolder = folders.get(f); // null when polling
-                                                                    break;
-                                                                }
+                                @Override
+                                public void onChanged(List<EntityOperation> operations) {
+                                    boolean process = false;
+                                    List<Long> current = new ArrayList<>();
+                                    for (EntityOperation op : operations) {
+                                        if (!handling.contains(op.id))
+                                            process = true;
+                                        current.add(op.id);
+                                    }
+                                    handling = current;
 
-                                                            final boolean shouldClose = (ifolder == null);
+                                    if (handling.size() > 0 && process) {
+                                        Log.i(Helper.TAG, folder.name + " operations=" + operations.size());
+                                        executor.submit(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    wlFolder.acquire();
+                                                    Log.i(Helper.TAG, folder.name + " process");
 
-                                                            try {
-                                                                Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
+                                                    // Get folder
+                                                    IMAPFolder ifolder = null;
+                                                    for (EntityFolder f : folders.keySet())
+                                                        if (f.id.equals(folder.id)) {
+                                                            ifolder = folders.get(f); // null when polling
+                                                            break;
+                                                        }
 
-                                                                if (ifolder == null) {
-                                                                    // Prevent unnecessary folder connections
-                                                                    if (db.operation().getOperationCount(folder.id, null) == 0)
-                                                                        return;
+                                                    final boolean shouldClose = (ifolder == null);
 
-                                                                    db.folder().setFolderState(folder.id, "connecting");
+                                                    try {
+                                                        Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
 
-                                                                    ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                                                                    ifolder.open(Folder.READ_WRITE);
+                                                        if (ifolder == null) {
+                                                            // Prevent unnecessary folder connections
+                                                            if (db.operation().getOperationCount(folder.id, null) == 0)
+                                                                return;
 
-                                                                    db.folder().setFolderState(folder.id, "connected");
-                                                                    db.folder().setFolderError(folder.id, null);
-                                                                }
+                                                            db.folder().setFolderState(folder.id, "connecting");
 
-                                                                processOperations(account, folder, isession, istore, ifolder, state);
+                                                            ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                                                            ifolder.open(Folder.READ_WRITE);
 
-                                                            } catch (Throwable ex) {
-                                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                                reportError(account, folder, ex);
-                                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
-                                                                state.error();
-                                                            } finally {
-                                                                if (shouldClose) {
-                                                                    if (ifolder != null && ifolder.isOpen()) {
-                                                                        db.folder().setFolderState(folder.id, "closing");
-                                                                        try {
-                                                                            ifolder.close(false);
-                                                                        } catch (MessagingException ex) {
-                                                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                                        }
-                                                                    }
-                                                                    db.folder().setFolderState(folder.id, null);
+                                                            db.folder().setFolderState(folder.id, "connected");
+                                                            db.folder().setFolderError(folder.id, null);
+                                                        }
+
+                                                        processOperations(account, folder, isession, istore, ifolder, state);
+
+                                                    } catch (Throwable ex) {
+                                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        reportError(account, folder, ex);
+                                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                        state.error();
+                                                    } finally {
+                                                        if (shouldClose) {
+                                                            if (ifolder != null && ifolder.isOpen()) {
+                                                                db.folder().setFolderState(folder.id, "closing");
+                                                                try {
+                                                                    ifolder.close(false);
+                                                                } catch (MessagingException ex) {
+                                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                                 }
                                                             }
-                                                        } finally {
-                                                            wlFolder.release();
+                                                            db.folder().setFolderState(folder.id, null);
                                                         }
                                                     }
-                                                });
+                                                } finally {
+                                                    wlFolder.release();
+                                                }
                                             }
-                                        }
-                                    });
-                            }
+                                        });
+                                    }
+                                }
+
+                                @Override
+                                public boolean equals(@Nullable Object obj) {
+                                    boolean eq = super.equals(obj);
+                                    Log.i(Helper.TAG, account.name + "/" + folder.name + " equal=" + eq + " observer=" + observer + " other=" + obj);
+                                    return eq;
+                                }
+                            };
                         };
 
                         // Start watching for operations
@@ -2423,60 +2441,63 @@ public class ServiceSynchronize extends LifecycleService {
                             db.folder().setFolderError(outbox.id, null);
 
                             handler = new Handler(Looper.getMainLooper()) {
+                                private LiveData<List<EntityOperation>> liveOperations;
+
                                 @Override
                                 public void handleMessage(android.os.Message msg) {
                                     Log.i(Helper.TAG, outbox.name + " observe=" + msg.what);
-
                                     if (msg.what == 0)
-                                        db.operation().liveOperations(outbox.id).removeObservers(ServiceSynchronize.this);
+                                        liveOperations.removeObserver(observer);
                                     else {
-                                        db.operation().liveOperations(outbox.id).observe(ServiceSynchronize.this, new Observer<List<EntityOperation>>() {
-                                            private List<Long> handling = new ArrayList<>();
-                                            private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-
-                                            @Override
-                                            public void onChanged(List<EntityOperation> operations) {
-                                                boolean process = false;
-                                                List<Long> current = new ArrayList<>();
-                                                for (EntityOperation op : operations) {
-                                                    if (!handling.contains(op.id))
-                                                        process = true;
-                                                    current.add(op.id);
-                                                }
-                                                handling = current;
-
-                                                if (handling.size() > 0 && process) {
-                                                    Log.i(Helper.TAG, outbox.name + " operations=" + operations.size());
-                                                    executor.submit(new Runnable() {
-                                                        PowerManager pm = getSystemService(PowerManager.class);
-                                                        PowerManager.WakeLock wl = pm.newWakeLock(
-                                                                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":outbox");
-
-                                                        @Override
-                                                        public void run() {
-                                                            try {
-                                                                wl.acquire();
-                                                                Log.i(Helper.TAG, outbox.name + " process");
-
-                                                                db.folder().setFolderSyncState(outbox.id, "syncing");
-                                                                processOperations(null, outbox, null, null, null, state);
-                                                                db.folder().setFolderError(outbox.id, null);
-                                                            } catch (Throwable ex) {
-                                                                Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                                reportError(null, outbox, ex);
-                                                                db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
-                                                            } finally {
-                                                                db.folder().setFolderSyncState(outbox.id, null);
-                                                                wl.release();
-                                                                EntityLog.log(ServiceSynchronize.this, "Outbox wake lock=" + wl.isHeld());
-                                                            }
-                                                        }
-                                                    });
-                                                }
-                                            }
-                                        });
+                                        liveOperations = db.operation().liveOperations(outbox.id);
+                                        liveOperations.observe(ServiceSynchronize.this, observer);
                                     }
                                 }
+
+                                private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
+                                    private List<Long> handling = new ArrayList<>();
+                                    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                                    PowerManager pm = getSystemService(PowerManager.class);
+                                    PowerManager.WakeLock wl = pm.newWakeLock(
+                                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":outbox");
+
+                                    @Override
+                                    public void onChanged(List<EntityOperation> operations) {
+                                        boolean process = false;
+                                        List<Long> current = new ArrayList<>();
+                                        for (EntityOperation op : operations) {
+                                            if (!handling.contains(op.id))
+                                                process = true;
+                                            current.add(op.id);
+                                        }
+                                        handling = current;
+
+                                        if (handling.size() > 0 && process) {
+                                            Log.i(Helper.TAG, outbox.name + " operations=" + operations.size());
+                                            executor.submit(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        wl.acquire();
+                                                        Log.i(Helper.TAG, outbox.name + " process");
+
+                                                        db.folder().setFolderSyncState(outbox.id, "syncing");
+                                                        processOperations(null, outbox, null, null, null, state);
+                                                        db.folder().setFolderError(outbox.id, null);
+                                                    } catch (Throwable ex) {
+                                                        Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        reportError(null, outbox, ex);
+                                                        db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+                                                    } finally {
+                                                        db.folder().setFolderSyncState(outbox.id, null);
+                                                        wl.release();
+                                                        EntityLog.log(ServiceSynchronize.this, "Outbox wake lock=" + wl.isHeld());
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                };
                             };
                             handler.sendEmptyMessage(1);
                             db.folder().setFolderState(outbox.id, "connected");
