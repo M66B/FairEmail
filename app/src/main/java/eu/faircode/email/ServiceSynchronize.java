@@ -888,6 +888,7 @@ public class ServiceSynchronize extends LifecycleService {
                     synchronizeFolders(account, istore, state);
 
                     // Open synchronizing folders
+                    final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                     for (final EntityFolder folder : db.folder().getFolders(account.id)) {
                         if (folder.synchronize && !folder.poll && capIdle) {
                             Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
@@ -1095,7 +1096,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
                                 private List<Long> handling = new ArrayList<>();
-                                private final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                                private final ExecutorService folderExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                 private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
                                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
 
@@ -1112,7 +1113,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     if (handling.size() > 0 && process) {
                                         Log.i(Helper.TAG, folder.name + " operations=" + operations.size());
-                                        executor.submit(new Runnable() {
+                                        (folder.poll ? pollExecutor : folderExecutor).submit(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
@@ -1120,13 +1121,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     Log.i(Helper.TAG, folder.name + " process");
 
                                                     // Get folder
-                                                    IMAPFolder ifolder = null;
-                                                    for (EntityFolder f : folders.keySet())
-                                                        if (f.id.equals(folder.id)) {
-                                                            ifolder = folders.get(f); // null when polling
-                                                            break;
-                                                        }
-
+                                                    IMAPFolder ifolder = folders.get(folder); // null when polling
                                                     final boolean shouldClose = (ifolder == null);
 
                                                     try {
