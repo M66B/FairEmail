@@ -156,6 +156,7 @@
     <string name="title_hide_folders">Gizli klasörleri gizle</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
+    <string name="title_poll_folder">Poll instead of synchronize</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_sync_days">İletileri eşzamanla (gün)</string>
     <string name="title_keep_days">İletileri sakla (günler)</string>

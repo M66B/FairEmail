@@ -161,6 +161,7 @@
     <string name="title_hide_folders">Ascunde dosarele ascunse</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
+    <string name="title_poll_folder">Poll instead of synchronize</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
@@ -214,7 +215,7 @@
     <string name="title_ask_delete_answer">Se șterge permanent șablonul de răspuns?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_save">Salvează modificările?</string>
-    <string name="title_ask_spam">Report as spam?</string>
+    <string name="title_ask_spam">Raportează ca spam?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_sync_queued">Sincronizarea va avea loc la următoarea conexiune a contului</string>

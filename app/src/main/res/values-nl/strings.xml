@@ -149,13 +149,14 @@
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
-    <string name="title_empty_trash_ask">Alle weggegooid berichten permanent verwijderen?</string>
+    <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_hide_folder">Verberg in de lijst</string>
     <string name="title_hide_folders">Verberg verborgen mappen</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
+    <string name="title_poll_folder">Poll in plaats van synchroniseren</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
