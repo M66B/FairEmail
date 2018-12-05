@@ -44,7 +44,6 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -775,8 +774,13 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_seen != seen)
-                                    EntityOperation.queue(db, message, EntityOperation.SEEN, seen);
+                                if (message.ui_seen != seen) {
+                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                            message.account, message.thread, threading ? null : id, message.ui_found);
+                                    for (EntityMessage threaded : messages)
+                                        if (threaded.folder.equals(message.folder))
+                                            EntityOperation.queue(db, threaded, EntityOperation.SEEN, seen);
+                                }
                             }
 
                             db.setTransactionSuccessful();
@@ -813,8 +817,13 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_flagged != flagged)
-                                    EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+                                if (message.ui_flagged != flagged) {
+                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                            message.account, message.thread, threading ? null : id, message.ui_found);
+                                    for (EntityMessage threaded : messages)
+                                        if (threaded.folder.equals(message.folder))
+                                            EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
+                                }
                             }
 
                             db.setTransactionSuccessful();
@@ -867,10 +876,15 @@ public class FragmentMessages extends FragmentEx {
 
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
-                                                if (message.uid == null && !TextUtils.isEmpty(message.error)) // outbox
-                                                    db.message().deleteMessage(id);
-                                                else
-                                                    EntityOperation.queue(db, message, EntityOperation.DELETE);
+                                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                                        message.account, message.thread, threading ? null : id, message.ui_found);
+                                                for (EntityMessage threaded : messages)
+                                                    if (threaded.folder.equals(message.folder)) {
+                                                        if (threaded.uid == null && !TextUtils.isEmpty(threaded.error)) // outbox
+                                                            db.message().deleteMessage(threaded.id);
+                                                        else
+                                                            EntityOperation.queue(db, threaded, EntityOperation.DELETE);
+                                                    }
                                             }
 
                                             db.setTransactionSuccessful();

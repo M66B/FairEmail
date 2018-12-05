@@ -1158,14 +1158,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.load(context, owner, args);
         }
 
-        private void onToggleFlag(ActionData data) {
-            onToggleFlag(data.message);
-        }
-
         private void onToggleFlag(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("flagged", !message.ui_flagged);
+            args.putBoolean("thread", viewType != ViewType.THREAD);
             Log.i(Helper.TAG, "Set message id=" + message.id + " flagged=" + !message.ui_flagged);
 
             new SimpleTask<Void>() {
@@ -1173,9 +1170,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected Void onLoad(Context context, Bundle args) {
                     long id = args.getLong("id");
                     boolean flagged = args.getBoolean("flagged");
+                    boolean thread = args.getBoolean("thread");
+
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
-                    EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+                    if (thread) {
+                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                message.account, message.thread, threading ? null : id, message.ui_found);
+                        for (EntityMessage threaded : messages)
+                            if (threaded.folder.equals(message.folder))
+                                EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
+                    } else
+                        EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+
                     return null;
                 }
 
@@ -1371,9 +1378,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null);
 
-            popupMenu.getMenu().findItem(R.id.menu_flag).setChecked(data.message.unflagged != 1);
-            popupMenu.getMenu().findItem(R.id.menu_flag).setVisible(data.message.uid != null);
-
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
 
@@ -1402,9 +1406,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_unseen:
                             onUnseen(data);
-                            return true;
-                        case R.id.menu_flag:
-                            onToggleFlag(data);
                             return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);
