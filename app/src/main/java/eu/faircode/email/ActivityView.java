@@ -560,9 +560,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.getAvatar(context);
                             draft.id = db.message().insertMessage(draft);
                             draft.write(context, body);
-                        }
 
-                        EntityOperation.queue(db, draft, EntityOperation.ADD);
+                            EntityOperation.queue(db, draft, EntityOperation.ADD);
+                        }
 
                         db.setTransactionSuccessful();
                     } finally {

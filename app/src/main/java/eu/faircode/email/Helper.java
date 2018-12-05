@@ -215,16 +215,16 @@ public class Helper {
                                             draft.getAvatar(context);
                                             draft.id = db.message().insertMessage(draft);
                                             draft.write(context, body);
-                                        }
 
-                                        EntityOperation.queue(db, draft, EntityOperation.ADD);
+                                            EntityOperation.queue(db, draft, EntityOperation.ADD);
+                                        }
 
                                         db.setTransactionSuccessful();
                                     } finally {
                                         db.endTransaction();
                                     }
 
-                                    return draft.id;
+                                    return (draft == null ? null : draft.id);
                                 }
 
                                 @Override
