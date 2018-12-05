@@ -525,17 +525,11 @@ public class FragmentMessages extends FragmentEx {
 
                             result.target = target;
 
-                            if (thread) {
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
-                                for (EntityMessage threaded : messages)
-                                    result.ids.add(threaded.id);
-                            } else
-                                result.ids.add(message.id);
-
-                            for (long mid : result.ids) {
-                                Log.i(Helper.TAG, "Move hide id=" + mid + " target=" + result.target.name);
-                                db.message().setMessageUiHide(mid, true);
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading && thread ? null : id, message.folder, message.ui_found);
+                            for (EntityMessage threaded : messages) {
+                                result.ids.add(threaded.id);
+                                db.message().setMessageUiHide(threaded.id, true);
                             }
 
                             db.setTransactionSuccessful();
