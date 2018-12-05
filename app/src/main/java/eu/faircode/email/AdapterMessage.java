@@ -1164,14 +1164,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
-                    if (thread) {
-                        List<EntityMessage> messages = db.message().getMessageByThread(
-                                message.account, message.thread, threading ? null : id, message.ui_found);
-                        for (EntityMessage threaded : messages)
-                            if (threaded.folder.equals(message.folder))
-                                EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
-                    } else
-                        EntityOperation.queue(db, message, EntityOperation.FLAG, flagged);
+                    List<EntityMessage> messages = db.message().getMessageByThread(
+                            message.account, message.thread, threading && thread ? null : id, message.folder, message.ui_found);
+                    for (EntityMessage threaded : messages)
+                        EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
 
                     return null;
                 }

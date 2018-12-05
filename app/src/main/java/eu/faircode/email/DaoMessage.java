@@ -164,8 +164,9 @@ public interface DaoMessage {
             " WHERE account = :account" +
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
+            " AND (:folder IS NULL OR message.folder = :folder)" +
             " AND ui_found = :found")
-    List<EntityMessage> getMessageByThread(long account, String thread, Long id, boolean found);
+    List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder, boolean found);
 
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
