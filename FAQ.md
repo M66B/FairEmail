@@ -334,6 +334,10 @@ Possible causes are:
 If only FairEmail is connecting to the email server, first try to wait half an hour to see if the problem resolves itself,
 else try to reduce the number of folders to synchronize.
 
+The maximum number of simultaneous connections for Gmail is 15,
+so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
+See [here](https://support.google.com/mail/answer/7126229) for details.
+
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
@@ -537,12 +541,16 @@ you can save battery usage while viewing messages by switching to the black them
 **(40) How can I reduce the network usage of FairEmail?**
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
-Additionally, you can set FairEmail to download small messages and attachments on a metered (mobile, paid) connection only.
-This is an account specific setting accessible via *Setup* > *Manage accounts*.
+
+Additionally, you can set FairEmail to download small messages and attachments on a metered (mobile, paid) connection only
+or let FairEmail connect via unmetered connections only.
+These advanced settings are accessible via *Setup* > *Advanced options*.
 
 
 <a name="faq41"></a>
 **(41) How can I fix the error 'Handshake failed' ?**
+
+There are several possible causes, so please read to the end of this answer.
 
 The error '*Handshake failed ... WRONG_VERSION_NUMBER*' might mean that you are trying to connect to an IMAP or SMTP server
 without an encrypted connection, typically using port 143 (IMAP) and port 25 (SMTP).
@@ -553,6 +561,9 @@ If your provider doesn't support encrypted connections, you should ask to make t
 If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
 See also [this FAQ](#user-content-faq4).
+
+The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER*' is either caused by a bug in the SSL protocol implementation
+or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
 
 <a name="faq42"></a>
