@@ -43,6 +43,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -195,28 +196,51 @@ public class FragmentMessages extends FragmentEx {
                 args.putLong("account", account);
                 args.putLong("folder", folder);
 
-                new SimpleTask<Void>() {
+                new SimpleTask<Boolean>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        long account = args.getLong("account");
-                        long folder = args.getLong("folder");
+                    protected Boolean onLoad(Context context, Bundle args) {
+                        long aid = args.getLong("account");
+                        long fid = args.getLong("folder");
+
+                        boolean connected = false;
 
                         DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
-                            if (account < 0) {
-                                for (EntityFolder unified : db.folder().getUnifiedFolders())
-                                    EntityOperation.sync(db, unified.id);
-                            } else
-                                EntityOperation.sync(db, folder);
+                            List<EntityFolder> folders = new ArrayList<>();
+                            if (aid < 0)
+                                folders.addAll(db.folder().getUnifiedFolders());
+                            else
+                                folders.add(db.folder().getFolder(fid));
+
+                            for (EntityFolder folder : folders) {
+                                EntityOperation.sync(db, folder.id);
+
+                                if (folder.account == null) { // outbox
+                                    if ("connected".equals(folder.state))
+                                        connected = true;
+                                } else {
+                                    EntityAccount account = db.account().getAccount(folder.account);
+                                    if ("connected".equals(account.state))
+                                        connected = true;
+                                }
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
                         }
 
-                        return null;
+                        return connected;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Boolean connected) {
+                        if (!connected) {
+                            swipeRefresh.setRefreshing(false);
+                            Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
+                        }
                     }
                 }.load(FragmentMessages.this, args);
             }
@@ -1191,10 +1215,11 @@ public class FragmentMessages extends FragmentEx {
 
                         boolean refreshing = false;
                         for (TupleFolderEx folder : folders)
-                            if (folder.sync_state != null) {
+                            if (folder.sync_state != null && "connected".equals(folder.accountState)) {
                                 refreshing = true;
                                 break;
                             }
+
                         swipeRefresh.setRefreshing(refreshing);
                     }
                 });
@@ -1217,7 +1242,10 @@ public class FragmentMessages extends FragmentEx {
                             getActivity().invalidateOptionsMenu();
                         }
 
-                        swipeRefresh.setRefreshing(folder != null && folder.sync_state != null);
+                        swipeRefresh.setRefreshing(
+                                folder != null && folder.sync_state != null &&
+                                        "connected".equals(EntityFolder.OUTBOX.equals(folder.type)
+                                                ? folder.state : folder.accountState));
                     }
                 });
                 break;

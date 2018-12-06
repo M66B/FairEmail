@@ -251,21 +251,24 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     args.putLong("account", folder.account == null ? -1 : folder.account);
                     args.putLong("folder", folder.id);
 
-                    new SimpleTask<EntityAccount>() {
+                    new SimpleTask<Boolean>() {
                         @Override
-                        protected EntityAccount onLoad(Context context, Bundle args) {
-                            long account = args.getLong("account");
-                            long folder = args.getLong("folder");
+                        protected Boolean onLoad(Context context, Bundle args) {
+                            long aid = args.getLong("account");
+                            long fid = args.getLong("folder");
 
                             DB db = DB.getInstance(context);
-                            EntityOperation.sync(db, folder);
+                            EntityOperation.sync(db, fid);
 
-                            return (account < 0 ? null : db.account().getAccount(account));
+                            if (aid < 0) // outbox
+                                return "connected".equals(db.folder().getFolder(fid).state);
+                            else
+                                return "connected".equals(db.account().getAccount(aid).state);
                         }
 
                         @Override
-                        protected void onLoaded(Bundle args, EntityAccount account) {
-                            if (account != null && !"connected".equals(account.state))
+                        protected void onLoaded(Bundle args, Boolean connected) {
+                            if (!connected)
                                 Snackbar.make(itemView, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
                         }
 

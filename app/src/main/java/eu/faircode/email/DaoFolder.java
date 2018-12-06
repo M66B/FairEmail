@@ -47,7 +47,7 @@ public interface DaoFolder {
             " AND type = '" + EntityFolder.USER + "'")
     List<EntityFolder> getUserFolders(long account);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -66,7 +66,7 @@ public interface DaoFolder {
             " AND type <> '" + EntityFolder.USER + "'")
     LiveData<List<EntityFolder>> liveSystemFolders(long account);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
@@ -84,7 +84,7 @@ public interface DaoFolder {
             " AND (account.id = :account OR (:account IS NULL AND account.`primary`))")
     LiveData<EntityFolder> liveDrafts(Long account);
 
-    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor" +
+    @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
