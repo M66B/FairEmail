@@ -804,7 +804,7 @@ public class ServiceSynchronize extends LifecycleService {
                         public void folderRenamed(FolderEvent e) {
                             try {
                                 wlAccount.acquire();
-                                Log.i(Helper.TAG, "Folder renamed=" + e.getFolder());
+                                Log.i(Helper.TAG, "Folder renamed=" + e.getFolder().getFullName());
 
                                 String old = e.getFolder().getFullName();
                                 String name = e.getNewFolder().getFullName();
@@ -822,6 +822,9 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wlAccount.acquire();
                                 Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
+                                EntityFolder folder = db.folder().getFolderByName(account.id, e.getFolder().getFullName());
+                                if (folder != null)
+                                    db.folder().setFolderTbd(folder.id);
                                 reload(ServiceSynchronize.this, "folder deleted");
                             } finally {
                                 wlAccount.release();
@@ -1800,7 +1803,8 @@ public class ServiceSynchronize extends LifecycleService {
                     names.add(folder.name);
                 else {
                     IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                    ifolder.delete(false);
+                    if (ifolder.exists())
+                        ifolder.delete(false);
                     db.folder().deleteFolder(folder.id);
                 }
             Log.i(Helper.TAG, "Local folder count=" + names.size());
