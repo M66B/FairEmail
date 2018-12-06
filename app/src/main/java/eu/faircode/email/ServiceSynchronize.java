@@ -288,9 +288,9 @@ public class ServiceSynchronize extends LifecycleService {
                     PackageManager pm = getPackageManager();
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                     if (prefs.getBoolean("why", false) || why.resolveActivity(pm) == null) {
-                        Intent main = new Intent(this, ActivityView.class);
-                        main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(main);
+                        Intent view = new Intent(this, ActivityView.class);
+                        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(view);
                     } else {
                         prefs.edit().putBoolean("why", true).apply();
                         startActivity(why);
