@@ -1829,6 +1829,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.type = EntityFolder.USER;
                         folder.level = level;
                         folder.synchronize = false;
+                        folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_USER_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_USER_SYNC;
                         db.folder().insertFolder(folder);
