@@ -374,7 +374,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFlagged.setVisibility(View.VISIBLE);
 
-            tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, !compact));
+            tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
