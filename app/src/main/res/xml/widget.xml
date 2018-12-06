@@ -4,5 +4,5 @@
     android:minWidth="40dp"
     android:minHeight="40dp"
     android:previewImage="@drawable/baseline_mail_24"
-    android:resizeMode="none"
+    android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="0" />
