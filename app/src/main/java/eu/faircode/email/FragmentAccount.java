@@ -42,6 +42,9 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -50,7 +53,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -117,7 +119,6 @@ public class FragmentAccount extends FragmentEx {
     private EditText etInterval;
 
     private Button btnCheck;
-    private ImageButton ibDelete;
     private ProgressBar pbCheck;
 
     private TextView tvIdle;
@@ -155,6 +156,7 @@ public class FragmentAccount extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_account);
+        setHasOptionsMenu(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final boolean insecure = prefs.getBoolean("insecure", false);
@@ -190,7 +192,6 @@ public class FragmentAccount extends FragmentEx {
         etInterval = view.findViewById(R.id.etInterval);
 
         btnCheck = view.findViewById(R.id.btnCheck);
-        ibDelete = view.findViewById(R.id.ibDelete);
         pbCheck = view.findViewById(R.id.pbCheck);
 
         tvIdle = view.findViewById(R.id.tvIdle);
@@ -229,7 +230,6 @@ public class FragmentAccount extends FragmentEx {
                     grpAdvanced.setVisibility(View.GONE);
 
                 btnCheck.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
-                ibDelete.setVisibility(position > 0 && id > 0 ? View.VISIBLE : View.GONE);
                 tvIdle.setVisibility(View.GONE);
 
                 Object tag = adapterView.getTag();
@@ -417,7 +417,6 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
-                ibDelete.setEnabled(false);
                 pbCheck.setVisibility(View.VISIBLE);
                 tvIdle.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
@@ -539,7 +538,6 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
-                        ibDelete.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
 
                         tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
@@ -559,7 +557,6 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
-                        ibDelete.setEnabled(true);
                         pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
@@ -580,7 +577,6 @@ public class FragmentAccount extends FragmentEx {
                 Helper.setViewsEnabled(view, false);
                 btnAuthorize.setEnabled(false);
                 btnCheck.setEnabled(false);
-                ibDelete.setEnabled(false);
                 btnSave.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
@@ -828,7 +824,6 @@ public class FragmentAccount extends FragmentEx {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
-                        ibDelete.setEnabled(true);
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
@@ -839,53 +834,6 @@ public class FragmentAccount extends FragmentEx {
                                 .show();
                     }
                 }.load(FragmentAccount.this, args);
-            }
-        });
-
-        ibDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_account_delete)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Helper.setViewsEnabled(view, false);
-                                btnAuthorize.setEnabled(false);
-                                btnCheck.setEnabled(false);
-                                ibDelete.setEnabled(false);
-                                btnSave.setEnabled(false);
-                                pbWait.setVisibility(View.VISIBLE);
-
-                                Bundle args = new Bundle();
-                                args.putLong("id", id);
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onLoad(Context context, Bundle args) {
-                                        long id = args.getLong("id");
-                                        DB db = DB.getInstance(context);
-                                        EntityAccount account = db.account().getAccount(id);
-                                        db.account().deleteAccount(id);
-                                        if (account.synchronize)
-                                            ServiceSynchronize.reload(getContext(), "delete account");
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onLoaded(Bundle args, Void data) {
-                                        getFragmentManager().popBackStack();
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.load(FragmentAccount.this, args);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
             }
         });
 
@@ -910,7 +858,6 @@ public class FragmentAccount extends FragmentEx {
         tvIdle.setVisibility(View.GONE);
 
         btnCheck.setVisibility(View.GONE);
-        ibDelete.setVisibility(View.GONE);
         pbCheck.setVisibility(View.GONE);
 
         btnSave.setVisibility(View.GONE);
@@ -1031,7 +978,6 @@ public class FragmentAccount extends FragmentEx {
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 // Consider previous check/save/delete as cancelled
-                ibDelete.setVisibility(account == null ? View.GONE : View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
 
                 args.putLong("account", account == null ? -1 : account.id);
@@ -1064,18 +1010,70 @@ public class FragmentAccount extends FragmentEx {
         }.load(this, args);
     }
 
-    private void selectAccount() {
-        Log.i(Helper.TAG, "Select account");
-        Provider provider = (Provider) spProvider.getSelectedItem();
-        if (provider.type != null)
-            startActivityForResult(newChooseAccountIntent(
-                    null,
-                    null,
-                    new String[]{provider.type},
-                    null,
-                    null,
-                    null,
-                    null), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_account, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDelete() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_account_delete)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Helper.setViewsEnabled(view, false);
+                        btnAuthorize.setEnabled(false);
+                        btnCheck.setEnabled(false);
+                        btnSave.setEnabled(false);
+                        pbWait.setVisibility(View.VISIBLE);
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                DB db = DB.getInstance(context);
+                                EntityAccount account = db.account().getAccount(id);
+                                db.account().deleteAccount(id);
+                                if (account.synchronize)
+                                    ServiceSynchronize.reload(getContext(), "delete account");
+                                return null;
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Void data) {
+                                getFragmentManager().popBackStack();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.load(FragmentAccount.this, args);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     @Override
@@ -1127,6 +1125,20 @@ public class FragmentAccount extends FragmentEx {
                         break;
                     }
             }
+    }
+
+    private void selectAccount() {
+        Log.i(Helper.TAG, "Select account");
+        Provider provider = (Provider) spProvider.getSelectedItem();
+        if (provider.type != null)
+            startActivityForResult(newChooseAccountIntent(
+                    null,
+                    null,
+                    new String[]{provider.type},
+                    null,
+                    null,
+                    null,
+                    null), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
     }
 
     private void setColor(int color) {

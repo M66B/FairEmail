@@ -31,6 +31,9 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -99,7 +102,6 @@ public class FragmentIdentity extends FragmentEx {
 
     private Button btnSave;
     private ProgressBar pbSave;
-    private ImageButton ibDelete;
     private ProgressBar pbWait;
     private Group grpAdvanced;
 
@@ -120,6 +122,7 @@ public class FragmentIdentity extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_identity);
+        setHasOptionsMenu(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final boolean insecure = prefs.getBoolean("insecure", false);
@@ -159,7 +162,6 @@ public class FragmentIdentity extends FragmentEx {
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
-        ibDelete = view.findViewById(R.id.ibDelete);
         pbWait = view.findViewById(R.id.pbWait);
         grpAdvanced = view.findViewById(R.id.grpAdvanced);
 
@@ -528,50 +530,6 @@ public class FragmentIdentity extends FragmentEx {
             }
         });
 
-        ibDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_identity_delete)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Helper.setViewsEnabled(view, false);
-                                btnSave.setEnabled(false);
-                                pbWait.setVisibility(View.VISIBLE);
-
-                                Bundle args = new Bundle();
-                                args.putLong("id", id);
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onLoad(Context context, Bundle args) {
-                                        long id = args.getLong("id");
-                                        DB db = DB.getInstance(context);
-                                        EntityIdentity identity = db.identity().getIdentity(id);
-                                        db.identity().deleteIdentity(id);
-                                        if (identity.synchronize)
-                                            ServiceSynchronize.reload(getContext(), "delete identity");
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onLoaded(Bundle args, Void data) {
-                                        getFragmentManager().popBackStack();
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.load(FragmentIdentity.this, args);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            }
-        });
-
         adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
         adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spSent.setAdapter(adapter);
@@ -584,7 +542,6 @@ public class FragmentIdentity extends FragmentEx {
         btnAdvanced.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        ibDelete.setVisibility(View.GONE);
 
         return view;
     }
@@ -672,8 +629,6 @@ public class FragmentIdentity extends FragmentEx {
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
-                // Consider previous save/delete as cancelled
-                ibDelete.setVisibility(identity == null ? View.GONE : View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
 
                 new SimpleTask<List<EntityAccount>>() {
@@ -755,6 +710,70 @@ public class FragmentIdentity extends FragmentEx {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_identity, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDelete() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_identity_delete)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Helper.setViewsEnabled(view, false);
+                        btnSave.setEnabled(false);
+                        pbWait.setVisibility(View.VISIBLE);
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                DB db = DB.getInstance(context);
+                                EntityIdentity identity = db.identity().getIdentity(id);
+                                db.identity().deleteIdentity(id);
+                                if (identity.synchronize)
+                                    ServiceSynchronize.reload(getContext(), "delete identity");
+                                return null;
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Void data) {
+                                getFragmentManager().popBackStack();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.load(FragmentIdentity.this, args);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void setColor(int color) {

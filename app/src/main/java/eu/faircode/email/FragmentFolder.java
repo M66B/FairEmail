@@ -25,13 +25,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -58,7 +60,6 @@ public class FragmentFolder extends FragmentEx {
     private EditText etSyncDays;
     private EditText etKeepDays;
     private Button btnSave;
-    private ImageButton ibDelete;
     private ProgressBar pbSave;
     private ProgressBar pbWait;
 
@@ -79,6 +80,7 @@ public class FragmentFolder extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_folder);
+        setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folder, container, false);
 
@@ -92,7 +94,6 @@ public class FragmentFolder extends FragmentEx {
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         btnSave = view.findViewById(R.id.btnSave);
-        ibDelete = view.findViewById(R.id.ibDelete);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
 
@@ -108,7 +109,6 @@ public class FragmentFolder extends FragmentEx {
             public void onClick(View v) {
                 Helper.setViewsEnabled(view, false);
                 btnSave.setEnabled(false);
-                ibDelete.setEnabled(false);
                 pbSave.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
@@ -250,7 +250,6 @@ public class FragmentFolder extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.setViewsEnabled(view, true);
                         btnSave.setEnabled(true);
-                        ibDelete.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
                         if (ex instanceof IllegalArgumentException)
@@ -262,92 +261,108 @@ public class FragmentFolder extends FragmentEx {
             }
         });
 
-        ibDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setMessage(R.string.title_folder_delete)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Helper.setViewsEnabled(view, false);
-                                btnSave.setEnabled(false);
-                                ibDelete.setEnabled(false);
-                                pbSave.setVisibility(View.VISIBLE);
-
-                                Bundle args = new Bundle();
-                                args.putLong("id", id);
-
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onLoad(Context context, Bundle args) throws Throwable {
-                                        long id = args.getLong("id");
-
-                                        IMAPStore istore = null;
-                                        DB db = DB.getInstance(getContext());
-                                        try {
-                                            db.beginTransaction();
-
-                                            EntityFolder folder = db.folder().getFolder(id);
-                                            EntityAccount account = db.account().getAccount(folder.account);
-
-                                            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
-                                            Session isession = Session.getInstance(props, null);
-                                            istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
-                                            Helper.connect(context, istore, account);
-
-                                            IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                                            ifolder.delete(false);
-
-                                            db.folder().deleteFolder(id);
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-
-                                            if (istore != null)
-                                                istore.close();
-                                        }
-
-                                        ServiceSynchronize.reload(getContext(), "delete folder");
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onLoaded(Bundle args, Void data) {
-                                        getFragmentManager().popBackStack();
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.setViewsEnabled(view, true);
-                                        btnSave.setEnabled(true);
-                                        ibDelete.setEnabled(true);
-                                        pbSave.setVisibility(View.GONE);
-
-                                        if (ex instanceof IllegalArgumentException)
-                                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                                        else
-                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                                    }
-                                }.load(FragmentFolder.this, args);
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-            }
-        });
-
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnSave.setEnabled(false);
-        ibDelete.setEnabled(false);
-        ibDelete.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_folder, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuDelete() {
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_folder_delete)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Helper.setViewsEnabled(view, false);
+                        btnSave.setEnabled(false);
+                        pbSave.setVisibility(View.VISIBLE);
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", id);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+
+                                IMAPStore istore = null;
+                                DB db = DB.getInstance(getContext());
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityFolder folder = db.folder().getFolder(id);
+                                    EntityAccount account = db.account().getAccount(folder.account);
+
+                                    Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
+                                    Session isession = Session.getInstance(props, null);
+                                    istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
+                                    Helper.connect(context, istore, account);
+
+                                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                                    ifolder.delete(false);
+
+                                    db.folder().deleteFolder(id);
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+
+                                    if (istore != null)
+                                        istore.close();
+                                }
+
+                                ServiceSynchronize.reload(getContext(), "delete folder");
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Void data) {
+                                getFragmentManager().popBackStack();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.setViewsEnabled(view, true);
+                                btnSave.setEnabled(true);
+                                pbSave.setVisibility(View.GONE);
+
+                                if (ex instanceof IllegalArgumentException)
+                                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                                else
+                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.load(FragmentFolder.this, args);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     @Override
@@ -384,7 +399,6 @@ public class FragmentFolder extends FragmentEx {
                 etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
-                ibDelete.setVisibility(folder == null || !EntityFolder.USER.equals(folder.type) ? View.GONE : View.VISIBLE);
             }
 
             @Override
