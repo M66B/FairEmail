@@ -388,10 +388,8 @@ public class FragmentMessages extends FragmentEx {
                 public void onSelectionChanged() {
                     swipeRefresh.setEnabled(false);
                     if (selectionTracker.hasSelection()) {
-                        if (messages != null) {
+                        if (messages != null)
                             messages.removeObservers(getViewLifecycleOwner());
-                            messages = null;
-                        }
                         fabMore.show();
                     } else {
                         predicate.clearAccount();
@@ -1564,8 +1562,7 @@ public class FragmentMessages extends FragmentEx {
                             @Override
                             public void onLoaded() {
                                 pbWait.setVisibility(View.GONE);
-                                if (messages != null &&
-                                        messages.getValue() == null || messages.getValue().size() == 0)
+                                if (messages.getValue() == null || messages.getValue().size() == 0)
                                     tvNoEmail.setVisibility(View.VISIBLE);
                             }
 
