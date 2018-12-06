@@ -1,135 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/vwColor"
-        android:layout_width="6dp"
-        android:layout_height="0dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/marginTop"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ivPrimary"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/baseline_star_24"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@id/vwColor"
-        app:layout_constraintTop_toBottomOf="@id/marginTop" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@id/ivPrimary"
-        app:layout_constraintEnd_toStartOf="@+id/ivSync"
-        app:layout_constraintStart_toEndOf="@id/ivPrimary"
-        app:layout_constraintTop_toTopOf="@id/ivPrimary" />
+        android:background="?attr/drawableItemBackground">
 
-    <ImageView
-        android:id="@+id/ivSync"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/baseline_sync_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/marginTop" />
+        <View
+            android:id="@+id/vwColor"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:text="user"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@+id/ivSync"
-        app:layout_constraintStart_toEndOf="@+id/ivPrimary"
-        app:layout_constraintTop_toBottomOf="@id/ivSync" />
+        <View
+            android:id="@+id/marginTop"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivState"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/baseline_cloud_off_24"
-        app:layout_constraintStart_toEndOf="@id/vwColor"
-        app:layout_constraintTop_toBottomOf="@id/tvUser" />
+        <ImageView
+            android:id="@+id/ivPrimary"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_star_24"
+            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
-    <TextView
-        android:id="@+id/tvHost"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="host"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="@id/ivState"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivState"
-        app:layout_constraintTop_toTopOf="@id/ivState" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/ivSync"
+            app:layout_constraintStart_toEndOf="@id/ivPrimary"
+            app:layout_constraintTop_toTopOf="@id/ivPrimary" />
 
-    <TextView
-        android:id="@+id/tvLast"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="Last connected time"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivState"
-        app:layout_constraintTop_toBottomOf="@id/tvHost" />
+        <ImageView
+            android:id="@+id/ivSync"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_sync_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
-    <TextView
-        android:id="@+id/tvError"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:text="error"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="?attr/colorWarning"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/vwColor"
-        app:layout_constraintTop_toBottomOf="@id/tvLast" />
+        <TextView
+            android:id="@+id/tvUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="user"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/ivSync"
+            app:layout_constraintStart_toEndOf="@+id/ivPrimary"
+            app:layout_constraintTop_toBottomOf="@id/ivSync" />
 
-    <View
-        android:id="@+id/marginBottom"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
+        <ImageView
+            android:id="@+id/ivState"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_cloud_off_24"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
-    <View
-        android:id="@+id/vSeparator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/colorSeparator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/marginBottom" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvHost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="host"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/ivState"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintTop_toTopOf="@id/ivState" />
+
+        <TextView
+            android:id="@+id/tvLast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Last connected time"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintTop_toBottomOf="@id/tvHost" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="error"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toBottomOf="@id/tvLast" />
+
+        <View
+            android:id="@+id/marginBottom"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
+
+        <View
+            android:id="@+id/vSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/marginBottom" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

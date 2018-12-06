@@ -37,21 +37,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPStore;
 
 import java.util.Calendar;
-import java.util.Properties;
-
-import javax.mail.Folder;
-import javax.mail.Session;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentFolder extends FragmentEx {
     private ViewGroup view;
-    private EditText etRename;
+    private EditText etName;
     private EditText etDisplay;
     private CheckBox cbHide;
     private CheckBox cbSynchronize;
@@ -85,7 +79,7 @@ public class FragmentFolder extends FragmentEx {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_folder, container, false);
 
         // Get controls
-        etRename = view.findViewById(R.id.etRename);
+        etName = view.findViewById(R.id.etName);
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
@@ -114,7 +108,7 @@ public class FragmentFolder extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putLong("account", account);
-                args.putString("name", etRename.getText().toString());
+                args.putString("name", etName.getText().toString());
                 args.putString("display", etDisplay.getText().toString());
                 args.putBoolean("hide", cbHide.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
@@ -125,7 +119,7 @@ public class FragmentFolder extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    protected Void onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
                         long aid = args.getLong("account");
                         String name = args.getString("name");
@@ -144,61 +138,32 @@ public class FragmentFolder extends FragmentEx {
                         if (keep_days < sync_days)
                             keep_days = sync_days;
 
-                        boolean reload = false;
-                        EntityFolder folder;
-
-                        IMAPStore istore = null;
+                        boolean reload;
                         DB db = DB.getInstance(getContext());
                         try {
                             db.beginTransaction();
 
-                            folder = db.folder().getFolder(id);
+                            EntityFolder folder = db.folder().getFolder(id);
 
-                            if (folder == null || !folder.name.equals(name)) {
-                                EntityAccount account = db.account().getAccount(folder == null ? aid : folder.account);
+                            if (folder == null) {
+                                reload = true;
+                                Log.i(Helper.TAG, "Creating folder=" + name);
 
-                                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
-                                Session isession = Session.getInstance(props, null);
-                                istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
-                                Helper.connect(context, istore, account);
-                                char separator = istore.getDefaultFolder().getSeparator();
-
-                                if (folder == null) {
-                                    Log.i(Helper.TAG, "Creating folder=" + name);
-
-                                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(name);
-                                    if (ifolder.exists())
-                                        throw new IllegalArgumentException(getString(R.string.title_folder_exists, name));
-                                    ifolder.create(Folder.HOLDS_MESSAGES);
-
-                                    EntityFolder create = new EntityFolder();
-                                    create.account = aid;
-                                    create.name = name;
-                                    create.level = EntityFolder.getLevel(separator, name);
-                                    create.display = display;
-                                    create.hide = hide;
-                                    create.type = EntityFolder.USER;
-                                    create.unified = unified;
-                                    create.synchronize = synchronize;
-                                    create.poll = poll;
-                                    create.sync_days = sync_days;
-                                    create.keep_days = keep_days;
-                                    db.folder().insertFolder(create);
-                                } else {
-                                    Log.i(Helper.TAG, "Renaming folder=" + name);
-
-                                    IMAPFolder iold = (IMAPFolder) istore.getFolder(folder.name);
-                                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(name);
-                                    if (ifolder.exists())
-                                        throw new IllegalArgumentException(getString(R.string.title_folder_exists, name));
-                                    iold.renameTo(ifolder);
-                                }
-                            }
-
-                            if (folder != null) {
-                                reload = (!folder.name.equals(name) ||
-                                        !folder.synchronize.equals(synchronize) ||
-                                        !folder.poll.equals(poll));
+                                EntityFolder create = new EntityFolder();
+                                create.account = aid;
+                                create.name = name;
+                                create.level = 0;
+                                create.display = display;
+                                create.hide = hide;
+                                create.type = EntityFolder.USER;
+                                create.unified = unified;
+                                create.synchronize = synchronize;
+                                create.poll = poll;
+                                create.sync_days = sync_days;
+                                create.keep_days = keep_days;
+                                db.folder().insertFolder(create);
+                            } else {
+                                reload = (!folder.synchronize.equals(synchronize) || !folder.poll.equals(poll));
 
                                 Calendar cal_keep = Calendar.getInstance();
                                 cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
@@ -213,30 +178,25 @@ public class FragmentFolder extends FragmentEx {
 
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
-                                        name, display,
-                                        hide,
+                                        name, display, unified, hide,
                                         synchronize, poll,
-                                        unified,
                                         sync_days, keep_days);
 
                                 db.message().deleteMessagesBefore(id, keep_time, true);
 
                                 if (!synchronize)
                                     db.folder().setFolderError(id, null);
+
+                                EntityOperation.sync(db, folder.id);
                             }
 
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
-
-                            if (istore != null)
-                                istore.close();
                         }
 
-                        if (folder == null || !folder.name.equals(name) || reload)
+                        if (reload)
                             ServiceSynchronize.reload(getContext(), "save folder");
-                        else
-                            EntityOperation.sync(db, folder.id);
 
                         return null;
                     }
@@ -308,34 +268,11 @@ public class FragmentFolder extends FragmentEx {
 
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                            protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
 
-                                IMAPStore istore = null;
                                 DB db = DB.getInstance(getContext());
-                                try {
-                                    db.beginTransaction();
-
-                                    EntityFolder folder = db.folder().getFolder(id);
-                                    EntityAccount account = db.account().getAccount(folder.account);
-
-                                    Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
-                                    Session isession = Session.getInstance(props, null);
-                                    istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
-                                    Helper.connect(context, istore, account);
-
-                                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
-                                    ifolder.delete(false);
-
-                                    db.folder().deleteFolder(id);
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-
-                                    if (istore != null)
-                                        istore.close();
-                                }
+                                db.folder().setFolderTbd(id);
 
                                 ServiceSynchronize.reload(getContext(), "delete folder");
 
@@ -374,7 +311,7 @@ public class FragmentFolder extends FragmentEx {
 
         new SimpleTask<EntityFolder>() {
             @Override
-            protected EntityFolder onLoad(Context context, Bundle args) throws Throwable {
+            protected EntityFolder onLoad(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).folder().getFolder(id);
             }
@@ -382,7 +319,7 @@ public class FragmentFolder extends FragmentEx {
             @Override
             protected void onLoaded(Bundle args, EntityFolder folder) {
                 if (savedInstanceState == null) {
-                    etRename.setText(folder == null ? null : folder.name);
+                    etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbHide.setChecked(folder == null ? false : folder.hide);
@@ -396,7 +333,7 @@ public class FragmentFolder extends FragmentEx {
                 // Consider previous save as cancelled
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
-                etRename.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
+                etName.setEnabled(folder == null);
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
             }

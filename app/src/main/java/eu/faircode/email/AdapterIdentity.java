@@ -63,7 +63,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
@@ -84,6 +84,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         }
 
         private void bindTo(TupleIdentityEx identity) {
+            itemView.setActivated(identity.tbd != null);
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(identity.name);

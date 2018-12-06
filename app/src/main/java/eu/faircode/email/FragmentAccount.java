@@ -1052,11 +1052,12 @@ public class FragmentAccount extends FragmentEx {
                             @Override
                             protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
+
                                 DB db = DB.getInstance(context);
-                                EntityAccount account = db.account().getAccount(id);
-                                db.account().deleteAccount(id);
-                                if (account.synchronize)
-                                    ServiceSynchronize.reload(getContext(), "delete account");
+                                db.account().setAccountTbd(id);
+
+                                ServiceSynchronize.reload(getContext(), "delete account");
+
                                 return null;
                             }
 

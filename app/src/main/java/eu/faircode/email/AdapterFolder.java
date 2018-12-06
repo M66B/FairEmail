@@ -82,7 +82,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private final static int action_delete_local = 2;
         private final static int action_empty_trash = 3;
         private final static int action_edit_properties = 4;
-        private final static int action_legend = 5;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -112,6 +111,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(TupleFolderEx folder) {
+            itemView.setActivated(folder.tbd != null);
             itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
 
             vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);

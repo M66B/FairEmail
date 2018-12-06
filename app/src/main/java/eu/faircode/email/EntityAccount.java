@@ -62,6 +62,7 @@ public class EntityAccount {
     @NonNull
     public Integer poll_interval; // keep-alive interval
     public Long created;
+    public Boolean tbd;
     public String state;
     public String error;
     public Long last_connected;
@@ -128,6 +129,7 @@ public class EntityAccount {
                     this.notify.equals(other.notify) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     (this.created == null ? other.created == null : this.created.equals(other.created)) &&
+                    (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

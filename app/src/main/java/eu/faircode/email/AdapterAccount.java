@@ -67,7 +67,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         ViewHolder(View itemView) {
             super(itemView);
 
-            this.itemView = itemView;
+            this.itemView = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
             ivPrimary = itemView.findViewById(R.id.ivPrimary);
             tvName = itemView.findViewById(R.id.tvName);
@@ -88,6 +88,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void bindTo(EntityAccount account) {
+            itemView.setActivated(account.tbd != null);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
             ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.INVISIBLE);
             tvName.setText(account.name);

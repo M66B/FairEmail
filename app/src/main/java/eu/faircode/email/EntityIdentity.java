@@ -75,6 +75,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean store_sent;
     public Long sent_folder;
+    public Boolean tbd;
     public String state;
     public String error;
 
@@ -149,6 +150,7 @@ public class EntityIdentity {
                     this.synchronize.equals(other.synchronize) &&
                     this.store_sent.equals(other.store_sent) &&
                     (this.sent_folder == null ? other.sent_folder == null : this.sent_folder.equals(other.sent_folder)) &&
+                    (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         } else

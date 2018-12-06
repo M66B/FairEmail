@@ -152,20 +152,17 @@ public interface DaoFolder {
     @Query("UPDATE folder" +
             " SET name = :name" +
             ", display = :display" +
+            ", unified = :unified" +
             ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
-            ", unified = :unified" +
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
             " WHERE id = :id")
     int setFolderProperties(
             long id,
-            String name, String display,
-            boolean hide,
-            boolean synchronize,
-            boolean poll,
-            boolean unified,
+            String name, String display, boolean unified, boolean hide,
+            boolean synchronize, boolean poll,
             int sync_days, int keep_days);
 
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")
@@ -173,6 +170,9 @@ public interface DaoFolder {
 
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);
+
+    @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
+    int setFolderTbd(long id);
 
     @Query("DELETE FROM folder WHERE id = :id")
     void deleteFolder(long id);

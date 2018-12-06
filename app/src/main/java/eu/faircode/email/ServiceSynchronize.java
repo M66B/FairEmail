@@ -1796,7 +1796,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             List<String> names = new ArrayList<>();
             for (EntityFolder folder : db.folder().getUserFolders(account.id))
-                names.add(folder.name);
+                if (folder.tbd == null)
+                    names.add(folder.name);
+                else {
+                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                    ifolder.delete(false);
+                    db.folder().deleteFolder(folder.id);
+                }
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
             Folder defaultFolder = istore.getDefaultFolder();
@@ -1835,10 +1841,11 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
 
-            Log.i(Helper.TAG, "Delete local folder=" + names.size());
+            Log.i(Helper.TAG, "Create remote count=" + names.size());
             for (String name : names) {
-                db.folder().deleteFolder(account.id, name);
-                Log.i(Helper.TAG, name + " deleted");
+                Log.i(Helper.TAG, name + " create");
+                IMAPFolder ifolder = (IMAPFolder) istore.getFolder(name);
+                ifolder.create(Folder.HOLDS_MESSAGES);
             }
 
             db.setTransactionSuccessful();
@@ -2318,9 +2325,6 @@ public class ServiceSynchronize extends LifecycleService {
         private boolean started = false;
         private int queued = 0;
         private long lastLost = 0;
-        PowerManager pm = getSystemService(PowerManager.class);
-        PowerManager.WakeLock wl = pm.newWakeLock(
-                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
         private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
@@ -2579,6 +2583,10 @@ public class ServiceSynchronize extends LifecycleService {
 
             queued++;
             queue.submit(new Runnable() {
+                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
+
                 @Override
                 public void run() {
                     try {
@@ -2589,6 +2597,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (doStop)
                             stop();
+
+                        DB db = DB.getInstance(ServiceSynchronize.this);
+                        int accounts = db.account().deleteAccountsTbd();
+                        int identities = db.identity().deleteIdentitiesTbd();
+                        if (accounts > 0 || identities > 0)
+                            Log.i(Helper.TAG, "Deleted accounts=" + accounts + " identities=" + identities);
 
                         if (doStart)
                             start();
