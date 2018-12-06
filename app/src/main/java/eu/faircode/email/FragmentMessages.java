@@ -1198,10 +1198,12 @@ public class FragmentMessages extends FragmentEx {
                 db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
                     public void onChanged(List<TupleFolderEx> folders) {
+                        if (folders == null)
+                            folders = new ArrayList<>();
+
                         int unseen = 0;
-                        if (folders != null)
-                            for (TupleFolderEx folder : folders)
-                                unseen += folder.unseen;
+                        for (TupleFolderEx folder : folders)
+                            unseen += folder.unseen;
                         String name = getString(R.string.title_folder_unified);
                         if (unseen > 0)
                             setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
@@ -1275,12 +1277,11 @@ public class FragmentMessages extends FragmentEx {
                 if (actionbar && viewType == AdapterMessage.ViewType.THREAD) {
                     boolean hasTrash = false;
                     boolean hasArchive = false;
-                    if (folders != null)
-                        for (EntityFolder folder : folders)
-                            if (EntityFolder.TRASH.equals(folder.type))
-                                hasTrash = true;
-                            else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                hasArchive = true;
+                    for (EntityFolder folder : folders)
+                        if (EntityFolder.TRASH.equals(folder.type))
+                            hasTrash = true;
+                        else if (EntityFolder.ARCHIVE.equals(folder.type))
+                            hasArchive = true;
 
                     ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
                     ViewModelMessages.Target[] pn = model.getPrevNext(thread);

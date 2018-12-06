@@ -67,7 +67,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -310,7 +309,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        if (getSupportFragmentManager().getFragments().size() == 0) {
+        if (getSupportFragmentManager().getFragments().size() == 0 &&
+                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
             FragmentEx fragment = (unified ? new FragmentMessages() : new FragmentFolders());
             fragment.setArguments(new Bundle());
 
@@ -737,7 +737,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         new SimpleTask<Long>() {
             @Override
-            protected Long onLoad(Context context, Bundle args) throws Throwable {
+            protected Long onLoad(Context context, Bundle args) {
                 long account = args.getLong("account");
                 return DB.getInstance(context).folder().getFolderByType(account, EntityFolder.INBOX).id;
             }
@@ -842,9 +842,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onDebugInfo() {
         new SimpleTask<Long>() {
             @Override
-            protected Long onLoad(Context context, Bundle args) throws UnsupportedEncodingException {
+            protected Long onLoad(Context context, Bundle args) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(context.getString(R.string.title_debug_info_remark) + "\n\n\n\n");
+                sb.append(context.getString(R.string.title_debug_info_remark)).append("\n\n\n\n");
                 sb.append(Helper.getAppInfo(context));
 
                 String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
@@ -1026,7 +1026,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onCleanup() {
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onLoad(Context context, Bundle args) {
                 JobDaily.cleanup(ActivityView.this);
                 return null;
             }
