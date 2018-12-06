@@ -51,6 +51,7 @@ Anything on this list is in random order and *might* be added in the near future
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save.
 * S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
+* ActiveSync: there are no maintained, open source libraries providing the ActiveSync protocol, so this cannot be added.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -165,8 +166,10 @@ There is a menu to move sent messages in the outbox to the sent folder.
 **(8) Can I use a Microsoft Exchange account?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP.
-ActiveSync is not supported at this moment.
 See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
+
+Please see [here](#frequently-requested-features) about ActiveSync support.
+
 
 <a name="faq9"></a>
 **(9) What are identities?**
