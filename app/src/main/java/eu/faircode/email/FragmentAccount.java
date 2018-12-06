@@ -678,7 +678,9 @@ public class FragmentAccount extends FragmentEx {
                         boolean check = (synchronize && (account == null ||
                                 !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                                 !user.equals(account.user) || !password.equals(account.password)));
-                        boolean reload = (account == null || account.synchronize != synchronize || check);
+                        boolean reload = (check || account == null ||
+                                account.synchronize != synchronize ||
+                                account.poll_interval.equals(Integer.parseInt(interval)));
 
                         // Check IMAP server
                         if (check) {
