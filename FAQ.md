@@ -337,6 +337,7 @@ Possible causes are:
 
 If only FairEmail is connecting to the email server, first try to wait half an hour to see if the problem resolves itself,
 else enable the folder settings '*Poll instead of synchronize*' for some folders.
+The poll interval can be configured in the account settings.
 
 The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
