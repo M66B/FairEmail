@@ -349,14 +349,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     }
             }
-            if (!photo && identicons) {
+            if (!photo && identicons && !outgoing) {
                 if (message.from != null && message.from.length > 0) {
                     ivAvatar.setImageBitmap(Identicon.generate(message.from[0].toString(), dp24, 5, "light".equals(theme)));
                     photo = true;
                 } else
                     ivAvatar.setImageDrawable(null);
             }
-            ivAvatar.setVisibility(photo ? View.VISIBLE : View.GONE);
+            ivAvatar.setVisibility(photo
+                    ? View.VISIBLE : compact || !(avatars || identicons) || outgoing ? View.GONE
+                    : View.INVISIBLE);
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
 
