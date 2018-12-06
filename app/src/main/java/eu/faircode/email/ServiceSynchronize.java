@@ -2318,6 +2318,9 @@ public class ServiceSynchronize extends LifecycleService {
         private boolean started = false;
         private int queued = 0;
         private long lastLost = 0;
+        PowerManager pm = getSystemService(PowerManager.class);
+        PowerManager.WakeLock wl = pm.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
         private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
@@ -2576,17 +2579,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             queued++;
             queue.submit(new Runnable() {
-                PowerManager pm = getSystemService(PowerManager.class);
-                PowerManager.WakeLock wl = pm.newWakeLock(
-                        PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
-
                 @Override
                 public void run() {
-                    EntityLog.log(ServiceSynchronize.this, "Reload " +
-                            " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
-
                     try {
                         wl.acquire();
+
+                        EntityLog.log(ServiceSynchronize.this, "Reload " +
+                                " stop=" + doStop + " start=" + doStart + " queued=" + queued + " " + reason);
 
                         if (doStop)
                             stop();
@@ -2597,8 +2596,6 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
-                        wl.release();
-
                         queued--;
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
@@ -2612,6 +2609,8 @@ public class ServiceSynchronize extends LifecycleService {
                                 stopSelf();
                             }
                         }
+
+                        wl.release();
                     }
                 }
             });
@@ -2635,7 +2634,6 @@ public class ServiceSynchronize extends LifecycleService {
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
                         .putExtra("reason", reason));
-        JobDaily.schedule(context);
     }
 
     private class ServiceState {
