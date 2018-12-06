@@ -49,10 +49,11 @@
         <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="0dp"
-            android:layout_height="24dp"
+            android:layout_height="48dp"
             android:layout_marginStart="6dp"
+            android:padding="6dp"
             android:src="@drawable/baseline_person_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
             app:layout_constraintTop_toTopOf="@+id/tvFrom" />
@@ -101,7 +102,7 @@
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-            app:layout_constraintStart_toEndOf="@id/paddingStart"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView
