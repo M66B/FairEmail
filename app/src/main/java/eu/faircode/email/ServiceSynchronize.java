@@ -926,13 +926,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                                         for (Message imessage : e.getMessages())
                                             try {
-                                                long id;
+                                                EntityMessage message;
                                                 try {
                                                     db.beginTransaction();
-                                                    id = synchronizeMessage(
+                                                    message = synchronizeMessage(
                                                             ServiceSynchronize.this,
-                                                            folder, ifolder, (IMAPMessage) imessage,
-                                                            false, false, false);
+                                                            folder, ifolder, (IMAPMessage) imessage, false, false);
                                                     db.setTransactionSuccessful();
                                                 } finally {
                                                     db.endTransaction();
@@ -940,7 +939,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                                                 try {
                                                     db.beginTransaction();
-                                                    downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) imessage, id);
+                                                    downloadMessage(
+                                                            ServiceSynchronize.this,
+                                                            folder, ifolder, (IMAPMessage) imessage, message.id);
                                                     db.setTransactionSuccessful();
                                                 } finally {
                                                     db.endTransaction();
@@ -1006,13 +1007,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             fp.add(IMAPFolder.FetchProfileItem.FLAGS);
                                             ifolder.fetch(new Message[]{e.getMessage()}, fp);
 
-                                            long id;
+                                            EntityMessage message;
                                             try {
                                                 db.beginTransaction();
-                                                id = synchronizeMessage(
+                                                message = synchronizeMessage(
                                                         ServiceSynchronize.this,
-                                                        folder, ifolder, (IMAPMessage) e.getMessage(),
-                                                        false, false, false);
+                                                        folder, ifolder, (IMAPMessage) e.getMessage(), false, false);
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -1020,7 +1020,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                             try {
                                                 db.beginTransaction();
-                                                downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), id);
+                                                downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -1948,7 +1948,7 @@ public class ServiceSynchronize extends LifecycleService {
                 List<Message> full = new ArrayList<>();
                 for (Message imessage : isub) {
                     long uid = ifolder.getUID(imessage);
-                    EntityMessage message = db.message().getMessageByUid(folder.id, uid, false);
+                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
                     if (message == null)
                         full.add(imessage);
                 }
@@ -1962,10 +1962,10 @@ public class ServiceSynchronize extends LifecycleService {
                 for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                     try {
                         db.beginTransaction();
-                        ids[from + j] = synchronizeMessage(
+                        EntityMessage message = synchronizeMessage(
                                 this,
-                                folder, ifolder, (IMAPMessage) isub[j],
-                                false, false, true);
+                                folder, ifolder, (IMAPMessage) isub[j], false, true);
+                        ids[from + j] = message.id;
                         db.setTransactionSuccessful();
                         Thread.sleep(20);
                     } catch (MessageRemovedException ex) {
@@ -2036,10 +2036,10 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    static Long synchronizeMessage(
+    static EntityMessage synchronizeMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
-            boolean found, boolean browsed, boolean full) throws MessagingException, IOException {
+            boolean browsed, boolean full) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
 
         if (imessage.isExpunged()) {
@@ -2060,7 +2060,7 @@ public class ServiceSynchronize extends LifecycleService {
         DB db = DB.getInstance(context);
 
         // Find message by uid (fast, no headers required)
-        EntityMessage message = db.message().getMessageByUid(folder.id, uid, found);
+        EntityMessage message = db.message().getMessageByUid(folder.id, uid);
 
         // Find message by Message-ID (slow, headers required)
         // - messages in inbox have same id as message sent to self
@@ -2069,7 +2069,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Will fetch headers within database transaction
             String msgid = helper.getMessageID();
             Log.i(Helper.TAG, "Searching for " + msgid);
-            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid, found)) {
+            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
                 Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + dup.uid +
@@ -2162,7 +2162,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_answered = answered;
             message.ui_flagged = flagged;
             message.ui_hide = false;
-            message.ui_found = found;
+            message.ui_found = false;
             message.ui_ignored = false;
             message.ui_browsed = browsed;
             message.getAvatar(context);
@@ -2243,7 +2243,7 @@ public class ServiceSynchronize extends LifecycleService {
             db.folder().setFolderKeywords(folder.id, DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
         }
 
-        return message.id;
+        return message;
     }
 
     private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {

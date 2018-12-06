@@ -53,7 +53,7 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide AND NOT message.ui_found" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE CASE WHEN :account IS NULL" +
             "  THEN folder.unified AND account.synchronize" +
             "  ELSE folder.account = :account OR folder.account IS NULL" +
@@ -72,7 +72,7 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " JOIN message ON message.folder = folder.id AND NOT message.ui_hide AND NOT message.ui_found" +
+            " JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE account.`synchronize`" +
             " AND folder.unified" +
             " GROUP BY folder.id")
@@ -90,7 +90,7 @@ public interface DaoFolder {
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide AND NOT message.ui_found" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE folder.id = :id")
     LiveData<TupleFolderEx> liveFolderEx(long id);
 

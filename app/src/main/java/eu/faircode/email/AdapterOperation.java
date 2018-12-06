@@ -134,8 +134,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                                 new Intent(ActivityView.ACTION_VIEW_THREAD)
                                         .putExtra("account", message.account)
                                         .putExtra("thread", message.thread)
-                                        .putExtra("id", message.id)
-                                        .putExtra("found", message.ui_found));
+                                        .putExtra("id", message.id));
                     }
                 }.load(context, owner, args);
             }

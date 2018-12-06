@@ -94,7 +94,6 @@ public class FragmentMessages extends FragmentEx {
     private boolean outgoing = false;
     private String thread = null;
     private long id = -1;
-    private boolean found = false;
     private String search = null;
 
     private boolean threading = true;
@@ -136,7 +135,6 @@ public class FragmentMessages extends FragmentEx {
         outgoing = args.getBoolean("outgoing", false);
         thread = args.getString("thread");
         id = args.getLong("id", -1);
-        found = args.getBoolean("found", false);
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -548,7 +546,7 @@ public class FragmentMessages extends FragmentEx {
                             result.target = target;
 
                             List<EntityMessage> messages = db.message().getMessageByThread(
-                                    message.account, message.thread, threading && thread ? null : id, message.folder, message.ui_found);
+                                    message.account, message.thread, threading && thread ? null : id, message.folder);
                             for (EntityMessage threaded : messages) {
                                 result.ids.add(threaded.id);
                                 db.message().setMessageUiHide(threaded.id, true);
@@ -606,7 +604,6 @@ public class FragmentMessages extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putString("thread", thread);
-                args.putBoolean("found", found);
                 args.putString("folderType", folderType);
 
                 new SimpleTask<MessageTarget>() {
@@ -614,7 +611,6 @@ public class FragmentMessages extends FragmentEx {
                     protected MessageTarget onLoad(Context context, Bundle args) {
                         long account = args.getLong("account");
                         String thread = args.getString("thread");
-                        boolean found = args.getBoolean("found");
                         String folderType = args.getString("folderType");
 
                         MessageTarget result = new MessageTarget();
@@ -626,7 +622,7 @@ public class FragmentMessages extends FragmentEx {
                             result.target = db.folder().getFolderByType(account, folderType);
 
                             List<EntityMessage> messages = db.message().getMessageByThread(
-                                    account, thread, threading ? null : id, null, found);
+                                    account, thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages)
                                 if (!result.target.id.equals(threaded.folder)) {
                                     result.ids.add(threaded.id);
@@ -659,8 +655,7 @@ public class FragmentMessages extends FragmentEx {
                         new Intent(ActivityView.ACTION_VIEW_THREAD)
                                 .putExtra("account", target.account)
                                 .putExtra("thread", target.thread)
-                                .putExtra("id", target.id)
-                                .putExtra("found", target.found));
+                                .putExtra("id", target.id));
             }
         });
 
@@ -851,7 +846,7 @@ public class FragmentMessages extends FragmentEx {
                                 EntityMessage message = db.message().getMessage(id);
                                 if (message.ui_seen != seen) {
                                     List<EntityMessage> messages = db.message().getMessageByThread(
-                                            message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
+                                            message.account, message.thread, threading ? null : id, message.folder);
                                     for (EntityMessage threaded : messages)
                                         EntityOperation.queue(db, threaded, EntityOperation.SEEN, seen);
                                 }
@@ -893,7 +888,7 @@ public class FragmentMessages extends FragmentEx {
                                 EntityMessage message = db.message().getMessage(id);
                                 if (message.ui_flagged != flagged) {
                                     List<EntityMessage> messages = db.message().getMessageByThread(
-                                            message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
+                                            message.account, message.thread, threading ? null : id, message.folder);
                                     for (EntityMessage threaded : messages)
                                         EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
                                 }
@@ -950,7 +945,7 @@ public class FragmentMessages extends FragmentEx {
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
+                                                        message.account, message.thread, threading ? null : id, message.folder);
                                                 for (EntityMessage threaded : messages) {
                                                     if (threaded.uid == null && !TextUtils.isEmpty(threaded.error)) // outbox
                                                         db.message().deleteMessage(threaded.id);
@@ -1003,7 +998,7 @@ public class FragmentMessages extends FragmentEx {
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
                                 List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
+                                        message.account, message.thread, threading ? null : id, message.folder);
                                 for (EntityMessage threaded : messages) {
                                     result.ids.add(threaded.id);
                                     db.message().setMessageUiHide(threaded.id, true);
@@ -1092,7 +1087,7 @@ public class FragmentMessages extends FragmentEx {
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
                                                 List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder, message.ui_found);
+                                                        message.account, message.thread, threading ? null : id, message.folder);
                                                 for (EntityMessage threaded : messages) {
                                                     result.ids.add(threaded.id);
                                                     db.message().setMessageUiHide(threaded.id, true);
@@ -1363,7 +1358,7 @@ public class FragmentMessages extends FragmentEx {
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onLoad(Context context, Bundle args) {
-                            DB.getInstance(context).message().deleteFoundMessages();
+                            DB.getInstance(context).message().resetSearch();
                             return null;
                         }
 
@@ -1485,7 +1480,7 @@ public class FragmentMessages extends FragmentEx {
                 try {
                     db.beginTransaction();
 
-                    for (EntityMessage message : db.message().getMessageSeen(outbox, false)) {
+                    for (EntityMessage message : db.message().getMessageSeen(outbox)) {
                         EntityIdentity identity = db.identity().getIdentity(message.identity);
                         EntityFolder sent = db.folder().getFolderByType(identity.account, EntityFolder.SENT);
                         if (sent != null) {
@@ -1574,7 +1569,7 @@ public class FragmentMessages extends FragmentEx {
 
                 case THREAD:
                     messages = new LivePagedListBuilder<>(
-                            db.message().pagedThread(account, thread, threading ? null : id, found, sort, debug), LOCAL_PAGE_SIZE).build();
+                            db.message().pagedThread(account, thread, threading ? null : id, sort, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {

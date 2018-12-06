@@ -594,8 +594,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             new Intent(ActivityView.ACTION_VIEW_THREAD)
                                     .putExtra("account", message.account)
                                     .putExtra("thread", message.thread)
-                                    .putExtra("id", message.id)
-                                    .putExtra("found", message.ui_found));
+                                    .putExtra("id", message.id));
                 }
             }
         }
@@ -1165,7 +1164,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
                     List<EntityMessage> messages = db.message().getMessageByThread(
-                            message.account, message.thread, threading && thread ? null : id, message.folder, message.ui_found);
+                            message.account, message.thread, threading && thread ? null : id, message.folder);
                     for (EntityMessage threaded : messages)
                         EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
 

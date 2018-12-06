@@ -90,7 +90,7 @@ public class ViewModelBrowse extends ViewModel {
                 db.beginTransaction();
 
                 if (state.messages == null)
-                    state.messages = db.message().getMessageByFolder(state.fid, false);
+                    state.messages = db.message().getMessageByFolder(state.fid);
 
                 int matched = 0;
                 for (int i = state.local; i < state.messages.size() && matched < state.pageSize; i++) {
@@ -115,17 +115,8 @@ public class ViewModelBrowse extends ViewModel {
                     if (!match && message.content)
                         match = body.toLowerCase().contains(find);
 
-                    if (match) {
-                        EntityMessage exists = db.message().getMessageByUid(state.fid, message.uid, state.search != null);
-                        if (exists == null) {
-                            matched++;
-                            message.id = null;
-                            message.ui_found = true;
-                            message.id = db.message().insertMessage(message);
-                            if (message.content)
-                                message.write(state.context, body);
-                        }
-                    }
+                    if (match)
+                        db.message().setMessageFound(message.account, message.thread);
                 }
 
                 db.setTransactionSuccessful();
@@ -202,14 +193,14 @@ public class ViewModelBrowse extends ViewModel {
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
                         Log.i(Helper.TAG, "Boundary sync uid=" + uid);
-                        EntityMessage message = db.message().getMessageByUid(state.fid, uid, state.search != null);
+                        EntityMessage message = db.message().getMessageByUid(state.fid, uid);
                         if (message == null) {
-                            ServiceSynchronize.synchronizeMessage(
+                            message = ServiceSynchronize.synchronizeMessage(
                                     state.context,
-                                    folder, state.ifolder, (IMAPMessage) isub[j],
-                                    state.search != null, state.search == null, false);
+                                    folder, state.ifolder, (IMAPMessage) isub[j], true, false);
                             count++;
                         }
+                        db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {

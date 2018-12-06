@@ -46,7 +46,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 16,
+        version = 17,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -144,7 +144,7 @@ public abstract class DB extends RoomDatabase {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `forwarding` INTEGER" +
                                 " REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL");
-                        db.execSQL("CREATE  INDEX `index_message_forwarding` ON `message` (`forwarding`)");
+                        db.execSQL("CREATE INDEX `index_message_forwarding` ON `message` (`forwarding`)");
                     }
                 })
                 .addMigrations(new Migration(4, 5) {
@@ -189,7 +189,7 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_browsed` INTEGER NOT NULL DEFAULT 0");
-                        db.execSQL("CREATE  INDEX `index_message_ui_browsed` ON `message` (`ui_browsed`)");
+                        db.execSQL("CREATE INDEX `index_message_ui_browsed` ON `message` (`ui_browsed`)");
                     }
                 })
                 .addMigrations(new Migration(10, 11) {
@@ -246,6 +246,17 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `poll` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(16, 17) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DELETE FROM `message` WHERE ui_found");
+                        db.execSQL("DROP INDEX `index_message_folder_uid_ui_found`");
+                        db.execSQL("DROP INDEX `index_message_msgid_folder_ui_found`");
+                        db.execSQL("CREATE UNIQUE INDEX `index_message_folder_uid` ON `message` (`folder`, `uid`)");
+                        db.execSQL("CREATE UNIQUE INDEX `index_message_msgid_folder` ON `message` (`msgid`, `folder`)");
                     }
                 })
                 .build();

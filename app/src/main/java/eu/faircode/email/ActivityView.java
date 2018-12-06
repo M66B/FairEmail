@@ -411,7 +411,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (archive == null)
                             throw new IllegalArgumentException(getString(R.string.title_no_primary_archive));
 
-                        db.message().deleteFoundMessages();
+                        db.message().resetSearch();
 
                         return archive.id;
                     }
@@ -1162,7 +1162,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putString("thread", intent.getStringExtra("thread"));
         args.putLong("id", intent.getLongExtra("id", -1));
-        args.putBoolean("found", intent.getBooleanExtra("found", false));
 
         FragmentMessages fragment = new FragmentMessages();
         fragment.setArguments(args);
