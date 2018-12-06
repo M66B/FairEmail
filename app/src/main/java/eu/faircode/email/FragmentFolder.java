@@ -272,6 +272,11 @@ public class FragmentFolder extends FragmentEx {
                                 long id = args.getLong("id");
 
                                 DB db = DB.getInstance(getContext());
+                                int count = db.operation().getOperationCount(id, null);
+                                if (count > 0)
+                                    throw new IllegalArgumentException(
+                                            getResources().getQuantityString(
+                                                    R.plurals.title_notification_operations, count, count));
                                 db.folder().setFolderTbd(id);
 
                                 ServiceSynchronize.reload(getContext(), "delete folder");
