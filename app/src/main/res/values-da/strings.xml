@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Synkronisér (send meddelelser)</string>
     <string name="title_primary_account">Primær (standard konto)</string>
     <string name="title_primary_identity">Primær (standard identitet)</string>
-    <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Check</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">Emailadresse mangler</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Hide hidden folders</string>
     <string name="title_show_folders">Show hidden folders</string>
     <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
-    <string name="title_folder_delete">Delete folder permanently?</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Samlet indbakke</string>
     <string name="title_folder_inbox">Indbakke</string>
     <string name="title_folder_outbox">Udbakke</string>

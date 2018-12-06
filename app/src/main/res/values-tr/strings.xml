@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
-    <string name="title_keep_alive_interval">Canlı tutma aralığı (dakika)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Gizli klasörleri gizle</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_sync_days">İletileri eşzamanla (gün)</string>
     <string name="title_keep_days">İletileri sakla (günler)</string>
     <string name="title_folder_exists">Klasör %1$s var</string>
-    <string name="title_folder_delete">Klasörü kalıcı olarak sil?</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_folder_inbox">Gelen kutusu</string>
     <string name="title_folder_outbox">Giden Kutusu</string>

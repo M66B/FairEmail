@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>
     <string name="title_primary_identity">Üstünlük verilən (ilkin kimlik)</string>
-    <string name="title_keep_alive_interval">Bağlantı dövrünü qoru (dəqiqə)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Yoxla</string>
     <string name="title_no_name">Ad əskikdir</string>
     <string name="title_no_email">E-poçt ünvanı əskikdir</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Gizli qovluqları gizlət</string>
     <string name="title_show_folders">Gizli qovluqları göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_sync_days">Eyniləşdirilmiş mesajlar (gün)</string>
     <string name="title_keep_days">Saxlanılmış mesajlar (gün)</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
-    <string name="title_folder_delete">Qovluğu birdəfəlik silinsin?</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Birləşmiş gələn qutusu</string>
     <string name="title_folder_inbox">Gələn qutusu</string>
     <string name="title_folder_outbox">Gedən qutusu</string>

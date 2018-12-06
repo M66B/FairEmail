@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Sincronizar (enviar mensajes)</string>
     <string name="title_primary_account">Primaria (cuenta por defecto)</string>
     <string name="title_primary_identity">Primaria (identidad por defecto)</string>
-    <string name="title_keep_alive_interval">Intervalo de mantener activo (minutos)</string>
+    <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Ocultar carpetas ocultas</string>
     <string name="title_show_folders">Mostrar carpetas ocultas</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
-    <string name="title_poll_folder">Sondear en lugar de sincronizar</string>
+    <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_unified_folder">Mostrar en Bandeja de Entrada Unificada</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
-    <string name="title_folder_delete">¿Eliminar carpeta permanentemente?</string>
+    <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
     <string name="title_folder_unified">Bandeja de Entrada Unificada</string>
     <string name="title_folder_inbox">Bandeja de Entrada</string>
     <string name="title_folder_outbox">Bandeja de Salida</string>

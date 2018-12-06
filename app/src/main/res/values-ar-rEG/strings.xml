@@ -149,7 +149,7 @@
     <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
-    <string name="title_keep_alive_interval">Keep alive interval (minutes)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Check</string>
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>
@@ -176,12 +176,12 @@
     <string name="title_hide_folders">Hide hidden folders</string>
     <string name="title_show_folders">Show hidden folders</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
-    <string name="title_folder_delete">حذف المجلد بشكل دائم؟</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">علبة وارد موحدة</string>
     <string name="title_folder_inbox">البريد الوارد</string>
     <string name="title_folder_outbox">البريد الصادر</string>

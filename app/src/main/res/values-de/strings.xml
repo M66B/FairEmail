@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
-    <string name="title_keep_alive_interval">Verbindung auf­recht­er­hal­ten Intervall (Minuten)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
     <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
-    <string name="title_folder_delete">Ordner unwiderruflich löschen?</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Sammeleingang</string>
     <string name="title_folder_inbox">Posteingang</string>
     <string name="title_folder_outbox">Postausgang</string>
@@ -197,7 +197,7 @@
     <string name="title_move">Verschieben</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
-    <string name="title_moving">Moving to %1$s</string>
+    <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>

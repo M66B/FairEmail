@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
-    <string name="title_keep_alive_interval">Håll vid liv intervall (minuter)</string>
+    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Dölj dolda mappar</string>
     <string name="title_show_folders">Visa dolda mappar</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
-    <string name="title_poll_folder">Poll instead of synchronize</string>
+    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_sync_days">Synkronisera meddelanden (dagar)</string>
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
-    <string name="title_folder_delete">Ta bort mappen permanent?</string>
+    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Samlad inkorg</string>
     <string name="title_folder_inbox">Inkorg</string>
     <string name="title_folder_outbox">Utkorg</string>

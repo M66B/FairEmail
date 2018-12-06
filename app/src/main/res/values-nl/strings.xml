@@ -4,7 +4,7 @@
     <string name="app_copyright">Copyright &#x24B8; 2018 door M. Bokhorst</string>
     <string name="channel_service">Service</string>
     <string name="channel_notification">Meldingen</string>
-    <string name="channel_error">Foutenmeldingen</string>
+    <string name="channel_error">Foutmeldingen</string>
     <string name="tile_synchronize">Synchroniseren</string>
     <string name="tile_unseen">Nieuwe berichten</string>
     <string name="shortcut_compose">Opstellen</string>
@@ -129,7 +129,7 @@
     <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
-    <string name="title_keep_alive_interval">Keep alive-interval (minuten)</string>
+    <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
     <string name="title_check">Controleer</string>
     <string name="title_no_name">Naam ontbreekt</string>
     <string name="title_no_email">Email adres ontbreekt</string>
@@ -156,12 +156,12 @@
     <string name="title_hide_folders">Verberg verborgen mappen</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
-    <string name="title_poll_folder">Poll in plaats van synchroniseren</string>
+    <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
-    <string name="title_folder_delete">Verwijder map permanent?</string>
+    <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>
     <string name="title_folder_inbox">Postvak in</string>
     <string name="title_folder_outbox">Postvak uit</string>
