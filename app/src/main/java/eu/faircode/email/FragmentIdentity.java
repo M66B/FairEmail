@@ -80,6 +80,8 @@ public class FragmentIdentity extends FragmentEx {
     private TextView tvEmail;
     private EditText etEmail;
     private EditText etReplyTo;
+    private CheckBox cbDeliveryReceipt;
+    private CheckBox cbReadReceipt;
     private Spinner spProvider;
     private EditText etDomain;
     private Button btnAutoConfig;
@@ -137,6 +139,8 @@ public class FragmentIdentity extends FragmentEx {
         tvEmail = view.findViewById(R.id.tvEmail);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
+        cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
+        cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
 
         spProvider = view.findViewById(R.id.spProvider);
 
@@ -378,6 +382,8 @@ public class FragmentIdentity extends FragmentEx {
                 args.putString("name", etName.getText().toString());
                 args.putString("email", etEmail.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
+                args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
+                args.putBoolean("read_receipt", cbReadReceipt.isChecked());
                 args.putLong("account", account == null ? -1 : account.id);
                 args.putInt("auth_type", account == null || account.auth_type == null ? Helper.AUTH_TYPE_PASSWORD : account.auth_type);
                 args.putString("host", etHost.getText().toString());
@@ -400,6 +406,8 @@ public class FragmentIdentity extends FragmentEx {
                         long account = args.getLong("account");
                         String email = args.getString("email");
                         String replyto = args.getString("replyto");
+                        boolean delivery_receipt = args.getBoolean("delivery_receipt");
+                        boolean read_receipt = args.getBoolean("read_receipt");
                         String host = args.getString("host");
                         boolean starttls = args.getBoolean("starttls");
                         boolean insecure = args.getBoolean("insecure");
@@ -473,6 +481,8 @@ public class FragmentIdentity extends FragmentEx {
                             identity.account = account;
                             identity.email = email;
                             identity.replyto = replyto;
+                            identity.delivery_receipt = delivery_receipt;
+                            identity.read_receipt = read_receipt;
                             identity.host = host;
                             identity.starttls = starttls;
                             identity.insecure = insecure;
@@ -576,6 +586,8 @@ public class FragmentIdentity extends FragmentEx {
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
+                    cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
+                    cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
                     etHost.setText(identity == null ? null : identity.host);
                     cbStartTls.setChecked(identity == null ? false : identity.starttls);
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);

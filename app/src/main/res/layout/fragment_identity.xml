@@ -109,6 +109,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
+        <CheckBox
+            android:id="@+id/cbDeliveryReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_delivery_receipt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+
+        <CheckBox
+            android:id="@+id/cbReadReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_read_receipt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbDeliveryReceipt" />
+
         <!--- provider -->
 
         <TextView
@@ -119,7 +137,7 @@
             android:text="@string/title_provider"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
 
         <Spinner
             android:id="@+id/spProvider"
@@ -435,6 +453,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent" />
+            app:constraint_referenced_ids="tvEmail,etEmail,tvReplyTo,etReplyTo,cbDeliveryReceipt,cbReadReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

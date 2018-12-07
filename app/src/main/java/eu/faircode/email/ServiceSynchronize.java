@@ -1661,6 +1661,12 @@ public class ServiceSynchronize extends LifecycleService {
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
 
+        if (ident.delivery_receipt)
+            imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
+
+        if (ident.read_receipt)
+            imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
+
         // Create transport
         // TODO: cache transport?
         Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");

@@ -51,6 +51,10 @@ public class EntityIdentity {
     public String email;
     public String replyto;
     @NonNull
+    public Boolean delivery_receipt;
+    @NonNull
+    public Boolean read_receipt;
+    @NonNull
     public Long account;
     @NonNull
     public String host; // SMTP
