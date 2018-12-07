@@ -29,6 +29,10 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -77,6 +81,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -870,11 +875,82 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     draft.id = db.message().insertMessage(draft);
                     draft.write(context, body);
 
+                    // Attach settings
+                    {
+                        EntityAttachment ops = new EntityAttachment();
+                        ops.message = draft.id;
+                        ops.sequence = 1;
+                        ops.name = "settings.txt";
+                        ops.type = "text/plain";
+                        ops.size = null;
+                        ops.progress = 0;
+                        ops.id = db.attachment().insertAttachment(ops);
+
+                        OutputStream os = null;
+                        File file = EntityAttachment.getFile(context, ops.id);
+                        try {
+                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                            int size = 0;
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                            Map<String, ?> settings = prefs.getAll();
+                            for (String key : settings.keySet())
+                                size += write(os, key + "=" + settings.get(key) + "\r\n");
+
+                            ops.size = size;
+                            ops.progress = null;
+                            ops.available = true;
+                            db.attachment().updateAttachment(ops);
+                        } finally {
+                            if (os != null)
+                                os.close();
+                        }
+                    }
+
+                    // Attach network info
+                    {
+                        EntityAttachment ops = new EntityAttachment();
+                        ops.message = draft.id;
+                        ops.sequence = 2;
+                        ops.name = "network.txt";
+                        ops.type = "text/plain";
+                        ops.size = null;
+                        ops.progress = 0;
+                        ops.id = db.attachment().insertAttachment(ops);
+
+                        OutputStream os = null;
+                        File file = EntityAttachment.getFile(context, ops.id);
+                        try {
+                            os = new BufferedOutputStream(new FileOutputStream(file));
+
+                            int size = 0;
+                            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+
+                            NetworkInfo ani = cm.getActiveNetworkInfo();
+                            size += write(os, "active=" + ani + "\r\n\r\n");
+
+                            for (Network network : cm.getAllNetworks()) {
+                                NetworkInfo ni = cm.getNetworkInfo(network);
+                                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                                size += write(os, "network=" + ni + " capabilities=" + caps + "\r\n\r\n");
+                            }
+
+                            ops.size = size;
+                            ops.progress = null;
+                            ops.available = true;
+                            db.attachment().updateAttachment(ops);
+                        } finally {
+                            if (os != null)
+                                os.close();
+                        }
+                    }
+
                     // Attach recent log
                     {
                         EntityAttachment log = new EntityAttachment();
                         log.message = draft.id;
-                        log.sequence = 1;
+                        log.sequence = 3;
                         log.name = "log.txt";
                         log.type = "text/plain";
                         log.size = null;
@@ -889,12 +965,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             int size = 0;
                             long from = new Date().getTime() - 24 * 3600 * 1000L;
                             DateFormat DF = SimpleDateFormat.getTimeInstance();
-                            for (EntityLog entry : db.log().getLogs(from)) {
-                                String line = String.format("%s %s\r\n", DF.format(entry.time), entry.data);
-                                byte[] bytes = line.getBytes();
-                                os.write(bytes);
-                                size += bytes.length;
-                            }
+
+                            for (EntityLog entry : db.log().getLogs(from))
+                                size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
 
                             log.size = size;
                             log.progress = null;
@@ -910,7 +983,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     {
                         EntityAttachment ops = new EntityAttachment();
                         ops.message = draft.id;
-                        ops.sequence = 2;
+                        ops.sequence = 4;
                         ops.name = "operations.txt";
                         ops.type = "text/plain";
                         ops.size = null;
@@ -924,17 +997,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                             int size = 0;
                             DateFormat DF = SimpleDateFormat.getTimeInstance();
-                            for (EntityOperation op : db.operation().getOperations()) {
-                                String line = String.format("%s %d %s %s %s\r\n",
+
+                            for (EntityOperation op : db.operation().getOperations())
+                                size += write(os, String.format("%s %d %s %s %s\r\n",
                                         DF.format(op.created),
                                         op.message == null ? -1 : op.message,
                                         op.name,
                                         op.args,
-                                        op.error);
-                                byte[] bytes = line.getBytes();
-                                os.write(bytes);
-                                size += bytes.length;
-                            }
+                                        op.error));
 
                             ops.size = size;
                             ops.progress = null;
@@ -950,7 +1020,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     {
                         EntityAttachment logcat = new EntityAttachment();
                         logcat.message = draft.id;
-                        logcat.sequence = 3;
+                        logcat.sequence = 5;
                         logcat.name = "logcat.txt";
                         logcat.type = "text/plain";
                         logcat.size = null;
@@ -973,13 +1043,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
                             int size = 0;
+
                             String line;
-                            while ((line = br.readLine()) != null) {
-                                line += "\r\n";
-                                byte[] bytes = line.getBytes();
-                                os.write(bytes);
-                                size += bytes.length;
-                            }
+                            while ((line = br.readLine()) != null)
+                                size += write(os, line + "\r\n");
 
                             logcat.size = size;
                             logcat.progress = null;
@@ -1019,6 +1086,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+
+            int write(OutputStream os, String text) throws IOException {
+                byte[] bytes = text.getBytes();
+                os.write(bytes);
+                return bytes.length;
             }
         }.load(this, new Bundle());
     }
