@@ -28,9 +28,15 @@ import android.os.DeadSystemException;
 import android.os.RemoteException;
 import android.util.Log;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.Date;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
@@ -119,7 +125,40 @@ public class ApplicationEx extends Application {
         FileWriter out = null;
         try {
             out = new FileWriter(file);
-            out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
+            out.write(new Date() + "\r\n");
+            out.write(ex.toString() + "\r\n");
+            out.write(Log.getStackTraceString(ex) + "\r\n");
+
+            out.write("\r\n");
+
+            Process proc = null;
+            BufferedReader br = null;
+            OutputStream os = null;
+            try {
+                os = new BufferedOutputStream(new FileOutputStream(file));
+
+                String[] cmd = new String[]{"logcat",
+                        "-d",
+                        "-v", "threadtime",
+                        //"-t", "1000",
+                        Helper.TAG + ":I"};
+                proc = Runtime.getRuntime().exec(cmd);
+                br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+                String line;
+                while ((line = br.readLine()) != null)
+                    out.write(line + "\r\n");
+            } catch (Throwable exex) {
+                out.write(exex.toString());
+            } finally {
+                if (os != null)
+                    os.close();
+                if (br != null)
+                    br.close();
+                if (proc != null)
+                    proc.destroy();
+            }
+
         } catch (IOException e) {
             Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
         } finally {
