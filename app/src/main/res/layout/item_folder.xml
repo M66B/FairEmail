@@ -26,6 +26,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_cloud_off_24"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +36,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_folder_special_24"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintStart_toEndOf="@id/vwColor"
             app:layout_constraintTop_toBottomOf="@+id/barrier1" />
 
@@ -56,7 +58,7 @@
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
             android:ellipsize="start"
@@ -64,6 +66,7 @@
             android:singleLine="true"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/tvAfter"
             app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,6 +79,7 @@
             android:gravity="center_vertical"
             android:text="123"
             android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/ivMessages"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,6 +89,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_mail_outline_24"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,11 +103,12 @@
         <TextView
             android:id="@+id/tvType"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:gravity="center_vertical"
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
@@ -114,6 +120,7 @@
             android:gravity="center_vertical"
             android:text="30"
             android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/ivSync"
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
@@ -123,6 +130,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_sync_24"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
