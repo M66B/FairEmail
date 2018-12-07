@@ -212,7 +212,7 @@ public class Helper {
                                             draft.folder = drafts.id;
                                             draft.msgid = EntityMessage.generateMessageId();
                                             draft.to = new Address[]{Helper.myAddress()};
-                                            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " unexpected error";
+                                            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " crash log";
                                             draft.content = true;
                                             draft.received = new Date().getTime();
                                             draft.setContactInfo(context);
