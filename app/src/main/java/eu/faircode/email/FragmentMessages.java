@@ -416,7 +416,8 @@ public class FragmentMessages extends FragmentEx {
                     } else {
                         predicate.clearAccount();
                         fabMore.hide();
-                        loadMessages();
+                        if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                            loadMessages();
                         swipeRefresh.setEnabled(true);
                     }
                 }
