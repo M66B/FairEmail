@@ -35,7 +35,6 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -128,15 +127,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
     static final String ACTION_VIEW_FULL = BuildConfig.APPLICATION_ID + ".VIEW_FULL";
-    static final String ACTION_UNDO_MOVE = BuildConfig.APPLICATION_ID + ".UNDO_MOVE";
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
     static final String ACTION_SHOW_LEGEND = BuildConfig.APPLICATION_ID + ".SHOW_LEGEND";
-
-    private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
     static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
     static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
@@ -363,7 +359,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_VIEW_MESSAGES);
         iff.addAction(ACTION_VIEW_THREAD);
         iff.addAction(ACTION_VIEW_FULL);
-        iff.addAction(ACTION_UNDO_MOVE);
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
@@ -1193,8 +1188,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 onViewThread(intent);
             else if (ACTION_VIEW_FULL.equals(action))
                 onViewFull(intent);
-            else if (ACTION_UNDO_MOVE.equals(action))
-                onUndoMove(intent);
             else if (ACTION_EDIT_FOLDER.equals(action))
                 onEditFolder(intent);
             else if (ACTION_EDIT_ANSWER.equals(action))
@@ -1259,93 +1252,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("webview");
         fragmentTransaction.commit();
-    }
-
-    private void onUndoMove(Intent intent) {
-        final MessageTarget result = (MessageTarget) intent.getSerializableExtra("target");
-
-        // Show undo snackbar
-        final Snackbar snackbar = Snackbar.make(
-                getVisibleView(),
-                getString(R.string.title_moving, result.target.getDisplayName(this)),
-                Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                snackbar.dismiss();
-
-                Bundle args = new Bundle();
-                args.putSerializable("result", result);
-
-                // Show message again
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        MessageTarget result = (MessageTarget) args.getSerializable("result");
-                        for (long id : result.ids) {
-                            Log.i(Helper.TAG, "Move undo id=" + id);
-                            DB.getInstance(context).message().setMessageUiHide(id, false);
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        super.onException(args, ex);
-                    }
-                }.load(ActivityView.this, args);
-            }
-        });
-        snackbar.show();
-
-        // Wait
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i(Helper.TAG, "Move timeout");
-
-                // Remove snackbar
-                if (snackbar.isShown())
-                    snackbar.dismiss();
-
-                Bundle args = new Bundle();
-                args.putSerializable("result", result);
-
-                // Process move in a thread
-                // - the activity could be gone
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onLoad(Context context, Bundle args) {
-                        MessageTarget result = (MessageTarget) args.getSerializable("result");
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            for (long id : result.ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message != null && message.ui_hide) {
-                                    Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
-                                    EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                    EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                    }
-                }.load(ActivityView.this, args);
-            }
-        }, UNDO_TIMEOUT);
     }
 
     private void onEditFolder(Intent intent) {

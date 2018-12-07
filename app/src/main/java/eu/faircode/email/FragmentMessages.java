@@ -27,6 +27,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -44,6 +45,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,6 +109,9 @@ public class FragmentMessages extends FragmentEx {
     private List<Long> archives = new ArrayList<>();
     private List<Long> trashes = new ArrayList<>();
 
+    private boolean moving = false;
+    private boolean closing = false;
+
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
@@ -122,6 +127,7 @@ public class FragmentMessages extends FragmentEx {
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
+    private static final int UNDO_TIMEOUT = 5000; // milliseconds
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -341,6 +347,8 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     public void move(long id, String name, boolean type) {
+                        moving = true;
+
                         Bundle args = new Bundle();
                         args.putLong("id", id);
                         args.putString("name", name);
@@ -509,6 +517,8 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
 
+                moving = true;
+
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
@@ -601,6 +611,8 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionMove(String folderType) {
+                moving = true;
+
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putString("thread", thread);
@@ -974,6 +986,8 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionMove(String type) {
+                moving = true;
+
                 Bundle args = new Bundle();
                 args.putString("type", type);
                 args.putLongArray("ids", getSelection());
@@ -1066,6 +1080,8 @@ public class FragmentMessages extends FragmentEx {
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(final MenuItem target) {
+                                moving = true;
+
                                 args.putLong("target", target.getItemId());
 
                                 selectionTracker.clearSelection();
@@ -1616,8 +1632,12 @@ public class FragmentMessages extends FragmentEx {
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null ||
                         (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
-                    finish();
-                    return;
+                    if (moving)
+                        closing = true;
+                    else {
+                        finish();
+                        return;
+                    }
                 }
 
                 if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -1688,7 +1708,12 @@ public class FragmentMessages extends FragmentEx {
                             // - no more non archived/trashed/outgoing messages
 
                             if (count == 0)
-                                finish();
+                                if (moving)
+                                    closing = true;
+                                else {
+                                    finish();
+                                    return;
+                                }
                         }
                     }
                 } else {
@@ -1753,11 +1778,82 @@ public class FragmentMessages extends FragmentEx {
         }.load(this, args);
     }
 
-    private void moveUndo(MessageTarget target) {
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        lbm.sendBroadcast(
-                new Intent(ActivityView.ACTION_UNDO_MOVE)
-                        .putExtra("target", target));
+    private void moveUndo(final MessageTarget result) {
+        // Show undo snackbar
+        final Snackbar snackbar = Snackbar.make(
+                view,
+                getString(R.string.title_moving, result.target.getDisplayName(getContext())),
+                Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                moving = false;
+                closing = false;
+
+                Bundle args = new Bundle();
+                args.putSerializable("result", result);
+
+                // Show message again
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) {
+                        MessageTarget result = (MessageTarget) args.getSerializable("result");
+                        for (long id : result.ids) {
+                            Log.i(Helper.TAG, "Move undo id=" + id);
+                            DB.getInstance(context).message().setMessageUiHide(id, false);
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        super.onException(args, ex);
+                    }
+                }.load(FragmentMessages.this, args);
+            }
+        });
+        snackbar.show();
+
+        // Wait
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(Helper.TAG, "Move timeout");
+
+                moving = false;
+                if (closing)
+                    finish();
+
+                // Remove snackbar
+                if (snackbar.isShown())
+                    snackbar.dismiss();
+
+                final DB db = DB.getInstance(getContext());
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            db.beginTransaction();
+
+                            for (long id : result.ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message != null && message.ui_hide) {
+                                    Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                    EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+                }).start();
+            }
+        }, UNDO_TIMEOUT);
     }
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
@@ -1770,4 +1866,9 @@ public class FragmentMessages extends FragmentEx {
             return false;
         }
     };
+
+    class MessageTarget implements Serializable {
+        List<Long> ids = new ArrayList<>();
+        EntityFolder target;
+    }
 }
