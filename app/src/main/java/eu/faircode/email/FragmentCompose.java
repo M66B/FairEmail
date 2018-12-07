@@ -144,6 +144,7 @@ public class FragmentCompose extends FragmentEx {
     private AdapterAttachment adapter;
 
     private long working = -1;
+    private boolean busy = false;
     private boolean autosave = false;
     private boolean pro = false;
 
@@ -475,6 +476,9 @@ public class FragmentCompose extends FragmentEx {
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
         menu.findItem(R.id.menu_clear).setVisible(working >= 0);
         menu.findItem(R.id.menu_encrypt).setVisible(working >= 0);
+
+        menu.findItem(R.id.menu_clear).setEnabled(!busy);
+        menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
     }
 
     @Override
@@ -906,6 +910,7 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void onAction(int action) {
+        busy = true;
         Helper.setViewsEnabled(view, false);
         getActivity().invalidateOptionsMenu();
 
@@ -1656,6 +1661,7 @@ public class FragmentCompose extends FragmentEx {
             int action = args.getInt("action");
             Log.i(Helper.TAG, "Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
 
+            busy = false;
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
 
