@@ -106,6 +106,8 @@
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Opțional</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
@@ -134,7 +136,7 @@
     <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
+    <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>
     <string name="title_check">Verificare</string>
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
@@ -161,12 +163,12 @@
     <string name="title_hide_folders">Ascunde dosarele ascunse</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
-    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
-    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
+    <string name="title_folder_delete">Ştergeţi definitiv acest dosar şi mesajele pe care le conţine?</string>
     <string name="title_folder_unified">Căsuță poștală comună</string>
     <string name="title_folder_inbox">Primite</string>
     <string name="title_folder_outbox">Mesaje de trimis</string>

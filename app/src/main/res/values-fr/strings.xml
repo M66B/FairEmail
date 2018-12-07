@@ -101,6 +101,8 @@
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_account_linked">Compte associé</string>
     <string name="title_account_name">Nom du compte</string>

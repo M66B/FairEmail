@@ -101,6 +101,8 @@
     <string name="title_identity_name">El teu nom</string>
     <string name="title_identity_email">La teva adreça de correu-e</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Opcional</string>
     <string name="title_account_linked">Compte vinculat</string>
     <string name="title_account_name">Nom del compte</string>

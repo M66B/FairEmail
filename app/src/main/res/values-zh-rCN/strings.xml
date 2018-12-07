@@ -96,6 +96,8 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">可选</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>

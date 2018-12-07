@@ -91,7 +91,7 @@
     <string name="title_advanced_enabled">Synchronizuj</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_unified">Unified inbox</string>
-    <string name="title_advanced_threading">Conversation threading</string>
+    <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_compact">Widok kompaktowy</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
@@ -111,6 +111,8 @@
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_account_linked">Połączone konto</string>
     <string name="title_account_name">Nazwa konta</string>
@@ -139,7 +141,7 @@
     <string name="title_synchronize_identity">Synchronizuj (wyślij wiadomości)</string>
     <string name="title_primary_account">Podstawowe (domyślne konto)</string>
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
+    <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
@@ -166,7 +168,7 @@
     <string name="title_hide_folders">Nie pokazuj ukrytych folderów</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
-    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
@@ -220,7 +222,7 @@
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_save">Zapisać zmiany?</string>
-    <string name="title_ask_spam">Report as spam?</string>
+    <string name="title_ask_spam">Zgłosić jako spam?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_sync_queued">Synchronization will take place on next account connection</string>
@@ -299,7 +301,7 @@
     <string name="title_legend_downloading">Pobieranie</string>
     <string name="title_legend_closing">Zamykanie</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
-    <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
+    <string name="title_legend_download_fetch">Liczba pobranych wiadomości / nagłówków</string>
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
@@ -312,7 +314,7 @@
     <string name="title_no">Nie</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_add">Dodaj</string>
-    <string name="title_report">Report</string>
+    <string name="title_report">Raport</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>

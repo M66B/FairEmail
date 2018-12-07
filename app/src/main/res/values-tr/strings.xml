@@ -101,6 +101,8 @@
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>

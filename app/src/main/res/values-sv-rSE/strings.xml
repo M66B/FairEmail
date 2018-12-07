@@ -101,6 +101,8 @@
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
     <string name="title_identity_reply_to">Svara till adress</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_account_linked">Länkade kontot</string>
     <string name="title_account_name">Kontonamn</string>

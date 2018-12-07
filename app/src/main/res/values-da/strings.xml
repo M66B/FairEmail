@@ -101,6 +101,8 @@
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din email adresse</string>
     <string name="title_identity_reply_to">Svar til adresse</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Valgfri</string>
     <string name="title_account_linked">Forbundet konto</string>
     <string name="title_account_name">Kontonavn</string>

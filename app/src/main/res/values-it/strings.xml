@@ -101,6 +101,8 @@
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
+    <string name="title_identity_read_receipt">Request read receipt</string>
+    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
@@ -129,7 +131,7 @@
     <string name="title_synchronize_identity">Sincronizza (invia messaggi)</string>
     <string name="title_primary_account">Principale (account predefinito)</string>
     <string name="title_primary_identity">Principale (identità predefinita)</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
+    <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
     <string name="title_check">Controlla</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
@@ -156,12 +158,12 @@
     <string name="title_hide_folders">Non mostrare cartelle nascoste</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
-    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_sync_days">Sincronizza i messaggi (giorni)</string>
     <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
-    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
+    <string name="title_folder_delete">Elimina definitivamente questa cartella e tutti i messaggi che contiene?</string>
     <string name="title_folder_unified">Posta in arrivo unificata</string>
     <string name="title_folder_inbox">Posta in arrivo</string>
     <string name="title_folder_outbox">Posta in uscita</string>

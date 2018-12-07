@@ -101,6 +101,8 @@
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
+    <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
+    <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_account_linked">Gekoppeld account</string>
     <string name="title_account_name">Accountnaam</string>
