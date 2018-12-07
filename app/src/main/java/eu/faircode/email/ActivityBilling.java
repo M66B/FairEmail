@@ -30,7 +30,6 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.View;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -122,10 +121,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         }
     };
 
-    private View getView() {
-        return findViewById(android.R.id.content);
-    }
-
     private void onPurchase(Intent intent) {
         if (Helper.isPlayStoreInstall(this)) {
             BillingFlowParams flowParams = BillingFlowParams.newBuilder()
@@ -136,7 +131,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             String text = Helper.getBillingResponseText(responseCode);
             Log.i(Helper.TAG, "IAB launch billing flow response=" + text);
             if (responseCode != BillingClient.BillingResponse.OK)
-                Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         } else
             Helper.view(this, this, getIntentPro());
     }
@@ -153,10 +148,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 prefs.edit().putBoolean("pro", true).apply();
                 Log.i(Helper.TAG, "Response valid");
-                Snackbar.make(getView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getVisibleView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
             } else {
                 Log.i(Helper.TAG, "Response invalid");
-                Snackbar.make(getView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
             }
         } catch (NoSuchAlgorithmException ex) {
             Log.e(Helper.TAG, Log.getStackTraceString(ex));
@@ -175,7 +170,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 backoff = 4;
                 queryPurchases();
             } else
-                Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         }
 
         @Override
@@ -199,7 +194,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (responseCode == BillingClient.BillingResponse.OK)
             checkPurchases(purchases);
         else
-            Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
     }
 
     private void queryPurchases() {
@@ -209,7 +204,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (result.getResponseCode() == BillingClient.BillingResponse.OK)
             checkPurchases(result.getPurchasesList());
         else
-            Snackbar.make(getView(), text, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
     }
 
     private void checkPurchases(List<Purchase> purchases) {

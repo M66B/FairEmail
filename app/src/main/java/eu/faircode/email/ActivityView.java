@@ -1266,7 +1266,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         // Show undo snackbar
         final Snackbar snackbar = Snackbar.make(
-                view,
+                getVisibleView(),
                 getString(R.string.title_moving, result.target.getDisplayName(this)),
                 Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
@@ -1371,7 +1371,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
         if (create.resolveActivity(getPackageManager()) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(create, REQUEST_ATTACHMENT);
     }
@@ -1384,7 +1384,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 decrypt(data, intent.getLongExtra("id", -1));
             } else {
-                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(getVisibleView(), R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
                 if (Helper.getIntentOpenKeychain().resolveActivity(getPackageManager()) != null)
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
@@ -1547,7 +1547,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }

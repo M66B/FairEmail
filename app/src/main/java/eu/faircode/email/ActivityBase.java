@@ -25,6 +25,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,7 @@ import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static String[] restart = new String[]{
@@ -98,6 +100,17 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 startActivity(getIntent());
         } else if (!this.getClass().equals(ActivitySetup.class) && Arrays.asList(restart).contains(key))
             finish();
+    }
+
+    protected View getVisibleView() {
+        for (Fragment fragment : getSupportFragmentManager().getFragments())
+            if (fragment.getUserVisibleHint()) {
+                Log.i(Helper.TAG, "Visible fragment=" + fragment.getClass().getName());
+                return fragment.getView();
+            }
+
+        Log.i(Helper.TAG, "Visible activity=" + this.getClass().getName());
+        return findViewById(android.R.id.content);
     }
 
     private List<IBackPressedListener> backPressedListeners = new ArrayList<>();
