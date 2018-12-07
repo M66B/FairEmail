@@ -36,7 +36,6 @@ import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
@@ -944,10 +943,13 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.endTransaction();
                                                 }
 
+                                                Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
+                                                boolean metered = (isMetered == null || isMetered);
+
                                                 try {
                                                     db.beginTransaction();
                                                     downloadMessage(
-                                                            ServiceSynchronize.this,
+                                                            ServiceSynchronize.this, metered,
                                                             folder, ifolder, (IMAPMessage) imessage, message.id);
                                                     db.setTransactionSuccessful();
                                                 } finally {
@@ -1025,9 +1027,14 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.endTransaction();
                                             }
 
+                                            Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
+                                            boolean metered = (isMetered == null || isMetered);
+
                                             try {
                                                 db.beginTransaction();
-                                                downloadMessage(ServiceSynchronize.this, folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
+                                                downloadMessage(
+                                                        ServiceSynchronize.this, metered,
+                                                        folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -2017,11 +2024,16 @@ public class ServiceSynchronize extends LifecycleService {
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
                 // Fetch on demand
 
+                Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
+                boolean metered = (isMetered == null || isMetered);
+
                 for (int j = isub.length - 1; j >= 0 && state.running(); j--)
                     try {
                         db.beginTransaction();
                         if (ids[from + j] != null) {
-                            downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
+                            downloadMessage(
+                                    this, metered,
+                                    folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
                             Thread.sleep(20);
                         }
                         db.setTransactionSuccessful();
@@ -2262,7 +2274,7 @@ public class ServiceSynchronize extends LifecycleService {
         return message;
     }
 
-    private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
+    private static void downloadMessage(Context context, boolean metered, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         long download = prefs.getInt("download", 32768);
         if (download == 0)
@@ -2274,9 +2286,6 @@ public class ServiceSynchronize extends LifecycleService {
             return;
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         MessageHelper helper = new MessageHelper(imessage);
-
-        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
-        boolean metered = (cm == null || cm.isActiveNetworkMetered());
 
         boolean fetch = false;
         if (!message.content)
@@ -2339,16 +2348,11 @@ public class ServiceSynchronize extends LifecycleService {
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
             try {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                boolean metered = prefs.getBoolean("metered", true);
-                boolean unmetered = (capabilities != null &&
-                        capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
-
-                if (!started && (metered || unmetered))
+                if (!started) {
                     EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
-
-                if (!started && suitableNetwork())
-                    queue_reload(true, "connect " + network);
+                    if (suitableNetwork())
+                        queue_reload(true, "connect " + network);
+                }
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
@@ -2382,17 +2386,14 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private boolean suitableNetwork() {
-            ConnectivityManager cm = getSystemService(ConnectivityManager.class);
-            Network active = cm.getActiveNetwork();
-            NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
-            NetworkInfo ni = (active == null ? null : cm.getNetworkInfo(active));
-            boolean unmetered = (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED));
-
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean metered = prefs.getBoolean("metered", true);
 
-            boolean suitable = (active != null && (metered || unmetered));
-            EntityLog.log(ServiceSynchronize.this, "suitable=" + suitable + " active=" + ni);
+            Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
+
+            boolean suitable = (isMetered != null && (metered || !isMetered));
+            EntityLog.log(ServiceSynchronize.this,
+                    "suitable=" + suitable + " metered=" + metered + " isMetered=" + isMetered);
 
             // The connected state is deliberately ignored
             return suitable;

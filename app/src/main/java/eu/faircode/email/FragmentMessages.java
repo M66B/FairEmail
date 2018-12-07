@@ -26,7 +26,6 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -1630,8 +1629,8 @@ public class FragmentMessages extends FragmentEx {
                         if (download == 0)
                             download = Long.MAX_VALUE;
 
-                        ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
-                        boolean metered = (cm == null || cm.isActiveNetworkMetered());
+                        Boolean isMetered = Helper.isMetered(getContext());
+                        boolean metered = (isMetered == null || isMetered);
 
                         int count = 0;
                         int unseen = 0;

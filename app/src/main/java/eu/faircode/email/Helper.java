@@ -30,6 +30,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -289,6 +292,95 @@ public class Helper {
         if (index < 0)
             return null;
         return filename.substring(index + 1);
+    }
+
+    static Boolean isMetered(Context context) {
+        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+
+        Network active = cm.getActiveNetwork();
+        if (active == null) {
+            Log.i(Helper.TAG, "isMetered: no active network");
+            return null;
+        }
+
+        NetworkInfo ni = cm.getNetworkInfo(active);
+        if (ni == null) {
+            Log.i(Helper.TAG, "isMetered: active no info");
+            return null;
+        }
+
+        Log.i(Helper.TAG, "isMetered: active info=" + ni);
+
+        if (!ni.isConnected()) {
+            Log.i(Helper.TAG, "isMetered: active not connected");
+            return null;
+        }
+
+        NetworkCapabilities caps = cm.getNetworkCapabilities(active);
+        if (caps == null) {
+            Log.i(Helper.TAG, "isMetered: active no caps");
+            return null;
+        }
+
+        Log.i(Helper.TAG, "isMetered: active caps=" + caps);
+
+        boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+        if (unmetered) {
+            Log.i(Helper.TAG, "isMetered: active unmetered");
+            return false;
+        }
+
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+            Log.i(Helper.TAG, "isMetered: active metered");
+            return true;
+        }
+
+        // VPN: evaluate underlying networks
+
+        Network[] networks = cm.getAllNetworks();
+        if (networks == null) {
+            Log.i(Helper.TAG, "isMetered: no underlying networks");
+            return null;
+        }
+
+        boolean connected = false;
+        for (Network network : networks) {
+            ni = cm.getNetworkInfo(network);
+            if (ni == null) {
+                Log.i(Helper.TAG, "isMetered: no underlying info");
+                return null;
+            }
+
+            Log.i(Helper.TAG, "isMetered: underlying info=" + ni);
+
+            caps = cm.getNetworkCapabilities(network);
+            if (caps == null) {
+                Log.i(Helper.TAG, "isMetered: no underlying caps");
+                return null;
+            }
+
+            if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                if (ni.isConnected()) {
+                    connected = true;
+                    Log.i(Helper.TAG, "isMetered: underlying is connected");
+
+                    if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
+                        Log.i(Helper.TAG, "isMetered: underlying is unmetered");
+                        return false;
+                    }
+                } else
+                    Log.i(Helper.TAG, "isMetered: underlying is disconnected");
+            } else
+                Log.i(Helper.TAG, "isMetered: underlying is VPN");
+        }
+
+        if (!connected) {
+            Log.i(Helper.TAG, "isMetered: underlying disconnected");
+            return null;
+        }
+
+        Log.i(Helper.TAG, "isMetered: underlying is metered");
+        return true;
     }
 
     static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
