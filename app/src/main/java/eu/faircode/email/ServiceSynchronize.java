@@ -1661,9 +1661,11 @@ public class ServiceSynchronize extends LifecycleService {
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
 
+        // defacto standard
         if (ident.delivery_receipt)
             imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
 
+        // https://tools.ietf.org/html/rfc3798
         if (ident.read_receipt)
             imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
 
