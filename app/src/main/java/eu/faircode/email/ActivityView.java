@@ -565,7 +565,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " crash log";
                             draft.content = true;
                             draft.received = new Date().getTime();
-                            draft.getAvatar(context);
+                            draft.setContactInfo(context);
                             draft.id = db.message().insertMessage(draft);
                             draft.write(context, body);
 
@@ -871,7 +871,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
                     draft.content = true;
                     draft.received = new Date().getTime();
-                    draft.getAvatar(context);
+                    draft.setContactInfo(context);
                     draft.id = db.message().insertMessage(draft);
                     draft.write(context, body);
 

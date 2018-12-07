@@ -1202,7 +1202,7 @@ public class FragmentCompose extends FragmentEx {
 
                 result.draft.content = true;
                 result.draft.received = new Date().getTime();
-                result.draft.getAvatar(context);
+                result.draft.setContactInfo(context);
 
                 result.draft.id = db.message().insertMessage(result.draft);
                 result.draft.write(context, body == null ? "" : body);

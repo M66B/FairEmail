@@ -2193,7 +2193,6 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_found = false;
             message.ui_ignored = false;
             message.ui_browsed = browsed;
-            message.getAvatar(context);
 
             message.id = db.message().insertMessage(message);
 
@@ -2249,11 +2248,6 @@ public class ServiceSynchronize extends LifecycleService {
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
-            boolean noavatar = TextUtils.isEmpty(message.avatar);
-            message.getAvatar(context);
-            if (noavatar != TextUtils.isEmpty(message.avatar))
-                update = true;
-
             if (update)
                 db.message().updateMessage(message);
         }
@@ -2286,6 +2280,9 @@ public class ServiceSynchronize extends LifecycleService {
             return;
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         MessageHelper helper = new MessageHelper(imessage);
+
+        if (message.setContactInfo(context))
+            db.message().updateMessage(message);
 
         boolean fetch = false;
         if (!message.content)

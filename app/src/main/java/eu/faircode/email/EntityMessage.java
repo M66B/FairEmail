@@ -201,7 +201,7 @@ public class EntityMessage implements Serializable {
         }
     }
 
-    void getAvatar(Context context) {
+    boolean setContactInfo(Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
             this.avatar = null;
@@ -234,6 +234,8 @@ public class EntityMessage implements Serializable {
 
                                 if (!TextUtils.isEmpty(displayName))
                                     ((InternetAddress) this.from[i]).setPersonal(displayName);
+
+                                return true;
                             }
                         } finally {
                             if (cursor != null)
@@ -244,6 +246,8 @@ public class EntityMessage implements Serializable {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             }
         }
+
+        return false;
     }
 
     static String getQuote(Context context, long id) throws IOException {
