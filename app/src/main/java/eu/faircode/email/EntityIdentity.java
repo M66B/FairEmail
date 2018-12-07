@@ -88,6 +88,8 @@ public class EntityIdentity {
         json.put("name", name);
         json.put("email", email);
         json.put("replyto", replyto);
+        json.put("delivery_receipt", delivery_receipt);
+        json.put("read_receipt", read_receipt);
         // not account
         json.put("host", host);
         json.put("starttls", starttls);
@@ -113,8 +115,20 @@ public class EntityIdentity {
         EntityIdentity identity = new EntityIdentity();
         identity.name = json.getString("name");
         identity.email = json.getString("email");
+
         if (json.has("replyto"))
             identity.replyto = json.getString("replyto");
+
+        if (json.has("delivery_receipt"))
+            identity.delivery_receipt = json.getBoolean("delivery_receipt");
+        else
+            identity.delivery_receipt = false;
+
+        if (json.has("read_receipt"))
+            identity.read_receipt = json.getBoolean("read_receipt");
+        else
+            identity.read_receipt = false;
+
         identity.host = json.getString("host");
         identity.starttls = json.getBoolean("starttls");
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
@@ -123,14 +137,18 @@ public class EntityIdentity {
         identity.password = json.getString("password");
         identity.auth_type = json.getInt("auth_type");
         identity.primary = json.getBoolean("primary");
+
         if (json.has("color"))
             identity.color = json.getInt("color");
         if (json.has("signature"))
             identity.signature = json.getString("signature");
+
         identity.synchronize = json.getBoolean("synchronize");
         identity.store_sent = json.getBoolean("store_sent");
+
         if (json.has("sent_folder"))
             identity.sent_folder = json.getLong("sent_folder");
+
         return identity;
     }
 
