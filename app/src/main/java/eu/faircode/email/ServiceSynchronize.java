@@ -2114,10 +2114,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (dup.folder.equals(folder.id) || outbox) {
                     String thread = helper.getThreadId(uid);
-                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + uid +
+                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" +
+                            " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
                     dup.folder = folder.id; // From outbox
-                    dup.uid = uid;
+                    if (dup.uid == null)
+                        dup.uid = uid;
                     dup.msgid = msgid;
                     dup.thread = thread;
                     dup.error = null;
