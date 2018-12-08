@@ -108,7 +108,8 @@
         <View
             android:id="@+id/padding1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="6dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/barrier1" />
@@ -153,7 +154,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
-            android:maxLines="1"
+            android:ellipsize="start"
+            android:singleLine="true"
             android:text="folder"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toTopOf="@+id/barrier2"
@@ -265,7 +267,6 @@
             android:id="@+id/vSeparatorAddress"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="3dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
