@@ -1437,6 +1437,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             if (message.uid == null && !TextUtils.isEmpty(message.error)) {
                                                 // outbox
                                                 db.message().deleteMessage(id);
+
+                                                db.identity().setIdentityError(message.identity, null);
+
                                                 NotificationManager nm = context.getSystemService(NotificationManager.class);
                                                 nm.cancel("send", message.account.intValue());
                                             } else
