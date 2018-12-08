@@ -19,8 +19,10 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -33,9 +35,12 @@ import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private boolean contacts;
+
     private static String[] restart = new String[]{
             "unified", "threading", "compact", "avatars", "identicons", "preview",
             "browse", "actionbar", "autoclose", "confirm", "debug"
@@ -44,6 +49,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(Helper.TAG, "Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
+
+        this.contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (Helper.isPro(this)) {
@@ -62,6 +70,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     protected void onResume() {
         Log.i(Helper.TAG, "Resume " + this.getClass().getName());
+
+        boolean contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED);
+
+        if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
+            Log.i(Helper.TAG, "Contacts permission=" + contacts);
+            finish();
+            startActivity(getIntent());
+        }
+
         super.onResume();
     }
 
