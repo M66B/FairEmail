@@ -106,8 +106,8 @@
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
-    <string name="title_identity_read_receipt">Request read receipt</string>
-    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
+    <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
+    <string name="title_identity_delivery_receipt">Solicită confirmare de livrare</string>
     <string name="title_optional">Opțional</string>
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>

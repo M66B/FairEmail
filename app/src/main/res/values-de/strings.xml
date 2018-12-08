@@ -101,8 +101,8 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_read_receipt">Request read receipt</string>
-    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
+    <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
+    <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
     <string name="title_optional">Optional</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
@@ -131,7 +131,7 @@
     <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
+    <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -158,12 +158,12 @@
     <string name="title_hide_folders">Verstecke ausgeblendete Ordner</string>
     <string name="title_show_folders">Zeige ausgeblendete Ordner</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_poll_folder">Periodisch überprüfen anstelle einer dauerhaften Synchronisierung</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
-    <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
+    <string name="title_folder_delete">Diesen Ordner und alle darin enthaltenen E-Mails dauerhaft löschen?</string>
     <string name="title_folder_unified">Sammeleingang</string>
     <string name="title_folder_inbox">Posteingang</string>
     <string name="title_folder_outbox">Postausgang</string>
