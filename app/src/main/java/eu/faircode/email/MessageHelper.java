@@ -402,6 +402,10 @@ public class MessageHelper {
             if (!TextUtils.isEmpty(ref))
                 return ref;
 
+        String inreplyto = getInReplyTo();
+        if (inreplyto != null)
+            return inreplyto;
+
         String msgid = getMessageID();
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
     }
