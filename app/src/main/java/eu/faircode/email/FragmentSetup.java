@@ -298,7 +298,7 @@ public class FragmentSetup extends FragmentEx {
         for (int i = 0; i < permissions.length; i++)
             grantResults[i] = ContextCompat.checkSelfPermission(getActivity(), permissions[i]);
 
-        onRequestPermissionsResult(0, permissions, grantResults);
+        checkPermissions(permissions, grantResults, true);
 
         // Create outbox
         new SimpleTask<Void>() {
@@ -427,6 +427,10 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        checkPermissions(permissions, grantResults, false);
+    }
+
+    private void checkPermissions(String[] permissions, @NonNull int[] grantResults, boolean init) {
         boolean has = (grantResults.length > 0);
         for (int result : grantResults)
             if (result != PackageManager.PERMISSION_GRANTED) {
@@ -438,7 +442,7 @@ public class FragmentSetup extends FragmentEx {
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
 
-        if (has)
+        if (has && !init)
             new SimpleTask<Void>() {
                 @Override
                 protected Void onLoad(Context context, Bundle args) {
