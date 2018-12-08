@@ -537,6 +537,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         data.message = message;
                         bnvActions.setTag(data);
 
+                        bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
                         bnvActions.getMenu().findItem(R.id.action_delete).setVisible((message.uid != null && hasTrash) || (inOutbox && !TextUtils.isEmpty(message.error)));
                         bnvActions.getMenu().findItem(R.id.action_move).setVisible(message.uid != null);
                         bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
