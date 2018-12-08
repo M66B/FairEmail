@@ -53,10 +53,10 @@
             android:layout_marginStart="6dp"
             android:padding="6dp"
             android:src="@drawable/baseline_person_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
-            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+            app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
         <TextView
             android:id="@+id/tvFrom"
@@ -67,6 +67,7 @@
             android:ellipsize="end"
             android:text="From"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
@@ -79,9 +80,9 @@
             android:maxLines="1"
             android:text="123 KB"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
-            app:layout_constraintEnd_toStartOf="@id/tvTime"
-            app:layout_constraintTop_toTopOf="@id/tvFrom" />
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
+            app:layout_constraintEnd_toStartOf="@+id/tvTime"
+            app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
         <TextView
             android:id="@+id/tvTime"
@@ -91,9 +92,24 @@
             android:maxLines="1"
             android:text="Time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
-            app:layout_constraintTop_toTopOf="@id/tvFrom" />
+            app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvFrom,tvSize,tvTime" />
+
+        <View
+            android:id="@+id/padding1"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barrier1" />
 
         <ImageView
             android:id="@+id/ivAnswered"
@@ -101,9 +117,9 @@
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_reply_24"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
-            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <ImageView
             android:id="@+id/ivAttachments"
@@ -111,23 +127,22 @@
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_attachment_24"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintStart_toEndOf="@id/ivAnswered"
-            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <TextView
             android:id="@+id/tvSubject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:layout_marginTop="6dp"
             android:layout_marginEnd="6dp"
-            android:ellipsize="end"
             android:text="Subject"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/tvFolder"
             app:layout_constraintStart_toEndOf="@id/ivAttachments"
-            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <TextView
             android:id="@+id/tvFolder"
@@ -137,9 +152,9 @@
             android:maxLines="1"
             android:text="folder"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/tvCount"
-            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <TextView
             android:id="@+id/tvCount"
@@ -149,9 +164,9 @@
             android:maxLines="1"
             android:text="3"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/ivThread"
-            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <ImageView
             android:id="@+id/ivThread"
@@ -159,9 +174,9 @@
             android:layout_height="15dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_message_24"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
-            app:layout_constraintTop_toTopOf="@id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/padding1" />
 
         <ImageView
             android:id="@+id/ivFlagged"
@@ -170,9 +185,16 @@
             android:padding="6dp"
             android:src="@drawable/baseline_star_24"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+            app:layout_constraintBottom_toTopOf="@id/barrier2"
             app:layout_constraintEnd_toEndOf="@id/paddingEnd"
-            app:layout_constraintTop_toTopOf="@+id/tvFrom" />
+            app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ivAvatar,ivAnswered,ivAttachments,tvSubject,tvFolder,tvCount,ivThread,ivFlagged" />
 
         <TextView
             android:id="@+id/tvPreview"
@@ -189,7 +211,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
-            app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+            app:layout_constraintTop_toBottomOf="@id/barrier2" />
 
         <TextView
             android:id="@+id/tvError"
