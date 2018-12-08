@@ -1433,6 +1433,7 @@ public class ServiceSynchronize extends LifecycleService {
                         reportError(account, folder, ex);
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+
                         if (message != null &&
                                 !(ex instanceof MessageRemovedException) &&
                                 !(ex instanceof FolderClosedException) &&

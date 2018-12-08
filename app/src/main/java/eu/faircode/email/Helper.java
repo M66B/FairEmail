@@ -170,11 +170,13 @@ public class Helper {
     static String formatThrowable(Throwable ex) {
         StringBuilder sb = new StringBuilder();
         sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
+
         Throwable cause = ex.getCause();
         while (cause != null) {
             sb.append(" ").append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
             cause = cause.getCause();
         }
+
         return sb.toString();
     }
 
