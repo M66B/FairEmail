@@ -106,7 +106,7 @@ The low priority status bar notification shows the number of pending operations,
 * headers: download message headers
 * body: download message text
 * attachment: download attachment
-* sync: synchronize local folder
+* sync: synchronize local and remove folder
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
@@ -599,6 +599,12 @@ Please make sure receiving and sending messages works properly.
 
 See below about how to contact me.
 
+
+<a name="faq43"></a>
+**(43) Can you show the original ... ?**
+
+Show original, shows the original message as the sender has sent it, including original margins, styling, etc.
+FairEmail does and will not alter this in any way.
 
 
 ## Support
