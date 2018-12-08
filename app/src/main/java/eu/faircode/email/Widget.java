@@ -53,7 +53,7 @@ public class Widget extends AppWidgetProvider {
         for (int id : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
             views.setOnClickPendingIntent(R.id.widget, pi);
-            views.setTextViewText(R.id.tvCount, count < 0 ? "?" : Integer.toString(count));
+            views.setTextViewText(R.id.tvCount, count < 0 ? "?" : (count > 99 ? "99+" : Integer.toString(count)));
             appWidgetManager.updateAppWidget(id, views);
         }
     }
