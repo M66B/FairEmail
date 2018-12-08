@@ -1732,6 +1732,30 @@ public class ServiceSynchronize extends LifecycleService {
                 db.endTransaction();
             }
         } catch (MessagingException ex) {
+            if (ex instanceof SendFailedException) {
+                SendFailedException sfe = (SendFailedException) ex;
+
+                StringBuilder sb = new StringBuilder();
+
+                sb.append(sfe.getMessage());
+
+                sb.append(' ').append(getString(R.string.title_address_sent));
+                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getValidSentAddresses(), true));
+
+                sb.append(' ').append(getString(R.string.title_address_unsent));
+                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getValidUnsentAddresses(), true));
+
+                sb.append(' ').append(getString(R.string.title_address_invalid));
+                sb.append(' ').append(MessageHelper.getFormattedAddresses(sfe.getInvalidAddresses(), true));
+
+                ex = new SendFailedException(
+                        sb.toString(),
+                        sfe.getNextException(),
+                        sfe.getValidSentAddresses(),
+                        sfe.getValidUnsentAddresses(),
+                        sfe.getInvalidAddresses());
+            }
+
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
 
             EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
