@@ -473,6 +473,7 @@
             android:layout_marginTop="3dp"
             android:layout_marginEnd="6dp"
             android:fontFamily="monospace"
+            android:minHeight="24dp"
             android:text="Headers"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
@@ -487,10 +488,33 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toTopOf="@+id/bnvActions"
+            app:layout_constraintBottom_toBottomOf="@id/tvHeaders"
             app:layout_constraintEnd_toEndOf="@id/tvHeaders"
             app:layout_constraintStart_toStartOf="@id/tvHeaders"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+            app:layout_constraintTop_toTopOf="@id/tvHeaders" />
+
+        <View
+            android:id="@+id/vSeparatorAttachments"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeaders" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAttachment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnvActions"
@@ -503,7 +527,7 @@
             app:labelVisibilityMode="labeled"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHeaders"
+            app:layout_constraintTop_toBottomOf="@id/rvAttachment"
             app:menu="@menu/action_message" />
 
         <View
@@ -571,34 +595,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toTopOf="@+id/vSeparatorAttachments"
+            app:layout_constraintBottom_toBottomOf="@id/tvBody"
             app:layout_constraintEnd_toEndOf="@id/tvBody"
             app:layout_constraintStart_toStartOf="@id/tvBody"
-            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
-        <View
-            android:id="@+id/vSeparatorAttachments"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="3dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBody" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAttachment"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="6dp"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbars="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
-            app:layout_goneMarginBottom="3dp" />
+            app:layout_constraintTop_toTopOf="@id/tvBody" />
 
         <View
             android:id="@+id/vSeparator"
@@ -606,7 +606,7 @@
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAddress"

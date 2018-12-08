@@ -172,6 +172,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvHeaders;
         private ProgressBar pbHeaders;
 
+        private RecyclerView rvAttachment;
+
         private BottomNavigationView bnvActions;
 
         private View vSeparatorBody;
@@ -180,14 +182,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvBody;
         private ProgressBar pbBody;
 
-        private RecyclerView rvAttachment;
-        private AdapterAttachment adapter;
-
         private Group grpAddress;
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
 
+        private AdapterAttachment adapter;
         private LiveData<List<EntityAttachment>> liveAttachments = null;
         private Observer<List<EntityAttachment>> observerAttachments = null;
 
@@ -227,14 +227,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvHeaders = itemView.findViewById(R.id.tvHeaders);
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
 
-            bnvActions = itemView.findViewById(R.id.bnvActions);
-
-            vSeparatorBody = itemView.findViewById(R.id.vSeparatorBody);
-            btnHtml = itemView.findViewById(R.id.btnHtml);
-            btnImages = itemView.findViewById(R.id.btnImages);
-            tvBody = itemView.findViewById(R.id.tvBody);
-            pbBody = itemView.findViewById(R.id.pbBody);
-
             rvAttachment = itemView.findViewById(R.id.rvAttachment);
             rvAttachment.setHasFixedSize(false);
             LinearLayoutManager llm = new LinearLayoutManager(context);
@@ -243,6 +235,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             adapter = new AdapterAttachment(context, owner, true);
             rvAttachment.setAdapter(adapter);
+
+            bnvActions = itemView.findViewById(R.id.bnvActions);
+
+            vSeparatorBody = itemView.findViewById(R.id.vSeparatorBody);
+            btnHtml = itemView.findViewById(R.id.btnHtml);
+            btnImages = itemView.findViewById(R.id.btnImages);
+            tvBody = itemView.findViewById(R.id.tvBody);
+            pbBody = itemView.findViewById(R.id.pbBody);
 
             grpAddress = itemView.findViewById(R.id.grpAddress);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
@@ -481,6 +481,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bodyTask.load(context, owner, args);
                 }
 
+                // Observe attachments
+                observerAttachments = new Observer<List<EntityAttachment>>() {
+                    @Override
+                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
+                        if (attachments == null)
+                            attachments = new ArrayList<>();
+
+                        adapter.set(attachments);
+
+                        if (message.content) {
+                            Bundle args = new Bundle();
+                            args.putSerializable("message", message);
+                            bodyTask.load(context, owner, args);
+                        }
+                    }
+                };
+                liveAttachments = db.attachment().liveAttachments(message.id);
+                liveAttachments.observe(owner, observerAttachments);
+
+                // Setup action
                 Bundle sargs = new Bundle();
                 sargs.putLong("account", message.account);
 
@@ -532,25 +552,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Helper.unexpectedError(context, owner, ex);
                     }
                 }.load(context, owner, sargs);
-
-                // Observe attachments
-                observerAttachments = new Observer<List<EntityAttachment>>() {
-                    @Override
-                    public void onChanged(@Nullable List<EntityAttachment> attachments) {
-                        if (attachments == null)
-                            attachments = new ArrayList<>();
-
-                        adapter.set(attachments);
-
-                        if (message.content) {
-                            Bundle args = new Bundle();
-                            args.putSerializable("message", message);
-                            bodyTask.load(context, owner, args);
-                        }
-                    }
-                };
-                liveAttachments = db.attachment().liveAttachments(message.id);
-                liveAttachments.observe(owner, observerAttachments);
             }
 
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
