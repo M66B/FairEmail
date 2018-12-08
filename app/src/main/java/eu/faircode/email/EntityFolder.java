@@ -126,15 +126,16 @@ public class EntityFolder implements Serializable {
             USER
     );
 
-    static final int DEFAULT_INBOX_SYNC = 30; // days
+    static final int DEFAULT_INBOX_SYNC = 7; // days
     static final int DEFAULT_SYSTEM_SYNC = 7; // days
     static final int DEFAULT_USER_SYNC = 7; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
-            ARCHIVE,
             DRAFTS,
-            TRASH,
-            SENT
+            SENT,
+            ARCHIVE,
+            TRASH
+            // not spam
     );
 
     public EntityFolder() {
