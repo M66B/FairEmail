@@ -196,13 +196,11 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onRefresh() {
                 Bundle args = new Bundle();
-                args.putLong("account", account);
                 args.putLong("folder", folder);
 
                 new SimpleTask<Boolean>() {
                     @Override
                     protected Boolean onLoad(Context context, Bundle args) {
-                        long aid = args.getLong("account");
                         long fid = args.getLong("folder");
 
                         boolean connected = false;
@@ -212,7 +210,7 @@ public class FragmentMessages extends FragmentEx {
                             db.beginTransaction();
 
                             List<EntityFolder> folders = new ArrayList<>();
-                            if (aid < 0)
+                            if (fid < 0)
                                 folders.addAll(db.folder().getUnifiedFolders());
                             else
                                 folders.add(db.folder().getFolder(fid));
