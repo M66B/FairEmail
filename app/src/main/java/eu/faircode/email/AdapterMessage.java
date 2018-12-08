@@ -1441,7 +1441,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 db.identity().setIdentityError(message.identity, null);
 
                                                 NotificationManager nm = context.getSystemService(NotificationManager.class);
-                                                nm.cancel("send", message.account.intValue());
+                                                nm.cancel("send", message.identity.intValue());
                                             } else
                                                 EntityOperation.queue(db, message, EntityOperation.DELETE);
 

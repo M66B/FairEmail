@@ -143,6 +143,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int PREVIEW_SIZE = 250;
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
+    private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_WHY = 1;
@@ -866,7 +867,9 @@ public class ServiceSynchronize extends LifecycleService {
                         if (account.last_connected != null) {
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
                             long now = new Date().getTime();
-                            if (now - account.last_connected > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                            long delayed = now - account.last_connected;
+                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+                                Log.i(Helper.TAG, "Reporting sync error after=" + delayed);
                                 NotificationManager nm = getSystemService(NotificationManager.class);
                                 nm.notify("receive", account.id.intValue(),
                                         getNotificationError(account.name, account.last_connected, ex, false).build());
@@ -1351,7 +1354,8 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, folder.name + " start process");
 
             DB db = DB.getInstance(this);
-            List<EntityOperation> ops = db.operation().getOperationsByFolder(folder.id);
+            List<EntityOperation> ops = db.operation().getOperationsByFolder(
+                    folder.id, EntityFolder.OUTBOX.equals(folder.type));
             Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
             for (int i = 0; i < ops.size() && state.running(); i++) {
                 EntityOperation op = ops.get(i);
@@ -1692,7 +1696,7 @@ public class ServiceSynchronize extends LifecycleService {
             db.identity().setIdentityError(ident.id, null);
 
             NotificationManager nm = getSystemService(NotificationManager.class);
-            nm.cancel("send", message.account.intValue());
+            nm.cancel("send", message.identity.intValue());
 
             // Send message
             Address[] to = imessage.getAllRecipients();
@@ -1762,9 +1766,11 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(this, ident.name + " last attempt: " + new Date(message.last_attempt));
 
             long now = new Date().getTime();
-            if (now - message.last_attempt > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
+            long delayed = now - message.last_attempt;
+            if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
+                Log.i(Helper.TAG, "Reporting send error after=" + delayed);
                 NotificationManager nm = getSystemService(NotificationManager.class);
-                nm.notify("send", message.account.intValue(), getNotificationError(ident.name, ex).build());
+                nm.notify("send", message.identity.intValue(), getNotificationError(ident.name, ex).build());
             }
 
             throw ex;
@@ -2090,7 +2096,6 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             db.folder().setFolderError(folder.id, null);
-
         } finally {
             Log.v(Helper.TAG, folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);

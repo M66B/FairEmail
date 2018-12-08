@@ -28,13 +28,15 @@ import androidx.room.Query;
 
 @Dao
 public interface DaoOperation {
-    @Query("SELECT * FROM operation WHERE message = :message ORDER BY id")
-    LiveData<List<EntityOperation>> getOperationsByMessage(long message);
-
     @Query("SELECT * FROM operation" +
             " WHERE folder = :folder" +
-            " ORDER BY CASE WHEN name = '" + EntityOperation.SYNC + "' THEN 1 ELSE 0 END, id")
-    List<EntityOperation> getOperationsByFolder(long folder);
+            " ORDER BY" +
+            "  CASE WHEN name = '" + EntityOperation.SYNC + "' THEN" +
+            "    CASE WHEN :outbox THEN -1 ELSE 1 END" +
+            "    ELSE 0" +
+            "  END" +
+            ", id")
+    List<EntityOperation> getOperationsByFolder(long folder, boolean outbox);
 
     @Query("SELECT * FROM operation ORDER BY id")
     LiveData<List<EntityOperation>> liveOperations();
