@@ -39,6 +39,9 @@ public interface DaoFolder {
             " ORDER BY CASE WHEN folder.type = '" + EntityFolder.USER + "' THEN 1 ELSE 0 END")
     List<EntityFolder> getFolders(long account, boolean synchronize);
 
+    @Query("SELECT * FROM folder WHERE synchronize")
+    List<EntityFolder> getFoldersSynchronizing();
+
     @Query("SELECT * FROM folder WHERE unified")
     List<EntityFolder> getUnifiedFolders();
 

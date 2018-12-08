@@ -437,6 +437,17 @@ public class FragmentSetup extends FragmentEx {
         btnPermissions.setEnabled(!has);
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);
+
+        if (has)
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    for (EntityFolder folder : db.folder().getFoldersSynchronizing())
+                        EntityOperation.sync(db, folder.id);
+                    return null;
+                }
+            }.load(FragmentSetup.this, new Bundle());
     }
 
     @Override
