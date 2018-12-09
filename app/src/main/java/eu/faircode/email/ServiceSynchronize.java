@@ -574,11 +574,15 @@ public class ServiceSynchronize extends LifecycleService {
             else
                 mbuilder = new Notification.Builder(this, "notification");
 
+            String folderName = message.folderDisplay == null
+                    ? Helper.localizeFolderName(this, message.folderName)
+                    : message.folderDisplay;
+
             mbuilder
                     .addExtras(args)
                     .setSmallIcon(R.drawable.baseline_mail_24)
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
-                    .setSubText(message.accountName)
+                    .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
                     .setWhen(message.received)
                     .setDeleteIntent(piDelete)
