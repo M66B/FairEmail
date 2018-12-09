@@ -105,6 +105,7 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_light">Use notification light</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>

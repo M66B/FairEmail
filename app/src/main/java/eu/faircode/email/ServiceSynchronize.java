@@ -495,10 +495,22 @@ public class ServiceSynchronize extends LifecycleService {
         else
             builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
-                prefs.getBoolean("light", false)) {
-            builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
-            builder.setLights(0xff00ff00, 1000, 1000);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            int defaults = Notification.DEFAULT_VIBRATE;
+
+            if (prefs.getBoolean("light", false)) {
+                defaults |= Notification.FLAG_SHOW_LIGHTS;
+                builder.setLights(0xff00ff00, 1000, 1000);
+            } else
+                defaults += Notification.DEFAULT_LIGHTS;
+
+            String sound = prefs.getString("sound", null);
+            if (sound == null)
+                defaults |= Notification.DEFAULT_SOUND;
+            else
+                builder.setSound(Uri.parse(sound));
+
+            builder.setDefaults(defaults);
         }
 
         if (pro) {

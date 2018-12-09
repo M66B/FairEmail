@@ -20,8 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -29,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 
@@ -40,6 +45,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentOptions extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
     private SwitchCompat swMetered;
@@ -50,6 +57,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
     private SwitchCompat swLight;
+    private Button btnSound;
     private SwitchCompat swBrowse;
     private SwitchCompat swSwipe;
     private SwitchCompat swActionbar;
@@ -78,6 +86,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
         swLight = view.findViewById(R.id.swLight);
+        btnSound = view.findViewById(R.id.btnSound);
         swBrowse = view.findViewById(R.id.swBrowse);
         swSwipe = view.findViewById(R.id.swSwipe);
         swActionbar = view.findViewById(R.id.swActionbar);
@@ -200,6 +209,19 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
+        btnSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sound = prefs.getString("sound", null);
+                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
+                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
+                startActivityForResult(intent, ActivitySetup.REQUEST_SOUND);
+            }
+        });
+
         swBrowse.setChecked(prefs.getBoolean("browse", true));
         swBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -293,11 +315,30 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swLight.setVisibility(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        swLight.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        btnSound.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(Helper.TAG, "Result class=" + this.getClass().getSimpleName() +
+                " request=" + requestCode + " result=" + resultCode + " data=" + data);
+
+        if (requestCode == ActivitySetup.REQUEST_SOUND)
+            if (resultCode == RESULT_OK) {
+                Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+                Log.i(Helper.TAG, "Selected ringtone=" + uri);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if (uri == null)
+                    prefs.edit().remove("sound").apply();
+                else
+                    prefs.edit().putString("sound", uri.toString()).apply();
+            }
     }
 
     @Override
