@@ -87,6 +87,7 @@
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
@@ -154,12 +155,13 @@
     <string name="title_empty_trash_ask">Tüm çöpe atılan iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Ekran adı</string>
-    <string name="title_hide_folder">Listeden gizle</string>
     <string name="title_hide_folders">Gizli klasörleri gizle</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
+    <string name="title_hide_folder">Listeden gizle</string>
+    <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">İletileri eşzamanla (gün)</string>
     <string name="title_keep_days">İletileri sakla (günler)</string>
     <string name="title_folder_exists">Klasör %1$s var</string>
@@ -257,6 +259,9 @@
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>
     <string name="title_sort_on_starred">Yıldızlı</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Gönderilenlere taşı</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
@@ -269,6 +274,7 @@
     <string name="title_action_archive">Arşiv</string>
     <string name="title_action_trash">Çöp kutusu</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_legend_archive">Arşiv</string>
     <string name="title_legend_trash">Çöp Kutusu</string>
@@ -298,6 +304,7 @@
     <string name="title_hint_message_selection">Birden çok mesaj seçmeye başlamak için bir mesaja uzun basın</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleştirme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
     <string name="title_yes">Evet</string>

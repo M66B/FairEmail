@@ -87,6 +87,7 @@
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
@@ -154,12 +155,13 @@
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
-    <string name="title_hide_folder">Nascondi dall\'elenco</string>
     <string name="title_hide_folders">Non mostrare cartelle nascoste</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
+    <string name="title_hide_folder">Nascondi dall\'elenco</string>
+    <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>
-    <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Sincronizza i messaggi (giorni)</string>
     <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
@@ -257,6 +259,9 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Sposta in posta inviata</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
@@ -269,6 +274,7 @@
     <string name="title_action_archive">Archivia</string>
     <string name="title_action_trash">Cestina</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Posta in arrivo unificata</string>
     <string name="title_legend_archive">Archivio</string>
     <string name="title_legend_trash">Cestino</string>
@@ -298,6 +304,7 @@
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_open_link">Apri collegamento</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">È disponibile un aggiornamento alla versione %1$s</string>
     <string name="title_issue">Hai una domanda o un problema?</string>
     <string name="title_yes">Sì</string>

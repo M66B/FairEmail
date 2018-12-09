@@ -87,6 +87,7 @@
     <string name="title_advanced_identicons">İdentikon-ları göstər</string>
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
@@ -154,12 +155,13 @@
     <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
-    <string name="title_hide_folder">Siyahıdan gizlət</string>
     <string name="title_hide_folders">Gizli qovluqları gizlət</string>
     <string name="title_show_folders">Gizli qovluqları göstər</string>
+    <string name="title_hide_folder">Siyahıdan gizlət</string>
+    <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_synchronize_folder">Eyniləşdir (mesajları al)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Eyniləşdirilmiş mesajlar (gün)</string>
     <string name="title_keep_days">Saxlanılmış mesajlar (gün)</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
@@ -257,6 +259,9 @@
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>
     <string name="title_sort_on_starred">Ulduzlu</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Göndərilənlərə köçürt</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>
@@ -269,6 +274,7 @@
     <string name="title_action_archive">Arxiv</string>
     <string name="title_action_trash">Tullantı</string>
     <string name="title_legend_inbox">Gələn qutusu</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Birləşmiş gələn qutusu</string>
     <string name="title_legend_archive">Arxiv</string>
     <string name="title_legend_trash">Tullantı</string>
@@ -298,6 +304,7 @@
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_open_link">Bağlantını aç</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>
     <string name="title_issue">Sualınız və ya probleminiz var?</string>
     <string name="title_yes">Bəli</string>

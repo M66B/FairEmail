@@ -87,6 +87,7 @@
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_swipe">Svepfunktioner</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
@@ -154,12 +155,13 @@
     <string name="title_empty_trash_ask">Radera alla meddelanden i papperskorgen permanent?</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
-    <string name="title_hide_folder">Dölj från listan</string>
     <string name="title_hide_folders">Dölj dolda mappar</string>
     <string name="title_show_folders">Visa dolda mappar</string>
+    <string name="title_hide_folder">Dölj från listan</string>
+    <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_unified_folder">Visa i en samlad inkorg</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Synkronisera meddelanden (dagar)</string>
     <string name="title_keep_days">Behåll meddelanden (dagar)</string>
     <string name="title_folder_exists">Mappen %1$s finns</string>
@@ -257,6 +259,9 @@
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Olästa</string>
     <string name="title_sort_on_starred">Stjärnmärkta</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Flytta till skickat</string>
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
@@ -269,6 +274,7 @@
     <string name="title_action_archive">Archive</string>
     <string name="title_action_trash">Papperskorg</string>
     <string name="title_legend_inbox">Inkorg</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Samlad inkorg</string>
     <string name="title_legend_archive">Arkivera</string>
     <string name="title_legend_trash">Papperskorg</string>
@@ -298,6 +304,7 @@
     <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">Det finns en uppdatering till version %1$s tillgänglig</string>
     <string name="title_issue">Har du en fråga eller problem?</string>
     <string name="title_yes">Ja</string>

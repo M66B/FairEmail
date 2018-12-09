@@ -107,6 +107,7 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_light">ضوء الإشعارات</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
@@ -174,12 +175,13 @@
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
     <string name="title_folder_name">Folder name</string>
     <string name="title_display_name">Display name</string>
-    <string name="title_hide_folder">Hide from list</string>
     <string name="title_hide_folders">Hide hidden folders</string>
     <string name="title_show_folders">Show hidden folders</string>
+    <string name="title_hide_folder">Hide from list</string>
+    <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_unified_folder">وتظهر في علبة موحد</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
@@ -277,6 +279,9 @@
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>
     <string name="title_sort_on_starred">Starred</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Move to sent</string>
     <string name="title_previous">Previous</string>
     <string name="title_next">Next</string>
@@ -289,6 +294,7 @@
     <string name="title_action_archive">Archive</string>
     <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Inbox</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Unified inbox</string>
     <string name="title_legend_archive">Archive</string>
     <string name="title_legend_trash">Trash</string>
@@ -318,6 +324,7 @@
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_open_link">Open link</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">Do you have a question or problem?</string>
     <string name="title_yes">Yes</string>

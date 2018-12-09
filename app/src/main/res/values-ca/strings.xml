@@ -87,6 +87,7 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
+    <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_swipe">Accions per lliscar</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
@@ -154,12 +155,13 @@
     <string name="title_empty_trash_ask">Vols buidar la paperera?</string>
     <string name="title_folder_name">Nom de carpeta</string>
     <string name="title_display_name">Mostrar el nom</string>
-    <string name="title_hide_folder">Amagar de la llista</string>
     <string name="title_hide_folders">Amaga les carpetes ocultes</string>
     <string name="title_show_folders">Mostra les carpetes ocultes</string>
+    <string name="title_hide_folder">Amagar de la llista</string>
+    <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
     <string name="title_synchronize_folder">Sincronitza (rebre missatges)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
-    <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
+    <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_keep_days">Keep messages (days)</string>
     <string name="title_folder_exists">La carpeta %1$s existeix</string>
@@ -257,6 +259,9 @@
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Sense llegir</string>
     <string name="title_sort_on_starred">Destacats</string>
+    <string name="title_address_sent">Sent:</string>
+    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Move to sent</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Següent</string>
@@ -269,6 +274,7 @@
     <string name="title_action_archive">Archive</string>
     <string name="title_action_trash">Trash</string>
     <string name="title_legend_inbox">Safata d\'entrada</string>
+    <string name="title_legend_notify">Notify new messages</string>
     <string name="title_legend_unified">Safata d\'entrada unificada</string>
     <string name="title_legend_archive">Arxiu</string>
     <string name="title_legend_trash">Paperera</string>
@@ -298,6 +304,7 @@
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
+    <string name="title_select_app">Select app</string>
     <string name="title_updated">Hi ha disponible una actualització a la versió %1$s</string>
     <string name="title_issue">Tens alguna pregunta o problema?</string>
     <string name="title_yes">Sí</string>
