@@ -1133,14 +1133,16 @@ public class FragmentAccount extends FragmentEx {
         Log.i(Helper.TAG, "Select account");
         Provider provider = (Provider) spProvider.getSelectedItem();
         if (provider.type != null)
-            startActivityForResult(newChooseAccountIntent(
-                    null,
-                    null,
-                    new String[]{provider.type},
-                    null,
-                    null,
-                    null,
-                    null), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+            startActivityForResult(
+                    Helper.getChooser(getContext(), newChooseAccountIntent(
+                            null,
+                            null,
+                            new String[]{provider.type},
+                            null,
+                            null,
+                            null,
+                            null)),
+                    ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
     }
 
     private void setColor(int color) {

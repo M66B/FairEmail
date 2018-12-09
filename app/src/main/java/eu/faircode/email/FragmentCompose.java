@@ -246,7 +246,7 @@ public class FragmentCompose extends FragmentEx {
                 if (pick.resolveActivity(getContext().getPackageManager()) == null)
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
-                    startActivityForResult(pick, request);
+                    startActivityForResult(Helper.getChooser(getContext(), pick), request);
             }
         };
 
@@ -554,7 +554,7 @@ public class FragmentCompose extends FragmentEx {
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
-            startActivityForResult(intent, ActivityCompose.REQUEST_IMAGE);
+            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_IMAGE);
     }
 
     private void onMenuAttachment() {
@@ -565,7 +565,7 @@ public class FragmentCompose extends FragmentEx {
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
-            startActivityForResult(intent, ActivityCompose.REQUEST_ATTACHMENT);
+            startActivityForResult(Helper.getChooser(getContext(), intent), ActivityCompose.REQUEST_ATTACHMENT);
     }
 
     private void onMenuAddresses() {

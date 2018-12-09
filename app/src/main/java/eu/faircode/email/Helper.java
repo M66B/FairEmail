@@ -122,6 +122,14 @@ public class Helper {
         }
     }
 
+    static Intent getChooser(Context context, Intent intent) {
+        PackageManager pm = context.getPackageManager();
+        if (pm.queryIntentActivities(intent, 0).size() == 1)
+            return intent;
+        else
+            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
+    }
+
     static Intent getIntentPrivacy() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://email.faircode.eu/privacy/"));

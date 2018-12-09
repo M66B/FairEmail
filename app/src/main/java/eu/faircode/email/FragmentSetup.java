@@ -500,7 +500,7 @@ public class FragmentSetup extends FragmentEx {
     private void onMenuExport() {
         if (Helper.isPro(getContext()))
             try {
-                startActivityForResult(getIntentExport(), ActivitySetup.REQUEST_EXPORT);
+                startActivityForResult(Helper.getChooser(getContext(), getIntentExport()), ActivitySetup.REQUEST_EXPORT);
             } catch (Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
@@ -513,7 +513,7 @@ public class FragmentSetup extends FragmentEx {
 
     private void onMenuImport() {
         try {
-            startActivityForResult(getIntentImport(), ActivitySetup.REQUEST_IMPORT);
+            startActivityForResult(Helper.getChooser(getContext(), getIntentImport()), ActivitySetup.REQUEST_IMPORT);
         } catch (Throwable ex) {
             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }

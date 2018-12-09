@@ -828,7 +828,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuInvite() {
-        startActivityForResult(getIntentInvite(), REQUEST_INVITE);
+        startActivityForResult(Helper.getChooser(this, getIntentInvite()), REQUEST_INVITE);
     }
 
     private void onMenuOtherApps() {
@@ -1279,7 +1279,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (create.resolveActivity(getPackageManager()) == null)
             Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
-            startActivityForResult(create, REQUEST_ATTACHMENT);
+            startActivityForResult(Helper.getChooser(this, create), REQUEST_ATTACHMENT);
     }
 
     private void onDecrypt(Intent intent) {
