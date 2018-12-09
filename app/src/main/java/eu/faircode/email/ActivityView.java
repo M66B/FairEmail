@@ -922,7 +922,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             os = new BufferedOutputStream(new FileOutputStream(file));
 
                             int size = 0;
-                            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
                             NetworkInfo ani = cm.getActiveNetworkInfo();
                             size += write(os, "active=" + ani + "\r\n\r\n");

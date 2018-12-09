@@ -75,6 +75,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * foreground service (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * prevent device from sleeping (WAKE_LOCK): to keep the device awake while synchronizing messages
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses and to show photos
+* USE_CREDENTIALS: needed to select accounts on Android version 5.1 Lollipop and before (not used on later Android versions)
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
 <a name="faq2"></a>

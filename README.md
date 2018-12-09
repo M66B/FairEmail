@@ -66,7 +66,6 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 
 * [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
 * Built with latest development tools and libraries
-* Android 6 Marshmallow or later required
 
 ## Screenshots
 

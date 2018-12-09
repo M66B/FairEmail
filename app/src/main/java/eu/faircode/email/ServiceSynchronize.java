@@ -31,6 +31,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
@@ -65,6 +66,7 @@ import org.json.JSONException;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
@@ -172,7 +174,7 @@ public class ServiceSynchronize extends LifecycleService {
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             @Override
             public void onChanged(@Nullable TupleAccountStats stats) {
-                NotificationManager nm = getSystemService(NotificationManager.class);
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify(NOTIFICATION_SYNCHRONIZE, getNotificationService(stats).build());
             }
         });
@@ -186,7 +188,7 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void run() {
                         try {
-                            NotificationManager nm = getSystemService(NotificationManager.class);
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
                             Widget.update(ServiceSynchronize.this, messages.size());
 
@@ -264,7 +266,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         stopForeground(true);
 
-        NotificationManager nm = getSystemService(NotificationManager.class);
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel(NOTIFICATION_SYNCHRONIZE);
 
         super.onDestroy();
@@ -553,18 +555,19 @@ public class ServiceSynchronize extends LifecycleService {
             trash.setAction("trash:" + message.id);
             PendingIntent piTrash = PendingIntent.getService(this, PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
 
+
             Notification.Action.Builder actionSeen = new Notification.Action.Builder(
-                    Icon.createWithResource(this, R.drawable.baseline_visibility_24),
+                    R.drawable.baseline_visibility_24,
                     getString(R.string.title_action_seen),
                     piSeen);
 
             Notification.Action.Builder actionArchive = new Notification.Action.Builder(
-                    Icon.createWithResource(this, R.drawable.baseline_archive_24),
+                    R.drawable.baseline_archive_24,
                     getString(R.string.title_action_archive),
                     piArchive);
 
             Notification.Action.Builder actionTrash = new Notification.Action.Builder(
-                    Icon.createWithResource(this, R.drawable.baseline_delete_24),
+                    R.drawable.baseline_delete_24,
                     getString(R.string.title_action_trash),
                     piTrash);
 
@@ -627,7 +630,12 @@ public class ServiceSynchronize extends LifecycleService {
                             Uri photo = Uri.withAppendedPath(
                                     ContactsContract.Contacts.CONTENT_URI,
                                     cursor.getLong(0) + "/photo");
-                            mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                        getContentResolver(), photo);
+                                mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
+                            } else
+                                mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
                         }
                     } catch (SecurityException ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
@@ -728,7 +736,7 @@ public class ServiceSynchronize extends LifecycleService {
         EntityLog.log(this, title + " " + Helper.formatThrowable(ex));
 
         if ((ex instanceof SendFailedException) || (ex instanceof AlertException)) {
-            NotificationManager nm = getSystemService(NotificationManager.class);
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.notify(tag, 1, getNotificationError(title, ex).build());
         }
 
@@ -748,13 +756,13 @@ public class ServiceSynchronize extends LifecycleService {
                 !(ex instanceof MessagingException && ex.getCause() instanceof SocketTimeoutException) &&
                 !(ex instanceof MessagingException && ex.getCause() instanceof SSLException) &&
                 !(ex instanceof MessagingException && "connection failure".equals(ex.getMessage()))) {
-            NotificationManager nm = getSystemService(NotificationManager.class);
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.notify(tag, 1, getNotificationError(title, ex).build());
         }
     }
 
     private void monitorAccount(final EntityAccount account, final ServiceState state) throws NoSuchProviderException {
-        final PowerManager pm = getSystemService(PowerManager.class);
+        final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wlAccount = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id);
         try {
@@ -880,7 +888,7 @@ public class ServiceSynchronize extends LifecycleService {
                             long delayed = now - account.last_connected;
                             if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
                                 Log.i(Helper.TAG, "Reporting sync error after=" + delayed);
-                                NotificationManager nm = getSystemService(NotificationManager.class);
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
                                         getNotificationError(account.name, account.last_connected, ex, false).build());
                             }
@@ -894,7 +902,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                     db.account().setAccountState(account.id, "connected");
 
-                    NotificationManager nm = getSystemService(NotificationManager.class);
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel("receive", account.id.intValue());
 
                     EntityLog.log(this, account.name + " connected");
@@ -1222,7 +1230,7 @@ public class ServiceSynchronize extends LifecycleService {
                     registerReceiver(alarm, new IntentFilter(id));
 
                     // Keep alive
-                    AlarmManager am = getSystemService(AlarmManager.class);
+                    AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     try {
                         while (state.running()) {
                             if (!istore.isConnected())
@@ -1245,10 +1253,16 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // Schedule keep alive alarm
                             EntityLog.log(this, account.name + " wait=" + account.poll_interval);
-                            am.setAndAllowWhileIdle(
-                                    AlarmManager.RTC_WAKEUP,
-                                    System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
-                                    pi);
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                                am.set(
+                                        AlarmManager.RTC_WAKEUP,
+                                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                        pi);
+                            else
+                                am.setAndAllowWhileIdle(
+                                        AlarmManager.RTC_WAKEUP,
+                                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                        pi);
 
                             try {
                                 wlAccount.release();
@@ -1327,12 +1341,18 @@ public class ServiceSynchronize extends LifecycleService {
                             PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
                             registerReceiver(alarm, new IntentFilter(id));
 
-                            AlarmManager am = getSystemService(AlarmManager.class);
+                            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                             try {
-                                am.setAndAllowWhileIdle(
-                                        AlarmManager.RTC_WAKEUP,
-                                        System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
-                                        pi);
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                                    am.set(
+                                            AlarmManager.RTC_WAKEUP,
+                                            System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                            pi);
+                                else
+                                    am.setAndAllowWhileIdle(
+                                            AlarmManager.RTC_WAKEUP,
+                                            System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                            pi);
 
                                 try {
                                     wlAccount.release();
@@ -1705,7 +1725,7 @@ public class ServiceSynchronize extends LifecycleService {
             db.identity().setIdentityState(ident.id, "connected");
             db.identity().setIdentityError(ident.id, null);
 
-            NotificationManager nm = getSystemService(NotificationManager.class);
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send", message.identity.intValue());
 
             // Send message
@@ -1779,7 +1799,7 @@ public class ServiceSynchronize extends LifecycleService {
             long delayed = now - message.last_attempt;
             if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
                 Log.i(Helper.TAG, "Reporting send error after=" + delayed);
-                NotificationManager nm = getSystemService(NotificationManager.class);
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify("send", message.identity.intValue(), getNotificationError(ident.name, ex).build());
             }
 
@@ -2408,7 +2428,7 @@ public class ServiceSynchronize extends LifecycleService {
         @Override
         public void onAvailable(Network network) {
             try {
-                ConnectivityManager cm = getSystemService(ConnectivityManager.class);
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
 
                 if (!started && suitableNetwork())
@@ -2466,7 +2486,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             state = new ServiceState();
             state.runnable(new Runnable() {
-                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 PowerManager.WakeLock wl = pm.newWakeLock(
                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":main");
                 private List<ServiceState> threadState = new ArrayList<>();
@@ -2512,7 +2532,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
                                     private List<Long> handling = new ArrayList<>();
                                     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
-                                    PowerManager pm = getSystemService(PowerManager.class);
+                                    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                                     PowerManager.WakeLock wl = pm.newWakeLock(
                                             PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":outbox");
 
@@ -2640,7 +2660,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             queued++;
             queue.submit(new Runnable() {
-                PowerManager pm = getSystemService(PowerManager.class);
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                 PowerManager.WakeLock wl = pm.newWakeLock(
                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":manage");
 

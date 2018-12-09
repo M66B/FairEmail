@@ -808,7 +808,7 @@ public class FragmentAccount extends FragmentEx {
                             ServiceSynchronize.reload(getContext(), "save account");
 
                         if (!synchronize) {
-                            NotificationManager nm = getContext().getSystemService(NotificationManager.class);
+                            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("receive", account.id.intValue());
                         }
 
@@ -1138,6 +1138,7 @@ public class FragmentAccount extends FragmentEx {
                             null,
                             null,
                             new String[]{provider.type},
+                            false,
                             null,
                             null,
                             null,

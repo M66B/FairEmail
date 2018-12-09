@@ -171,7 +171,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                         protected Void onLoad(Context context, Bundle args) {
                             DB db = DB.getInstance(context);
 
-                            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                             boolean metered = (cm == null || cm.isActiveNetworkMetered());
 
                             for (Long id : db.message().getMessageWithoutPreview()) {

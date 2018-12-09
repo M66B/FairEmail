@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -100,7 +101,7 @@ public class FragmentEx extends Fragment {
     public void onDetach() {
         super.onDetach();
 
-        InputMethodManager im = getContext().getSystemService(InputMethodManager.class);
+        InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         View focused = getActivity().getCurrentFocus();
         if (focused != null)
             im.hideSoftInputFromWindow(focused.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);

@@ -305,7 +305,10 @@ public class Helper {
     }
 
     static Boolean isMetered(Context context) {
-        ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
+            return cm.isActiveNetworkMetered();
 
         Network active = cm.getActiveNetwork();
         if (active == null) {
@@ -325,7 +328,6 @@ public class Helper {
             Log.i(Helper.TAG, "isMetered: active not connected");
             return null;
         }
-
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
             Log.i(Helper.TAG, "isMetered: active no caps");
@@ -393,7 +395,8 @@ public class Helper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+    static void connect(Context context, IMAPStore istore, EntityAccount account) throws
+            MessagingException {
         try {
             istore.connect(account.host, account.port, account.user, account.password);
         } catch (AuthenticationFailedException ex) {
@@ -467,18 +470,20 @@ public class Helper {
         sb.append(String.format("Id: %s\r\n", Build.ID));
         sb.append("\r\n");
 
-        PowerManager pm = context.getSystemService(PowerManager.class);
-        boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean ignoring = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            UsageStatsManager usm = context.getSystemService(UsageStatsManager.class);
+            UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
             int bucket = usm.getAppStandbyBucket();
             sb.append(String.format("Standby bucket: %d\r\n", bucket));
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = context.getSystemService(ConnectivityManager.class);
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             sb.append(String.format("Data saving: %b\r\n", saving));
         }

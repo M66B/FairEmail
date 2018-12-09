@@ -46,7 +46,7 @@ public class JobDaily extends JobService {
                 .setPeriodic(CLEANUP_INTERVAL)
                 .setRequiresDeviceIdle(true);
 
-        JobScheduler scheduler = context.getSystemService(JobScheduler.class);
+        JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
         scheduler.cancel(Helper.JOB_DAILY);
         if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
             Log.i(Helper.TAG, "Scheduled daily job");

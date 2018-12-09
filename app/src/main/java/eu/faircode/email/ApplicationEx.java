@@ -23,6 +23,7 @@ import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
@@ -62,7 +63,7 @@ public class ApplicationEx extends Application {
 
     private void createNotificationChannels() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationManager nm = getSystemService(NotificationManager.class);
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
             NotificationChannel service = new NotificationChannel(
                     "service",

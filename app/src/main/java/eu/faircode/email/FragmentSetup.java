@@ -371,14 +371,16 @@ public class FragmentSetup extends FragmentEx {
     public void onResume() {
         super.onResume();
 
-        PowerManager pm = getContext().getSystemService(PowerManager.class);
-        boolean ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+        boolean ignoring = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
         btnDoze.setEnabled(!ignoring);
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = getContext().getSystemService(ConnectivityManager.class);
+            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             btnData.setVisibility(saving ? View.VISIBLE : View.GONE);
         }

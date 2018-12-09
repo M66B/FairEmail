@@ -528,7 +528,7 @@ public class FragmentCompose extends FragmentEx {
                     break;
                 case R.id.menu_link:
                     Uri uri = null;
-                    ClipboardManager cbm = getContext().getSystemService(ClipboardManager.class);
+                    ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                     if (cbm.hasPrimaryClip()) {
                         String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
                         uri = Uri.parse(link);
