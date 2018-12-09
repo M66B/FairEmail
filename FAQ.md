@@ -399,14 +399,14 @@ FairEmail has the following notification channels:
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels.
 In short: tap on the notification channel name to access the channel settings.
 
+On Android before Android 8 Oreo you can set the notification sound in the advanced options.
+
 See [this FAQ](#user-content-faq21) if your device has a notification light.
 
 <a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
 
-There are only notifications for new messages in the folders of the unified inbox.
-However, you can make any folder part of the unified inbox.
-Just long press the folder, select *Edit properties*, enable *Show in unified inbox* and tap *Save*.
+Just long press the folder, select *Edit properties*, enable *Notify new messages* and tap *Save*.
 
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
