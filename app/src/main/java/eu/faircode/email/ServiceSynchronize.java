@@ -231,14 +231,19 @@ public class ServiceSynchronize extends LifecycleService {
                                     }
                                 }
 
+                                int headers = 0;
+                                for (Integer id : added)
+                                    if (id < 0)
+                                        headers++;
+
                                 Log.i(Helper.TAG, "Notification account=" + account +
-                                        " notifications=" + notifications.size() +
-                                        " all=" + all.size() + " added=" + added.size() + " removed=" + removed.size());
+                                        " notifications=" + notifications.size() + " all=" + all.size() +
+                                        " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
 
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
                                 if (notifications.size() == 0 ||
-                                        (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && added.size() > 0))
+                                        (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0))
                                     nm.cancel("unseen:" + account, 0);
 
                                 for (Integer id : removed)
