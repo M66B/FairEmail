@@ -48,9 +48,10 @@ public class FragmentFolder extends FragmentEx {
     private EditText etName;
     private EditText etDisplay;
     private CheckBox cbHide;
+    private CheckBox cbUnified;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
-    private CheckBox cbUnified;
+    private CheckBox cbNotify;
     private EditText etSyncDays;
     private EditText etKeepDays;
     private Button btnSave;
@@ -82,19 +83,29 @@ public class FragmentFolder extends FragmentEx {
         etName = view.findViewById(R.id.etName);
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
+        cbUnified = view.findViewById(R.id.cbUnified);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
-        cbUnified = view.findViewById(R.id.cbUnified);
+        cbNotify = view.findViewById(R.id.cbNotify);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
 
+        cbUnified.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    cbNotify.setChecked(true);
+            }
+        });
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
+                cbNotify.setEnabled(isChecked);
             }
         });
 
@@ -114,6 +125,7 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("poll", cbPoll.isChecked());
+                args.putBoolean("notify", cbNotify.isChecked());
                 args.putString("sync", etSyncDays.getText().toString());
                 args.putString("keep", etKeepDays.getText().toString());
 
@@ -128,6 +140,7 @@ public class FragmentFolder extends FragmentEx {
                         boolean unified = args.getBoolean("unified");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean poll = args.getBoolean("poll");
+                        boolean notify = args.getBoolean("notify");
                         String sync = args.getString("sync");
                         String keep = args.getString("keep");
 
@@ -159,6 +172,7 @@ public class FragmentFolder extends FragmentEx {
                                 create.unified = unified;
                                 create.synchronize = synchronize;
                                 create.poll = poll;
+                                create.notify = notify;
                                 create.sync_days = sync_days;
                                 create.keep_days = keep_days;
                                 db.folder().insertFolder(create);
@@ -179,7 +193,7 @@ public class FragmentFolder extends FragmentEx {
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
                                         name, display, unified, hide,
-                                        synchronize, poll,
+                                        synchronize, poll, notify,
                                         sync_days, keep_days);
 
                                 db.message().deleteMessagesBefore(id, keep_time, true);
@@ -331,6 +345,7 @@ public class FragmentFolder extends FragmentEx {
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);
+                    cbNotify.setChecked(folder == null ? false : folder.notify);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.sync_days));
                     etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
                 }

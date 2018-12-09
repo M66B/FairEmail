@@ -757,6 +757,7 @@ public class FragmentAccount extends FragmentEx {
                             inbox.type = EntityFolder.INBOX;
                             inbox.synchronize = true;
                             inbox.unified = true;
+                            inbox.notify = true;
                             inbox.sync_days = EntityFolder.DEFAULT_INBOX_SYNC;
                             inbox.keep_days = inbox.sync_days;
 

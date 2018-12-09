@@ -176,7 +176,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.message().liveUnseenUnified().observe(this, new Observer<List<TupleMessageEx>>() {
+        db.message().liveUnseenNotify().observe(this, new Observer<List<TupleMessageEx>>() {
             private LongSparseArray<List<Integer>> notifying = new LongSparseArray<>();
 
             @Override

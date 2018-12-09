@@ -159,13 +159,14 @@ public interface DaoFolder {
             ", hide = :hide" +
             ", synchronize = :synchronize" +
             ", poll = :poll" +
+            ", notify = :notify" +
             ", `sync_days` = :sync_days" +
             ", `keep_days` = :keep_days" +
             " WHERE id = :id")
     int setFolderProperties(
             long id,
             String name, String display, boolean unified, boolean hide,
-            boolean synchronize, boolean poll,
+            boolean synchronize, boolean poll, boolean notify,
             int sync_days, int keep_days);
 
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")

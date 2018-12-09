@@ -79,6 +79,8 @@ public class EntityFolder implements Serializable {
     public Boolean hide = false;
     @NonNull
     public Boolean unified = false;
+    @NonNull
+    public Boolean notify = false;
     public String[] keywords;
     public Boolean tbd;
     public String state;
@@ -178,6 +180,7 @@ public class EntityFolder implements Serializable {
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
                     this.hide == other.hide &&
                     this.unified == other.unified &&
+                    this.notify == other.notify &&
                     Helper.equal(this.keywords, other.keywords) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
@@ -204,6 +207,7 @@ public class EntityFolder implements Serializable {
         json.put("display", display);
         json.put("hide", hide);
         json.put("unified", unified);
+        json.put("notify", notify);
         return json;
     }
 
@@ -235,9 +239,15 @@ public class EntityFolder implements Serializable {
 
         if (json.has("display"))
             folder.display = json.getString("display");
+
         if (json.has("hide"))
             folder.hide = json.getBoolean("hide");
+
         folder.unified = json.getBoolean("unified");
+
+        if (json.has("notify"))
+            folder.notify = json.getBoolean("notify");
+
         return folder;
     }
 

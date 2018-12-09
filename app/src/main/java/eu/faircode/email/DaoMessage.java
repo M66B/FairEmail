@@ -207,13 +207,13 @@ public interface DaoMessage {
             " LEFT JOIN identity ON identity.id = message.identity" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
-            " AND folder.unified" +
+            " AND folder.notify" +
             " AND (account.created IS NULL OR message.received > account.created)" +
             " AND NOT message.ui_seen" +
             " AND NOT message.ui_hide" +
             " AND NOT message.ui_ignored" +
             " ORDER BY message.received")
-    LiveData<List<TupleMessageEx>> liveUnseenUnified();
+    LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Query("SELECT COUNT(message.id) FROM message" +
             " JOIN account ON account.id = message.account" +

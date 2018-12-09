@@ -56,6 +56,17 @@
             app:layout_constraintStart_toEndOf="@id/barrier0"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/ivNotify"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/baseline_notifications_24"
+            app:layout_constraintBottom_toTopOf="@+id/barrier1"
+            app:layout_constraintStart_toEndOf="@id/vwLevel"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
@@ -70,7 +81,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/tvMessages"
-            app:layout_constraintStart_toEndOf="@id/vwLevel"
+            app:layout_constraintStart_toEndOf="@id/ivNotify"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

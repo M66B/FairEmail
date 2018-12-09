@@ -29,13 +29,33 @@
             app:layout_constraintTop_toTopOf="@id/ivInbox" />
 
         <ImageView
+            android:id="@+id/ivNotify"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_notifications_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivInbox" />
+
+        <TextView
+            android:id="@+id/tvNotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_notify"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivNotify"
+            app:layout_constraintStart_toEndOf="@id/ivNotify"
+            app:layout_constraintTop_toTopOf="@id/ivNotify" />
+
+        <ImageView
             android:id="@+id/ivUnified"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_folder_special_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivInbox" />
+            app:layout_constraintTop_toBottomOf="@id/ivNotify" />
 
         <TextView
             android:id="@+id/tvUnified"

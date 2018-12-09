@@ -65,7 +65,7 @@ public class ServiceTileUnseen extends TileService {
 
     public void onStartListening() {
         Log.i(Helper.TAG, "Start tile unseen");
-        liveMessages = DB.getInstance(this).message().liveUnseenUnified();
+        liveMessages = DB.getInstance(this).message().liveUnseenNotify();
         liveMessages.observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {

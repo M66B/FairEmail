@@ -69,6 +69,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private View vwColor;
         private View vwLevel;
         private ImageView ivState;
+        private ImageView ivNotify;
         private TextView tvName;
         private TextView tvMessages;
         private ImageView ivUnified;
@@ -90,6 +91,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             vwColor = itemView.findViewById(R.id.vwColor);
             vwLevel = itemView.findViewById(R.id.vwLevel);
             ivState = itemView.findViewById(R.id.ivState);
+            ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ivUnified = itemView.findViewById(R.id.ivUnified);
@@ -147,6 +149,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivState.setVisibility(
                     folder.synchronize || folder.state != null || folder.sync_state != null
                             ? View.VISIBLE : View.INVISIBLE);
+
+            ivNotify.setVisibility(folder.notify ? View.VISIBLE : View.GONE);
 
             String name = folder.getDisplayName(context);
             if (folder.unseen > 0)

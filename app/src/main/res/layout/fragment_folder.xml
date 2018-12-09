@@ -89,6 +89,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
+        <CheckBox
+            android:id="@+id/cbNotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_notify_folder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPoll" />
+
         <!-- after -->
 
         <TextView
@@ -99,7 +108,7 @@
             android:text="@string/title_sync_days"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPoll" />
+            app:layout_constraintTop_toBottomOf="@id/cbNotify" />
 
         <EditText
             android:id="@+id/etSyncDays"
