@@ -8,11 +8,12 @@
     android:padding="6dp">
 
     <ImageView
-        android:layout_width="36dp"
+        android:layout_width="24dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="2"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_weight="1"
+        android:src="@drawable/baseline_mail_24"
+        android:tint="@color/colorWidgetForeground" />
 
     <TextView
         android:id="@+id/tvCount"
@@ -21,6 +22,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:text="?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWidgetForeground"
         android:textSize="18dp"
         android:textStyle="bold" />
