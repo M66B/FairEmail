@@ -92,7 +92,7 @@
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
-    <string name="title_advanced_sound">Select notification sound</string>
+    <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
@@ -101,7 +101,7 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
-    <string name="title_advanced_updates">Verificați dacă există actualizări</string>
+    <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
@@ -166,7 +166,7 @@
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
-    <string name="title_notify_folder">Notify new messages</string>
+    <string name="title_notify_folder">Notifică la mesaje noi</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
@@ -264,8 +264,8 @@
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Marcat</string>
-    <string name="title_address_sent">Sent:</string>
-    <string name="title_address_unsent">Unsent:</string>
+    <string name="title_address_sent">Trimis:</string>
+    <string name="title_address_unsent">Netrimis:</string>
     <string name="title_address_invalid">Invalid:</string>
     <string name="title_move_sent">Mută la mesaje trimise</string>
     <string name="title_previous">Precedent</string>
@@ -279,7 +279,7 @@
     <string name="title_action_archive">Arhivare</string>
     <string name="title_action_trash">Gunoi</string>
     <string name="title_legend_inbox">Primite</string>
-    <string name="title_legend_notify">Notify new messages</string>
+    <string name="title_legend_notify">Notifică la mesaje noi</string>
     <string name="title_legend_unified">Căsuță poștală comună</string>
     <string name="title_legend_archive">Arhivă</string>
     <string name="title_legend_trash">Gunoi</string>
@@ -309,7 +309,7 @@
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_open_link">Deschide legătura</string>
-    <string name="title_select_app">Select app</string>
+    <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
     <string name="title_issue">Aveți o întrebare sau problemă?</string>
     <string name="title_yes">Da</string>

@@ -87,7 +87,7 @@
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_preview">Afficher l’aperçu du message</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
-    <string name="title_advanced_sound">Select notification sound</string>
+    <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_actionbar">Barre d’action de conversation</string>
@@ -161,7 +161,7 @@
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
-    <string name="title_notify_folder">Notify new messages</string>
+    <string name="title_notify_folder">Notifier les nouveaux messages</string>
     <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
     <string name="title_keep_days">Conserver les e-mails (jours)</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
@@ -274,7 +274,7 @@
     <string name="title_action_archive">Archiver</string>
     <string name="title_action_trash">Supprimer</string>
     <string name="title_legend_inbox">Boîte de réception</string>
-    <string name="title_legend_notify">Notify new messages</string>
+    <string name="title_legend_notify">Notification pour les nouveaux messages</string>
     <string name="title_legend_unified">Boite de réception unifiée</string>
     <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
@@ -304,7 +304,7 @@
     <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l’application peut répondre plus lentement.</string>
     <string name="title_open_link">Ouvrir le lien</string>
-    <string name="title_select_app">Select app</string>
+    <string name="title_select_app">Sélectionner une application</string>
     <string name="title_updated">Une mise à jour vers la version %1$s est disponible</string>
     <string name="title_issue">Avez-vous une question ou un problème ?</string>
     <string name="title_yes">Oui</string>
