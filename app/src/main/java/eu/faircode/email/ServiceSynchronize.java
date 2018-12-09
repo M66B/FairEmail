@@ -31,6 +31,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
@@ -226,7 +227,8 @@ public class ServiceSynchronize extends LifecycleService {
                                     }
                                 }
 
-                                if (notifications.size() == 0)
+                                if (notifications.size() == 0 ||
+                                        (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && added.size() > 0))
                                     nm.cancel("unseen:" + account, 0);
 
                                 for (Integer id : removed)
@@ -490,28 +492,20 @@ public class ServiceSynchronize extends LifecycleService {
         if (!TextUtils.isEmpty(accountName))
             builder.setSubText(accountName);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            builder.setSound(null);
-        else
-            builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
-
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            int defaults = Notification.DEFAULT_VIBRATE;
-
-            if (prefs.getBoolean("light", false)) {
-                defaults |= Notification.FLAG_SHOW_LIGHTS;
-                builder.setLights(0xff00ff00, 1000, 1000);
-            } else
-                defaults += Notification.DEFAULT_LIGHTS;
+            if (prefs.getBoolean("light", false))
+                builder.setLights(Color.GREEN, 1000, 1000);
 
             String sound = prefs.getString("sound", null);
-            if (sound == null)
-                defaults |= Notification.DEFAULT_SOUND;
-            else
+            if (sound == null) {
+                Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                builder.setSound(uri);
+            } else
                 builder.setSound(Uri.parse(sound));
 
-            builder.setDefaults(defaults);
-        }
+            builder.setOnlyAlertOnce(true);
+        } else
+            builder.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
 
         if (pro) {
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
@@ -530,8 +524,6 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         notifications.add(builder.build());
-
-        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         for (TupleMessageEx message : messages) {
             Bundle args = new Bundle();
@@ -588,7 +580,6 @@ public class ServiceSynchronize extends LifecycleService {
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
                     .setSubText(message.accountName)
                     .setContentIntent(piContent)
-                    .setSound(uri)
                     .setWhen(message.received)
                     .setDeleteIntent(piDelete)
                     .setPriority(Notification.PRIORITY_DEFAULT)
@@ -600,6 +591,9 @@ public class ServiceSynchronize extends LifecycleService {
                     .addAction(actionSeen.build())
                     .addAction(actionArchive.build())
                     .addAction(actionTrash.build());
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                mbuilder.setSound(null);
 
             if (pro) {
                 if (!TextUtils.isEmpty(message.subject))
