@@ -30,8 +30,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 ## Known problems
 
-* File not selected (canceled) when using a file manager instead of the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider). This cannot be fixed by FairEmail, but you can workaround this problem by selecting *Always*.
-* Search not restored on rotation change. This cannot be fixed without side effects.
+None at this moment.
 
 
 ## Frequently requested features
