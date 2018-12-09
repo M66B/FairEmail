@@ -1373,6 +1373,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 // Decrypt message
                 OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
                 Intent result = api.executeApi(data, encrypted, decrypted);
+
+                Log.i(Helper.TAG, "PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
                 switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                     case OpenPgpApi.RESULT_CODE_SUCCESS:
                         if (inline) {
@@ -1444,6 +1446,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected void onLoaded(Bundle args, PendingIntent pi) {
                 if (pi != null)
                     try {
+                        Log.i(Helper.TAG, "PGP executing pi=" + pi);
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
                                 ActivityView.REQUEST_DECRYPT,

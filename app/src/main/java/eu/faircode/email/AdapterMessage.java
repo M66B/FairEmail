@@ -1346,8 +1346,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_DECRYPT)
-                            .putExtra("id", data.message.id)
-                            .putExtra("to", ((InternetAddress) data.message.to[0]).getAddress()));
+                            .putExtra("id", data.message.id));
         }
 
         private void onMore(final ActionData data) {
