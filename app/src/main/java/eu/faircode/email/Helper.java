@@ -310,6 +310,11 @@ public class Helper {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
             return cm.isActiveNetworkMetered();
 
+        if (!cm.isActiveNetworkMetered()) {
+            Log.i(Helper.TAG, "isMetered: active network is unmetered");
+            return false;
+        }
+
         Network active = cm.getActiveNetwork();
         if (active == null) {
             Log.i(Helper.TAG, "isMetered: no active network");
@@ -372,6 +377,8 @@ public class Helper {
             }
 
             if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
+
                 if (ni.isConnected()) {
                     connected = true;
                     Log.i(Helper.TAG, "isMetered: underlying is connected");
