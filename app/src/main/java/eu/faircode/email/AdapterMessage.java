@@ -1223,7 +1223,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             new SimpleTask<EntityFolder>() {
                 @Override
-                protected EntityFolder onLoad(Context context, Bundle args) throws Throwable {
+                protected EntityFolder onLoad(Context context, Bundle args) {
                     EntityMessage message = (EntityMessage) args.getSerializable("message");
                     return DB.getInstance(context).folder().getFolder(message.folder);
                 }
@@ -1265,7 +1265,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     new SimpleTask<Void>() {
                                         @Override
-                                        protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                        protected Void onLoad(Context context, Bundle args) {
                                             EntityMessage message = (EntityMessage) args.getSerializable("message");
                                             String[] keywords = args.getStringArray("keywords");
                                             boolean[] selected = args.getBooleanArray("selected");
@@ -1312,7 +1312,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                                         new SimpleTask<Void>() {
                                                             @Override
-                                                            protected Void onLoad(Context context, Bundle args) throws Throwable {
+                                                            protected Void onLoad(Context context, Bundle args) {
                                                                 EntityMessage message = (EntityMessage) args.getSerializable("message");
                                                                 String keyword = args.getString("keyword");
 

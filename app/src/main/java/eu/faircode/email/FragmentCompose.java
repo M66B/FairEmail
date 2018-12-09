@@ -1452,7 +1452,7 @@ public class FragmentCompose extends FragmentEx {
 
                     // Select account
                     for (int pos = 0; pos < accounts.size(); pos++)
-                        if (accounts.get(pos).id == result.draft.account) {
+                        if (accounts.get(pos).id.equals(result.draft.account)) {
                             spAccount.setSelection(pos);
                             break;
                         }

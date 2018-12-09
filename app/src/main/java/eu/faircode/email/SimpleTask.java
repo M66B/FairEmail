@@ -118,8 +118,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         this.stored = null;
         owner.getLifecycle().addObserver(this);
 
-        onInit(args);
-
         // Run in background thread
         executor.submit(new Runnable() {
             @Override
@@ -162,9 +160,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 onDestroyed();
             }
         }
-    }
-
-    protected void onInit(Bundle args) {
     }
 
     protected T onLoad(Context context, Bundle args) throws Throwable {

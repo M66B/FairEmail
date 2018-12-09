@@ -180,7 +180,4 @@ public interface DaoFolder {
 
     @Query("DELETE FROM folder WHERE id = :id")
     void deleteFolder(long id);
-
-    @Query("DELETE FROM folder WHERE account= :account AND name = :name")
-    void deleteFolder(long account, String name);
 }

@@ -48,6 +48,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -148,7 +149,8 @@ public class FragmentWebView extends FragmentEx {
 
                                             fis = new FileInputStream(file);
                                             byte[] bytes = new byte[(int) file.length()];
-                                            fis.read(bytes);
+                                            if (fis.read(bytes) != bytes.length)
+                                                throw new IOException("length");
 
                                             StringBuilder sb = new StringBuilder();
                                             sb.append("data:");

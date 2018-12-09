@@ -96,7 +96,7 @@ public abstract class DB extends RoomDatabase {
         return sInstance;
     }
 
-    static String exec(DB db, String command) {
+    private static String exec(DB db, String command) {
         Cursor cursor = null;
         try {
             cursor = db.query(command, new Object[0]);
@@ -309,26 +309,25 @@ public abstract class DB extends RoomDatabase {
             if (addresses == null)
                 return null;
             JSONArray jaddresses = new JSONArray();
-            if (addresses != null)
-                for (Address address : addresses)
-                    try {
-                        if (address instanceof InternetAddress) {
-                            String a = ((InternetAddress) address).getAddress();
-                            String p = ((InternetAddress) address).getPersonal();
-                            JSONObject jaddress = new JSONObject();
-                            if (a != null)
-                                jaddress.put("address", a);
-                            if (p != null)
-                                jaddress.put("personal", p);
-                            jaddresses.put(jaddress);
-                        } else {
-                            JSONObject jaddress = new JSONObject();
-                            jaddress.put("address", address.toString());
-                            jaddresses.put(jaddress);
-                        }
-                    } catch (JSONException ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            for (Address address : addresses)
+                try {
+                    if (address instanceof InternetAddress) {
+                        String a = ((InternetAddress) address).getAddress();
+                        String p = ((InternetAddress) address).getPersonal();
+                        JSONObject jaddress = new JSONObject();
+                        if (a != null)
+                            jaddress.put("address", a);
+                        if (p != null)
+                            jaddress.put("personal", p);
+                        jaddresses.put(jaddress);
+                    } else {
+                        JSONObject jaddress = new JSONObject();
+                        jaddress.put("address", address.toString());
+                        jaddresses.put(jaddress);
                     }
+                } catch (JSONException ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
             return jaddresses.toString();
         }
 

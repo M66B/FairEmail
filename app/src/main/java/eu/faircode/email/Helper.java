@@ -272,7 +272,7 @@ public class Helper {
     }
 
     static String canonicalAddress(String address) {
-        String[] a = address.split("\\@");
+        String[] a = address.split("@");
         if (a.length > 0)
             a[0] = a[0].split("\\+")[0];
         return TextUtils.join("@", a);

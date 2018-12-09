@@ -28,7 +28,7 @@ import javax.mail.internet.MimeMessage;
 public class MimeMessageEx extends MimeMessage {
     private String msgid;
 
-    public MimeMessageEx(Session session, String msgid) {
+    MimeMessageEx(Session session, String msgid) {
         super(session);
         this.msgid = msgid;
     }

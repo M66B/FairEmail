@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 public class HtmlHelper {
     private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
 
-    public static String sanitize(String html) {
+    static String sanitize(String html) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist.relaxed().addProtocols("img", "src", "cid")));
 
         for (Element tr : document.select("tr"))

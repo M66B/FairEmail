@@ -153,7 +153,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) throws Throwable {
+                protected Void onLoad(Context context, Bundle args) {
                     DB.getInstance(context).operation().deleteOperation(args.getLong("id"));
                     return null;
                 }

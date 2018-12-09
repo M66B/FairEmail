@@ -58,6 +58,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -673,8 +674,10 @@ public class FragmentSetup extends FragmentEx {
 
                     byte[] salt = new byte[16];
                     byte[] prefix = new byte[16];
-                    raw.read(salt);
-                    raw.read(prefix);
+                    if (raw.read(salt) != salt.length)
+                        throw new IOException("length");
+                    if (raw.read(prefix) != prefix.length)
+                        throw new IOException("length");
 
                     SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
                     KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, KEY_ITERATIONS, KEY_LENGTH);

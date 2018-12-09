@@ -142,7 +142,7 @@ public class EntityMessage implements Serializable {
     public Long last_attempt; // send
 
     static String generateMessageId() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append('<')
                 .append(Math.abs(new Random().nextInt())).append('.')
                 .append(System.currentTimeMillis()).append('.')

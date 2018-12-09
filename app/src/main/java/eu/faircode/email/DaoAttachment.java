@@ -59,10 +59,6 @@ public interface DaoAttachment {
             " AND cid = :cid")
     EntityAttachment getAttachment(long message, String cid);
 
-    @Query("SELECT * FROM attachment" +
-            " WHERE id = :id")
-    EntityAttachment getAttachment(long id);
-
     @Query("UPDATE attachment" +
             " SET progress = :progress" +
             " WHERE id = :id")
