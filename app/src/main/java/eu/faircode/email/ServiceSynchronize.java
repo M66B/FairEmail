@@ -188,7 +188,7 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void run() {
                         try {
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            Log.i(Helper.TAG, "Notification messages=" + messages.size());
 
                             Widget.update(ServiceSynchronize.this, messages.size());
 
@@ -220,14 +220,22 @@ public class ServiceSynchronize extends LifecycleService {
                                     Integer id = (int) notification.extras.getLong("id", 0);
                                     if (id != 0) {
                                         all.add(id);
-                                        if (removed.contains(id))
+                                        if (removed.contains(id)) {
                                             removed.remove(id);
-                                        else {
+                                            Log.i(Helper.TAG, "Notification removing=" + id);
+                                        } else {
                                             removed.remove(Integer.valueOf(-id));
                                             added.add(id);
+                                            Log.i(Helper.TAG, "Notification adding=" + id);
                                         }
                                     }
                                 }
+
+                                Log.i(Helper.TAG, "Notification account=" + account +
+                                        " notifications=" + notifications.size() +
+                                        " all=" + all.size() + " added=" + added.size() + " removed=" + removed.size());
+
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
                                 if (notifications.size() == 0 ||
                                         (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && added.size() > 0))
