@@ -606,6 +606,13 @@ Show original, shows the original message as the sender has sent it, including o
 FairEmail does and will not alter this in any way.
 
 
+<a name="faq44"></a>
+**(44) Can you show contact photos / identicons in the sent folder?**
+
+Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.
+Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
