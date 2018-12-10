@@ -945,23 +945,22 @@ public class FragmentAccount extends FragmentEx {
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
 
-                    if (account == null)
-                        new SimpleTask<Integer>() {
-                            @Override
-                            protected Integer onLoad(Context context, Bundle args) {
-                                return DB.getInstance(context).account().getSynchronizingAccountCount();
-                            }
+                    new SimpleTask<Integer>() {
+                        @Override
+                        protected Integer onLoad(Context context, Bundle args) {
+                            return DB.getInstance(context).account().getSynchronizingAccountCount();
+                        }
 
-                            @Override
-                            protected void onLoaded(Bundle args, Integer count) {
-                                cbPrimary.setChecked(count == 0);
-                            }
+                        @Override
+                        protected void onLoaded(Bundle args, Integer count) {
+                            cbPrimary.setChecked(count == 0);
+                        }
 
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.load(FragmentAccount.this, new Bundle());
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        }
+                    }.load(FragmentAccount.this, new Bundle());
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
