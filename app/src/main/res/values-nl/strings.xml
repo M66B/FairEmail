@@ -163,7 +163,9 @@
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_notify_folder">Melding bij nieuwe berichten</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
+    <string name="title_sync_days_remark">Als u dagelijks internet-verbinding heeft, stel dit dan in op één dag om batterij- en dataverbruik te beperken na de initiële synchronisatie</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
+    <string name="title_keep_all">Bewaar alle berichten</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>

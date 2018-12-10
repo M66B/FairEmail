@@ -168,7 +168,9 @@
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_notify_folder">Notifică la mesaje noi</string>
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
+    <string name="title_sync_days_remark">If you have daily internet connectivity, set this to one day to reduce battery and data usage after the initial synchronization</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
+    <string name="title_keep_all">Keep all messages</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
     <string name="title_folder_delete">Ştergeţi definitiv acest dosar şi mesajele pe care le conţine?</string>
     <string name="title_folder_unified">Căsuță poștală comună</string>

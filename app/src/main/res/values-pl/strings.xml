@@ -173,7 +173,9 @@
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
+    <string name="title_sync_days_remark">If you have daily internet connectivity, set this to one day to reduce battery and data usage after the initial synchronization</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
+    <string name="title_keep_all">Keep all messages</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Permanently delete this folder and any messages it contains?</string>
     <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>

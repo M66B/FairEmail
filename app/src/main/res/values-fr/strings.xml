@@ -163,7 +163,9 @@
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
     <string name="title_notify_folder">Notifier les nouveaux messages</string>
     <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
+    <string name="title_sync_days_remark">If you have daily internet connectivity, set this to one day to reduce battery and data usage after the initial synchronization</string>
     <string name="title_keep_days">Conserver les e-mails (jours)</string>
+    <string name="title_keep_all">Keep all messages</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
     <string name="title_folder_delete">Supprimer définitivement ce dossier et tous les messages qu’il contient ?</string>
     <string name="title_folder_unified">Boite de réception unifiée</string>
