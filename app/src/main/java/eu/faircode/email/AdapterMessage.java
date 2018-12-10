@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -368,12 +369,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 ivExpander.setVisibility(View.GONE);
 
+            boolean flagged;
             if (viewType == ViewType.THREAD)
-                ivFlagged.setImageResource(message.unflagged == 1
-                        ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
+                flagged = (message.unflagged == 0);
             else
-                ivFlagged.setImageResource(message.count - message.unflagged > 0
-                        ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+                flagged = (message.count - message.unflagged > 0);
+            ivFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged
+                    ? Helper.resolveColor(context, R.attr.colorAccent)
+                    : Helper.resolveColor(context, android.R.attr.textColorSecondary)
+            ));
             ivFlagged.setVisibility(View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
