@@ -55,6 +55,7 @@ public class FragmentFolder extends FragmentEx {
     private CheckBox cbNotify;
     private EditText etSyncDays;
     private EditText etKeepDays;
+    private CheckBox cbKeepAll;
     private Button btnSave;
     private ProgressBar pbSave;
     private ProgressBar pbWait;
@@ -90,6 +91,7 @@ public class FragmentFolder extends FragmentEx {
         cbNotify = view.findViewById(R.id.cbNotify);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
+        cbKeepAll = view.findViewById(R.id.cbKeepAll);
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
@@ -113,6 +115,13 @@ public class FragmentFolder extends FragmentEx {
         // Navigating to individual messages requires notification grouping
         cbNotify.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
 
+        cbKeepAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                etKeepDays.setEnabled(!isChecked);
+            }
+        });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +140,9 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("poll", cbPoll.isChecked());
                 args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
                 args.putString("sync", etSyncDays.getText().toString());
-                args.putString("keep", etKeepDays.getText().toString());
+                args.putString("keep", cbKeepAll.isChecked()
+                        ? Integer.toString(Integer.MAX_VALUE)
+                        : etKeepDays.getText().toString());
 
                 new SimpleTask<Void>() {
                     @Override
@@ -351,7 +362,10 @@ public class FragmentFolder extends FragmentEx {
                     cbPoll.setChecked(folder == null ? false : folder.poll);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.sync_days));
-                    etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
+                    if (folder != null && folder.keep_days == Integer.MAX_VALUE)
+                        cbKeepAll.setChecked(true);
+                    else
+                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
                 }
 
                 // Consider previous save as cancelled

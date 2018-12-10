@@ -178,7 +178,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvAfter.setText(null);
                 ivSync.setImageResource(R.drawable.baseline_sync_24);
             } else {
-                tvAfter.setText(String.format("%d/%d", folder.sync_days, folder.keep_days));
+                if (folder.keep_days == Integer.MAX_VALUE)
+                    tvAfter.setText(String.format("%d/∞", folder.sync_days));
+                else
+                    tvAfter.setText(String.format("%d/%d", folder.sync_days, folder.keep_days));
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
 

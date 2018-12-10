@@ -110,6 +110,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotify" />
 
+        <TextView
+            android:id="@+id/tvSyncDaysRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_sync_days_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSyncDays" />
+
         <EditText
             android:id="@+id/etSyncDays"
             android:layout_width="match_parent"
@@ -118,7 +129,7 @@
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSyncDays" />
+            app:layout_constraintTop_toBottomOf="@id/tvSyncDaysRemark" />
 
         <TextView
             android:id="@+id/tvKeepDays"
@@ -140,6 +151,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvKeepDays" />
 
+        <CheckBox
+            android:id="@+id/cbKeepAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_keep_all"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etKeepDays" />
+
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -147,7 +166,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etKeepDays" />
+            app:layout_constraintTop_toBottomOf="@id/cbKeepAll" />
 
         <ProgressBar
             android:id="@+id/pbSave"
