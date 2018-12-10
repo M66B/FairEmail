@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Synkroniserar</string>
     <string name="title_legend_downloading">Hämtar</string>
     <string name="title_legend_closing">Stänger</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Antal dagar att synkronisera / för att behålla meddelanden</string>
     <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>

@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Senkronize ediliyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
     <string name="title_legend_download_fetch">Number of message bodies downloaded / headers fetched</string>
     <string name="title_hint_folder_actions">Ayarlar için uzun basın</string>

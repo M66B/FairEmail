@@ -293,6 +293,8 @@
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">下载中</string>
     <string name="title_legend_closing">正在结束</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
     <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>

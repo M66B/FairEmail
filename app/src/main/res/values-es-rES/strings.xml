@@ -163,9 +163,9 @@
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_notify_folder">Notificar nuevos mensajes</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
-    <string name="title_sync_days_remark">If you have daily internet connectivity, set this to one day to reduce battery and data usage after the initial synchronization</string>
+    <string name="title_sync_days_remark">Si dispone de conexión a internet una vez al día, configure esto en un día para reducir el uso de datos y batería después de la sincronización inicial</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
-    <string name="title_keep_all">Keep all messages</string>
+    <string name="title_keep_all">Mantener todos los mensajes</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
     <string name="title_folder_unified">Bandeja de Entrada Unificada</string>
@@ -261,9 +261,9 @@
     <string name="title_sort_on_time">Tiempo</string>
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
-    <string name="title_address_sent">Enviados:</string>
-    <string name="title_address_unsent">No enviados:</string>
-    <string name="title_address_invalid">Inválidos:</string>
+    <string name="title_address_sent">Enviado/s:</string>
+    <string name="title_address_unsent">No enviado/s:</string>
+    <string name="title_address_invalid">Inválido/s:</string>
     <string name="title_move_sent">Mover a enviados</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Sincronizando</string>
     <string name="title_legend_downloading">Descargando</string>
     <string name="title_legend_closing">Cerrado</string>
+    <string name="title_legend_metered">Conexión medida</string>
+    <string name="title_legend_unmetered">Conexión no medida</string>
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
     <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / cabeceras recuperadas</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>

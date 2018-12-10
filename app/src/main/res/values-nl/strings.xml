@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Synchroniseren</string>
     <string name="title_legend_downloading">Downloaden</string>
     <string name="title_legend_closing">Sluiten</string>
+    <string name="title_legend_metered">Verbinding is gemeten</string>
+    <string name="title_legend_unmetered">Verbinding is ongemeten</string>
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
     <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>

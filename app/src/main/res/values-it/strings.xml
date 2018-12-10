@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Sincronizzazione</string>
     <string name="title_legend_downloading">Scaricamento</string>
     <string name="title_legend_closing">Chiusura</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>
     <string name="title_legend_download_fetch">Numero di corpi messaggio scaricati / intestazioni recuperate</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>

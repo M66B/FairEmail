@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Synchronisation en cours</string>
     <string name="title_legend_downloading">Téléchargement en cours</string>
     <string name="title_legend_closing">Fermeture en cours</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>
     <string name="title_legend_download_fetch">Nombre de contenus de message téléchargés / en-têtes récupérés</string>
     <string name="title_hint_folder_actions">Appui long pour les options</string>

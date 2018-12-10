@@ -298,6 +298,8 @@
     <string name="title_legend_synchronizing">Synchronisiere</string>
     <string name="title_legend_downloading">Lade herunter</string>
     <string name="title_legend_closing">Schließen</string>
+    <string name="title_legend_metered">Connection is metered</string>
+    <string name="title_legend_unmetered">Connection is unmetered</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichtentexte / empfangenen Kopfzeilen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
