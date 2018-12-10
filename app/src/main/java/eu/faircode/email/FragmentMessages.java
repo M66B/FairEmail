@@ -421,8 +421,12 @@ public class FragmentMessages extends FragmentEx {
                     } else {
                         predicate.clearAccount();
                         fabMore.hide();
-                        if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                            loadMessages();
+                        try {
+                            if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                loadMessages();
+                        } catch (IllegalStateException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                         swipeRefresh.setEnabled(true);
                     }
                 }
