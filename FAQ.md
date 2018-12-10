@@ -614,6 +614,13 @@ Contact photos and identicons are always shown for the sender because this is ne
 Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.
 
 
+<a name="faq45"></a>
+**(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?**
+
+You'll get the message *This key is not available. To use it, you must import it as one of your own!*
+when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
