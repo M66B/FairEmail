@@ -37,7 +37,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * Dark/black theme
 * Account/identity colors
 * Notifications per account
-* Notifications with message preview
+* Notifications with message preview (requires Android 7 Nougat or later)
 * Reply templates
 * Search on server
 * Keyword management
@@ -85,6 +85,8 @@ Certificate fingerprints:
 ## Compatibility
 
 FairEmail requires at least Android 5 Lollipop.
+Individual message notifications are available on Android 7 Nougat and later only
+because earlier Android versions do not support notification grouping.
 
 FairEmail will work properly on devices without any Google service installed.
 

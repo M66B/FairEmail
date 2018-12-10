@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -109,6 +110,9 @@ public class FragmentFolder extends FragmentEx {
             }
         });
 
+        // Navigating to individual messages requires notification grouping
+        cbNotify.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +129,7 @@ public class FragmentFolder extends FragmentEx {
                 args.putBoolean("unified", cbUnified.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("poll", cbPoll.isChecked());
-                args.putBoolean("notify", cbNotify.isChecked());
+                args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
                 args.putString("sync", etSyncDays.getText().toString());
                 args.putString("keep", etKeepDays.getText().toString());
 

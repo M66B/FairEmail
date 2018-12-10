@@ -407,7 +407,10 @@ See [this FAQ](#user-content-faq21) if your device has a notification light.
 <a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
 
-Just long press the folder, select *Edit properties*, enable *Notify new messages* and tap *Save*.
+Just long press a folder, select *Edit properties*,
+and enable either *Show in unified inbox*
+or *Notify new messages* (available on Android 7 Nougat and later only)
+and tap *Save*.
 
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
