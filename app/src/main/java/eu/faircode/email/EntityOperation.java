@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.Date;
 
@@ -75,52 +76,66 @@ public class EntityOperation {
 
     static void queue(DB db, EntityMessage message, String name) {
         JSONArray jargs = new JSONArray();
-        queue(db, message.folder, message.id, name, jargs);
+        queue(db, message, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value) {
         JSONArray jargs = new JSONArray();
         jargs.put(value);
-        queue(db, message.folder, message.id, name, jargs);
-
-        if (SEEN.equals(name)) {
-            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
-                db.message().setMessageUiSeen(similar.id, (boolean) value);
-                db.message().setMessageUiIgnored(similar.id, true);
-            }
-
-        } else if (FLAG.equals(name))
-            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
-                db.message().setMessageUiFlagged(similar.id, (boolean) value);
-
-        else if (ANSWERED.equals(name))
-            for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
-                db.message().setMessageUiAnswered(similar.id, (boolean) value);
-
-        else if (MOVE.equals(name))
-            db.message().setMessageUiHide(message.id, true);
-        else if (DELETE.equals(name))
-            db.message().setMessageUiHide(message.id, true);
+        queue(db, message, name, jargs);
     }
 
     static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {
         JSONArray jargs = new JSONArray();
         jargs.put(value1);
         jargs.put(value2);
-        queue(db, message.folder, message.id, name, jargs);
+        queue(db, message, name, jargs);
     }
 
     static void sync(DB db, long folder) {
         if (db.operation().getOperationCount(folder, EntityOperation.SYNC) == 0) {
-            queue(db, folder, null, EntityOperation.SYNC, new JSONArray());
+            EntityOperation operation = new EntityOperation();
+            operation.folder = folder;
+            operation.message = null;
+            operation.name = SYNC;
+            operation.args = new JSONArray().toString();
+            operation.created = new Date().getTime();
+            operation.id = db.operation().insertOperation(operation);
+
             db.folder().setFolderSyncState(folder, "requested");
+
+            Log.i(Helper.TAG, "Queued sync folder=" + folder);
         }
     }
 
-    private static void queue(DB db, long folder, Long message, String name, JSONArray jargs) {
+    private static void queue(DB db, EntityMessage message, String name, JSONArray jargs) {
+        try {
+            if (SEEN.equals(name)) {
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
+                    db.message().setMessageUiSeen(similar.id, jargs.getBoolean(0));
+                    db.message().setMessageUiIgnored(similar.id, true);
+                }
+
+            } else if (FLAG.equals(name))
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
+                    db.message().setMessageUiFlagged(similar.id, jargs.getBoolean(0));
+
+            else if (ANSWERED.equals(name))
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
+                    db.message().setMessageUiAnswered(similar.id, jargs.getBoolean(0));
+
+            else if (MOVE.equals(name))
+                db.message().setMessageUiHide(message.id, true);
+
+            else if (DELETE.equals(name))
+                db.message().setMessageUiHide(message.id, true);
+        } catch (JSONException ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+        }
+
         EntityOperation operation = new EntityOperation();
-        operation.folder = folder;
-        operation.message = message;
+        operation.folder = message.folder;
+        operation.message = message.id;
         operation.name = name;
         operation.args = jargs.toString();
         operation.created = new Date().getTime();
