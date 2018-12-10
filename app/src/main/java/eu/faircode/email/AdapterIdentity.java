@@ -87,7 +87,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             itemView.setActivated(identity.tbd != null);
             vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.INVISIBLE);
-            tvName.setText(identity.name);
+            tvName.setText(identity.getDisplayName());
             ivSync.setImageResource(identity.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             tvUser.setText(identity.email);
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));

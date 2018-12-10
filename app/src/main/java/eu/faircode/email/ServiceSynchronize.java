@@ -1698,8 +1698,19 @@ public class ServiceSynchronize extends LifecycleService {
         // Create message
         MimeMessage imessage = MessageHelper.from(this, message, isession);
 
+        // Add reply to
         if (ident.replyto != null)
             imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
+
+        // Add bcc
+        if (ident.bcc != null) {
+            List<Address> bcc = new ArrayList<>();
+            Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
+            if (existing != null)
+                bcc.addAll(Arrays.asList(existing));
+            bcc.add(new InternetAddress(ident.bcc));
+            imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
+        }
 
         // defacto standard
         if (ident.delivery_receipt)

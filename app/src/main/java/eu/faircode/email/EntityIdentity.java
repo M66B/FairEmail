@@ -47,9 +47,11 @@ public class EntityIdentity {
     public Long id;
     @NonNull
     public String name;
+    public String display;
     @NonNull
     public String email;
     public String replyto;
+    public String bcc;
     @NonNull
     public Boolean delivery_receipt;
     @NonNull
@@ -86,8 +88,10 @@ public class EntityIdentity {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("name", name);
+        json.put("display", display);
         json.put("email", email);
         json.put("replyto", replyto);
+        json.put("bcc", bcc);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
         // not account
@@ -114,10 +118,17 @@ public class EntityIdentity {
     public static EntityIdentity fromJSON(JSONObject json) throws JSONException {
         EntityIdentity identity = new EntityIdentity();
         identity.name = json.getString("name");
+
+        if (json.has("display"))
+            identity.display = json.getString("display");
+
         identity.email = json.getString("email");
 
         if (json.has("replyto"))
             identity.replyto = json.getString("replyto");
+
+        if (json.has("bcc"))
+            identity.replyto = json.getString("bcc");
 
         if (json.has("delivery_receipt"))
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
@@ -179,8 +190,12 @@ public class EntityIdentity {
             return false;
     }
 
+    String getDisplayName() {
+        return (display == null ? name : display);
+    }
+
     @Override
     public String toString() {
-        return name + (primary ? " ★" : "");
+        return getDisplayName() + (primary ? " ★" : "");
     }
 }

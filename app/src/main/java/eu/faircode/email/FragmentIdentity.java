@@ -75,11 +75,13 @@ import androidx.fragment.app.FragmentTransaction;
 public class FragmentIdentity extends FragmentEx {
     private ViewGroup view;
     private EditText etName;
+    private EditText etDisplay;
     private Spinner spAccount;
     private Button btnAdvanced;
     private TextView tvEmail;
     private EditText etEmail;
     private EditText etReplyTo;
+    private EditText etBcc;
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
     private Spinner spProvider;
@@ -136,9 +138,11 @@ public class FragmentIdentity extends FragmentEx {
         spAccount = view.findViewById(R.id.spAccount);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
+        etDisplay = view.findViewById(R.id.etDisplay);
         tvEmail = view.findViewById(R.id.tvEmail);
         etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
+        etBcc = view.findViewById(R.id.etBcc);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
 
@@ -307,7 +311,7 @@ public class FragmentIdentity extends FragmentEx {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvEmail.getTop());
+                            ((ScrollView) view).smoothScrollTo(0, etDisplay.getTop());
                         }
                     });
             }
@@ -380,8 +384,10 @@ public class FragmentIdentity extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("name", etName.getText().toString());
+                args.putString("display", etDisplay.getText().toString());
                 args.putString("email", etEmail.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
+                args.putString("bcc", etBcc.getText().toString());
                 args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
                 args.putBoolean("read_receipt", cbReadReceipt.isChecked());
                 args.putLong("account", account == null ? -1 : account.id);
@@ -404,8 +410,10 @@ public class FragmentIdentity extends FragmentEx {
                         long id = args.getLong("id");
                         String name = args.getString("name");
                         long account = args.getLong("account");
+                        String display = args.getString("display");
                         String email = args.getString("email");
                         String replyto = args.getString("replyto");
+                        String bcc = args.getString("bcc");
                         boolean delivery_receipt = args.getBoolean("delivery_receipt");
                         boolean read_receipt = args.getBoolean("read_receipt");
                         String host = args.getString("host");
@@ -435,10 +443,20 @@ public class FragmentIdentity extends FragmentEx {
                             throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
 
                         email = email.toLowerCase();
+
+                        if (TextUtils.isEmpty(display))
+                            display = null;
+
                         if (TextUtils.isEmpty(replyto))
                             replyto = null;
                         else
                             replyto = replyto.toLowerCase();
+
+                        if (TextUtils.isEmpty(bcc))
+                            bcc = null;
+                        else
+                            bcc = bcc.toLowerCase();
+
                         if (Color.TRANSPARENT == color)
                             color = null;
 
@@ -479,8 +497,10 @@ public class FragmentIdentity extends FragmentEx {
                                 identity = new EntityIdentity();
                             identity.name = name;
                             identity.account = account;
+                            identity.display = display;
                             identity.email = email;
                             identity.replyto = replyto;
+                            identity.bcc = bcc;
                             identity.delivery_receipt = delivery_receipt;
                             identity.read_receipt = read_receipt;
                             identity.host = host;
@@ -584,8 +604,10 @@ public class FragmentIdentity extends FragmentEx {
             protected void onLoaded(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
+                    etDisplay.setText(identity == null ? null : identity.display);
                     etEmail.setText(identity == null ? null : identity.email);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
+                    etBcc.setText(identity == null ? null : identity.bcc);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
                     etHost.setText(identity == null ? null : identity.host);

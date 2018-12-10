@@ -1397,7 +1397,7 @@ public class FragmentCompose extends FragmentEx {
                                     Collections.sort(identities, new Comparator<EntityIdentity>() {
                                         @Override
                                         public int compare(EntityIdentity i1, EntityIdentity i2) {
-                                            return i1.name.compareTo(i2.name);
+                                            return i1.toString().compareTo(i2.toString());
                                         }
                                     });
 
@@ -1819,7 +1819,7 @@ public class FragmentCompose extends FragmentEx {
             EntityIdentity identity = identities.get(position);
 
             TextView text1 = view.findViewById(android.R.id.text1);
-            text1.setText(identity.name);
+            text1.setText(identity.toString());
 
             TextView text2 = view.findViewById(android.R.id.text2);
             text2.setText(identity.email);
