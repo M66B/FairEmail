@@ -47,7 +47,7 @@ public class ApplicationEx extends Application {
             public void uncaughtException(Thread thread, Throwable ex) {
                 if (ownFault(ex)) {
                     Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
-                    writeCrashLog(ex);
+                    writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
                         prev.uncaughtException(thread, ex);
@@ -110,17 +110,18 @@ public class ApplicationEx extends Application {
                     return true;
             ex = ex.getCause();
         }
+
         return false;
     }
 
-    private void writeCrashLog(Throwable ex) {
-        File file = new File(getCacheDir(), "crash.log");
+    static void writeCrashLog(Context context, Throwable ex) {
+        File file = new File(context.getCacheDir(), "crash.log");
         Log.w(Helper.TAG, "Writing exception to " + file);
 
         FileWriter out = null;
         try {
             out = new FileWriter(file);
-            out.write(ex.toString() + "\n" + Log.getStackTraceString(ex));
+            out.write(ex + "\r\n" + Log.getStackTraceString(ex));
         } catch (IOException e) {
             Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
         } finally {

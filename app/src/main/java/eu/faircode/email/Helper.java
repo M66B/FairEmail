@@ -189,7 +189,7 @@ public class Helper {
     }
 
     static void unexpectedError(final Context context, final LifecycleOwner owner, final Throwable ex) {
-        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+        ApplicationEx.writeCrashLog(context, ex);
 
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             new DialogBuilderLifecycle(context, owner)
