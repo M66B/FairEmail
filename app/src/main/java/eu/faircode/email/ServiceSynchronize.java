@@ -54,7 +54,6 @@ import android.util.Log;
 import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
-import com.sun.mail.imap.AppendUID;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
@@ -1622,23 +1621,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (EntityFolder.DRAFTS.equals(folder.type) && ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
             imessage.setFlag(Flags.Flag.DRAFT, true);
 
-        if (istore.hasCapability("UIDPLUS")) {
-            AppendUID[] uid = ifolder.appendUIDMessages(new Message[]{imessage});
-            Log.i(Helper.TAG, "Appended uid=" + uid[0].uid + " draft=" + imessage.getFlags().contains(Flags.Flag.DRAFT));
-            db.message().setMessageUid(message.id, uid[0].uid);
-        } else {
-            ifolder.appendMessages(new Message[]{imessage});
-            db.message().setMessageUid(message.id, null);
-        }
-
-        if (message.uid != null) {
-            Message iprev = ifolder.getMessageByUID(message.uid);
-            if (iprev != null) {
-                Log.i(Helper.TAG, "Deleting existing uid=" + message.uid);
-                iprev.setFlag(Flags.Flag.DELETED, true);
-                ifolder.expunge();
-            }
-        }
+        ifolder.appendMessages(new Message[]{imessage});
     }
 
     private void doMove(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -2180,19 +2163,35 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Searching for " + msgid);
             for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
-                boolean outbox = EntityFolder.OUTBOX.equals(dfolder.type);
                 Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + dup.uid +
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
 
-                if (dup.folder.equals(folder.id) || outbox) {
+                if (dup.folder.equals(folder.id) ||
+                        (EntityFolder.OUTBOX.equals(dfolder.type) && EntityFolder.SENT.equals(folder.type))) {
                     String thread = helper.getThreadId(uid);
                     Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
-                    dup.folder = folder.id; // From outbox
+                    dup.folder = folder.id; // outbox to sent
+
                     if (dup.uid == null)
                         dup.uid = uid;
+                    else if (dup.uid != uid) {
+                        if (EntityFolder.DRAFTS.equals(folder.type)) {
+                            Log.i(Helper.TAG, "Deleting previous uid=" + dup.uid);
+                            Message iprev = ifolder.getMessageByUID(dup.uid);
+                            if (iprev == null)
+                                Log.w(Helper.TAG, "Previous not found uid=" + dup.uid);
+                            else {
+                                iprev.setFlag(Flags.Flag.DELETED, true);
+                                ifolder.expunge();
+                            }
+                        } else // Draft in Gmail archive
+                            Log.e(Helper.TAG, "Changed uid=" + dup.uid + "/" + uid);
+                        dup.uid = uid;
+                    }
+
                     dup.msgid = msgid;
                     dup.thread = thread;
                     dup.error = null;
