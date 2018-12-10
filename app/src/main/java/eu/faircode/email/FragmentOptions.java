@@ -24,12 +24,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -73,6 +78,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_advanced);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
@@ -322,6 +328,59 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        // Removed because of Android VPN service
+        // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
+    }
+
+    @Override
+    public void onPause() {
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        cm.unregisterNetworkCallback(networkCallback);
+
+        super.onPause();
+    }
+
+    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            getActivity().invalidateOptionsMenu();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+            getActivity().invalidateOptionsMenu();
+        }
+
+        @Override
+        public void onLost(Network network) {
+            getActivity().invalidateOptionsMenu();
+        }
+    };
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        Boolean metered = Helper.isMetered(getContext());
+        menu.findItem(R.id.menu_metered).setVisible(metered != null);
+        if (metered != null)
+            menu.findItem(R.id.menu_metered).setIcon(
+                    metered ? R.drawable.baseline_attach_money_24 : R.drawable.baseline_money_off_24);
+        super.onPrepareOptionsMenu(menu);
     }
 
     @Override
