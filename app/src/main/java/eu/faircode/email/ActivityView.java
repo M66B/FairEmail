@@ -35,6 +35,7 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -325,6 +326,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("toggle"));
 
+        new Handler().post(checkIntent);
+
         checkFirst();
         checkCrash();
         if (!Helper.isPlayStoreInstall(this))
@@ -333,6 +336,83 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
         pgpService.bindToService();
     }
+
+    private Runnable checkIntent = new Runnable() {
+        @Override
+        public void run() {
+            Intent intent = getIntent();
+            String action = intent.getAction();
+            Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
+            if (action != null) {
+                intent.setAction(null);
+                setIntent(intent);
+
+                if ("unified".equals(action))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                else if ("error".equals(action))
+                    onDebugInfo();
+
+                else if (action.startsWith("thread")) {
+                    ViewModelMessages model = ViewModelProviders.of(ActivityView.this).get(ViewModelMessages.class);
+                    model.setMessages(null);
+
+                    intent.putExtra("thread", action.split(":", 2)[1]);
+                    onViewThread(intent);
+                }
+            }
+
+            if (getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
+                String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
+
+                intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
+                setIntent(intent);
+
+                if (Helper.isPro(ActivityView.this)) {
+                    Bundle args = new Bundle();
+                    args.putString("search", search);
+
+                    new SimpleTask<Long>() {
+                        @Override
+                        protected Long onLoad(Context context, Bundle args) {
+                            DB db = DB.getInstance(context);
+
+                            EntityFolder archive = db.folder().getPrimaryArchive();
+                            if (archive == null)
+                                throw new IllegalArgumentException(getString(R.string.title_no_primary_archive));
+
+                            db.message().resetSearch();
+
+                            return archive.id;
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Long archive) {
+                            Bundle sargs = new Bundle();
+                            sargs.putLong("folder", archive);
+                            sargs.putString("search", args.getString("search"));
+
+                            FragmentMessages fragment = new FragmentMessages();
+                            fragment.setArguments(sargs);
+
+                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
+                            fragmentTransaction.commit();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+                        }
+                    }.load(ActivityView.this, args);
+                } else {
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                    fragmentTransaction.commit();
+                }
+            }
+        }
+    };
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -350,6 +430,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
+        new Handler().post(checkIntent);
     }
 
     @Override
@@ -371,78 +452,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (!pgpService.isBound())
             pgpService.bindToService();
-
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
-        if (action != null) {
-            intent.setAction(null);
-            setIntent(intent);
-
-            if ("unified".equals(action))
-                getSupportFragmentManager().popBackStack("unified", 0);
-
-            else if ("error".equals(action))
-                onDebugInfo();
-
-            else if (action.startsWith("thread")) {
-                ViewModelMessages model = ViewModelProviders.of(this).get(ViewModelMessages.class);
-                model.setMessages(null);
-
-                intent.putExtra("thread", action.split(":", 2)[1]);
-                onViewThread(intent);
-            }
-        }
-
-        if (getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
-            String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
-
-            intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
-            setIntent(intent);
-
-            if (Helper.isPro(this)) {
-                Bundle args = new Bundle();
-                args.putString("search", search);
-
-                new SimpleTask<Long>() {
-                    @Override
-                    protected Long onLoad(Context context, Bundle args) {
-                        DB db = DB.getInstance(context);
-
-                        EntityFolder archive = db.folder().getPrimaryArchive();
-                        if (archive == null)
-                            throw new IllegalArgumentException(getString(R.string.title_no_primary_archive));
-
-                        db.message().resetSearch();
-
-                        return archive.id;
-                    }
-
-                    @Override
-                    protected void onLoaded(Bundle args, Long archive) {
-                        Bundle sargs = new Bundle();
-                        sargs.putLong("folder", archive);
-                        sargs.putString("search", args.getString("search"));
-
-                        FragmentMessages fragment = new FragmentMessages();
-                        fragment.setArguments(sargs);
-
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-                        fragmentTransaction.commit();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                    }
-                }.load(this, args);
-            } else {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-                fragmentTransaction.commit();
-            }
-        }
     }
 
     @Override
