@@ -84,7 +84,7 @@ Certificate fingerprints:
 
 ## Compatibility
 
-FairEmail requires at least Android 6 Marshmallow.
+FairEmail requires at least Android 5 Lollipop.
 
 FairEmail will work properly on devices without any Google service installed.
 
