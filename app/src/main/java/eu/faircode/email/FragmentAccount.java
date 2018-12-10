@@ -676,7 +676,7 @@ public class FragmentAccount extends FragmentEx {
                                 !user.equals(account.user) || !password.equals(account.password)));
                         boolean reload = (check || account == null ||
                                 account.synchronize != synchronize ||
-                                account.poll_interval.equals(Integer.parseInt(interval)));
+                                !account.poll_interval.equals(Integer.parseInt(interval)));
 
                         // Check IMAP server
                         if (check) {
@@ -749,6 +749,15 @@ public class FragmentAccount extends FragmentEx {
                                 db.account().updateAccount(account);
                             else
                                 account.id = db.account().insertAccount(account);
+
+                            // Make sure the channel exists on commit
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+                                if (account.notify) {
+                                    // Add or update notification channel
+                                    account.deleteNotificationChannel(context);
+                                    account.createNotificationChannel(context);
+                                } else if (!account.synchronize)
+                                    account.deleteNotificationChannel(context);
 
                             List<EntityFolder> folders = new ArrayList<>();
 

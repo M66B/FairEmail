@@ -461,12 +461,14 @@ public class ServiceSynchronize extends LifecycleService {
         clear.setAction("clear");
         PendingIntent piClear = PendingIntent.getService(this, PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        String channelName = (account == 0 ? "notification" : EntityAccount.getNotificationChannelName(account));
+
         // Build public notification
         Notification.Builder pbuilder;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             pbuilder = new Notification.Builder(this);
         else
-            pbuilder = new Notification.Builder(this, "notification");
+            pbuilder = new Notification.Builder(this, channelName);
 
         pbuilder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
@@ -487,7 +489,8 @@ public class ServiceSynchronize extends LifecycleService {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
             builder = new Notification.Builder(this);
         else
-            builder = new Notification.Builder(this, "notification");
+            builder = new Notification.Builder(this, channelName);
+
 
         builder
                 .setSmallIcon(R.drawable.baseline_email_white_24)
@@ -587,7 +590,7 @@ public class ServiceSynchronize extends LifecycleService {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                 mbuilder = new Notification.Builder(this);
             else
-                mbuilder = new Notification.Builder(this, "notification");
+                mbuilder = new Notification.Builder(this, channelName);
 
             String folderName = message.folderDisplay == null
                     ? Helper.localizeFolderName(this, message.folderName)
@@ -2593,6 +2596,12 @@ public class ServiceSynchronize extends LifecycleService {
                         // Start monitoring accounts
                         List<EntityAccount> accounts = db.account().getAccounts(true);
                         for (final EntityAccount account : accounts) {
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
+                                if (account.notify)
+                                    account.createNotificationChannel(ServiceSynchronize.this);
+                                else
+                                    account.deleteNotificationChannel(ServiceSynchronize.this);
+
                             Log.i(Helper.TAG, account.host + "/" + account.user + " run");
                             final ServiceState astate = new ServiceState();
                             astate.runnable(new Runnable() {
@@ -2685,6 +2694,13 @@ public class ServiceSynchronize extends LifecycleService {
                             stop();
 
                         DB db = DB.getInstance(ServiceSynchronize.this);
+
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            for (EntityAccount account : db.account().getAccountsTbd())
+                                nm.deleteNotificationChannel(EntityAccount.getNotificationChannelName(account.id));
+                        }
+
                         int accounts = db.account().deleteAccountsTbd();
                         int identities = db.identity().deleteIdentitiesTbd();
                         if (accounts > 0 || identities > 0)

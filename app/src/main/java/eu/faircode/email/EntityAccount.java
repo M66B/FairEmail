@@ -19,10 +19,17 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -66,6 +73,26 @@ public class EntityAccount {
     public String state;
     public String error;
     public Long last_connected;
+
+    static String getNotificationChannelName(long account) {
+        return "notification." + account;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    void createNotificationChannel(Context context) {
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel notification = new NotificationChannel(
+                getNotificationChannelName(id), name,
+                NotificationManager.IMPORTANCE_HIGH);
+        notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        nm.createNotificationChannel(notification);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    void deleteNotificationChannel(Context context) {
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.deleteNotificationChannel(getNotificationChannelName(id));
+    }
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
