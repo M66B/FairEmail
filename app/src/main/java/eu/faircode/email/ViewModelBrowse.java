@@ -25,6 +25,7 @@ import android.util.Log;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -34,6 +35,7 @@ import java.util.Properties;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
+import javax.mail.FolderClosedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -201,6 +203,10 @@ public class ViewModelBrowse extends ViewModel {
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (FolderClosedIOException ex) {
+                        throw ex;
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
