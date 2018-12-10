@@ -639,20 +639,26 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         cursor = getContentResolver().query(
                                 Uri.parse(message.avatar),
-                                new String[]{ContactsContract.Contacts._ID},
+                                new String[]{
+                                        ContactsContract.Contacts._ID,
+                                        ContactsContract.Contacts.LOOKUP_KEY
+                                },
                                 null, null, null);
                         if (cursor.moveToNext()) {
-                            Uri photo = Uri.withAppendedPath(
-                                    ContactsContract.Contacts.CONTENT_URI,
-                                    cursor.getLong(0) + "/photo");
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                                Uri uri = ContactsContract.Contacts.getLookupUri(
+                                        cursor.getLong(0), cursor.getString(1));
                                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                        getContentResolver(), photo);
+                                        getContentResolver(), uri);
                                 mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
-                            } else
+                            } else {
+                                Uri photo = Uri.withAppendedPath(
+                                        ContactsContract.Contacts.CONTENT_URI,
+                                        cursor.getLong(0) + "/photo");
                                 mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                            }
                         }
-                    } catch (SecurityException ex) {
+                    } catch (Throwable ex) {
                         Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                     } finally {
                         if (cursor != null)
