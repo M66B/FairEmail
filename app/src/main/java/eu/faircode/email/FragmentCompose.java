@@ -1617,16 +1617,13 @@ public class FragmentCompose extends FragmentEx {
                         }
 
                     // Delete draft (cannot move to outbox)
-                    draft.msgid = null;
-                    draft.ui_hide = true;
-                    db.message().updateMessage(draft);
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                     // Copy message to outbox
                     draft.id = null;
                     draft.folder = db.folder().getOutbox().id;
                     draft.uid = null;
-                    draft.msgid = msgid;
+                    draft.msgid = EntityMessage.generateMessageId();
                     draft.ui_hide = false;
                     draft.id = db.message().insertMessage(draft);
                     draft.write(getContext(), body);

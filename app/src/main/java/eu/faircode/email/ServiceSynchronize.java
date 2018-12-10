@@ -117,6 +117,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
+import javax.mail.search.MessageIDTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.net.ssl.SSLException;
@@ -1431,6 +1432,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (message != null && message.uid == null &&
                                 !(EntityOperation.ADD.equals(op.name) ||
+                                        EntityOperation.DELETE.equals(op.name) ||
                                         EntityOperation.SEND.equals(op.name) ||
                                         EntityOperation.SYNC.equals(op.name)))
                             throw new IllegalArgumentException(op.name + " without uid " + op.args);
@@ -1667,12 +1669,14 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
         // Delete message
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
-        imessage.setFlag(Flags.Flag.DELETED, true);
-        ifolder.expunge();
+        if (message.msgid != null) {
+            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+            for (Message imessage : imessages) {
+                Log.i(Helper.TAG, "Deleting uid=" + message.uid + " msgid=" + message.msgid);
+                imessage.setFlag(Flags.Flag.DELETED, true);
+            }
+            ifolder.expunge();
+        }
 
         db.message().deleteMessage(message.id);
     }
