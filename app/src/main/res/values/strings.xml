@@ -125,6 +125,7 @@
     <string name="title_identity_reply_to">Reply to address</string>
     <string name="title_identity_read_receipt">Request read receipt</string>
     <string name="title_identity_delivery_receipt">Request delivery receipt</string>
+    <string name="title_identity_receipt_remark">Most providers ignore receipt requests</string>
     <string name="title_optional">Optional</string>
     <string name="title_account_linked">Linked account</string>
     <string name="title_account_name">Account name</string>
@@ -168,7 +169,6 @@
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_pop">POP is not supported</string>
-    <string name="title_insecure">Insecure connections are not supported</string>
 
     <string name="title_folder_unseen" translatable="false">%1$s (%2$d)</string>
 
@@ -178,7 +178,7 @@
     <string name="title_edit_properties">Edit properties</string>
 
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
-    <string name="title_delete_operation">Delete first operation permanently?</string>
+    <string name="title_delete_operation">Delete operations with an error message?</string>
 
     <string name="title_folder_name">Folder name</string>
     <string name="title_display_name">Display name</string>

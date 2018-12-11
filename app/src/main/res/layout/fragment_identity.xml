@@ -169,6 +169,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDeliveryReceipt" />
 
+        <TextView
+            android:id="@+id/tvReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_receipt_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
+
         <!--- provider -->
 
         <TextView
@@ -179,7 +190,7 @@
             android:text="@string/title_provider"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
 
         <Spinner
             android:id="@+id/spProvider"
@@ -234,16 +245,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAutoConfig" />
 
-        <TextView
-            android:id="@+id/tvInsecure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_insecure"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
-
         <!-- host -->
 
         <TextView
@@ -254,7 +255,7 @@
             android:text="@string/title_host"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
+            app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
 
         <EditText
             android:id="@+id/etHost"
@@ -495,6 +496,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDisplay,etDisplay,tvEmail,etEmail,tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvInsecure,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent" />
+            app:constraint_referenced_ids="tvDisplay,etDisplay,tvEmail,etEmail,tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
