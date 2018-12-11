@@ -246,15 +246,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
 
+        <TextView
+            android:id="@+id/tvNameRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_account_name_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/title_account_name_hint"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+            app:layout_constraintTop_toBottomOf="@id/tvNameRemark" />
 
         <Button
             android:id="@+id/btnColor"
@@ -529,7 +539,7 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,btnColor,vwColor,ibColorDefault,cbNotify,cbSynchronize,cbPrimary,tvInterval,etInterval" />
+            app:constraint_referenced_ids="tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault,cbNotify,cbSynchronize,cbPrimary,tvInterval,etInterval" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"
