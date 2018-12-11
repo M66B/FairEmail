@@ -19,8 +19,15 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -46,6 +53,7 @@ public class FragmentOperations extends FragmentEx {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_operations);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_operations, container, false);
 
@@ -75,9 +83,9 @@ public class FragmentOperations extends FragmentEx {
         super.onActivityCreated(savedInstanceState);
 
         // Observe folders
-        DB.getInstance(getContext()).operation().liveOperations().observe(getViewLifecycleOwner(), new Observer<List<EntityOperation>>() {
+        DB.getInstance(getContext()).operation().liveOperations().observe(getViewLifecycleOwner(), new Observer<List<TupleOperationEx>>() {
             @Override
-            public void onChanged(@Nullable List<EntityOperation> operations) {
+            public void onChanged(@Nullable List<TupleOperationEx> operations) {
                 if (operations == null)
                     operations = new ArrayList<>();
 
@@ -87,5 +95,59 @@ public class FragmentOperations extends FragmentEx {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_operations, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        PackageManager pm = getContext().getPackageManager();
+        menu.findItem(R.id.menu_help).setVisible(getFAQIntent().resolveActivity(pm) != null);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_help:
+                onMenuHelp();
+                return true;
+            case R.id.menu_delete:
+                onMenuDelete();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuHelp() {
+        startActivity(getFAQIntent());
+    }
+
+    private void onMenuDelete() {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+                EntityOperation operation = db.operation().getOperationFirst();
+                if (operation != null) {
+                    if (operation.message != null)
+                        db.message().setMessageUiHide(operation.message, false);
+                    db.operation().deleteOperation(operation.id);
+                }
+                return null;
+            }
+        }.load(this, new Bundle());
+    }
+
+    private Intent getFAQIntent() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq3"));
+        return intent;
     }
 }

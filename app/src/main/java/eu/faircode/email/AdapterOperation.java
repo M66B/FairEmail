@@ -22,16 +22,17 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -45,16 +46,14 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     private Context context;
     private LifecycleOwner owner;
 
-    private List<EntityOperation> all = new ArrayList<>();
-    private List<EntityOperation> filtered = new ArrayList<>();
+    private List<TupleOperationEx> all = new ArrayList<>();
+    private List<TupleOperationEx> filtered = new ArrayList<>();
 
-    private DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.LONG);
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View itemView;
+        private TextView tvFolder;
         private TextView tvMessage;
-        private TextView tvName;
-        private TextView tvArgs;
+        private TextView tvOperation;
         private TextView tvTime;
         private TextView tvError;
 
@@ -62,16 +61,15 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             super(itemView);
 
             this.itemView = itemView;
+            tvFolder = itemView.findViewById(R.id.tvFolder);
             tvMessage = itemView.findViewById(R.id.tvMessage);
-            tvName = itemView.findViewById(R.id.tvName);
-            tvArgs = itemView.findViewById(R.id.tvArgs);
+            tvOperation = itemView.findViewById(R.id.tvOperation);
             tvTime = itemView.findViewById(R.id.tvTime);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
         private void wire() {
             itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
         }
 
         private void unwire() {
@@ -79,11 +77,21 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             itemView.setOnLongClickListener(null);
         }
 
-        private void bindTo(EntityOperation operation) {
+        private void bindTo(TupleOperationEx operation) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(operation.name);
+            try {
+                JSONArray jarray = new JSONArray(operation.args);
+                if (jarray.length() > 0)
+                    sb.append(' ').append(operation.args);
+            } catch (JSONException ex) {
+                sb.append(' ').append(ex.toString());
+            }
+
+            tvFolder.setText(operation.accountName + "/" + operation.folderName);
             tvMessage.setText(operation.message == null ? null : Long.toString(operation.message));
-            tvName.setText(operation.name);
-            tvArgs.setText(operation.args);
-            tvTime.setText(df.format(new Date(operation.created)));
+            tvOperation.setText(sb.toString());
+            tvTime.setText(DateUtils.getRelativeTimeSpanString(context, operation.created));
             tvError.setText(operation.error);
             tvError.setVisibility(operation.error == null ? View.GONE : View.VISIBLE);
         }
@@ -94,7 +102,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityOperation operation = filtered.get(pos);
+            TupleOperationEx operation = filtered.get(pos);
             if (operation.message == null) {
                 Bundle args = new Bundle();
                 args.putLong("id", operation.folder);
@@ -139,33 +147,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 }.load(context, owner, args);
             }
         }
-
-        @Override
-        public boolean onLongClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return false;
-
-            EntityOperation operation = filtered.get(pos);
-
-            Bundle args = new Bundle();
-            args.putLong("id", operation.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    DB.getInstance(context).operation().deleteOperation(args.getLong("id"));
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.load(context, owner, args);
-
-            return true;
-        }
     }
 
     AdapterOperation(Context context, LifecycleOwner owner) {
@@ -174,7 +155,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityOperation> operations) {
+    public void set(@NonNull List<TupleOperationEx> operations) {
         Log.i(Helper.TAG, "Set operations=" + operations.size());
 
         all = operations;
@@ -209,10 +190,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     }
 
     private class MessageDiffCallback extends DiffUtil.Callback {
-        private List<EntityOperation> prev;
-        private List<EntityOperation> next;
+        private List<TupleOperationEx> prev;
+        private List<TupleOperationEx> next;
 
-        MessageDiffCallback(List<EntityOperation> prev, List<EntityOperation> next) {
+        MessageDiffCallback(List<TupleOperationEx> prev, List<TupleOperationEx> next) {
             this.prev = prev;
             this.next = next;
         }
@@ -229,15 +210,15 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityOperation a1 = prev.get(oldItemPosition);
-            EntityOperation a2 = next.get(newItemPosition);
+            TupleOperationEx a1 = prev.get(oldItemPosition);
+            TupleOperationEx a2 = next.get(newItemPosition);
             return a1.id.equals(a2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityOperation a1 = prev.get(oldItemPosition);
-            EntityOperation a2 = next.get(newItemPosition);
+            TupleOperationEx a1 = prev.get(oldItemPosition);
+            TupleOperationEx a2 = next.get(newItemPosition);
             return a1.equals(a2);
         }
     }
@@ -262,7 +243,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
-        EntityOperation operation = filtered.get(position);
+        TupleOperationEx operation = filtered.get(position);
         holder.bindTo(operation);
 
         holder.wire();

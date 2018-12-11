@@ -7,35 +7,39 @@
     android:layout_marginBottom="3dp">
 
     <TextView
-        android:id="@+id/tvMessage"
-        android:layout_width="50dp"
+        android:id="@+id/tvFolder"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:text="Msg#"
+        android:ellipsize="start"
+        android:singleLine="true"
+        android:text="Folder"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvMessage"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:text="Name"
+        android:gravity="end"
+        android:text="1234567"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintStart_toEndOf="@id/tvMessage"
+        app:layout_constraintStart_toEndOf="@id/tvFolder"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvArgs"
+        android:id="@+id/tvOperation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
-        android:text="Arguments"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/tvTime"
-        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintStart_toEndOf="@id/tvMessage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -65,6 +69,6 @@
         android:textColor="?attr/colorWarning"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 </androidx.constraintlayout.widget.ConstraintLayout>

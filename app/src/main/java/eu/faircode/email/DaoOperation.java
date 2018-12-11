@@ -38,14 +38,21 @@ public interface DaoOperation {
             ", id")
     List<EntityOperation> getOperationsByFolder(long folder, boolean outbox);
 
-    @Query("SELECT * FROM operation ORDER BY id")
-    LiveData<List<EntityOperation>> liveOperations();
+    @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
+            " FROM operation" +
+            " JOIN folder ON folder.id = operation.folder" +
+            " JOIN account ON account.id = folder.account" +
+            " ORDER BY operation.id")
+    LiveData<List<TupleOperationEx>> liveOperations();
 
     @Query("SELECT * FROM operation WHERE folder = :folder ORDER BY id")
     LiveData<List<EntityOperation>> liveOperations(long folder);
 
     @Query("SELECT * FROM operation ORDER BY id")
     List<EntityOperation> getOperations();
+
+    @Query("SELECT * FROM operation ORDER BY id LIMIT 1")
+    EntityOperation getOperationFirst();
 
     @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
