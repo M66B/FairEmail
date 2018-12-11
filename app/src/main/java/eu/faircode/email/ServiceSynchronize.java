@@ -819,12 +819,13 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wlAccount.acquire();
                                 String type = (e.getMessageType() == StoreEvent.ALERT ? "alert" : "notice");
-                                EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
                                 if (e.getMessageType() == StoreEvent.ALERT) {
+                                    EntityLog.log(ServiceSynchronize.this, account.name + " " + type + ": " + e.getMessage());
                                     db.account().setAccountError(account.id, e.getMessage());
                                     reportError(account, null, new AlertException(e.getMessage()));
                                     state.error();
-                                }
+                                } else
+                                    Log.i(Helper.TAG, account.name + " " + type + ": " + e.getMessage());
                             } finally {
                                 wlAccount.release();
                             }
