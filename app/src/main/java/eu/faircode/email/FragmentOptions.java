@@ -54,23 +54,28 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptions extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
+
     private SwitchCompat swMetered;
+    private Spinner spDownload;
+    private SwitchCompat swBrowse;
+    private SwitchCompat swInsecure;
+
     private SwitchCompat swUnified;
     private SwitchCompat swThreading;
     private SwitchCompat swCompact;
     private SwitchCompat swAvatars;
     private SwitchCompat swIdenticons;
     private SwitchCompat swPreview;
+
     private SwitchCompat swLight;
     private Button btnSound;
-    private SwitchCompat swBrowse;
+
     private SwitchCompat swSwipe;
     private SwitchCompat swActionbar;
     private SwitchCompat swAutoclose;
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
-    private SwitchCompat swInsecure;
-    private Spinner spDownload;
+
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
 
@@ -84,23 +89,28 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+
         swMetered = view.findViewById(R.id.swMetered);
+        spDownload = view.findViewById(R.id.spDownload);
+        swBrowse = view.findViewById(R.id.swBrowse);
+        swInsecure = view.findViewById(R.id.swInsecure);
+
         swUnified = view.findViewById(R.id.swUnified);
         swThreading = view.findViewById(R.id.swThreading);
         swCompact = view.findViewById(R.id.swCompact);
         swAvatars = view.findViewById(R.id.swAvatars);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swPreview = view.findViewById(R.id.swPreview);
+
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
-        swBrowse = view.findViewById(R.id.swBrowse);
+
         swSwipe = view.findViewById(R.id.swSwipe);
         swActionbar = view.findViewById(R.id.swActionbar);
         swAutoclose = view.findViewById(R.id.swAutoclose);
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
-        swInsecure = view.findViewById(R.id.swInsecure);
-        spDownload = view.findViewById(R.id.spDownload);
+
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
 
@@ -123,6 +133,41 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("metered", checked).apply();
                 ServiceSynchronize.reload(getContext(), "metered=" + checked);
+            }
+        });
+
+        int download = prefs.getInt("download", 32768);
+        final int[] values = getResources().getIntArray(R.array.downloadValues);
+        for (int i = 0; i < values.length; i++)
+            if (values[i] == download) {
+                spDownload.setSelection(i);
+                break;
+            }
+        spDownload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                prefs.edit().putInt("download", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("download").apply();
+            }
+        });
+
+        swBrowse.setChecked(prefs.getBoolean("browse", true));
+        swBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("browse", checked).apply();
+            }
+        });
+
+        swInsecure.setChecked(prefs.getBoolean("insecure", false));
+        swInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("insecure", checked).apply();
             }
         });
 
@@ -229,14 +274,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swBrowse.setChecked(prefs.getBoolean("browse", true));
-        swBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("browse", checked).apply();
-            }
-        });
-
         swSwipe.setChecked(prefs.getBoolean("swipe", true));
         swSwipe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -274,33 +311,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sender", checked).apply();
-            }
-        });
-
-        swInsecure.setChecked(prefs.getBoolean("insecure", false));
-        swInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("insecure", checked).apply();
-            }
-        });
-
-        int download = prefs.getInt("download", 32768);
-        final int[] values = getResources().getIntArray(R.array.downloadValues);
-        for (int i = 0; i < values.length; i++)
-            if (values[i] == download) {
-                spDownload.setSelection(i);
-                break;
-            }
-        spDownload.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                prefs.edit().putInt("download", values[position]).apply();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("download").apply();
             }
         });
 
