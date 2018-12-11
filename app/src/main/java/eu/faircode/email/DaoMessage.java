@@ -36,18 +36,22 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
+    String unseen_unified = "SUM(CASE WHEN message.ui_seen" +
+            "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
+            "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
+            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END)";
+
+    String unflagged_unified = "SUM(CASE WHEN message.ui_flagged" +
+            "    AND NOT folder.type = '" + EntityFolder.ARCHIVE + "'" +
+            "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
+            "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END)";
+
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", COUNT(message.id) AS count" +
-            ", SUM(CASE WHEN message.ui_seen" +
-            "    OR folder.type = '" + EntityFolder.ARCHIVE + "'" +
-            "    OR folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    OR folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unseen" +
-            ", SUM(CASE WHEN message.ui_flagged" +
-            "    AND NOT folder.type = '" + EntityFolder.ARCHIVE + "'" +
-            "    AND NOT folder.type = '" + EntityFolder.OUTBOX + "'" +
-            "    AND NOT folder.type = '" + EntityFolder.DRAFTS + "' THEN 0 ELSE 1 END) AS unflagged" +
+            ", " + unseen_unified + " AS unseen" +
+            ", " + unflagged_unified + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.unified THEN message.received ELSE 0 END) AS dummy" +
@@ -60,25 +64,28 @@ public interface DaoMessage {
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(unified) > 0" +
             " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
-            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
+            "  WHEN 'unread' = :sort THEN " + unseen_unified + " > 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " > 0" +
             "  ELSE 0" +
             " END DESC, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(boolean threading, String sort, boolean debug);
 
+    String unseen_folder = "SUM(CASE WHEN message.ui_seen" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
+            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
+    String unflagged_folder = "SUM(CASE WHEN message.ui_flagged" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
+            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
+
     @Query("SELECT message.*" +
             ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", COUNT(message.id) AS count" +
-            ", SUM(CASE WHEN message.ui_seen" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
-            "    OR (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unseen" +
-            ", SUM(CASE WHEN message.ui_flagged" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.ARCHIVE + "')" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.OUTBOX + "')" +
-            "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END) AS unflagged" +
+            ", " + unseen_folder + " AS unseen" +
+            ", " + unflagged_folder + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
@@ -93,8 +100,8 @@ public interface DaoMessage {
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
-            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
+            "  WHEN 'unread' = :sort THEN " + unseen_folder + " > 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " > 0" +
             "  ELSE 0" +
             " END DESC, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
