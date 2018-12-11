@@ -37,7 +37,9 @@ public class JobDaily extends JobService {
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final long CLEANUP_INTERVAL = 4 * 3600 * 1000L; // milliseconds
-    private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L;
+    private static final long FILE_DELETE_THRESHOLD = 30 * 60 * 1000L; // milliseconds
+    private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
+    private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
     public static void schedule(Context context) {
         Log.i(Helper.TAG, "Scheduling daily job");
@@ -95,12 +97,14 @@ public class JobDaily extends JobService {
                             " before=" + new Date(keep_time) + " deleted=" + messages);
             }
 
+            long now = new Date().getTime();
+
             // Cleanup message files
             Log.i(Helper.TAG, "Cleanup message files");
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             if (messages != null)
                 for (File file : messages)
-                    if (file.isFile()) {
+                    if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
                         long id = Long.parseLong(file.getName());
                         if (db.message().countMessage(id) == 0) {
                             Log.i(Helper.TAG, "Cleanup message id=" + id);
@@ -114,7 +118,7 @@ public class JobDaily extends JobService {
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
                 for (File file : attachments)
-                    if (file.isFile()) {
+                    if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
                         long id = Long.parseLong(file.getName());
                         if (db.attachment().countAttachment(id) == 0) {
                             Log.i(Helper.TAG, "Cleanup attachment id=" + id);
@@ -125,18 +129,17 @@ public class JobDaily extends JobService {
 
             // Cleanup cached images
             Log.i(Helper.TAG, "Cleanup cached image files");
-            long now = new Date().getTime();
             File[] images = new File(context.getCacheDir(), "images").listFiles();
             if (images != null)
                 for (File file : images)
-                    if (file.isFile() && file.lastModified() + CACHE_IMAGE_DURATION < now) {
+                    if (file.isFile() && (now - file.lastModified()) > CACHE_IMAGE_DURATION) {
                         Log.i(Helper.TAG, "Deleting cached image=" + file.getName());
                         if (!file.delete())
                             Log.w(Helper.TAG, "Error deleting " + file);
                     }
 
             Log.i(Helper.TAG, "Cleanup log");
-            long before = new Date().getTime() - 24 * 3600 * 1000L;
+            long before = now - KEEP_LOG_DURATION;
             int logs = db.log().deleteLogs(before);
             Log.i(Helper.TAG, "Deleted logs=" + logs);
 
