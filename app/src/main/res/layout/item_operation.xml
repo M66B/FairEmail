@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tvMessage,tvName,tvArgs,tvTime" />
+        app:constraint_referenced_ids="tvFolder,tvMessage,tvOperation,tvTime" />
 
     <TextView
         android:id="@+id/tvError"
