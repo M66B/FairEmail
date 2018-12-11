@@ -153,6 +153,7 @@
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
     <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
     <string name="title_hide_folders">Gizli qovluqları gizlət</string>

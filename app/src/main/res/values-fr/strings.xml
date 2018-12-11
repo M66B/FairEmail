@@ -153,6 +153,7 @@
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>
     <string name="title_hide_folders">Masquer les dossiers cachés</string>

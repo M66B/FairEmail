@@ -148,6 +148,7 @@
     <string name="title_empty_trash">清空垃圾箱</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_empty_trash_ask">永久性删除所有垃圾邮件</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
     <string name="title_hide_folders">隐藏隐藏的文件夹</string>

@@ -163,6 +163,7 @@
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_hide_folders">Nie pokazuj ukrytych folderów</string>

@@ -153,6 +153,7 @@
     <string name="title_empty_trash">Tøm papirkurv</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_hide_folders">Hide hidden folders</string>

@@ -153,6 +153,7 @@
     <string name="title_empty_trash">Töm papperskorgen</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
     <string name="title_empty_trash_ask">Radera alla meddelanden i papperskorgen permanent?</string>
+    <string name="title_delete_operation">Delete first operation permanently?</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
     <string name="title_hide_folders">Dölj dolda mappar</string>
