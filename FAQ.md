@@ -42,7 +42,7 @@ None at this moment.
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
-* Badge count: there is no standard Android API for this and third party solutions might stop working anytime.
+* Badge count: there is no standard Android API for this and third party solutions might stop working anytime. You can use the provided widget instead.
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
@@ -75,7 +75,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * foreground service (FOREGROUND_SERVICE): to run a foreground service on Android 9 Pie and later, see also the next question
 * prevent device from sleeping (WAKE_LOCK): to keep the device awake while synchronizing messages
 * Optional: read your contacts (READ_CONTACTS): to autocomplete addresses and to show photos
-* USE_CREDENTIALS: needed to select accounts on Android version 5.1 Lollipop and before (not used on later Android versions)
+* Use accounts on the device (USE_CREDENTIALS): needed to select accounts on Android version 5.1 Lollipop and before (not used on later Android versions)
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
 <a name="faq2"></a>
