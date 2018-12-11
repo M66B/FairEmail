@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -130,19 +131,28 @@ public class FragmentOperations extends FragmentEx {
     }
 
     private void onMenuDelete() {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onLoad(Context context, Bundle args) {
-                DB db = DB.getInstance(context);
-                EntityOperation operation = db.operation().getOperationFirst();
-                if (operation != null) {
-                    if (operation.message != null)
-                        db.message().setMessageUiHide(operation.message, false);
-                    db.operation().deleteOperation(operation.id);
-                }
-                return null;
-            }
-        }.load(this, new Bundle());
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(R.string.title_delete_operation)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                DB db = DB.getInstance(context);
+                                EntityOperation operation = db.operation().getOperationFirst();
+                                if (operation != null) {
+                                    if (operation.message != null)
+                                        db.message().setMessageUiHide(operation.message, false);
+                                    db.operation().deleteOperation(operation.id);
+                                }
+                                return null;
+                            }
+                        }.load(FragmentOperations.this, new Bundle());
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private Intent getFAQIntent() {
