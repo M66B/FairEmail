@@ -449,6 +449,7 @@ public class FragmentMessages extends FragmentEx {
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
                 if (message == null ||
                         expanded.contains(message.id) ||
+                        EntityFolder.DRAFTS.equals(message.folderType) ||
                         EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
 
@@ -724,7 +725,7 @@ public class FragmentMessages extends FragmentEx {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
-                        Boolean[] result = new Boolean[9];
+                        Boolean[] result = new Boolean[10];
                         for (int i = 0; i < result.length; i++)
                             result[i] = false;
 
@@ -748,6 +749,7 @@ public class FragmentMessages extends FragmentEx {
                             result[6] = EntityFolder.ARCHIVE.equals(folder.type);
                             result[7] = EntityFolder.TRASH.equals(folder.type);
                             result[8] = EntityFolder.JUNK.equals(folder.type);
+                            result[9] = EntityFolder.DRAFTS.equals(folder.type);
                         }
 
                         return result;
@@ -757,9 +759,9 @@ public class FragmentMessages extends FragmentEx {
                     protected void onLoaded(Bundle args, final Boolean[] result) {
                         PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
-                        if (result[0])
+                        if (result[0] && !result[9])
                             popupMenu.getMenu().add(Menu.NONE, action_seen, 1, R.string.title_seen);
-                        if (result[1])
+                        if (result[1] && !result[9])
                             popupMenu.getMenu().add(Menu.NONE, action_unseen, 2, R.string.title_unseen);
 
                         if (result[2])
@@ -767,19 +769,20 @@ public class FragmentMessages extends FragmentEx {
                         if (result[3])
                             popupMenu.getMenu().add(Menu.NONE, action_unflag, 4, R.string.title_unflag);
 
-                        if (result[4] && !result[6]) // has archive and not is archive
+                        if (result[4] && !result[6] && !result[9]) // has archive and not is archive
                             popupMenu.getMenu().add(Menu.NONE, action_archive, 5, R.string.title_archive);
 
                         if (result[5]) // has trash
-                            if (result[7]) // is trash
+                            if (result[7] || result[9]) // is trash or drafts
                                 popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_trash);
                             else
                                 popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
-                        if (!result[8])
+                        if (!result[8] && !result[9])
                             popupMenu.getMenu().add(Menu.NONE, action_junk, 6, R.string.title_spam);
 
-                        popupMenu.getMenu().add(Menu.NONE, action_move, 7, R.string.title_move);
+                        if (!result[9])
+                            popupMenu.getMenu().add(Menu.NONE, action_move, 7, R.string.title_move);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
