@@ -51,8 +51,8 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation ORDER BY id")
     List<EntityOperation> getOperations();
 
-    @Query("SELECT * FROM operation ORDER BY id LIMIT 1")
-    EntityOperation getOperationFirst();
+    @Query("SELECT * FROM operation WHERE error IS NOT NULL")
+    List<EntityOperation> getOperationsError();
 
     @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
