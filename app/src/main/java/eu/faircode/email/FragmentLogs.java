@@ -21,6 +21,9 @@ package eu.faircode.email;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -41,12 +44,14 @@ public class FragmentLogs extends FragmentEx {
     private ProgressBar pbWait;
     private Group grpReady;
 
+    private boolean autoScroll = true;
     private AdapterLog adapter;
 
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_log);
+        setHasOptionsMenu(true);
 
         View view = inflater.inflate(R.layout.fragment_logs, container, false);
 
@@ -85,11 +90,37 @@ public class FragmentLogs extends FragmentEx {
                     logs = new ArrayList<>();
 
                 adapter.set(logs);
-                //rvLog.scrollToPosition(0);
+                if (autoScroll)
+                    rvLog.scrollToPosition(0);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_logs, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_auto_scroll).setChecked(autoScroll);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_auto_scroll:
+                autoScroll = !item.isChecked();
+                item.setChecked(autoScroll);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
