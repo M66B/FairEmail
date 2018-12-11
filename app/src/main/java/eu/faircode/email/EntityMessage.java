@@ -286,6 +286,7 @@ public class EntityMessage implements Serializable {
                     (this.preview == null ? other.preview == null : this.preview.equals(other.preview)) &&
                     //(this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
+                    this.stored.equals(other.stored) && // updated after decryption
                     //this.stored.equals(other.stored) &&
                     //this.seen.equals(other.seen) &&
                     //this.answered.equals(other.answered) &&
