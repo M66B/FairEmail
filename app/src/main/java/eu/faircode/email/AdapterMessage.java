@@ -375,10 +375,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 flagged = (message.count - message.unflagged > 0);
             ivFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged
-                    ? Helper.resolveColor(context, R.attr.colorAccent)
-                    : Helper.resolveColor(context, android.R.attr.textColorSecondary)
-            ));
+            ivFlagged.setImageTintList(ColorStateList.valueOf(
+                    Helper.resolveColor(context, flagged ? R.attr.colorAccent : android.R.attr.textColorSecondary)));
             ivFlagged.setVisibility(View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
