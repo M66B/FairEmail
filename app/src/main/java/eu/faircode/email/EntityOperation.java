@@ -92,17 +92,22 @@ public class EntityOperation {
         queue(db, message, name, jargs);
     }
 
-    static void sync(DB db, long folder) {
-        if (db.operation().getOperationCount(folder, EntityOperation.SYNC) == 0) {
+    static void sync(DB db, long fid) {
+        if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
+            EntityFolder folder = db.folder().getFolder(fid);
+            JSONArray jargs = new JSONArray();
+            jargs.put(folder.initialize ? Math.min(EntityFolder.DEFAULT_INIT, folder.keep_days) : folder.sync_days);
+            jargs.put(folder.keep_days);
+
             EntityOperation operation = new EntityOperation();
-            operation.folder = folder;
+            operation.folder = folder.id;
             operation.message = null;
             operation.name = SYNC;
-            operation.args = new JSONArray().toString();
+            operation.args = jargs.toString();
             operation.created = new Date().getTime();
             operation.id = db.operation().insertOperation(operation);
 
-            db.folder().setFolderSyncState(folder, "requested");
+            db.folder().setFolderSyncState(fid, "requested");
 
             Log.i(Helper.TAG, "Queued sync folder=" + folder);
         }

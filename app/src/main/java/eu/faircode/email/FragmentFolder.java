@@ -161,8 +161,8 @@ public class FragmentFolder extends FragmentEx {
 
                         if (TextUtils.isEmpty(display) || display.equals(name))
                             display = null;
-                        int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_USER_SYNC : Integer.parseInt(sync));
-                        int keep_days = (TextUtils.isEmpty(keep) ? sync_days : Integer.parseInt(keep));
+                        int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
+                        int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
                         if (keep_days < sync_days)
                             keep_days = sync_days;
 
@@ -361,11 +361,11 @@ public class FragmentFolder extends FragmentEx {
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
-                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.sync_days));
+                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
                     if (folder != null && folder.keep_days == Integer.MAX_VALUE)
                         cbKeepAll.setChecked(true);
                     else
-                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_USER_SYNC : folder.keep_days));
+                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
                 }
 
                 // Consider previous save as cancelled

@@ -175,6 +175,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET name = :name WHERE account = :account AND name = :old")
     int renameFolder(long account, String old, String name);
 
+    @Query("UPDATE folder SET initialize = 0 WHERE id = :id")
+    int setFolderInitialized(long id);
+
     @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
     int setFolderTbd(long id);
 

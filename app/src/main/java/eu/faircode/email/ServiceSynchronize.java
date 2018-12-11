@@ -1478,7 +1478,7 @@ public class ServiceSynchronize extends LifecycleService {
                             if (EntityFolder.OUTBOX.equals(folder.type))
                                 db.folder().setFolderError(folder.id, null);
                             else
-                                synchronizeMessages(account, folder, ifolder, state);
+                                synchronizeMessages(account, folder, ifolder, jargs, state);
 
                         else
                             throw new MessagingException("Unknown operation name=" + op.name);
@@ -1934,8 +1934,8 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.level = level;
                         folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));
-                        folder.sync_days = EntityFolder.DEFAULT_USER_SYNC;
-                        folder.keep_days = EntityFolder.DEFAULT_USER_SYNC;
+                        folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                        folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         db.folder().insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
                     } else {
@@ -1960,26 +1960,26 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, ServiceState state) throws MessagingException, IOException {
+    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, ServiceState state) throws JSONException, MessagingException, IOException {
         DB db = DB.getInstance(this);
         try {
-            // Refresh parameters
-            folder = db.folder().getFolder(folder.id);
+            int sync_days = jargs.getInt(0);
+            int keep_days = jargs.getInt(1);
 
-            Log.v(Helper.TAG, folder.name + " start sync after=" + folder.sync_days + "/" + folder.keep_days);
+            Log.v(Helper.TAG, folder.name + " start sync after=" + sync_days + "/" + keep_days);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
             // Get reference times
             Calendar cal_sync = Calendar.getInstance();
-            cal_sync.add(Calendar.DAY_OF_MONTH, -folder.sync_days);
+            cal_sync.add(Calendar.DAY_OF_MONTH, -sync_days);
             cal_sync.set(Calendar.HOUR_OF_DAY, 0);
             cal_sync.set(Calendar.MINUTE, 0);
             cal_sync.set(Calendar.SECOND, 0);
             cal_sync.set(Calendar.MILLISECOND, 0);
 
             Calendar cal_keep = Calendar.getInstance();
-            cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
+            cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
             cal_keep.set(Calendar.HOUR_OF_DAY, 12);
             cal_keep.set(Calendar.MINUTE, 0);
             cal_keep.set(Calendar.SECOND, 0);
@@ -2144,6 +2144,9 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (InterruptedException ignored) {
                     }
             }
+
+            if (state.running)
+                db.folder().setFolderInitialized(folder.id);
 
             db.folder().setFolderError(folder.id, null);
         } finally {

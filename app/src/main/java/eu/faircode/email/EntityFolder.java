@@ -74,6 +74,8 @@ public class EntityFolder implements Serializable {
     public Integer sync_days;
     @NonNull
     public Integer keep_days;
+    @NonNull
+    public Boolean initialize = true;
     public String display;
     @NonNull
     public Boolean hide = false;
@@ -128,9 +130,9 @@ public class EntityFolder implements Serializable {
             USER
     );
 
-    static final int DEFAULT_INBOX_SYNC = 7; // days
-    static final int DEFAULT_SYSTEM_SYNC = 7; // days
-    static final int DEFAULT_USER_SYNC = 7; // days
+    static final int DEFAULT_INIT = 7; // days
+    static final int DEFAULT_SYNC = 1; // days
+    static final int DEFAULT_KEEP = 14; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
             DRAFTS,

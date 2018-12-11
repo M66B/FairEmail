@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -184,6 +185,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     tvAfter.setText(String.format("%d/%d", folder.sync_days, folder.keep_days));
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
+            ivSync.setImageTintList(ColorStateList.valueOf(
+                    Helper.resolveColor(context,
+                            folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
+                                    ? R.attr.colorUnread : android.R.attr.textColorSecondary)));
 
             tvKeywords.setText(TextUtils.join(" ", folder.keywords));
             tvKeywords.setVisibility(debug && folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
