@@ -624,6 +624,16 @@ You'll get the message *This key is not available. To use it, you must import it
 when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
 
 
+<a name="faq46"></a>
+**(46) Why does the message list keep refreshing?**
+
+If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server.
+You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
+
+The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take.
+Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
