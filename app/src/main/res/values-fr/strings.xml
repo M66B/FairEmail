@@ -164,7 +164,7 @@
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
     <string name="title_notify_folder">Notifier les nouveaux messages</string>
     <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
-    <string name="title_sync_days_remark">Si vous disposez d’une connectivité internet journalière, réglez cette valeur à un jour afin de réduire l\'utilisation de la batterie et des données après la synchronisation initiale</string>
+    <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">Conserver les e-mails (jours)</string>
     <string name="title_keep_all">Garder tous les messages</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>

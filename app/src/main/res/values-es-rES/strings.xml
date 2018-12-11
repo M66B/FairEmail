@@ -153,7 +153,7 @@
     <string name="title_empty_trash">Vaciar Papelera</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_empty_trash_ask">¿Eliminar los mensajes de la Papelera permanentemente?</string>
-    <string name="title_delete_operation">Delete first operation permanently?</string>
+    <string name="title_delete_operation">¿Eliminar de forma permanente la primera operación?</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
     <string name="title_hide_folders">Ocultar carpetas ocultas</string>
@@ -164,7 +164,7 @@
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_notify_folder">Notificar nuevos mensajes</string>
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
-    <string name="title_sync_days_remark">Si dispone de conexión a internet una vez al día, configure esto en un día para reducir el uso de datos y batería después de la sincronización inicial</string>
+    <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
     <string name="title_keep_all">Mantener todos los mensajes</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>

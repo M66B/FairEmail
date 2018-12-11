@@ -164,7 +164,7 @@
     <string name="title_poll_folder">Periodisch überprüfen anstatt einer dauerhaften Synchronisierung</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
-    <string name="title_sync_days_remark">Falls Sie täglich mit dem Internet verbunden sind, dann setzen Sie diesen Wert auf einen Tag, um die Akku- und Datennutzung bei der initialen Synchronisierung zu reduzieren</string>
+    <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>

@@ -175,7 +175,7 @@
     <string name="title_poll_folder">Проверка периодически вместо непрерывной синхронизации</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_sync_days">Синхронизация сообщений (дней)</string>
-    <string name="title_sync_days_remark">Если у вас есть ежедневные подключение к Интернету, установите это в один день, чтобы уменьшить использование батареи и данных после начальной синхронизации</string>
+    <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">Сохранить сообщения (дней)</string>
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_folder_exists">Папка% 1 $ s существует</string>
