@@ -1562,13 +1562,11 @@ public class FragmentCompose extends FragmentEx {
                 draft.bcc = abcc;
                 draft.subject = subject;
                 draft.received = new Date().getTime();
+                db.message().updateMessage(draft);
+                draft.write(context, body);
 
                 // Execute action
                 if (action == R.id.action_delete) {
-                    draft.msgid = null;
-                    draft.ui_hide = true;
-                    db.message().updateMessage(draft);
-
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                     Handler handler = new Handler(Looper.getMainLooper());
@@ -1578,9 +1576,6 @@ public class FragmentCompose extends FragmentEx {
                         }
                     });
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
-                    db.message().updateMessage(draft);
-                    draft.write(context, body);
-
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
                     Handler handler = new Handler(Looper.getMainLooper());
@@ -1591,30 +1586,18 @@ public class FragmentCompose extends FragmentEx {
                     });
 
                 } else if (action == R.id.action_send) {
-                    db.message().updateMessage(draft);
-                    draft.write(context, body);
-
                     // Check data
-                    if (draft.identity == null) {
-                        db.setTransactionSuccessful();
+                    if (draft.identity == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
-                    }
 
-                    if (draft.to == null && draft.cc == null && draft.bcc == null) {
-                        db.setTransactionSuccessful();
+                    if (draft.to == null && draft.cc == null && draft.bcc == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
-                    }
-
-                    // Save message ID
-                    String msgid = draft.msgid;
 
                     // Save attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
                     for (EntityAttachment attachment : attachments)
-                        if (!attachment.available) {
-                            db.setTransactionSuccessful();
+                        if (!attachment.available)
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-                        }
 
                     // Delete draft (cannot move to outbox)
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
