@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -140,11 +141,13 @@ public class FragmentOperations extends FragmentEx {
                             @Override
                             protected Void onLoad(Context context, Bundle args) {
                                 DB db = DB.getInstance(context);
-                                EntityOperation operation = db.operation().getOperationFirst();
-                                if (operation != null) {
-                                    if (operation.message != null)
-                                        db.message().setMessageUiHide(operation.message, false);
-                                    db.operation().deleteOperation(operation.id);
+                                List<EntityOperation> ops = db.operation().getOperationsError();
+                                Log.i(Helper.TAG, "Operations with error count=" + ops.size());
+                                for (EntityOperation op : ops) {
+                                    Log.w(Helper.TAG, "Deleting operation=" + op.id + " error=" + op.error);
+                                    if (op.message != null)
+                                        db.message().setMessageUiHide(op.message, false);
+                                    db.operation().deleteOperation(op.id);
                                 }
                                 return null;
                             }
