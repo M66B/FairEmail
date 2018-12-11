@@ -243,6 +243,11 @@ public class FragmentMessages extends FragmentEx {
                             Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
                         }
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
                 }.load(FragmentMessages.this, args);
             }
         });
@@ -1813,7 +1818,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        super.onException(args, ex);
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
                 }.load(FragmentMessages.this, args);
             }

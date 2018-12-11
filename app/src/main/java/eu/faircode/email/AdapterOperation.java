@@ -123,6 +123,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                                         .putExtra("folder", folder.id)
                                         .putExtra("outgoing", folder.isOutgoing()));
                     }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
+                    }
                 }.load(context, owner, args);
             } else {
                 Bundle args = new Bundle();
@@ -143,6 +148,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                                         .putExtra("account", message.account)
                                         .putExtra("thread", message.thread)
                                         .putExtra("id", message.id));
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
                     }
                 }.load(context, owner, args);
             }

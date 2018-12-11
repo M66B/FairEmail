@@ -162,16 +162,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         }
     }
 
-    protected T onLoad(Context context, Bundle args) throws Throwable {
-        // Be careful not to access members in outer scopes
-        return null;
-    }
+    protected abstract T onLoad(Context context, Bundle args) throws Throwable;
 
     protected void onLoaded(Bundle args, T data) {
     }
 
-    protected void onException(Bundle args, Throwable ex) {
-    }
+    protected abstract void onException(Bundle args, Throwable ex);
 
     private static class Result {
         Throwable ex;

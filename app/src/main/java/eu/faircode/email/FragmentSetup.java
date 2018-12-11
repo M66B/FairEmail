@@ -454,6 +454,11 @@ public class FragmentSetup extends FragmentEx {
                         EntityOperation.sync(db, folder.id);
                     return null;
                 }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
             }.load(FragmentSetup.this, new Bundle());
     }
 

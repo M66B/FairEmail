@@ -148,6 +148,11 @@ public class FragmentOperations extends FragmentEx {
                                 }
                                 return null;
                             }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
                         }.load(FragmentOperations.this, new Bundle());
                     }
                 })
