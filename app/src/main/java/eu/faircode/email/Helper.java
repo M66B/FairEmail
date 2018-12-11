@@ -310,11 +310,6 @@ public class Helper {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
             return cm.isActiveNetworkMetered();
 
-        if (!cm.isActiveNetworkMetered()) {
-            Log.i(Helper.TAG, "isMetered: active network is unmetered");
-            return false;
-        }
-
         Network active = cm.getActiveNetwork();
         if (active == null) {
             Log.i(Helper.TAG, "isMetered: no active network");
@@ -333,6 +328,7 @@ public class Helper {
             Log.i(Helper.TAG, "isMetered: active not connected");
             return null;
         }
+
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
             Log.i(Helper.TAG, "isMetered: active no caps");
@@ -341,15 +337,10 @@ public class Helper {
 
         Log.i(Helper.TAG, "isMetered: active caps=" + caps);
 
-        boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
-        if (unmetered) {
-            Log.i(Helper.TAG, "isMetered: active unmetered");
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
+            Log.i(Helper.TAG, "isMetered: active not VPN unmetered");
             return false;
-        }
-
-        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
-            Log.i(Helper.TAG, "isMetered: active metered");
-            return true;
         }
 
         // VPN: evaluate underlying networks
