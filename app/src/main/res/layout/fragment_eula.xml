@@ -9,33 +9,32 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <TextView
-            android:id="@+id/tvEula"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/inEula"
+            layout="@layout/include_eula"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_eula"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvCopyright" />
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_disagree"
             app:layout_constraintEnd_toStartOf="@+id/btnOk"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEula" />
+            app:layout_constraintTop_toBottomOf="@id/inEula" />
 
         <Button
             android:id="@+id/btnOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_agree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnCancel"
-            app:layout_constraintTop_toBottomOf="@id/tvEula" />
+            app:layout_constraintTop_toBottomOf="@id/inEula" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -31,11 +31,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FragmentEula extends FragmentEx {
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_eula);
+        setSubtitle(R.string.title_welcome);
 
         View view = inflater.inflate(R.layout.fragment_eula, container, false);
 
