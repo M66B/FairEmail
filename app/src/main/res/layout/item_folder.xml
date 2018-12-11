@@ -74,7 +74,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="6dp"
-            android:ellipsize="start"
+            android:ellipsize="end"
             android:gravity="center_vertical"
             android:singleLine="true"
             android:text="Name"
