@@ -158,7 +158,7 @@
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
-    <string name="title_delete_operation">Delete first operation permanently?</string>
+    <string name="title_delete_operation">Ștergeți definitiv prima operațiune?</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
     <string name="title_hide_folders">Ascunde dosarele ascunse</string>
