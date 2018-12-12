@@ -1664,6 +1664,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
+            busy = false;
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
 
