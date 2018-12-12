@@ -526,12 +526,14 @@ First of all, update to [the latest version](https://github.com/M66B/open-source
 
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
+
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 Confusingly, *app usage* is not the same as *battery usage*.
 The app usage will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
 However, this doesn't mean that FairEmail is constantly using battery power.
 The real battery usage can be seen by using the three dot overflow menu *Show full device usage*.
-As a rule of thumb the battery usage should be below or in any case not be much higher than 'Network standby'.
+As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
 If this isn't the case, please let me know.
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
@@ -552,7 +554,7 @@ If you got the message *This provider does not support push messages* while conf
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
-you can save battery usage while viewing messages by switching to the black theme (this is a pro features).
+you can save battery usage while viewing messages by switching to the black theme (this is a pro feature).
 
 
 <a name="faq40"></a>
