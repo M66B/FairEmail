@@ -599,7 +599,8 @@ public class MessageHelper {
 
                 // Try to guess a better content type
                 // Sometimes PDF files are sent using the wrong type
-                if ("application/octet-stream".equals(attachment.type)) {
+                if ("application/octet-stream".equals(attachment.type) ||
+                        "message/disposition-notification".equals(attachment.type)) {
                     String extension = Helper.getExtension(attachment.name);
                     if (extension != null) {
                         String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
