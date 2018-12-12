@@ -522,7 +522,17 @@ If you cannot solve the problem with the purchase, you will have to contact Goog
 <a name="faq39"></a>
 **(39) How can I reduce the battery usage of FairEmail?**
 
-First of all, upgrade to [the latest version](https://github.com/M66B/open-source-email/releases/).
+First of all, update to [the latest version](https://github.com/M66B/open-source-email/releases/).
+
+It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+
+Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
+Confusingly, *app usage* is not the same as *battery usage*.
+The app usage will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
+However, this doesn't mean that FairEmail is constantly using battery power.
+The real battery usage can be seen by using the three dot overflow menu *Show full device usage*.
+As a rule of thumb the battery usage should be below or in any case not be much higher than 'Network standby'.
+If this isn't the case, please let me know.
 
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
 So, to reduce the battery usage, set the number of days to synchronize message for to a lower value,
