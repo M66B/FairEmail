@@ -1064,7 +1064,7 @@ public class FragmentCompose extends FragmentEx {
                     if (aid < 0) {
                         result.account = db.account().getPrimaryAccount();
                         if (result.account == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_account));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
                     } else
                         result.account = db.account().getAccount(aid);
                 } else {
