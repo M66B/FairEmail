@@ -736,15 +736,18 @@ public class FragmentMessages extends FragmentEx {
 
                         DB db = DB.getInstance(context);
 
-                        for (Long id : ids) {
+                        long account = -1;
+                        for (long id : ids) {
                             EntityMessage message = db.message().getMessage(id);
-                            result[message.ui_seen ? 1 : 0] = true;
-                            result[message.flagged ? 3 : 2] = true;
+                            if (message != null) {
+                                account = message.account;
+                                result[message.ui_seen ? 1 : 0] = true;
+                                result[message.flagged ? 3 : 2] = true;
+                            }
                         }
 
-                        EntityMessage m0 = db.message().getMessage(ids[0]);
-                        EntityFolder archive = db.folder().getFolderByType(m0.account, EntityFolder.ARCHIVE);
-                        EntityFolder trash = db.folder().getFolderByType(m0.account, EntityFolder.TRASH);
+                        EntityFolder archive = db.folder().getFolderByType(account, EntityFolder.ARCHIVE);
+                        EntityFolder trash = db.folder().getFolderByType(account, EntityFolder.TRASH);
 
                         result[4] = (archive != null);
                         result[5] = (trash != null);
@@ -866,7 +869,7 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_seen != seen) {
+                                if (message != null && message.ui_seen != seen) {
                                     List<EntityMessage> messages = db.message().getMessageByThread(
                                             message.account, message.thread, threading ? null : id, message.folder);
                                     for (EntityMessage threaded : messages)
@@ -908,7 +911,7 @@ public class FragmentMessages extends FragmentEx {
 
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                if (message.ui_flagged != flagged) {
+                                if (message != null && message.ui_flagged != flagged) {
                                     List<EntityMessage> messages = db.message().getMessageByThread(
                                             message.account, message.thread, threading ? null : id, message.folder);
                                     for (EntityMessage threaded : messages)
@@ -966,13 +969,14 @@ public class FragmentMessages extends FragmentEx {
 
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
-                                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder);
-                                                for (EntityMessage threaded : messages) {
-                                                    if (threaded.uid == null && !TextUtils.isEmpty(threaded.error)) // outbox
-                                                        db.message().deleteMessage(threaded.id);
-                                                    else
-                                                        EntityOperation.queue(db, threaded, EntityOperation.DELETE);
+                                                if (message != null) {
+                                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                                            message.account, message.thread, threading ? null : id, message.folder);
+                                                    for (EntityMessage threaded : messages)
+                                                        if (threaded.uid == null && !TextUtils.isEmpty(threaded.error)) // outbox
+                                                            db.message().deleteMessage(threaded.id);
+                                                        else
+                                                            EntityOperation.queue(db, threaded, EntityOperation.DELETE);
                                                 }
                                             }
 
@@ -1016,18 +1020,21 @@ public class FragmentMessages extends FragmentEx {
                         try {
                             db.beginTransaction();
 
-                            EntityMessage m0 = db.message().getMessage(ids[0]);
-                            result.target = db.folder().getFolderByType(m0.account, type);
-
+                            long account = -1;
                             for (long id : ids) {
                                 EntityMessage message = db.message().getMessage(id);
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading ? null : id, message.folder);
-                                for (EntityMessage threaded : messages) {
-                                    result.ids.add(threaded.id);
-                                    db.message().setMessageUiHide(threaded.id, true);
+                                if (message != null) {
+                                    account = message.account;
+                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                            message.account, message.thread, threading ? null : id, message.folder);
+                                    for (EntityMessage threaded : messages) {
+                                        result.ids.add(threaded.id);
+                                        db.message().setMessageUiHide(threaded.id, true);
+                                    }
                                 }
                             }
+
+                            result.target = db.folder().getFolderByType(account, type);
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -1062,8 +1069,16 @@ public class FragmentMessages extends FragmentEx {
 
                         DB db = DB.getInstance(context);
 
-                        EntityMessage m0 = db.message().getMessage(ids[0]);
-                        List<EntityFolder> folders = db.folder().getFolders(m0.account);
+                        long account = -1;
+                        for (long id : ids) {
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message != null) {
+                                account = message.account;
+                                break;
+                            }
+                        }
+
+                        List<EntityFolder> folders = db.folder().getFolders(account);
 
                         List<EntityFolder> targets = new ArrayList<>();
                         for (EntityFolder folder : folders)
@@ -1112,11 +1127,13 @@ public class FragmentMessages extends FragmentEx {
 
                                             for (long id : ids) {
                                                 EntityMessage message = db.message().getMessage(id);
-                                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                                        message.account, message.thread, threading ? null : id, message.folder);
-                                                for (EntityMessage threaded : messages) {
-                                                    result.ids.add(threaded.id);
-                                                    db.message().setMessageUiHide(threaded.id, true);
+                                                if (message != null) {
+                                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                                            message.account, message.thread, threading ? null : id, message.folder);
+                                                    for (EntityMessage threaded : messages) {
+                                                        result.ids.add(threaded.id);
+                                                        db.message().setMessageUiHide(threaded.id, true);
+                                                    }
                                                 }
                                             }
 
@@ -1847,14 +1864,15 @@ public class FragmentMessages extends FragmentEx {
                         try {
                             db.beginTransaction();
 
-                            for (long id : result.ids) {
-                                EntityMessage message = db.message().getMessage(id);
-                                if (message != null && message.ui_hide) {
-                                    Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
-                                    EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                    EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                            if (result.target != null)
+                                for (long id : result.ids) {
+                                    EntityMessage message = db.message().getMessage(id);
+                                    if (message != null && message.ui_hide) {
+                                        Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                        EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                                        EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                    }
                                 }
-                            }
 
                             db.setTransactionSuccessful();
                         } finally {
