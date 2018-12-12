@@ -1190,26 +1190,28 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                String action = intent.getAction();
 
-            if (ACTION_VIEW_MESSAGES.equals(action))
-                onViewMessages(intent);
-            else if (ACTION_VIEW_THREAD.equals(action))
-                onViewThread(intent);
-            else if (ACTION_VIEW_FULL.equals(action))
-                onViewFull(intent);
-            else if (ACTION_EDIT_FOLDER.equals(action))
-                onEditFolder(intent);
-            else if (ACTION_EDIT_ANSWER.equals(action))
-                onEditAnswer(intent);
-            else if (ACTION_STORE_ATTACHMENT.equals(action))
-                onStoreAttachment(intent);
-            else if (ACTION_DECRYPT.equals(action))
-                onDecrypt(intent);
-            else if (ACTION_SHOW_PRO.equals(action))
-                onShowPro(intent);
-            else if (ACTION_SHOW_LEGEND.equals(action))
-                onMenuLegend();
+                if (ACTION_VIEW_MESSAGES.equals(action))
+                    onViewMessages(intent);
+                else if (ACTION_VIEW_THREAD.equals(action))
+                    onViewThread(intent);
+                else if (ACTION_VIEW_FULL.equals(action))
+                    onViewFull(intent);
+                else if (ACTION_EDIT_FOLDER.equals(action))
+                    onEditFolder(intent);
+                else if (ACTION_EDIT_ANSWER.equals(action))
+                    onEditAnswer(intent);
+                else if (ACTION_STORE_ATTACHMENT.equals(action))
+                    onStoreAttachment(intent);
+                else if (ACTION_DECRYPT.equals(action))
+                    onDecrypt(intent);
+                else if (ACTION_SHOW_PRO.equals(action))
+                    onShowPro(intent);
+                else if (ACTION_SHOW_LEGEND.equals(action))
+                    onMenuLegend();
+            }
         }
     };
 
