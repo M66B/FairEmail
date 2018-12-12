@@ -646,6 +646,24 @@ The speed of your device and internet connection and the number of days to synch
 Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
 
 
+<a name="faq47"></a>
+**(47) How can I solve 'No primary account or no drafts folder' ?**
+
+You'll get the error message *No primary account or no drafts folder* when trying to compose a message
+while there is no account set to be the primary account or when there is no drafts folder selected for the primary account.
+This can happen for example when you start FairEmail to compose a message from another app.
+FairEmail needs to know where to store the draft,
+so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
+
+
+<a name="faq48"></a>
+**(48) How can I solve 'No primary account or no archive folder' ?**
+
+You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
+FairEmail needs to know where to search,
+so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
