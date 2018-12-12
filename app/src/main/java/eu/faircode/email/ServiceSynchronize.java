@@ -2438,9 +2438,12 @@ public class ServiceSynchronize extends LifecycleService {
                 if (!metered || (attachment.size != null && attachment.size < download)) {
                     if (iattachments == null)
                         iattachments = helper.getAttachments();
-                    attachment.part = iattachments.get(i).part;
-                    attachment.download(context, db);
-                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                    // Attachments of drafts might not have been uploaded yet
+                    if (i < iattachments.size()) {
+                        attachment.part = iattachments.get(i).part;
+                        attachment.download(context, db);
+                        Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                    }
                 }
         }
     }
