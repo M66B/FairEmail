@@ -96,10 +96,16 @@
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
-    <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
+    <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
+    <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
+    <string name="title_advanced_browse_hint">Meer berichten downloaden bij het naar beneden scrollen</string>
+    <string name="title_advanced_unified_hint">Gecombineerd postvak in mappen of gecombineerd postvak in berichten weergeven</string>
+    <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
+    <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
+    <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>

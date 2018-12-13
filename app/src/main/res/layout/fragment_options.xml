@@ -22,6 +22,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tvEnabledHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_enabled_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
+
         <View
             android:id="@+id/vSeparator1"
             android:layout_width="0dp"
@@ -30,7 +42,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swEnabled" />
+            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swMetered"
@@ -44,6 +56,18 @@
             app:layout_constraintTop_toBottomOf="@id/vSeparator1" />
 
         <TextView
+            android:id="@+id/tvMeteredHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_metered_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swMetered" />
+
+        <TextView
             android:id="@+id/tvDownload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,7 +79,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/spDownload"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swMetered" />
+            app:layout_constraintTop_toBottomOf="@id/tvMeteredHint" />
 
         <Spinner
             android:id="@+id/spDownload"
@@ -88,6 +112,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
+        <TextView
+            android:id="@+id/tvBrowseHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_browse_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swBrowse" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swInsecure"
             android:layout_width="match_parent"
@@ -97,7 +133,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_allow_insecure"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swBrowse" />
+            app:layout_constraintTop_toBottomOf="@id/tvBrowseHint" />
 
         <View
             android:id="@+id/vSeparator2"
@@ -120,6 +156,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/vSeparator2" />
 
+        <TextView
+            android:id="@+id/tvUnifiedHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_unified_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swUnified" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swThreading"
             android:layout_width="match_parent"
@@ -129,7 +177,19 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_threading"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swUnified" />
+            app:layout_constraintTop_toBottomOf="@id/tvUnifiedHint" />
+
+        <TextView
+            android:id="@+id/tvThreadingHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_threading_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swThreading" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swCompact"
@@ -140,7 +200,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_compact"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swThreading" />
+            app:layout_constraintTop_toBottomOf="@id/tvThreadingHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAvatars"
@@ -253,6 +313,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swActionbar" />
 
+        <TextView
+            android:id="@+id/tvAutocloseHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_autoclose_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAutoclose" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swConfirm"
             android:layout_width="match_parent"
@@ -262,7 +334,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_confirm"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swAutoclose" />
+            app:layout_constraintTop_toBottomOf="@id/tvAutocloseHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSender"
@@ -276,7 +348,7 @@
             app:layout_constraintTop_toBottomOf="@id/swConfirm" />
 
         <TextView
-            android:id="@+id/tvSender"
+            android:id="@+id/tvSenderHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -295,7 +367,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSender" />
+            app:layout_constraintTop_toBottomOf="@id/tvSenderHint" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUpdates"

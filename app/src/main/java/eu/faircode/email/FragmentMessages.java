@@ -1697,7 +1697,8 @@ public class FragmentMessages extends FragmentEx {
 
                             if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
                                     !EntityFolder.SENT.equals(message.folderType) &&
-                                    !EntityFolder.TRASH.equals(message.folderType))
+                                    !EntityFolder.TRASH.equals(message.folderType) &&
+                                    !EntityFolder.JUNK.equals(message.folderType))
                                 autoCloseCount++;
                         }
 
@@ -1726,7 +1727,8 @@ public class FragmentMessages extends FragmentEx {
                                 TupleMessageEx message = messages.get(i);
                                 if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
                                         !EntityFolder.SENT.equals(message.folderType) &&
-                                        !EntityFolder.TRASH.equals(message.folderType))
+                                        !EntityFolder.TRASH.equals(message.folderType) &&
+                                        !EntityFolder.JUNK.equals(message.folderType))
                                     count++;
                             }
                             Log.i(Helper.TAG, "Auto close=" + count);
