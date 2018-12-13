@@ -664,6 +664,18 @@ FairEmail needs to know where to search,
 so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.
 
 
+<a name="faq49"></a>
+**(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?**
+
+You likely selected an attachment or image with an outdated file manager assuming all apps still have storage permissions.
+For security and privacy reasons modern apps like FairEmail have no full access to all files anymore.
+This can result into the error message *FileNotFoundException ... (Permission denied)*
+when a file name instead of a file stream is presented to FairEmail.
+You can fix this by switching to an up-to-date file manager meant for recent Android versions.
+
+See also [question 25](#user-content-faq25).
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
