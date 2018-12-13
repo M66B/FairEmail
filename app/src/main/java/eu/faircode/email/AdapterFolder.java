@@ -122,7 +122,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (account > 0) {
                 ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
-                lp.width = folder.level * dp12;
+                lp.width = (EntityFolder.USER.equals(folder.type) ? folder.level : 0) * dp12;
                 vwLevel.setLayoutParams(lp);
             }
 
