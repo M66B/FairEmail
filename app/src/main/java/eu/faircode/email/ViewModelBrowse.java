@@ -25,7 +25,6 @@ import android.util.Log;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
-import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -133,40 +132,49 @@ public class ViewModelBrowse extends ViewModel {
 
             EntityAccount account = db.account().getAccount(folder.account);
 
-            Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
-            props.setProperty("mail.imap.throwsearchexception", "true");
-            Session isession = Session.getInstance(props, null);
+            try {
+                Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
+                props.setProperty("mail.imap.throwsearchexception", "true");
+                Session isession = Session.getInstance(props, null);
 
-            Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
-            state.istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
-            Helper.connect(state.context, state.istore, account);
+                Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
+                state.istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
+                Helper.connect(state.context, state.istore, account);
 
-            Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
-            state.ifolder = (IMAPFolder) state.istore.getFolder(folder.name);
-            state.ifolder.open(Folder.READ_WRITE);
+                Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
+                state.ifolder = (IMAPFolder) state.istore.getFolder(folder.name);
+                state.ifolder.open(Folder.READ_WRITE);
 
-            Log.i(Helper.TAG, "Boundary searching=" + state.search);
-            if (state.search == null)
-                state.imessages = state.ifolder.getMessages();
-            else
-                state.imessages = state.ifolder.search(
-                        new OrTerm(
-                                new OrTerm(
-                                        new OrTerm(
-                                                new FromStringTerm(state.search),
-                                                new RecipientStringTerm(Message.RecipientType.TO, state.search)
-                                        ),
-                                        new OrTerm(
-                                                new SubjectTerm(state.search),
-                                                new BodyTerm(state.search)
-                                        )
-                                ),
-                                new FlagTerm(new Flags(Helper.sanitizeKeyword(state.search)), true)
-                        )
-                );
-            Log.i(Helper.TAG, "Boundary found messages=" + state.imessages.length);
+                Log.i(Helper.TAG, "Boundary searching=" + state.search);
+                if (state.search == null)
+                    state.imessages = state.ifolder.getMessages();
+                else
+                    state.imessages = state.ifolder.search(
+                            new OrTerm(
+                                    new OrTerm(
+                                            new OrTerm(
+                                                    new FromStringTerm(state.search),
+                                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                                            ),
+                                            new OrTerm(
+                                                    new SubjectTerm(state.search),
+                                                    new BodyTerm(state.search)
+                                            )
+                                    ),
+                                    new FlagTerm(new Flags(Helper.sanitizeKeyword(state.search)), true)
+                            )
+                    );
+                Log.i(Helper.TAG, "Boundary found messages=" + state.imessages.length);
 
-            state.index = state.imessages.length - 1;
+                state.index = state.imessages.length - 1;
+            } catch (Throwable ex) {
+                if (ex instanceof FolderClosedException)
+                    Log.w(Helper.TAG, "Search " + ex + "\n" + Log.getStackTraceString(ex));
+                else {
+                    Log.e(Helper.TAG, "Search " + ex + "\n" + Log.getStackTraceString(ex));
+                    throw ex;
+                }
+            }
         }
 
         int count = 0;
@@ -202,9 +210,7 @@ public class ViewModelBrowse extends ViewModel {
                         }
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (Throwable ex) {
-                        if ((ex instanceof MessageRemovedException) ||
-                                (ex instanceof FolderClosedException) ||
-                                (ex instanceof FolderClosedIOException))
+                        if ((ex instanceof MessageRemovedException) || (ex instanceof FolderClosedException))
                             Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
                         else {
                             Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
