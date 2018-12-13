@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -114,6 +115,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private FragmentManager fragmentManager;
     private ViewType viewType;
     private boolean outgoing;
+    private int zoom;
     private IProperties properties;
 
     private boolean threading;
@@ -476,6 +478,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 vSeparatorBody.setVisibility(View.VISIBLE);
                 tvBody.setText(null);
+
+                TypedArray ta;
+                if (zoom == 0)
+                    ta = context.obtainStyledAttributes(
+                            R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
+                else if (zoom == 2)
+                    ta = context.obtainStyledAttributes(
+                            R.style.TextAppearance_AppCompat_Large, new int[]{android.R.attr.textSize});
+                else
+                    ta = context.obtainStyledAttributes(
+                            R.style.TextAppearance_AppCompat_Medium, new int[]{android.R.attr.textSize});
+                float textSize = ta.getDimension(0, 0);
+                if (textSize != 0)
+                    tvBody.setTextSize(textSize / context.getResources().getDisplayMetrics().density);
+                ta.recycle();
+
                 pbBody.setVisibility(View.VISIBLE);
 
                 if (message.content) {
@@ -1561,12 +1579,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Context context, LifecycleOwner owner, FragmentManager fragmentManager,
-                   ViewType viewType, boolean outgoing, IProperties properties) {
+                   ViewType viewType, boolean outgoing, int zoom, IProperties properties) {
         this.context = context;
         this.owner = owner;
         this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.outgoing = outgoing;
+        this.zoom = zoom;
         this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1594,6 +1613,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     PagedList<TupleMessageEx> getCurrentList() {
         return differ.getCurrentList();
+    }
+
+    void setZoom(int zoom) {
+        this.zoom = zoom;
+        notifyDataSetChanged();
     }
 
     @Override

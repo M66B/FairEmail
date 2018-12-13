@@ -97,6 +97,7 @@ public class FragmentMessages extends FragmentEx {
     private long id = -1;
     private String search = null;
 
+    private int zoom = 0;
     private boolean threading = true;
     private boolean actionbar = false;
     private boolean autoclose = false;
@@ -143,6 +144,8 @@ public class FragmentMessages extends FragmentEx {
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean compact = prefs.getBoolean("compact", false);
+        zoom = prefs.getInt("zoom", compact ? 0 : 1);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", false);
@@ -294,6 +297,7 @@ public class FragmentMessages extends FragmentEx {
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(), getFragmentManager(),
                 viewType, outgoing,
+                zoom,
                 new AdapterMessage.IProperties() {
                     @Override
                     public void setExpanded(long id, boolean expand) {
@@ -1441,8 +1445,11 @@ public class FragmentMessages extends FragmentEx {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_search).setVisible(folder >= 0 && search == null);
-        menu.findItem(R.id.menu_sort_on).setVisible(TextUtils.isEmpty(search));
+        menu.findItem(R.id.menu_search).setVisible(
+                folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
+        menu.findItem(R.id.menu_sort_on).setVisible(
+                viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        menu.findItem(R.id.menu_zoom).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
         menu.findItem(R.id.menu_move_sent).setVisible(outbox);
@@ -1480,6 +1487,12 @@ public class FragmentMessages extends FragmentEx {
                 prefs.edit().putString("sort", "starred").apply();
                 item.setChecked(true);
                 loadMessages();
+                return true;
+
+            case R.id.menu_zoom:
+                zoom = ++zoom % 3;
+                prefs.edit().putInt("zoom", zoom).apply();
+                adapter.setZoom(zoom);
                 return true;
 
             case R.id.menu_folders:

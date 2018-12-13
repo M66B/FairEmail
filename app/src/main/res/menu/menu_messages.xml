@@ -30,6 +30,12 @@
     </item>
 
     <item
+        android:id="@+id/menu_zoom"
+        android:icon="@drawable/baseline_format_size_24"
+        android:title="@string/title_zoom"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_folders"
         android:icon="@drawable/baseline_folder_open_24"
         android:title="@string/title_folder_primary"
