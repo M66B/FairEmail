@@ -1546,9 +1546,28 @@ public class FragmentCompose extends FragmentEx {
 
                 // Convert data
                 InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-                InternetAddress ato[] = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-                InternetAddress acc[] = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-                InternetAddress abcc[] = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+
+                InternetAddress ato[] = null;
+                InternetAddress acc[] = null;
+                InternetAddress abcc[] = null;
+
+                if (!TextUtils.isEmpty(to))
+                    try {
+                        ato = InternetAddress.parse(to);
+                    } catch (AddressException ignored) {
+                    }
+
+                if (!TextUtils.isEmpty(cc))
+                    try {
+                        acc = InternetAddress.parse(cc);
+                    } catch (AddressException ignored) {
+                    }
+
+                if (!TextUtils.isEmpty(bcc))
+                    try {
+                        abcc = InternetAddress.parse(bcc);
+                    } catch (AddressException ignored) {
+                    }
 
                 if (TextUtils.isEmpty(extra))
                     extra = null;
@@ -1644,6 +1663,10 @@ public class FragmentCompose extends FragmentEx {
             busy = false;
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
+
+            etTo.setText(MessageHelper.getFormattedAddresses(draft.to, true));
+            etCc.setText(MessageHelper.getFormattedAddresses(draft.cc, true));
+            etBcc.setText(MessageHelper.getFormattedAddresses(draft.bcc, true));
 
             if (action == R.id.action_delete) {
                 autosave = false;
