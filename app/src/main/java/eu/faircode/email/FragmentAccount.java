@@ -962,7 +962,8 @@ public class FragmentAccount extends FragmentEx {
 
                         @Override
                         protected void onLoaded(Bundle args, EntityAccount primary) {
-                            cbPrimary.setChecked(primary == null);
+                            if (primary == null)
+                                cbPrimary.setChecked(true);
                         }
 
                         @Override

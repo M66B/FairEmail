@@ -81,6 +81,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
 import static android.app.Activity.RESULT_OK;
@@ -92,6 +93,8 @@ public class FragmentSetup extends FragmentEx {
 
     private Button btnAccount;
     private TextView tvAccountDone;
+    private TextView tvNoPrimaryDrafts;
+    private TextView tvNoPrimaryArchive;
 
     private Button btnIdentity;
     private TextView tvIdentityDone;
@@ -135,6 +138,8 @@ public class FragmentSetup extends FragmentEx {
 
         btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
+        tvNoPrimaryDrafts = view.findViewById(R.id.tvNoPrimaryDrafts);
+        tvNoPrimaryArchive = view.findViewById(R.id.tvNoPrimaryArchive);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
@@ -281,6 +286,8 @@ public class FragmentSetup extends FragmentEx {
 
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
+        tvNoPrimaryDrafts.setVisibility(View.GONE);
+        tvNoPrimaryArchive.setVisibility(View.GONE);
 
         btnIdentity.setEnabled(false);
         tvIdentityDone.setText(null);
@@ -345,15 +352,44 @@ public class FragmentSetup extends FragmentEx {
         PackageManager pm = getContext().getPackageManager();
         ibHelp.setVisibility(getIntentHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
 
-        DB db = DB.getInstance(getContext());
+        final DB db = DB.getInstance(getContext());
 
         db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+            private boolean done = false;
+            private LiveData<EntityFolder> livePrimaryDrafts = null;
+            private LiveData<EntityFolder> livePrimaryArchive = null;
+
             @Override
             public void onChanged(@Nullable List<EntityAccount> accounts) {
-                boolean done = (accounts != null && accounts.size() > 0);
+                done = (accounts != null && accounts.size() > 0);
+
                 btnIdentity.setEnabled(done);
                 tvAccountDone.setText(done ? R.string.title_setup_done : R.string.title_setup_to_do);
                 tvAccountDone.setCompoundDrawablesWithIntrinsicBounds(done ? check : null, null, null, null);
+
+                if (livePrimaryDrafts == null)
+                    livePrimaryDrafts = db.folder().livePrimaryDrafts();
+                else
+                    livePrimaryDrafts.removeObservers(getViewLifecycleOwner());
+
+                if (livePrimaryArchive == null)
+                    livePrimaryArchive = db.folder().livePrimaryDrafts();
+                else
+                    livePrimaryArchive.removeObservers(getViewLifecycleOwner());
+
+                livePrimaryDrafts.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
+                    @Override
+                    public void onChanged(EntityFolder drafts) {
+                        tvNoPrimaryDrafts.setVisibility(done && drafts == null ? View.VISIBLE : View.GONE);
+                    }
+                });
+
+                livePrimaryArchive.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
+                    @Override
+                    public void onChanged(EntityFolder archive) {
+                        tvNoPrimaryArchive.setVisibility(done && archive == null ? View.VISIBLE : View.GONE);
+                    }
+                });
             }
         });
 

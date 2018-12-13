@@ -54,14 +54,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
+        <TextView
+            android:id="@+id/tvNoPrimaryDrafts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_no_primary_drafts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
+
+        <TextView
+            android:id="@+id/tvNoPrimaryArchive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_no_primary_archive"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
+
         <View
             android:id="@+id/vSeparatorAccount"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
+            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryArchive" />
 
         <!-- identity -->
 
@@ -69,7 +93,7 @@
             android:id="@+id/btnIdentity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_identity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +125,7 @@
             android:id="@+id/vSeparatorIdentity"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIdentityDone" />
@@ -112,7 +136,7 @@
             android:id="@+id/btnPermissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_permissions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +168,7 @@
             android:id="@+id/vSeparatorPermissions"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPermissionsDone" />
@@ -155,7 +179,7 @@
             android:id="@+id/btnDoze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_doze"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -190,7 +214,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_setup_data"
@@ -202,7 +226,7 @@
             android:id="@+id/vSeparatorDoze"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnData" />
@@ -211,7 +235,7 @@
             android:id="@+id/btnNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_notifications"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -221,7 +245,7 @@
             android:id="@+id/tbDarkTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="12dp"
             android:textOff="@string/title_setup_dark_theme"
             android:textOn="@string/title_setup_light_theme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -232,7 +256,7 @@
             android:id="@+id/cbBlackTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="6dp"
             android:text="@string/title_setup_black_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -243,7 +267,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_advanced"

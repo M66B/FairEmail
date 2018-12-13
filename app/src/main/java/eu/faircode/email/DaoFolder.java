@@ -85,6 +85,16 @@ public interface DaoFolder {
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
+            " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
+    LiveData<EntityFolder> livePrimaryDrafts();
+
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
+    LiveData<EntityFolder> livePrimaryArchive();
+
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account ON account.id = folder.account" +
             " WHERE folder.type = '" + EntityFolder.DRAFTS + "'" +
             " AND (account.id = :account OR (:account IS NULL AND account.`primary`))")
     LiveData<EntityFolder> liveDrafts(Long account);
@@ -117,7 +127,6 @@ public interface DaoFolder {
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
 
-    // For debug/crash info
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
