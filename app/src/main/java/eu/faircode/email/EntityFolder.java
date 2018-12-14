@@ -71,6 +71,8 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Boolean poll = false;
     @NonNull
+    public Boolean download = true;
+    @NonNull
     public Integer sync_days;
     @NonNull
     public Integer keep_days;

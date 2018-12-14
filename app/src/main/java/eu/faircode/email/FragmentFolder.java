@@ -50,9 +50,10 @@ public class FragmentFolder extends FragmentEx {
     private EditText etDisplay;
     private CheckBox cbHide;
     private CheckBox cbUnified;
+    private CheckBox cbNotify;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
-    private CheckBox cbNotify;
+    private CheckBox cbDownload;
     private EditText etSyncDays;
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
@@ -86,9 +87,10 @@ public class FragmentFolder extends FragmentEx {
         etDisplay = view.findViewById(R.id.etDisplay);
         cbHide = view.findViewById(R.id.cbHide);
         cbUnified = view.findViewById(R.id.cbUnified);
+        cbNotify = view.findViewById(R.id.cbNotify);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
-        cbNotify = view.findViewById(R.id.cbNotify);
+        cbDownload = view.findViewById(R.id.cbDownload);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -104,16 +106,15 @@ public class FragmentFolder extends FragmentEx {
             }
         });
 
+        // Navigating to individual messages requires notification grouping
+        cbNotify.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
+
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
-                cbNotify.setEnabled(isChecked);
             }
         });
-
-        // Navigating to individual messages requires notification grouping
-        cbNotify.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
 
         cbKeepAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -136,9 +137,10 @@ public class FragmentFolder extends FragmentEx {
                 args.putString("display", etDisplay.getText().toString());
                 args.putBoolean("hide", cbHide.isChecked());
                 args.putBoolean("unified", cbUnified.isChecked());
+                args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("poll", cbPoll.isChecked());
-                args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
+                args.putBoolean("download", cbDownload.isChecked());
                 args.putString("sync", etSyncDays.getText().toString());
                 args.putString("keep", cbKeepAll.isChecked()
                         ? Integer.toString(Integer.MAX_VALUE)
@@ -153,9 +155,10 @@ public class FragmentFolder extends FragmentEx {
                         String display = args.getString("display");
                         boolean hide = args.getBoolean("hide");
                         boolean unified = args.getBoolean("unified");
+                        boolean notify = args.getBoolean("notify");
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean poll = args.getBoolean("poll");
-                        boolean notify = args.getBoolean("notify");
+                        boolean download = args.getBoolean("download");
                         String sync = args.getString("sync");
                         String keep = args.getString("keep");
 
@@ -185,14 +188,17 @@ public class FragmentFolder extends FragmentEx {
                                 create.hide = hide;
                                 create.type = EntityFolder.USER;
                                 create.unified = unified;
+                                create.notify = notify;
                                 create.synchronize = synchronize;
                                 create.poll = poll;
-                                create.notify = notify;
+                                create.download = download;
                                 create.sync_days = sync_days;
                                 create.keep_days = keep_days;
                                 db.folder().insertFolder(create);
                             } else {
-                                reload = (!folder.synchronize.equals(synchronize) || !folder.poll.equals(poll));
+                                reload = (!folder.synchronize.equals(synchronize) ||
+                                        !folder.poll.equals(poll) ||
+                                        !folder.download.equals(download));
 
                                 Calendar cal_keep = Calendar.getInstance();
                                 cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
@@ -207,8 +213,8 @@ public class FragmentFolder extends FragmentEx {
 
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
-                                        name, display, unified, hide,
-                                        synchronize, poll, notify,
+                                        name, display, unified, hide, notify,
+                                        synchronize, poll, download,
                                         sync_days, keep_days);
 
                                 db.message().deleteMessagesBefore(id, keep_time, true);
@@ -358,9 +364,10 @@ public class FragmentFolder extends FragmentEx {
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
+                    cbNotify.setChecked(folder == null ? false : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? false : folder.poll);
-                    cbNotify.setChecked(folder == null ? false : folder.notify);
+                    cbDownload.setChecked(folder == null ? true : folder.download);
                     etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
                     if (folder != null && folder.keep_days == Integer.MAX_VALUE)
                         cbKeepAll.setChecked(true);
