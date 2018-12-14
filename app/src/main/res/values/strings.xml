@@ -250,6 +250,7 @@
     <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
+    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>

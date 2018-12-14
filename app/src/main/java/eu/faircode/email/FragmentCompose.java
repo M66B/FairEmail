@@ -1217,11 +1217,12 @@ public class FragmentCompose extends FragmentEx {
                     if (uris != null)
                         for (Uri uri : uris)
                             addAttachment(context, result.draft.id, uri, false);
-                } else if ("forward".equals(action)) {
+                } else {
                     int sequence = 0;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.available) {
+                        if (attachment.available &&
+                                ("forward".equals(action) || attachment.cid != null)) {
                             EntityAttachment copy = new EntityAttachment();
                             copy.message = result.draft.id;
                             copy.sequence = ++sequence;
@@ -1300,14 +1301,21 @@ public class FragmentCompose extends FragmentEx {
                 @Override
                 protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
-                    long reference = args.getLong("reference", -1);
+                    final long reference = args.getLong("reference", -1);
 
                     String body = EntityMessage.read(context, id);
-                    String quote = (reference < 0 ? null : EntityMessage.getQuote(context, reference));
+                    String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
 
                     return new Spanned[]{
                             Html.fromHtml(body, cidGetter, null),
-                            quote == null ? null : Html.fromHtml(quote)};
+                            quote == null ? null : Html.fromHtml(quote,
+                                    new Html.ImageGetter() {
+                                        @Override
+                                        public Drawable getDrawable(String source) {
+                                            return HtmlHelper.decodeImage(source, context, reference, false);
+                                        }
+                                    },
+                                    null)};
                 }
 
                 @Override

@@ -293,7 +293,8 @@ public class MessageHelper {
         }
 
         if (message.replying != null || message.forwarding != null)
-            body += EntityMessage.getQuote(context, message.replying == null ? message.forwarding : message.replying);
+            body += HtmlHelper.getQuote(context,
+                    message.replying == null ? message.forwarding : message.replying, false);
 
         BodyPart plain = new MimeBodyPart();
         plain.setContent(Jsoup.parse(body).text(), "text/plain; charset=" + Charset.defaultCharset().name());

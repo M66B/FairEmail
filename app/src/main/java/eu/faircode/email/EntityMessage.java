@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.ContactsContract;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -248,14 +247,6 @@ public class EntityMessage implements Serializable {
         }
 
         return false;
-    }
-
-    static String getQuote(Context context, long id) throws IOException {
-        EntityMessage message = DB.getInstance(context).message().getMessage(id);
-        return String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
-                Html.escapeHtml(new Date(message.received).toString()),
-                Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
-                HtmlHelper.sanitize(EntityMessage.read(context, id)));
     }
 
     public boolean uiEquals(Object obj) {
