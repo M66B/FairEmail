@@ -1348,25 +1348,22 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (encrypted == null) {
                     EntityMessage message = db.message().getMessage(id);
-                    if (message.content) {
-                        String body = message.read(context);
-                        if (body != null) {
-                            // https://tools.ietf.org/html/rfc4880#section-6.2
-                            int begin = body.indexOf(PGP_BEGIN_MESSAGE);
-                            int end = body.indexOf(PGP_END_MESSAGE);
-                            if (begin >= 0 && begin < end) {
-                                String section = body.substring(begin, end + PGP_END_MESSAGE.length());
-                                String[] lines = section.split("<br />");
-                                List<String> disarmored = new ArrayList<>();
-                                for (String line : lines)
-                                    if (!TextUtils.isEmpty(line) && !line.contains(": "))
-                                        disarmored.add(line);
-                                section = TextUtils.join("\n\r", disarmored);
+                    String body = message.read(context);
 
-                                inline = true;
-                                encrypted = new ByteArrayInputStream(section.getBytes());
-                            }
-                        }
+                    // https://tools.ietf.org/html/rfc4880#section-6.2
+                    int begin = body.indexOf(PGP_BEGIN_MESSAGE);
+                    int end = body.indexOf(PGP_END_MESSAGE);
+                    if (begin >= 0 && begin < end) {
+                        String section = body.substring(begin, end + PGP_END_MESSAGE.length());
+                        String[] lines = section.split("<br />");
+                        List<String> disarmored = new ArrayList<>();
+                        for (String line : lines)
+                            if (!TextUtils.isEmpty(line) && !line.contains(": "))
+                                disarmored.add(line);
+                        section = TextUtils.join("\n\r", disarmored);
+
+                        inline = true;
+                        encrypted = new ByteArrayInputStream(section.getBytes());
                     }
                 }
 

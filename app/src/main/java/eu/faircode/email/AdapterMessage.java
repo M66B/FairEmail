@@ -1392,7 +1392,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(data.message.uid != null);
 
-            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(data.message.to != null && data.message.to.length > 0);
+            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
+                    data.message.content && data.message.to != null && data.message.to.length > 0);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
