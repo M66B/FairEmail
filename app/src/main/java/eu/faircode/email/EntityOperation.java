@@ -129,10 +129,12 @@ public class EntityOperation {
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
                     db.message().setMessageUiAnswered(similar.id, jargs.getBoolean(0));
 
-            else if (MOVE.equals(name))
-                db.message().setMessageUiHide(message.id, true);
+            else if (MOVE.equals(name)) {
+                EntityFolder source = db.folder().getFolder(message.folder);
+                if (!EntityFolder.ARCHIVE.equals(source.type))
+                    db.message().setMessageUiHide(message.id, true);
 
-            else if (DELETE.equals(name))
+            } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
         } catch (JSONException ex) {
             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));

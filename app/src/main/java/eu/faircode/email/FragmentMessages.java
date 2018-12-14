@@ -1798,10 +1798,8 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void moveAsk(final MessageTarget result) {
-        if (result.target == null) {
-            // TODO: unhide messages
+        if (result.target == null)
             return;
-        }
 
         String title = getResources().getQuantityString(
                 R.plurals.title_moving_messages, result.ids.size(),
@@ -1850,7 +1848,25 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void moveUndo(final MessageTarget result) {
+        final Bundle args = new Bundle();
+        args.putSerializable("result", result);
+
         if (result.target == null) {
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onLoad(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    MessageTarget result = (MessageTarget) args.getSerializable("result");
+                    for (long id : result.ids)
+                        db.message().setMessageUiHide(id, false);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                }
+            }.load(FragmentMessages.this, args);
             // TODO: unhide messages
             return;
         }
@@ -1865,17 +1881,15 @@ public class FragmentMessages extends FragmentEx {
             public void onClick(View v) {
                 snackbar.dismiss();
 
-                Bundle args = new Bundle();
-                args.putSerializable("result", result);
-
                 // Show message again
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
+                        DB db = DB.getInstance(context);
                         MessageTarget result = (MessageTarget) args.getSerializable("result");
                         for (long id : result.ids) {
                             Log.i(Helper.TAG, "Move undo id=" + id);
-                            DB.getInstance(context).message().setMessageUiHide(id, false);
+                            db.message().setMessageUiHide(id, false);
                         }
                         return null;
                     }

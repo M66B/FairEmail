@@ -51,6 +51,10 @@ import java.util.regex.Pattern;
 public class HtmlHelper {
     private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
 
+    static String getBody(String html) {
+        return Jsoup.parse(html).body().html();
+    }
+
     static String sanitize(String html) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
@@ -97,6 +101,7 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
             }
         }, document.body());
+
         return document.body().html();
     }
 
