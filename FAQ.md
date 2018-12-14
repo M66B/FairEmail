@@ -676,6 +676,17 @@ You can fix this by switching to an up-to-date file manager meant for recent And
 See also [question 25](#user-content-faq25).
 
 
+<a name="faq50"></a>
+**(50) Can you add an option to synchronize all messages?**
+
+A synchronize all (download all) messages will not be added
+because it can easily result in out of memory errors and the available storage space filling up.
+It can also easily result in a lot of battery and data usage.
+Mobile devices are just not very suitable to download and store years of messages.
+You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient.
+Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
