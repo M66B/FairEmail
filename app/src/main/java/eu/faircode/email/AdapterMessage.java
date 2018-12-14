@@ -51,6 +51,7 @@ import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.URLSpan;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -790,7 +791,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return d;
                     }
 
-                    boolean embedded = (source.startsWith("cid") && source.split(":").length > 1);
+                    boolean embedded = source.startsWith("cid:");
+                    boolean data = source.startsWith("data:");
+                    Log.i(Helper.TAG, "Image embedded=" + embedded + " data=" + data + " source=" + source);
 
                     if (properties.showImages(message.id)) {
                         // Embedded images
@@ -811,6 +814,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                                 return d;
                             }
+                        }
+
+                        // Data URI
+                        if (data) {
+                            // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
+                            // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
+                            // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
+                            // "5ErkJggg==\" alt=\"Red dot\" />";
+
+                            String base64 = source.substring(source.indexOf(',') + 1);
+                            byte[] bytes = Base64.decode(base64.getBytes(), 0);
+
+                            Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            if (bm == null)
+                                throw new IllegalArgumentException("decode byte array failed");
+
+                            Drawable d = new BitmapDrawable(context.getResources(), bm);
+                            d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                            return d;
                         }
 
                         // Get cache folder
@@ -836,7 +858,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             // Decode image from stream
                             Bitmap bm = BitmapFactory.decodeStream(is);
                             if (bm == null)
-                                throw new IllegalArgumentException();
+                                throw new IllegalArgumentException("decode stream failed");
 
                             // Cache bitmap
                             if (!file.exists()) {
@@ -873,7 +895,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     } else {
                         // Show placeholder icon
-                        int resid = (embedded ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
+                        int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
                         Drawable d = context.getResources().getDrawable(resid, context.getTheme());
                         d.setBounds(0, 0, px, px);
                         return d;

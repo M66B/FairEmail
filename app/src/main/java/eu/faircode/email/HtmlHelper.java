@@ -35,7 +35,10 @@ public class HtmlHelper {
     private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
 
     static String sanitize(String html) {
-        Document document = Jsoup.parse(Jsoup.clean(html, Whitelist.relaxed().addProtocols("img", "src", "cid")));
+        Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
+                .relaxed()
+                .addProtocols("img", "src", "cid")
+                .addProtocols("img", "src", "data")));
 
         for (Element tr : document.select("tr"))
             tr.after("<br>");
