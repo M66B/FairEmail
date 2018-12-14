@@ -550,6 +550,10 @@ reduce the number of days to synchronize messages for, but leave the number of d
 Starred messages will always be synchronized,
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
+Disabling the folder option *Automatically download message texts and attachments*
+will result in less network traffic and thus less battery usage.
+You could disable this option for example for the sent folder and the archive.
+
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 
