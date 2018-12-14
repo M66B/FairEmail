@@ -398,5 +398,11 @@
             android:text="@string/title_advanced_debug"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swUpdates" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpNotification"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="vSeparator3,swLight,btnSound" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

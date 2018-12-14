@@ -49,6 +49,7 @@ import java.io.IOException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -78,6 +79,8 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
+
+    private Group grpNotification;
 
     @Override
     @Nullable
@@ -113,6 +116,8 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
+
+        grpNotification = view.findViewById(R.id.grpNotification);
 
         // Wire controls
 
@@ -332,8 +337,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swLight.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
-        btnSound.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        grpNotification.setVisibility(BuildConfig.DEBUG || Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
