@@ -25,6 +25,9 @@
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d则新邮件</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
+    </plurals>
     <string name="title_notification_failed">“%1$s”失败</string>
     <string name="menu_setup">设置</string>
     <string name="menu_answers">模板</string>
@@ -165,6 +168,7 @@
     <string name="title_unified_folder">在统一的收件箱中显示</string>
     <string name="title_synchronize_folder">同步文件夹（接收）</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_download_folder">Automatically download message texts and attachments</string>
     <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">同步邮件(天)</string>
     <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
@@ -214,7 +218,8 @@
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_attachment_saved">附件已保存</string>
-    <string name="title_attachment_unavailable">一些附件未被下载并将不会进行，仍然继续吗？</string>
+    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
+    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_selected">是否永久性删除选定的邮件？</string>
     <string name="title_ask_delete_answer">是否永久性删除回复模板？</string>
@@ -265,6 +270,7 @@
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>
     <string name="title_sort_on_starred">星标记</string>
+    <string name="title_zoom">Text size</string>
     <string name="title_address_sent">Sent:</string>
     <string name="title_address_unsent">Unsent:</string>
     <string name="title_address_invalid">Invalid:</string>

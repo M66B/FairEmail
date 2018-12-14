@@ -11,34 +11,40 @@
     <string name="shortcut_compose">Составить</string>
     <string name="shortcut_setup">Установка</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Синхронизировать учетную запись</item>
-        <item quantity="few">Синхронизировать учетные записи</item>
-        <item quantity="many">Синхронизировать учетные записи</item>
-        <item quantity="other">Синхронизировать учетные записи</item>
+        <item quantity="one">Synchronizing %1$d account</item>
+        <item quantity="few">Synchronizing %1$d accounts</item>
+        <item quantity="many">Synchronizing %1$d accounts</item>
+        <item quantity="other">Synchronizing %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">операция в ожидании</item>
-        <item quantity="few">операция в ожидании</item>
-        <item quantity="many">операция в ожидании</item>
-        <item quantity="other">операция в ожидании</item>
+        <item quantity="one">%1$d operation pending</item>
+        <item quantity="few">%1$d operations pending</item>
+        <item quantity="many">%1$d operations pending</item>
+        <item quantity="other">%1$d operations pending</item>
     </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="one">новое сообщение</item>
-        <item quantity="few">новые сообщения</item>
-        <item quantity="many">новые сообщения</item>
-        <item quantity="other">новые сообщения</item>
+        <item quantity="one">%1$d new message</item>
+        <item quantity="few">%1$d new messages</item>
+        <item quantity="many">%1$d new messages</item>
+        <item quantity="other">%1$d new messages</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">неотправленное сообщение</item>
-        <item quantity="few">неотправленные сообщения</item>
-        <item quantity="many">неотправленные сообщения</item>
-        <item quantity="other">неотправленные сообщения</item>
+        <item quantity="one">%1$d unsent message</item>
+        <item quantity="few">%1$d unsent messages</item>
+        <item quantity="many">%1$d unsent messages</item>
+        <item quantity="other">%1$d unsent messages</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="one">новый</item>
-        <item quantity="few">новое</item>
-        <item quantity="many">новые</item>
-        <item quantity="other">новое</item>
+        <item quantity="one">%1$d new</item>
+        <item quantity="few">%1$d new</item>
+        <item quantity="many">%1$d new</item>
+        <item quantity="other">%1$d new</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Move %1$d message to %2$s ?</item>
+        <item quantity="few">Move %1$d messages to %2$s ?</item>
+        <item quantity="many">Move %1$d messages to %2$s ?</item>
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="menu_setup">Установка</string>
@@ -116,7 +122,7 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_autoclose_hint">Automatically close conversation threads when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
-    <string name="title_select">Выбрать &amp;#8230</string>
+    <string name="title_select">Select &#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
@@ -144,10 +150,10 @@
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
     <string name="title_authorize">Выбрать учетную запись</string>
-    <string name="title_authorizing">Авторизованная учетная запись</string>
+    <string name="title_authorizing">Authorizing account &#8230;</string>
     <string name="title_setup_advanced">Дополнительные опции</string>
     <string name="title_store_copy">Сохранять копии отправленных сообщений в:</string>
-    <string name="title_synchronize_account">Синхронизация (полученнных сообщений)</string>
+    <string name="title_synchronize_account">Synchronize (receive messages)</string>
     <string name="title_synchronize_identity">Синхронизация (отправленных сообщений)</string>
     <string name="title_primary_account">Основная (учетная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
@@ -180,12 +186,13 @@
     <string name="title_unified_folder">Показать в единой папке Входящие</string>
     <string name="title_synchronize_folder">Синхронизировать (полученные сообщения)</string>
     <string name="title_poll_folder">Проверка периодически вместо непрерывной синхронизации</string>
+    <string name="title_download_folder">Automatically download message texts and attachments</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_sync_days">Синхронизация сообщений (дней)</string>
     <string name="title_sync_days_remark">Увеличение этого значения увеличит использование батареи и данных</string>
     <string name="title_keep_days">Сохранить сообщения (дней)</string>
     <string name="title_keep_all">Хранить все сообщения</string>
-    <string name="title_folder_exists">Папка% 1 $ s существует</string>
+    <string name="title_folder_exists">Folder %1$s exists</string>
     <string name="title_folder_delete">Удалить эту папку и сообщения, которые она содержит?</string>
     <string name="title_folder_unified">Единый почтовый ящик</string>
     <string name="title_folder_inbox">Входящие</string>
@@ -225,11 +232,12 @@
     <string name="title_moving">Переместить в %1$s</string>
     <string name="title_open_with">Открыть с помощью</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>
-    <string name="title_no_viewer">Нет доступных приложений для просмотра для% 1 $ s</string>
+    <string name="title_no_viewer">No viewer app available for %1$s</string>
     <string name="title_no_saf">Нет структуры доступа к хранилищу</string>
     <string name="title_no_contacts">Выбор контакта недоступен</string>
     <string name="title_attachment_saved">Файл сохранен</string>
-    <string name="title_attachment_unavailable">Некоторые вложения не загружаются и не будут пересылаться, продолжить?</string>
+    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
+    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_selected">Удалить выбранные сообщения навсегда?</string>
     <string name="title_ask_delete_answer">Удалить шаблон ответа навсегда?</string>
@@ -280,6 +288,7 @@
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
     <string name="title_sort_on_starred">Избранное</string>
+    <string name="title_zoom">Text size</string>
     <string name="title_address_sent">Отправлено:</string>
     <string name="title_address_unsent">Не отправлено:</string>
     <string name="title_address_invalid">Недопустимо:</string>
@@ -289,8 +298,8 @@
     <string name="title_answer_reply">Шаблон ответа</string>
     <string name="title_answer_name">Название шаблона</string>
     <string name="title_answer_text">Текст шаблона</string>
-    <string name="title_answer_template_name">$ name $ будет заменено на полное имя отправителя</string>
-    <string name="title_answer_template_email">$ email $ будет заменен адресом электронной почты отправителя</string>
+    <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
+    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
     <string name="title_action_seen">Отметить как прочитанное</string>
     <string name="title_action_archive">Архив</string>
     <string name="title_action_trash">Корзина</string>
@@ -328,7 +337,7 @@
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_select_app">Выбрать приложение</string>
-    <string name="title_updated">Доступно обновление до версии% 1 $ s</string>
+    <string name="title_updated">There is an update to version %1$s available</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>

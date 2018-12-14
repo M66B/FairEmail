@@ -40,6 +40,12 @@
         <item quantity="many">%1$d new</item>
         <item quantity="other">%1$d new</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Move %1$d message to %2$s ?</item>
+        <item quantity="few">Move %1$d messages to %2$s ?</item>
+        <item quantity="many">Move %1$d messages to %2$s ?</item>
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
+    </plurals>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="menu_setup">Ustawienia</string>
     <string name="menu_answers">Szablony</string>
@@ -110,11 +116,11 @@
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
-    <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
-    <string name="title_advanced_browse_hint">Download more messages when scrolling down</string>
+    <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
+    <string name="title_advanced_browse_hint">Pobieraj więcej wiadomości podczas przewijania w dół</string>
     <string name="title_advanced_unified_hint">Show unified inbox folders or unified inbox messages</string>
-    <string name="title_advanced_threading_hint">Group messages related to each other</string>
-    <string name="title_advanced_autoclose_hint">Automatically close conversation threads when all messages are archived, sent or trashed</string>
+    <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
+    <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
@@ -171,7 +177,7 @@
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
-    <string name="title_delete_operation">Delete operations with an error message?</string>
+    <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_hide_folders">Nie pokazuj ukrytych folderów</string>
@@ -180,6 +186,7 @@
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
+    <string name="title_download_folder">Automatycznie pobieraj treści wiadomości i załączniki</string>
     <string name="title_notify_folder">Powiadom o nowych wiadomościach</string>
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
@@ -229,7 +236,8 @@
     <string name="title_no_saf">Brak dostępu do plików</string>
     <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
-    <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną przekazane, kontynuować?</string>
+    <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
+    <string name="title_image_unavailable">Niektóre obrazki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
     <string name="title_ask_delete_selected">Trwale usunąć wybrane wiadomości?</string>
     <string name="title_ask_delete_answer">Trwale usunąć szablon odpowiedzi?</string>
@@ -280,6 +288,7 @@
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytane</string>
     <string name="title_sort_on_starred">Oznaczone</string>
+    <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_address_sent">Wysłane:</string>
     <string name="title_address_unsent">Niewysłane:</string>
     <string name="title_address_invalid">Nieprawidłowy:</string>

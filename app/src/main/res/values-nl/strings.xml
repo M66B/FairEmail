@@ -30,6 +30,10 @@
         <item quantity="one">%1$d nieuw</item>
         <item quantity="other">%1$d nieuw</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">%1$d bericht verplaatsen naar %2$s ?</item>
+        <item quantity="other">%1$d berichten verplaatsen naar %2$s ?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
     <string name="menu_answers">Sjablonen</string>
@@ -170,6 +174,7 @@
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
+    <string name="title_download_folder">Berichtteksten en bijlagen automatisch downloaden</string>
     <string name="title_notify_folder">Melding bij nieuwe berichten</string>
     <string name="title_sync_days">Synchroniseren van berichten (dagen)</string>
     <string name="title_sync_days_remark">Een hogere waarde verhoogt het batterij- en dataverbruik</string>
@@ -219,7 +224,8 @@
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
-    <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet doorgestuurd worden, doorgaan?</string>
+    <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
+    <string name="title_image_unavailable">Sommige afbeeldingen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
     <string name="title_ask_delete_selected">Verwijder geselecteerde berichten permanent?</string>
     <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
@@ -270,6 +276,7 @@
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>
     <string name="title_sort_on_starred">Met ster</string>
+    <string name="title_zoom">Tekstgrootte</string>
     <string name="title_address_sent">Verzonden:</string>
     <string name="title_address_unsent">Niet verzonden:</string>
     <string name="title_address_invalid">Ongeldig:</string>

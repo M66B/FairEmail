@@ -40,6 +40,12 @@
         <item quantity="many">%1$d new</item>
         <item quantity="other">%1$d new</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Move %1$d message to %2$s ?</item>
+        <item quantity="few">Move %1$d messages to %2$s ?</item>
+        <item quantity="many">Move %1$d messages to %2$s ?</item>
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' failed</string>
     <string name="menu_setup">Setup</string>
     <string name="menu_answers">Templates</string>
@@ -180,6 +186,7 @@
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
+    <string name="title_download_folder">Automatically download message texts and attachments</string>
     <string name="title_notify_folder">Notify new messages</string>
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
@@ -229,7 +236,8 @@
     <string name="title_no_saf">Storage access framework not available</string>
     <string name="title_no_contacts">Contact picker not available</string>
     <string name="title_attachment_saved">Attachment saved</string>
-    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be forwarded, continue?</string>
+    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
+    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_delete_selected">Delete selected messages permanently?</string>
     <string name="title_ask_delete_answer">Delete reply template permanently?</string>
@@ -280,6 +288,7 @@
     <string name="title_sort_on_time">Time</string>
     <string name="title_sort_on_unread">Unread</string>
     <string name="title_sort_on_starred">Starred</string>
+    <string name="title_zoom">Text size</string>
     <string name="title_address_sent">Sent:</string>
     <string name="title_address_unsent">Unsent:</string>
     <string name="title_address_invalid">Invalid:</string>

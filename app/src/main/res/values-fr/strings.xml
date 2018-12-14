@@ -30,6 +30,10 @@
         <item quantity="one">%1$d nouveau</item>
         <item quantity="other">%1$d nouveaux</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Move %1$d message to %2$s ?</item>
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_answers">Modèles</string>
@@ -99,12 +103,12 @@
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
-    <string name="title_advanced_enabled_hint">Globally disable or enable receiving and sending of messages</string>
-    <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
-    <string name="title_advanced_browse_hint">Download more messages when scrolling down</string>
-    <string name="title_advanced_unified_hint">Show unified inbox folders or unified inbox messages</string>
-    <string name="title_advanced_threading_hint">Group messages related to each other</string>
-    <string name="title_advanced_autoclose_hint">Automatically close conversation threads when all messages are archived, sent or trashed</string>
+    <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
+    <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
+    <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
+    <string name="title_advanced_unified_hint">Afficher les dossiers de la boîte de réception unifiée ou les messages de la boîte de réception unifiée</string>
+    <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
+    <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
@@ -170,6 +174,7 @@
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
+    <string name="title_download_folder">Télécharger automatiquement le texte des messages et les pièces jointes</string>
     <string name="title_notify_folder">Notifier les nouveaux messages</string>
     <string name="title_sync_days">Synchroniser les e-mails (jours)</string>
     <string name="title_sync_days_remark">Augmenter cette valeur augmentera l\'utilisation de la batterie et des données</string>
@@ -219,7 +224,8 @@
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
-    <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargés et ne seront pas transférées, continuer ?</string>
+    <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
+    <string name="title_image_unavailable">Certaines images ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
     <string name="title_ask_delete_selected">Supprimer définitivement les messages sélectionnés ?</string>
     <string name="title_ask_delete_answer">Supprimer définitivement le modèle de réponse ?</string>
@@ -270,6 +276,7 @@
     <string name="title_sort_on_time">Date</string>
     <string name="title_sort_on_unread">Non lu(s)</string>
     <string name="title_sort_on_starred">Suivis</string>
+    <string name="title_zoom">Taille du texte</string>
     <string name="title_address_sent">Envoyé :</string>
     <string name="title_address_unsent">Non envoyé :</string>
     <string name="title_address_invalid">Invalide :</string>
