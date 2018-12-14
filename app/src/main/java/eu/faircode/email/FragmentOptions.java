@@ -295,7 +295,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swAutoclose.setChecked(prefs.getBoolean("autoclose", false));
+        swAutoclose.setChecked(prefs.getBoolean("autoclose", true));
         swAutoclose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

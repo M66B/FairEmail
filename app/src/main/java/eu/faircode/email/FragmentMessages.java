@@ -110,9 +110,6 @@ public class FragmentMessages extends FragmentEx {
     private List<Long> archives = new ArrayList<>();
     private List<Long> trashes = new ArrayList<>();
 
-    private boolean moving = false;
-    private boolean closing = false;
-
     private AdapterMessage.ViewType viewType;
     private SelectionTracker<Long> selectionTracker = null;
     private LiveData<PagedList<TupleMessageEx>> messages = null;
@@ -148,7 +145,7 @@ public class FragmentMessages extends FragmentEx {
         zoom = prefs.getInt("zoom", compact ? 0 : 1);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
-        autoclose = prefs.getBoolean("autoclose", false);
+        autoclose = prefs.getBoolean("autoclose", true);
 
         if (TextUtils.isEmpty(search))
             if (thread == null)
@@ -357,8 +354,6 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     public void move(long id, String name, boolean type) {
-                        moving = true;
-
                         Bundle args = new Bundle();
                         args.putLong("id", id);
                         args.putString("name", name);
@@ -384,8 +379,6 @@ public class FragmentMessages extends FragmentEx {
                                         result.target = db.folder().getFolderByName(message.account, name);
                                     result.ids.add(message.id);
 
-                                    db.message().setMessageUiHide(id, true);
-
                                     db.setTransactionSuccessful();
                                 } finally {
                                     db.endTransaction();
@@ -396,7 +389,7 @@ public class FragmentMessages extends FragmentEx {
 
                             @Override
                             protected void onLoaded(Bundle args, MessageTarget result) {
-                                moveUndo(result);
+                                moveAsk(result);
                             }
 
                             @Override
@@ -532,8 +525,6 @@ public class FragmentMessages extends FragmentEx {
                     return;
                 Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
 
-                moving = true;
-
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
@@ -626,8 +617,6 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionMove(String folderType) {
-                moving = true;
-
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putString("thread", thread);
@@ -651,10 +640,8 @@ public class FragmentMessages extends FragmentEx {
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     account, thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages)
-                                if (!result.target.id.equals(threaded.folder)) {
+                                if (!result.target.id.equals(threaded.folder))
                                     result.ids.add(threaded.id);
-                                    db.message().setMessageUiHide(threaded.id, true);
-                                }
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -666,7 +653,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, MessageTarget result) {
-                        moveUndo(result);
+                        moveAsk(result);
                     }
 
                     @Override
@@ -1007,8 +994,6 @@ public class FragmentMessages extends FragmentEx {
             }
 
             private void onActionMove(String type) {
-                moving = true;
-
                 Bundle args = new Bundle();
                 args.putString("type", type);
                 args.putLongArray("ids", getSelection());
@@ -1034,10 +1019,8 @@ public class FragmentMessages extends FragmentEx {
                                     account = message.account;
                                     List<EntityMessage> messages = db.message().getMessageByThread(
                                             message.account, message.thread, threading ? null : id, message.folder);
-                                    for (EntityMessage threaded : messages) {
+                                    for (EntityMessage threaded : messages)
                                         result.ids.add(threaded.id);
-                                        db.message().setMessageUiHide(threaded.id, true);
-                                    }
                                 }
                             }
 
@@ -1053,7 +1036,7 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, MessageTarget result) {
-                        moveUndo(result);
+                        moveAsk(result);
                     }
 
                     @Override
@@ -1112,8 +1095,6 @@ public class FragmentMessages extends FragmentEx {
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(final MenuItem target) {
-                                moving = true;
-
                                 args.putLong("target", target.getItemId());
 
                                 selectionTracker.clearSelection();
@@ -1154,7 +1135,7 @@ public class FragmentMessages extends FragmentEx {
 
                                     @Override
                                     protected void onLoaded(Bundle args, MessageTarget result) {
-                                        moveUndo(result);
+                                        moveAsk(result);
                                     }
 
                                     @Override
@@ -1675,12 +1656,8 @@ public class FragmentMessages extends FragmentEx {
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
                 if (messages == null ||
                         (viewType == AdapterMessage.ViewType.THREAD && messages.size() == 0 && autoclose)) {
-                    if (moving)
-                        closing = true;
-                    else {
-                        finish();
-                        return;
-                    }
+                    finish();
+                    return;
                 }
 
                 if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -1752,13 +1729,10 @@ public class FragmentMessages extends FragmentEx {
                             // Auto close when:
                             // - no more non archived/trashed/outgoing messages
 
-                            if (count == 0)
-                                if (moving)
-                                    closing = true;
-                                else {
-                                    finish();
-                                    return;
-                                }
+                            if (count == 0) {
+                                finish();
+                                return;
+                            }
                         }
                     }
                 } else {
@@ -1823,7 +1797,64 @@ public class FragmentMessages extends FragmentEx {
         }.load(this, args);
     }
 
+    private void moveAsk(final MessageTarget result) {
+        if (result.target == null) {
+            // TODO: unhide messages
+            return;
+        }
+
+        String title = getResources().getQuantityString(
+                R.plurals.title_moving_messages, result.ids.size(),
+                result.ids.size(), result.target.getDisplayName(getContext()));
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setMessage(title)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle args = new Bundle();
+                        args.putSerializable("result", result);
+
+                        // Move messages
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onLoad(Context context, Bundle args) {
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    for (long id : result.ids) {
+                                        EntityMessage message = db.message().getMessage(id);
+                                        if (message != null) {
+                                            Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                            EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                                            EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                                        }
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.load(FragmentMessages.this, args);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
     private void moveUndo(final MessageTarget result) {
+        if (result.target == null) {
+            // TODO: unhide messages
+            return;
+        }
+
         // Show undo snackbar
         final Snackbar snackbar = Snackbar.make(
                 view,
@@ -1833,8 +1864,6 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onClick(View v) {
                 snackbar.dismiss();
-                moving = false;
-                closing = false;
 
                 Bundle args = new Bundle();
                 args.putSerializable("result", result);
@@ -1866,10 +1895,6 @@ public class FragmentMessages extends FragmentEx {
             public void run() {
                 Log.i(Helper.TAG, "Move timeout");
 
-                moving = false;
-                if (closing)
-                    finish();
-
                 // Remove snackbar
                 if (snackbar.isShown())
                     snackbar.dismiss();
@@ -1882,15 +1907,14 @@ public class FragmentMessages extends FragmentEx {
                         try {
                             db.beginTransaction();
 
-                            if (result.target != null)
-                                for (long id : result.ids) {
-                                    EntityMessage message = db.message().getMessage(id);
-                                    if (message != null && message.ui_hide) {
-                                        Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
-                                        EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                        EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
-                                    }
+                            for (long id : result.ids) {
+                                EntityMessage message = db.message().getMessage(id);
+                                if (message != null && message.ui_hide) {
+                                    Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                    EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                                    EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
                                 }
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {
