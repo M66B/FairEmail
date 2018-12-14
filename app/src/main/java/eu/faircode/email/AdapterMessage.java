@@ -746,7 +746,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 if (body == null)
-                    body = message.read(context);
+                    try {
+                        body = message.read(context);
+                    } catch (IOException ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        body = ex.toString();
+                        DB.getInstance(context).message().setMessageContent(message.id, false, null);
+                    }
                 return decodeHtml(message, body);
             }
 

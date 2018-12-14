@@ -98,7 +98,13 @@ public class ViewModelBrowse extends ViewModel {
                     boolean match = false;
                     String find = state.search.toLowerCase();
                     EntityMessage message = db.message().getMessage(state.messages.get(i));
-                    String body = (message.content ? message.read(state.context) : null);
+                    String body = null;
+                    if (message.content)
+                        try {
+                            body = message.read(state.context);
+                        } catch (IOException ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
 
                     if (message.from != null)
                         for (int j = 0; j < message.from.length && !match; j++)
