@@ -133,12 +133,8 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " ORDER BY CASE" +
-            "  WHEN 'unread' = :sort THEN NOT message.ui_seen" +
-            "  WHEN 'starred' = :sort THEN message.ui_flagged" +
-            "  ELSE 0" +
-            " END DESC, message.received DESC")
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, String sort, boolean debug);
+            " ORDER BY message.received DESC")
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean debug);
 
     @Query("SELECT COUNT(id)" +
             " FROM message" +

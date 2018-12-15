@@ -1610,7 +1610,7 @@ public class FragmentMessages extends FragmentEx {
 
                 case THREAD:
                     messages = new LivePagedListBuilder<>(
-                            db.message().pagedThread(account, thread, threading ? null : id, sort, debug), LOCAL_PAGE_SIZE).build();
+                            db.message().pagedThread(account, thread, threading ? null : id, debug), LOCAL_PAGE_SIZE).build();
                     break;
             }
         } else {
