@@ -1848,28 +1848,8 @@ public class FragmentMessages extends FragmentEx {
     }
 
     private void moveUndo(final MessageTarget result) {
-        final Bundle args = new Bundle();
-        args.putSerializable("result", result);
-
-        if (result.target == null) {
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onLoad(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    MessageTarget result = (MessageTarget) args.getSerializable("result");
-                    for (long id : result.ids)
-                        db.message().setMessageUiHide(id, false);
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                }
-            }.load(FragmentMessages.this, args);
-            // TODO: unhide messages
+        if (result.target == null)
             return;
-        }
 
         // Show undo snackbar
         final Snackbar snackbar = Snackbar.make(
@@ -1880,6 +1860,9 @@ public class FragmentMessages extends FragmentEx {
             @Override
             public void onClick(View v) {
                 snackbar.dismiss();
+
+                Bundle args = new Bundle();
+                args.putSerializable("result", result);
 
                 // Show message again
                 new SimpleTask<Void>() {
