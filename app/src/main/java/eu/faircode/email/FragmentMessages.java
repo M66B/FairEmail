@@ -210,9 +210,11 @@ public class FragmentMessages extends FragmentEx {
                             db.beginTransaction();
 
                             List<EntityFolder> folders = new ArrayList<>();
-                            if (fid < 0)
-                                folders.addAll(db.folder().getFoldersSynchronizingUnified());
-                            else {
+                            if (fid < 0) {
+                                List<EntityFolder> unified = db.folder().getFoldersSynchronizingUnified();
+                                if (unified != null)
+                                    folders.addAll(unified);
+                            } else {
                                 EntityFolder folder = db.folder().getFolder(fid);
                                 if (folder != null)
                                     folders.add(folder);
