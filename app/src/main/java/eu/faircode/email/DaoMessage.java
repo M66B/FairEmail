@@ -133,7 +133,8 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT message.ui_hide OR :debug)" +
-            " ORDER BY message.received DESC")
+            " ORDER BY message.received DESC" +
+            ", CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 1 ELSE 0 END")
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean debug);
 
     @Query("SELECT COUNT(id)" +
