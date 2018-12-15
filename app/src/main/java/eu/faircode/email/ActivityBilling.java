@@ -42,6 +42,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener {
@@ -180,7 +181,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (!billingClient.isReady())
+                    if (!billingClient.isReady() &&
+                            getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                         billingClient.startConnection(billingClientStateListener);
                 }
             }, backoff * 1000L);
