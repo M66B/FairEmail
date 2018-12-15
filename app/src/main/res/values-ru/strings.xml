@@ -11,22 +11,22 @@
     <string name="shortcut_compose">Составить</string>
     <string name="shortcut_setup">Установка</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronizing %1$d account</item>
+        <item quantity="one">Синхронизация %1$d учетной записи</item>
         <item quantity="few">Synchronizing %1$d accounts</item>
         <item quantity="many">Synchronizing %1$d accounts</item>
-        <item quantity="other">Synchronizing %1$d accounts</item>
+        <item quantity="other">Синхронизация %1$d учетных записей</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d operation pending</item>
-        <item quantity="few">%1$d operations pending</item>
+        <item quantity="one">%1$d Операция выполняется</item>
+        <item quantity="few">%1$d Операции выполняются</item>
         <item quantity="many">%1$d operations pending</item>
         <item quantity="other">%1$d operations pending</item>
     </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="one">%1$d new message</item>
+        <item quantity="one">%1$d новое сообщение</item>
         <item quantity="few">%1$d new messages</item>
         <item quantity="many">%1$d new messages</item>
-        <item quantity="other">%1$d new messages</item>
+        <item quantity="other">%1$d новые сообщения</item>
     </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="one">%1$d unsent message</item>
@@ -299,7 +299,7 @@
     <string name="title_answer_name">Название шаблона</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ will be replaced by the sender full name</string>
-    <string name="title_answer_template_email">$email$ will be replaced by the sender email address</string>
+    <string name="title_answer_template_email">$email$ будет заменен на адрес электронной почты отправителя</string>
     <string name="title_action_seen">Отметить как прочитанное</string>
     <string name="title_action_archive">Архив</string>
     <string name="title_action_trash">Корзина</string>
@@ -337,7 +337,7 @@
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_select_app">Выбрать приложение</string>
-    <string name="title_updated">There is an update to version %1$s available</string>
+    <string name="title_updated">Доступно обновление до версии %1$s</string>
     <string name="title_issue">У вас есть вопрос или проблема?</string>
     <string name="title_yes">Да</string>
     <string name="title_no">Нет</string>

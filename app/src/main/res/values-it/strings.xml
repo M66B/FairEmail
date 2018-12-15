@@ -31,8 +31,8 @@
         <item quantity="other">%1$d nuovi</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Move %1$d message to %2$s ?</item>
-        <item quantity="other">Move %1$d messages to %2$s ?</item>
+        <item quantity="one">Spostare %1$d messaggio in %2$s ?</item>
+        <item quantity="other">Spostare %1$d messaggi in %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fallito</string>
     <string name="menu_setup">Configurazione</string>
@@ -174,7 +174,7 @@
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_synchronize_folder">Sincronizza (ricevi messaggi)</string>
     <string name="title_poll_folder">Controllare periodicamente anziché sincronizzare continuamente</string>
-    <string name="title_download_folder">Automatically download message texts and attachments</string>
+    <string name="title_download_folder">Scarica automaticamente messaggi di testo e allegati</string>
     <string name="title_notify_folder">Notifica nuovi messaggi</string>
     <string name="title_sync_days">Sincronizza i messaggi (giorni)</string>
     <string name="title_sync_days_remark">Aumentando questo valore aumenterà l\'utilizzo della batteria e dei dati</string>
@@ -224,8 +224,8 @@
     <string name="title_no_saf">Storage access framework non disponibile</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_attachment_saved">Allegato salvato</string>
-    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
-    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
+    <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
+    <string name="title_image_unavailable">Alcune immagini non vengono scaricate e non verranno aggiunte, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
     <string name="title_ask_delete_selected">Eliminare definitivamente i messaggi selezionati?</string>
     <string name="title_ask_delete_answer">Elimina definitivamente il modello di risposta?</string>

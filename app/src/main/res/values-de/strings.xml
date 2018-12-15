@@ -31,8 +31,8 @@
         <item quantity="other">%1$d neue</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Move %1$d message to %2$s ?</item>
-        <item quantity="other">Move %1$d messages to %2$s ?</item>
+        <item quantity="one">Verschiebe %1$d E-Mail nach %2$s ?</item>
+        <item quantity="other">Verschiebe %1$d E-Mail nach %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_setup">Einstellungen</string>
@@ -103,7 +103,7 @@
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>
-    <string name="title_advanced_enabled_hint">Globales deaktivieren oder aktivieren des Empfangs und Versands von E-Mails</string>
+    <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_browse_hint">Beim Herunterscrollen weitere E-Mails laden</string>
     <string name="title_advanced_unified_hint">Zeige die Ordner oder die E-Mails des Sammeleingangs an</string>
@@ -174,7 +174,7 @@
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
     <string name="title_poll_folder">Periodisch überprüfen anstatt einer dauerhaften Synchronisierung</string>
-    <string name="title_download_folder">Automatically download message texts and attachments</string>
+    <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht die Akku- und Datennutzung</string>
@@ -224,8 +224,8 @@
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
-    <string name="title_attachment_unavailable">Some attachments are not downloaded and will not be added, continue?</string>
-    <string name="title_image_unavailable">Some images are not downloaded and will not be added, continue?</string>
+    <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
+    <string name="title_image_unavailable">Einige Bilder wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
     <string name="title_ask_delete">E-Mail unwiderruflich löschen?</string>
     <string name="title_ask_delete_selected">Ausgewählte E-Mail(s) unwiderruflich löschen?</string>
     <string name="title_ask_delete_answer">Antwortvorlage unwiderruflich löschen?</string>

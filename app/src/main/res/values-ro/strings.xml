@@ -36,9 +36,9 @@
         <item quantity="other">%1$d noi</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Move %1$d message to %2$s ?</item>
-        <item quantity="few">Move %1$d messages to %2$s ?</item>
-        <item quantity="other">Move %1$d messages to %2$s ?</item>
+        <item quantity="one">Se mută %1$d mesaj la %2$s ?</item>
+        <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
+        <item quantity="other">Se mută %1$d de mesaje la %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="menu_setup">Setări</string>

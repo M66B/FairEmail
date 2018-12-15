@@ -31,8 +31,8 @@
         <item quantity="other">%1$d nouveaux</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Move %1$d message to %2$s ?</item>
-        <item quantity="other">Move %1$d messages to %2$s ?</item>
+        <item quantity="one">Déplacer %1$d message vers %2$s ?</item>
+        <item quantity="other">Déplacer %1$d messages vers %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
     <string name="menu_setup">Configuration</string>
