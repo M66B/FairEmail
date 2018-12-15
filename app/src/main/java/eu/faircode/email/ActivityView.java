@@ -337,7 +337,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private Runnable checkIntent = new Runnable() {
         @Override
         public void run() {
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                return;
+
             Intent intent = getIntent();
+
             String action = intent.getAction();
             Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
             if (action != null) {
@@ -359,7 +363,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }
 
-            if (getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
+            if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
                 String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
 
                 intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
