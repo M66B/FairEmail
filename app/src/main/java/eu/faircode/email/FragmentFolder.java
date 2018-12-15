@@ -213,7 +213,7 @@ public class FragmentFolder extends FragmentEx {
 
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
-                                        name, display, unified, hide, notify,
+                                        name, display, unified, notify, hide,
                                         synchronize, poll, download,
                                         sync_days, keep_days);
 
