@@ -373,7 +373,7 @@ public class FragmentSetup extends FragmentEx {
                     livePrimaryDrafts.removeObservers(getViewLifecycleOwner());
 
                 if (livePrimaryArchive == null)
-                    livePrimaryArchive = db.folder().livePrimaryDrafts();
+                    livePrimaryArchive = db.folder().livePrimaryArchive();
                 else
                     livePrimaryArchive.removeObservers(getViewLifecycleOwner());
 
