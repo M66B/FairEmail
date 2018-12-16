@@ -22,7 +22,6 @@ For:
 
 ## Planned features
 
-* IMAP namespaces
 * Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
 
 Anything on this list is in random order and *might* be added in the near future.
