@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 
 import com.android.billingclient.api.BillingClient;
@@ -38,7 +39,11 @@ import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.List;
 
 import androidx.annotation.Nullable;
@@ -213,15 +218,34 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
+
             if (prefs.getBoolean("play_store", true))
                 editor.remove("pro");
-            for (Purchase purchase : purchases) {
-                Log.i(Helper.TAG, "IAB SKU=" + purchase.getSku());
-                if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
-                    editor.putBoolean("pro", true);
-                    Log.i(Helper.TAG, "IAB pro features activated");
+
+            for (Purchase purchase : purchases)
+                try {
+                    Log.i(Helper.TAG, "IAB SKU=" + purchase.getSku());
+
+                    byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
+                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+                    PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(decodedKey));
+                    Signature sig = Signature.getInstance("SHA1withRSA");
+                    sig.initVerify(publicKey);
+                    sig.update(purchase.getOriginalJson().getBytes());
+                    if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
+                        if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
+                            editor.putBoolean("pro", true);
+                            Log.i(Helper.TAG, "IAB pro features activated");
+                        }
+                    } else {
+                        Log.w(Helper.TAG, "Invalid signature");
+                        Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
+                    }
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 }
-            }
+
             editor.apply();
         }
     }
