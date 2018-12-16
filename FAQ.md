@@ -94,18 +94,18 @@ If you came here by clicking on the notification, you should known that the next
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
-* add: add message to remote folder
-* move: move message to another remote folder
-* delete: delete message from remote folder
-* send: send message
-* seen: mark message as seen/unseen in remote folder
-* answered: mark message as answered in remote folder
-* flag: add/remove star in remote folder
-* keyword: add/remove IMAP flag in remote folder
-* headers: download message headers
-* body: download message text
-* attachment: download attachment
-* sync: synchronize local and remove folder
+* *add*: add message to remote folder
+* *move*: move message to another remote folder
+* *delete*: delete message from remote folder
+* *send*: send message
+* *seen*: mark message as read/unread in remote folder
+* *answered*: mark message as answered in remote folder
+* *flag*: add/remove star in remote folder
+* *keyword*: add/remove IMAP flag in remote folder
+* *headers*: download message headers
+* *body*: download message text
+* *attachment*: download attachment
+* *sync*: synchronize local and remove folder
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
