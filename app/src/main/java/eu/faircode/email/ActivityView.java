@@ -104,6 +104,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private boolean unified;
+    private boolean threading;
 
     private View view;
     private DrawerLayout drawerLayout;
@@ -145,6 +146,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         unified = prefs.getBoolean("unified", true);
+        threading = prefs.getBoolean("threading", true);
 
         view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
         setContentView(view);
@@ -248,7 +250,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<TupleAccountEx>>() {
+        DB.getInstance(this).account().liveAccounts(true, threading).observe(this, new Observer<List<TupleAccountEx>>() {
             @Override
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)

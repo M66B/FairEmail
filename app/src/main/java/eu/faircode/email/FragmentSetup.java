@@ -354,13 +354,13 @@ public class FragmentSetup extends FragmentEx {
 
         final DB db = DB.getInstance(getContext());
 
-        db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<TupleAccountEx>>() {
+        db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
             private boolean done = false;
             private LiveData<EntityFolder> livePrimaryDrafts = null;
             private LiveData<EntityFolder> livePrimaryArchive = null;
 
             @Override
-            public void onChanged(@Nullable List<TupleAccountEx> accounts) {
+            public void onChanged(@Nullable List<EntityAccount> accounts) {
                 done = (accounts != null && accounts.size() > 0);
 
                 btnIdentity.setEnabled(done);

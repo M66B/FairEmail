@@ -41,18 +41,22 @@ public interface DaoAccount {
     @Query("SELECT * FROM account")
     LiveData<List<EntityAccount>> liveAccounts();
 
+    @Query("SELECT * FROM account WHERE synchronize = :synchronize")
+    LiveData<List<EntityAccount>> liveAccounts(boolean synchronize);
+
     @Query("SELECT *" +
-            ", (SELECT COUNT(message.id)" +
+            ", (SELECT COUNT(DISTINCT CASE WHEN :threading THEN message.thread ELSE message.id END)" +
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
             "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
             "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
+            "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen) AS unseen" +
             " FROM account" +
             " WHERE synchronize = :synchronize")
-    LiveData<List<TupleAccountEx>> liveAccounts(boolean synchronize);
+    LiveData<List<TupleAccountEx>> liveAccounts(boolean synchronize, boolean threading);
 
     @Query("SELECT * FROM account WHERE id = :id")
     EntityAccount getAccount(long id);
