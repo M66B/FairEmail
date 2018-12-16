@@ -229,9 +229,9 @@ public class HtmlHelper {
     static String getQuote(Context context, long id, boolean sanitize) throws IOException {
         EntityMessage message = DB.getInstance(context).message().getMessage(id);
         String html = EntityMessage.read(context, id);
-        return String.format("<p>%s %s:</p><blockquote>%s</blockquote>",
+        return String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                 Html.escapeHtml(new Date(message.received).toString()),
                 Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
-                sanitize ? HtmlHelper.sanitize(html) : html);
+                sanitize ? sanitize(html) : getBody(html));
     }
 }

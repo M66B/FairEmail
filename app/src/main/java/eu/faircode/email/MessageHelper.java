@@ -284,27 +284,41 @@ public class MessageHelper {
     static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
-        String body = message.read(context);
+        StringBuilder body = new StringBuilder();
+        body.append(message.read(context));
 
         if (Helper.isPro(context) && message.identity != null) {
             EntityIdentity identity = db.identity().getIdentity(message.identity);
             if (!TextUtils.isEmpty(identity.signature))
-                body += identity.signature;
+                body.append(identity.signature);
         }
 
         if (message.replying != null || message.forwarding != null)
-            body += HtmlHelper.getQuote(context,
-                    message.replying == null ? message.forwarding : message.replying, false);
+            body.append(HtmlHelper.getQuote(context,
+                    message.replying == null ? message.forwarding : message.replying, false));
 
-        BodyPart plain = new MimeBodyPart();
-        plain.setContent(Jsoup.parse(body).text(), "text/plain; charset=" + Charset.defaultCharset().name());
+        String plain = Jsoup.parse(body.toString()).text();
 
-        BodyPart html = new MimeBodyPart();
-        html.setContent(body, "text/html; charset=" + Charset.defaultCharset().name());
+        StringBuilder html = new StringBuilder();
+        html.append("<!DOCTYPE html>").append("\n");
+        html.append("<html>").append("\n");
+        html.append("<head>").append("\n");
+        html.append("<meta charset=\"utf-8\" /> ").append("\n");
+        html.append("</head>").append("\n");
+        html.append("<body>").append("\n");
+        html.append(body.toString()).append("\n");
+        html.append("</body>").append("\n");
+        html.append("</html>").append("\n");
+
+        BodyPart plainBody = new MimeBodyPart();
+        plainBody.setContent(plain, "text/plain; charset=" + Charset.defaultCharset().name());
+
+        BodyPart htmlBody = new MimeBodyPart();
+        htmlBody.setContent(html.toString(), "text/html; charset=" + Charset.defaultCharset().name());
 
         Multipart alternative = new MimeMultipart("alternative");
-        alternative.addBodyPart(plain);
-        alternative.addBodyPart(html);
+        alternative.addBodyPart(plainBody);
+        alternative.addBodyPart(htmlBody);
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         if (attachments.size() == 0) {
