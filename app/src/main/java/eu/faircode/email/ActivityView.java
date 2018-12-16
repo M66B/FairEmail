@@ -714,7 +714,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_try) + "\n\nhttps://email.faircode.eu/");
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_try) + "\n\nhttps://email.faircode.eu/\n\n");
         return intent;
     }
 
