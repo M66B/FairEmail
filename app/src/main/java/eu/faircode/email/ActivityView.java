@@ -122,8 +122,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_THREAD = 2;
 
     static final int REQUEST_ATTACHMENT = 1;
-    static final int REQUEST_INVITE = 2;
-    static final int REQUEST_DECRYPT = 3;
+    static final int REQUEST_DECRYPT = 2;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
@@ -712,12 +711,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private Intent getIntentInvite() {
-        Intent intent = new Intent("com.google.android.gms.appinvite.ACTION_APP_INVITE");
-        intent.setPackage("com.google.android.gms");
-        intent.putExtra("com.google.android.gms.appinvite.TITLE", getString(R.string.menu_invite));
-        intent.putExtra("com.google.android.gms.appinvite.MESSAGE", getString(R.string.title_try));
-        intent.putExtra("com.google.android.gms.appinvite.BUTTON_TEXT", getString(R.string.title_try));
-        // com.google.android.gms.appinvite.DEEP_LINK_URL
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_try) + "\n\nhttps://email.faircode.eu/");
         return intent;
     }
 
@@ -839,7 +836,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuInvite() {
-        startActivityForResult(Helper.getChooser(this, getIntentInvite()), REQUEST_INVITE);
+        startActivity(getIntentInvite());
     }
 
     private void onMenuOtherApps() {
