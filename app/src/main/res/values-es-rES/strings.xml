@@ -84,6 +84,11 @@
     <string name="title_setup_dark_theme">Tema oscuro</string>
     <string name="title_setup_black_background">Fondo negro</string>
     <string name="title_advanced">Opciones avanzadas</string>
+    <string name="title_advanced_section_general">General</string>
+    <string name="title_advanced_section_connection">Connection</string>
+    <string name="title_advanced_section_display">Display</string>
+    <string name="title_advanced_section_behavior">Behavior</string>
+    <string name="title_advanced_section_misc">Miscellaneous</string>
     <string name="title_advanced_enabled">Sincronizar</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_unified">Bandeja de Entrada Unificada</string>

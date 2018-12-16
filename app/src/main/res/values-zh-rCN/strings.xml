@@ -78,6 +78,11 @@
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_background">黑色背景</string>
     <string name="title_advanced">高级选项</string>
+    <string name="title_advanced_section_general">General</string>
+    <string name="title_advanced_section_connection">Connection</string>
+    <string name="title_advanced_section_display">Display</string>
+    <string name="title_advanced_section_behavior">Behavior</string>
+    <string name="title_advanced_section_misc">Miscellaneous</string>
     <string name="title_advanced_enabled">同步</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_unified">聚合收件箱</string>

@@ -84,6 +84,11 @@
     <string name="title_setup_dark_theme">Dunkles Thema</string>
     <string name="title_setup_black_background">Schwarzer Hintergrund</string>
     <string name="title_advanced">Erweiterte Optionen</string>
+    <string name="title_advanced_section_general">General</string>
+    <string name="title_advanced_section_connection">Connection</string>
+    <string name="title_advanced_section_display">Display</string>
+    <string name="title_advanced_section_behavior">Behavior</string>
+    <string name="title_advanced_section_misc">Miscellaneous</string>
     <string name="title_advanced_enabled">Synchronisieren</string>
     <string name="title_advanced_metered">Mobilfunknetz zulassen</string>
     <string name="title_advanced_unified">Sammeleingang</string>

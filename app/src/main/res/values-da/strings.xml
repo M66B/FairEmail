@@ -84,6 +84,11 @@
     <string name="title_setup_dark_theme">Mørkt tema</string>
     <string name="title_setup_black_background">Sort baggrund</string>
     <string name="title_advanced">Avancerede indstillinger</string>
+    <string name="title_advanced_section_general">General</string>
+    <string name="title_advanced_section_connection">Connection</string>
+    <string name="title_advanced_section_display">Display</string>
+    <string name="title_advanced_section_behavior">Behavior</string>
+    <string name="title_advanced_section_misc">Miscellaneous</string>
     <string name="title_advanced_enabled">Synkronisér</string>
     <string name="title_advanced_metered">Use metered connections</string>
     <string name="title_advanced_unified">Unified inbox</string>

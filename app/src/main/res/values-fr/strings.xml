@@ -84,6 +84,11 @@
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_background">Fond d\'écran noir</string>
     <string name="title_advanced">Options avancées</string>
+    <string name="title_advanced_section_general">General</string>
+    <string name="title_advanced_section_connection">Connexion</string>
+    <string name="title_advanced_section_display">Afficher</string>
+    <string name="title_advanced_section_behavior">Comportement</string>
+    <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
     <string name="title_advanced_unified">Boite de réception unifiée</string>
