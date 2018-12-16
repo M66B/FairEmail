@@ -113,6 +113,7 @@ public class FragmentFolder extends FragmentEx {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
+                cbDownload.setEnabled(isChecked);
             }
         });
 
@@ -380,6 +381,7 @@ public class FragmentFolder extends FragmentEx {
                 Helper.setViewsEnabled(view, true);
                 etName.setEnabled(folder == null);
                 cbPoll.setEnabled(cbSynchronize.isChecked());
+                cbDownload.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
             }
 
