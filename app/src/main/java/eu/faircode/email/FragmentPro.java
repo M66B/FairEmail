@@ -56,9 +56,6 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
         tvList.setText(Html.fromHtml("<a href=\"https://email.faircode.eu/#pro\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
         tvList.setMovementMethod(LinkMovementMethod.getInstance());
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        onSharedPreferenceChanged(prefs, "pro");
-
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,13 +72,16 @@ public class FragmentPro extends FragmentEx implements SharedPreferences.OnShare
     @Override
     public void onResume() {
         super.onResume();
-        PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        onSharedPreferenceChanged(prefs, "pro");
+        prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
