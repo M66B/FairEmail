@@ -35,15 +35,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swEnabled" />
 
+        <TextView
+            android:id="@+id/tvSectionConnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_connection"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+
         <View
             android:id="@+id/vSeparator1"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvSectionConnection" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swMetered"
@@ -138,15 +148,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBrowseHint" />
 
+        <TextView
+            android:id="@+id/tvSectionDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_display"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swInsecure" />
+
         <View
             android:id="@+id/vSeparator2"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swInsecure" />
+            app:layout_constraintTop_toBottomOf="@id/tvSectionDisplay" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUnified"
@@ -240,50 +260,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swIdenticons" />
 
+        <TextView
+            android:id="@+id/tvSectionBehavior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_behavior"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swPreview" />
+
         <View
             android:id="@+id/vSeparator3"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swPreview" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swLight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/title_advanced_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator3" />
-
-        <Button
-            android:id="@+id/btnSound"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_advanced_sound"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swLight" />
-
-        <View
-            android:id="@+id/vSeparator4"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSound" />
+            app:layout_constraintTop_toBottomOf="@id/tvSectionBehavior" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSwipe"
@@ -294,7 +289,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_swipe"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator4" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator3" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swActionbar"
@@ -366,15 +361,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSender" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSenderHint" />
+
+        <Button
+            android:id="@+id/btnSound"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_sound"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swLight" />
+
+        <TextView
+            android:id="@+id/tvSectionMisc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_misc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSound" />
+
         <View
-            android:id="@+id/vSeparator5"
+            android:id="@+id/vSeparator4"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSenderHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvSectionMisc" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swUpdates"
@@ -385,7 +415,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_updates"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator5" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator4" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
@@ -403,6 +433,6 @@
             android:id="@+id/grpNotification"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparator3,swLight,btnSound" />
+            app:constraint_referenced_ids="swLight,btnSound" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
