@@ -1366,11 +1366,11 @@ public class FragmentCompose extends FragmentEx {
 
             final DB db = DB.getInstance(getContext());
 
-            db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
+            db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<TupleAccountEx>>() {
                 private LiveData<List<EntityIdentity>> liveIdentities = null;
 
                 @Override
-                public void onChanged(List<EntityAccount> accounts) {
+                public void onChanged(List<TupleAccountEx> accounts) {
                     if (accounts == null)
                         accounts = new ArrayList<>();
 
@@ -1780,11 +1780,11 @@ public class FragmentCompose extends FragmentEx {
         EntityAccount account;
     }
 
-    public class AccountAdapter extends ArrayAdapter<EntityAccount> {
+    public class AccountAdapter extends ArrayAdapter<TupleAccountEx> {
         private Context context;
-        private List<EntityAccount> accounts;
+        private List<TupleAccountEx> accounts;
 
-        AccountAdapter(@NonNull Context context, List<EntityAccount> accounts) {
+        AccountAdapter(@NonNull Context context, List<TupleAccountEx> accounts) {
             super(context, 0, accounts);
             this.context = context;
             this.accounts = accounts;

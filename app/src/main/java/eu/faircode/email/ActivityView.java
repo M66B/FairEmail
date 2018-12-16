@@ -248,9 +248,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<TupleAccountEx>>() {
             @Override
-            public void onChanged(@Nullable List<EntityAccount> accounts) {
+            public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
 
@@ -266,11 +266,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     }
                 });
 
-                for (EntityAccount account : accounts)
+                for (TupleAccountEx account : accounts)
                     drawerArray.add(new DrawerItem(
                             R.layout.item_drawer, -1,
                             "connected".equals(account.state) ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24,
-                            account.color, account.name, account.id));
+                            account.color,
+                            account.unseen > 0 ? getString(R.string.title_unseen_count, account.name, account.unseen) : account.name,
+                            account.unseen > 0,
+                            account.id));
 
                 drawerArray.add(new DrawerItem(R.layout.item_drawer_separator));
 
@@ -1129,6 +1132,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         private int icon;
         private Integer color;
         private String title;
+        private boolean highlight;
         private Object data;
 
         DrawerItem(int layout) {
@@ -1143,12 +1147,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             this.title = context.getString(title);
         }
 
-        DrawerItem(int layout, int id, int icon, Integer color, String title, Object data) {
+        DrawerItem(int layout, int id, int icon, Integer color, String title, boolean highlight, Object data) {
             this.layout = layout;
             this.id = id;
             this.icon = icon;
             this.color = color;
             this.title = title;
+            this.highlight = highlight;
             this.data = data;
         }
 
@@ -1179,8 +1184,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (item.color != null)
                     iv.setColorFilter(item.color);
             }
-            if (tv != null)
+
+            if (tv != null) {
                 tv.setText(item.title);
+
+                tv.setTextColor(Helper.resolveColor(getContext(),
+                        item.highlight ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+            }
 
             return row;
         }

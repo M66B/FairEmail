@@ -155,7 +155,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             String name = folder.getDisplayName(context);
             if (folder.unseen > 0)
-                tvName.setText(context.getString(R.string.title_folder_unseen, name, folder.unseen));
+                tvName.setText(context.getString(R.string.title_unseen_count, name, folder.unseen));
             else
                 tvName.setText(name);
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);

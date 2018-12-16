@@ -48,9 +48,9 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
 
         if (prefs.getBoolean("eula", false)) {
             super.onCreate(savedInstanceState);
-            DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+            DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<TupleAccountEx>>() {
                 @Override
-                public void onChanged(@Nullable List<EntityAccount> accounts) {
+                public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                     if (accounts == null || accounts.size() == 0)
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
                     else {

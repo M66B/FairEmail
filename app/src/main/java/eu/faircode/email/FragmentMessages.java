@@ -1239,7 +1239,7 @@ public class FragmentMessages extends FragmentEx {
                             unseen += folder.unseen;
                         String name = getString(R.string.title_folder_unified);
                         if (unseen > 0)
-                            setSubtitle(getString(R.string.title_folder_unseen, name, unseen));
+                            setSubtitle(getString(R.string.title_unseen_count, name, unseen));
                         else
                             setSubtitle(name);
 
@@ -1264,7 +1264,7 @@ public class FragmentMessages extends FragmentEx {
                         else {
                             String name = folder.getDisplayName(getContext());
                             if (folder.unseen > 0)
-                                setSubtitle(getString(R.string.title_folder_unseen, name, folder.unseen));
+                                setSubtitle(getString(R.string.title_unseen_count, name, folder.unseen));
                             else
                                 setSubtitle(name);
 

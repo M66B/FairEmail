@@ -65,9 +65,9 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
             fragmentTransaction.commit();
         }
 
-        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<EntityAccount>>() {
+        DB.getInstance(this).account().liveAccounts(true).observe(this, new Observer<List<TupleAccountEx>>() {
             @Override
-            public void onChanged(List<EntityAccount> accounts) {
+            public void onChanged(List<TupleAccountEx> accounts) {
                 hasAccount = (accounts != null && accounts.size() > 0);
             }
         });
