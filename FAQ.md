@@ -283,7 +283,8 @@ The right question is "*why are there so many taxes and fees?*":
 
 So, what is left for the developer is just a fraction of what you pay.
 
-Note that only some convenience and advanced features need to be purchased, which means that FairEmail is basically free to use.
+Note that only some convenience and advanced features, like the dark/black theme, need to be purchased,
+which means that FairEmail is basically free to use.
 
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
