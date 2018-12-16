@@ -2307,7 +2307,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.ui_flagged = flagged;
             message.ui_hide = false;
             message.ui_found = false;
-            message.ui_ignored = false;
+            message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
             message.id = db.message().insertMessage(message);
@@ -2334,6 +2334,8 @@ public class ServiceSynchronize extends LifecycleService {
                 update = true;
                 message.seen = seen;
                 message.ui_seen = seen;
+                if (seen)
+                    message.ui_ignored = true;
                 Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
