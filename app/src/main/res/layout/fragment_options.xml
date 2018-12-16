@@ -11,6 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/tvSectionGeneral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_section_general"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vSeparator1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSectionGeneral" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swEnabled"
             android:layout_width="match_parent"
@@ -20,7 +40,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_enabled"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator1" />
 
         <TextView
             android:id="@+id/tvEnabledHint"
@@ -47,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvEnabledHint" />
 
         <View
-            android:id="@+id/vSeparator1"
+            android:id="@+id/vSeparator2"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -64,7 +84,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_metered"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator1" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator2" />
 
         <TextView
             android:id="@+id/tvMeteredHint"
@@ -160,7 +180,7 @@
             app:layout_constraintTop_toBottomOf="@id/swInsecure" />
 
         <View
-            android:id="@+id/vSeparator2"
+            android:id="@+id/vSeparator3"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -177,7 +197,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_unified"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator2" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator3" />
 
         <TextView
             android:id="@+id/tvUnifiedHint"
@@ -272,7 +292,7 @@
             app:layout_constraintTop_toBottomOf="@id/swPreview" />
 
         <View
-            android:id="@+id/vSeparator3"
+            android:id="@+id/vSeparator4"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -289,7 +309,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_swipe"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator3" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator4" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swActionbar"
@@ -398,7 +418,7 @@
             app:layout_constraintTop_toBottomOf="@id/btnSound" />
 
         <View
-            android:id="@+id/vSeparator4"
+            android:id="@+id/vSeparator5"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSeparator"
@@ -415,7 +435,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_updates"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator4" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparator5" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
