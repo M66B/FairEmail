@@ -31,7 +31,7 @@
         <item quantity="other">%1$d nieuw</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">%1$d bericht verplaatsen naar %2$s ?</item>
+        <item quantity="one">Één bericht verplaatsen naar %2$s ?</item>
         <item quantity="other">%1$d berichten verplaatsen naar %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
