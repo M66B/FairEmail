@@ -42,7 +42,6 @@ None at this moment.
 * Calendar events: opening the attached calendar file should open the related calendar app.
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
-* Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).

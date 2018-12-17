@@ -28,7 +28,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Icon;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -38,6 +44,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -86,6 +93,7 @@ import java.util.Properties;
 
 import javax.mail.Address;
 import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
 
@@ -336,6 +344,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         pgpService = new OpenPgpServiceConnection(this, "org.sufficientlysecure.keychain");
         pgpService.bindToService();
+
+        updateShortcuts();
     }
 
     private Runnable checkIntent = new Runnable() {
@@ -700,6 +710,78 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
             }
         }.load(this, new Bundle());
+    }
+
+    private void updateShortcuts() {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1)
+            return;
+
+        ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
+
+        Cursor cursor = null;
+        List<ShortcutInfo> shortcuts = new ArrayList<>();
+        try {
+            cursor = getContentResolver().query(
+                    ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.RawContacts._ID,
+                            ContactsContract.Contacts.LOOKUP_KEY,
+                            ContactsContract.Contacts.DISPLAY_NAME,
+                            ContactsContract.CommonDataKinds.Email.DATA,
+                            ContactsContract.Contacts.TIMES_CONTACTED,
+                            ContactsContract.Contacts.LAST_TIME_CONTACTED
+                    },
+                    ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
+                    null,
+                    ContactsContract.Contacts.STARRED + " DESC" +
+                            ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
+                            ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
+            while (cursor.moveToNext())
+                try {
+                    int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
+                    long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+                    if (times == 0 && last == 0)
+                        continue;
+
+                    long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
+                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                    String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
+                    InternetAddress address = new InternetAddress(email, name);
+                    Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address + " times=" + times + " last=" + last);
+
+                    Uri uri = ContactsContract.Contacts.getLookupUri(
+                            cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
+                            cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
+                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                            getContentResolver(), uri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    Icon icon = (bitmap == null
+                            ? Icon.createWithResource(this, R.drawable.ic_shortcut_email)
+                            : Icon.createWithBitmap(bitmap));
+
+                    Intent intent = new Intent(this, ActivityCompose.class);
+                    intent.setAction(Intent.ACTION_SEND);
+                    intent.setData(Uri.parse("mailto:" + address));
+
+                    shortcuts.add(
+                            new ShortcutInfo.Builder(this, Long.toString(id))
+                                    .setIcon(icon)
+                                    .setRank(shortcuts.size() + 1)
+                                    .setShortLabel(name)
+                                    .setIntent(intent)
+                                    .build());
+
+                    if (sm.getManifestShortcuts().size() + shortcuts.size() >= sm.getMaxShortcutCountPerActivity())
+                        break;
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+
+        sm.setDynamicShortcuts(shortcuts);
     }
 
     private Intent getIntentFAQ() {
