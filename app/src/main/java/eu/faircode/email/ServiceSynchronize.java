@@ -987,19 +987,13 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.endTransaction();
                                                 }
 
-                                                if (folder.download) {
-                                                    Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
-                                                    boolean metered = (isMetered == null || isMetered);
-
-                                                    try {
-                                                        db.beginTransaction();
-                                                        downloadMessage(
-                                                                ServiceSynchronize.this, metered,
-                                                                folder, ifolder, (IMAPMessage) imessage, message.id);
-                                                        db.setTransactionSuccessful();
-                                                    } finally {
-                                                        db.endTransaction();
-                                                    }
+                                                try {
+                                                    db.beginTransaction();
+                                                    downloadMessage(ServiceSynchronize.this,
+                                                            folder, ifolder, (IMAPMessage) imessage, message.id);
+                                                    db.setTransactionSuccessful();
+                                                } finally {
+                                                    db.endTransaction();
                                                 }
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -1073,19 +1067,13 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.endTransaction();
                                             }
 
-                                            if (folder.download) {
-                                                Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
-                                                boolean metered = (isMetered == null || isMetered);
-
-                                                try {
-                                                    db.beginTransaction();
-                                                    downloadMessage(
-                                                            ServiceSynchronize.this, metered,
-                                                            folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
-                                                }
+                                            try {
+                                                db.beginTransaction();
+                                                downloadMessage(ServiceSynchronize.this,
+                                                        folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
                                             }
                                         } catch (MessageRemovedException ex) {
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
@@ -2084,7 +2072,6 @@ public class ServiceSynchronize extends LifecycleService {
                                 folder, ifolder, (IMAPMessage) isub[j], false, true);
                         ids[from + j] = message.id;
                         db.setTransactionSuccessful();
-                        Thread.sleep(20);
                     } catch (MessageRemovedException ex) {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
@@ -2108,48 +2095,39 @@ public class ServiceSynchronize extends LifecycleService {
 
             db.folder().setFolderSyncState(folder.id, "downloading");
 
-            if (folder.download) {
-                //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
 
-                // Download messages/attachments
-                Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
-                for (int i = imessages.length - 1; i >= 0 && state.running(); i -= DOWNLOAD_BATCH_SIZE) {
-                    int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
+            // Download messages/attachments
+            Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
+            for (int i = imessages.length - 1; i >= 0 && state.running(); i -= DOWNLOAD_BATCH_SIZE) {
+                int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
 
-                    Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
-                    // Fetch on demand
+                Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
+                // Fetch on demand
 
-                    Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
-                    boolean metered = (isMetered == null || isMetered);
+                for (int j = isub.length - 1; j >= 0 && state.running(); j--)
+                    try {
+                        db.beginTransaction();
+                        if (ids[from + j] != null)
+                            downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
+                        db.setTransactionSuccessful();
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (FolderClosedIOException ex) {
+                        throw ex;
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    } finally {
+                        db.endTransaction();
+                        // Free memory
+                        ((IMAPMessage) isub[j]).invalidateHeaders();
+                    }
 
-                    for (int j = isub.length - 1; j >= 0 && state.running(); j--)
-                        try {
-                            db.beginTransaction();
-                            if (ids[from + j] != null) {
-                                downloadMessage(
-                                        this, metered,
-                                        folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
-                                Thread.sleep(20);
-                            }
-                            db.setTransactionSuccessful();
-                        } catch (FolderClosedException ex) {
-                            throw ex;
-                        } catch (FolderClosedIOException ex) {
-                            throw ex;
-                        } catch (Throwable ex) {
-                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                        } finally {
-                            db.endTransaction();
-                            // Free memory
-                            ((IMAPMessage) isub[j]).invalidateHeaders();
-                        }
-
-                    if (state.running())
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException ignored) {
-                        }
-                }
+                if (state.running())
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ignored) {
+                    }
             }
 
             if (state.running)
@@ -2384,73 +2362,78 @@ public class ServiceSynchronize extends LifecycleService {
         return message;
     }
 
-    private static void downloadMessage(Context context, boolean metered, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long download = prefs.getInt("download", 32768);
-        if (download == 0)
-            download = Long.MAX_VALUE;
-
+    private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
             return;
-        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        MessageHelper helper = new MessageHelper(imessage);
 
         if (message.setContactInfo(context))
             db.message().updateMessage(message);
 
-        boolean fetch = false;
-        if (!message.content)
-            if (!metered || (message.size != null && message.size < download))
-                fetch = true;
+        if (folder.download) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            long download = prefs.getInt("download", 32768);
+            if (download == 0)
+                download = Long.MAX_VALUE;
 
-        if (!fetch)
-            for (EntityAttachment attachment : attachments)
-                if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < download)) {
-                        fetch = true;
-                        break;
-                    }
+            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+            MessageHelper helper = new MessageHelper(imessage);
+            Boolean isMetered = Helper.isMetered(context);
+            boolean metered = (isMetered == null || isMetered);
 
-        if (fetch) {
-            Log.i(Helper.TAG, folder.name + " fetching message id=" + message.id);
-            FetchProfile fp = new FetchProfile();
-            fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            fp.add(FetchProfile.Item.SIZE);
-            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(new Message[]{imessage}, fp);
-        }
+            boolean fetch = false;
+            if (!message.content)
+                if (!metered || (message.size != null && message.size < download))
+                    fetch = true;
 
-        if (!message.content)
-            if (!metered || (message.size != null && message.size < download)) {
-                String html = helper.getHtml();
-                String text = (html == null ? null : Jsoup.parse(html).text());
-                String preview = (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
-                message.write(context, html);
-                db.message().setMessageContent(message.id, true, preview);
-                Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+            if (!fetch)
+                for (EntityAttachment attachment : attachments)
+                    if (!attachment.available)
+                        if (!metered || (attachment.size != null && attachment.size < download)) {
+                            fetch = true;
+                            break;
+                        }
+
+            if (fetch) {
+                Log.i(Helper.TAG, folder.name + " fetching message id=" + message.id);
+                FetchProfile fp = new FetchProfile();
+                fp.add(FetchProfile.Item.ENVELOPE);
+                fp.add(FetchProfile.Item.FLAGS);
+                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                fp.add(UIDFolder.FetchProfileItem.UID);
+                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                fp.add(FetchProfile.Item.SIZE);
+                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                ifolder.fetch(new Message[]{imessage}, fp);
             }
 
-        List<EntityAttachment> iattachments = null;
-        for (int i = 0; i < attachments.size(); i++) {
-            EntityAttachment attachment = attachments.get(i);
-            if (!attachment.available)
-                if (!metered || (attachment.size != null && attachment.size < download)) {
-                    if (iattachments == null)
-                        iattachments = helper.getAttachments();
-                    // Attachments of drafts might not have been uploaded yet
-                    if (i < iattachments.size()) {
-                        attachment.part = iattachments.get(i).part;
-                        attachment.download(context, db);
-                        Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
-                    }
+            if (!message.content)
+                if (!metered || (message.size != null && message.size < download)) {
+                    String html = helper.getHtml();
+                    String text = (html == null ? null : Jsoup.parse(html).text());
+                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
+                    message.write(context, html);
+                    db.message().setMessageContent(message.id, true, preview);
+                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
+
+            List<EntityAttachment> iattachments = null;
+            for (int i = 0; i < attachments.size(); i++) {
+                EntityAttachment attachment = attachments.get(i);
+                if (!attachment.available)
+                    if (!metered || (attachment.size != null && attachment.size < download)) {
+                        if (iattachments == null)
+                            iattachments = helper.getAttachments();
+                        // Attachments of drafts might not have been uploaded yet
+                        if (i < iattachments.size()) {
+                            attachment.part = iattachments.get(i).part;
+                            attachment.download(context, db);
+                            Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                        }
+                    }
+            }
         }
     }
 
