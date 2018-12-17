@@ -23,9 +23,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
+import org.jsoup.Jsoup;
+
 import java.util.ArrayList;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -64,37 +70,57 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                 if (uri != null && "mailto".equals(uri.getScheme())) {
                     String to = uri.getSchemeSpecificPart();
                     if (to != null)
-                        args.putString("to", to);
+                        try {
+                            InternetAddress.parse(to);
+                            args.putString("to", to);
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_EMAIL)) {
                     String[] to = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
                     if (to != null)
-                        args.putString("to", TextUtils.join(", ", to));
+                        try {
+                            InternetAddress.parse(TextUtils.join(", ", to));
+                            args.putString("to", TextUtils.join(", ", to));
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_CC)) {
                     String[] cc = intent.getStringArrayExtra(Intent.EXTRA_CC);
                     if (cc != null)
-                        args.putString("cc", TextUtils.join(", ", cc));
+                        try {
+                            InternetAddress.parse(TextUtils.join(", ", cc));
+                            args.putString("cc", TextUtils.join(", ", cc));
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_BCC)) {
                     String[] bcc = intent.getStringArrayExtra(Intent.EXTRA_BCC);
                     if (bcc != null)
-                        args.putString("bcc", TextUtils.join(", ", bcc));
+                        try {
+                            InternetAddress.parse(TextUtils.join(", ", bcc));
+                            args.putString("bcc", TextUtils.join(", ", bcc));
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_SUBJECT)) {
                     String subject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
                     if (subject != null)
-                        args.putString("subject", subject);
+                        args.putString("subject", Jsoup.parse(subject).text());
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_TEXT)) {
                     String body = intent.getStringExtra(Intent.EXTRA_TEXT); // Intent.EXTRA_HTML_TEXT
                     if (body != null)
-                        args.putString("body", body);
+                        args.putString("body", Jsoup.parse(body).text());
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_STREAM))
