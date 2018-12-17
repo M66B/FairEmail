@@ -61,6 +61,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 * No advertisements
 * No analytics and no tracking
 * No [Google backup](https://developer.android.com/guide/topics/data/backup)
+* FairEmail is an original work, not a clone
 
 ## Efficient
 
