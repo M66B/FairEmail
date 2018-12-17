@@ -478,11 +478,11 @@ public class FragmentAccount extends FragmentEx {
                             result.idle = istore.hasCapability("IDLE");
 
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                                // Check folder attributes
                                 String type = null;
-
-                                // First check folder attributes
                                 boolean selectable = true;
                                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                                Log.i(Helper.TAG, ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
                                 for (String attr : attrs) {
                                     if ("\\Noselect".equals(attr))
                                         selectable = false;
@@ -496,17 +496,6 @@ public class FragmentAccount extends FragmentEx {
                                 }
 
                                 if (selectable) {
-                                    // Next check folder full name
-                                    if (type == null) {
-                                        String fullname = ifolder.getFullName();
-                                        for (String attr : EntityFolder.SYSTEM_FOLDER_ATTR)
-                                            if (attr.equals(fullname)) {
-                                                int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr);
-                                                type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
-                                                break;
-                                            }
-                                    }
-
                                     // Create entry
                                     DB db = DB.getInstance(context);
                                     EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());

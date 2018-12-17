@@ -1908,11 +1908,20 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length + " separator=" + separator);
 
             for (Folder ifolder : ifolders) {
+                String type = null;
                 boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                Log.i(Helper.TAG, ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr))
                         selectable = false;
+                    if (attr.startsWith("\\")) {
+                        int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                        if (index >= 0) {
+                            type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                            break;
+                        }
+                    }
                 }
 
                 if (selectable) {
@@ -1923,7 +1932,7 @@ public class ServiceSynchronize extends LifecycleService {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
-                        folder.type = EntityFolder.USER;
+                        folder.type = (type == null ? EntityFolder.USER : type);
                         folder.level = level;
                         folder.synchronize = false;
                         folder.poll = ("imap.gmail.com".equals(account.host));
@@ -1935,6 +1944,8 @@ public class ServiceSynchronize extends LifecycleService {
                         names.remove(folder.name);
                         Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
+                        if (EntityFolder.USER.equals(folder.type) && type != null)
+                            db.folder().setFolderType(folder.id, type);
                     }
                 }
             }

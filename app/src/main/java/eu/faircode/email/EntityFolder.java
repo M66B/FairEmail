@@ -101,8 +101,10 @@ public class EntityFolder implements Serializable {
     static final String SYSTEM = "System";
     static final String USER = "User";
 
+    // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
     static final List<String> SYSTEM_FOLDER_ATTR = Arrays.asList(
             "All",
+            "Archive",
             "Drafts",
             "Trash",
             "Junk",
@@ -111,6 +113,7 @@ public class EntityFolder implements Serializable {
             "Flagged"
     );
     static final List<String> SYSTEM_FOLDER_TYPE = Arrays.asList(
+            ARCHIVE,
             ARCHIVE,
             DRAFTS,
             TRASH,
