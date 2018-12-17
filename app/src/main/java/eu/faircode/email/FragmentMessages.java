@@ -1698,8 +1698,8 @@ public class FragmentMessages extends FragmentEx {
                         }
 
                         // Auto expand when:
-                        // - single, non archived/trashed/outgoing message
-                        // - one unread, non archived/trashed/outgoing message in conversation
+                        // - single, non archived/trashed/sent message
+                        // - one unread, non archived/trashed/sent message in conversation
                         // - sole message
 
                         TupleMessageEx expand = null;
@@ -1729,7 +1729,7 @@ public class FragmentMessages extends FragmentEx {
                             Log.i(Helper.TAG, "Auto close=" + count);
 
                             // Auto close when:
-                            // - no more non archived/trashed/outgoing messages
+                            // - no more non archived/trashed/sent messages
 
                             if (count == 0) {
                                 finish();
@@ -1932,6 +1932,13 @@ public class FragmentMessages extends FragmentEx {
                 selectionTracker.clearSelection();
                 return true;
             }
+
+            if (expanded.size() > 1) {
+                expanded.clear();
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+
             return false;
         }
     };
