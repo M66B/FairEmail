@@ -1622,8 +1622,10 @@ public class ServiceSynchronize extends LifecycleService {
         // Append message
         MimeMessage imessage = MessageHelper.from(this, message, isession);
 
-        if (EntityFolder.DRAFTS.equals(folder.type) && ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
-            imessage.setFlag(Flags.Flag.DRAFT, true);
+        if (EntityFolder.DRAFTS.equals(folder.type)) {
+            if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                imessage.setFlag(Flags.Flag.DRAFT, true);
+        }
 
         ifolder.appendMessages(new Message[]{imessage});
     }
