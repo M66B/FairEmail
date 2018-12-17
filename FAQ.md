@@ -13,7 +13,7 @@ whether STARTTLS should be used and your username and password.
 In some cases you'll need to enable external access to your account and/or to use a special (app) password,
 for instance when two factor authentication is enabled.
 
-For:
+For authorizing:
 
 * Gmail / G suite: see [question 6](#user-content-faq6)
 * Outlook: see [question 14](#user-content-faq14)
@@ -41,7 +41,7 @@ None at this moment.
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
 * Snooze timer: snoozed emails are not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
-* Badge count: there is no standard Android API for this and third party solutions might stop working anytime. You can use the provided widget instead.
+* Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
 * Shortcut frequently contacted: Android [doesn't support this anymore](https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData).
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
