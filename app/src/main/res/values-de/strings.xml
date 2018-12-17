@@ -90,7 +90,7 @@
     <string name="title_advanced_section_behavior">Verhalten</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
     <string name="title_advanced_enabled">Synchronisieren</string>
-    <string name="title_advanced_metered">Mobilfunknetz zulassen</string>
+    <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_unified">Sammeleingang</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_compact">Kompakte Nachrichtenansicht</string>
