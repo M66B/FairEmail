@@ -70,6 +70,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -890,7 +891,9 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void handleExit() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (isEmpty())
+            onAction(R.id.action_delete);
+        else
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                     .setMessage(R.string.title_ask_discard)
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
@@ -931,6 +934,7 @@ public class FragmentCompose extends FragmentEx {
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
+        args.putBoolean("empty", isEmpty());
 
         Spannable spannable = etBody.getText();
         UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
@@ -941,6 +945,24 @@ public class FragmentCompose extends FragmentEx {
 
         Log.i(Helper.TAG, "Run load id=" + working);
         actionLoader.load(this, args);
+    }
+
+    private boolean isEmpty() {
+        if (!TextUtils.isEmpty(etExtra.getText().toString().trim()))
+            return false;
+        if (!TextUtils.isEmpty(etTo.getText().toString().trim()))
+            return false;
+        if (!TextUtils.isEmpty(etCc.getText().toString().trim()))
+            return false;
+        if (!TextUtils.isEmpty(etBcc.getText().toString().trim()))
+            return false;
+        if (!TextUtils.isEmpty(etSubject.getText().toString().trim()))
+            return false;
+        if (!TextUtils.isEmpty(Jsoup.parse(Html.toHtml(etBody.getText())).text().trim()))
+            return false;
+        if (rvAttachment.getAdapter().getItemCount() > 0)
+            return false;
+        return true;
     }
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
@@ -1518,6 +1540,7 @@ public class FragmentCompose extends FragmentEx {
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
             String body = args.getString("body");
+            boolean empty = args.getBoolean("empty");
 
             EntityMessage draft;
 
@@ -1605,12 +1628,14 @@ public class FragmentCompose extends FragmentEx {
                 if (action == R.id.action_delete) {
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    if (!empty) {
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
+                            public void run() {
+                                Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
@@ -1852,7 +1877,8 @@ public class FragmentCompose extends FragmentEx {
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
         @Override
         public boolean onBackPressed() {
-            handleExit();
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                handleExit();
             return true;
         }
     };
