@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -636,34 +637,37 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                 if (!TextUtils.isEmpty(message.avatar)) {
-                    Cursor cursor = null;
-                    try {
-                        cursor = getContentResolver().query(
-                                Uri.parse(message.avatar),
-                                new String[]{
-                                        ContactsContract.Contacts._ID,
-                                        ContactsContract.Contacts.LOOKUP_KEY
-                                },
-                                null, null, null);
-                        if (cursor.moveToNext()) {
-                            if (true || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                                Uri uri = ContactsContract.Contacts.getLookupUri(
-                                        cursor.getLong(0), cursor.getString(1));
-                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                        getContentResolver(), uri);
-                                mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
-                            } else {
-                                Uri photo = Uri.withAppendedPath(
-                                        ContactsContract.Contacts.CONTENT_URI,
-                                        cursor.getLong(0) + "/photo");
-                                mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                            == PackageManager.PERMISSION_GRANTED) {
+                        Cursor cursor = null;
+                        try {
+                            cursor = getContentResolver().query(
+                                    Uri.parse(message.avatar),
+                                    new String[]{
+                                            ContactsContract.Contacts._ID,
+                                            ContactsContract.Contacts.LOOKUP_KEY
+                                    },
+                                    null, null, null);
+                            if (cursor.moveToNext()) {
+                                if (true || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                                    Uri uri = ContactsContract.Contacts.getLookupUri(
+                                            cursor.getLong(0), cursor.getString(1));
+                                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                            getContentResolver(), uri);
+                                    mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
+                                } else {
+                                    Uri photo = Uri.withAppendedPath(
+                                            ContactsContract.Contacts.CONTENT_URI,
+                                            cursor.getLong(0) + "/photo");
+                                    mbuilder.setLargeIcon(Icon.createWithContentUri(photo));
+                                }
                             }
+                        } catch (Throwable ex) {
+                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        } finally {
+                            if (cursor != null)
+                                cursor.close();
                         }
-                    } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    } finally {
-                        if (cursor != null)
-                            cursor.close();
                     }
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)

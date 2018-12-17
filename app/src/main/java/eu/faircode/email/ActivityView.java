@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -28,6 +29,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
@@ -101,6 +103,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -718,72 +721,76 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         ShortcutManager sm = (ShortcutManager) getSystemService(Context.SHORTCUT_SERVICE);
 
-        Cursor cursor = null;
         List<ShortcutInfo> shortcuts = new ArrayList<>();
-        try {
-            // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
-            cursor = getContentResolver().query(
-                    ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                    new String[]{
-                            ContactsContract.RawContacts._ID,
-                            ContactsContract.Contacts.LOOKUP_KEY,
-                            ContactsContract.Contacts.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Email.DATA,
-                            ContactsContract.Contacts.STARRED,
-                            ContactsContract.Contacts.TIMES_CONTACTED,
-                            ContactsContract.Contacts.LAST_TIME_CONTACTED
-                    },
-                    ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
-                    null,
-                    ContactsContract.Contacts.STARRED + " DESC" +
-                            ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
-                            ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
-            while (cursor.moveToNext())
-                try {
-                    long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
-                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                    String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
-                    int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
-                    int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
-                    long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
 
-                    InternetAddress address = new InternetAddress(email, name);
-                    Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address +
-                            " starred=" + starred + " times=" + times + " last=" + last);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED) {
+            Cursor cursor = null;
+            try {
+                // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
+                cursor = getContentResolver().query(
+                        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                        new String[]{
+                                ContactsContract.RawContacts._ID,
+                                ContactsContract.Contacts.LOOKUP_KEY,
+                                ContactsContract.Contacts.DISPLAY_NAME,
+                                ContactsContract.CommonDataKinds.Email.DATA,
+                                ContactsContract.Contacts.STARRED,
+                                ContactsContract.Contacts.TIMES_CONTACTED,
+                                ContactsContract.Contacts.LAST_TIME_CONTACTED
+                        },
+                        ContactsContract.CommonDataKinds.Email.DATA + " <> ''",
+                        null,
+                        ContactsContract.Contacts.STARRED + " DESC" +
+                                ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
+                                ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
+                while (cursor.moveToNext())
+                    try {
+                        long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
+                        String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                        String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
+                        int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
+                        int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
+                        long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
 
-                    if (starred == 0 && times == 0 && last == 0)
-                        continue;
+                        InternetAddress address = new InternetAddress(email, name);
+                        Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address +
+                                " starred=" + starred + " times=" + times + " last=" + last);
 
-                    Uri uri = ContactsContract.Contacts.getLookupUri(
-                            cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
-                            cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
-                    InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                            getContentResolver(), uri);
-                    Bitmap bitmap = BitmapFactory.decodeStream(is);
-                    Icon icon = (bitmap == null
-                            ? Icon.createWithResource(this, R.drawable.ic_shortcut_email)
-                            : Icon.createWithBitmap(bitmap));
+                        if (starred == 0 && times == 0 && last == 0)
+                            continue;
 
-                    Intent intent = new Intent(this, ActivityCompose.class);
-                    intent.setAction(Intent.ACTION_SEND);
-                    intent.setData(Uri.parse("mailto:" + address));
+                        Uri uri = ContactsContract.Contacts.getLookupUri(
+                                cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
+                                cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
+                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                getContentResolver(), uri);
+                        Bitmap bitmap = BitmapFactory.decodeStream(is);
+                        Icon icon = (bitmap == null
+                                ? Icon.createWithResource(this, R.drawable.ic_shortcut_email)
+                                : Icon.createWithBitmap(bitmap));
 
-                    shortcuts.add(
-                            new ShortcutInfo.Builder(this, Long.toString(id))
-                                    .setIcon(icon)
-                                    .setRank(shortcuts.size() + 1)
-                                    .setShortLabel(name)
-                                    .setIntent(intent)
-                                    .build());
+                        Intent intent = new Intent(this, ActivityCompose.class);
+                        intent.setAction(Intent.ACTION_SEND);
+                        intent.setData(Uri.parse("mailto:" + address));
 
-                    if (sm.getManifestShortcuts().size() + shortcuts.size() >= sm.getMaxShortcutCountPerActivity())
-                        break;
-                } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-        } finally {
-            if (cursor != null)
-                cursor.close();
+                        shortcuts.add(
+                                new ShortcutInfo.Builder(this, Long.toString(id))
+                                        .setIcon(icon)
+                                        .setRank(shortcuts.size() + 1)
+                                        .setShortLabel(name)
+                                        .setIntent(intent)
+                                        .build());
+
+                        if (sm.getManifestShortcuts().size() + shortcuts.size() >= sm.getMaxShortcutCountPerActivity())
+                            break;
+                    } catch (Throwable ex) {
+                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    }
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+            }
         }
 
         sm.setDynamicShortcuts(shortcuts);
