@@ -721,6 +721,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         Cursor cursor = null;
         List<ShortcutInfo> shortcuts = new ArrayList<>();
         try {
+            // https://developer.android.com/guide/topics/providers/contacts-provider#ObsoleteData
             cursor = getContentResolver().query(
                     ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                     new String[]{
@@ -728,6 +729,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             ContactsContract.Contacts.LOOKUP_KEY,
                             ContactsContract.Contacts.DISPLAY_NAME,
                             ContactsContract.CommonDataKinds.Email.DATA,
+                            ContactsContract.Contacts.STARRED,
                             ContactsContract.Contacts.TIMES_CONTACTED,
                             ContactsContract.Contacts.LAST_TIME_CONTACTED
                     },
@@ -738,16 +740,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
             while (cursor.moveToNext())
                 try {
-                    int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
-                    long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
-                    if (times == 0 && last == 0)
-                        continue;
-
                     long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
                     String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                     String email = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
+                    int starred = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.STARRED));
+                    int times = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.TIMES_CONTACTED));
+                    long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+
                     InternetAddress address = new InternetAddress(email, name);
-                    Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address + " times=" + times + " last=" + last);
+                    Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address +
+                            " starred=" + starred + " times=" + times + " last=" + last);
+
+                    if (starred == 0 && times == 0 && last == 0)
+                        continue;
 
                     Uri uri = ContactsContract.Contacts.getLookupUri(
                             cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID)),
