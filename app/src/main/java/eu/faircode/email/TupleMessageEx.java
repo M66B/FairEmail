@@ -34,7 +34,22 @@ public class TupleMessageEx extends EntityMessage {
 
     @Override
     public boolean uiEquals(Object obj) {
-        return super.uiEquals(obj);
+        if (obj instanceof TupleMessageEx) {
+            TupleMessageEx other = (TupleMessageEx) obj;
+            return (super.uiEquals(obj) &&
+                    (this.accountName == null ? other.accountName == null : this.accountName.equals(other.accountName)) &&
+                    (this.accountColor == null ? other.accountColor == null : this.accountColor.equals(other.accountColor)) &&
+                    //this.accountNotify == other.accountNotify &&
+                    this.folderName.equals(other.folderName) &&
+                    (this.folderDisplay == null ? other.folderDisplay == null : this.folderDisplay.equals(other.folderDisplay)) &&
+                    this.folderType.equals(other.folderType) &&
+                    this.count == other.count &&
+                    this.unseen == other.unseen &&
+                    this.unflagged == other.unflagged &&
+                    this.attachments == other.attachments &&
+                    this.duplicate == other.duplicate);
+        }
+        return false;
     }
 
     @Override
