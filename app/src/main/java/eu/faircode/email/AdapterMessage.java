@@ -357,6 +357,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     : View.INVISIBLE);
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
+            vwColor.setVisibility(View.VISIBLE);
 
             ivExpander.setImageResource(show_expanded ? R.drawable.baseline_expand_less_24 : R.drawable.baseline_expand_more_24);
             if (viewType == ViewType.THREAD && threading)
