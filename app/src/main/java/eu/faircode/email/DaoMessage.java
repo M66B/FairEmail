@@ -81,7 +81,7 @@ public interface DaoMessage {
             "    AND NOT (folder.id <> :folder AND folder.type = '" + EntityFolder.DRAFTS + "') THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", COUNT(message.id) AS count" +
             ", " + unseen_folder + " AS unseen" +
@@ -108,7 +108,7 @@ public interface DaoMessage {
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(long folder, boolean threading, String sort, boolean found, boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
+            ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
             ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +

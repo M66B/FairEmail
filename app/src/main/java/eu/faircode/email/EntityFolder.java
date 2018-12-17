@@ -124,8 +124,8 @@ public class EntityFolder implements Serializable {
     ); // MUST match SYSTEM_FOLDER_ATTR
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
-            INBOX,
             OUTBOX,
+            INBOX,
             DRAFTS,
             SENT,
             ARCHIVE,
