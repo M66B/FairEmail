@@ -337,10 +337,10 @@ public class Helper {
 
         Log.i(Helper.TAG, "isMetered: active caps=" + caps);
 
-        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
-            Log.i(Helper.TAG, "isMetered: active not VPN unmetered");
-            return false;
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+            boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+            Log.i(Helper.TAG, "isMetered: active not VPN unmetered=" + unmetered);
+            return !unmetered;
         }
 
         // VPN: evaluate underlying networks
