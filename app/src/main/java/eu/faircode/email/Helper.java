@@ -189,7 +189,8 @@ public class Helper {
     }
 
     static void unexpectedError(final Context context, final LifecycleOwner owner, final Throwable ex) {
-        ApplicationEx.writeCrashLog(context, ex);
+        if (!isPlayStoreInstall(context))
+            ApplicationEx.writeCrashLog(context, ex);
 
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             new DialogBuilderLifecycle(context, owner)

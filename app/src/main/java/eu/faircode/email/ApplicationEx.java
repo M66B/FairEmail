@@ -47,7 +47,9 @@ public class ApplicationEx extends Application {
             public void uncaughtException(Thread thread, Throwable ex) {
                 if (ownFault(ex)) {
                     Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
-                    writeCrashLog(ApplicationEx.this, ex);
+
+                    if (!Helper.isPlayStoreInstall(ApplicationEx.this))
+                        writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
                         prev.uncaughtException(thread, ex);
@@ -91,9 +93,6 @@ public class ApplicationEx extends Application {
     }
 
     public boolean ownFault(Throwable ex) {
-        //if (!Helper.isPlayStoreInstall(this))
-        //    return true;
-
         if (ex instanceof OutOfMemoryError)
             return false;
 
