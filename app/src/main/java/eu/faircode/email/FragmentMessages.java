@@ -313,7 +313,6 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     public void setFrozen(long id, boolean freeze) {
-                        Log.i(Helper.TAG, "Freeze=" + freeze + " id=" + id);
                         if (freeze)
                             frozen.add(id);
                         else
