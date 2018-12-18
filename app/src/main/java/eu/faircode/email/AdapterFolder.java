@@ -118,7 +118,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             itemView.setAlpha(folder.hide ? 0.5f : 1.0f);
 
             vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
-            //vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
+            vwColor.setVisibility(account < 0 ? View.VISIBLE : View.GONE);
 
             if (account > 0) {
                 ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
