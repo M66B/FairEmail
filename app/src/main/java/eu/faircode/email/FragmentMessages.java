@@ -1671,7 +1671,7 @@ public class FragmentMessages extends FragmentEx {
                         if (download == 0)
                             download = Long.MAX_VALUE;
 
-                        Boolean isMetered = Helper.isMetered(getContext());
+                        Boolean isMetered = Helper.isMetered(getContext(), false);
                         boolean metered = (isMetered == null || isMetered);
 
                         int count = 0;

@@ -2396,7 +2396,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
             MessageHelper helper = new MessageHelper(imessage);
-            Boolean isMetered = Helper.isMetered(context);
+            Boolean isMetered = Helper.isMetered(context, false);
             boolean metered = (isMetered == null || isMetered);
 
             boolean fetch = false;
@@ -2505,7 +2505,7 @@ public class ServiceSynchronize extends LifecycleService {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
             boolean metered = prefs.getBoolean("metered", true);
 
-            Boolean isMetered = Helper.isMetered(ServiceSynchronize.this);
+            Boolean isMetered = Helper.isMetered(ServiceSynchronize.this, true);
 
             boolean suitable = (isMetered != null && (metered || !isMetered));
             EntityLog.log(ServiceSynchronize.this,

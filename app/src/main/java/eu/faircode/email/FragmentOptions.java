@@ -389,7 +389,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        Boolean metered = Helper.isMetered(getContext());
+        Boolean metered = Helper.isMetered(getContext(), false);
         menu.findItem(R.id.menu_metered).setVisible(metered != null);
         if (metered != null)
             menu.findItem(R.id.menu_metered).setIcon(
