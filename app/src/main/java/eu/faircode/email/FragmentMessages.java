@@ -117,6 +117,7 @@ public class FragmentMessages extends FragmentEx {
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private List<Long> expanded = new ArrayList<>();
+    private List<Long> frozen = new ArrayList<>();
     private List<Long> addresses = new ArrayList<>();
     private List<Long> headers = new ArrayList<>();
     private List<Long> images = new ArrayList<>();
@@ -311,6 +312,15 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
+                    public void setFrozen(long id, boolean freeze) {
+                        Log.i(Helper.TAG, "Freeze=" + freeze + " id=" + id);
+                        if (freeze)
+                            frozen.add(id);
+                        else
+                            frozen.remove(id);
+                    }
+
+                    @Override
                     public void setAddresses(long id, boolean show) {
                         if (show)
                             addresses.remove(id);
@@ -337,6 +347,11 @@ public class FragmentMessages extends FragmentEx {
                     @Override
                     public boolean isExpanded(long id) {
                         return expanded.contains(id);
+                    }
+
+                    @Override
+                    public boolean isFrozen(long id) {
+                        return frozen.contains(id);
                     }
 
                     @Override

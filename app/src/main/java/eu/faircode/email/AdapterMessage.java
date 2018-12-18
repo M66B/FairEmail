@@ -247,8 +247,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvBody.setMovementMethod(new UrlHandler());
 
-            if (viewType == ViewType.THREAD)
-                itemView.setHasTransientState(true);
         }
 
         private void wire() {
@@ -312,6 +310,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final boolean show_expanded = properties.isExpanded(message.id);
             boolean show_addresses = properties.showAddresses(message.id);
             boolean show_headers = properties.showHeaders(message.id);
+
+            if (viewType == ViewType.THREAD) {
+                if (show_expanded) {
+                    if (!properties.isFrozen(message.id)) {
+                        itemView.setHasTransientState(true);
+                        properties.setFrozen(message.id, true);
+                    }
+                } else {
+                    if (properties.isFrozen(message.id)) {
+                        itemView.setHasTransientState(false);
+                        properties.setFrozen(message.id, false);
+                    }
+                }
+            }
 
             pbLoading.setVisibility(View.GONE);
 
@@ -1664,6 +1676,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     interface IProperties {
         void setExpanded(long id, boolean expand);
 
+        void setFrozen(long id, boolean freeze);
+
         void setAddresses(long id, boolean show);
 
         void setHeaders(long id, boolean show);
@@ -1671,6 +1685,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setImages(long id, boolean show);
 
         boolean isExpanded(long id);
+
+        boolean isFrozen(long id);
 
         boolean showAddresses(long id);
 
