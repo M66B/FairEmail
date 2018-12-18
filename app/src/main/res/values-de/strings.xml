@@ -31,8 +31,8 @@
         <item quantity="other">%1$d neue</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">Verschiebe %1$d E-Mail nach %2$s ?</item>
-        <item quantity="other">Verschiebe %1$d E-Mail nach %2$s ?</item>
+        <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
+        <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' fehlgeschlagen</string>
     <string name="menu_setup">Einstellungen</string>
