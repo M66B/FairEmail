@@ -1624,7 +1624,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void doAdd(EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException, IOException {
         // Append message
-        MimeMessage imessage = MessageHelper.from(this, message, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, false, isession);
 
         if (EntityFolder.DRAFTS.equals(folder.type)) {
             if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
@@ -1657,7 +1657,7 @@ public class ServiceSynchronize extends LifecycleService {
             ifolder.expunge();
 
             // Append target
-            MimeMessageEx icopy = MessageHelper.from(this, message, isession);
+            MimeMessageEx icopy = MessageHelper.from(this, message, false, isession);
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
@@ -1699,7 +1699,7 @@ public class ServiceSynchronize extends LifecycleService {
         final Session isession = Session.getInstance(props, null);
 
         // Create message
-        MimeMessage imessage = MessageHelper.from(this, message, isession);
+        MimeMessage imessage = MessageHelper.from(this, message, true, isession);
 
         // Add reply to
         if (ident.replyto != null)
