@@ -1947,11 +1947,13 @@ public class FragmentMessages extends FragmentEx {
                 return true;
             }
 
-            if (expanded.size() > 1) {
-                expanded.clear();
-                adapter.notifyDataSetChanged();
-                return true;
-            }
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            if (prefs.getBoolean("collapse", false))
+                if (expanded.size() > 0) {
+                    expanded.clear();
+                    adapter.notifyDataSetChanged();
+                    return true;
+                }
 
             return false;
         }

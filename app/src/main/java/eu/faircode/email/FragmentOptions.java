@@ -74,6 +74,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swSwipe;
     private SwitchCompat swActionbar;
     private SwitchCompat swAutoclose;
+    private SwitchCompat swCollapse;
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
 
@@ -111,6 +112,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swSwipe = view.findViewById(R.id.swSwipe);
         swActionbar = view.findViewById(R.id.swActionbar);
         swAutoclose = view.findViewById(R.id.swAutoclose);
+        swCollapse = view.findViewById(R.id.swCollapse);
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
 
@@ -300,6 +302,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoclose", checked).apply();
+            }
+        });
+
+        swCollapse.setChecked(prefs.getBoolean("collapse", false));
+        swCollapse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("collapse", checked).apply();
             }
         });
 
