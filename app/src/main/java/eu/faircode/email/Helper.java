@@ -427,6 +427,8 @@ public class Helper {
     }
 
     static boolean isPlayStoreInstall(Context context) {
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            return true;
         if (false && BuildConfig.DEBUG)
             return true;
         try {

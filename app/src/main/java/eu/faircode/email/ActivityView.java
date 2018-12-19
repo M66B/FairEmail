@@ -145,7 +145,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
-    static final String UPDATE_LATEST_API = "https://api.github.com/repos/M66B/open-source-email/releases/latest";
     static final long UPDATE_INTERVAL = 12 * 3600 * 1000L; // milliseconds
 
     private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
@@ -642,7 +641,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 StringBuilder json = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
-                    URL latest = new URL(UPDATE_LATEST_API);
+                    URL latest = new URL(BuildConfig.GITHUB_LATEST_API);
                     urlConnection = (HttpsURLConnection) latest.openConnection();
                     BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
