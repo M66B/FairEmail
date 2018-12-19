@@ -34,7 +34,7 @@ None at this moment.
 
 ## Frequently requested features
 
-* Swipe left/right to go to previous/next message: swiping also selects message text, so this would not work reliably.
+* Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
