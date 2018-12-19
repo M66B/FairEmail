@@ -86,7 +86,6 @@
     <string name="title_advanced_enabled">同步</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_unified">聚合收件箱</string>
-    <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -97,7 +96,6 @@
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
-    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
@@ -114,9 +112,6 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
-    <string name="title_identity_read_receipt">Request read receipt</string>
-    <string name="title_identity_delivery_receipt">Request delivery receipt</string>
-    <string name="title_identity_receipt_remark">Most providers ignore receipt requests</string>
     <string name="title_optional">可选</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>
@@ -145,7 +140,6 @@
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
     <string name="title_primary_identity">默认身份</string>
-    <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
@@ -160,7 +154,6 @@
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_pop">不支持POP</string>
-    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>
@@ -205,7 +198,6 @@
     <string name="title_flag">加注星标</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
-    <string name="title_forward_raw">Forward raw</string>
     <string name="title_reply_all">回复全部</string>
     <string name="title_show_headers">显示标题</string>
     <string name="title_manage_keywords">关键字管理</string>
@@ -349,15 +341,4 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
-    <string-array name="downloadNames">
-        <item>16 KB</item>
-        <item>32 KB</item>
-        <item>64 KB</item>
-        <item>128 KB</item>
-        <item>256 KB</item>
-        <item>512 KB</item>
-        <item>1 MB</item>
-        <item>2 MB</item>
-        <item>&#8734;</item>
-    </string-array>
 </resources>
