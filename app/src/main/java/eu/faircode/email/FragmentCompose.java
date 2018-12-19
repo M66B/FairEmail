@@ -80,7 +80,6 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -882,7 +881,7 @@ public class FragmentCompose extends FragmentEx {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 // External app sending absolute file
-                if (ex instanceof FileNotFoundException)
+                if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
@@ -967,6 +966,9 @@ public class FragmentCompose extends FragmentEx {
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
                                                   boolean image) throws IOException {
+        if ("file".equals(uri.getScheme()))
+            throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+
         EntityAttachment attachment = new EntityAttachment();
 
         String name = null;
@@ -1518,8 +1520,7 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            // External app sending absolute file
-            if (ex instanceof FileNotFoundException)
+            if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);

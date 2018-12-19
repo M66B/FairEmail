@@ -609,6 +609,9 @@ public class FragmentSetup extends FragmentEx {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
+                if ("file".equals(uri.getScheme()))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+
                 OutputStream out = null;
                 try {
                     Log.i(Helper.TAG, "Writing URI=" + uri);
@@ -691,7 +694,10 @@ public class FragmentSetup extends FragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.load(this, args);
     }
@@ -705,8 +711,10 @@ public class FragmentSetup extends FragmentEx {
             @Override
             protected Void onLoad(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
-
                 String password = args.getString("password");
+
+                if ("file".equals(uri.getScheme()))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
 
                 InputStream in = null;
                 try {
@@ -826,6 +834,8 @@ public class FragmentSetup extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex.getCause() instanceof BadPaddingException)
                     Snackbar.make(view, R.string.title_setup_password_invalid, Snackbar.LENGTH_LONG).show();
+                else if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }

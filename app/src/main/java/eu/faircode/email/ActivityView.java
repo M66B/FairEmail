@@ -1589,6 +1589,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             long id = args.getLong("id");
                             Uri uri = args.getParcelable("uri");
 
+                            if ("file".equals(uri.getScheme()))
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+
                             File file = EntityAttachment.getFile(context, id);
 
                             ParcelFileDescriptor pfd = null;
@@ -1601,9 +1604,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
                                 int read;
-                                while ((read = fis.read(buffer)) != -1) {
+                                while ((read = fis.read(buffer)) != -1)
                                     fos.write(buffer, 0, read);
-                                }
                             } finally {
                                 try {
                                     if (pfd != null)
@@ -1635,7 +1637,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+                            if (ex instanceof IllegalArgumentException)
+                                Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                            else
+                                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
                         }
                     }.load(this, args);
                 }
