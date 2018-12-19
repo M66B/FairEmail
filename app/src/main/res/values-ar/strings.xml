@@ -32,7 +32,7 @@
         <item quantity="two">%1$d new messages</item>
         <item quantity="few">%1$d new messages</item>
         <item quantity="many">%1$d new messages</item>
-        <item quantity="other">رسائل جديدة</item>
+        <item quantity="other">%1$d new messages</item>
     </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="zero">%1$d unsent messages</item>
@@ -40,10 +40,10 @@
         <item quantity="two">%1$d unsent messages</item>
         <item quantity="few">%1$d unsent messages</item>
         <item quantity="many">%1$d unsent messages</item>
-        <item quantity="other">رسائل غير مرسله</item>
+        <item quantity="other">%1$d unsent messages</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="zero">جديد</item>
+        <item quantity="zero">%1$d new</item>
         <item quantity="one">%1$d new</item>
         <item quantity="two">%1$d new</item>
         <item quantity="few">%1$d new</item>
@@ -51,12 +51,12 @@
         <item quantity="other">%1$d new</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="zero">نقل الرسالة إلى %1$s ?</item>
-        <item quantity="one">نقل الرسالة إلى %1$s ؟</item>
-        <item quantity="two">نقل الرسالة إلى %1$s ?</item>
-        <item quantity="few">نقل الرسالة إلى %1$s ?</item>
-        <item quantity="many">نقل الرسائل من %1$d إلى %2$s؟</item>
-        <item quantity="other">نقل الرسالة إلى %1$s ?</item>
+        <item quantity="zero">Move %1$d messages to %2$s ?</item>
+        <item quantity="one">Move %1$d message to %2$s ?</item>
+        <item quantity="two">Move %1$d messages to %2$s ?</item>
+        <item quantity="few">Move %1$d messages to %2$s ?</item>
+        <item quantity="many">Move %1$d messages to %2$s ?</item>
+        <item quantity="other">Move %1$d messages to %2$s ?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' فشل</string>
     <string name="menu_setup">اعداد</string>
@@ -228,7 +228,7 @@
     <string name="title_folders_unified">Unified inbox folders</string>
     <string name="title_no_messages">لا توجد رسائل</string>
     <string name="title_show_images">إظهار الصور</string>
-    <string name="title_subject_reply">رد: %s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
     <string name="title_seen">علامة كـ مقروء</string>
     <string name="title_unseen">وضع علامة كغير مقروء</string>

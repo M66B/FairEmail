@@ -103,7 +103,7 @@
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_actionbar">Barre d’action de conversation</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
-    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
+    <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
@@ -166,7 +166,7 @@
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>
-    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
+    <string name="title_identity_sent_hint">Les messages envoyés seront automatiquement stockés dans le dossier Envoyés déjà dans la plupart des cas</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_empty_trash">Vider la corbeille</string>
