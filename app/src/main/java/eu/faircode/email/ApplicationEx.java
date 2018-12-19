@@ -32,6 +32,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
@@ -119,8 +120,9 @@ public class ApplicationEx extends Application {
 
         FileWriter out = null;
         try {
-            out = new FileWriter(file);
-            out.write(ex + "\r\n" + Log.getStackTraceString(ex));
+            out = new FileWriter(file, true);
+            out.write(BuildConfig.VERSION_NAME + " " + new Date() + "\r\n");
+            out.write(ex + "\r\n" + Log.getStackTraceString(ex) + "\r\n");
         } catch (IOException e) {
             Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
         } finally {
