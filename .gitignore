@@ -13,3 +13,4 @@
 .externalNativeBuild
 /app/release
 /tools/config.sh
+crowdin.properties
