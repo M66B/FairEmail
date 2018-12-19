@@ -103,6 +103,7 @@
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
@@ -165,6 +166,7 @@
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_pop">POP dəstəklənmir</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>

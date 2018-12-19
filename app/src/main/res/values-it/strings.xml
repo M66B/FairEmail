@@ -103,6 +103,7 @@
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
+    <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
     <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
@@ -165,6 +166,7 @@
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
+    <string name="title_identity_sent_hint">I messaggi inviati verranno già automaticamente salvati nella cartella Inviati nella maggior parte dei casi</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_empty_trash">Svuota cestino</string>

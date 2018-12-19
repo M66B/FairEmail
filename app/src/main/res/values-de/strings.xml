@@ -103,6 +103,7 @@
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
@@ -165,6 +166,7 @@
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>

@@ -109,6 +109,7 @@
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_autoclose">Închide automat conversaţiile</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
@@ -171,6 +172,7 @@
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_pop">POP nu este acceptat</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>

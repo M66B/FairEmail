@@ -115,6 +115,7 @@
     <string name="title_advanced_swipe">Gesty przesuwania</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Potwierdź działania, które mogą spowodować wyciek wrażliwych informacji</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
@@ -177,6 +178,7 @@
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_pop">POP nie jest wspierane</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_empty_trash">Opróżnij kosz</string>

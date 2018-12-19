@@ -109,6 +109,7 @@
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
@@ -171,6 +172,7 @@
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_pop">POP is not supported</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_empty_trash">Empty trash</string>

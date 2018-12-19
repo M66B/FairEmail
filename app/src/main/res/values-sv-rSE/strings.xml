@@ -103,6 +103,7 @@
     <string name="title_advanced_swipe">Svepfunktioner</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Bekräfta åtgärder som kan läcka känslig information</string>
     <string name="title_advanced_sender">Tillåt redigering avsändaradress</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
@@ -165,6 +166,7 @@
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_pop">POP stöds inte</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_empty_trash">Töm papperskorgen</string>

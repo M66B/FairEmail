@@ -97,6 +97,7 @@
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
@@ -159,6 +160,7 @@
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_pop">不支持POP</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>

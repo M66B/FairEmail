@@ -115,6 +115,7 @@
     <string name="title_advanced_swipe">Жесты</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
+    <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_confirm">Подтвердить действия, которое может привести к утечке конфиденциальной информации</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного соединения до</string>
@@ -177,6 +178,7 @@
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_pop">POP не поддерживается</string>
+    <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>
