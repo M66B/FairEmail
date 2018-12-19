@@ -3,6 +3,6 @@
     android:initialLayout="@layout/widget"
     android:minWidth="40dp"
     android:minHeight="40dp"
-    android:previewImage="@drawable/baseline_mail_24"
     android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="0" />
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />
