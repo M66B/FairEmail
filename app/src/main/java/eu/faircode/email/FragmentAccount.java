@@ -938,7 +938,7 @@ public class FragmentAccount extends FragmentEx {
                     cbNotify.setChecked(account == null ? false : account.notify);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
-                    cbPrimary.setChecked(account == null ? true : account.primary);
+                    cbPrimary.setChecked(account == null ? false : account.primary);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
