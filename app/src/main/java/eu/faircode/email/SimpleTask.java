@@ -116,7 +116,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         this.paused = false;
         this.args = null;
         this.stored = null;
+
         owner.getLifecycle().addObserver(this);
+
+        final Handler handler = new Handler();
 
         // Run in background thread
         executor.submit(new Runnable() {
@@ -132,7 +135,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 }
 
                 // Run on main thread
-                new Handler(context.getMainLooper()).post(new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
                         deliver(args, result);
