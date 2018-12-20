@@ -92,11 +92,7 @@ public class EntityAttachment {
             out.write(body == null ? "" : body);
         } finally {
             if (out != null)
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
-                }
+                out.close();
         }
     }
 

@@ -749,7 +749,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             private String body = null;
 
             @Override
-            protected Spanned onLoad(final Context context, final Bundle args) throws Throwable {
+            protected Spanned onLoad(final Context context, final Bundle args) {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 if (body == null)
                     try {
