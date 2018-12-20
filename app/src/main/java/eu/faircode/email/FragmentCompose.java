@@ -1349,7 +1349,6 @@ public class FragmentCompose extends FragmentEx {
 
                 @Override
                 protected void onLoaded(Bundle args, Spanned[] texts) {
-                    getActivity().invalidateOptionsMenu();
                     etBody.setText(texts[0]);
                     etBody.setSelection(0);
 
