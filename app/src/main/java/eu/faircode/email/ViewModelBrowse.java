@@ -83,6 +83,8 @@ public class ViewModelBrowse extends ViewModel {
 
         DB db = DB.getInstance(state.context);
         EntityFolder folder = db.folder().getFolder(state.fid);
+        if (folder == null) // unified inbox
+            return;
 
         if (state.search != null)
             try {
