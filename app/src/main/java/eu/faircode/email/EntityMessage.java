@@ -186,13 +186,8 @@ public class EntityMessage implements Serializable {
             }
             return body.toString();
         } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                }
-            }
+            if (in != null)
+                in.close();
         }
     }
 
