@@ -141,23 +141,29 @@ public class HtmlHelper {
             }
 
             // Data URI
-            if (data) {
-                // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
-                // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
-                // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
-                // "5ErkJggg==\" alt=\"Red dot\" />";
+            if (data)
+                try {
+                    // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
+                    // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
+                    // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
+                    // "5ErkJggg==\" alt=\"Red dot\" />";
 
-                String base64 = source.substring(source.indexOf(',') + 1);
-                byte[] bytes = Base64.decode(base64.getBytes(), 0);
+                    String base64 = source.substring(source.indexOf(',') + 1);
+                    byte[] bytes = Base64.decode(base64.getBytes(), 0);
 
-                Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                if (bm == null)
-                    throw new IllegalArgumentException("decode byte array failed");
+                    Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    if (bm == null)
+                        throw new IllegalArgumentException("decode byte array failed");
 
-                Drawable d = new BitmapDrawable(context.getResources(), bm);
-                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                return d;
-            }
+                    Drawable d = new BitmapDrawable(context.getResources(), bm);
+                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                    return d;
+                } catch (IllegalArgumentException ex) {
+                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                    d.setBounds(0, 0, px / 2, px / 2);
+                    return d;
+                }
 
             // Get cache folder
             File dir = new File(context.getCacheDir(), "images");
