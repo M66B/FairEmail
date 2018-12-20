@@ -2564,7 +2564,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (outbox != null) {
                             db.folder().setFolderError(outbox.id, null);
 
-                            handler = new Handler(Looper.getMainLooper()) {
+                            handler = new Handler(getMainLooper()) {
                                 private LiveData<List<EntityOperation>> liveOperations;
 
                                 @Override

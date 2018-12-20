@@ -1629,7 +1629,7 @@ public class FragmentCompose extends FragmentEx {
                     EntityOperation.queue(db, draft, EntityOperation.DELETE);
 
                     if (!empty) {
-                        Handler handler = new Handler(Looper.getMainLooper());
+                        Handler handler = new Handler(context.getMainLooper());
                         handler.post(new Runnable() {
                             public void run() {
                                 Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
@@ -1639,7 +1639,7 @@ public class FragmentCompose extends FragmentEx {
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
                     EntityOperation.queue(db, draft, EntityOperation.ADD);
 
-                    Handler handler = new Handler(Looper.getMainLooper());
+                    Handler handler = new Handler(context.getMainLooper());
                     handler.post(new Runnable() {
                         public void run() {
                             Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
