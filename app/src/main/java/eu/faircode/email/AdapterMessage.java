@@ -41,12 +41,14 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
+import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -755,7 +757,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         body = ex.toString();
                         DB.getInstance(context).message().setMessageContent(message.id, false, null);
                     }
-                return decodeHtml(message, body);
+
+                Spanned html = decodeHtml(message, body);
+
+                SpannableStringBuilder builder = new SpannableStringBuilder(html);
+                QuoteSpan[] quotes = builder.getSpans(0, builder.length(), QuoteSpan.class);
+                for (QuoteSpan quote : quotes) {
+                    builder.setSpan(
+                            new StyledQuoteSpan(),
+                            html.getSpanStart(quote), html.getSpanEnd(quote), html.getSpanFlags(quote));
+                    builder.removeSpan(quote);
+                }
+
+                return builder;
+            }
+
+            class StyledQuoteSpan extends QuoteSpan {
+                StyledQuoteSpan() {
+                    super(Helper.resolveColor(context, R.attr.colorPrimary), 6, 12);
+                }
             }
 
             @Override
