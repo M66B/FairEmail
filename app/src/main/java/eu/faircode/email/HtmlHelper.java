@@ -124,7 +124,11 @@ public class HtmlHelper {
             if (embedded) {
                 String cid = "<" + source.split(":")[1] + ">";
                 EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
-                if (attachment == null || !attachment.available) {
+                if (attachment == null) {
+                    Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                } else if (!attachment.available) {
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_photo_library_24, context.getTheme());
                     d.setBounds(0, 0, px, px);
                     return d;
