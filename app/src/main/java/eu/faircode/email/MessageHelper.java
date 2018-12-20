@@ -482,29 +482,42 @@ public class MessageHelper {
         return getHtml(imessage);
     }
 
+    private static String readStream(InputStream is, String charset) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+            os.write(buffer, 0, len);
+        return new String(os.toByteArray(), charset);
+    }
+
     private static String getHtml(Part part) throws MessagingException, IOException {
         if (part.isMimeType("text/*")) {
             String s;
             try {
-                s = part.getContent().toString();
-            } catch (UnsupportedEncodingException ex) {
-                // x-binaryenc
-                Log.w(Helper.TAG, "Unsupported encoding: " + part.getContentType());
-                // https://javaee.github.io/javamail/FAQ#unsupen
-                InputStream is = part.getInputStream();
-                ByteArrayOutputStream os = new ByteArrayOutputStream();
-                byte[] buffer = new byte[4096];
-                for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-                    os.write(buffer, 0, len);
-                s = new String(os.toByteArray(), "US-ASCII");
+                Object content = part.getContent();
+                try {
+                    if (content instanceof String)
+                        s = (String) content;
+                    else if (content instanceof InputStream)
+                        // Typically com.sun.mail.util.QPDecoderStream
+                        s = readStream((InputStream) content, "UTF-8");
+                    else
+                        s = content.toString();
+                } catch (UnsupportedEncodingException ex) {
+                    // x-binaryenc
+                    // https://javaee.github.io/javamail/FAQ#unsupen
+                    Log.w(Helper.TAG, "Unsupported encoding: " + part.getContentType());
+                    return readStream(part.getInputStream(), "US-ASCII");
+                }
             } catch (IOException ex) {
                 // IOException; Unknown encoding: none
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                s = ex.toString();
+                return "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
             }
 
             if (part.isMimeType("text/plain"))
                 s = "<pre>" + s.replaceAll("\\r?\\n", "<br />") + "</pre>";
+
             return s;
         }
 
@@ -527,7 +540,7 @@ public class MessageHelper {
             } catch (ParseException ex) {
                 // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                text = ex.toString();
+                text = "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
             }
             return text;
         }
@@ -542,7 +555,7 @@ public class MessageHelper {
                 }
             } catch (ParseException ex) {
                 Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return ex.toString();
+                return "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
             }
 
         return null;
