@@ -559,16 +559,6 @@
             app:layout_constraintTop_toBottomOf="@id/rvAttachment"
             app:menu="@menu/action_message" />
 
-        <View
-            android:id="@+id/vSeparatorBody"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="3dp"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
-
         <Button
             android:id="@+id/btnHtml"
             style="?android:attr/buttonStyleSmall"
@@ -580,7 +570,7 @@
             android:minHeight="0dp"
             android:text="@string/title_show_html"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <Button
             android:id="@+id/btnImages"
@@ -593,7 +583,7 @@
             android:minHeight="0dp"
             android:text="@string/title_show_images"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_body"
@@ -609,9 +599,9 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="6dp"
-            android:paddingBottom="6dp"
             android:fontFamily="monospace"
             android:minHeight="60dp"
+            android:paddingBottom="6dp"
             android:text="Body"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"

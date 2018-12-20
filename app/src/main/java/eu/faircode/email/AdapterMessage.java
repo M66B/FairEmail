@@ -172,7 +172,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private BottomNavigationView bnvActions;
 
-        private View vSeparatorBody;
         private Button btnHtml;
         private Button btnImages;
         private TextView tvBody;
@@ -234,7 +233,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
-            vSeparatorBody = itemView.findViewById(R.id.vSeparatorBody);
             btnHtml = itemView.findViewById(R.id.btnHtml);
             btnImages = itemView.findViewById(R.id.btnImages);
             tvBody = itemView.findViewById(R.id.tvBody);
@@ -293,7 +291,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
-            vSeparatorBody.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             btnImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
@@ -445,18 +442,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setTextColor(colorUnseen);
             tvTime.setTextColor(colorUnseen);
 
+            grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
             grpAddress.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses ? View.VISIBLE : View.GONE);
             tvKeywords.setVisibility(View.GONE);
             ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses && contacts && message.from != null ? View.VISIBLE : View.GONE);
             pbHeaders.setVisibility(View.GONE);
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
-            bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
-            vSeparatorBody.setVisibility(View.GONE);
-            btnHtml.setVisibility(View.GONE);
-            btnImages.setVisibility(View.GONE);
-            pbBody.setVisibility(View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
-            grpExpanded.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.VISIBLE : View.GONE);
+            bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            btnHtml.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            btnImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            pbBody.setVisibility(View.GONE);
 
             bnvActions.setTag(null);
 
@@ -482,7 +478,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 tvHeaders.setText(show_headers ? message.headers : null);
 
-                vSeparatorBody.setVisibility(View.VISIBLE);
+                for (int i = 0; i < bnvActions.getMenu().size(); i++)
+                    bnvActions.getMenu().getItem(i).setVisible(false);
+                bnvActions.setVisibility(View.VISIBLE);
+
                 tvBody.setText(null);
 
                 TypedArray ta;
@@ -570,9 +569,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         bnvActions.getMenu().findItem(R.id.action_archive).setVisible(message.uid != null && !inArchive && hasArchive);
                         bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
                         bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
-
-                        bnvActions.setVisibility(View.VISIBLE);
-                        vSeparatorBody.setVisibility(View.GONE);
                     }
 
                     @Override
