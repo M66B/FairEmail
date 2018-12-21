@@ -139,6 +139,7 @@ public class MessageHelper {
         props.put("mail.mime.decodetext.strict", "false");
 
         props.put("mail.mime.ignoreunknownencoding", "true"); // Content-Transfer-Encoding
+        props.put("mail.mime.base64.ignoreerrors", "true");
         props.put("mail.mime.decodefilename", "true");
         props.put("mail.mime.encodefilename", "true");
 
