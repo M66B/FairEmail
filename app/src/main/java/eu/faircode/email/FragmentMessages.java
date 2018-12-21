@@ -1301,9 +1301,52 @@ public class FragmentMessages extends FragmentEx {
                     bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(pn[0] != null);
                     bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(pn[1] != null);
 
-                    bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash);
-                    bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive);
-                    bottom_navigation.setVisibility(View.VISIBLE);
+                    Bundle args = new Bundle();
+                    args.putLong("account", account);
+                    args.putString("thread", thread);
+                    args.putLong("id", id);
+                    args.putBoolean("hasTrash", hasTrash);
+                    args.putBoolean("hasArchive", hasArchive);
+
+                    new SimpleTask<Boolean[]>() {
+                        @Override
+                        protected Boolean[] onLoad(Context context, Bundle args) {
+                            long account = args.getLong("account");
+                            String thread = args.getString("thread");
+                            long id = args.getLong("id");
+
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    account, thread, threading ? null : id, null);
+
+                            boolean deletable = false;
+                            boolean archivable = false;
+                            for (EntityMessage message : messages) {
+                                EntityFolder folder = db.folder().getFolder(message.folder);
+                                if (!EntityFolder.TRASH.equals(folder.type))
+                                    deletable = true;
+                                if (!EntityFolder.SENT.equals(folder.type) &&
+                                        !EntityFolder.TRASH.equals(folder.type) &&
+                                        !EntityFolder.JUNK.equals(folder.type))
+                                    archivable = true;
+                            }
+
+                            return new Boolean[]{deletable, archivable};
+                        }
+
+                        @Override
+                        protected void onLoaded(Bundle args, Boolean[] data) {
+                            boolean hasTrash = args.getBoolean("hasTrash");
+                            boolean hasArchive = args.getBoolean("hasArchive");
+                            bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(hasTrash && data[0]);
+                            bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(hasArchive && data[1]);
+                            bottom_navigation.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+
+                        }
+                    }.load(FragmentMessages.this, args);
                 }
             }
         });
