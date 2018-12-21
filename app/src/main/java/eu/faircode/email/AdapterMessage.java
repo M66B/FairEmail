@@ -61,6 +61,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -177,7 +178,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private BottomNavigationView bnvActions;
 
         private Button btnHtml;
-        private Button btnImages;
+        private ImageButton ibQuotes;
+        private ImageButton ibImages;
         private TextView tvBody;
         private ProgressBar pbBody;
 
@@ -238,7 +240,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
             btnHtml = itemView.findViewById(R.id.btnHtml);
-            btnImages = itemView.findViewById(R.id.btnImages);
+            ibQuotes = itemView.findViewById(R.id.ibQuotes);
+            ibImages = itemView.findViewById(R.id.ibImages);
             tvBody = itemView.findViewById(R.id.tvBody);
             pbBody = itemView.findViewById(R.id.pbBody);
 
@@ -256,7 +259,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
             btnHtml.setOnClickListener(this);
-            btnImages.setOnClickListener(this);
+            ibQuotes.setOnClickListener(this);
+            ibImages.setOnClickListener(this);
 
             bnvActions.setOnNavigationItemSelectedListener(this);
         }
@@ -267,7 +271,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnHtml.setOnClickListener(null);
-            btnImages.setOnClickListener(null);
+            ibQuotes.setOnClickListener(null);
+            ibImages.setOnClickListener(null);
 
             bnvActions.setOnNavigationItemSelectedListener(null);
         }
@@ -295,7 +300,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders.setVisibility(View.GONE);
             bnvActions.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
-            btnImages.setVisibility(View.GONE);
+            ibQuotes.setVisibility(View.GONE);
+            ibImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
 
             grpAddress.setVisibility(View.GONE);
@@ -440,7 +446,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             btnHtml.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
-            btnImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            ibQuotes.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
+            ibImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             pbBody.setVisibility(View.GONE);
 
             bnvActions.setTag(null);
@@ -605,7 +612,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onToggleAddresses(pos, message);
                 else if (view.getId() == R.id.btnHtml)
                     onShowHtml(message);
-                else if (view.getId() == R.id.btnImages)
+                else if (view.getId() == R.id.ibQuotes)
+                    onShowQuotes(message);
+                else if (view.getId() == R.id.ibImages)
                     onShowImages(message);
                 else
                     onToggleMessage(pos, message);
@@ -682,6 +691,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else {
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setValue("expanded", message.id, expanded);
+                if (!expanded) {
+                    properties.setValue("quotes", message.id, false);
+                    properties.setValue("images", message.id, false);
+                }
                 notifyItemChanged(pos);
             }
         }
@@ -716,6 +729,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("from", MessageHelper.getFormattedAddresses(message.from, true)));
         }
 
+        private void onShowQuotes(final TupleMessageEx message) {
+            properties.setValue("quotes", message.id, true);
+            ibQuotes.setEnabled(false);
+
+            Bundle args = new Bundle();
+            args.putSerializable("message", message);
+            bodyTask.load(context, owner, args);
+        }
+
         private void onShowImages(final TupleMessageEx message) {
             if (confirm)
                 new DialogBuilderLifecycle(context, owner)
@@ -734,7 +756,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
             properties.setValue("images", message.id, true);
-            btnImages.setEnabled(false);
+            ibImages.setEnabled(false);
 
             Bundle args = new Bundle();
             args.putSerializable("message", message);
@@ -747,7 +769,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             protected void onInit(Bundle args) {
                 btnHtml.setHasTransientState(true);
-                btnImages.setHasTransientState(true);
+                ibQuotes.setHasTransientState(true);
+                ibImages.setHasTransientState(true);
                 tvBody.setHasTransientState(true);
                 pbBody.setHasTransientState(true);
             }
@@ -755,7 +778,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             protected void onCleanup(Bundle args) {
                 btnHtml.setHasTransientState(false);
-                btnImages.setHasTransientState(false);
+                ibQuotes.setHasTransientState(false);
+                ibImages.setHasTransientState(false);
                 tvBody.setHasTransientState(false);
                 pbBody.setHasTransientState(false);
             }
@@ -788,7 +812,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             class StyledQuoteSpan extends QuoteSpan {
                 StyledQuoteSpan() {
-                    super();
+                    super(Helper.resolveColor(context, R.attr.colorPrimary));
                 }
 
                 @Override
@@ -802,7 +826,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int color = p.getColor();
 
                     p.setStyle(Paint.Style.FILL);
-                    p.setColor(Helper.resolveColor(context, R.attr.colorPrimary));
+                    p.setColor(getColor());
 
                     c.drawRect(x, top, x + dir * 6 /* stripeWidth */, bottom, p);
 
@@ -816,12 +840,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
 
                 SpannedString ss = new SpannedString(body);
+                boolean has_quotes = (ss.getSpans(0, ss.length(), StyledQuoteSpan.class).length > 0);
                 boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
                 boolean show_expanded = properties.getValue("expanded", message.id);
+                boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
 
                 btnHtml.setVisibility(hasWebView && show_expanded ? View.VISIBLE : View.GONE);
-                btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
+                ibQuotes.setVisibility(has_quotes && show_expanded && !show_quotes ? View.VISIBLE : View.GONE);
+                ibImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
                 pbBody.setVisibility(View.GONE);
             }
@@ -833,11 +860,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         };
 
         private Spanned decodeHtml(final EntityMessage message, String body) {
-            return Html.fromHtml(HtmlHelper.sanitize(body), new Html.ImageGetter() {
+            final boolean show_quotes = properties.getValue("quotes", message.id);
+            final boolean show_images = properties.getValue("images", message.id);
+
+            return Html.fromHtml(HtmlHelper.sanitize(body, show_quotes), new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    boolean show = properties.getValue("images", message.id);
-                    return HtmlHelper.decodeImage(source, context, message.id, show);
+                    return HtmlHelper.decodeImage(source, context, message.id, show_images);
                 }
             }, new Html.TagHandler() {
                 @Override

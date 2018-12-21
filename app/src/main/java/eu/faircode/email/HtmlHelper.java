@@ -55,7 +55,7 @@ public class HtmlHelper {
         return Jsoup.parse(html).body().html();
     }
 
-    static String sanitize(String html) {
+    static String sanitize(String html, boolean quotes) {
         Document document = Jsoup.parse(Jsoup.clean(html, Whitelist
                 .relaxed()
                 .addProtocols("img", "src", "cid")
@@ -81,6 +81,10 @@ public class HtmlHelper {
                 }
             }
         }
+
+        if (!quotes)
+            for (Element quote : document.select("blockquote"))
+                quote.text("&#8230;");
 
         NodeTraversor.traverse(new NodeVisitor() {
             @Override
@@ -242,6 +246,6 @@ public class HtmlHelper {
         return String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                 Html.escapeHtml(new Date(message.received).toString()),
                 Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
-                sanitize ? sanitize(html) : getBody(html));
+                sanitize ? sanitize(html, true) : getBody(html));
     }
 }

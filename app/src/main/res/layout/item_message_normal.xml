@@ -576,16 +576,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
-        <Button
-            android:id="@+id/btnImages"
-            style="?android:attr/buttonStyleSmall"
+        <ImageButton
+            android:id="@+id/ibQuotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="6dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_show_images"
+            android:src="@drawable/baseline_format_quote_24"
+            app:layout_constraintEnd_toStartOf="@+id/ibImages"
+            app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+
+        <ImageButton
+            android:id="@+id/ibImages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/baseline_image_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bnvActions" />
 
@@ -594,7 +601,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="btnHtml,btnImages" />
+            app:constraint_referenced_ids="btnHtml,ibQuotes,ibImages" />
 
         <TextView
             android:id="@+id/tvBody"
