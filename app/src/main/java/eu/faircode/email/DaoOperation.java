@@ -41,7 +41,7 @@ public interface DaoOperation {
     @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
             " FROM operation" +
             " JOIN folder ON folder.id = operation.folder" +
-            " JOIN account ON account.id = folder.account" +
+            " LEFT JOIN account ON account.id = folder.account" +
             " ORDER BY operation.id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
