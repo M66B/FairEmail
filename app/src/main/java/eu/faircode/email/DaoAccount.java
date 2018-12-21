@@ -71,16 +71,15 @@ public interface DaoAccount {
     LiveData<EntityAccount> liveAccount(long id);
 
     @Query("SELECT" +
-            " (SELECT COUNT(account.id) FROM account WHERE synchronize AND state = 'connected') AS accounts" +
+            " (SELECT COUNT(account.id) FROM account" +
+            "    WHERE synchronize" +
+            "    AND state = 'connected') AS accounts" +
             ", (SELECT COUNT(operation.id) FROM operation" +
-            "     JOIN folder ON folder.id = operation.folder" +
-            "     JOIN account ON account.id = folder.account" +
-            "     WHERE account.synchronize) AS operations" +
-            ", (SELECT COUNT(message.id) FROM message" +
-            "     JOIN folder ON folder.id = message.folder" +
-            "     JOIN operation ON operation.message = message.id AND operation.name = '" + EntityOperation.SEND + "'" +
-            "     WHERE NOT message.ui_seen" +
-            "     AND folder.type = '" + EntityFolder.OUTBOX + "') AS unsent")
+            "    JOIN folder ON folder.id = operation.folder" +
+            "    JOIN account ON account.id = folder.account" + // not outbox
+            "    WHERE account.synchronize) AS operations" +
+            ", (SELECT COUNT(operation.id) FROM operation" +
+            "    WHERE operation.name = '" + EntityOperation.SEND + "') AS unsent")
     LiveData<TupleAccountStats> liveStats();
 
     @Insert
