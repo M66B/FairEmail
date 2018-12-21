@@ -217,13 +217,15 @@ public class ViewModelBrowse extends ViewModel {
                             count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);
+                    } catch (MessageRemovedException ex) {
+                        Log.w(Helper.TAG, folder.name + "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                    } catch (FolderClosedException ex) {
+                        throw ex;
+                    } catch (IOException ex) {
+                        throw ex;
                     } catch (Throwable ex) {
-                        if ((ex instanceof MessageRemovedException) || (ex instanceof FolderClosedException))
-                            Log.w(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                        else {
-                            Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
-                            throw ex;
-                        }
+                        Log.e(Helper.TAG, folder.name + "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }

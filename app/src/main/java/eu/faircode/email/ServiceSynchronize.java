@@ -44,7 +44,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
@@ -1001,16 +1000,17 @@ public class ServiceSynchronize extends LifecycleService {
                                                 }
                                             } catch (MessageRemovedException ex) {
                                                 Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            } catch (FolderClosedException ex) {
+                                                throw ex;
                                             } catch (IOException ex) {
-                                                if (ex.getCause() instanceof MessageRemovedException)
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                                else
-                                                    throw ex;
+                                                throw ex;
+                                            } catch (Throwable ex) {
+                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                             }
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
                                     } finally {
                                         wlAccount.release();
@@ -1081,16 +1081,17 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
                                         } catch (MessageRemovedException ex) {
                                             Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        } catch (FolderClosedException ex) {
+                                            throw ex;
                                         } catch (IOException ex) {
-                                            if (ex.getCause() instanceof MessageRemovedException)
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
-                                            else
-                                                throw ex;
+                                            throw ex;
+                                        } catch (Throwable ex) {
+                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                         reportError(account, folder, ex);
-                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
                                     } finally {
                                         wlAccount.release();
@@ -2093,10 +2094,11 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
                         throw ex;
-                    } catch (FolderClosedIOException ex) {
+                    } catch (IOException ex) {
                         throw ex;
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         db.endTransaction();
                         // Reduce memory usage
