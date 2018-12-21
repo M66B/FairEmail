@@ -575,6 +575,11 @@ public class MessageHelper {
                 for (int i = 0; i < multipart.getCount(); i++)
                     result.addAll(getAttachments(multipart.getBodyPart(i)));
             }
+        } catch (IOException ex) {
+            if (ex.getCause() instanceof MessagingException)
+                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            else
+                throw ex;
         } catch (ParseException ex) {
             Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
         }

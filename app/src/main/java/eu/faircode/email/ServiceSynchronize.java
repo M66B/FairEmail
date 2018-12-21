@@ -1003,7 +1003,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             } catch (FolderClosedException ex) {
                                                 throw ex;
                                             } catch (IOException ex) {
-                                                throw ex;
+                                                if (ex.getCause() instanceof MessagingException) {
+                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    if (!(ex.getCause() instanceof MessageRemovedException))
+                                                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                } else
+                                                    throw ex;
                                             } catch (Throwable ex) {
                                                 Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
@@ -1084,7 +1089,12 @@ public class ServiceSynchronize extends LifecycleService {
                                         } catch (FolderClosedException ex) {
                                             throw ex;
                                         } catch (IOException ex) {
-                                            throw ex;
+                                            if (ex.getCause() instanceof MessagingException) {
+                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                if (!(ex.getCause() instanceof MessageRemovedException))
+                                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                            } else
+                                                throw ex;
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
@@ -2095,7 +2105,12 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
-                        throw ex;
+                        if (ex.getCause() instanceof MessagingException) {
+                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            if (!(ex.getCause() instanceof MessageRemovedException))
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        } else
+                            throw ex;
                     } catch (Throwable ex) {
                         Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));

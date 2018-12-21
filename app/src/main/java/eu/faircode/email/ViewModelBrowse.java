@@ -218,13 +218,18 @@ public class ViewModelBrowse extends ViewModel {
                         }
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, folder.name + "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.w(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
-                        throw ex;
+                        if (ex.getCause() instanceof MessagingException) {
+                            Log.w(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                            if (!(ex.getCause() instanceof MessageRemovedException))
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        } else
+                            throw ex;
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, folder.name + "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
