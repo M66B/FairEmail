@@ -117,6 +117,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         this.args = null;
         this.stored = null;
 
+        try {
+            onInit(args);
+        } catch (Throwable ex) {
+            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+        }
+
         owner.getLifecycle().addObserver(this);
 
         final Handler handler = new Handler();
@@ -160,9 +166,17 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             } catch (Throwable ex) {
                 Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
             } finally {
+                try {
+                    onCleanup(args);
+                } catch (Throwable ex) {
+                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                }
                 onDestroyed();
             }
         }
+    }
+
+    protected void onInit(Bundle args) {
     }
 
     protected abstract T onLoad(Context context, Bundle args) throws Throwable;
@@ -171,6 +185,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     protected abstract void onException(Bundle args, Throwable ex);
+
+    protected void onCleanup(Bundle args) {
+    }
 
     private static class Result {
         Throwable ex;

@@ -309,20 +309,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_addresses = !properties.getValue("addresses", message.id);
             boolean show_headers = properties.getValue("headers", message.id);
 
-            if (viewType == ViewType.THREAD) {
-                if (show_expanded) {
-                    if (!properties.getValue("frozen", message.id)) {
-                        itemView.setHasTransientState(true);
-                        properties.setValue("frozen", message.id, true);
-                    }
-                } else {
-                    if (properties.getValue("frozen", message.id)) {
-                        itemView.setHasTransientState(false);
-                        properties.setValue("frozen", message.id, false);
-                    }
-                }
-            }
-
             pbLoading.setVisibility(View.GONE);
 
             if (viewType == ViewType.THREAD) {
@@ -532,6 +518,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sargs.putLong("account", message.account);
 
                 new SimpleTask<List<EntityFolder>>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        bnvActions.setHasTransientState(true);
+                    }
+
+                    @Override
+                    protected void onCleanup(Bundle args) {
+                        bnvActions.setHasTransientState(false);
+                    }
+
                     @Override
                     protected List<EntityFolder> onLoad(Context context, Bundle args) {
                         long account = args.getLong("account");
@@ -744,6 +740,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
             private String body = null;
+
+            @Override
+            protected void onInit(Bundle args) {
+                btnHtml.setHasTransientState(true);
+                btnImages.setHasTransientState(true);
+                tvBody.setHasTransientState(true);
+                pbBody.setHasTransientState(true);
+            }
+
+            @Override
+            protected void onCleanup(Bundle args) {
+                btnHtml.setHasTransientState(false);
+                btnImages.setHasTransientState(false);
+                tvBody.setHasTransientState(false);
+                pbBody.setHasTransientState(false);
+            }
 
             @Override
             protected Spanned onLoad(final Context context, final Bundle args) {
