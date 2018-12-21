@@ -12,5 +12,6 @@
 /captures
 .externalNativeBuild
 /app/release
+/app/play
 /tools/config.sh
 crowdin.properties
