@@ -45,7 +45,6 @@ import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -478,8 +477,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bnvActions.getMenu().getItem(i).setVisible(false);
                 bnvActions.setVisibility(View.VISIBLE);
 
-                tvBody.setText(null);
-
                 TypedArray ta;
                 if (zoom == 0)
                     ta = context.obtainStyledAttributes(
@@ -495,6 +492,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setTextSize(textSize / context.getResources().getDisplayMetrics().density);
                 ta.recycle();
 
+                tvBody.setText(null);
                 pbBody.setVisibility(View.VISIBLE);
 
                 if (message.content) {
@@ -763,7 +761,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bodyTask.load(context, owner, args);
         }
 
-        private SimpleTask<Spanned> bodyTask = new SimpleTask<Spanned>() {
+        private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
             private String body = null;
 
             @Override
@@ -785,7 +783,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             @Override
-            protected Spanned onLoad(final Context context, final Bundle args) {
+            protected SpannableStringBuilder onLoad(final Context context, final Bundle args) {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 if (body == null)
                     try {
@@ -803,7 +801,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 for (QuoteSpan quote : quotes) {
                     builder.setSpan(
                             new StyledQuoteSpan(),
-                            html.getSpanStart(quote), html.getSpanEnd(quote), html.getSpanFlags(quote));
+                            builder.getSpanStart(quote),
+                            builder.getSpanEnd(quote),
+                            builder.getSpanFlags(quote));
                     builder.removeSpan(quote);
                 }
 
@@ -836,12 +836,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             @Override
-            protected void onLoaded(Bundle args, Spanned body) {
+            protected void onLoaded(Bundle args, SpannableStringBuilder body) {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
 
-                SpannedString ss = new SpannedString(body);
-                boolean has_quotes = (ss.getSpans(0, ss.length(), StyledQuoteSpan.class).length > 0);
-                boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
+                boolean has_quotes = (body.getSpans(0, body.length(), StyledQuoteSpan.class).length > 0);
+                boolean has_images = (body.getSpans(0, body.length(), ImageSpan.class).length > 0);
                 boolean show_expanded = properties.getValue("expanded", message.id);
                 boolean show_quotes = properties.getValue("quotes", message.id);
                 boolean show_images = properties.getValue("images", message.id);
