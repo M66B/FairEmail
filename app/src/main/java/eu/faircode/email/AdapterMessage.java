@@ -246,7 +246,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
 
             tvBody.setMovementMethod(new UrlHandler());
-
         }
 
         private void wire() {
@@ -306,20 +305,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindTo(int position, final TupleMessageEx message) {
             final DB db = DB.getInstance(context);
-            final boolean show_expanded = properties.isExpanded(message.id);
-            boolean show_addresses = properties.showAddresses(message.id);
-            boolean show_headers = properties.showHeaders(message.id);
+            final boolean show_expanded = properties.getValue("expanded", message.id);
+            boolean show_addresses = !properties.getValue("addresses", message.id);
+            boolean show_headers = properties.getValue("headers", message.id);
 
             if (viewType == ViewType.THREAD) {
                 if (show_expanded) {
-                    if (!properties.isFrozen(message.id)) {
+                    if (!properties.getValue("frozen", message.id)) {
                         itemView.setHasTransientState(true);
-                        properties.setFrozen(message.id, true);
+                        properties.setValue("frozen", message.id, true);
                     }
                 } else {
-                    if (properties.isFrozen(message.id)) {
+                    if (properties.getValue("frozen", message.id)) {
                         itemView.setHasTransientState(false);
-                        properties.setFrozen(message.id, false);
+                        properties.setValue("frozen", message.id, false);
                     }
                 }
             }
@@ -682,15 +681,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 .putExtra("action", "edit")
                                 .putExtra("id", message.id));
             else {
-                boolean expanded = !properties.isExpanded(message.id);
-                properties.setExpanded(message.id, expanded);
+                boolean expanded = !properties.getValue("expanded", message.id);
+                properties.setValue("expanded", message.id, expanded);
                 notifyItemChanged(pos);
             }
         }
 
         private void onToggleAddresses(int pos, TupleMessageEx message) {
-            boolean addresses = !properties.showAddresses(message.id);
-            properties.setAddresses(message.id, addresses);
+            boolean addresses = !properties.getValue("addresses", message.id);
+            properties.setValue("addresses", message.id, addresses);
             notifyItemChanged(pos);
         }
 
@@ -735,7 +734,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
-            properties.setImages(message.id, true);
+            properties.setValue("images", message.id, true);
             btnImages.setEnabled(false);
 
             Bundle args = new Bundle();
@@ -784,8 +783,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 SpannedString ss = new SpannedString(body);
                 boolean has_images = (ss.getSpans(0, ss.length(), ImageSpan.class).length > 0);
-                boolean show_expanded = properties.isExpanded(message.id);
-                boolean show_images = properties.showImages(message.id);
+                boolean show_expanded = properties.getValue("expanded", message.id);
+                boolean show_images = properties.getValue("images", message.id);
 
                 btnHtml.setVisibility(hasWebView && show_expanded ? View.VISIBLE : View.GONE);
                 btnImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
@@ -803,7 +802,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return Html.fromHtml(HtmlHelper.sanitize(body), new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    boolean show = properties.showImages(message.id);
+                    boolean show = properties.getValue("images", message.id);
                     return HtmlHelper.decodeImage(source, context, message.id, show);
                 }
             }, new Html.TagHandler() {
@@ -1088,7 +1087,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onLoaded(Bundle args, Void ignored) {
-                    properties.setExpanded(data.message.id, false);
+                    properties.setValue("expanded", data.message.id, false);
                     notifyDataSetChanged();
                 }
 
@@ -1131,8 +1130,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowHeaders(ActionData data) {
-            boolean show_headers = !properties.showHeaders(data.message.id);
-            properties.setHeaders(data.message.id, show_headers);
+            boolean show_headers = !properties.getValue("headers", data.message.id);
+            properties.setValue("headers", data.message.id, show_headers);
             if (show_headers && data.message.headers == null) {
                 grpHeaders.setVisibility(View.VISIBLE);
                 pbHeaders.setVisibility(View.VISIBLE);
@@ -1298,7 +1297,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMore(final ActionData data) {
-            boolean show_headers = properties.showHeaders(data.message.id);
+            boolean show_headers = properties.getValue("headers", data.message.id);
 
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenu popupMenu = new PopupMenu(context, anchor);
@@ -1690,25 +1689,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     interface IProperties {
-        void setExpanded(long id, boolean expand);
+        void setValue(String name, long id, boolean enabled);
 
-        void setFrozen(long id, boolean freeze);
-
-        void setAddresses(long id, boolean show);
-
-        void setHeaders(long id, boolean show);
-
-        void setImages(long id, boolean show);
-
-        boolean isExpanded(long id);
-
-        boolean isFrozen(long id);
-
-        boolean showAddresses(long id);
-
-        boolean showHeaders(long id);
-
-        boolean showImages(long id);
+        boolean getValue(String name, long id);
 
         void move(long id, String target, boolean type);
     }

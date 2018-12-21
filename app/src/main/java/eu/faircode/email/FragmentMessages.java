@@ -47,7 +47,9 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -116,11 +118,7 @@ public class FragmentMessages extends FragmentEx {
 
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
-    private List<Long> expanded = new ArrayList<>();
-    private List<Long> frozen = new ArrayList<>();
-    private List<Long> addresses = new ArrayList<>();
-    private List<Long> headers = new ArrayList<>();
-    private List<Long> images = new ArrayList<>();
+    private Map<String, List<Long>> values = new HashMap<>();
 
     private BoundaryCallbackMessages searchCallback = null;
 
@@ -303,69 +301,22 @@ public class FragmentMessages extends FragmentEx {
                 zoom,
                 new AdapterMessage.IProperties() {
                     @Override
-                    public void setExpanded(long id, boolean expand) {
-                        if (expand) {
-                            expanded.add(id);
-                            handleExpand(id);
+                    public void setValue(String name, long id, boolean enabled) {
+                        if (!values.containsKey(name))
+                            values.put(name, new ArrayList<Long>());
+                        if (enabled) {
+                            values.get(name).add(id);
+                            if ("expanded".equals(name))
+                                handleExpand(id);
                         } else
-                            expanded.remove(id);
+                            values.get(name).remove(id);
                     }
 
                     @Override
-                    public void setFrozen(long id, boolean freeze) {
-                        if (freeze)
-                            frozen.add(id);
-                        else
-                            frozen.remove(id);
-                    }
-
-                    @Override
-                    public void setAddresses(long id, boolean show) {
-                        if (show)
-                            addresses.remove(id);
-                        else
-                            addresses.add(id);
-                    }
-
-                    @Override
-                    public void setHeaders(long id, boolean show) {
-                        if (show)
-                            headers.add(id);
-                        else
-                            headers.remove(id);
-                    }
-
-                    @Override
-                    public void setImages(long id, boolean show) {
-                        if (show)
-                            images.add(id);
-                        else
-                            images.remove(id);
-                    }
-
-                    @Override
-                    public boolean isExpanded(long id) {
-                        return expanded.contains(id);
-                    }
-
-                    @Override
-                    public boolean isFrozen(long id) {
-                        return frozen.contains(id);
-                    }
-
-                    @Override
-                    public boolean showAddresses(long id) {
-                        return !addresses.contains(id);
-                    }
-
-                    @Override
-                    public boolean showHeaders(long id) {
-                        return headers.contains(id);
-                    }
-
-                    @Override
-                    public boolean showImages(long id) {
-                        return images.contains(id);
+                    public boolean getValue(String name, long id) {
+                        if (values.containsKey(name))
+                            return values.get(name).contains(id);
+                        return false;
                     }
 
                     @Override
@@ -469,7 +420,7 @@ public class FragmentMessages extends FragmentEx {
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
                 if (message == null ||
-                        expanded.contains(message.id) ||
+                        (values.containsKey("expanded") && values.get("expanded").contains(message.id)) ||
                         EntityFolder.DRAFTS.equals(message.folderType) ||
                         EntityFolder.OUTBOX.equals(message.folderType))
                     return 0;
@@ -1201,9 +1152,11 @@ public class FragmentMessages extends FragmentEx {
         super.onSaveInstanceState(outState);
         outState.putBoolean("autoExpand", autoExpand);
         outState.putInt("autoCloseCount", autoCloseCount);
-        outState.putLongArray("expanded", Helper.toLongArray(expanded));
-        outState.putLongArray("headers", Helper.toLongArray(headers));
-        outState.putLongArray("images", Helper.toLongArray(images));
+
+        outState.putStringArray("values", values.keySet().toArray(new String[0]));
+        for (String name : values.keySet())
+            outState.putLongArray(name, Helper.toLongArray(values.get(name)));
+
         if (selectionTracker != null)
             selectionTracker.onSaveInstanceState(outState);
     }
@@ -1215,9 +1168,14 @@ public class FragmentMessages extends FragmentEx {
         if (savedInstanceState != null) {
             autoExpand = savedInstanceState.getBoolean("autoExpand");
             autoCloseCount = savedInstanceState.getInt("autoCloseCount");
-            expanded = Helper.fromLongArray(savedInstanceState.getLongArray("expanded"));
-            headers = Helper.fromLongArray(savedInstanceState.getLongArray("headers"));
-            images = Helper.fromLongArray(savedInstanceState.getLongArray("images"));
+
+            String[] names = savedInstanceState.getStringArray("values");
+            for (String name : names) {
+                values.put(name, new ArrayList<Long>());
+                for (Long value : savedInstanceState.getLongArray(name))
+                    values.get(name).add(value);
+            }
+
             if (selectionTracker != null)
                 selectionTracker.onRestoreInstanceState(savedInstanceState);
         }
@@ -1726,7 +1684,9 @@ public class FragmentMessages extends FragmentEx {
 
                         if (expand != null &&
                                 (expand.content || !metered || (expand.size != null && expand.size < download))) {
-                            expanded.add(expand.id);
+                            if (!values.containsKey("expanded"))
+                                values.put("expanded", new ArrayList<Long>());
+                            values.get("expanded").add(expand.id);
                             handleExpand(expand.id);
                         }
                     } else {
@@ -1949,8 +1909,8 @@ public class FragmentMessages extends FragmentEx {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             if (prefs.getBoolean("collapse", false))
-                if (expanded.size() > 0) {
-                    expanded.clear();
+                if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
+                    values.get("expanded").clear();
                     adapter.notifyDataSetChanged();
                     return true;
                 }
