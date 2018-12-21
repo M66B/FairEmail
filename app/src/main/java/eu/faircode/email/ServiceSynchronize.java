@@ -1951,7 +1951,7 @@ public class ServiceSynchronize extends LifecycleService {
                         names.remove(folder.name);
                         Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
-                        if (EntityFolder.USER.equals(folder.type) && type != null)
+                        if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }
