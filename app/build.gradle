@@ -17,10 +17,6 @@ android {
         }
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
-    }
-
     buildTypes {
         release {
             debuggable = false
@@ -30,6 +26,14 @@ android {
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
         }
+        play {
+            debuggable = false
+            minifyEnabled = true
+            useProguard = true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
+        }
         debug {
             debuggable = true
             minifyEnabled = false
@@ -38,6 +42,10 @@ android {
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
         }
+    }
+
+    lintOptions {
+        disable 'MissingTranslation'
     }
 
     packagingOptions {
