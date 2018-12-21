@@ -587,6 +587,7 @@ public class FragmentMessages extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("account", account);
                 args.putString("thread", thread);
+                args.putLong("id", id);
                 args.putString("folderType", folderType);
 
                 new SimpleTask<MessageTarget>() {
@@ -594,6 +595,7 @@ public class FragmentMessages extends FragmentEx {
                     protected MessageTarget onLoad(Context context, Bundle args) {
                         long account = args.getLong("account");
                         String thread = args.getString("thread");
+                        long id = args.getLong("id");
                         String folderType = args.getString("folderType");
 
                         MessageTarget result = new MessageTarget();
@@ -606,9 +608,14 @@ public class FragmentMessages extends FragmentEx {
 
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     account, thread, threading ? null : id, null);
-                            for (EntityMessage threaded : messages)
-                                if (!result.target.id.equals(threaded.folder))
+                            for (EntityMessage threaded : messages) {
+                                EntityFolder folder = db.folder().getFolder(threaded.folder);
+                                if (!result.target.id.equals(threaded.folder) &&
+                                        !EntityFolder.SENT.equals(folder.type) &&
+                                        !EntityFolder.TRASH.equals(folder.type) &&
+                                        !EntityFolder.JUNK.equals(folder.type))
                                     result.ids.add(threaded.id);
+                            }
 
                             db.setTransactionSuccessful();
                         } finally {
