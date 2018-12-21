@@ -228,6 +228,7 @@
     <string name="title_no_answers">No hay plantillas de respuesta definidas</string>
     <string name="title_no_viewer">No hay app disponible para visualizar %1$s</string>
     <string name="title_no_saf">Framework de acceso a almacenamiento no disponible</string>
+    <string name="title_no_stream">Una aplicación desactualizada envió la ruta a un archivo en lugar del contenido del archivo</string>
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán agregados, ¿continuar?</string>
