@@ -30,7 +30,9 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.database.Cursor;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -786,7 +788,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             class StyledQuoteSpan extends QuoteSpan {
                 StyledQuoteSpan() {
-                    super(Helper.resolveColor(context, R.attr.colorPrimary), 6, 12);
+                    super();
+                }
+
+                @Override
+                public int getLeadingMargin(boolean first) {
+                    return 6 /* stripeWidth */ + 12 /* gapWidth */;
+                }
+
+                @Override
+                public void drawLeadingMargin(@NonNull Canvas c, @NonNull Paint p, int x, int dir, int top, int baseline, int bottom, @NonNull CharSequence text, int start, int end, boolean first, @NonNull Layout layout) {
+                    Paint.Style style = p.getStyle();
+                    int color = p.getColor();
+
+                    p.setStyle(Paint.Style.FILL);
+                    p.setColor(Helper.resolveColor(context, R.attr.colorPrimary));
+
+                    c.drawRect(x, top, x + dir * 6 /* stripeWidth */, bottom, p);
+
+                    p.setStyle(style);
+                    p.setColor(color);
                 }
             }
 
