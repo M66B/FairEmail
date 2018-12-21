@@ -165,7 +165,6 @@
     <string name="title_folder_thread">Sohbet</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_messages">İleti yok</string>
-    <string name="title_show_images">Resimleri göster</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>

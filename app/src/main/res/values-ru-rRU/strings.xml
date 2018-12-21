@@ -161,7 +161,6 @@
     <string name="title_folder_thread">Разговор</string>
     <string name="title_folders_unified">Унифицированные папки входящих</string>
     <string name="title_no_messages">Нет сообщений</string>
-    <string name="title_show_images">Показать изображения</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>

@@ -203,7 +203,6 @@
     <string name="title_folder_thread">Gesprek</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_messages">Geen berichten</string>
-    <string name="title_show_images">Toon afbeeldingen</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
@@ -229,6 +228,7 @@
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>
     <string name="title_no_viewer">Geen app beschikbaar om %1$s te tonen</string>
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
+    <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>

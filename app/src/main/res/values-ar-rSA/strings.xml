@@ -102,7 +102,6 @@
     <string name="title_folder_primary">تعيين كحساب رئيسي</string>
     <string name="title_folder_thread">المحادثة</string>
     <string name="title_no_messages">لا توجد رسائل</string>
-    <string name="title_show_images">إظهار الصور</string>
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
     <string name="title_seen">علامة كـ مقروء</string>
     <string name="title_unseen">وضع علامة كغير مقروء</string>

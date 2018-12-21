@@ -203,7 +203,6 @@
     <string name="title_folder_thread">Fil de discussion</string>
     <string name="title_folders_unified">Dossiers de boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
-    <string name="title_show_images">Afficher les images</string>
     <string name="title_subject_reply">Re : %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
@@ -229,6 +228,7 @@
     <string name="title_no_answers">Aucun modèle de réponse défini</string>
     <string name="title_no_viewer">Aucune application disponible pour visionner %1$s</string>
     <string name="title_no_saf">Programme d\'accès au stockage non disponible</string>
+    <string name="title_no_stream">Une application obsolète a envoyé un chemin d’accès au lieu d’un flux de fichier</string>
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>

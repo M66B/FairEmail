@@ -201,7 +201,6 @@
     <string name="title_folder_thread">Konversation</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
-    <string name="title_show_images">Bilder anzeigen</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Als gelesen markieren</string>
