@@ -33,7 +33,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
@@ -1687,6 +1686,13 @@ public class FragmentCompose extends FragmentEx {
                         EntityMessage replying = db.message().getMessage(draft.replying);
                         EntityOperation.queue(db, replying, EntityOperation.ANSWERED, true);
                     }
+
+                    Handler handler = new Handler(context.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            Toast.makeText(context, R.string.title_queued, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
 
                 db.setTransactionSuccessful();
@@ -1712,7 +1718,7 @@ public class FragmentCompose extends FragmentEx {
 
             if (action == R.id.action_delete) {
                 autosave = false;
-                getFragmentManager().popBackStack();
+                finish();
 
             } else if (action == R.id.action_save) {
                 // Do nothing
@@ -1722,8 +1728,7 @@ public class FragmentCompose extends FragmentEx {
 
             } else if (action == R.id.action_send) {
                 autosave = false;
-                getFragmentManager().popBackStack();
-                Toast.makeText(getContext(), R.string.title_queued, Toast.LENGTH_LONG).show();
+                finish();
             }
         }
 
@@ -1733,7 +1738,9 @@ public class FragmentCompose extends FragmentEx {
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
 
-            if (ex instanceof IllegalArgumentException)
+            if (ex instanceof MessageRemovedException)
+                finish();
+            else if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);

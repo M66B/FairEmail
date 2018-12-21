@@ -248,8 +248,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
             grpAttachments = itemView.findViewById(R.id.grpAttachments);
             grpExpanded = itemView.findViewById(R.id.grpExpanded);
-
-            tvBody.setMovementMethod(new UrlHandler());
         }
 
         private void wire() {
@@ -493,6 +491,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ta.recycle();
 
                 tvBody.setText(null);
+                tvBody.setMovementMethod(null);
                 pbBody.setVisibility(View.VISIBLE);
 
                 if (message.content) {
@@ -849,6 +848,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibQuotes.setVisibility(has_quotes && show_expanded && !show_quotes ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && show_expanded && !show_images ? View.VISIBLE : View.GONE);
                 tvBody.setText(body);
+                tvBody.setMovementMethod(new UrlHandler());
                 pbBody.setVisibility(View.GONE);
             }
 
