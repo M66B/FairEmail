@@ -690,6 +690,18 @@ You can better use the search on server function (see [question 13](#user-conten
 Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
 
 
+<a name="faq51"></a>
+**(51) How are folders sorted?**
+
+Folders are sorted with special, system folders on top, followed by folders set to synchronize.
+Within each category the folders are sorted on name.
+
+Some providers prefix some folders with INBOX, but these folders are in fact just user folders, so they are sorted below the special, system folders.
+It is not possible to make an exception for this because some other providers prefix all folders with INBOX.
+
+Note that you can give folders a display name by long pressing on a folder name, which can be useful because the display name will be used for sorting.
+
+
 ## Support
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
