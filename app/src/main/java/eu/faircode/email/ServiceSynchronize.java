@@ -1940,6 +1940,7 @@ public class ServiceSynchronize extends LifecycleService {
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr))
                         selectable = false;
+
                     if (attr.startsWith("\\")) {
                         int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
                         if (index >= 0) {
@@ -1951,6 +1952,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (selectable) {
                     int level = EntityFolder.getLevel(separator, fullName);
+                    if (fullName.startsWith("INBOX" + separator))
+                        level--;
+
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         folder = new EntityFolder();
