@@ -1772,6 +1772,7 @@ public class ServiceSynchronize extends LifecycleService {
                 message.sent = imessage.getSentDate().getTime();
                 message.seen = true;
                 message.ui_seen = true;
+                message.error = null;
                 db.message().updateMessage(message);
 
                 if (ident.store_sent || ident.sent_folder != null) {
