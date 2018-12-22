@@ -1079,7 +1079,7 @@ public class FragmentMessages extends FragmentEx {
                                     (fid < 0 ? !folder.unified : !folder.id.equals(fid)))
                                 targets.add(folder);
 
-                        EntityFolder.sort(targets);
+                        EntityFolder.sort(context, targets);
 
                         return targets;
                     }

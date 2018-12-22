@@ -836,7 +836,7 @@ public class FragmentIdentity extends FragmentEx {
                 result.identity = db.identity().getIdentity(iid);
                 result.folders = db.folder().getFolders(aid);
 
-                EntityFolder.sort(result.folders);
+                EntityFolder.sort(context, result.folders);
 
                 return result;
             }

@@ -1503,7 +1503,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 !EntityFolder.JUNK.equals(folder.type))
                             targets.add(folder);
 
-                    EntityFolder.sort(targets);
+                    EntityFolder.sort(context, targets);
 
                     return targets;
                 }

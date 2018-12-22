@@ -259,7 +259,7 @@ public class EntityFolder implements Serializable {
         return folder;
     }
 
-    static void sort(List<EntityFolder> folders) {
+    static void sort(final Context context, List<EntityFolder> folders) {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
@@ -274,9 +274,9 @@ public class EntityFolder implements Serializable {
                 int c = -f1.synchronize.compareTo(f2.synchronize);
                 if (c != 0)
                     return c;
-                return collator.compare(
-                        f1.name == null ? "" : f1.name,
-                        f2.name == null ? "" : f2.name);
+                String name1 = f1.getDisplayName(context);
+                String name2 = f2.getDisplayName(context);
+                return collator.compare(name1, name2);
             }
         });
     }

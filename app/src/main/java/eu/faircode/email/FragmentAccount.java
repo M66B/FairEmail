@@ -1154,7 +1154,7 @@ public class FragmentAccount extends FragmentEx {
     }
 
     private void setFolders(List<EntityFolder> folders) {
-        EntityFolder.sort(folders);
+        EntityFolder.sort(getContext(), folders);
 
         EntityFolder none = new EntityFolder();
         none.name = "";
