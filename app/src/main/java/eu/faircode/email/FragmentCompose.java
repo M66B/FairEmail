@@ -653,7 +653,7 @@ public class FragmentCompose extends FragmentEx {
                 Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, message, false, imessage);
+                MessageHelper.build(context, message, imessage);
 
                 // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -1621,6 +1621,12 @@ public class FragmentCompose extends FragmentEx {
                 draft.subject = subject;
                 draft.received = new Date().getTime();
                 db.message().updateMessage(draft);
+
+                if (action == R.id.action_send)
+                    if (draft.replying != null || draft.forwarding != null)
+                        body += HtmlHelper.getQuote(context,
+                                draft.replying == null ? draft.forwarding : draft.replying, false);
+
                 draft.write(context, body);
 
                 // Execute action

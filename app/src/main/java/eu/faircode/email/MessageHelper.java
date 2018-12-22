@@ -175,7 +175,7 @@ public class MessageHelper {
         return props;
     }
 
-    static MimeMessageEx from(Context context, EntityMessage message, boolean send, Session isession) throws MessagingException, IOException {
+    static MimeMessageEx from(Context context, EntityMessage message, Session isession) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
@@ -277,12 +277,12 @@ public class MessageHelper {
                 return imessage;
             }
 
-        build(context, message, send, imessage);
+        build(context, message, imessage);
 
         return imessage;
     }
 
-    static void build(Context context, EntityMessage message, boolean send, MimeMessage imessage) throws IOException, MessagingException {
+    static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
         StringBuilder body = new StringBuilder();
@@ -293,11 +293,6 @@ public class MessageHelper {
             if (!TextUtils.isEmpty(identity.signature))
                 body.append(identity.signature);
         }
-
-        if (send)
-            if (message.replying != null || message.forwarding != null)
-                body.append(HtmlHelper.getQuote(context,
-                        message.replying == null ? message.forwarding : message.replying, false));
 
         String plain = Jsoup.parse(body.toString()).text();
 
