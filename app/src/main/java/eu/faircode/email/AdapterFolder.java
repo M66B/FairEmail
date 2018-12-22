@@ -40,12 +40,8 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -392,37 +388,23 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         set(account, all);
     }
 
-    public void set(long account, @NonNull List<TupleFolderEx> folders) {
-        Log.i(Helper.TAG, "Set account=" + account + " folders=" + folders.size());
+    public void set(long account, @NonNull List<TupleFolderEx> _folders) {
+        Log.i(Helper.TAG, "Set account=" + account + " folders=" + _folders.size());
 
         this.account = account;
 
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+        List<EntityFolder> folders = new ArrayList<>();
+        folders.addAll(_folders);
+        EntityFolder.sort(folders);
 
-        Collections.sort(folders, new Comparator<TupleFolderEx>() {
-            @Override
-            public int compare(TupleFolderEx f1, TupleFolderEx f2) {
-                int s = Integer.compare(
-                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
-                if (s != 0)
-                    return s;
-                int c = -f1.synchronize.compareTo(f2.synchronize);
-                if (c != 0)
-                    return c;
-                return collator.compare(
-                        f1.name == null ? "" : f1.name,
-                        f2.name == null ? "" : f2.name);
-            }
-        });
-
-        all = folders;
+        all.clear();
+        for (EntityFolder folder : folders)
+            all.add((TupleFolderEx) folder);
 
         List<TupleFolderEx> shown = new ArrayList<>();
-        for (TupleFolderEx folder : folders)
+        for (EntityFolder folder : folders)
             if (!folder.hide || showAll)
-                shown.add(folder);
+                shown.add((TupleFolderEx) folder);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new MessageDiffCallback(filtered, shown));
 

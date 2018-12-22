@@ -1941,6 +1941,12 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
 
+                // Special case
+                if (type == null) {
+                    if (ifolder.getFullName().startsWith("INBOX" /*+ separator*/))
+                        type = EntityFolder.INBOX_SUB;
+                }
+
                 if (selectable) {
                     String fullName = ifolder.getFullName();
                     int level = EntityFolder.getLevel(separator, fullName);
@@ -1961,7 +1967,8 @@ public class ServiceSynchronize extends LifecycleService {
                         names.remove(folder.name);
                         Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
-                        if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
+                        if (EntityFolder.USER.equals(folder.type) &&
+                                (EntityFolder.INBOX_SUB.equals(type) || EntityFolder.SYSTEM.equals(type)))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }

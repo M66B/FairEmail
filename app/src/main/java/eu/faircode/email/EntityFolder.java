@@ -92,6 +92,7 @@ public class EntityFolder implements Serializable {
     public String error;
 
     static final String INBOX = "Inbox";
+    static final String INBOX_SUB = "Inbox_sub";
     static final String OUTBOX = "Outbox";
     static final String ARCHIVE = "All";
     static final String DRAFTS = "Drafts";
@@ -125,6 +126,7 @@ public class EntityFolder implements Serializable {
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
             INBOX,
+            INBOX_SUB,
             OUTBOX,
             DRAFTS,
             SENT,
@@ -265,9 +267,9 @@ public class EntityFolder implements Serializable {
         Collections.sort(folders, new Comparator<EntityFolder>() {
             @Override
             public int compare(EntityFolder f1, EntityFolder f2) {
-                int s = Integer.compare(
-                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type),
-                        EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type));
+                int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
+                int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
+                int s = Integer.compare(i1, i2);
                 if (s != 0)
                     return s;
                 int c = -f1.synchronize.compareTo(f2.synchronize);

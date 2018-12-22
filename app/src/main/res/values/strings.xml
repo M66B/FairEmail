@@ -220,6 +220,7 @@
 
     <string name="title_folder_unified">Unified inbox</string>
     <string name="title_folder_inbox">Inbox</string>
+    <string name="title_folder_inbox_sub">Inbox child</string>
     <string name="title_folder_outbox">Outbox</string>
     <string name="title_folder_all">Archive</string>
     <string name="title_folder_drafts">Drafts</string>
