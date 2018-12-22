@@ -694,7 +694,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.setValue("quotes", message.id, false);
                     properties.setValue("images", message.id, false);
                 }
+
                 notifyItemChanged(pos);
+
+                if (expanded)
+                    properties.scrollTo(pos, Math.round(tvBody.getY()));
             }
         }
 
@@ -1761,6 +1765,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setBody(long id, Spanned body);
 
         Spanned getBody(long id);
+
+        void scrollTo(int pos, int dy);
 
         void move(long id, String target, boolean type);
     }

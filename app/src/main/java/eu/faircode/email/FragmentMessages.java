@@ -335,6 +335,17 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
+                    public void scrollTo(final int pos, final int dy) {
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                rvMessage.scrollToPosition(pos);
+                                rvMessage.scrollBy(0, dy);
+                            }
+                        });
+                    }
+
+                    @Override
                     public void move(long id, String name, boolean type) {
                         Bundle args = new Bundle();
                         args.putLong("id", id);
