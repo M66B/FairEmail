@@ -47,6 +47,7 @@
             android:id="@+id/etDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
             android:inputType="text"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
