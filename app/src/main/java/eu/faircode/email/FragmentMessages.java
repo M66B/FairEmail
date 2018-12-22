@@ -637,7 +637,7 @@ public class FragmentMessages extends FragmentEx {
                             for (EntityMessage threaded : messages) {
                                 EntityFolder folder = db.folder().getFolder(threaded.folder);
                                 if (!result.target.id.equals(threaded.folder) &&
-                                        !EntityFolder.SENT.equals(folder.type) &&
+                                        !EntityFolder.isOutgoing(folder.type) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
                                         !EntityFolder.JUNK.equals(folder.type))
                                     result.ids.add(threaded.id);
@@ -1348,9 +1348,11 @@ public class FragmentMessages extends FragmentEx {
                             boolean archivable = false;
                             for (EntityMessage message : messages) {
                                 EntityFolder folder = db.folder().getFolder(message.folder);
-                                if (!EntityFolder.TRASH.equals(folder.type))
+                                if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                                        !EntityFolder.OUTBOX.equals(folder.type) &&
+                                        !EntityFolder.TRASH.equals(folder.type))
                                     deletable = true;
-                                if (!EntityFolder.SENT.equals(folder.type) &&
+                                if (!EntityFolder.isOutgoing(folder.type) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
                                         !EntityFolder.JUNK.equals(folder.type))
                                     archivable = true;
