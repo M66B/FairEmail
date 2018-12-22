@@ -187,10 +187,12 @@
     <string name="title_sync_days_remark">Augmenter cette valeur augmentera l\'utilisation de la batterie et des données</string>
     <string name="title_keep_days">Conserver les messages (jours)</string>
     <string name="title_keep_all">Garder tous les messages</string>
+    <string name="title_folder_name_missing">Nom de dossier manquant</string>
     <string name="title_folder_exists">Le dossier %1$s existe</string>
     <string name="title_folder_delete">Supprimer définitivement ce dossier et tous les messages qu’il contient ?</string>
     <string name="title_folder_unified">Boite de réception unifiée</string>
     <string name="title_folder_inbox">Boîte de réception</string>
+    <string name="title_folder_inbox_sub">Sous-boîte de réception</string>
     <string name="title_folder_outbox">Boîte d\'envoi</string>
     <string name="title_folder_all">Archives</string>
     <string name="title_folder_drafts">Brouillons</string>
