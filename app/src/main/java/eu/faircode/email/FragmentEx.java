@@ -121,7 +121,8 @@ public class FragmentEx extends Fragment {
 
     private void updateSubtitle() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
+        Bundle args = getArguments();
+        if (activity != null && (args == null || !args.getBoolean("pane"))) {
             ActionBar actionbar = activity.getSupportActionBar();
             if (actionbar != null)
                 actionbar.setSubtitle(subtitle);

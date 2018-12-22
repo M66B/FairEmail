@@ -1352,6 +1352,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         else {
             pane = R.id.content_pane;
             grpPane.setVisibility(View.VISIBLE);
+            args.putBoolean("pane", true);
         }
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
