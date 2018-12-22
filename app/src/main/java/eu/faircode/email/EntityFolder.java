@@ -165,10 +165,14 @@ public class EntityFolder implements Serializable {
 
     static int getLevel(Character separator, String name) {
         int level = 0;
-        if (separator != null)
+        if (separator != null) {
             for (int i = 0; i < name.length(); i++)
                 if (name.charAt(i) == separator)
                     level++;
+            if (name.startsWith("INBOX" + separator))
+                level--;
+        }
+
         return level;
     }
 

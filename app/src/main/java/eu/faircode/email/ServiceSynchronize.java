@@ -1952,8 +1952,6 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (selectable) {
                     int level = EntityFolder.getLevel(separator, fullName);
-                    if (fullName.startsWith("INBOX" + separator))
-                        level--;
 
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
