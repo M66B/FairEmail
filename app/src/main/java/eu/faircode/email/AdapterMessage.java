@@ -490,11 +490,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setTextSize(textSize / context.getResources().getDisplayMetrics().density);
                 ta.recycle();
 
-                tvBody.setText(null);
-                tvBody.setMovementMethod(null);
+                Spanned body = properties.getBody(message.id);
+                tvBody.setText(body);
+                tvBody.setMovementMethod(new UrlHandler());
                 pbBody.setVisibility(View.VISIBLE);
 
-                if (message.content) {
+                if (body == null && message.content) {
                     Bundle args = new Bundle();
                     args.putSerializable("message", message);
                     bodyTask.load(context, owner, args);
@@ -580,7 +581,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Helper.unexpectedError(context, owner, ex);
                     }
                 }.load(context, owner, sargs);
-            }
+            } else
+                properties.setBody(message.id, null);
 
             itemView.setActivated(selectionTracker != null && selectionTracker.isSelected(message.id));
         }
@@ -850,6 +852,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setText(body);
                 tvBody.setMovementMethod(new UrlHandler());
                 pbBody.setVisibility(View.GONE);
+                properties.setBody(message.id, body);
             }
 
             @Override
@@ -1754,6 +1757,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setValue(String name, long id, boolean enabled);
 
         boolean getValue(String name, long id);
+
+        void setBody(long id, Spanned body);
+
+        Spanned getBody(long id);
 
         void move(long id, String target, boolean type);
     }

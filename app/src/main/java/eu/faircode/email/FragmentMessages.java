@@ -29,6 +29,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -119,6 +120,7 @@ public class FragmentMessages extends FragmentEx {
     private int autoCloseCount = 0;
     private boolean autoExpand = true;
     private Map<String, List<Long>> values = new HashMap<>();
+    private Map<Long, Spanned> bodies = new HashMap<>();
 
     private BoundaryCallbackMessages searchCallback = null;
 
@@ -317,6 +319,19 @@ public class FragmentMessages extends FragmentEx {
                         if (values.containsKey(name))
                             return values.get(name).contains(id);
                         return false;
+                    }
+
+                    @Override
+                    public void setBody(long id, Spanned body) {
+                        if (body == null)
+                            bodies.remove(id);
+                        else
+                            bodies.put(id, body);
+                    }
+
+                    @Override
+                    public Spanned getBody(long id) {
+                        return bodies.get(id);
                     }
 
                     @Override
