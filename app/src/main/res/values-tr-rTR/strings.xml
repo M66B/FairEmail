@@ -41,6 +41,7 @@
     <string name="menu_invite">Davet et</string>
     <string name="menu_rate">Bu uygulamaya puan verin</string>
     <string name="menu_other">Diğer uygulamalar</string>
+    <string name="title_welcome">Hoşgeldin</string>
     <string name="title_eula">Son Kullanıcı Lisans Sözleşmesi</string>
     <string name="title_agree">Kabul ediyorum</string>
     <string name="title_disagree">Kabul etmiyorum</string>
@@ -78,6 +79,11 @@
     <string name="title_setup_dark_theme">Koyu Tema</string>
     <string name="title_setup_black_background">Siyah arkaplan</string>
     <string name="title_advanced">Gelişmiş ayarlar</string>
+    <string name="title_advanced_section_general">Genel</string>
+    <string name="title_advanced_section_connection">Bağlantı</string>
+    <string name="title_advanced_section_display">Görüntüle</string>
+    <string name="title_advanced_section_behavior">Davranış</string>
+    <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_enabled">Eşzamanlama</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_unified">Birleştirilmiş gelen kutusu</string>
@@ -86,6 +92,7 @@
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
+    <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
@@ -95,6 +102,7 @@
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
+    <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_account_linked">Bağlı hesap</string>
     <string name="title_account_name">Hesap adı</string>
@@ -118,6 +126,7 @@
     <string name="title_authorize">Hesap seç</string>
     <string name="title_authorizing">Hesap yetkilendiriliyor &#8230;</string>
     <string name="title_setup_advanced">Gelişmiş</string>
+    <string name="title_store_copy">Gönderilen iletilerin bir kopyasını aşağıdaki konumda saklayın:</string>
     <string name="title_synchronize_account">Senkronize et (iletileri al)</string>
     <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
@@ -141,6 +150,7 @@
     <string name="title_empty_trash">Çöp kutusunu boşalt</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_empty_trash_ask">Tüm çöpe atılan iletiler kalıcı olarak silinsin mi?</string>
+    <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Ekran adı</string>
     <string name="title_hide_folders">Gizli klasörleri gizle</string>
@@ -148,8 +158,12 @@
     <string name="title_hide_folder">Listeden gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
+    <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
+    <string name="title_notify_folder">Yeni iletileri bildir</string>
     <string name="title_sync_days">İletileri eşzamanla (gün)</string>
     <string name="title_keep_days">İletileri sakla (günler)</string>
+    <string name="title_keep_all">Tüm iletileri sakla</string>
+    <string name="title_folder_name_missing">Klasör adı eksik</string>
     <string name="title_folder_exists">Klasör %1$s var</string>
     <string name="title_folder_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_folder_inbox">Gelen kutusu</string>
@@ -189,11 +203,13 @@
     <string name="title_no_viewer">%1$s için kullanılabilir hiçbir görüntüleme uygulaması yok</string>
     <string name="title_no_saf">Depolama erişim çerçevesi mevcut değil</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
+    <string name="title_image_unavailable">Bazı resimler indirilmemiş ve eklenmeyecek, devam edilsin mi?</string>
     <string name="title_ask_delete">İletiyi kalıcı olarak sil?</string>
     <string name="title_ask_delete_selected">Seçilen iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_answer">Yanıt kalıbı kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslağı sil?</string>
     <string name="title_ask_save">Değişiklikleri kaydedilsin mi?</string>
+    <string name="title_ask_spam">İstenmeyen posta olarak bildirilsin mi?</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
@@ -201,6 +217,8 @@
     <string name="title_reply_to">Yanıt adresi:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_received">Gelen:</string>
+    <string name="title_size">Boyut:</string>
     <string name="title_subject">Konu:</string>
     <string name="title_body_hint">Mesajınız</string>
     <string name="title_discard">Sil</string>
@@ -233,6 +251,10 @@
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>
     <string name="title_sort_on_starred">Yıldızlı</string>
+    <string name="title_zoom">Metin boyutu</string>
+    <string name="title_address_sent">Gönderilen:</string>
+    <string name="title_address_unsent">Gönderilmemiş:</string>
+    <string name="title_address_invalid">Geçersiz:</string>
     <string name="title_move_sent">Gönderilenlere taşı</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
@@ -243,6 +265,7 @@
     <string name="title_action_archive">Arşiv</string>
     <string name="title_action_trash">Çöp kutusu</string>
     <string name="title_legend_inbox">Gelen kutusu</string>
+    <string name="title_legend_notify">Yeni iletileri bildir</string>
     <string name="title_legend_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_legend_archive">Arşiv</string>
     <string name="title_legend_trash">Çöp Kutusu</string>
@@ -252,6 +275,7 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Ek</string>
     <string name="title_legend_contacts">Kişiler</string>
+    <string name="title_legend_broken_image">Bozuk görüntü</string>
     <string name="title_legend_synchronize_on">Eşitleme açık</string>
     <string name="title_legend_synchronize_off">Eşitleme kapalı</string>
     <string name="title_legend_primary">Öncelik/yıldızlı</string>
@@ -286,6 +310,7 @@
     <string name="title_pro_support">FairEmail\'in yardımınıza ihtiyacı var. Pro özellikleri satın alarak projeyi devam ettirmek için dokunun.</string>
     <string name="title_unexpected_error">Beklenmedik hata</string>
     <string name="title_log">Kayıt defteri</string>
+    <string name="title_auto_scroll">Otomatik kaydırma</string>
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>

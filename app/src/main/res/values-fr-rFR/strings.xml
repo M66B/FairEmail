@@ -192,7 +192,6 @@
     <string name="title_folder_delete">Supprimer définitivement ce dossier et tous les messages qu’il contient ?</string>
     <string name="title_folder_unified">Boite de réception unifiée</string>
     <string name="title_folder_inbox">Boîte de réception</string>
-    <string name="title_folder_inbox_sub">Sous-boîte de réception</string>
     <string name="title_folder_outbox">Boîte d\'envoi</string>
     <string name="title_folder_all">Archives</string>
     <string name="title_folder_drafts">Brouillons</string>

@@ -192,7 +192,6 @@
     <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>
     <string name="title_folder_inbox">Postvak in</string>
-    <string name="title_folder_inbox_sub">Postvak in kind</string>
     <string name="title_folder_outbox">Postvak uit</string>
     <string name="title_folder_all">Archief</string>
     <string name="title_folder_drafts">Concepten</string>

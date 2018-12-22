@@ -187,6 +187,7 @@
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
     <string name="title_keep_all">Mantener todos los mensajes</string>
+    <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
     <string name="title_folder_unified">Bandeja de Entrada Unificada</string>
