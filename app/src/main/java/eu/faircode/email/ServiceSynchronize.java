@@ -870,9 +870,6 @@ public class ServiceSynchronize extends LifecycleService {
                             try {
                                 wlAccount.acquire();
                                 Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
-                                EntityFolder folder = db.folder().getFolderByName(account.id, e.getFolder().getFullName());
-                                if (folder != null)
-                                    db.folder().setFolderTbd(folder.id);
                                 reload(ServiceSynchronize.this, "folder deleted");
                             } finally {
                                 wlAccount.release();
@@ -1908,7 +1905,13 @@ public class ServiceSynchronize extends LifecycleService {
             Log.v(Helper.TAG, "Start sync folders account=" + account.name);
 
             List<String> names = new ArrayList<>();
-            for (EntityFolder folder : db.folder().getUserFolders(account.id))
+            for (EntityFolder folder : db.folder().getFolders(account.id)) {
+                if (folder.tbc != null) {
+                    IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                    ifolder.create(Folder.HOLDS_MESSAGES);
+                    db.folder().resetFolderTbc(folder.id);
+                }
+
                 if (folder.tbd == null)
                     names.add(folder.name);
                 else {
@@ -1917,6 +1920,7 @@ public class ServiceSynchronize extends LifecycleService {
                         ifolder.delete(false);
                     db.folder().deleteFolder(folder.id);
                 }
+            }
             Log.i(Helper.TAG, "Local folder count=" + names.size());
 
             Folder defaultFolder = istore.getDefaultFolder();
@@ -1925,10 +1929,13 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(Helper.TAG, "Remote folder count=" + ifolders.length + " separator=" + separator);
 
             for (Folder ifolder : ifolders) {
+                String fullName = ifolder.getFullName();
+                names.remove(fullName);
+
                 String type = null;
                 boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                Log.i(Helper.TAG, ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
+                Log.i(Helper.TAG, fullName + " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr))
                         selectable = false;
@@ -1942,13 +1949,10 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 // Special case
-                if (type == null) {
-                    if (ifolder.getFullName().startsWith("INBOX" /*+ separator*/))
-                        type = EntityFolder.INBOX_SUB;
-                }
+                if (type == null && fullName.startsWith("INBOX" + separator))
+                    type = EntityFolder.INBOX_SUB;
 
                 if (selectable) {
-                    String fullName = ifolder.getFullName();
                     int level = EntityFolder.getLevel(separator, fullName);
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
@@ -1964,7 +1968,6 @@ public class ServiceSynchronize extends LifecycleService {
                         db.folder().insertFolder(folder);
                         Log.i(Helper.TAG, folder.name + " added");
                     } else {
-                        names.remove(folder.name);
                         Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
                         if (EntityFolder.USER.equals(folder.type) &&
@@ -1974,11 +1977,10 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
 
-            Log.i(Helper.TAG, "Create remote count=" + names.size());
+            Log.i(Helper.TAG, "Delete local count=" + names.size());
             for (String name : names) {
-                Log.i(Helper.TAG, name + " create");
-                IMAPFolder ifolder = (IMAPFolder) istore.getFolder(name);
-                ifolder.create(Folder.HOLDS_MESSAGES);
+                Log.i(Helper.TAG, name + " delete");
+                db.folder().deleteFolder(account.id, name);
             }
 
             db.setTransactionSuccessful();

@@ -86,7 +86,8 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Boolean notify = false;
     public String[] keywords;
-    public Boolean tbd;
+    public Boolean tbc; // to be created
+    public Boolean tbd; // to be deleted
     public String state;
     public String sync_state;
     public String error;

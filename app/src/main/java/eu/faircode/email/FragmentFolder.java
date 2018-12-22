@@ -63,6 +63,7 @@ public class FragmentFolder extends FragmentEx {
 
     private long id = -1;
     private long account = -1;
+    private boolean deletable = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -181,6 +182,9 @@ public class FragmentFolder extends FragmentEx {
                                 reload = true;
                                 Log.i(Helper.TAG, "Creating folder=" + name);
 
+                                if (TextUtils.isEmpty(name))
+                                    throw new IllegalArgumentException(getString(R.string.title_folder_name_missing));
+
                                 EntityFolder create = new EntityFolder();
                                 create.account = aid;
                                 create.name = name;
@@ -195,6 +199,7 @@ public class FragmentFolder extends FragmentEx {
                                 create.download = download;
                                 create.sync_days = sync_days;
                                 create.keep_days = keep_days;
+                                create.tbc = true;
                                 db.folder().insertFolder(create);
                             } else {
                                 reload = (!folder.synchronize.equals(synchronize) ||
@@ -214,7 +219,7 @@ public class FragmentFolder extends FragmentEx {
 
                                 Log.i(Helper.TAG, "Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
-                                        name, display, unified, notify, hide,
+                                        display, unified, notify, hide,
                                         synchronize, poll, download,
                                         sync_days, keep_days);
 
@@ -274,7 +279,7 @@ public class FragmentFolder extends FragmentEx {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_delete).setVisible(id > 0);
+        menu.findItem(R.id.menu_delete).setVisible(id > 0 && deletable);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -383,6 +388,9 @@ public class FragmentFolder extends FragmentEx {
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
+
+                deletable = (folder != null && EntityFolder.USER.equals(folder.type));
+                getActivity().invalidateOptionsMenu();
             }
 
             @Override
