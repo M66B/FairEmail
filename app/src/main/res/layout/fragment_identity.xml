@@ -81,8 +81,8 @@
             android:id="@+id/etDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapSentences"
             android:hint="@string/title_optional"
+            android:inputType="textCapSentences"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
@@ -388,11 +388,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintBottom_toBottomOf="@id/btnColor"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+            app:layout_constraintTop_toTopOf="@id/btnColor" />
 
         <TextView
             android:id="@+id/tvSignature"

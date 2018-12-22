@@ -45,6 +45,7 @@ public class EntityAccount {
     public Long id;
     public String name;
     public String signature; // obsolete
+    public String prefix; // namespace
     @NonNull
     public String host; // IMAP
     @NonNull
@@ -97,6 +98,7 @@ public class EntityAccount {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("name", name);
+        json.put("prefix", prefix);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
@@ -121,6 +123,8 @@ public class EntityAccount {
         EntityAccount account = new EntityAccount();
         if (json.has("name"))
             account.name = json.getString("name");
+        if (json.has("prefix"))
+            account.prefix = json.getString("prefix");
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
@@ -143,6 +147,7 @@ public class EntityAccount {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
             return ((this.name == null ? other.name == null : this.name.equals(other.name)) &&
+                    (this.prefix == null ? other.prefix == null : this.prefix.equals(other.prefix)) &&
                     this.host.equals(other.host) &&
                     this.starttls == other.starttls &&
                     this.insecure == other.insecure &&

@@ -251,10 +251,42 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNameRemark" />
+
+        <TextView
+            android:id="@+id/tvPrefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_account_prefix"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName" />
+
+        <TextView
+            android:id="@+id/tvPrefixRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_account_prefix_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPrefix" />
+
+        <EditText
+            android:id="@+id/etPrefix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPrefixRemark" />
 
         <Button
             android:id="@+id/btnColor"
@@ -266,7 +298,7 @@
             android:minHeight="0dp"
             android:text="@string/title_account_color"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toBottomOf="@id/etPrefix" />
 
         <View
             android:id="@+id/vwColor"
@@ -283,11 +315,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintBottom_toBottomOf="@id/btnColor"
             app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toTopOf="@id/btnColor" />
 
         <CheckBox
             android:id="@+id/cbNotify"
@@ -529,7 +560,7 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,tvNameRemark,etName,btnColor,vwColor,ibColorDefault,cbNotify,cbSynchronize,cbPrimary,tvInterval,etInterval" />
+            app:constraint_referenced_ids="tvName,tvNameRemark,etName,tvPrefix,tvPrefixRemark,etPrefix,btnColor,vwColor,ibColorDefault,cbNotify,cbSynchronize,cbPrimary,tvInterval,etInterval" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

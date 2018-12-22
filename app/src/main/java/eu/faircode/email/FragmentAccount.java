@@ -109,6 +109,7 @@ public class FragmentAccount extends FragmentEx {
 
     private TextView tvName;
     private EditText etName;
+    private EditText etPrefix;
     private Button btnColor;
     private View vwColor;
     private ImageView ibColorDefault;
@@ -182,6 +183,7 @@ public class FragmentAccount extends FragmentEx {
 
         etName = view.findViewById(R.id.etName);
         tvName = view.findViewById(R.id.tvName);
+        etPrefix = view.findViewById(R.id.etPrefix);
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
@@ -599,6 +601,7 @@ public class FragmentAccount extends FragmentEx {
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
                 args.putString("name", etName.getText().toString());
+                args.putString("prefix", etPrefix.getText().toString());
                 args.putInt("color", color);
                 args.putBoolean("notify", cbNotify.isChecked());
 
@@ -625,6 +628,7 @@ public class FragmentAccount extends FragmentEx {
                         int auth_type = args.getInt("auth_type");
 
                         String name = args.getString("name");
+                        String prefix = args.getString("prefix");
                         Integer color = args.getInt("color");
                         boolean notify = args.getBoolean("notify");
 
@@ -651,6 +655,8 @@ public class FragmentAccount extends FragmentEx {
                         if (synchronize && drafts == null)
                             throw new Throwable(getContext().getString(R.string.title_no_drafts));
 
+                        if (TextUtils.isEmpty(prefix))
+                            prefix = null;
                         if (Color.TRANSPARENT == color)
                             color = null;
 
@@ -664,6 +670,7 @@ public class FragmentAccount extends FragmentEx {
                                 !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                                 !user.equals(account.user) || !password.equals(account.password)));
                         boolean reload = (check || account == null ||
+                                (account.prefix == null ? prefix != null : !account.prefix.equals(prefix)) ||
                                 account.synchronize != synchronize ||
                                 !account.poll_interval.equals(Integer.parseInt(interval)));
 
@@ -711,6 +718,7 @@ public class FragmentAccount extends FragmentEx {
                             account.auth_type = auth_type;
 
                             account.name = name;
+                            account.prefix = prefix;
                             account.color = color;
                             account.notify = notify;
 
@@ -935,6 +943,7 @@ public class FragmentAccount extends FragmentEx {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
+                    etPrefix.setText(account == null ? null : account.prefix);
                     cbNotify.setChecked(account == null ? false : account.notify);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);

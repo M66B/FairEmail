@@ -1952,12 +1952,16 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (selectable) {
                     int level = EntityFolder.getLevel(separator, fullName);
+                    String display = null;
+                    if (account.prefix != null && fullName.startsWith(account.prefix + separator))
+                        display = fullName.substring(account.prefix.length() + 1);
 
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
+                        folder.display = display;
                         folder.type = (type == null ? EntityFolder.USER : type);
                         folder.level = level;
                         folder.synchronize = false;
@@ -1968,7 +1972,17 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(Helper.TAG, folder.name + " added");
                     } else {
                         Log.i(Helper.TAG, folder.name + " exists");
+
+                        if (folder.display == null) {
+                            if (display != null)
+                                db.folder().setFolderDisplay(folder.id, display);
+                        } else {
+                            if (account.prefix == null && folder.name.endsWith(separator + folder.display))
+                                db.folder().setFolderDisplay(folder.id, null);
+                        }
+
                         db.folder().setFolderLevel(folder.id, level);
+
                         if ("Inbox_sub".equals(folder.type))
                             db.folder().setFolderType(folder.id, EntityFolder.USER);
                         else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
