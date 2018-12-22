@@ -1949,10 +1949,6 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
 
-                // Special case
-                if (type == null && fullName.startsWith("INBOX" + separator))
-                    type = EntityFolder.INBOX_SUB;
-
                 if (selectable) {
                     int level = EntityFolder.getLevel(separator, fullName);
                     EntityFolder folder = db.folder().getFolderByName(account.id, fullName);
@@ -1971,8 +1967,9 @@ public class ServiceSynchronize extends LifecycleService {
                     } else {
                         Log.i(Helper.TAG, folder.name + " exists");
                         db.folder().setFolderLevel(folder.id, level);
-                        if (EntityFolder.USER.equals(folder.type) &&
-                                (EntityFolder.INBOX_SUB.equals(type) || EntityFolder.SYSTEM.equals(type)))
+                        if ("Inbox_sub".equals(folder.type))
+                            db.folder().setFolderType(folder.id, EntityFolder.USER);
+                        else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }

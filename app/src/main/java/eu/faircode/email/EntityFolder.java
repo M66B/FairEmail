@@ -93,7 +93,6 @@ public class EntityFolder implements Serializable {
     public String error;
 
     static final String INBOX = "Inbox";
-    static final String INBOX_SUB = "Inbox_sub";
     static final String OUTBOX = "Outbox";
     static final String ARCHIVE = "All";
     static final String DRAFTS = "Drafts";
@@ -127,7 +126,6 @@ public class EntityFolder implements Serializable {
 
     static final List<String> FOLDER_SORT_ORDER = Arrays.asList(
             INBOX,
-            INBOX_SUB,
             OUTBOX,
             DRAFTS,
             SENT,
