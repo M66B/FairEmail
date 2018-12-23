@@ -344,31 +344,27 @@ public class Helper {
         if (active == null) {
             if (log)
                 EntityLog.log(context, "isMetered: no active network");
-            else
-                Log.i(Helper.TAG, "isMetered: no active network");
             return null;
         }
 
-        Log.i(Helper.TAG, "isMetered: active info=" + cm.getNetworkInfo(active));
+        if (log)
+            Log.i(Helper.TAG, "isMetered: active info=" + cm.getNetworkInfo(active));
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
             if (log)
                 EntityLog.log(context, "isMetered: active no caps");
-            else
-                Log.i(Helper.TAG, "isMetered: active no caps");
             // Assume metered
             return true;
         }
 
-        Log.i(Helper.TAG, "isMetered: active caps=" + caps);
+        if (log)
+            Log.i(Helper.TAG, "isMetered: active caps=" + caps);
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
             if (log)
                 EntityLog.log(context, "isMetered: active not VPN unmetered=" + unmetered);
-            else
-                Log.i(Helper.TAG, "isMetered: active not VPN unmetered=" + unmetered);
             return !unmetered;
         }
 
@@ -378,41 +374,41 @@ public class Helper {
         if (networks != null)
             for (Network network : networks) {
                 NetworkInfo ni = cm.getNetworkInfo(network);
-                Log.i(Helper.TAG, "isMetered: underlying info=" + ni);
+                if (log)
+                    Log.i(Helper.TAG, "isMetered: underlying info=" + ni);
 
                 caps = cm.getNetworkCapabilities(network);
                 if (caps == null) {
                     if (log)
                         EntityLog.log(context, "isMetered: no underlying caps");
-                    else
-                        Log.i(Helper.TAG, "isMetered: no underlying caps");
                     continue;
                 }
 
-                Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
-
-                if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                if (log)
                     Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
 
+                if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                    if (log)
+                        Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
+
                     if (ni != null && ni.isConnected()) {
-                        Log.i(Helper.TAG, "isMetered: underlying is connected");
+                        if (log)
+                            Log.i(Helper.TAG, "isMetered: underlying is connected");
 
                         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
                             if (log)
                                 EntityLog.log(context, "isMetered: underlying is unmetered");
-                            else
-                                Log.i(Helper.TAG, "isMetered: underlying is unmetered");
                             return false;
                         }
-                    } else
-                        Log.i(Helper.TAG, "isMetered: underlying is disconnected");
+                    } else {
+                        if (log)
+                            Log.i(Helper.TAG, "isMetered: underlying is disconnected");
+                    }
                 }
             }
 
         if (log)
             EntityLog.log(context, "isMetered: underlying assume metered");
-        else
-            Log.i(Helper.TAG, "isMetered: underlying assume metered");
         // Assume metered
         return true;
     }
