@@ -68,7 +68,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="From"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
