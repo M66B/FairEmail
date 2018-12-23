@@ -1935,7 +1935,8 @@ public class ServiceSynchronize extends LifecycleService {
                 String type = null;
                 boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                Log.i(Helper.TAG, fullName + " attrs=" + TextUtils.join(" ", attrs));
+                Log.i(Helper.TAG, account.name + ":" + fullName +
+                        " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                         selectable = false;
@@ -1948,6 +1949,9 @@ public class ServiceSynchronize extends LifecycleService {
                         }
                     }
                 }
+
+                if ("INBOX".equals(fullName.toUpperCase()))
+                    type = EntityFolder.INBOX;
 
                 if (selectable) {
                     names.remove(fullName);
@@ -1986,7 +1990,8 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if ("Inbox_sub".equals(folder.type))
                             db.folder().setFolderType(folder.id, EntityFolder.USER);
-                        else if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
+                        else if (EntityFolder.USER.equals(folder.type) &&
+                                type != null && !EntityFolder.USER.equals(type))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }
