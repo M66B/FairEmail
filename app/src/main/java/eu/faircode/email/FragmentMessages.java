@@ -637,7 +637,9 @@ public class FragmentMessages extends FragmentEx {
                             for (EntityMessage threaded : messages) {
                                 EntityFolder folder = db.folder().getFolder(threaded.folder);
                                 if (!result.target.id.equals(threaded.folder) &&
-                                        !EntityFolder.isOutgoing(folder.type) &&
+                                        !EntityFolder.DRAFTS.equals(folder.type) &&
+                                        !EntityFolder.OUTBOX.equals(folder.type) &&
+                                        (!EntityFolder.SENT.equals(folder.type) || EntityFolder.ARCHIVE.equals(result.target.type)) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
                                         !EntityFolder.JUNK.equals(folder.type))
                                     result.ids.add(threaded.id);
@@ -1344,21 +1346,23 @@ public class FragmentMessages extends FragmentEx {
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     account, thread, threading ? null : id, null);
 
-                            boolean deletable = false;
+                            boolean trashable = false;
                             boolean archivable = false;
                             for (EntityMessage message : messages) {
                                 EntityFolder folder = db.folder().getFolder(message.folder);
                                 if (!EntityFolder.DRAFTS.equals(folder.type) &&
                                         !EntityFolder.OUTBOX.equals(folder.type) &&
-                                        !EntityFolder.TRASH.equals(folder.type))
-                                    deletable = true;
+                                        // allow sent
+                                        !EntityFolder.TRASH.equals(folder.type) &&
+                                        !EntityFolder.JUNK.equals(folder.type))
+                                    trashable = true;
                                 if (!EntityFolder.isOutgoing(folder.type) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
                                         !EntityFolder.JUNK.equals(folder.type))
                                     archivable = true;
                             }
 
-                            return new Boolean[]{deletable, archivable};
+                            return new Boolean[]{trashable, archivable};
                         }
 
                         @Override
