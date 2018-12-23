@@ -127,6 +127,8 @@
     <string name="title_account_linked">Cuenta vinculada</string>
     <string name="title_account_name">Nombre de cuenta</string>
     <string name="title_account_name_hint">Utilizado para diferenciar carpetas</string>
+    <string name="title_account_prefix">Prefijo de espacio de nombres</string>
+    <string name="title_account_prefix_hint">Usado para simplificar nombres de carpetas</string>
     <string name="title_account_signature">Texto de la firma</string>
     <string name="title_account_color">Color</string>
     <string name="title_account_notify">Notificaciones separadas</string>

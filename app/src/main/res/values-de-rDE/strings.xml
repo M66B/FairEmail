@@ -185,6 +185,7 @@
     <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht die Akku- und Datennutzung</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
+    <string name="title_folder_name_missing">Ordnername fehlt</string>
     <string name="title_folder_exists">Ordner %1$s bereits vorhanden</string>
     <string name="title_folder_delete">Diesen Ordner und alle darin enthaltenen E-Mails unwiderruflich löschen?</string>
     <string name="title_folder_unified">Sammeleingang</string>
