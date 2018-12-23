@@ -1233,12 +1233,15 @@ public class FragmentCompose extends FragmentEx {
                     }
                 }
 
-                result.draft.content = true;
                 result.draft.received = new Date().getTime();
                 result.draft.setContactInfo(context);
 
                 result.draft.id = db.message().insertMessage(result.draft);
                 result.draft.write(context, body == null ? "" : body);
+
+                String text = (body == null ? null : Jsoup.parse(body).text());
+                String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+                db.message().setMessageContent(result.draft.id, true, preview);
 
                 if ("new".equals(action)) {
                     ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
@@ -1628,6 +1631,9 @@ public class FragmentCompose extends FragmentEx {
                                 draft.replying == null ? draft.forwarding : draft.replying, false);
 
                 draft.write(context, body);
+                String text = (body == null ? null : Jsoup.parse(body).text());
+                String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+                db.message().setMessageContent(draft.id, true, preview);
 
                 // Execute action
                 if (action == R.id.action_delete) {
