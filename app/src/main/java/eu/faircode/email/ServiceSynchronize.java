@@ -1931,7 +1931,6 @@ public class ServiceSynchronize extends LifecycleService {
 
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
-                names.remove(fullName);
 
                 String type = null;
                 boolean selectable = true;
@@ -1951,6 +1950,8 @@ public class ServiceSynchronize extends LifecycleService {
                 }
 
                 if (selectable) {
+                    names.remove(fullName);
+
                     int level = EntityFolder.getLevel(separator, fullName);
                     String display = null;
                     if (account.prefix != null && fullName.startsWith(account.prefix + separator))
