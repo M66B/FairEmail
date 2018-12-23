@@ -104,6 +104,7 @@
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
+    <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
@@ -342,6 +343,7 @@
     <string name="title_no">Nee</string>
     <string name="title_undo">Ongedaan maken</string>
     <string name="title_add">Toevoegen</string>
+    <string name="title_browse">Bladeren</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
