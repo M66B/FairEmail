@@ -86,6 +86,12 @@ public class ViewModelBrowse extends ViewModel {
         if (folder == null) // unified inbox
             return;
 
+        if (state.search == null) {
+            EntityAccount account = db.account().getAccount(folder.account);
+            if (!account.browse)
+                return;
+        }
+
         if (state.search != null)
             try {
                 db.beginTransaction();

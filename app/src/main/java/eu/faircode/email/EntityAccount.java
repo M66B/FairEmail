@@ -64,6 +64,8 @@ public class EntityAccount {
     public Boolean synchronize;
     @NonNull
     public Boolean primary;
+    @NonNull
+    public Boolean browse;
     public Integer color;
     @NonNull
     public Boolean notify;
@@ -108,6 +110,7 @@ public class EntityAccount {
         json.put("auth_type", auth_type);
         json.put("synchronize", synchronize);
         json.put("primary", primary);
+        json.put("browse", browse);
         if (color != null)
             json.put("color", color);
         json.put("notify", notify);
@@ -134,6 +137,10 @@ public class EntityAccount {
         account.auth_type = json.getInt("auth_type");
         account.synchronize = json.getBoolean("synchronize");
         account.primary = json.getBoolean("primary");
+        if (json.has("browse"))
+            account.browse = json.getBoolean("browse");
+        else
+            account.browse = true;
         if (json.has("color"))
             account.color = json.getInt("color");
         if (json.has("notify"))
@@ -157,6 +164,7 @@ public class EntityAccount {
                     this.auth_type.equals(other.auth_type) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
+                    this.browse.equals(other.browse) &&
                     (this.color == null ? other.color == null : this.color.equals(other.color)) &&
                     this.notify.equals(other.notify) &&
                     this.poll_interval.equals(other.poll_interval) &&

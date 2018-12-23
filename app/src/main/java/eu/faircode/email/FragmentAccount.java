@@ -117,6 +117,7 @@ public class FragmentAccount extends FragmentEx {
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private CheckBox cbBrowse;
     private EditText etInterval;
 
     private Button btnCheck;
@@ -191,6 +192,7 @@ public class FragmentAccount extends FragmentEx {
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        cbBrowse = view.findViewById(R.id.cbBrowse);
         etInterval = view.findViewById(R.id.etInterval);
 
         btnCheck = view.findViewById(R.id.btnCheck);
@@ -608,6 +610,7 @@ public class FragmentAccount extends FragmentEx {
 
                 args.putBoolean("synchronize", cbSynchronize.isChecked());
                 args.putBoolean("primary", cbPrimary.isChecked());
+                args.putBoolean("browse", cbBrowse.isChecked());
                 args.putString("interval", etInterval.getText().toString());
 
                 args.putSerializable("drafts", drafts);
@@ -635,6 +638,7 @@ public class FragmentAccount extends FragmentEx {
 
                         boolean synchronize = args.getBoolean("synchronize");
                         boolean primary = args.getBoolean("primary");
+                        boolean browse = args.getBoolean("browse");
                         String interval = args.getString("interval");
 
                         EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
@@ -725,6 +729,7 @@ public class FragmentAccount extends FragmentEx {
 
                             account.synchronize = synchronize;
                             account.primary = (account.synchronize && primary);
+                            account.browse = browse;
                             account.poll_interval = Integer.parseInt(interval);
 
                             if (!update)
@@ -949,6 +954,7 @@ public class FragmentAccount extends FragmentEx {
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);
+                    cbBrowse.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);

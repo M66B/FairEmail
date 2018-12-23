@@ -58,7 +58,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     private SwitchCompat swMetered;
     private Spinner spDownload;
-    private SwitchCompat swBrowse;
     private SwitchCompat swInsecure;
 
     private SwitchCompat swUnified;
@@ -98,7 +97,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
-        swBrowse = view.findViewById(R.id.swBrowse);
         swInsecure = view.findViewById(R.id.swInsecure);
 
         swUnified = view.findViewById(R.id.swUnified);
@@ -163,14 +161,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("download").apply();
-            }
-        });
-
-        swBrowse.setChecked(prefs.getBoolean("browse", true));
-        swBrowse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("browse", checked).apply();
             }
         });
 

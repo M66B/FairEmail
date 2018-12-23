@@ -1,7 +1,9 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -46,7 +48,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 25,
+        version = 26,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -83,7 +85,7 @@ public abstract class DB extends RoomDatabase {
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
-            sInstance = migrate(Room
+            sInstance = migrate(context, Room
                     .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
                     .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                     .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
@@ -110,7 +112,7 @@ public abstract class DB extends RoomDatabase {
         }
     }
 
-    private static DB migrate(RoomDatabase.Builder<DB> builder) {
+    private static DB migrate(final Context context, RoomDatabase.Builder<DB> builder) {
         // https://www.sqlite.org/lang_altertable.html
         return builder
                 .addCallback(new Callback() {
@@ -319,6 +321,15 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `prefix` TEXT");
+                    }
+                })
+                .addMigrations(new Migration(25, 26) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        int browse = (prefs.getBoolean("browse", true) ? 1 : 0);
+                        db.execSQL("ALTER TABLE `account` ADD COLUMN `browse` INTEGER NOT NULL DEFAULT " + browse);
                     }
                 })
                 .build();
