@@ -64,7 +64,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -906,11 +905,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String url = link[0].getURL();
                     Uri uri = Uri.parse(url);
 
-                    if (!"http".equals(uri.getScheme()) && !"https".equals(uri.getScheme())) {
-                        Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
-                        return true;
-                    }
-
                     if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
@@ -927,13 +921,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         Uri uri = Uri.parse(etLink.getText().toString());
-
-                                        if (!"http".equals(uri.getScheme()) && !"https".equals(uri.getScheme())) {
-                                            Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
-                                            return;
-                                        }
-
-                                        Helper.view(context, owner, uri);
+                                        Helper.view(context, owner, uri, false);
+                                    }
+                                })
+                                .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Uri uri = Uri.parse(etLink.getText().toString());
+                                        Helper.view(context, owner, uri, true);
                                     }
                                 })
                                 .setNegativeButton(R.string.title_no, null)

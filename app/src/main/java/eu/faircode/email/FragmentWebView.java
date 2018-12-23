@@ -87,7 +87,7 @@ public class FragmentWebView extends FragmentEx {
                     setSubtitle(url);
                     return false;
                 } else {
-                    Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url));
+                    Helper.view(getContext(), getViewLifecycleOwner(), Uri.parse(url), true);
                     return true;
                 }
             }

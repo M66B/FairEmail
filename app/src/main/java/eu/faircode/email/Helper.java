@@ -28,6 +28,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -79,6 +80,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
     static final String TAG = "fairemail";
@@ -100,26 +102,53 @@ public class Helper {
     static void view(Context context, LifecycleOwner owner, Intent intent) {
         Uri uri = intent.getData();
         if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-            view(context, owner, intent.getData());
+            view(context, owner, intent.getData(), false);
         else
             context.startActivity(intent);
     }
 
-    static void view(Context context, LifecycleOwner owner, Uri uri) {
-        Log.i(Helper.TAG, "Custom tab=" + uri);
+    static void view(Context context, LifecycleOwner owner, Uri uri, boolean browse) {
+        Log.i(Helper.TAG, "View=" + uri);
 
-        // https://developer.chrome.com/multidevice/android/customtabs
-        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));
+        if (!hasCustomTabs(context, uri))
+            browse = true;
 
-        CustomTabsIntent customTabsIntent = builder.build();
-        try {
-            customTabsIntent.launchUrl(context, uri);
-        } catch (ActivityNotFoundException ex) {
-            Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
-        } catch (Throwable ex) {
-            Helper.unexpectedError(context, owner, ex);
+        if (browse) {
+            Intent view = new Intent(Intent.ACTION_VIEW, uri);
+            PackageManager pm = context.getPackageManager();
+            if (view.resolveActivity(pm) == null)
+                Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+            else
+                context.startActivity(view);
+        } else {
+            // https://developer.chrome.com/multidevice/android/customtabs
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+            builder.setToolbarColor(Helper.resolveColor(context, R.attr.colorPrimary));
+
+            CustomTabsIntent customTabsIntent = builder.build();
+            try {
+                customTabsIntent.launchUrl(context, uri);
+            } catch (ActivityNotFoundException ex) {
+                Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+            } catch (Throwable ex) {
+                Helper.unexpectedError(context, owner, ex);
+            }
         }
+    }
+
+    static boolean hasCustomTabs(Context context, Uri uri) {
+        PackageManager pm = context.getPackageManager();
+        Intent view = new Intent(Intent.ACTION_VIEW, uri);
+
+        for (ResolveInfo info : pm.queryIntentActivities(view, 0)) {
+            Intent intent = new Intent();
+            intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
+            intent.setPackage(info.activityInfo.packageName);
+            if (pm.resolveService(intent, 0) != null)
+                return true;
+        }
+
+        return false;
     }
 
     static Intent getChooser(Context context, Intent intent) {
