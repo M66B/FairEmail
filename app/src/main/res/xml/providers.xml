@@ -233,7 +233,8 @@
     </provider>
     <provider
         name="IRoute.io"
-        link="https://iroute.io/">
+        link="https://iroute.io/"
+        prefix="INBOX">
         <imap
             host="mail.mxfirewall.com"
             port="993"
