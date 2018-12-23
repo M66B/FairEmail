@@ -1937,7 +1937,7 @@ public class ServiceSynchronize extends LifecycleService {
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                 Log.i(Helper.TAG, fullName + " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
-                    if ("\\Noselect".equals(attr))
+                    if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                         selectable = false;
 
                     if (attr.startsWith("\\")) {

@@ -487,7 +487,7 @@ public class FragmentAccount extends FragmentEx {
                                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                                 Log.i(Helper.TAG, ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
                                 for (String attr : attrs) {
-                                    if ("\\Noselect".equals(attr))
+                                    if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                                         selectable = false;
                                     if (attr.startsWith("\\")) {
                                         int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
