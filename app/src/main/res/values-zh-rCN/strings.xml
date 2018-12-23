@@ -85,6 +85,8 @@
     <string name="title_advanced_section_misc">杂项</string>
     <string name="title_advanced_enabled">同步</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
+    <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
+    <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_unified">聚合收件箱</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -92,13 +94,11 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
-    <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
-    <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>

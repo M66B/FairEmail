@@ -65,6 +65,8 @@
     <string name="title_advanced_section_misc">Разное</string>
     <string name="title_advanced_enabled">Cинхронизировать</string>
     <string name="title_advanced_metered">Использовать другие соединения</string>
+    <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного соединения до</string>
+    <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_unified">Единый почтовый ящик</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_compact">Компактный вид сообщения</string>
@@ -73,13 +75,11 @@
     <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
-    <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_swipe">Жесты</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_confirm">Подтвердить действия, которое может привести к утечке конфиденциальной информации</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
-    <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного соединения до</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_browse_hint">Загрузить больше сообщений при прокрутке вниз</string>

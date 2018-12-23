@@ -91,6 +91,8 @@
     <string name="title_advanced_section_misc">Diversen</string>
     <string name="title_advanced_enabled">Synchroniseren</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
+    <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
+    <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_unified">Gecombineerd postvak in</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_compact">Compacte berichtweergave</string>
@@ -99,15 +101,14 @@
     <string name="title_advanced_preview">Bericht voorvertoning</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
-    <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_swipe">Veegacties</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
+    <string name="title_advanced_autoread">Markeer bericht automatisch als gelezen bij het verplaatsen van een bericht</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
-    <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>

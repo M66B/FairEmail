@@ -91,6 +91,8 @@
     <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_enabled">Synchroniser</string>
     <string name="title_advanced_metered">Utiliser des connexions limitées</string>
+    <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
+    <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_unified">Boite de réception unifiée</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_compact">Affichage compact des messages</string>
@@ -99,7 +101,6 @@
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
-    <string name="title_advanced_browse">Lire directement les messages sur le serveur</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
@@ -107,7 +108,6 @@
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
-    <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
@@ -343,6 +343,7 @@
     <string name="title_no">Non</string>
     <string name="title_undo">Annuler</string>
     <string name="title_add">Ajouter</string>
+    <string name="title_browse">Parcourir</string>
     <string name="title_report">Rapport</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>

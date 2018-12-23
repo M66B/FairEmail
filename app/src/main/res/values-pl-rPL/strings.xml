@@ -90,6 +90,8 @@
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_enabled">Synchronizuj</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
+    <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
+    <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_compact">Widok kompaktowy</string>
@@ -98,12 +100,10 @@
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
-    <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_swipe">Gesty przesuwania</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_confirm">Potwierdź działania, które mogą spowodować wyciek wrażliwych informacji</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
-    <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_debug">Debuguj</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>

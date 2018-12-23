@@ -355,18 +355,14 @@ public class ServiceSynchronize extends LifecycleService {
                                         EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
                                         if (archive == null)
                                             archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                        if (archive != null) {
-                                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                        if (archive != null)
                                             EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
-                                        }
                                         break;
 
                                     case "trash":
                                         EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                                        if (trash != null) {
-                                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                        if (trash != null)
                                             EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
-                                        }
                                         break;
 
                                     case "ignore":
@@ -1654,6 +1650,10 @@ public class ServiceSynchronize extends LifecycleService {
         if (imessage == null)
             throw new MessageRemovedException();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("autoread", false) && !imessage.isSet(Flags.Flag.SEEN))
+            imessage.setFlag(Flags.Flag.SEEN, true);
+
         if (istore.hasCapability("MOVE")) {
             Folder itarget = istore.getFolder(target.name);
             ifolder.moveMessages(new Message[]{imessage}, itarget);
@@ -1950,6 +1950,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
 
+                // https://tools.ietf.org/html/rfc3501#section-5.1
                 if ("INBOX".equals(fullName.toUpperCase()))
                     type = EntityFolder.INBOX;
 

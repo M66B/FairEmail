@@ -86,6 +86,7 @@
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_enabled">Eşzamanlama</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
+    <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_unified">Birleştirilmiş gelen kutusu</string>
     <string name="title_advanced_compact">Kompakt mesaj görünümü</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
@@ -93,7 +94,6 @@
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
-    <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>

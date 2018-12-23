@@ -73,7 +73,8 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     private SwitchCompat swSwipe;
     private SwitchCompat swActionbar;
-    private SwitchCompat swAutoclose;
+    private SwitchCompat swAutoClose;
+    private SwitchCompat swAutoRead;
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoMove;
     private SwitchCompat swConfirm;
@@ -112,7 +113,8 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         swSwipe = view.findViewById(R.id.swSwipe);
         swActionbar = view.findViewById(R.id.swActionbar);
-        swAutoclose = view.findViewById(R.id.swAutoclose);
+        swAutoClose = view.findViewById(R.id.swAutoClose);
+        swAutoRead = view.findViewById(R.id.swAutoRead);
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swConfirm = view.findViewById(R.id.swConfirm);
@@ -299,11 +301,19 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             }
         });
 
-        swAutoclose.setChecked(prefs.getBoolean("autoclose", true));
-        swAutoclose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
+        swAutoClose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoclose", checked).apply();
+            }
+        });
+
+        swAutoRead.setChecked(prefs.getBoolean("autoread", false));
+        swAutoRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoread", checked).apply();
             }
         });
 
