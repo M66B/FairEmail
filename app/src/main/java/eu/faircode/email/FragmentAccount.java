@@ -247,6 +247,7 @@ public class FragmentAccount extends FragmentEx {
                 tilPassword.getEditText().setText(null);
 
                 etName.setText(position > 1 ? provider.name : null);
+                etPrefix.setText(provider.prefix);
 
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);

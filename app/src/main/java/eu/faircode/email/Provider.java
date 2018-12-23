@@ -34,8 +34,10 @@ import java.util.Locale;
 
 public class Provider {
     public String name;
+    public int order;
     public String link;
     public String type;
+    public String prefix;
     public String imap_host;
     public boolean imap_starttls;
     public int imap_port;
@@ -63,8 +65,10 @@ public class Provider {
                     else if ("provider".equals(xml.getName())) {
                         provider = new Provider();
                         provider.name = xml.getAttributeValue(null, "name");
+                        provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
+                        provider.prefix = xml.getAttributeValue(null, "prefix");
                     } else if ("imap".equals(xml.getName())) {
                         provider.imap_host = xml.getAttributeValue(null, "host");
                         provider.imap_port = xml.getAttributeIntValue(null, "port", 0);
@@ -93,7 +97,11 @@ public class Provider {
         Collections.sort(result, new Comparator<Provider>() {
             @Override
             public int compare(Provider p1, Provider p2) {
-                return collator.compare(p1.name, p2.name);
+                int o = Integer.compare(p1.order, p2.order);
+                if (o == 0)
+                    return collator.compare(p1.name, p2.name);
+                else
+                    return o;
             }
         });
 
