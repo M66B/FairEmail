@@ -1132,10 +1132,8 @@ public class FragmentMessages extends FragmentEx {
                                                 if (message != null) {
                                                     List<EntityMessage> messages = db.message().getMessageByThread(
                                                             message.account, message.thread, threading ? null : id, message.folder);
-                                                    for (EntityMessage threaded : messages) {
+                                                    for (EntityMessage threaded : messages)
                                                         result.ids.add(threaded.id);
-                                                        db.message().setMessageUiHide(threaded.id, true);
-                                                    }
                                                 }
                                             }
 
@@ -1873,50 +1871,61 @@ public class FragmentMessages extends FragmentEx {
         if (result.target == null)
             return;
 
-        String title = getResources().getQuantityString(
-                R.plurals.title_moving_messages, result.ids.size(),
-                result.ids.size(), result.target.getDisplayName(getContext()));
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(title)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle args = new Bundle();
-                        args.putSerializable("result", result);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("automove", false))
+            moveAskConfirmed(result);
+        else {
+            String title = getResources().getQuantityString(
+                    R.plurals.title_moving_messages, result.ids.size(),
+                    result.ids.size(), result.target.getDisplayName(getContext()));
+            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                    .setMessage(title)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            moveAskConfirmed(result);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        }
+    }
 
-                        // Move messages
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onLoad(Context context, Bundle args) {
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
+    private void moveAskConfirmed(MessageTarget result) {
+        Bundle args = new Bundle();
+        args.putSerializable("result", result);
 
-                                    for (long id : result.ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
-                                            EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
-                                            EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
-                                        }
-                                    }
+        // Move messages
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onLoad(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+                try {
+                    MessageTarget result = (MessageTarget) args.getSerializable("result");
 
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-                                return null;
-                            }
+                    db.beginTransaction();
 
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.load(FragmentMessages.this, args);
+                    for (long id : result.ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                            EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
+                            EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
+                        }
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.load(FragmentMessages.this, args);
     }
 
     private void moveUndo(final MessageTarget result) {
