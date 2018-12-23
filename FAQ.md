@@ -22,7 +22,7 @@ For authorizing:
 
 ## Planned features
 
-* Microsoft OAuth ([blocking issue](https://github.com/AzureAD/microsoft-authentication-library-for-android/issues/354))
+None at this moment.
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -76,6 +76,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * Use accounts on the device (USE_CREDENTIALS): needed to select accounts on Android version 5.1 Lollipop and before (not used on later Android versions)
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
+
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
@@ -87,6 +88,7 @@ Most, if not all, other email apps don't show a notification with the "side effe
 Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
 
 If you came here by clicking on the notification, you should known that the next click will open the unified inbox.
+
 
 <a name="faq3"></a>
 **(3) What are operations and why are they pending?**
@@ -109,6 +111,7 @@ The low priority status bar notification shows the number of pending operations,
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
 
+
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
 
@@ -124,6 +127,7 @@ Empty password: your username is likely easily guessed, so this is very insecure
 If you still want to use an invalid security certificate, IMAP STARTTLS or an empty password,
 you'll need to enable insecure connections in the advanced settings and also in the account and/or identity settings.
 Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
+
 
 <a name="faq5"></a>
 **(5) How can I customize the message view?**
@@ -141,6 +145,7 @@ If the list of addresses is long, you can collapse the addresses section with th
 
 Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
+
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
@@ -151,6 +156,7 @@ See here for instructions: [https://support.google.com/accounts/answer/185833](h
 
 If this doesn't work, see here for more solutions: [https://support.google.com/mail/accounts/answer/78754](https://support.google.com/mail/accounts/answer/78754)
 
+
 <a name="faq7"></a>
 **(7) Why are messages in the outbox not moved to the sent folder?**
 
@@ -159,6 +165,7 @@ Note that this requires a sent folder to be selected and to be set to synchroniz
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can use the advanced identity setting *Store a copy of sent messages in* and select the sent folder.
 There is a menu to move sent messages in the outbox to the sent folder.
+
 
 <a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
@@ -184,12 +191,14 @@ You can configure these by setting the email address field to the alias address 
 ~~This IMAP extension is required to implement two way synchronization, which is not an optional feature.~~
 ~~So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
+
 <a name="faq11"></a>
 **(11) Why is POP not supported?**
 
 Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,
 using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary battery usage and delayed new message notifications.
 Moreover, POP is unsuitable for two way synchronization and more often than not people read email on different devices.
+
 
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
@@ -212,6 +221,7 @@ Note that signed only or encrypted only messages are not supported, see here for
 
 If you like, you can verify a signature by opening the *signature.asc* attachment.
 
+
 <a name="faq13"></a>
 **(13) How does search on server work?**
 
@@ -222,11 +232,15 @@ The message text of local messages will not be searched if the message text was 
 Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 Searching messages is a pro feature.
 
+
 <a name="faq14"></a>
 **(14) How can I setup Outlook with 2FA?**
 
 To use Outlook with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+
+Unfortunately, Outlook doesn't support OAuth for IMAP/SMTP connections, so there is no other way.
+
 
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
@@ -238,6 +252,7 @@ The message text will keep loading if there is no connection to the account, see
 In the advanced settings you can set the maximum size for automatically downloading of messages on metered connections.
 
 Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
+
 
 <a name="faq16"></a>
 **(16) Why are messages not being synchronized?**
@@ -258,6 +273,7 @@ in particular of Huawei (see [here](https://www.forbes.com/sites/bensin/2016/07/
 or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-push-notifications-on-xiaomis-miui-8-for-real/) for a fix)
 stop apps and services too aggressively.
 
+
 <a name="faq17"></a>
 **(17) ~~Why does manual synchronize not work?~~**
 
@@ -265,11 +281,13 @@ stop apps and services too aggressively.
 
 ~~See the previous question for more information.~~
 
+
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
 See also [this FAQ](#user-content-faq15).
+
 
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
@@ -288,6 +306,7 @@ which means that FairEmail is basically free to use.
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
+
 <a name="faq20"></a>
 **(20) Can I get a refund?**
 
@@ -300,6 +319,7 @@ since there wasn't paid anything for them and because they can be evaluated with
 I take my responsibility as seller to deliver what has been promised
 and I expect that you take responsibility for informing yourself of what you are buying.
 
+
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
 
@@ -307,6 +327,7 @@ Before Android 8 Oreo: there is an advanced option in the setup for this.
 
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
+
 
 <a name="faq22"></a>
 **(22) Why do I get 'Couldn't connect to host' ?**
@@ -321,6 +342,7 @@ Possible causes are:
 * The are problems with the internet connection
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
+
 
 <a name="faq23"></a>
 **(23) Why do I get 'Too many simultaneous connections' ?**
@@ -342,12 +364,14 @@ The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
 See [here](https://support.google.com/mail/answer/7126229) for details.
 
+
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
 Browse messages on the server will fetch messages from the email server in real time
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
 You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
+
 
 <a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
@@ -359,11 +383,13 @@ for example because your custom ROM does not include it or because it was remove
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
+
 <a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
 
 Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
 Registration is free.
+
 
 <a name="faq27"></a>
 **(27) How can I differentiate external and embedded images?**
@@ -381,6 +407,7 @@ Broken image:
 ![Broken image](https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_broken_image_black_48dp.png)
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
+
 
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
@@ -403,6 +430,7 @@ On Android before Android 8 Oreo you can set the notification sound in the advan
 
 See [this FAQ](#user-content-faq21) if your device has a notification light.
 
+
 <a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
 
@@ -410,6 +438,7 @@ Just long press a folder, select *Edit properties*,
 and enable either *Show in unified inbox*
 or *Notify new messages* (available on Android 7 Nougat and later only)
 and tap *Save*.
+
 
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
@@ -422,6 +451,7 @@ There are quick settings (settings tiles) available to:
 Quick settings require Android 7.0 Nougat or later.
 The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
+
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
@@ -433,10 +463,12 @@ There are shortcuts available to:
 Shortcuts require Android 7.1 Nougat or later.
 The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
+
 <a name="faq32"></a>
 **(32) How can I check if reading email is really safe?**
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
+
 
 <a name="faq33"></a>
 **(33) Why are edited sender addresses not working?**
@@ -454,6 +486,7 @@ This means that the edited sender address was automatically replaced by a valida
 
 Note that this is independent of receiving messages.
 
+
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
@@ -468,6 +501,7 @@ Identities are matched on e-mail address in this order:
 Matched identities can be used to color code messages. The identity color takes precedence over the account color.
 Setting colors is a pro feature.
 
+
 <a name="faq35"></a>
 **(35) Why should I be careful with viewing images, attachments and the original message?**
 
@@ -476,6 +510,7 @@ but will also leak your IP address.
 
 Opening attachments or viewing an original message might execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
+
 
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
@@ -486,6 +521,7 @@ Long version:
 
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
+
 
 <a name="faq37"></a>
 **(37) How are passwords stored?**
