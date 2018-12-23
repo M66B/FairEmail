@@ -110,6 +110,7 @@
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_autoclose">Închide automat conversaţiile</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
+    <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
@@ -133,6 +134,8 @@
     <string name="title_account_linked">Cont asociat</string>
     <string name="title_account_name">Nume cont</string>
     <string name="title_account_name_hint">Folosit la diferențierea dosarelor</string>
+    <string name="title_account_prefix">Prefix nume cont</string>
+    <string name="title_account_prefix_hint">Folosit pentru a simplifica numele dosarelor</string>
     <string name="title_account_signature">Text semnătură</string>
     <string name="title_account_color">Culoare</string>
     <string name="title_account_notify">Separă notificările</string>
@@ -193,6 +196,7 @@
     <string name="title_sync_days_remark">Mărind această valoare va duce la o creștere a consumului bateriei și a datelor</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
     <string name="title_keep_all">Păstrează toate mesajele</string>
+    <string name="title_folder_name_missing">Lipsește numele dosarului</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
     <string name="title_folder_delete">Ştergeţi definitiv acest dosar şi mesajele pe care le conţine?</string>
     <string name="title_folder_unified">Căsuță poștală comună</string>
@@ -234,6 +238,7 @@
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
     <string name="title_no_viewer">Nici o aplicație nu poate deschide %1$s</string>
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
+    <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
@@ -334,6 +339,7 @@
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
+    <string name="title_hint_message_compact">Aveţi posibilitatea să selectaţi un mod compact de vizualizare al mesajelor în opţiunile avansate</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_select_app">Selectează aplicația</string>
@@ -343,6 +349,7 @@
     <string name="title_no">Nu</string>
     <string name="title_undo">Anulează</string>
     <string name="title_add">Adaugă</string>
+    <string name="title_browse">Răsfoire</string>
     <string name="title_report">Raportează</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
