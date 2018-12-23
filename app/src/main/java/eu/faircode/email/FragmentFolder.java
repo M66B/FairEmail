@@ -222,11 +222,9 @@ public class FragmentFolder extends FragmentEx {
                                         display, unified, notify, hide,
                                         synchronize, poll, download,
                                         sync_days, keep_days);
+                                db.folder().setFolderError(id, null);
 
                                 db.message().deleteMessagesBefore(id, keep_time, true);
-
-                                if (!synchronize)
-                                    db.folder().setFolderError(id, null);
 
                                 EntityOperation.sync(db, folder.id);
                             }

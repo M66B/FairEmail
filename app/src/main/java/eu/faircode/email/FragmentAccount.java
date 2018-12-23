@@ -728,11 +728,11 @@ public class FragmentAccount extends FragmentEx {
 
                             if (!update)
                                 account.created = now;
+
+                            account.error = null;
+
                             if (synchronize)
                                 account.last_connected = now;
-
-                            if (!synchronize)
-                                account.error = null;
 
                             if (account.primary)
                                 db.account().resetPrimary();

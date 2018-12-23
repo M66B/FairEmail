@@ -516,9 +516,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.primary = (identity.synchronize && primary);
                             identity.store_sent = false;
                             identity.sent_folder = (sent == null ? null : sent.id);
-
-                            if (!identity.synchronize)
-                                identity.error = null;
+                            identity.error = null;
 
                             if (identity.primary)
                                 db.identity().resetPrimary();
