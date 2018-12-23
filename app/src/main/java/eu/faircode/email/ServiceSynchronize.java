@@ -646,7 +646,8 @@ public class ServiceSynchronize extends LifecycleService {
                             if (cursor.moveToNext()) {
                                 if (true || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                                     Uri uri = ContactsContract.Contacts.getLookupUri(
-                                            cursor.getLong(0), cursor.getString(1));
+                                            cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts._ID)),
+                                            cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY)));
                                     InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
                                             getContentResolver(), uri);
                                     mbuilder.setLargeIcon(BitmapFactory.decodeStream(is));
