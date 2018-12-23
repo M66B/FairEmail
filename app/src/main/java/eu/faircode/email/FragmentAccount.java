@@ -1107,6 +1107,7 @@ public class FragmentAccount extends FragmentEx {
                     if (name.equals(account.name)) {
                         final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
                         snackbar.show();
+
                         am.getAuthToken(
                                 account,
                                 Helper.getAuthTokenType(type),
@@ -1123,11 +1124,15 @@ public class FragmentAccount extends FragmentEx {
                                             authorized = token;
                                             etUser.setText(account.name);
                                             tilPassword.getEditText().setText(token);
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    snackbar.dismiss();
+                                                }
+                                            }, 1000);
                                         } catch (Throwable ex) {
                                             Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                                             snackbar.setText(Helper.formatThrowable(ex));
-                                        } finally {
-                                            snackbar.dismiss();
                                         }
                                     }
                                 },
