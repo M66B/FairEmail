@@ -742,3 +742,5 @@ Note that you can give folders a display name by long pressing on a folder name,
 
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 Registration is free.
+
+If you are a supporter of the project, you can get limited personal support by using [this form](https://contact.faircode.eu/?product=fairemail%2B).
