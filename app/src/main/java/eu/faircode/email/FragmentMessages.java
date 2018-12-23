@@ -81,6 +81,7 @@ public class FragmentMessages extends FragmentEx {
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
+    private ImageButton ibHintCompact;
     private TextView tvNoEmail;
     private RecyclerView rvMessage;
     private BottomNavigationView bottom_navigation;
@@ -89,6 +90,7 @@ public class FragmentMessages extends FragmentEx {
     private Group grpHintSupport;
     private Group grpHintSwipe;
     private Group grpHintSelect;
+    private Group grpHintCompact;
     private Group grpReady;
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
@@ -174,6 +176,7 @@ public class FragmentMessages extends FragmentEx {
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
+        ibHintCompact = view.findViewById(R.id.ibHintCompact);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvFolder);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
@@ -182,6 +185,7 @@ public class FragmentMessages extends FragmentEx {
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
+        grpHintCompact = view.findViewById(R.id.grpHintCompact);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
         fabMore = view.findViewById(R.id.fabMore);
@@ -267,6 +271,14 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
+        ibHintSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("app_support", true).apply();
+                grpHintSupport.setVisibility(View.GONE);
+            }
+        });
+
         ibHintSwipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -283,11 +295,11 @@ public class FragmentMessages extends FragmentEx {
             }
         });
 
-        ibHintSupport.setOnClickListener(new View.OnClickListener() {
+        ibHintCompact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putBoolean("app_support", true).apply();
-                grpHintSupport.setVisibility(View.GONE);
+                prefs.edit().putBoolean("message_compact", true).apply();
+                grpHintCompact.setVisibility(View.GONE);
             }
         });
 
@@ -1215,10 +1227,12 @@ public class FragmentMessages extends FragmentEx {
                 selectionTracker.onRestoreInstanceState(savedInstanceState);
         }
 
+        boolean hints = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || viewType != AdapterMessage.ViewType.UNIFIED ? View.GONE : View.VISIBLE);
-        grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || viewType == AdapterMessage.ViewType.THREAD ? View.GONE : View.VISIBLE);
-        grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || viewType != AdapterMessage.ViewType.FOLDER ? View.GONE : View.VISIBLE);
+        grpHintSupport.setVisibility(prefs.getBoolean("app_support", false) || !hints ? View.GONE : View.VISIBLE);
+        grpHintSwipe.setVisibility(prefs.getBoolean("message_swipe", false) || !hints ? View.GONE : View.VISIBLE);
+        grpHintSelect.setVisibility(prefs.getBoolean("message_select", false) || !hints ? View.GONE : View.VISIBLE);
+        grpHintCompact.setVisibility(prefs.getBoolean("message_compact", false) || !hints ? View.GONE : View.VISIBLE);
 
         final DB db = DB.getInstance(getContext());
 
