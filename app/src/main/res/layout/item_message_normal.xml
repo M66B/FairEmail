@@ -52,7 +52,7 @@
             android:layout_height="48dp"
             android:padding="6dp"
             android:src="@drawable/baseline_person_24"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
@@ -63,9 +63,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
+            android:minHeight="24dp"
             android:text="From"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/barrier1"
             app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
@@ -75,11 +76,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
             android:maxLines="1"
             android:text="123 KB"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorUnread"
-            app:layout_constraintBottom_toTopOf="@+id/barrier1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
             app:layout_constraintEnd_toStartOf="@+id/tvTime"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
@@ -88,19 +90,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
             android:maxLines="1"
             android:text="Time"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toTopOf="@+id/barrier1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
             app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="tvFrom,tvSize,tvTime" />
 
         <View
             android:id="@+id/padding1"
@@ -108,7 +104,7 @@
             android:layout_height="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/barrier1" />
+            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
 
         <TextView
             android:id="@+id/tvSubject"
@@ -116,9 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
+            android:minHeight="24dp"
             android:text="Subject"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/barrier2"
             app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toBottomOf="@id/padding1" />
@@ -130,16 +127,9 @@
             android:padding="6dp"
             android:src="@drawable/baseline_star_24"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintEnd_toEndOf="@id/paddingEnd"
             app:layout_constraintTop_toBottomOf="@id/paddingTop" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="tvSubject" />
 
         <View
             android:id="@+id/padding2"
@@ -147,7 +137,7 @@
             android:layout_height="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/barrier2" />
+            app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
         <ImageView
             android:id="@+id/ivAnswered"
@@ -155,7 +145,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_reply_24"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
             app:layout_constraintTop_toBottomOf="@id/padding2" />
 
@@ -165,7 +155,7 @@
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_attachment_24"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintStart_toEndOf="@id/ivAnswered"
             app:layout_constraintTop_toBottomOf="@id/padding2" />
 
@@ -175,10 +165,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
-            android:gravity="end"
+            android:gravity="end|center_vertical"
+            android:minHeight="21dp"
             android:text="folder"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
             app:layout_constraintEnd_toStartOf="@+id/tvCount"
             app:layout_constraintStart_toEndOf="@id/ivAttachments"
             app:layout_constraintTop_toBottomOf="@id/padding2" />
@@ -188,10 +178,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
+            android:gravity="center_vertical"
             android:maxLines="1"
             android:text="3"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintEnd_toStartOf="@+id/ivThread"
             app:layout_constraintTop_toBottomOf="@id/padding2" />
 
@@ -201,16 +192,9 @@
             android:layout_height="15dp"
             android:layout_marginEnd="6dp"
             android:src="@drawable/baseline_message_24"
-            app:layout_constraintBottom_toTopOf="@+id/barrier3"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
             app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
             app:layout_constraintTop_toBottomOf="@id/padding2" />
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="ivAvatar,ivAnswered,ivAttachments,tvFolder,tvCount,ivThread,ivFlagged" />
 
         <TextView
             android:id="@+id/tvPreview"
@@ -227,7 +211,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
             app:layout_constraintStart_toEndOf="@id/paddingStart"
-            app:layout_constraintTop_toBottomOf="@id/barrier3" />
+            app:layout_constraintTop_toBottomOf="@id/tvFolder" />
 
         <TextView
             android:id="@+id/tvError"
