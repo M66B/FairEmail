@@ -26,7 +26,6 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -233,7 +232,7 @@ public class EntityMessage implements Serializable {
                         }
                     }
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
             }
         }
 

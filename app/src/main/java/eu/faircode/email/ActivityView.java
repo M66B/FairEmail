@@ -44,7 +44,6 @@ import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -351,7 +350,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             Intent intent = getIntent();
 
             String action = intent.getAction();
-            Log.i(Helper.TAG, "View intent=" + intent + " action=" + action);
+            Log.i("View intent=" + intent + " action=" + action);
             if (action != null) {
                 intent.setAction(null);
                 setIntent(intent);
@@ -635,7 +634,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     if (TextUtils.isEmpty(info.tag_name))
                                         info.tag_name = name;
 
-                                    Log.i(Helper.TAG, "Latest version=" + info.tag_name);
+                                    Log.i("Latest version=" + info.tag_name);
                                     if (BuildConfig.VERSION_NAME.equals(info.tag_name))
                                         break;
                                     else
@@ -717,7 +716,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         long last = cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
 
                         InternetAddress address = new InternetAddress(email, name);
-                        Log.i(Helper.TAG, "Shortcut id=" + id + " address=" + address +
+                        Log.i("Shortcut id=" + id + " address=" + address +
                                 " starred=" + starred + " times=" + times + " last=" + last);
 
                         if (starred == 0 && times == 0 && last == 0)
@@ -748,7 +747,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         if (sm.getManifestShortcuts().size() + shortcuts.size() >= sm.getMaxShortcutCountPerActivity())
                             break;
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                     }
             } finally {
                 if (cursor != null)
@@ -1220,7 +1219,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
                 Intent result = api.executeApi(data, encrypted, decrypted);
 
-                Log.i(Helper.TAG, "PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
+                Log.i("PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
                 switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                     case OpenPgpApi.RESULT_CODE_SUCCESS:
                         if (inline) {
@@ -1292,7 +1291,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected void onLoaded(Bundle args, PendingIntent pi) {
                 if (pi != null)
                     try {
-                        Log.i(Helper.TAG, "PGP executing pi=" + pi);
+                        Log.i("PGP executing pi=" + pi);
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
                                 ActivityView.REQUEST_DECRYPT,
@@ -1349,19 +1348,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                     if (pfd != null)
                                         pfd.close();
                                 } catch (Throwable ex) {
-                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.w(ex);
                                 }
                                 try {
                                     if (fos != null)
                                         fos.close();
                                 } catch (Throwable ex) {
-                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.w(ex);
                                 }
                                 try {
                                     if (fis != null)
                                         fis.close();
                                 } catch (Throwable ex) {
-                                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.w(ex);
                                 }
                             }
 

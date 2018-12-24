@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 import org.jsoup.Jsoup;
@@ -159,12 +158,12 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
 
         if (false) {
-            Log.i(Helper.TAG, "Prefering IPv4");
+            Log.i("Prefering IPv4");
             System.setProperty("java.net.preferIPv4Stack", "true");
         }
 
         // https://javaee.github.io/javamail/OAuth2
-        Log.i(Helper.TAG, "Auth type=" + auth_type);
+        Log.i("Auth type=" + auth_type);
         if (auth_type == Helper.AUTH_TYPE_GMAIL) {
             props.put("mail.imaps.auth.mechanisms", "XOAUTH2");
             props.put("mail.imap.auth.mechanisms", "XOAUTH2");
@@ -201,7 +200,7 @@ public class MessageHelper {
             if (email != null && !TextUtils.isEmpty(message.extra)) {
                 int at = email.indexOf('@');
                 email = email.substring(0, at) + message.extra + email.substring(at);
-                Log.i(Helper.TAG, "extra=" + email);
+                Log.i("extra=" + email);
             }
             imessage.setFrom(new InternetAddress(email, name));
         }
@@ -502,13 +501,13 @@ public class MessageHelper {
                 } catch (UnsupportedEncodingException ex) {
                     // x-binaryenc
                     // https://javaee.github.io/javamail/FAQ#unsupen
-                    Log.w(Helper.TAG, "Unsupported encoding: " + part.getContentType());
+                    Log.w("Unsupported encoding: " + part.getContentType());
                     return readStream(part.getInputStream(), "US-ASCII");
                 }
             } catch (IOException ex) {
                 // IOException; Unknown encoding: none
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
+                Log.w(ex);
+                return "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
             }
 
             if (part.isMimeType("text/plain"))
@@ -535,8 +534,8 @@ public class MessageHelper {
                 }
             } catch (ParseException ex) {
                 // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                text = "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
+                Log.w(ex);
+                text = "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
             }
             return text;
         }
@@ -550,8 +549,8 @@ public class MessageHelper {
                         return s;
                 }
             } catch (ParseException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                return "<pre>" + ex + "<br />" + Log.getStackTraceString(ex) + "</pre>";
+                Log.w(ex);
+                return "<pre>" + ex + "<br />" + android.util.Log.getStackTraceString(ex) + "</pre>";
             }
 
         return null;
@@ -572,11 +571,11 @@ public class MessageHelper {
             }
         } catch (IOException ex) {
             if (ex.getCause() instanceof MessagingException)
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.w(ex);
             else
                 throw ex;
         } catch (ParseException ex) {
-            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.w(ex);
         }
 
         return result;
@@ -590,10 +589,10 @@ public class MessageHelper {
         try {
             content = part.getContent();
         } catch (UnsupportedEncodingException ex) {
-            Log.w(Helper.TAG, "attachment content type=" + part.getContentType());
+            Log.w("attachment content type=" + part.getContentType());
             content = part.getInputStream();
         } catch (ParseException ex) {
-            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.w(ex);
             content = null;
         }
 
@@ -602,7 +601,7 @@ public class MessageHelper {
             try {
                 disposition = part.getDisposition();
             } catch (MessagingException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.w(ex);
                 disposition = null;
             }
 
@@ -610,7 +609,7 @@ public class MessageHelper {
             try {
                 filename = part.getFileName();
             } catch (MessagingException ex) {
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.w(ex);
                 filename = null;
             }
 
@@ -635,7 +634,7 @@ public class MessageHelper {
                     if (extension != null) {
                         String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
                         if (type != null) {
-                            Log.w(Helper.TAG, "Guessing file=" + attachment.name + " type=" + type);
+                            Log.w("Guessing file=" + attachment.name + " type=" + type);
                             attachment.type = type;
                         }
                     }

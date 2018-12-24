@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -127,7 +126,7 @@ public class EntityAttachment {
             this.available = true;
             db.attachment().updateAttachment(this);
 
-            Log.i(Helper.TAG, "Downloaded attachment size=" + this.size);
+            Log.i("Downloaded attachment size=" + this.size);
         } catch (IOException ex) {
             // Reset progress on failure
             this.progress = null;

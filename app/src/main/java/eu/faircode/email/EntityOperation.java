@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -109,7 +107,7 @@ public class EntityOperation {
 
             db.folder().setFolderSyncState(fid, "requested");
 
-            Log.i(Helper.TAG, "Queued sync folder=" + folder);
+            Log.i("Queued sync folder=" + folder);
         }
     }
 
@@ -137,7 +135,7 @@ public class EntityOperation {
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
         } catch (JSONException ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
         }
 
         EntityOperation operation = new EntityOperation();
@@ -148,7 +146,7 @@ public class EntityOperation {
         operation.created = new Date().getTime();
         operation.id = db.operation().insertOperation(operation);
 
-        Log.i(Helper.TAG, "Queued op=" + operation.id + "/" + operation.name +
+        Log.i("Queued op=" + operation.id + "/" + operation.name +
                 " msg=" + operation.folder + "/" + operation.message +
                 " args=" + operation.args);
     }

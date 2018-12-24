@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 
 import org.jsoup.Jsoup;
@@ -74,7 +73,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                             InternetAddress.parse(to);
                             args.putString("to", to);
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
                 }
 
@@ -85,7 +84,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                             InternetAddress.parse(TextUtils.join(", ", to));
                             args.putString("to", TextUtils.join(", ", to));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
                 }
 
@@ -96,7 +95,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                             InternetAddress.parse(TextUtils.join(", ", cc));
                             args.putString("cc", TextUtils.join(", ", cc));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
                 }
 
@@ -107,7 +106,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                             InternetAddress.parse(TextUtils.join(", ", bcc));
                             args.putString("bcc", TextUtils.join(", ", bcc));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
                 }
 

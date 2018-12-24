@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.util.Log;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
@@ -111,7 +110,7 @@ public class ViewModelBrowse extends ViewModel {
                         try {
                             body = message.read(state.context);
                         } catch (IOException ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.e(ex);
                         }
 
                     if (message.from != null)
@@ -151,15 +150,15 @@ public class ViewModelBrowse extends ViewModel {
                 props.setProperty("mail.imap.throwsearchexception", "true");
                 Session isession = Session.getInstance(props, null);
 
-                Log.i(Helper.TAG, "Boundary connecting account=" + account.name);
+                Log.i("Boundary connecting account=" + account.name);
                 state.istore = (IMAPStore) isession.getStore(account.starttls ? "imap" : "imaps");
                 Helper.connect(state.context, state.istore, account);
 
-                Log.i(Helper.TAG, "Boundary opening folder=" + folder.name);
+                Log.i("Boundary opening folder=" + folder.name);
                 state.ifolder = (IMAPFolder) state.istore.getFolder(folder.name);
                 state.ifolder.open(Folder.READ_WRITE);
 
-                Log.i(Helper.TAG, "Boundary searching=" + state.search);
+                Log.i("Boundary searching=" + state.search);
                 if (state.search == null)
                     state.imessages = state.ifolder.getMessages();
                 else
@@ -178,14 +177,14 @@ public class ViewModelBrowse extends ViewModel {
                                     new FlagTerm(new Flags(Helper.sanitizeKeyword(state.search)), true)
                             )
                     );
-                Log.i(Helper.TAG, "Boundary found messages=" + state.imessages.length);
+                Log.i("Boundary found messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
                 if (ex instanceof FolderClosedException)
-                    Log.w(Helper.TAG, "Search " + ex + "\n" + Log.getStackTraceString(ex));
+                    Log.w("Search", ex);
                 else {
-                    Log.e(Helper.TAG, "Search " + ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e("Search", ex);
                     throw ex;
                 }
             }
@@ -193,7 +192,7 @@ public class ViewModelBrowse extends ViewModel {
 
         int count = 0;
         while (state.index >= 0 && count < state.pageSize && currentState != null) {
-            Log.i(Helper.TAG, "Boundary index=" + state.index);
+            Log.i("Boundary index=" + state.index);
             int from = Math.max(0, state.index - (state.pageSize - count) + 1);
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             state.index -= (state.pageSize - count);
@@ -214,7 +213,7 @@ public class ViewModelBrowse extends ViewModel {
                 for (int j = isub.length - 1; j >= 0; j--)
                     try {
                         long uid = state.ifolder.getUID(isub[j]);
-                        Log.i(Helper.TAG, "Boundary sync uid=" + uid);
+                        Log.i("Boundary sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(state.fid, uid);
                         if (message == null) {
                             message = ServiceSynchronize.synchronizeMessage(
@@ -224,18 +223,18 @@ public class ViewModelBrowse extends ViewModel {
                         }
                         db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.w(folder.name + " boundary", ex);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
-                            Log.w(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(folder.name + " boundary", ex);
                             if (!(ex.getCause() instanceof MessageRemovedException))
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, folder.name + " boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(folder.name + " boundary", ex);
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
@@ -247,7 +246,7 @@ public class ViewModelBrowse extends ViewModel {
             }
         }
 
-        Log.i(Helper.TAG, "Boundary done");
+        Log.i("Boundary done");
     }
 
     void clear() {
@@ -256,12 +255,12 @@ public class ViewModelBrowse extends ViewModel {
             return;
         currentState = null;
 
-        Log.i(Helper.TAG, "Boundary clear");
+        Log.i("Boundary clear");
         try {
             if (state.istore != null)
                 state.istore.close();
         } catch (Throwable ex) {
-            Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+            Log.e("Boundary", ex);
         } finally {
             state.context = null;
             state.messages = null;

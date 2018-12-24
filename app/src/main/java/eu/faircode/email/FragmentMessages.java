@@ -31,7 +31,6 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -435,7 +434,7 @@ public class FragmentMessages extends FragmentEx {
                             if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                                 loadMessages();
                         } catch (IllegalStateException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
                         swipeRefresh.setEnabled(true);
                     }
@@ -528,7 +527,7 @@ public class FragmentMessages extends FragmentEx {
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
                 if (message == null)
                     return;
-                Log.i(Helper.TAG, "Swiped dir=" + direction + " message=" + message.id);
+                Log.i("Swiped dir=" + direction + " message=" + message.id);
 
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
@@ -1596,7 +1595,7 @@ public class FragmentMessages extends FragmentEx {
                             message.folder = sent.id;
                             message.uid = null;
                             db.message().updateMessage(message);
-                            Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
+                            Log.i("Appending sent msgid=" + message.msgid);
                             EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
                         }
                     }
@@ -1792,7 +1791,7 @@ public class FragmentMessages extends FragmentEx {
                                         !EntityFolder.JUNK.equals(message.folderType))
                                     count++;
                             }
-                            Log.i(Helper.TAG, "Auto close=" + count);
+                            Log.i("Auto close=" + count);
 
                             // Auto close when:
                             // - no more non archived/trashed/sent messages
@@ -1808,7 +1807,7 @@ public class FragmentMessages extends FragmentEx {
                     model.setMessages(messages);
                 }
 
-                Log.i(Helper.TAG, "Submit messages=" + messages.size());
+                Log.i("Submit messages=" + messages.size());
                 adapter.submitList(messages);
 
                 boolean searching = (searchCallback != null && searchCallback.isSearching());
@@ -1906,7 +1905,7 @@ public class FragmentMessages extends FragmentEx {
                     for (long id : result.ids) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message != null) {
-                            Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                            Log.i("Move id=" + id + " target=" + result.target.name);
                             EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
                             EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
                         }
@@ -1950,7 +1949,7 @@ public class FragmentMessages extends FragmentEx {
                         DB db = DB.getInstance(context);
                         MessageTarget result = (MessageTarget) args.getSerializable("result");
                         for (long id : result.ids) {
-                            Log.i(Helper.TAG, "Move undo id=" + id);
+                            Log.i("Move undo id=" + id);
                             db.message().setMessageUiHide(id, false);
                         }
                         return null;
@@ -1969,7 +1968,7 @@ public class FragmentMessages extends FragmentEx {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.i(Helper.TAG, "Move timeout");
+                Log.i("Move timeout");
 
                 // Remove snackbar
                 if (snackbar.isShown())
@@ -1986,7 +1985,7 @@ public class FragmentMessages extends FragmentEx {
                             for (long id : result.ids) {
                                 EntityMessage message = db.message().getMessage(id);
                                 if (message != null && message.ui_hide) {
-                                    Log.i(Helper.TAG, "Move id=" + id + " target=" + result.target.name);
+                                    Log.i("Move id=" + id + " target=" + result.target.name);
                                     EntityFolder folder = db.folder().getFolderByName(message.account, result.target.name);
                                     EntityOperation.queue(db, message, EntityOperation.MOVE, folder.id);
                                 }

@@ -29,7 +29,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -171,7 +170,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                     // https://developer.android.com/reference/android/support/v4/content/FileProvider
                     final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-                    Log.i(Helper.TAG, "uri=" + uri);
+                    Log.i("uri=" + uri);
 
                     // Build intent
                     final Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -179,15 +178,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     if (!TextUtils.isEmpty(attachment.name))
                         intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
-                    Log.i(Helper.TAG, "Sharing " + file + " type=" + attachment.type);
-                    Log.i(Helper.TAG, "Intent=" + intent);
+                    Log.i("Sharing " + file + " type=" + attachment.type);
+                    Log.i("Intent=" + intent);
 
                     // Get targets
                     PackageManager pm = context.getPackageManager();
                     List<NameResolveInfo> targets = new ArrayList<>();
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
                     for (ResolveInfo ri : ris) {
-                        Log.i(Helper.TAG, "Target=" + ri);
+                        Log.i("Target=" + ri);
                         context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         targets.add(new NameResolveInfo(
                                 pm.getApplicationIcon(ri.activityInfo.applicationInfo),
@@ -316,7 +315,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     }
 
     public void set(@NonNull List<EntityAttachment> attachments) {
-        Log.i(Helper.TAG, "Set attachments=" + attachments.size());
+        Log.i("Set attachments=" + attachments.size());
 
         Collections.sort(attachments, new Comparator<EntityAttachment>() {
             @Override
@@ -335,22 +334,22 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
             public void onInserted(int position, int count) {
-                Log.i(Helper.TAG, "Inserted @" + position + " #" + count);
+                Log.i("Inserted @" + position + " #" + count);
             }
 
             @Override
             public void onRemoved(int position, int count) {
-                Log.i(Helper.TAG, "Removed @" + position + " #" + count);
+                Log.i("Removed @" + position + " #" + count);
             }
 
             @Override
             public void onMoved(int fromPosition, int toPosition) {
-                Log.i(Helper.TAG, "Moved " + fromPosition + ">" + toPosition);
+                Log.i("Moved " + fromPosition + ">" + toPosition);
             }
 
             @Override
             public void onChanged(int position, int count, Object payload) {
-                Log.i(Helper.TAG, "Changed @" + position + " #" + count);
+                Log.i("Changed @" + position + " #" + count);
             }
         });
         diff.dispatchUpdatesTo(this);

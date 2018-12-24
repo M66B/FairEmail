@@ -31,7 +31,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -229,13 +228,13 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                             for (Long id : db.message().getMessageWithoutPreview()) {
                                 EntityMessage message = db.message().getMessage(id);
                                 try {
-                                    Log.i(Helper.TAG, "Building preview id=" + id);
+                                    Log.i("Building preview id=" + id);
                                     String html = message.read(context);
                                     String text = (html == null ? null : Jsoup.parse(html).text());
                                     String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
                                     db.message().setMessageContent(message.id, true, preview);
                                 } catch (IOException ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.e(ex);
                                     db.message().setMessageContent(message.id, false, null);
                                     if (!metered)
                                         EntityOperation.queue(db, message, EntityOperation.BODY);
@@ -419,13 +418,13 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(Helper.TAG, "Result class=" + this.getClass().getSimpleName() +
+        Log.i("Result class=" + this.getClass().getSimpleName() +
                 " request=" + requestCode + " result=" + resultCode + " data=" + data);
 
         if (requestCode == ActivitySetup.REQUEST_SOUND)
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
-                Log.i(Helper.TAG, "Selected ringtone=" + uri);
+                Log.i("Selected ringtone=" + uri);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 if (uri == null)

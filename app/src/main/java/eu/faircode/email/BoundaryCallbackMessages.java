@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.os.Handler;
-import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -72,13 +71,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     @Override
     public void onZeroItemsLoaded() {
-        Log.i(Helper.TAG, "onZeroItemsLoaded");
+        Log.i("onZeroItemsLoaded");
         load();
     }
 
     @Override
     public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
-        Log.i(Helper.TAG, "onItemAtEndLoaded");
+        Log.i("onItemAtEndLoaded");
         load();
     }
 
@@ -97,7 +96,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         });
                         model.load();
                     } catch (final Throwable ex) {
-                        Log.e(Helper.TAG, "Boundary " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e("Boundary", ex);
                         handler.post(new Runnable() {
                             @Override
                             public void run() {

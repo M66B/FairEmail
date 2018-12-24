@@ -50,7 +50,6 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
@@ -158,7 +157,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public void onCreate() {
-        Log.i(Helper.TAG, "Service create version=" + BuildConfig.VERSION_NAME);
+        Log.i("Service create version=" + BuildConfig.VERSION_NAME);
         super.onCreate();
 
         // Listen for network changes
@@ -188,7 +187,7 @@ public class ServiceSynchronize extends LifecycleService {
                     @Override
                     public void run() {
                         try {
-                            Log.i(Helper.TAG, "Notification messages=" + messages.size());
+                            Log.i("Notification messages=" + messages.size());
 
                             Widget.update(ServiceSynchronize.this, messages.size());
 
@@ -222,11 +221,11 @@ public class ServiceSynchronize extends LifecycleService {
                                         all.add(id);
                                         if (removed.contains(id)) {
                                             removed.remove(id);
-                                            Log.i(Helper.TAG, "Notification removing=" + id);
+                                            Log.i("Notification removing=" + id);
                                         } else {
                                             removed.remove(Integer.valueOf(-id));
                                             added.add(id);
-                                            Log.i(Helper.TAG, "Notification adding=" + id);
+                                            Log.i("Notification adding=" + id);
                                         }
                                     }
                                 }
@@ -236,7 +235,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     if (id < 0)
                                         headers++;
 
-                                Log.i(Helper.TAG, "Notification account=" + account +
+                                Log.i("Notification account=" + account +
                                         " notifications=" + notifications.size() + " all=" + all.size() +
                                         " added=" + added.size() + " removed=" + removed.size() + " headers=" + headers);
 
@@ -258,7 +257,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 notifying.put(account, all);
                             }
                         } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.e(ex);
                         }
                     }
                 });
@@ -268,7 +267,7 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public void onDestroy() {
-        Log.i(Helper.TAG, "Service destroy");
+        Log.i("Service destroy");
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(serviceManager);
@@ -288,7 +287,7 @@ public class ServiceSynchronize extends LifecycleService {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = (intent == null ? null : intent.getAction());
-        Log.i(Helper.TAG, "Service command intent=" + intent + " action=" + action);
+        Log.i("Service command intent=" + intent + " action=" + action);
 
         startForeground(NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
@@ -370,7 +369,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         break;
 
                                     default:
-                                        Log.w(Helper.TAG, "Unknown action: " + parts[0]);
+                                        Log.w("Unknown action: " + parts[0]);
                                 }
 
                                 db.setTransactionSuccessful();
@@ -382,7 +381,7 @@ public class ServiceSynchronize extends LifecycleService {
                     break;
 
                 default:
-                    Log.w(Helper.TAG, "Unknown action: " + action);
+                    Log.w("Unknown action: " + action);
             }
         }
 
@@ -627,7 +626,7 @@ public class ServiceSynchronize extends LifecycleService {
                         sb.append(Jsoup.parse(html).text());
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
                     } catch (IOException ex) {
-                        Log.e(Helper.TAG, ex + "/n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(ex.toString()));
                     }
 
@@ -659,7 +658,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 }
                             }
                         } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.e(ex);
                         } finally {
                             if (cursor != null)
                                 cursor.close();
@@ -794,7 +793,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             int backoff = CONNECT_BACKOFF_START;
             while (state.running()) {
-                Log.i(Helper.TAG, account.name + " run");
+                Log.i(account.name + " run");
 
                 // Debug
                 boolean debug = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("debug", false);
@@ -825,7 +824,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     reportError(account, null, new AlertException(e.getMessage()));
                                     state.error();
                                 } else
-                                    Log.i(Helper.TAG, account.name + " " + type + ": " + e.getMessage());
+                                    Log.i(account.name + " " + type + ": " + e.getMessage());
                             } finally {
                                 wlAccount.release();
                             }
@@ -838,7 +837,7 @@ public class ServiceSynchronize extends LifecycleService {
                         public void folderCreated(FolderEvent e) {
                             try {
                                 wlAccount.acquire();
-                                Log.i(Helper.TAG, "Folder created=" + e.getFolder().getFullName());
+                                Log.i("Folder created=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder created");
                             } finally {
                                 wlAccount.release();
@@ -849,12 +848,12 @@ public class ServiceSynchronize extends LifecycleService {
                         public void folderRenamed(FolderEvent e) {
                             try {
                                 wlAccount.acquire();
-                                Log.i(Helper.TAG, "Folder renamed=" + e.getFolder().getFullName());
+                                Log.i("Folder renamed=" + e.getFolder().getFullName());
 
                                 String old = e.getFolder().getFullName();
                                 String name = e.getNewFolder().getFullName();
                                 int count = db.folder().renameFolder(account.id, old, name);
-                                Log.i(Helper.TAG, "Renamed to " + name + " count=" + count);
+                                Log.i("Renamed to " + name + " count=" + count);
 
                                 reload(ServiceSynchronize.this, "folder renamed");
                             } finally {
@@ -866,7 +865,7 @@ public class ServiceSynchronize extends LifecycleService {
                         public void folderDeleted(FolderEvent e) {
                             try {
                                 wlAccount.acquire();
-                                Log.i(Helper.TAG, "Folder deleted=" + e.getFolder().getFullName());
+                                Log.i("Folder deleted=" + e.getFolder().getFullName());
                                 reload(ServiceSynchronize.this, "folder deleted");
                             } finally {
                                 wlAccount.release();
@@ -878,17 +877,17 @@ public class ServiceSynchronize extends LifecycleService {
                     istore.addConnectionListener(new ConnectionAdapter() {
                         @Override
                         public void opened(ConnectionEvent e) {
-                            Log.i(Helper.TAG, account.name + " opened event");
+                            Log.i(account.name + " opened event");
                         }
 
                         @Override
                         public void disconnected(ConnectionEvent e) {
-                            Log.e(Helper.TAG, account.name + " disconnected event");
+                            Log.e(account.name + " disconnected event");
                         }
 
                         @Override
                         public void closed(ConnectionEvent e) {
-                            Log.e(Helper.TAG, account.name + " closed event");
+                            Log.e(account.name + " closed event");
                         }
                     });
 
@@ -907,7 +906,7 @@ public class ServiceSynchronize extends LifecycleService {
                             long now = new Date().getTime();
                             long delayed = now - account.last_connected;
                             if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L) {
-                                Log.i(Helper.TAG, "Reporting sync error after=" + delayed);
+                                Log.i("Reporting sync error after=" + delayed);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive", account.id.intValue(),
                                         getNotificationError(account.name, account.last_connected, ex, false).build());
@@ -918,7 +917,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
 
                     final boolean capIdle = istore.hasCapability("IDLE");
-                    Log.i(Helper.TAG, account.name + " idle=" + capIdle);
+                    Log.i(account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
 
@@ -934,7 +933,7 @@ public class ServiceSynchronize extends LifecycleService {
                     final ExecutorService pollExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                     for (final EntityFolder folder : db.folder().getFolders(account.id)) {
                         if (folder.synchronize && !folder.poll && capIdle) {
-                            Log.i(Helper.TAG, account.name + " sync folder " + folder.name);
+                            Log.i(account.name + " sync folder " + folder.name);
 
                             db.folder().setFolderState(folder.id, "connecting");
 
@@ -950,7 +949,7 @@ public class ServiceSynchronize extends LifecycleService {
                             db.folder().setFolderState(folder.id, "connected");
                             db.folder().setFolderError(folder.id, null);
 
-                            Log.i(Helper.TAG, account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
+                            Log.i(account.name + " folder " + folder.name + " flags=" + ifolder.getPermanentFlags());
 
                             // Listen for new and deleted messages
                             ifolder.addMessageCountListener(new MessageCountAdapter() {
@@ -958,7 +957,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 public void messagesAdded(MessageCountEvent e) {
                                     try {
                                         wlAccount.acquire();
-                                        Log.i(Helper.TAG, folder.name + " messages added");
+                                        Log.i(folder.name + " messages added");
 
                                         FetchProfile fp = new FetchProfile();
                                         fp.add(FetchProfile.Item.ENVELOPE);
@@ -993,22 +992,22 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.endTransaction();
                                                 }
                                             } catch (MessageRemovedException ex) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                Log.w(folder.name, ex);
                                             } catch (FolderClosedException ex) {
                                                 throw ex;
                                             } catch (IOException ex) {
                                                 if (ex.getCause() instanceof MessagingException) {
-                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                    Log.w(folder.name, ex);
                                                     if (!(ex.getCause() instanceof MessageRemovedException))
                                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                 } else
                                                     throw ex;
                                             } catch (Throwable ex) {
-                                                Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                Log.e(folder.name, ex);
                                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                             }
                                     } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
                                         state.error();
                                     } finally {
@@ -1020,7 +1019,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 public void messagesRemoved(MessageCountEvent e) {
                                     try {
                                         wlAccount.acquire();
-                                        Log.i(Helper.TAG, folder.name + " messages removed");
+                                        Log.i(folder.name + " messages removed");
                                         for (Message imessage : e.getMessages())
                                             try {
                                                 long uid = ifolder.getUID(imessage);
@@ -1028,12 +1027,12 @@ public class ServiceSynchronize extends LifecycleService {
                                                 DB db = DB.getInstance(ServiceSynchronize.this);
                                                 int count = db.message().deleteMessage(folder.id, uid);
 
-                                                Log.i(Helper.TAG, "Deleted uid=" + uid + " count=" + count);
+                                                Log.i("Deleted uid=" + uid + " count=" + count);
                                             } catch (MessageRemovedException ex) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                Log.w(folder.name, ex);
                                             }
                                     } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
@@ -1052,7 +1051,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     try {
                                         wlAccount.acquire();
                                         try {
-                                            Log.i(Helper.TAG, folder.name + " message changed");
+                                            Log.i(folder.name + " message changed");
 
                                             FetchProfile fp = new FetchProfile();
                                             fp.add(UIDFolder.FetchProfileItem.UID);
@@ -1079,22 +1078,22 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.endTransaction();
                                             }
                                         } catch (MessageRemovedException ex) {
-                                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            Log.w(folder.name, ex);
                                         } catch (FolderClosedException ex) {
                                             throw ex;
                                         } catch (IOException ex) {
                                             if (ex.getCause() instanceof MessagingException) {
-                                                Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                Log.w(folder.name, ex);
                                                 if (!(ex.getCause() instanceof MessageRemovedException))
                                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                             } else
                                                 throw ex;
                                         } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                            Log.e(folder.name, ex);
                                             db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         }
                                     } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
                                         state.error();
                                     } finally {
@@ -1108,18 +1107,18 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public void run() {
                                     try {
-                                        Log.i(Helper.TAG, folder.name + " start idle");
+                                        Log.i(folder.name + " start idle");
                                         while (state.running()) {
-                                            Log.v(Helper.TAG, folder.name + " do idle");
+                                            Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
                                         }
                                     } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                        Log.e(folder.name, ex);
                                         reportError(account, folder, ex);
                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                         state.error();
                                     } finally {
-                                        Log.i(Helper.TAG, folder.name + " end idle");
+                                        Log.i(folder.name + " end idle");
                                     }
                                 }
                             }, "idler." + folder.id);
@@ -1136,7 +1135,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                             @Override
                             public void handleMessage(android.os.Message msg) {
-                                Log.i(Helper.TAG, account.name + "/" + folder.name + " observe=" + msg.what);
+                                Log.i(account.name + "/" + folder.name + " observe=" + msg.what);
                                 try {
                                     if (msg.what == 0)
                                         liveOperations.removeObserver(observer);
@@ -1145,7 +1144,7 @@ public class ServiceSynchronize extends LifecycleService {
                                         liveOperations.observe(ServiceSynchronize.this, observer);
                                     }
                                 } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.e(ex);
                                 }
                             }
 
@@ -1167,20 +1166,20 @@ public class ServiceSynchronize extends LifecycleService {
                                     handling = current;
 
                                     if (handling.size() > 0 && process) {
-                                        Log.i(Helper.TAG, folder.name + " operations=" + operations.size());
+                                        Log.i(folder.name + " operations=" + operations.size());
                                         (folder.poll ? pollExecutor : folderExecutor).submit(new Runnable() {
                                             @Override
                                             public void run() {
                                                 try {
                                                     wlFolder.acquire();
-                                                    Log.i(Helper.TAG, folder.name + " process");
+                                                    Log.i(folder.name + " process");
 
                                                     // Get folder
                                                     IMAPFolder ifolder = folders.get(folder); // null when polling
                                                     final boolean shouldClose = (ifolder == null);
 
                                                     try {
-                                                        Log.i(Helper.TAG, folder.name + " run " + (shouldClose ? "offline" : "online"));
+                                                        Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
 
                                                         if (ifolder == null) {
                                                             // Prevent unnecessary folder connections
@@ -1199,7 +1198,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                         processOperations(account, folder, isession, istore, ifolder, state);
 
                                                     } catch (Throwable ex) {
-                                                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        Log.e(folder.name, ex);
                                                         reportError(account, folder, ex);
                                                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                                         state.error();
@@ -1210,7 +1209,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                                 try {
                                                                     ifolder.close(false);
                                                                 } catch (MessagingException ex) {
-                                                                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                                    Log.w(folder.name, ex);
                                                                 }
                                                             }
                                                             db.folder().setFolderState(folder.id, null);
@@ -1227,7 +1226,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 @Override
                                 public boolean equals(@Nullable Object obj) {
                                     boolean eq = super.equals(obj);
-                                    Log.i(Helper.TAG, account.name + "/" + folder.name + " equal=" + eq + " observer=" + observer + " other=" + obj);
+                                    Log.i(account.name + "/" + folder.name + " equal=" + eq + " observer=" + observer + " other=" + obj);
                                     return eq;
                                 }
                             };
@@ -1303,9 +1302,9 @@ public class ServiceSynchronize extends LifecycleService {
                         unregisterReceiver(alarm);
                     }
 
-                    Log.i(Helper.TAG, account.name + " done state=" + state);
+                    Log.i(account.name + " done state=" + state);
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(account.name, ex);
                     reportError(account, null, ex);
 
                     EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
@@ -1328,7 +1327,7 @@ public class ServiceSynchronize extends LifecycleService {
                         istore.close();
                         EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
                     } catch (Throwable ex) {
-                        Log.w(Helper.TAG, account.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.w(account.name, ex);
                     } finally {
                         EntityLog.log(this, account.name + " closed");
                         db.account().setAccountState(account.id, null);
@@ -1394,7 +1393,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (backoff <= CONNECT_BACKOFF_MAX)
                             backoff *= 2;
                     } catch (InterruptedException ex) {
-                        Log.w(Helper.TAG, account.name + " backoff " + ex.toString());
+                        Log.w(account.name + " backoff " + ex.toString());
                     }
             }
         } finally {
@@ -1405,16 +1404,16 @@ public class ServiceSynchronize extends LifecycleService {
 
     private void processOperations(EntityAccount account, EntityFolder folder, Session isession, IMAPStore istore, IMAPFolder ifolder, ServiceState state) throws MessagingException, JSONException, IOException {
         try {
-            Log.i(Helper.TAG, folder.name + " start process");
+            Log.i(folder.name + " start process");
 
             DB db = DB.getInstance(this);
             List<EntityOperation> ops = db.operation().getOperationsByFolder(
                     folder.id, EntityFolder.OUTBOX.equals(folder.type));
-            Log.i(Helper.TAG, folder.name + " pending operations=" + ops.size());
+            Log.i(folder.name + " pending operations=" + ops.size());
             for (int i = 0; i < ops.size() && state.running(); i++) {
                 EntityOperation op = ops.get(i);
                 try {
-                    Log.i(Helper.TAG, folder.name +
+                    Log.i(folder.name +
                             " start op=" + op.id + "/" + op.name +
                             " msg=" + op.message +
                             " args=" + op.args);
@@ -1502,7 +1501,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof SendFailedException) {
-                            Log.w(Helper.TAG, "Unrecoverable " + ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w("Unrecoverable", ex);
 
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
@@ -1510,7 +1509,7 @@ public class ServiceSynchronize extends LifecycleService {
                         } else if (ex instanceof MessagingException) {
                             // Socket timeout is a recoverable condition (send message)
                             if (ex.getCause() instanceof SocketTimeoutException) {
-                                Log.w(Helper.TAG, "Recoverable " + ex + "\n" + Log.getStackTraceString(ex));
+                                Log.w("Recoverable", ex);
                                 // No need to inform user
                                 return;
                             }
@@ -1519,11 +1518,11 @@ public class ServiceSynchronize extends LifecycleService {
                         throw ex;
                     }
                 } finally {
-                    Log.i(Helper.TAG, folder.name + " end op=" + op.id + "/" + op.name);
+                    Log.i(folder.name + " end op=" + op.id + "/" + op.name);
                 }
             }
         } finally {
-            Log.i(Helper.TAG, folder.name + " end process state=" + state);
+            Log.i(folder.name + " end process state=" + state);
         }
     }
 
@@ -1659,7 +1658,7 @@ public class ServiceSynchronize extends LifecycleService {
             Folder itarget = istore.getFolder(target.name);
             ifolder.moveMessages(new Message[]{imessage}, itarget);
         } else {
-            Log.w(Helper.TAG, "MOVE by DELETE/APPEND");
+            Log.w("MOVE by DELETE/APPEND");
 
             // Delete source
             imessage.setFlag(Flags.Flag.DELETED, true);
@@ -1680,7 +1679,7 @@ public class ServiceSynchronize extends LifecycleService {
         if (message.msgid != null) {
             Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
             for (Message imessage : imessages) {
-                Log.i(Helper.TAG, "Deleting uid=" + message.uid + " msgid=" + message.msgid);
+                Log.i("Deleting uid=" + message.uid + " msgid=" + message.msgid);
                 imessage.setFlag(Flags.Flag.DELETED, true);
             }
             ifolder.expunge();
@@ -1759,7 +1758,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Send message
             Address[] to = imessage.getAllRecipients();
             itransport.sendMessage(imessage, to);
-            Log.i(Helper.TAG, "Sent via " + ident.host + "/" + ident.user +
+            Log.i("Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
 
             try {
@@ -1786,7 +1785,7 @@ public class ServiceSynchronize extends LifecycleService {
                         message.folder = sent.id;
                         message.uid = null;
                         db.message().updateMessage(message);
-                        Log.i(Helper.TAG, "Appending sent msgid=" + message.msgid);
+                        Log.i("Appending sent msgid=" + message.msgid);
                         EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
                     }
                 }
@@ -1827,7 +1826,7 @@ public class ServiceSynchronize extends LifecycleService {
             long now = new Date().getTime();
             long delayed = now - message.last_attempt;
             if (delayed > IDENTITY_ERROR_AFTER * 60 * 1000L) {
-                Log.i(Helper.TAG, "Reporting send error after=" + delayed);
+                Log.i("Reporting send error after=" + delayed);
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify("send", message.identity.intValue(), getNotificationError(ident.name, ex).build());
             }
@@ -1904,7 +1903,7 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             db.beginTransaction();
 
-            Log.v(Helper.TAG, "Start sync folders account=" + account.name);
+            Log.i("Start sync folders account=" + account.name);
 
             List<String> names = new ArrayList<>();
             for (EntityFolder folder : db.folder().getFolders(account.id)) {
@@ -1923,12 +1922,12 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().deleteFolder(folder.id);
                 }
             }
-            Log.i(Helper.TAG, "Local folder count=" + names.size());
+            Log.i("Local folder count=" + names.size());
 
             Folder defaultFolder = istore.getDefaultFolder();
             char separator = defaultFolder.getSeparator();
             Folder[] ifolders = defaultFolder.list("*");
-            Log.i(Helper.TAG, "Remote folder count=" + ifolders.length + " separator=" + separator);
+            Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
 
             for (Folder ifolder : ifolders) {
                 String fullName = ifolder.getFullName();
@@ -1936,7 +1935,7 @@ public class ServiceSynchronize extends LifecycleService {
                 String type = null;
                 boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                Log.i(Helper.TAG, account.name + ":" + fullName +
+                Log.i(account.name + ":" + fullName +
                         " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
@@ -1976,9 +1975,9 @@ public class ServiceSynchronize extends LifecycleService {
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                         db.folder().insertFolder(folder);
-                        Log.i(Helper.TAG, folder.name + " added");
+                        Log.i(folder.name + " added");
                     } else {
-                        Log.i(Helper.TAG, folder.name + " exists");
+                        Log.i(folder.name + " exists");
 
                         if (folder.display == null) {
                             if (display != null)
@@ -1999,16 +1998,16 @@ public class ServiceSynchronize extends LifecycleService {
                 }
             }
 
-            Log.i(Helper.TAG, "Delete local count=" + names.size());
+            Log.i("Delete local count=" + names.size());
             for (String name : names) {
-                Log.i(Helper.TAG, name + " delete");
+                Log.i(name + " delete");
                 db.folder().deleteFolder(account.id, name);
             }
 
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
-            Log.v(Helper.TAG, "End sync folder");
+            Log.i("End sync folder");
         }
     }
 
@@ -2018,7 +2017,7 @@ public class ServiceSynchronize extends LifecycleService {
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
 
-            Log.v(Helper.TAG, folder.name + " start sync after=" + sync_days + "/" + keep_days);
+            Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
@@ -2045,15 +2044,15 @@ public class ServiceSynchronize extends LifecycleService {
             if (keep_time < 0)
                 keep_time = 0;
 
-            Log.i(Helper.TAG, folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
+            Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
             int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
-            Log.i(Helper.TAG, folder.name + " local old=" + old);
+            Log.i(folder.name + " local old=" + old);
 
             // Get list of local uids
             List<Long> uids = db.message().getUids(folder.id, sync_time);
-            Log.i(Helper.TAG, folder.name + " local count=" + uids.size());
+            Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
             long search = SystemClock.elapsedRealtime();
@@ -2063,7 +2062,7 @@ public class ServiceSynchronize extends LifecycleService {
                             new FlagTerm(new Flags(Flags.Flag.FLAGGED), true)
                     )
             );
-            Log.i(Helper.TAG, folder.name + " remote count=" + imessages.length +
+            Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
             FetchProfile fp = new FetchProfile();
@@ -2072,24 +2071,24 @@ public class ServiceSynchronize extends LifecycleService {
             ifolder.fetch(imessages, fp);
 
             long fetch = SystemClock.elapsedRealtime();
-            Log.i(Helper.TAG, folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
+            Log.i(folder.name + " remote fetched=" + (SystemClock.elapsedRealtime() - fetch) + " ms");
 
             for (int i = 0; i < imessages.length && state.running(); i++)
                 try {
                     uids.remove(ifolder.getUID(imessages[i]));
                 } catch (MessageRemovedException ex) {
-                    Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    Log.w(folder.name, ex);
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(folder.name, ex);
                     reportError(account, folder, ex);
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
             // Delete local messages not at remote
-            Log.i(Helper.TAG, folder.name + " delete=" + uids.size());
+            Log.i(folder.name + " delete=" + uids.size());
             for (Long uid : uids) {
                 int count = db.message().deleteMessage(folder.id, uid);
-                Log.i(Helper.TAG, folder.name + " delete local uid=" + uid + " count=" + count);
+                Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
             }
 
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -2103,7 +2102,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             // Add/update local messages
             Long[] ids = new Long[imessages.length];
-            Log.i(Helper.TAG, folder.name + " add=" + imessages.length);
+            Log.i(folder.name + " add=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0 && state.running(); i -= SYNC_BATCH_SIZE) {
                 int from = Math.max(0, i - SYNC_BATCH_SIZE + 1);
                 Message[] isub = Arrays.copyOfRange(imessages, from, i + 1);
@@ -2119,7 +2118,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (full.size() > 0) {
                     long headers = SystemClock.elapsedRealtime();
                     ifolder.fetch(full.toArray(new Message[0]), fp);
-                    Log.i(Helper.TAG, folder.name + " fetched headers=" + full.size() +
+                    Log.i(folder.name + " fetched headers=" + full.size() +
                             " " + (SystemClock.elapsedRealtime() - headers) + " ms");
                 }
 
@@ -2132,18 +2131,18 @@ public class ServiceSynchronize extends LifecycleService {
                         ids[from + j] = message.id;
                         db.setTransactionSuccessful();
                     } catch (MessageRemovedException ex) {
-                        Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.w(folder.name, ex);
                     } catch (FolderClosedException ex) {
                         throw ex;
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
-                            Log.w(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(folder.name, ex);
                             if (!(ex.getCause() instanceof MessageRemovedException))
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(folder.name, ex);
                         db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                     } finally {
                         db.endTransaction();
@@ -2163,7 +2162,7 @@ public class ServiceSynchronize extends LifecycleService {
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
 
             // Download messages/attachments
-            Log.i(Helper.TAG, folder.name + " download=" + imessages.length);
+            Log.i(folder.name + " download=" + imessages.length);
             for (int i = imessages.length - 1; i >= 0 && state.running(); i -= DOWNLOAD_BATCH_SIZE) {
                 int from = Math.max(0, i - DOWNLOAD_BATCH_SIZE + 1);
 
@@ -2181,7 +2180,7 @@ public class ServiceSynchronize extends LifecycleService {
                     } catch (FolderClosedIOException ex) {
                         throw ex;
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, folder.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(folder.name, ex);
                     } finally {
                         db.endTransaction();
                         // Free memory
@@ -2200,7 +2199,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             db.folder().setFolderError(folder.id, null);
         } finally {
-            Log.v(Helper.TAG, folder.name + " end sync state=" + state);
+            Log.i(folder.name + " end sync state=" + state);
             db.folder().setFolderSyncState(folder.id, null);
         }
     }
@@ -2212,11 +2211,11 @@ public class ServiceSynchronize extends LifecycleService {
         long uid = ifolder.getUID(imessage);
 
         if (imessage.isExpunged()) {
-            Log.i(Helper.TAG, folder.name + " expunged uid=" + uid);
+            Log.i(folder.name + " expunged uid=" + uid);
             throw new MessageRemovedException();
         }
         if (imessage.isSet(Flags.Flag.DELETED)) {
-            Log.i(Helper.TAG, folder.name + " deleted uid=" + uid);
+            Log.i(folder.name + " deleted uid=" + uid);
             throw new MessageRemovedException();
         }
 
@@ -2237,17 +2236,17 @@ public class ServiceSynchronize extends LifecycleService {
         if (message == null) {
             // Will fetch headers within database transaction
             String msgid = helper.getMessageID();
-            Log.i(Helper.TAG, "Searching for " + msgid);
+            Log.i("Searching for " + msgid);
             for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
-                Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" + dup.uid +
+                Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                         " msgid=" + dup.msgid + " thread=" + dup.thread);
 
                 if (dup.folder.equals(folder.id) ||
                         (EntityFolder.OUTBOX.equals(dfolder.type) && EntityFolder.SENT.equals(folder.type))) {
                     String thread = helper.getThreadId(uid);
-                    Log.i(Helper.TAG, folder.name + " found as id=" + dup.id + "/" +
+                    Log.i(folder.name + " found as id=" + dup.id + "/" +
                             " uid=" + dup.uid + "/" + uid +
                             " msgid=" + msgid + " thread=" + thread);
                     dup.folder = folder.id; // outbox to sent
@@ -2256,16 +2255,16 @@ public class ServiceSynchronize extends LifecycleService {
                         dup.uid = uid;
                     else if (dup.uid != uid) {
                         if (EntityFolder.DRAFTS.equals(folder.type)) {
-                            Log.i(Helper.TAG, "Deleting previous uid=" + dup.uid);
+                            Log.i("Deleting previous uid=" + dup.uid);
                             Message iprev = ifolder.getMessageByUID(dup.uid);
                             if (iprev == null)
-                                Log.w(Helper.TAG, "Previous not found uid=" + dup.uid);
+                                Log.w("Previous not found uid=" + dup.uid);
                             else {
                                 iprev.setFlag(Flags.Flag.DELETED, true);
                                 ifolder.expunge();
                             }
                         } else // Draft in Gmail archive
-                            Log.e(Helper.TAG, "Changed uid=" + dup.uid + "/" + uid);
+                            Log.e("Changed uid=" + dup.uid + "/" + uid);
                         dup.uid = uid;
                     }
 
@@ -2325,7 +2324,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             message.msgid = helper.getMessageID();
             if (TextUtils.isEmpty(message.msgid))
-                Log.w(Helper.TAG, "No Message-ID id=" + message.id + " uid=" + message.uid);
+                Log.w("No Message-ID id=" + message.id + " uid=" + message.uid);
 
             message.references = TextUtils.join(" ", helper.getReferences());
             message.inreplyto = helper.getInReplyTo();
@@ -2355,15 +2354,15 @@ public class ServiceSynchronize extends LifecycleService {
 
             message.id = db.message().insertMessage(message);
 
-            Log.i(Helper.TAG, folder.name + " added id=" + message.id + " uid=" + message.uid);
+            Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
             int sequence = 1;
             for (EntityAttachment attachment : helper.getAttachments()) {
-                Log.i(Helper.TAG, folder.name + " attachment seq=" + sequence +
+                Log.i(folder.name + " attachment seq=" + sequence +
                         " name=" + attachment.name + " type=" + attachment.type + " cid=" + attachment.cid);
                 if (!TextUtils.isEmpty(attachment.cid) &&
                         db.attachment().getAttachment(message.id, attachment.cid) != null) {
-                    Log.i(Helper.TAG, "Skipping duplicated CID");
+                    Log.i("Skipping duplicated CID");
                     continue;
                 }
                 attachment.message = message.id;
@@ -2377,34 +2376,34 @@ public class ServiceSynchronize extends LifecycleService {
                 update = true;
                 message.seen = seen;
                 message.ui_seen = seen;
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
             if (!message.answered.equals(answered) || !message.answered.equals(message.ui_answered)) {
                 update = true;
                 message.answered = answered;
                 message.ui_answered = answered;
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
             }
 
             if (!message.flagged.equals(flagged) || !message.flagged.equals(message.ui_flagged)) {
                 update = true;
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
             }
 
             if (!Helper.equal(message.keywords, keywords)) {
                 update = true;
                 message.keywords = keywords;
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid +
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
             if (message.ui_hide && full) {
                 update = true;
                 message.ui_hide = false;
-                Log.i(Helper.TAG, folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
             if (update)
@@ -2415,7 +2414,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         for (String keyword : keywords)
             if (!fkeywords.contains(keyword)) {
-                Log.i(Helper.TAG, folder.name + " adding keyword=" + keyword);
+                Log.i(folder.name + " adding keyword=" + keyword);
                 fkeywords.add(keyword);
             }
 
@@ -2461,7 +2460,7 @@ public class ServiceSynchronize extends LifecycleService {
                         }
 
             if (fetch) {
-                Log.i(Helper.TAG, folder.name + " fetching message id=" + message.id);
+                Log.i(folder.name + " fetching message id=" + message.id);
                 FetchProfile fp = new FetchProfile();
                 fp.add(FetchProfile.Item.ENVELOPE);
                 fp.add(FetchProfile.Item.FLAGS);
@@ -2481,7 +2480,7 @@ public class ServiceSynchronize extends LifecycleService {
                     String preview = (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
                     message.write(context, html);
                     db.message().setMessageContent(message.id, true, preview);
-                    Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+                    Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
 
             List<EntityAttachment> iattachments = null;
@@ -2495,7 +2494,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (i < iattachments.size()) {
                             attachment.part = iattachments.get(i).part;
                             attachment.download(context, db);
-                            Log.i(Helper.TAG, folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
+                            Log.i(folder.name + " downloaded message id=" + message.id + " attachment=" + attachment.name + " size=" + message.size);
                         }
                     }
             }
@@ -2518,7 +2517,7 @@ public class ServiceSynchronize extends LifecycleService {
                         queue_reload(true, "connect " + network);
                 }
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
             }
         }
 
@@ -2531,7 +2530,7 @@ public class ServiceSynchronize extends LifecycleService {
                 if (!started && suitableNetwork())
                     queue_reload(true, "connect " + network);
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
             }
         }
 
@@ -2545,7 +2544,7 @@ public class ServiceSynchronize extends LifecycleService {
                     queue_reload(false, "disconnect " + network);
                 }
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
             }
         }
 
@@ -2603,7 +2602,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 if (state.acquire(backoff))
                                     return;
                             } catch (InterruptedException ex) {
-                                Log.w(Helper.TAG, "main backoff " + ex.toString());
+                                Log.w("main backoff " + ex.toString());
                             }
 
                         // Start monitoring outbox
@@ -2617,7 +2616,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                 @Override
                                 public void handleMessage(android.os.Message msg) {
-                                    Log.i(Helper.TAG, outbox.name + " observe=" + msg.what);
+                                    Log.i(outbox.name + " observe=" + msg.what);
                                     if (msg.what == 0)
                                         liveOperations.removeObserver(observer);
                                     else {
@@ -2645,19 +2644,19 @@ public class ServiceSynchronize extends LifecycleService {
                                         handling = current;
 
                                         if (handling.size() > 0 && process) {
-                                            Log.i(Helper.TAG, outbox.name + " operations=" + operations.size());
+                                            Log.i(outbox.name + " operations=" + operations.size());
                                             executor.submit(new Runnable() {
                                                 @Override
                                                 public void run() {
                                                     try {
                                                         wl.acquire();
-                                                        Log.i(Helper.TAG, outbox.name + " process");
+                                                        Log.i(outbox.name + " process");
 
                                                         db.folder().setFolderSyncState(outbox.id, "syncing");
                                                         processOperations(null, outbox, null, null, null, state);
                                                         db.folder().setFolderError(outbox.id, null);
                                                     } catch (Throwable ex) {
-                                                        Log.e(Helper.TAG, outbox.name + " " + ex + "\n" + Log.getStackTraceString(ex));
+                                                        Log.e(outbox.name, ex);
                                                         reportError(null, outbox, ex);
                                                         db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
                                                     } finally {
@@ -2684,7 +2683,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 else
                                     account.deleteNotificationChannel(ServiceSynchronize.this);
 
-                            Log.i(Helper.TAG, account.host + "/" + account.user + " run");
+                            Log.i(account.host + "/" + account.user + " run");
                             final ServiceState astate = new ServiceState();
                             astate.runnable(new Runnable() {
                                 @Override
@@ -2692,7 +2691,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     try {
                                         monitorAccount(account, astate);
                                     } catch (Throwable ex) {
-                                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                        Log.e(ex);
                                         EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
                                         db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                                     }
@@ -2708,7 +2707,7 @@ public class ServiceSynchronize extends LifecycleService {
                             wl.release();
                             state.acquire();
                         } catch (InterruptedException ex) {
-                            Log.w(Helper.TAG, "main wait " + ex.toString());
+                            Log.w("main wait " + ex.toString());
                         } finally {
                             wl.acquire();
                         }
@@ -2722,7 +2721,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Stop monitoring outbox
                         if (outbox != null) {
-                            Log.i(Helper.TAG, outbox.name + " unlisten operations");
+                            Log.i(outbox.name + " unlisten operations");
                             handler.sendEmptyMessage(0);
                             db.folder().setFolderState(outbox.id, null);
                         }
@@ -2730,7 +2729,7 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityLog.log(ServiceSynchronize.this, "Main exited");
                     } catch (Throwable ex) {
                         // Fail-safe
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                     } finally {
                         wl.release();
                         EntityLog.log(ServiceSynchronize.this, "Start wake lock=" + wl.isHeld());
@@ -2786,13 +2785,13 @@ public class ServiceSynchronize extends LifecycleService {
                         int accounts = db.account().deleteAccountsTbd();
                         int identities = db.identity().deleteIdentitiesTbd();
                         if (accounts > 0 || identities > 0)
-                            Log.i(Helper.TAG, "Deleted accounts=" + accounts + " identities=" + identities);
+                            Log.i("Deleted accounts=" + accounts + " identities=" + identities);
 
                         if (doStart)
                             start();
 
                     } catch (Throwable ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                     } finally {
                         queued--;
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
@@ -2892,12 +2891,12 @@ public class ServiceSynchronize extends LifecycleService {
             boolean joined = false;
             while (!joined)
                 try {
-                    Log.i(Helper.TAG, "Joining " + thread.getName());
+                    Log.i("Joining " + thread.getName());
                     thread.join();
                     joined = true;
-                    Log.i(Helper.TAG, "Joined " + thread.getName());
+                    Log.i("Joined " + thread.getName());
                 } catch (InterruptedException ex) {
-                    Log.w(Helper.TAG, thread.getName() + " join " + ex.toString());
+                    Log.w(thread.getName() + " join " + ex.toString());
                 }
         }
 

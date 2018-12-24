@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -65,26 +64,26 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         try {
             run(fragment.getContext(), fragment.getViewLifecycleOwner(), args);
         } catch (IllegalStateException ex) {
-            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.w(ex);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
-        Log.i(Helper.TAG, "Start task " + this);
+        Log.i("Start task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
-        Log.i(Helper.TAG, "Stop task " + this);
+        Log.i("Stop task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
-        Log.i(Helper.TAG, "Resume task " + this);
+        Log.i("Resume task " + this);
         paused = false;
         if (stored != null) {
-            Log.i(Helper.TAG, "Deferred delivery task " + this);
+            Log.i("Deferred delivery task " + this);
             deliver(args, stored);
             stored = null;
         }
@@ -92,18 +91,18 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
-        Log.i(Helper.TAG, "Pause task " + this);
+        Log.i("Pause task " + this);
         paused = true;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreated() {
-        Log.i(Helper.TAG, "Created task " + this);
+        Log.i("Created task " + this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroyed() {
-        Log.i(Helper.TAG, "Destroy task " + this);
+        Log.i("Destroy task " + this);
         owner.getLifecycle().removeObserver(this);
         owner = null;
         paused = true;
@@ -120,7 +119,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         try {
             onInit(args);
         } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
         }
 
         owner.getLifecycle().addObserver(this);
@@ -136,7 +135,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 try {
                     result.data = onLoad(context, args);
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
                     result.ex = ex;
                 }
 
@@ -153,23 +152,23 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private void deliver(Bundle args, Result result) {
         if (paused) {
-            Log.i(Helper.TAG, "Deferring delivery task " + this);
+            Log.i("Deferring delivery task " + this);
             this.args = args;
             this.stored = result;
         } else {
-            Log.i(Helper.TAG, "Delivery task " + this);
+            Log.i("Delivery task " + this);
             try {
                 if (result.ex == null)
                     onLoaded(args, (T) result.data);
                 else
                     onException(args, result.ex);
             } catch (Throwable ex) {
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
             } finally {
                 try {
                     onCleanup(args);
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
                 }
                 onDestroyed();
             }

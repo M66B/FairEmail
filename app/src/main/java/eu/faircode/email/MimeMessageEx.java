@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
-import android.util.Log;
-
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
@@ -39,7 +37,7 @@ public class MimeMessageEx extends MimeMessage {
             super.updateMessageID();
         else {
             setHeader("Message-ID", msgid);
-            Log.v(Helper.TAG, "Override Message-ID=" + msgid);
+            Log.i("Override Message-ID=" + msgid);
         }
     }
 }

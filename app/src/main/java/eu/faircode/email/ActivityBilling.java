@@ -30,7 +30,6 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Base64;
-import android.util.Log;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -103,7 +102,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             intent.setData(Uri.parse("https://email.faircode.eu/pro/?challenge=" + getChallenge()));
             return intent;
         } catch (NoSuchAlgorithmException ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
             return null;
         }
     }
@@ -135,7 +134,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     .build();
             int responseCode = billingClient.launchBillingFlow(this, flowParams);
             String text = Helper.getBillingResponseText(responseCode);
-            Log.i(Helper.TAG, "IAB launch billing flow response=" + text);
+            Log.i("IAB launch billing flow response=" + text);
             if (responseCode != BillingClient.BillingResponse.OK)
                 Snackbar.make(getVisibleView(), text, Snackbar.LENGTH_LONG).show();
         } else
@@ -147,20 +146,20 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             Uri data = intent.getParcelableExtra("uri");
             String challenge = getChallenge();
             String response = data.getQueryParameter("response");
-            Log.i(Helper.TAG, "Challenge=" + challenge);
-            Log.i(Helper.TAG, "Response=" + response);
+            Log.i("Challenge=" + challenge);
+            Log.i("Response=" + response);
             String expected = getResponse();
             if (expected.equals(response)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 prefs.edit().putBoolean("pro", true).apply();
-                Log.i(Helper.TAG, "Response valid");
+                Log.i("Response valid");
                 Snackbar.make(getVisibleView(), R.string.title_pro_valid, Snackbar.LENGTH_LONG).show();
             } else {
-                Log.i(Helper.TAG, "Response invalid");
+                Log.i("Response invalid");
                 Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
             }
         } catch (NoSuchAlgorithmException ex) {
-            Log.e(Helper.TAG, Log.getStackTraceString(ex));
+            Log.e(ex);
             Helper.unexpectedError(this, this, ex);
         }
     }
@@ -171,7 +170,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         @Override
         public void onBillingSetupFinished(@BillingClient.BillingResponse int responseCode) {
             String text = Helper.getBillingResponseText(responseCode);
-            Log.i(Helper.TAG, "IAB connected response=" + text);
+            Log.i("IAB connected response=" + text);
 
             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                 return;
@@ -186,7 +185,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         @Override
         public void onBillingServiceDisconnected() {
             backoff *= 2;
-            Log.i(Helper.TAG, "IAB disconnected retry in " + backoff + " s");
+            Log.i("IAB disconnected retry in " + backoff + " s");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -200,7 +199,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     @Override
     public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
         String text = Helper.getBillingResponseText(responseCode);
-        Log.i(Helper.TAG, "IAB purchases updated response=" + text);
+        Log.i("IAB purchases updated response=" + text);
         if (responseCode == BillingClient.BillingResponse.OK)
             checkPurchases(purchases);
         else
@@ -210,7 +209,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     private void queryPurchases() {
         Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
         String text = Helper.getBillingResponseText(result.getResponseCode());
-        Log.i(Helper.TAG, "IAB query purchases response=" + text);
+        Log.i("IAB query purchases response=" + text);
         if (result.getResponseCode() == BillingClient.BillingResponse.OK)
             checkPurchases(result.getPurchasesList());
         else
@@ -227,7 +226,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
             for (Purchase purchase : purchases)
                 try {
-                    Log.i(Helper.TAG, "IAB SKU=" + purchase.getSku());
+                    Log.i("IAB SKU=" + purchase.getSku());
 
                     byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
                     KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -238,14 +237,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
                         if ((BuildConfig.APPLICATION_ID + ".pro").equals(purchase.getSku())) {
                             editor.putBoolean("pro", true);
-                            Log.i(Helper.TAG, "IAB pro features activated");
+                            Log.i("IAB pro features activated");
                         }
                     } else {
-                        Log.w(Helper.TAG, "Invalid signature");
+                        Log.w("Invalid signature");
                         Snackbar.make(getVisibleView(), R.string.title_pro_invalid, Snackbar.LENGTH_LONG).show();
                     }
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
                     Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 }
 

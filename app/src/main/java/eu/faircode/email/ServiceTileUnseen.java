@@ -26,7 +26,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.util.Log;
 
 import java.util.List;
 
@@ -64,12 +63,12 @@ public class ServiceTileUnseen extends TileService {
     }
 
     public void onStartListening() {
-        Log.i(Helper.TAG, "Start tile unseen");
+        Log.i("Start tile unseen");
         liveMessages = DB.getInstance(this).message().liveUnseenNotify();
         liveMessages.observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
-                Log.i(Helper.TAG, "Update tile unseen=" + messages.size());
+                Log.i("Update tile unseen=" + messages.size());
 
                 Tile tile = getQsTile();
                 if (tile != null) {
@@ -85,7 +84,7 @@ public class ServiceTileUnseen extends TileService {
     }
 
     public void onStopListening() {
-        Log.i(Helper.TAG, "Stop tile unseen");
+        Log.i("Stop tile unseen");
         if (liveMessages != null) {
             liveMessages.removeObservers(owner);
             liveMessages = null;
@@ -93,7 +92,7 @@ public class ServiceTileUnseen extends TileService {
     }
 
     public void onClick() {
-        Log.i(Helper.TAG, "Click tile unseen");
+        Log.i("Click tile unseen");
 
         Intent clear = new Intent(this, ServiceSynchronize.class);
         clear.setAction("clear");

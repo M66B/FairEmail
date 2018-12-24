@@ -37,7 +37,6 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -204,7 +203,7 @@ public class FragmentSetup extends FragmentEx {
                                 try {
                                     startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
                                 } catch (Throwable ex) {
-                                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                    Log.e(ex);
                                 }
                             }
                         })
@@ -221,7 +220,7 @@ public class FragmentSetup extends FragmentEx {
                     startActivity(new Intent(Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
                             Uri.parse("package:" + BuildConfig.APPLICATION_ID)));
                 } catch (Throwable ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
                 }
             }
         });
@@ -614,7 +613,7 @@ public class FragmentSetup extends FragmentEx {
 
                 OutputStream out = null;
                 try {
-                    Log.i(Helper.TAG, "Writing URI=" + uri);
+                    Log.i("Writing URI=" + uri);
 
                     byte[] salt = new byte[16];
                     SecureRandom random = new SecureRandom();
@@ -678,7 +677,7 @@ public class FragmentSetup extends FragmentEx {
 
                     out.write(jexport.toString(2).getBytes());
 
-                    Log.i(Helper.TAG, "Exported data");
+                    Log.i("Exported data");
                 } finally {
                     if (out != null)
                         out.close();
@@ -718,7 +717,7 @@ public class FragmentSetup extends FragmentEx {
 
                 InputStream in = null;
                 try {
-                    Log.i(Helper.TAG, "Reading URI=" + uri);
+                    Log.i("Reading URI=" + uri);
                     ContentResolver resolver = getContext().getContentResolver();
                     AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
                     InputStream raw = descriptor.createInputStream();
@@ -744,7 +743,7 @@ public class FragmentSetup extends FragmentEx {
                     String line;
                     while ((line = reader.readLine()) != null)
                         response.append(line);
-                    Log.i(Helper.TAG, "Importing " + resolver.toString());
+                    Log.i("Importing " + resolver.toString());
 
                     JSONObject jimport = new JSONObject(response.toString());
 
@@ -758,7 +757,7 @@ public class FragmentSetup extends FragmentEx {
                             EntityAccount account = EntityAccount.fromJSON(jaccount);
                             account.created = new Date().getTime();
                             account.id = db.account().insertAccount(account);
-                            Log.i(Helper.TAG, "Imported account=" + account.name);
+                            Log.i("Imported account=" + account.name);
 
                             JSONArray jidentities = (JSONArray) jaccount.get("identities");
                             for (int i = 0; i < jidentities.length(); i++) {
@@ -766,7 +765,7 @@ public class FragmentSetup extends FragmentEx {
                                 EntityIdentity identity = EntityIdentity.fromJSON(jidentity);
                                 identity.account = account.id;
                                 identity.id = db.identity().insertIdentity(identity);
-                                Log.i(Helper.TAG, "Imported identity=" + identity.email);
+                                Log.i("Imported identity=" + identity.email);
                             }
 
                             JSONArray jfolders = (JSONArray) jaccount.get("folders");
@@ -775,7 +774,7 @@ public class FragmentSetup extends FragmentEx {
                                 EntityFolder folder = EntityFolder.fromJSON(jfolder);
                                 folder.account = account.id;
                                 folder.id = db.folder().insertFolder(folder);
-                                Log.i(Helper.TAG, "Imported folder=" + folder.name);
+                                Log.i("Imported folder=" + folder.name);
                             }
                         }
 
@@ -784,7 +783,7 @@ public class FragmentSetup extends FragmentEx {
                             JSONObject janswer = (JSONObject) janswers.get(a);
                             EntityAnswer answer = EntityAnswer.fromJSON(janswer);
                             answer.id = db.answer().insertAnswer(answer);
-                            Log.i(Helper.TAG, "Imported answer=" + answer.name);
+                            Log.i("Imported answer=" + answer.name);
                         }
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -805,7 +804,7 @@ public class FragmentSetup extends FragmentEx {
                                     editor.putString(key, (String) value);
                                 else
                                     throw new IllegalArgumentException("Unknown settings type key=" + key);
-                                Log.i(Helper.TAG, "Imported setting=" + key);
+                                Log.i("Imported setting=" + key);
                             }
                         }
                         editor.apply();
@@ -815,7 +814,7 @@ public class FragmentSetup extends FragmentEx {
                         db.endTransaction();
                     }
 
-                    Log.i(Helper.TAG, "Imported data");
+                    Log.i("Imported data");
                     ServiceSynchronize.reload(context, "import");
                 } finally {
                     if (in != null)

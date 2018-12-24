@@ -26,7 +26,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
+        Log.i("Create " + this.getClass().getName() + " version=" + BuildConfig.VERSION_NAME);
 
         this.contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
@@ -69,13 +68,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onResume() {
-        Log.i(Helper.TAG, "Resume " + this.getClass().getName());
+        Log.i("Resume " + this.getClass().getName());
 
         boolean contacts = (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED);
 
         if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
-            Log.i(Helper.TAG, "Contacts permission=" + contacts);
+            Log.i("Contacts permission=" + contacts);
             finish();
             startActivity(getIntent());
         }
@@ -85,33 +84,33 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onPause() {
-        Log.i(Helper.TAG, "Pause " + this.getClass().getName());
+        Log.i("Pause " + this.getClass().getName());
         super.onPause();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i(Helper.TAG, "Config " + this.getClass().getName());
+        Log.i("Config " + this.getClass().getName());
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(Helper.TAG, "Destroy " + this.getClass().getName());
+        Log.i("Destroy " + this.getClass().getName());
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroy();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        Log.i(Helper.TAG, "Result class=" + this.getClass().getSimpleName() +
+        Log.i("Result class=" + this.getClass().getSimpleName() +
                 " request=" + requestCode + " result=" + resultCode + " data=" + data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        Log.i(Helper.TAG, "Preference " + key + "=" + prefs.getAll().get(key));
+        Log.i("Preference " + key + "=" + prefs.getAll().get(key));
         if ("theme".equals(key)) {
             finish();
             if (this.getClass().equals(ActivitySetup.class))
@@ -123,11 +122,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected View getVisibleView() {
         for (Fragment fragment : getSupportFragmentManager().getFragments())
             if (fragment.getUserVisibleHint()) {
-                Log.i(Helper.TAG, "Visible fragment=" + fragment.getClass().getName());
+                Log.i("Visible fragment=" + fragment.getClass().getName());
                 return fragment.getView();
             }
 
-        Log.i(Helper.TAG, "Visible activity=" + this.getClass().getName());
+        Log.i("Visible activity=" + this.getClass().getName());
         return findViewById(android.R.id.content);
     }
 

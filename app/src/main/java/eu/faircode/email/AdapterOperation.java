@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -166,7 +165,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     }
 
     public void set(@NonNull List<TupleOperationEx> operations) {
-        Log.i(Helper.TAG, "Set operations=" + operations.size());
+        Log.i("Set operations=" + operations.size());
 
         all = operations;
 
@@ -178,22 +177,22 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
             public void onInserted(int position, int count) {
-                Log.i(Helper.TAG, "Inserted @" + position + " #" + count);
+                Log.i("Inserted @" + position + " #" + count);
             }
 
             @Override
             public void onRemoved(int position, int count) {
-                Log.i(Helper.TAG, "Removed @" + position + " #" + count);
+                Log.i("Removed @" + position + " #" + count);
             }
 
             @Override
             public void onMoved(int fromPosition, int toPosition) {
-                Log.i(Helper.TAG, "Moved " + fromPosition + ">" + toPosition);
+                Log.i("Moved " + fromPosition + ">" + toPosition);
             }
 
             @Override
             public void onChanged(int position, int count, Object payload) {
-                Log.i(Helper.TAG, "Changed @" + position + " #" + count);
+                Log.i("Changed @" + position + " #" + count);
             }
         });
         diff.dispatchUpdatesTo(this);

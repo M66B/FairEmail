@@ -27,7 +27,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.DeadSystemException;
 import android.os.RemoteException;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -47,7 +46,7 @@ public class ApplicationEx extends Application {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
                 if (ownFault(ex)) {
-                    Log.e(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
 
                     if (!Helper.isPlayStoreInstall(ApplicationEx.this))
                         writeCrashLog(ApplicationEx.this, ex);
@@ -55,7 +54,7 @@ public class ApplicationEx extends Application {
                     if (prev != null)
                         prev.uncaughtException(thread, ex);
                 } else {
-                    Log.w(Helper.TAG, ex + "\r\n" + Log.getStackTraceString(ex));
+                    Log.w(ex);
                     System.exit(1);
                 }
             }
@@ -116,21 +115,21 @@ public class ApplicationEx extends Application {
 
     static void writeCrashLog(Context context, Throwable ex) {
         File file = new File(context.getCacheDir(), "crash.log");
-        Log.w(Helper.TAG, "Writing exception to " + file);
+        Log.w("Writing exception to " + file);
 
         FileWriter out = null;
         try {
             out = new FileWriter(file, true);
             out.write(BuildConfig.VERSION_NAME + " " + new Date() + "\r\n");
-            out.write(ex + "\r\n" + Log.getStackTraceString(ex) + "\r\n");
+            out.write(ex + "\r\n" + android.util.Log.getStackTraceString(ex) + "\r\n");
         } catch (IOException e) {
-            Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+            Log.e(e);
         } finally {
             if (out != null) {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    Log.e(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                    Log.e(e);
                 }
             }
         }

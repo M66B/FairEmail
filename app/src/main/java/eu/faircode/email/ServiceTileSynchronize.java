@@ -26,12 +26,11 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.util.Log;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileSynchronize extends TileService implements SharedPreferences.OnSharedPreferenceChangeListener {
     public void onStartListening() {
-        Log.i(Helper.TAG, "Start tile synchronize");
+        Log.i("Start tile synchronize");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
         update();
@@ -46,7 +45,7 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
     private void update() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = prefs.getBoolean("enabled", false);
-        Log.i(Helper.TAG, "Update tile synchronize=" + enabled);
+        Log.i("Update tile synchronize=" + enabled);
 
         Tile tile = getQsTile();
         if (tile != null) {
@@ -58,13 +57,13 @@ public class ServiceTileSynchronize extends TileService implements SharedPrefere
     }
 
     public void onStopListening() {
-        Log.i(Helper.TAG, "Stop tile synchronize");
+        Log.i("Stop tile synchronize");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     public void onClick() {
-        Log.i(Helper.TAG, "Click tile synchronize");
+        Log.i("Click tile synchronize");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = !prefs.getBoolean("enabled", false);

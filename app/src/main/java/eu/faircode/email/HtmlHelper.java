@@ -27,7 +27,6 @@ import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -121,7 +120,7 @@ public class HtmlHelper {
 
         boolean embedded = source.startsWith("cid:");
         boolean data = source.startsWith("data:");
-        Log.i(Helper.TAG, "Image embedded=" + embedded + " data=" + data + " source=" + source);
+        Log.i("Image embedded=" + embedded + " data=" + data + " source=" + source);
 
         if (show) {
             // Embedded images
@@ -167,7 +166,7 @@ public class HtmlHelper {
                     d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                     return d;
                 } catch (IllegalArgumentException ex) {
-                    Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.w(ex);
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
                     d.setBounds(0, 0, px / 2, px / 2);
                     return d;
@@ -186,10 +185,10 @@ public class HtmlHelper {
 
                 // Get input stream
                 if (file.exists()) {
-                    Log.i(Helper.TAG, "Using cached " + file);
+                    Log.i("Using cached " + file);
                     is = new FileInputStream(file);
                 } else {
-                    Log.i(Helper.TAG, "Downloading " + source);
+                    Log.i("Downloading " + source);
                     is = new URL(source).openStream();
                 }
 
@@ -210,7 +209,7 @@ public class HtmlHelper {
                 return d;
             } catch (Throwable ex) {
                 // Show warning icon
-                Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.e(ex);
                 Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
                 d.setBounds(0, 0, px / 2, px / 2);
                 return d;
@@ -220,14 +219,14 @@ public class HtmlHelper {
                     try {
                         is.close();
                     } catch (IOException e) {
-                        Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                        Log.w(e);
                     }
                 }
                 if (os != null) {
                     try {
                         os.close();
                     } catch (IOException e) {
-                        Log.w(Helper.TAG, e + "\n" + Log.getStackTraceString(e));
+                        Log.w(e);
                     }
                 }
             }

@@ -40,7 +40,6 @@ import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -277,7 +276,7 @@ public class FragmentAccount extends FragmentEx {
                         if (records != null)
                             for (int i = 0; i < records.length; i++) {
                                 SRVRecord srv = (SRVRecord) records[i];
-                                Log.i(Helper.TAG, "SRV=" + srv);
+                                Log.i("SRV=" + srv);
                                 return srv;
                             }
 
@@ -335,13 +334,13 @@ public class FragmentAccount extends FragmentEx {
             @Override
             public void onClick(View v) {
                 Provider provider = (Provider) spProvider.getSelectedItem();
-                Log.i(Helper.TAG, "Authorize " + provider);
+                Log.i("Authorize " + provider);
 
                 if ("com.google".equals(provider.type)) {
                     String permission = Manifest.permission.GET_ACCOUNTS;
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
                             ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
-                        Log.i(Helper.TAG, "Requesting " + permission);
+                        Log.i("Requesting " + permission);
                         requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_PERMISSION);
                     } else
                         selectAccount();
@@ -487,7 +486,7 @@ public class FragmentAccount extends FragmentEx {
                                 String type = null;
                                 boolean selectable = true;
                                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                                Log.i(Helper.TAG, ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
+                                Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
                                 for (String attr : attrs) {
                                     if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                                         selectable = false;
@@ -514,7 +513,7 @@ public class FragmentAccount extends FragmentEx {
                                     }
                                     result.folders.add(folder);
 
-                                    Log.i(Helper.TAG, folder.name + " id=" + folder.id +
+                                    Log.i(folder.name + " id=" + folder.id +
                                             " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
                                 }
                             }
@@ -803,7 +802,7 @@ public class FragmentAccount extends FragmentEx {
                                 EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                 if (existing == null) {
                                     folder.account = account.id;
-                                    Log.i(Helper.TAG, "Creating folder=" + folder.name + " (" + folder.type + ")");
+                                    Log.i("Creating folder=" + folder.name + " (" + folder.type + ")");
                                     folder.id = db.folder().insertFolder(folder);
                                 } else {
                                     db.folder().setFolderType(existing.id, folder.type);
@@ -1108,7 +1107,7 @@ public class FragmentAccount extends FragmentEx {
 
                 AccountManager am = AccountManager.get(getContext());
                 Account[] accounts = am.getAccountsByType(type);
-                Log.i(Helper.TAG, "Accounts=" + accounts.length);
+                Log.i("Accounts=" + accounts.length);
                 for (final Account account : accounts)
                     if (name.equals(account.name)) {
                         final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
@@ -1125,7 +1124,7 @@ public class FragmentAccount extends FragmentEx {
                                         try {
                                             Bundle bundle = future.getResult();
                                             String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                                            Log.i(Helper.TAG, "Got token");
+                                            Log.i("Got token");
 
                                             authorized = token;
                                             etUser.setText(account.name);
@@ -1137,7 +1136,7 @@ public class FragmentAccount extends FragmentEx {
                                                 }
                                             }, 1000);
                                         } catch (Throwable ex) {
-                                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                            Log.e(ex);
                                             snackbar.setText(Helper.formatThrowable(ex));
                                         }
                                     }
@@ -1149,7 +1148,7 @@ public class FragmentAccount extends FragmentEx {
     }
 
     private void selectAccount() {
-        Log.i(Helper.TAG, "Select account");
+        Log.i("Select account");
         Provider provider = (Provider) spProvider.getSelectedItem();
         if (provider.type != null)
             startActivityForResult(

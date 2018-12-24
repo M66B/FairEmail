@@ -25,7 +25,6 @@ import android.app.job.JobScheduler;
 import android.app.job.JobService;
 import android.content.ComponentName;
 import android.content.Context;
-import android.util.Log;
 
 import java.io.File;
 import java.util.Calendar;
@@ -42,7 +41,7 @@ public class JobDaily extends JobService {
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
 
     public static void schedule(Context context) {
-        Log.i(Helper.TAG, "Scheduling daily job");
+        Log.i("Scheduling daily job");
 
         JobInfo.Builder job = new JobInfo.Builder(Helper.JOB_DAILY, new ComponentName(context, JobDaily.class))
                 .setPeriodic(CLEANUP_INTERVAL)
@@ -51,9 +50,9 @@ public class JobDaily extends JobService {
         JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
         scheduler.cancel(Helper.JOB_DAILY);
         if (scheduler.schedule(job.build()) == JobScheduler.RESULT_SUCCESS)
-            Log.i(Helper.TAG, "Scheduled daily job");
+            Log.i("Scheduled daily job");
         else
-            Log.e(Helper.TAG, "Scheduling daily job failed");
+            Log.e("Scheduling daily job failed");
     }
 
     @Override
@@ -75,10 +74,10 @@ public class JobDaily extends JobService {
         try {
             db.beginTransaction();
 
-            Log.i(Helper.TAG, "Start daily job");
+            Log.i("Start daily job");
 
             // Cleanup folders
-            Log.i(Helper.TAG, "Cleanup folders");
+            Log.i("Cleanup folders");
             for (EntityFolder folder : db.folder().getFolders()) {
                 Calendar cal_keep = Calendar.getInstance();
                 cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
@@ -93,62 +92,62 @@ public class JobDaily extends JobService {
 
                 int messages = db.message().deleteMessagesBefore(folder.id, keep_time, false);
                 if (messages > 0)
-                    Log.i(Helper.TAG, "Cleanup folder=" + folder.account + "/" + folder.name +
+                    Log.i("Cleanup folder=" + folder.account + "/" + folder.name +
                             " before=" + new Date(keep_time) + " deleted=" + messages);
             }
 
             long now = new Date().getTime();
 
             // Cleanup message files
-            Log.i(Helper.TAG, "Cleanup message files");
+            Log.i("Cleanup message files");
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             if (messages != null)
                 for (File file : messages)
                     if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
                         long id = Long.parseLong(file.getName());
                         if (db.message().countMessage(id) == 0) {
-                            Log.i(Helper.TAG, "Cleanup message id=" + id);
+                            Log.i("Cleanup message id=" + id);
                             if (!file.delete())
-                                Log.w(Helper.TAG, "Error deleting " + file);
+                                Log.w("Error deleting " + file);
                         }
                     }
 
             // Cleanup attachment files
-            Log.i(Helper.TAG, "Cleanup attachment files");
+            Log.i("Cleanup attachment files");
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
                 for (File file : attachments)
                     if (file.isFile() && (now - file.lastModified()) > FILE_DELETE_THRESHOLD) {
                         long id = Long.parseLong(file.getName());
                         if (db.attachment().countAttachment(id) == 0) {
-                            Log.i(Helper.TAG, "Cleanup attachment id=" + id);
+                            Log.i("Cleanup attachment id=" + id);
                             if (!file.delete())
-                                Log.w(Helper.TAG, "Error deleting " + file);
+                                Log.w("Error deleting " + file);
                         }
                     }
 
             // Cleanup cached images
-            Log.i(Helper.TAG, "Cleanup cached image files");
+            Log.i("Cleanup cached image files");
             File[] images = new File(context.getCacheDir(), "images").listFiles();
             if (images != null)
                 for (File file : images)
                     if (file.isFile() && (now - file.lastModified()) > CACHE_IMAGE_DURATION) {
-                        Log.i(Helper.TAG, "Deleting cached image=" + file.getName());
+                        Log.i("Deleting cached image=" + file.getName());
                         if (!file.delete())
-                            Log.w(Helper.TAG, "Error deleting " + file);
+                            Log.w("Error deleting " + file);
                     }
 
-            Log.i(Helper.TAG, "Cleanup log");
+            Log.i("Cleanup log");
             long before = now - KEEP_LOG_DURATION;
             int logs = db.log().deleteLogs(before);
-            Log.i(Helper.TAG, "Deleted logs=" + logs);
+            Log.i("Deleted logs=" + logs);
 
             db.setTransactionSuccessful();
         } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
         } finally {
             db.endTransaction();
-            Log.i(Helper.TAG, "End daily job");
+            Log.i("End daily job");
         }
     }
 

@@ -41,7 +41,6 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,8 +89,6 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
 public class Helper {
-    static final String TAG = "fairemail";
-
     static final int JOB_DAILY = 1001;
 
     static final int AUTH_TYPE_PASSWORD = 1;
@@ -115,7 +112,7 @@ public class Helper {
     }
 
     static void view(Context context, LifecycleOwner owner, Uri uri, boolean browse) {
-        Log.i(Helper.TAG, "View=" + uri);
+        Log.i("View=" + uri);
 
         if (!hasCustomTabs(context, uri))
             browse = true;
@@ -267,7 +264,7 @@ public class Helper {
         sb.append(context.getString(title)).append("\n\n\n\n");
         sb.append(Helper.getAppInfo(context));
         if (ex != null)
-            sb.append(ex.toString()).append("\n").append(Log.getStackTraceString(ex));
+            sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
             sb.append(log);
         String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
@@ -526,7 +523,7 @@ public class Helper {
                     "-d",
                     "-v", "threadtime",
                     //"-t", "1000",
-                    Helper.TAG + ":I"};
+                    Log.TAG + ":I"};
             proc = Runtime.getRuntime().exec(cmd);
             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
@@ -615,7 +612,7 @@ public class Helper {
         }
 
         if (log)
-            Log.i(Helper.TAG, "isMetered: active info=" + cm.getNetworkInfo(active));
+            Log.i("isMetered: active info=" + cm.getNetworkInfo(active));
 
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
@@ -625,7 +622,7 @@ public class Helper {
         }
 
         if (log)
-            Log.i(Helper.TAG, "isMetered: active caps=" + caps);
+            Log.i("isMetered: active caps=" + caps);
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
@@ -642,7 +639,7 @@ public class Helper {
             for (Network network : networks) {
                 NetworkInfo ni = cm.getNetworkInfo(network);
                 if (log)
-                    Log.i(Helper.TAG, "isMetered: underlying info=" + ni);
+                    Log.i("isMetered: underlying info=" + ni);
 
                 caps = cm.getNetworkCapabilities(network);
                 if (caps == null) {
@@ -652,17 +649,17 @@ public class Helper {
                 }
 
                 if (log)
-                    Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
+                    Log.i("isMetered: underlying caps=" + caps);
 
                 if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
                     underlying = true;
 
                     if (log)
-                        Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
+                        Log.i("isMetered: underlying caps=" + caps);
 
                     if (ni != null && ni.isConnected()) {
                         if (log)
-                            Log.i(Helper.TAG, "isMetered: underlying is connected");
+                            Log.i("isMetered: underlying is connected");
 
                         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
                             if (log)
@@ -671,7 +668,7 @@ public class Helper {
                         }
                     } else {
                         if (log)
-                            Log.i(Helper.TAG, "isMetered: underlying is disconnected");
+                            Log.i("isMetered: underlying is disconnected");
                     }
                 }
             }
@@ -707,14 +704,14 @@ public class Helper {
             Account[] accounts = am.getAccountsByType(type);
             for (Account account : accounts)
                 if (name.equals(account.name)) {
-                    Log.i(Helper.TAG, "Refreshing token");
+                    Log.i("Refreshing token");
                     am.invalidateAuthToken(type, current);
                     String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
-                    Log.i(Helper.TAG, "Refreshed token");
+                    Log.i("Refreshed token");
                     return refreshed;
                 }
         } catch (Throwable ex) {
-            Log.w(TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.w(ex);
         }
         return current;
     }
@@ -733,7 +730,7 @@ public class Helper {
         try {
             return "com.android.vending".equals(context.getPackageManager().getInstallerPackageName(context.getPackageName()));
         } catch (Throwable ex) {
-            Log.e(TAG, Log.getStackTraceString(ex));
+            Log.e(ex);
             return false;
         }
     }
@@ -814,7 +811,7 @@ public class Helper {
                 sb.append(Integer.toString(b & 0xff, 16).toUpperCase());
             return sb.toString();
         } catch (Throwable ex) {
-            Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
             return null;
         }
     }

@@ -51,7 +51,6 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -342,7 +341,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
                         }
                     } catch (SecurityException ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                     }
             }
             if (!photo && identicons && !outgoing) {
@@ -793,7 +792,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     try {
                         body = message.read(context);
                     } catch (IOException ex) {
-                        Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        Log.e(ex);
                         body = ex.toString();
                         DB.getInstance(context).message().setMessageContent(message.id, false, null);
                     }
@@ -877,7 +876,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void handleTag(boolean opening, String tag, Editable output, XMLReader xmlReader) {
                     if (BuildConfig.DEBUG)
-                        Log.i(Helper.TAG, "HTML tag=" + tag + " opening=" + opening);
+                        Log.i("HTML tag=" + tag + " opening=" + opening);
                 }
             });
         }
@@ -1167,7 +1166,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("id", message.id);
             args.putBoolean("flagged", !message.ui_flagged);
             args.putBoolean("thread", viewType != ViewType.THREAD);
-            Log.i(Helper.TAG, "Set message id=" + message.id + " flagged=" + !message.ui_flagged);
+            Log.i("Set message id=" + message.id + " flagged=" + !message.ui_flagged);
 
             new SimpleTask<Void>() {
                 @Override
@@ -1710,11 +1709,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < messages.size(); i++) {
                 TupleMessageEx message = messages.get(i);
                 if (message != null && message.id.equals(key)) {
-                    Log.i(Helper.TAG, "Position=" + i + " @Key=" + key);
+                    Log.i("Position=" + i + " @Key=" + key);
                     return i;
                 }
             }
-        Log.i(Helper.TAG, "Position=" + RecyclerView.NO_POSITION + " @Key=" + key);
+        Log.i("Position=" + RecyclerView.NO_POSITION + " @Key=" + key);
         return RecyclerView.NO_POSITION;
     }
 
@@ -1723,10 +1722,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (list != null && pos < list.size()) {
             TupleMessageEx message = list.get(pos);
             Long key = (message == null ? null : message.id);
-            Log.i(Helper.TAG, "Item=" + key + " @Position=" + pos);
+            Log.i("Item=" + key + " @Position=" + pos);
             return message;
         } else {
-            Log.i(Helper.TAG, "Item=" + null + " @Position=" + pos);
+            Log.i("Item=" + null + " @Position=" + pos);
             return null;
         }
     }
@@ -1737,18 +1736,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < messages.size(); i++) {
                 TupleMessageEx message = messages.get(i);
                 if (message != null && message.id.equals(key)) {
-                    Log.i(Helper.TAG, "Item=" + message.id + " @Key=" + key);
+                    Log.i("Item=" + message.id + " @Key=" + key);
                     return message;
                 }
             }
-        Log.i(Helper.TAG, "Item=" + null + " @Key" + key);
+        Log.i("Item=" + null + " @Key" + key);
         return null;
     }
 
     Long getKeyAtPosition(int pos) {
         TupleMessageEx message = getItemAtPosition(pos);
         Long key = (message == null ? null : message.id);
-        Log.i(Helper.TAG, "Key=" + key + " @Position=" + pos);
+        Log.i("Key=" + key + " @Position=" + pos);
         return key;
     }
 

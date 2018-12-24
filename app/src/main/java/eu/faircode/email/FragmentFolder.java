@@ -24,7 +24,6 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -180,7 +179,7 @@ public class FragmentFolder extends FragmentEx {
 
                             if (folder == null) {
                                 reload = true;
-                                Log.i(Helper.TAG, "Creating folder=" + name);
+                                Log.i("Creating folder=" + name);
 
                                 if (TextUtils.isEmpty(name))
                                     throw new IllegalArgumentException(getString(R.string.title_folder_name_missing));
@@ -217,7 +216,7 @@ public class FragmentFolder extends FragmentEx {
                                 if (keep_time < 0)
                                     keep_time = 0;
 
-                                Log.i(Helper.TAG, "Updating folder=" + name);
+                                Log.i("Updating folder=" + name);
                                 db.folder().setFolderProperties(id,
                                         display, unified, notify, hide,
                                         synchronize, poll, download,

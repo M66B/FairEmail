@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,9 +89,9 @@ public abstract class DB extends RoomDatabase {
                     .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                     .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
 
-            Log.i(Helper.TAG, "sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
-            Log.i(Helper.TAG, "sqlite sync=" + exec(sInstance, "PRAGMA synchronous"));
-            Log.i(Helper.TAG, "sqlite journal=" + exec(sInstance, "PRAGMA journal_mode"));
+            Log.i("sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
+            Log.i("sqlite sync=" + exec(sInstance, "PRAGMA synchronous"));
+            Log.i("sqlite journal=" + exec(sInstance, "PRAGMA journal_mode"));
         }
 
         return sInstance;
@@ -118,14 +117,14 @@ public abstract class DB extends RoomDatabase {
                 .addCallback(new Callback() {
                     @Override
                     public void onOpen(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "Database version=" + db.getVersion());
+                        Log.i("Database version=" + db.getVersion());
                         super.onOpen(db);
                     }
                 })
                 .addMigrations(new Migration(1, 2) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` RENAME COLUMN `after` TO `sync_days`");
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `keep_days` INTEGER NOT NULL DEFAULT 30");
                         db.execSQL("UPDATE `folder` SET keep_days = sync_days");
@@ -134,7 +133,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(2, 3) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `signature` TEXT");
                         db.execSQL("UPDATE `identity` SET signature =" +
                                 " (SELECT account.signature FROM account WHERE account.id = identity.account)");
@@ -143,7 +142,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(3, 4) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `forwarding` INTEGER" +
                                 " REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL");
                         db.execSQL("CREATE INDEX `index_message_forwarding` ON `message` (`forwarding`)");
@@ -152,7 +151,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(4, 5) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `last_connected` INTEGER");
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `last_attempt` INTEGER");
                     }
@@ -160,14 +159,14 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(5, 6) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `notify` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
                 .addMigrations(new Migration(6, 7) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `answered` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_answered` INTEGER NOT NULL DEFAULT 0");
                     }
@@ -175,21 +174,21 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(7, 8) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `keywords` TEXT");
                     }
                 })
                 .addMigrations(new Migration(8, 9) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `keywords` TEXT");
                     }
                 })
                 .addMigrations(new Migration(9, 10) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `ui_browsed` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("CREATE INDEX `index_message_ui_browsed` ON `message` (`ui_browsed`)");
                     }
@@ -197,14 +196,14 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(10, 11) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `operation` ADD COLUMN `error` TEXT");
                     }
                 })
                 .addMigrations(new Migration(11, 12) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DROP INDEX `index_operation_folder`");
                         db.execSQL("DROP INDEX `index_operation_message`");
                         db.execSQL("DROP TABLE `operation`");
@@ -225,35 +224,35 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(12, 13) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("CREATE  INDEX `index_message_ui_flagged` ON `message` (`ui_flagged`)");
                     }
                 })
                 .addMigrations(new Migration(13, 14) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `level` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
                 .addMigrations(new Migration(14, 15) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `sync_state` TEXT");
                     }
                 })
                 .addMigrations(new Migration(15, 16) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `poll` INTEGER NOT NULL DEFAULT 0");
                     }
                 })
                 .addMigrations(new Migration(16, 17) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("DELETE FROM `message` WHERE ui_found");
                         db.execSQL("DROP INDEX `index_message_folder_uid_ui_found`");
                         db.execSQL("DROP INDEX `index_message_msgid_folder_ui_found`");
@@ -264,7 +263,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(17, 18) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `tbd` INTEGER");
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `tbd` INTEGER");
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `tbd` INTEGER");
@@ -273,7 +272,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(18, 19) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `delivery_receipt` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `read_receipt` INTEGER NOT NULL DEFAULT 0");
                     }
@@ -281,7 +280,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(19, 20) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `notify` INTEGER NOT NULL DEFAULT 0");
                         db.execSQL("UPDATE `folder` SET notify = unified");
                     }
@@ -289,7 +288,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(20, 21) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `display` TEXT");
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `bcc` TEXT");
                     }
@@ -297,7 +296,7 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(21, 22) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `initialize` INTEGER NOT NULL DEFAULT 1");
                         db.execSQL("UPDATE `folder` SET sync_days = 1");
                     }
@@ -305,28 +304,28 @@ public abstract class DB extends RoomDatabase {
                 .addMigrations(new Migration(22, 23) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `download` INTEGER NOT NULL DEFAULT 1");
                     }
                 })
                 .addMigrations(new Migration(23, 24) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `folder` ADD COLUMN `tbc` INTEGER");
                     }
                 })
                 .addMigrations(new Migration(24, 25) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `prefix` TEXT");
                     }
                 })
                 .addMigrations(new Migration(25, 26) {
                     @Override
                     public void migrate(SupportSQLiteDatabase db) {
-                        Log.i(Helper.TAG, "DB migration from version " + startVersion + " to " + endVersion);
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         int browse = (prefs.getBoolean("browse", true) ? 1 : 0);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `browse` INTEGER NOT NULL DEFAULT " + browse);
@@ -374,7 +373,7 @@ public abstract class DB extends RoomDatabase {
                         jaddresses.put(jaddress);
                     }
                 } catch (JSONException ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                    Log.e(ex);
                 }
             return jaddresses.toString();
         }
@@ -398,7 +397,7 @@ public abstract class DB extends RoomDatabase {
                 }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
-                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                Log.w(ex);
             }
             return result.toArray(new Address[0]);
         }

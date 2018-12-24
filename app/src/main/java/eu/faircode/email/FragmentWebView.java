@@ -27,7 +27,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Base64;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -104,7 +103,7 @@ public class FragmentWebView extends FragmentEx {
         webview.setDownloadListener(new DownloadListener() {
             public void onDownloadStart(
                     String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                Log.i(Helper.TAG, "Download url=" + url + " mime type=" + mimetype);
+                Log.i("Download url=" + url + " mime type=" + mimetype);
 
                 Uri uri = Uri.parse(url);
 
@@ -168,7 +167,7 @@ public class FragmentWebView extends FragmentEx {
                                 }
                             }
                         } catch (Throwable ex) {
-                            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.e(ex);
                         }
 
                     return doc.html();
@@ -207,7 +206,7 @@ public class FragmentWebView extends FragmentEx {
             final WebView.HitTestResult result = ((WebView) view).getHitTestResult();
             if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
                     result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-                Log.i(Helper.TAG, "Context menu url=" + result.getExtra());
+                Log.i("Context menu url=" + result.getExtra());
 
                 menu.add(Menu.NONE, 1, 0, R.string.title_view)
                         .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

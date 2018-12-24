@@ -47,7 +47,6 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -838,7 +837,7 @@ public class FragmentCompose extends FragmentEx {
                     etBcc.setText(sb.toString());
             }
         } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         } finally {
             if (cursor != null)
@@ -946,7 +945,7 @@ public class FragmentCompose extends FragmentEx {
 
         args.putString("body", Html.toHtml(spannable));
 
-        Log.i(Helper.TAG, "Run load id=" + working);
+        Log.i("Run load id=" + working);
         actionLoader.load(this, args);
     }
 
@@ -996,7 +995,7 @@ public class FragmentCompose extends FragmentEx {
             db.beginTransaction();
 
             EntityMessage draft = db.message().getMessage(id);
-            Log.i(Helper.TAG, "Attaching to id=" + id);
+            Log.i("Attaching to id=" + id);
 
             attachment.message = draft.id;
             attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
@@ -1012,7 +1011,7 @@ public class FragmentCompose extends FragmentEx {
             attachment.progress = 0;
 
             attachment.id = db.attachment().insertAttachment(attachment);
-            Log.i(Helper.TAG, "Created attachment=" + attachment.name + ":" + attachment.sequence + " type=" + attachment.type);
+            Log.i("Created attachment=" + attachment.name + ":" + attachment.sequence + " type=" + attachment.type);
 
             db.setTransactionSuccessful();
         } finally {
@@ -1074,7 +1073,7 @@ public class FragmentCompose extends FragmentEx {
             boolean raw = args.getBoolean("raw", false);
             long answer = args.getLong("answer", -1);
 
-            Log.i(Helper.TAG, "Load draft action=" + action + " id=" + id + " reference=" + reference);
+            Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
             DraftAccount result = new DraftAccount();
 
@@ -1116,20 +1115,20 @@ public class FragmentCompose extends FragmentEx {
 
                         if (ref.deliveredto != null && (ref.to == null || ref.to.length == 0)) {
                             try {
-                                Log.i(Helper.TAG, "Setting delivered to=" + ref.deliveredto);
+                                Log.i("Setting delivered to=" + ref.deliveredto);
                                 ref.to = InternetAddress.parse(ref.deliveredto);
                             } catch (AddressException ex) {
-                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                                Log.w(ex);
                             }
                         }
 
                         if (ref.from != null && ref.from.length > 0) {
                             String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                            Log.i(Helper.TAG, "From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
+                            Log.i("From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
                             for (EntityIdentity identity : identities) {
                                 String email = Helper.canonicalAddress(identity.email);
                                 if (from.equals(email)) {
-                                    Log.i(Helper.TAG, "Swapping from/to");
+                                    Log.i("Swapping from/to");
                                     Address[] tmp = ref.to;
                                     ref.to = ref.from;
                                     ref.from = tmp;
@@ -1160,21 +1159,21 @@ public class FragmentCompose extends FragmentEx {
                             String to = args.getString("to");
                             result.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
 
                         try {
                             String cc = args.getString("cc");
                             result.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
 
                         try {
                             String bcc = args.getString("bcc");
                             result.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
                         } catch (AddressException ex) {
-                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            Log.w(ex);
                         }
 
                         result.draft.subject = args.getString("subject");
@@ -1321,7 +1320,7 @@ public class FragmentCompose extends FragmentEx {
             working = result.draft.id;
 
             final String action = getArguments().getString("action");
-            Log.i(Helper.TAG, "Loaded draft id=" + result.draft.id + " action=" + action);
+            Log.i("Loaded draft id=" + result.draft.id + " action=" + action);
 
             etExtra.setText(result.draft.extra);
             etTo.setText(MessageHelper.getFormattedAddresses(result.draft.to, true));
@@ -1347,7 +1346,7 @@ public class FragmentCompose extends FragmentEx {
                     if (accounts == null)
                         accounts = new ArrayList<>();
 
-                    Log.i(Helper.TAG, "Set accounts=" + accounts.size());
+                    Log.i("Set accounts=" + accounts.size());
 
                     // Sort accounts
                     Collections.sort(accounts, new Comparator<EntityAccount>() {
@@ -1377,7 +1376,7 @@ public class FragmentCompose extends FragmentEx {
                                     if (identities == null)
                                         identities = new ArrayList<>();
 
-                                    Log.i(Helper.TAG, "Set identities=" + identities.size());
+                                    Log.i("Set identities=" + identities.size());
 
                                     // Sort identities
                                     Collections.sort(identities, new Comparator<EntityIdentity>() {
@@ -1571,7 +1570,7 @@ public class FragmentCompose extends FragmentEx {
                 if (draft == null)
                     throw new MessageRemovedException("Draft for action was deleted");
 
-                Log.i(Helper.TAG, "Load action id=" + draft.id + " action=" + action);
+                Log.i("Load action id=" + draft.id + " action=" + action);
 
                 // Move draft to new account
                 if (draft.account != aid && aid >= 0) {
@@ -1731,7 +1730,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected void onLoaded(Bundle args, EntityMessage draft) {
             int action = args.getInt("action");
-            Log.i(Helper.TAG, "Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
+            Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
 
             busy = false;
             Helper.setViewsEnabled(view, true);
@@ -1804,7 +1803,7 @@ public class FragmentCompose extends FragmentEx {
         }
 
         private void processTt(boolean opening, Editable output) {
-            Log.i(Helper.TAG, "Handling tt");
+            Log.i("Handling tt");
             int len = output.length();
             if (opening)
                 output.setSpan(new TypefaceSpan("monospace"), len, len, Spannable.SPAN_MARK_MARK);

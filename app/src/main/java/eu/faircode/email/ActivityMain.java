@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         if (!Helper.isPlayStoreInstall(this)) {
-            Log.i(Helper.TAG, "Third party install");
+            Log.i("Third party install");
             prefs.edit().putBoolean("play_store", false).apply();
         }
 

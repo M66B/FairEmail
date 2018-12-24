@@ -29,7 +29,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -297,7 +296,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected Void onLoad(Context context, Bundle args) {
                             long id = args.getLong("id");
                             boolean outbox = args.getBoolean("outbox");
-                            Log.i(Helper.TAG, "Delete local messages outbox=" + outbox);
+                            Log.i("Delete local messages outbox=" + outbox);
                             if (outbox)
                                 DB.getInstance(context).message().deleteSeenMessages(id);
                             else
@@ -389,7 +388,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     public void set(long account, @NonNull List<TupleFolderEx> _folders) {
-        Log.i(Helper.TAG, "Set account=" + account + " folders=" + _folders.size());
+        Log.i("Set account=" + account + " folders=" + _folders.size());
 
         this.account = account;
 
@@ -414,22 +413,22 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
             public void onInserted(int position, int count) {
-                Log.i(Helper.TAG, "Inserted @" + position + " #" + count);
+                Log.i("Inserted @" + position + " #" + count);
             }
 
             @Override
             public void onRemoved(int position, int count) {
-                Log.i(Helper.TAG, "Removed @" + position + " #" + count);
+                Log.i("Removed @" + position + " #" + count);
             }
 
             @Override
             public void onMoved(int fromPosition, int toPosition) {
-                Log.i(Helper.TAG, "Moved " + fromPosition + ">" + toPosition);
+                Log.i("Moved " + fromPosition + ">" + toPosition);
             }
 
             @Override
             public void onChanged(int position, int count, Object payload) {
-                Log.i(Helper.TAG, "Changed @" + position + " #" + count);
+                Log.i("Changed @" + position + " #" + count);
             }
         });
         diff.dispatchUpdatesTo(this);

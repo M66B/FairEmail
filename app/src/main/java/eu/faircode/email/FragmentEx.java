@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,14 +54,14 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        Log.i(Helper.TAG, "Save instance " + this);
+        Log.i("Save instance " + this);
         super.onSaveInstanceState(outState);
         outState.putString("subtitle", subtitle);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create " + this + " saved=" + (savedInstanceState != null));
+        Log.i("Create " + this + " saved=" + (savedInstanceState != null));
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null)
             subtitle = savedInstanceState.getString("subtitle");
@@ -70,19 +69,19 @@ public class FragmentEx extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Create view " + this);
+        Log.i("Create view " + this);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        Log.i(Helper.TAG, "Activity " + this + " saved=" + (savedInstanceState != null));
+        Log.i("Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onResume() {
-        Log.i(Helper.TAG, "Resume " + this);
+        Log.i("Resume " + this);
         super.onResume();
         updateSubtitle();
         if (finish) {
@@ -93,7 +92,7 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onPause() {
-        Log.i(Helper.TAG, "Pause " + this);
+        Log.i("Pause " + this);
         super.onPause();
     }
 
@@ -109,13 +108,13 @@ public class FragmentEx extends Fragment {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i(Helper.TAG, "Config " + this);
+        Log.i("Config " + this);
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onDestroy() {
-        Log.i(Helper.TAG, "Destroy " + this);
+        Log.i("Destroy " + this);
         super.onDestroy();
     }
 

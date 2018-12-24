@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
-import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 
@@ -89,7 +88,7 @@ public class Provider {
                 eventType = xml.next();
             }
         } catch (Throwable ex) {
-            Log.e(Helper.TAG, ex.toString() + "\n" + Log.getStackTraceString(ex));
+            Log.e(ex);
         }
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
