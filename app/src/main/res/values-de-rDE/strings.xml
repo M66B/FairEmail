@@ -68,7 +68,7 @@
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
     <string name="title_setup_account">Konten verwalten</string>
-    <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
+    <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
     <string name="title_setup_identity">Identitäten verwalten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
     <string name="title_setup_permissions">Berechtigungen erteilen</string>
@@ -104,6 +104,9 @@
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
+    <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen markieren</string>
+    <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
+    <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -126,6 +129,8 @@
     <string name="title_account_linked">Verknüpftes Konto</string>
     <string name="title_account_name">Kontobezeichnung</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
+    <string name="title_account_prefix">Namespace Präfix</string>
+    <string name="title_account_prefix_hint">Zur Vereinfachung der Ordnernamen verwendet</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_account_color">Farbe</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
@@ -165,6 +170,7 @@
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
+    <string name="title_identity_sent_hint">Versendete Nachrichten werden schon in fast allen Fällen automatisch im \'Versendet\' Ordner gespeichert</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
@@ -227,6 +233,7 @@
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>
     <string name="title_no_viewer">Keine App zum Betrachten von %1$s</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
+    <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
@@ -327,6 +334,7 @@
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
+    <string name="title_hint_message_compact">In den erweiterten Optionen kannst Du eine kompaktere Nachrichtenansicht auswählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_select_app">App auswählen</string>
@@ -336,6 +344,7 @@
     <string name="title_no">Nein</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
+    <string name="title_browse">Durchsuchen</string>
     <string name="title_report">Bericht</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>

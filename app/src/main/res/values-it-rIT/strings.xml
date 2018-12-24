@@ -104,7 +104,9 @@
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
+    <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
+    <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_confirm">Conferma le azioni che potrebbero rivelare informazioni personali sensibili</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -127,6 +129,8 @@
     <string name="title_account_linked">Account collegato</string>
     <string name="title_account_name">Nome account</string>
     <string name="title_account_name_hint">Usato per differenziare le cartelle</string>
+    <string name="title_account_prefix">Prefisso Namespace</string>
+    <string name="title_account_prefix_hint">Utilizzato per semplificare i nomi delle cartelle</string>
     <string name="title_account_signature">Testo della firma</string>
     <string name="title_account_color">Colore</string>
     <string name="title_account_notify">Notifiche separate</string>
@@ -187,6 +191,7 @@
     <string name="title_sync_days_remark">Aumentando questo valore aumenterà l\'utilizzo della batteria e dei dati</string>
     <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
     <string name="title_keep_all">Conserva tutti i messaggi</string>
+    <string name="title_folder_name_missing">Nome Cartella mancante</string>
     <string name="title_folder_exists">La cartella %1$s esiste</string>
     <string name="title_folder_delete">Elimina definitivamente questa cartella e tutti i messaggi che contiene?</string>
     <string name="title_folder_unified">Posta in arrivo unificata</string>
@@ -329,6 +334,7 @@
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
+    <string name="title_hint_message_compact">Puoi selezionare una visualizzazione dei messaggi più compatta nelle opzioni avanzate</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_select_app">Seleziona app</string>
@@ -338,6 +344,7 @@
     <string name="title_no">No</string>
     <string name="title_undo">Annulla</string>
     <string name="title_add">Aggiungi</string>
+    <string name="title_browse">Esplora</string>
     <string name="title_report">Report</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>

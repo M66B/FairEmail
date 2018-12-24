@@ -104,7 +104,9 @@
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
+    <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_collapse">Colapsar mensajes en conversaciones al ir \'atrás\'</string>
+    <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_confirm">Confirmar acciones que podrían filtrar información privada sensible</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
@@ -332,6 +334,7 @@
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes para obtener ayuda</string>
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
+    <string name="title_hint_message_compact">Puede seleccionar una vista de mensajes más compacta en las opciones avanzadas</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_select_app">Seleccionar aplicación</string>
@@ -341,6 +344,7 @@
     <string name="title_no">No</string>
     <string name="title_undo">Deshacer</string>
     <string name="title_add">Agregar</string>
+    <string name="title_browse">Explorar</string>
     <string name="title_report">Reportar</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
