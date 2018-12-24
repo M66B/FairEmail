@@ -1627,8 +1627,18 @@ public class FragmentCompose extends FragmentEx {
                 if (TextUtils.isEmpty(extra))
                     extra = null;
 
+                Long ident = (identity == null ? null : identity.id);
+                boolean dirty =
+                        ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
+                                (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
+                                !EntityMessage.equal(draft.from, afrom) ||
+                                !EntityMessage.equal(draft.to, ato) ||
+                                !EntityMessage.equal(draft.cc, acc) ||
+                                !EntityMessage.equal(draft.bcc, abcc) ||
+                                (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
+
                 // Update draft
-                draft.identity = (identity == null ? null : identity.id);
+                draft.identity = ident;
                 draft.extra = extra;
                 draft.from = afrom;
                 draft.to = ato;
@@ -1636,17 +1646,21 @@ public class FragmentCompose extends FragmentEx {
                 draft.bcc = abcc;
                 draft.subject = subject;
                 draft.received = new Date().getTime();
-                db.message().updateMessage(draft);
 
                 if (action == R.id.action_send)
                     if (draft.replying != null || draft.forwarding != null)
                         body += HtmlHelper.getQuote(context,
                                 draft.replying == null ? draft.forwarding : draft.replying, false);
 
-                draft.write(context, body);
-                String text = (body == null ? null : Jsoup.parse(body).text());
-                String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
-                db.message().setMessageContent(draft.id, true, preview);
+                dirty = (dirty || !body.equals(draft.read(context)));
+
+                if (dirty) {
+                    db.message().updateMessage(draft);
+                    draft.write(context, body);
+                    String text = (body == null ? null : Jsoup.parse(body).text());
+                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+                    db.message().setMessageContent(draft.id, true, preview);
+                }
 
                 // Execute action
                 if (action == R.id.action_delete) {
@@ -1661,14 +1675,16 @@ public class FragmentCompose extends FragmentEx {
                         });
                     }
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
-                    EntityOperation.queue(db, draft, EntityOperation.ADD);
+                    if (dirty) {
+                        EntityOperation.queue(db, draft, EntityOperation.ADD);
 
-                    Handler handler = new Handler(context.getMainLooper());
-                    handler.post(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
-                        }
-                    });
+                        Handler handler = new Handler(context.getMainLooper());
+                        handler.post(new Runnable() {
+                            public void run() {
+                                Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
 
                 } else if (action == R.id.action_send) {
                     // Check data

@@ -328,7 +328,7 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
-    private static boolean equal(Address[] a1, Address[] a2) {
+    static boolean equal(Address[] a1, Address[] a2) {
         if (a1 == null && a2 == null)
             return true;
 
