@@ -765,6 +765,7 @@ public class FragmentCompose extends FragmentEx {
                                 ActivityCompose.REQUEST_ENCRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
+                        Log.e(ex);
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
             }

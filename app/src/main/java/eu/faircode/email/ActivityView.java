@@ -1297,6 +1297,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 ActivityView.REQUEST_DECRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
+                        Log.e(ex);
                         Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
                     }
             }

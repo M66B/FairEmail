@@ -135,6 +135,7 @@ public class Helper {
             } catch (ActivityNotFoundException ex) {
                 Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
             } catch (Throwable ex) {
+                Log.e(ex);
                 Helper.unexpectedError(context, owner, ex);
             }
         }
