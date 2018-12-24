@@ -79,7 +79,6 @@ import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -114,6 +113,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentEx {
+    private enum State {NONE, LOADING, LOADED}
+
     private ViewGroup view;
     private Spinner spAccount;
     private Spinner spIdentity;
@@ -145,8 +146,9 @@ public class FragmentCompose extends FragmentEx {
     private AdapterAttachment adapter;
 
     private long working = -1;
-    private boolean busy = false;
+    private State state = State.NONE;
     private boolean autosave = false;
+    private boolean busy = false;
     private boolean pro = false;
 
     private OpenPgpServiceConnection pgpService;
@@ -475,8 +477,8 @@ public class FragmentCompose extends FragmentEx {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.menu_addresses).setVisible(working >= 0);
-        menu.findItem(R.id.menu_clear).setVisible(working >= 0);
-        menu.findItem(R.id.menu_encrypt).setVisible(working >= 0);
+        menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
@@ -890,7 +892,9 @@ public class FragmentCompose extends FragmentEx {
     }
 
     private void handleExit() {
-        if (isEmpty())
+        if (state != State.LOADED)
+            finish();
+        else if (isEmpty())
             onAction(R.id.action_delete);
         else
             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
@@ -1080,223 +1084,229 @@ public class FragmentCompose extends FragmentEx {
 
                 result.draft = db.message().getMessage(id);
                 if (result.draft == null || result.draft.ui_hide) {
+                    // New draft
                     if ("edit".equals(action))
-                        throw new IllegalStateException("Message to edit not found");
-                } else {
-                    result.account = db.account().getAccount(result.draft.account);
-                    return result;
-                }
+                        throw new IllegalStateException("Draft not found hide=" + (result.draft != null));
 
-                EntityMessage ref = db.message().getMessage(reference);
-                if (ref == null) {
-                    long aid = args.getLong("account", -1);
-                    if (aid < 0) {
-                        result.account = db.account().getPrimaryAccount();
-                        if (result.account == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-                    } else
-                        result.account = db.account().getAccount(aid);
-                } else {
-                    result.account = db.account().getAccount(ref.account);
+                    EntityMessage ref = db.message().getMessage(reference);
+                    if (ref == null) {
+                        long aid = args.getLong("account", -1);
+                        if (aid < 0) {
+                            result.account = db.account().getPrimaryAccount();
+                            if (result.account == null)
+                                throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+                        } else
+                            result.account = db.account().getAccount(aid);
+                    } else {
+                        result.account = db.account().getAccount(ref.account);
 
-                    // Reply to recipient, not to known self
-                    List<EntityIdentity> identities = db.identity().getIdentities();
+                        // Reply to recipient, not to known self
+                        List<EntityIdentity> identities = db.identity().getIdentities();
 
-                    if (ref.reply != null && ref.reply.length > 0) {
-                        String reply = Helper.canonicalAddress(((InternetAddress) ref.reply[0]).getAddress());
-                        for (EntityIdentity identity : identities) {
-                            String email = Helper.canonicalAddress(identity.email);
-                            if (reply.equals(email)) {
-                                ref.reply = null;
-                                break;
+                        if (ref.reply != null && ref.reply.length > 0) {
+                            String reply = Helper.canonicalAddress(((InternetAddress) ref.reply[0]).getAddress());
+                            for (EntityIdentity identity : identities) {
+                                String email = Helper.canonicalAddress(identity.email);
+                                if (reply.equals(email)) {
+                                    ref.reply = null;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (ref.deliveredto != null && (ref.to == null || ref.to.length == 0)) {
+                            try {
+                                Log.i(Helper.TAG, "Setting delivered to=" + ref.deliveredto);
+                                ref.to = InternetAddress.parse(ref.deliveredto);
+                            } catch (AddressException ex) {
+                                Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                            }
+                        }
+
+                        if (ref.from != null && ref.from.length > 0) {
+                            String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
+                            Log.i(Helper.TAG, "From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
+                            for (EntityIdentity identity : identities) {
+                                String email = Helper.canonicalAddress(identity.email);
+                                if (from.equals(email)) {
+                                    Log.i(Helper.TAG, "Swapping from/to");
+                                    Address[] tmp = ref.to;
+                                    ref.to = ref.from;
+                                    ref.from = tmp;
+                                    break;
+                                }
                             }
                         }
                     }
 
-                    if (ref.deliveredto != null && (ref.to == null || ref.to.length == 0)) {
+                    EntityFolder drafts;
+                    drafts = db.folder().getFolderByType(result.account.id, EntityFolder.DRAFTS);
+                    if (drafts == null)
+                        drafts = db.folder().getPrimaryDrafts();
+                    if (drafts == null)
+                        throw new IllegalArgumentException(getString(R.string.title_no_primary_drafts));
+
+                    String body = "";
+
+                    result.draft = new EntityMessage();
+                    result.draft.account = result.account.id;
+                    result.draft.folder = drafts.id;
+                    result.draft.msgid = EntityMessage.generateMessageId();
+
+                    if (ref == null) {
+                        result.draft.thread = result.draft.msgid;
+
                         try {
-                            Log.i(Helper.TAG, "Setting delivered to=" + ref.deliveredto);
-                            ref.to = InternetAddress.parse(ref.deliveredto);
+                            String to = args.getString("to");
+                            result.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                         } catch (AddressException ex) {
                             Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                         }
-                    }
 
-                    if (ref.from != null && ref.from.length > 0) {
-                        String from = Helper.canonicalAddress(((InternetAddress) ref.from[0]).getAddress());
-                        Log.i(Helper.TAG, "From=" + from + " to=" + MessageHelper.getFormattedAddresses(ref.to, false));
-                        for (EntityIdentity identity : identities) {
-                            String email = Helper.canonicalAddress(identity.email);
-                            if (from.equals(email)) {
-                                Log.i(Helper.TAG, "Swapping from/to");
-                                Address[] tmp = ref.to;
-                                ref.to = ref.from;
-                                ref.from = tmp;
-                                break;
-                            }
+                        try {
+                            String cc = args.getString("cc");
+                            result.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
                         }
-                    }
-                }
 
-                EntityFolder drafts;
-                drafts = db.folder().getFolderByType(result.account.id, EntityFolder.DRAFTS);
-                if (drafts == null)
-                    drafts = db.folder().getPrimaryDrafts();
-                if (drafts == null)
-                    throw new IllegalArgumentException(getString(R.string.title_no_primary_drafts));
+                        try {
+                            String bcc = args.getString("bcc");
+                            result.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                        } catch (AddressException ex) {
+                            Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
+                        }
 
-                String body = "";
+                        result.draft.subject = args.getString("subject");
+                        body = args.getString("body");
+                        if (body == null)
+                            body = "";
+                        else
+                            body = body.replaceAll("\\r?\\n", "<br />");
+                    } else {
+                        result.draft.thread = ref.thread;
 
-                result.draft = new EntityMessage();
-                result.draft.account = result.account.id;
-                result.draft.folder = drafts.id;
-                result.draft.msgid = EntityMessage.generateMessageId();
+                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                            result.draft.replying = ref.id;
+                            result.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                            result.draft.from = ref.to;
 
-                if (ref == null) {
-                    result.draft.thread = result.draft.msgid;
-
-                    try {
-                        String to = args.getString("to");
-                        result.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-                    } catch (AddressException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-
-                    try {
-                        String cc = args.getString("cc");
-                        result.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-                    } catch (AddressException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-
-                    try {
-                        String bcc = args.getString("bcc");
-                        result.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
-                    } catch (AddressException ex) {
-                        Log.w(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    }
-
-                    result.draft.subject = args.getString("subject");
-                    body = args.getString("body");
-                    if (body == null)
-                        body = "";
-                    else
-                        body = body.replaceAll("\\r?\\n", "<br />");
-                } else {
-                    result.draft.thread = ref.thread;
-
-                    if ("reply".equals(action) || "reply_all".equals(action)) {
-                        result.draft.replying = ref.id;
-                        result.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                        result.draft.from = ref.to;
-
-                        if ("reply_all".equals(action)) {
-                            List<Address> addresses = new ArrayList<>();
-                            if (ref.to != null)
-                                addresses.addAll(Arrays.asList(ref.to));
-                            if (ref.cc != null)
-                                addresses.addAll(Arrays.asList(ref.cc));
-                            List<EntityIdentity> identities = db.identity().getIdentities();
-                            for (Address address : new ArrayList<>(addresses)) {
-                                String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
-                                for (EntityIdentity identity : identities) {
-                                    String email = Helper.canonicalAddress(identity.email);
-                                    if (cc.equals(email))
-                                        addresses.remove(address);
+                            if ("reply_all".equals(action)) {
+                                List<Address> addresses = new ArrayList<>();
+                                if (ref.to != null)
+                                    addresses.addAll(Arrays.asList(ref.to));
+                                if (ref.cc != null)
+                                    addresses.addAll(Arrays.asList(ref.cc));
+                                List<EntityIdentity> identities = db.identity().getIdentities();
+                                for (Address address : new ArrayList<>(addresses)) {
+                                    String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
+                                    for (EntityIdentity identity : identities) {
+                                        String email = Helper.canonicalAddress(identity.email);
+                                        if (cc.equals(email))
+                                            addresses.remove(address);
+                                    }
                                 }
+                                result.draft.cc = addresses.toArray(new Address[0]);
                             }
-                            result.draft.cc = addresses.toArray(new Address[0]);
+
+                        } else if ("forward".equals(action)) {
+                            result.draft.forwarding = ref.id;
+                            result.draft.from = ref.to;
                         }
 
-                    } else if ("forward".equals(action)) {
-                        result.draft.forwarding = ref.id;
-                        result.draft.from = ref.to;
-                    }
+                        if ("reply".equals(action) || "reply_all".equals(action))
+                            result.draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
+                        else if ("forward".equals(action))
+                            result.draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
 
-                    if ("reply".equals(action) || "reply_all".equals(action))
-                        result.draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
-                    else if ("forward".equals(action))
-                        result.draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
+                        if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
+                            String text = db.answer().getAnswer(answer).text;
 
-                    if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
-                        String text = db.answer().getAnswer(answer).text;
+                            String name = null;
+                            String email = null;
+                            if (result.draft.to != null && result.draft.to.length > 0) {
+                                name = ((InternetAddress) result.draft.to[0]).getPersonal();
+                                email = ((InternetAddress) result.draft.to[0]).getAddress();
+                            }
+                            text = text.replace("$name$", name == null ? "" : name);
+                            text = text.replace("$email$", email == null ? "" : email);
 
-                        String name = null;
-                        String email = null;
-                        if (result.draft.to != null && result.draft.to.length > 0) {
-                            name = ((InternetAddress) result.draft.to[0]).getPersonal();
-                            email = ((InternetAddress) result.draft.to[0]).getAddress();
+                            body = text + body;
                         }
-                        text = text.replace("$name$", name == null ? "" : name);
-                        text = text.replace("$email$", email == null ? "" : email);
-
-                        body = text + body;
                     }
-                }
 
-                result.draft.received = new Date().getTime();
-                result.draft.setContactInfo(context);
+                    result.draft.received = new Date().getTime();
+                    result.draft.setContactInfo(context);
 
-                result.draft.id = db.message().insertMessage(result.draft);
-                result.draft.write(context, body == null ? "" : body);
+                    result.draft.id = db.message().insertMessage(result.draft);
+                    result.draft.write(context, body == null ? "" : body);
 
-                String text = (body == null ? null : Jsoup.parse(body).text());
-                String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
-                db.message().setMessageContent(result.draft.id, true, preview);
+                    String text = (body == null ? null : Jsoup.parse(body).text());
+                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+                    db.message().setMessageContent(result.draft.id, true, preview);
 
-                if ("new".equals(action)) {
-                    ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
-                    if (uris != null)
-                        for (Uri uri : uris)
-                            addAttachment(context, result.draft.id, uri, false);
+                    if ("new".equals(action)) {
+                        ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+                        if (uris != null)
+                            for (Uri uri : uris)
+                                addAttachment(context, result.draft.id, uri, false);
+                    } else {
+                        int sequence = 0;
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.available &&
+                                    ("forward".equals(action) || attachment.cid != null)) {
+                                EntityAttachment copy = new EntityAttachment();
+                                copy.message = result.draft.id;
+                                copy.sequence = ++sequence;
+                                copy.name = attachment.name;
+                                copy.type = attachment.type;
+                                copy.cid = attachment.cid;
+                                copy.size = attachment.size;
+                                copy.progress = attachment.progress;
+                                copy.available = attachment.available;
+                                copy.id = db.attachment().insertAttachment(copy);
+
+                                File source = EntityAttachment.getFile(context, attachment.id);
+                                File target = EntityAttachment.getFile(context, copy.id);
+                                Helper.copy(source, target);
+                            }
+
+                        if (raw) {
+                            EntityAttachment headers = new EntityAttachment();
+                            headers.message = result.draft.id;
+                            headers.sequence = ++sequence;
+                            headers.name = "headers.txt";
+                            headers.type = "text/plan";
+                            headers.available = true;
+                            headers.id = db.attachment().insertAttachment(headers);
+
+                            headers.write(context, ref.headers);
+
+                            EntityAttachment content = new EntityAttachment();
+                            content.message = result.draft.id;
+                            content.sequence = ++sequence;
+                            content.name = "content.html";
+                            content.type = "text/html";
+                            content.available = true;
+                            content.id = db.attachment().insertAttachment(content);
+
+                            File csource = EntityMessage.getFile(context, ref.id);
+                            File ctarget = EntityAttachment.getFile(context, content.id);
+                            Helper.copy(csource, ctarget);
+                        }
+                    }
+
+                    EntityOperation.queue(db, result.draft, EntityOperation.ADD);
                 } else {
-                    int sequence = 0;
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.available &&
-                                ("forward".equals(action) || attachment.cid != null)) {
-                            EntityAttachment copy = new EntityAttachment();
-                            copy.message = result.draft.id;
-                            copy.sequence = ++sequence;
-                            copy.name = attachment.name;
-                            copy.type = attachment.type;
-                            copy.cid = attachment.cid;
-                            copy.size = attachment.size;
-                            copy.progress = attachment.progress;
-                            copy.available = attachment.available;
-                            copy.id = db.attachment().insertAttachment(copy);
-
-                            File source = EntityAttachment.getFile(context, attachment.id);
-                            File target = EntityAttachment.getFile(context, copy.id);
-                            Helper.copy(source, target);
-                        }
-
-                    if (raw) {
-                        EntityAttachment headers = new EntityAttachment();
-                        headers.message = result.draft.id;
-                        headers.sequence = ++sequence;
-                        headers.name = "headers.txt";
-                        headers.type = "text/plan";
-                        headers.available = true;
-                        headers.id = db.attachment().insertAttachment(headers);
-
-                        headers.write(context, ref.headers);
-
-                        EntityAttachment content = new EntityAttachment();
-                        content.message = result.draft.id;
-                        content.sequence = ++sequence;
-                        content.name = "content.html";
-                        content.type = "text/html";
-                        content.available = true;
-                        content.id = db.attachment().insertAttachment(content);
-
-                        File csource = EntityMessage.getFile(context, ref.id);
-                        File ctarget = EntityAttachment.getFile(context, content.id);
-                        Helper.copy(csource, ctarget);
+                    // Existing draft
+                    result.account = db.account().getAccount(result.draft.account);
+                    if (!result.draft.content) {
+                        if (result.draft.uid == null)
+                            throw new IllegalStateException("Draft without uid");
+                        EntityOperation.queue(db, result.draft, EntityOperation.BODY);
                     }
                 }
-
-                EntityOperation.queue(db, result.draft, EntityOperation.ADD);
 
                 db.setTransactionSuccessful();
             } finally {
@@ -1309,7 +1319,6 @@ public class FragmentCompose extends FragmentEx {
         @Override
         protected void onLoaded(Bundle args, final DraftAccount result) {
             working = result.draft.id;
-            autosave = true;
 
             final String action = getArguments().getString("action");
             Log.i(Helper.TAG, "Loaded draft id=" + result.draft.id + " action=" + action);
@@ -1320,76 +1329,13 @@ public class FragmentCompose extends FragmentEx {
             etBcc.setText(MessageHelper.getFormattedAddresses(result.draft.bcc, true));
             etSubject.setText(result.draft.subject);
 
-            etBody.setText(null);
-
-            final Bundle a = new Bundle();
-            a.putLong("id", result.draft.id);
-            if (result.draft.replying != null)
-                a.putLong("reference", result.draft.replying);
-            else if (result.draft.forwarding != null)
-                a.putLong("reference", result.draft.forwarding);
-
-            new SimpleTask<Spanned[]>() {
-                @Override
-                protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-                    final long reference = args.getLong("reference", -1);
-
-                    String body = EntityMessage.read(context, id);
-                    String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
-
-                    return new Spanned[]{
-                            Html.fromHtml(body, cidGetter, null),
-                            quote == null ? null : Html.fromHtml(quote,
-                                    new Html.ImageGetter() {
-                                        @Override
-                                        public Drawable getDrawable(String source) {
-                                            return HtmlHelper.decodeImage(source, context, reference, false);
-                                        }
-                                    },
-                                    null)};
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, Spanned[] texts) {
-                    etBody.setText(texts[0]);
-                    etBody.setSelection(0);
-
-                    tvReference.setText(texts[1]);
-                    grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
-
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (TextUtils.isEmpty(etTo.getText()))
-                                etTo.requestFocus();
-                            else if (TextUtils.isEmpty(etSubject.getText()))
-                                etSubject.requestFocus();
-                            else
-                                etBody.requestFocus();
-                        }
-                    });
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    if (!(ex instanceof FileNotFoundException))
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                }
-            }.load(FragmentCompose.this, a);
-
-            getActivity().invalidateOptionsMenu();
-            Helper.setViewsEnabled(view, true);
-
             boolean sender = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("sender", false);
 
-            pbWait.setVisibility(View.GONE);
             grpHeader.setVisibility(View.VISIBLE);
             grpExtra.setVisibility(sender ? View.VISIBLE : View.GONE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
-            etBody.setVisibility(View.VISIBLE);
-            edit_bar.setVisibility(View.VISIBLE);
-            bottom_navigation.setVisibility(View.VISIBLE);
+
+            getActivity().invalidateOptionsMenu();
 
             final DB db = DB.getInstance(getContext());
 
@@ -1517,16 +1463,81 @@ public class FragmentCompose extends FragmentEx {
                     // Draft was deleted
                     if (draft == null || draft.ui_hide)
                         finish();
+                    else if (draft.content && state == State.NONE) {
+                        state = State.LOADING;
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", result.draft.id);
+                        if (result.draft.replying != null)
+                            args.putLong("reference", result.draft.replying);
+                        else if (result.draft.forwarding != null)
+                            args.putLong("reference", result.draft.forwarding);
+
+                        new SimpleTask<Spanned[]>() {
+                            @Override
+                            protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+                                final long reference = args.getLong("reference", -1);
+
+                                String body = EntityMessage.read(context, id);
+                                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
+
+                                return new Spanned[]{
+                                        Html.fromHtml(body, cidGetter, null),
+                                        quote == null ? null : Html.fromHtml(quote,
+                                                new Html.ImageGetter() {
+                                                    @Override
+                                                    public Drawable getDrawable(String source) {
+                                                        return HtmlHelper.decodeImage(source, context, reference, false);
+                                                    }
+                                                },
+                                                null)};
+                            }
+
+                            @Override
+                            protected void onLoaded(Bundle args, Spanned[] texts) {
+                                etBody.setText(texts[0]);
+                                etBody.setSelection(0);
+                                tvReference.setText(texts[1]);
+
+                                state = State.LOADED;
+                                autosave = true;
+
+                                pbWait.setVisibility(View.GONE);
+                                etBody.setVisibility(View.VISIBLE);
+                                grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
+                                edit_bar.setVisibility(View.VISIBLE);
+                                bottom_navigation.setVisibility(View.VISIBLE);
+                                Helper.setViewsEnabled(view, true);
+
+                                getActivity().invalidateOptionsMenu();
+
+                                new Handler().post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (TextUtils.isEmpty(etTo.getText()))
+                                            etTo.requestFocus();
+                                        else if (TextUtils.isEmpty(etSubject.getText()))
+                                            etSubject.requestFocus();
+                                        else
+                                            etBody.requestFocus();
+                                    }
+                                });
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.load(FragmentCompose.this, args);
+                    }
                 }
             });
         }
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            if (ex instanceof IllegalArgumentException)
-                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
 
