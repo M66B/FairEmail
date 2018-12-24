@@ -354,8 +354,7 @@ public class Helper {
         if (caps == null) {
             if (log)
                 EntityLog.log(context, "isMetered: active no caps");
-            // Assume metered
-            return true;
+            return null; // network unknown
         }
 
         if (log)
@@ -370,6 +369,7 @@ public class Helper {
 
         // VPN: evaluate underlying networks
 
+        boolean underlying = false;
         Network[] networks = cm.getAllNetworks();
         if (networks != null)
             for (Network network : networks) {
@@ -381,13 +381,15 @@ public class Helper {
                 if (caps == null) {
                     if (log)
                         EntityLog.log(context, "isMetered: no underlying caps");
-                    continue;
+                    continue; // network unknown
                 }
 
                 if (log)
                     Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
 
                 if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+                    underlying = true;
+
                     if (log)
                         Log.i(Helper.TAG, "isMetered: underlying caps=" + caps);
 
@@ -406,6 +408,11 @@ public class Helper {
                     }
                 }
             }
+
+        if (!underlying) {
+            EntityLog.log(context, "isMetered: no underlying network");
+            return null;
+        }
 
         if (log)
             EntityLog.log(context, "isMetered: underlying assume metered");
