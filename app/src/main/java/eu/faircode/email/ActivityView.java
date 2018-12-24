@@ -227,24 +227,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
                 switch (item.getId()) {
                     case -1:
-                        drawerLayout.closeDrawer(drawerList);
                         onMenuInbox((long) item.getData());
-                        return true;
+                        break;
                     case R.string.menu_setup:
                         onReload();
-                        return true;
+                        break;
                     case R.string.menu_faq:
                         onDebugInfo();
-                        return true;
+                        break;
                     case R.string.menu_privacy:
                         onCleanup();
-                        return true;
+                        break;
                     case R.string.menu_about:
                         onShowLog();
-                        return true;
+                        break;
                     default:
                         return false;
                 }
+
+                drawerLayout.closeDrawer(drawerList);
+                return true;
             }
         });
 
