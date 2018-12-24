@@ -84,6 +84,8 @@ public class ViewModelBrowse extends ViewModel {
         EntityFolder folder = db.folder().getFolder(state.fid);
         if (folder == null) // unified inbox
             return;
+        if (folder.account == null) // outbox
+            return;
 
         if (state.search == null) {
             EntityAccount account = db.account().getAccount(folder.account);
