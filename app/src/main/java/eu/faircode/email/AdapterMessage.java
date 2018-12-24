@@ -34,6 +34,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -335,30 +336,56 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
             }
 
-            boolean photo = false;
-            if (avatars && !outgoing) {
-                if (message.avatar != null)
-                    try {
-                        ContentResolver resolver = context.getContentResolver();
-                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(message.avatar));
-                        if (is != null) {
-                            photo = true;
-                            ivAvatar.setImageDrawable(Drawable.createFromStream(is, "avatar"));
+            ivAvatar.setVisibility(compact ? View.GONE : View.INVISIBLE);
+
+            Bundle aargs = new Bundle();
+            aargs.putLong("id", message.id);
+            aargs.putString("uri", message.avatar);
+            if (message.from != null && message.from.length > 0)
+                aargs.putString("from", message.from[0].toString());
+
+            ivAvatar.setTag(message.id);
+
+            new SimpleTask<Drawable>() {
+                @Override
+                protected Drawable onLoad(Context context, Bundle args) {
+                    String uri = args.getString("uri");
+                    if (avatars && !outgoing && uri != null)
+                        try {
+                            ContentResolver resolver = context.getContentResolver();
+                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
+                            if (is != null)
+                                return Drawable.createFromStream(is, "avatar");
+                        } catch (SecurityException ex) {
+                            Log.e(ex);
                         }
-                    } catch (SecurityException ex) {
-                        Log.e(ex);
+
+                    String from = args.getString("from");
+                    if (identicons && !outgoing && from != null) {
+                        return new BitmapDrawable(
+                                context.getResources(),
+                                Identicon.generate(from, dp24, 5, "light".equals(theme)));
                     }
-            }
-            if (!photo && identicons && !outgoing) {
-                if (message.from != null && message.from.length > 0) {
-                    ivAvatar.setImageBitmap(Identicon.generate(message.from[0].toString(), dp24, 5, "light".equals(theme)));
-                    photo = true;
-                } else
-                    ivAvatar.setImageDrawable(null);
-            }
-            ivAvatar.setVisibility(photo
-                    ? View.VISIBLE : compact || !(avatars || identicons) || outgoing ? View.GONE
-                    : View.INVISIBLE);
+
+                    return null;
+                }
+
+                @Override
+                protected void onLoaded(Bundle args, Drawable avatar) {
+                    if (avatar != null) {
+                        if ((long) ivAvatar.getTag() == args.getLong("id")) {
+                            ivAvatar.setImageDrawable(avatar);
+                            ivAvatar.setVisibility(View.VISIBLE);
+                        } else
+                            Log.i("Skipping avatar");
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.load(context, owner, aargs);
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(View.VISIBLE);
