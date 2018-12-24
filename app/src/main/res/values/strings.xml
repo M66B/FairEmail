@@ -129,7 +129,7 @@
     <string name="title_advanced_swipe">Swipe actions</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
-    <string name="title_advanced_autoread">Automatically mark message read on moving message</string>
+    <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_confirm">Confirm actions that might leak privacy sensitive information</string>
