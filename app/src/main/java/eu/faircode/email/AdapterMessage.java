@@ -124,6 +124,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean debug;
 
     private int dp24;
+    private int colorPrimary;
+    private int colorAccent;
+    private int textColorSecondary;
+    private int colorUnread;
     private String theme;
     private boolean hasWebView;
 
@@ -371,8 +375,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 flagged = (message.count - message.unflagged > 0);
             ivFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(
-                    Helper.resolveColor(context, flagged ? R.attr.colorAccent : android.R.attr.textColorSecondary)));
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged ? colorAccent : textColorSecondary));
             ivFlagged.setVisibility(View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
@@ -427,8 +430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubject.setTypeface(null, typeface);
             tvCount.setTypeface(null, typeface);
 
-            int colorUnseen = Helper.resolveColor(context, message.unseen > 0
-                    ? R.attr.colorUnread : android.R.attr.textColorSecondary);
+            int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
             tvFrom.setTextColor(colorUnseen);
             tvSize.setTextColor(colorUnseen);
             tvTime.setTextColor(colorUnseen);
@@ -816,7 +818,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             class StyledQuoteSpan extends QuoteSpan {
                 StyledQuoteSpan() {
-                    super(Helper.resolveColor(context, R.attr.colorPrimary));
+                    super(colorPrimary);
                 }
 
                 @Override
@@ -1629,6 +1631,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp24 = Math.round(24 * context.getResources().getDisplayMetrics().density);
+        this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         this.theme = prefs.getString("theme", "light");
 
         PackageManager pm = context.getPackageManager();
