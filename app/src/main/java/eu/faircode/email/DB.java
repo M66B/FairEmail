@@ -102,7 +102,7 @@ public abstract class DB extends RoomDatabase {
         Cursor cursor = null;
         try {
             cursor = db.query(command, new Object[0]);
-            if (cursor.moveToNext())
+            if (cursor != null && cursor.moveToNext())
                 return cursor.getString(0);
             else
                 return null;

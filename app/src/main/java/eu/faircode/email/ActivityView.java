@@ -705,7 +705,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         ContactsContract.Contacts.STARRED + " DESC" +
                                 ", " + ContactsContract.Contacts.TIMES_CONTACTED + " DESC" +
                                 ", " + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC");
-                while (cursor.moveToNext())
+                while (cursor != null && cursor.moveToNext())
                     try {
                         long id = cursor.getLong(cursor.getColumnIndex(ContactsContract.RawContacts._ID));
                         String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));

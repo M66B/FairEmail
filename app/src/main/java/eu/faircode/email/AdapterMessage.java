@@ -656,7 +656,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             },
                             ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
                             new String[]{email}, null);
-                    if (cursor.moveToNext()) {
+                    if (cursor != null && cursor.moveToNext()) {
                         int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
                         int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
 

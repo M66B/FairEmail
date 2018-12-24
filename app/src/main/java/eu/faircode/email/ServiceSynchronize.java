@@ -643,7 +643,7 @@ public class ServiceSynchronize extends LifecycleService {
                                             ContactsContract.Contacts.LOOKUP_KEY
                                     },
                                     null, null, null);
-                            if (cursor.moveToNext()) {
+                            if (cursor != null && cursor.moveToNext()) {
                                 if (true || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                                     Uri uri = ContactsContract.Contacts.getLookupUri(
                                             cursor.getLong(cursor.getColumnIndex(ContactsContract.Contacts._ID)),
