@@ -37,6 +37,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
 
     private List<EntityLog> all = new ArrayList<>();
     private List<EntityLog> filtered = new ArrayList<>();
@@ -65,6 +66,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     AdapterLog(Context context) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
     }
 
@@ -149,7 +151,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_log, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_log, parent, false));
     }
 
     @Override

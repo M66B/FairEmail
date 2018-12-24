@@ -52,7 +52,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
     private LifecycleOwner owner;
+
     private long account;
     private boolean debug;
     private int dp12;
@@ -370,6 +372,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     AdapterFolder(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         this.owner = owner;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -481,7 +484,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_folder, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_folder, parent, false));
     }
 
     @Override

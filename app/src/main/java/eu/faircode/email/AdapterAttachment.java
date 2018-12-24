@@ -57,7 +57,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
     private LifecycleOwner owner;
+
     private boolean readonly;
     private boolean confirm;
     private boolean debug;
@@ -307,6 +309,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     AdapterAttachment(Context context, LifecycleOwner owner, boolean readonly) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         this.owner = owner;
         this.readonly = readonly;
         this.confirm = prefs.getBoolean("confirm", false);
@@ -402,7 +405,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_attachment, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_attachment, parent, false));
     }
 
     @Override

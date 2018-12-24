@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
 
     private List<EntityAnswer> all = new ArrayList<>();
     private List<EntityAnswer> filtered = new ArrayList<>();
@@ -85,6 +86,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
     AdapterAnswer(Context context) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
     }
 
@@ -179,7 +181,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_answer, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_answer, parent, false));
     }
 
     @Override

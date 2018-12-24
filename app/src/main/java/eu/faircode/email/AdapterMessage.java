@@ -106,6 +106,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
     private LifecycleOwner owner;
     private FragmentManager fragmentManager;
     private ViewType viewType;
@@ -1608,6 +1609,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                    ViewType viewType, boolean outgoing, int zoom, IProperties properties) {
         this.context = context;
         this.owner = owner;
+        this.inflater = LayoutInflater.from(context);
         this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.outgoing = outgoing;
@@ -1674,7 +1676,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(
+        return new ViewHolder(inflater.inflate(
                 compact ? R.layout.item_message_compact : R.layout.item_message_normal,
                 parent,
                 false));

@@ -43,6 +43,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
     private LifecycleOwner owner;
 
     private List<TupleOperationEx> all = new ArrayList<>();
@@ -160,6 +161,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
     AdapterOperation(Context context, LifecycleOwner owner) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         this.owner = owner;
         setHasStableIds(true);
     }
@@ -245,7 +247,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_operation, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_operation, parent, false));
     }
 
     @Override

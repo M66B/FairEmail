@@ -43,6 +43,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
 
     private List<TupleIdentityEx> all = new ArrayList<>();
     private List<TupleIdentityEx> filtered = new ArrayList<>();
@@ -120,6 +121,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
     AdapterIdentity(Context context) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         setHasStableIds(true);
     }
 
@@ -214,7 +216,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_identity, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_identity, parent, false));
     }
 
     @Override

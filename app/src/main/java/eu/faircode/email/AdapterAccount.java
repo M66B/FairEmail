@@ -46,6 +46,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
     private Context context;
+    private LayoutInflater inflater;
     private boolean debug;
 
     private List<EntityAccount> all = new ArrayList<>();
@@ -128,6 +129,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     AdapterAccount(Context context) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
@@ -226,7 +228,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_account, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_account, parent, false));
     }
 
     @Override
