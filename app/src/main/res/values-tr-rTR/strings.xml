@@ -102,9 +102,13 @@
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_swipe">Kaydırma eylemleri</string>
     <string name="title_advanced_autoread">Mesaj taşındığında otomatik olarak okundu işaretle</string>
+    <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
+    <string name="title_advanced_confirm">Gizliliği duyarlı bilgileri sızdırabilecek eylemleri onaylayın</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
+    <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
+    <string name="title_advanced_threading_hint">Birbnirlerine bağlı grup iletileri</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -217,6 +221,7 @@
     <string name="title_ask_discard">Taslağı sil?</string>
     <string name="title_ask_save">Değişiklikleri kaydedilsin mi?</string>
     <string name="title_ask_spam">İstenmeyen posta olarak bildirilsin mi?</string>
+    <string name="title_sync_queued">Eşzamanlama bir sonraki hesap bağlantısında gerçekleşecek</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
@@ -268,6 +273,8 @@
     <string name="title_answer_reply">Yanıt şablonu</string>
     <string name="title_answer_name">Şablon ismi</string>
     <string name="title_answer_text">Şablon metni</string>
+    <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
+    <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
     <string name="title_action_seen">Okundu işareti</string>
     <string name="title_action_archive">Arşiv</string>
     <string name="title_action_trash">Çöp kutusu</string>

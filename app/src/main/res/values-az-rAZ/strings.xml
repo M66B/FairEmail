@@ -104,6 +104,9 @@
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
+    <string name="title_advanced_autoread">Hərəkətli mesajlarda oxunan mesajları avtomatik işarələ</string>
+    <string name="title_advanced_collapse">\'Geri\' mövzusundakı danışıqda mesajları daralt</string>
+    <string name="title_advanced_automove">Hərəkətli mesajları təsdiqlə</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_updates">Yeniləmələri yoxla</string>
@@ -113,6 +116,7 @@
     <string name="title_advanced_browse_hint">Aşağı sürüşdürərkən daha çox mesaj endirin</string>
     <string name="title_advanced_unified_hint">Birləşmiş gələn qutusu qovluqları və ya mesajlarını göstər</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
+    <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıq mövzularını avtomatik olaraq bağla</string>
     <string name="title_advanced_sender_hint">Bir çox təchizatçı göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_select">&#8230; seçin</string>
     <string name="title_identity_name">Adınız</string>
@@ -125,6 +129,8 @@
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
+    <string name="title_account_prefix">Ad sahəsi prefiksi</string>
+    <string name="title_account_prefix_hint">Qovluq adlarını sadələşdirmək üçün istifadə olunur</string>
     <string name="title_account_signature">İmza mətni</string>
     <string name="title_account_color">Rəng</string>
     <string name="title_account_notify">Ayrı bildirişlər</string>
@@ -183,6 +189,7 @@
     <string name="title_sync_days_remark">Bu dəyəri artırmaq batereya və verilənlər istifadəsini də artırar</string>
     <string name="title_keep_days">Saxlanılmış mesajlar (gün)</string>
     <string name="title_keep_all">Bütün mesajları saxla</string>
+    <string name="title_folder_name_missing">Qovluq adı buraxılıb</string>
     <string name="title_folder_exists">%1$s qovluğu mövcuddur</string>
     <string name="title_folder_delete">Bu qovluq və onu ehtiva edən mesajlar birdəfəlik silinsin?</string>
     <string name="title_folder_unified">Birləşmiş gələn qutusu</string>
@@ -331,6 +338,7 @@
     <string name="title_no">Xeyr</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_add">Əlavə et</string>
+    <string name="title_browse">Nəzər yetir</string>
     <string name="title_report">Bildir</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
