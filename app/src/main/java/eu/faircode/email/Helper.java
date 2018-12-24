@@ -26,6 +26,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -54,19 +55,25 @@ import com.android.billingclient.api.BillingClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.imap.IMAPStore;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 
 import javax.mail.Address;
@@ -218,9 +225,6 @@ public class Helper {
     }
 
     static void unexpectedError(final Context context, final LifecycleOwner owner, final Throwable ex) {
-        if (!isPlayStoreInstall(context))
-            ApplicationEx.writeCrashLog(context, ex);
-
         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             new DialogBuilderLifecycle(context, owner)
                     .setTitle(R.string.title_unexpected_error)
@@ -232,61 +236,324 @@ public class Helper {
                             new SimpleTask<Long>() {
                                 @Override
                                 protected Long onLoad(Context context, Bundle args) throws Throwable {
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
-                                    sb.append(Helper.getAppInfo(context));
-                                    sb.append(ex + "\n" + Log.getStackTraceString(ex));
-
-                                    String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-
-                                    EntityMessage draft = null;
-
-                                    DB db = DB.getInstance(context);
-                                    try {
-                                        db.beginTransaction();
-
-                                        EntityFolder drafts = db.folder().getPrimaryDrafts();
-                                        if (drafts != null) {
-                                            draft = new EntityMessage();
-                                            draft.account = drafts.account;
-                                            draft.folder = drafts.id;
-                                            draft.msgid = EntityMessage.generateMessageId();
-                                            draft.to = new Address[]{Helper.myAddress()};
-                                            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " unexpected error";
-                                            draft.content = true;
-                                            draft.received = new Date().getTime();
-                                            draft.setContactInfo(context);
-                                            draft.id = db.message().insertMessage(draft);
-                                            draft.write(context, body);
-
-                                            EntityOperation.queue(db, draft, EntityOperation.ADD);
-                                        }
-
-                                        db.setTransactionSuccessful();
-                                    } finally {
-                                        db.endTransaction();
-                                    }
-
-                                    return (draft == null ? null : draft.id);
+                                    return getDebugInfo(R.string.title_crash_info_remark, ex, null, context).id;
                                 }
 
                                 @Override
                                 protected void onLoaded(Bundle args, Long id) {
-                                    if (id != null)
-                                        context.startActivity(
-                                                new Intent(context, ActivityCompose.class)
-                                                        .putExtra("action", "edit")
-                                                        .putExtra("id", id));
+                                    context.startActivity(
+                                            new Intent(context, ActivityCompose.class)
+                                                    .putExtra("action", "edit")
+                                                    .putExtra("id", id));
                                 }
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                    if (ex instanceof IllegalArgumentException)
+                                        Toast.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                    else
+                                        Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                                 }
                             }.load(context, owner, new Bundle());
                         }
                     })
                     .show();
+        else
+            ApplicationEx.writeCrashLog(context, ex);
+    }
+
+    static EntityMessage getDebugInfo(int title, Throwable ex, String log, Context context) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(context.getString(title)).append("\n\n\n\n");
+        sb.append(Helper.getAppInfo(context));
+        if (ex != null)
+            sb.append(ex.toString()).append("\n").append(Log.getStackTraceString(ex));
+        if (log != null)
+            sb.append(log);
+        String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+
+        EntityMessage draft;
+
+        DB db = DB.getInstance(context);
+        try {
+            db.beginTransaction();
+
+            EntityFolder drafts = db.folder().getPrimaryDrafts();
+            if (drafts == null)
+                throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+
+            draft = new EntityMessage();
+            draft.account = drafts.account;
+            draft.folder = drafts.id;
+            draft.msgid = EntityMessage.generateMessageId();
+            draft.to = new Address[]{Helper.myAddress()};
+            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
+            draft.content = true;
+            draft.received = new Date().getTime();
+            draft.setContactInfo(context);
+            draft.id = db.message().insertMessage(draft);
+            draft.write(context, body);
+
+            attachSettings(draft.id, 1, context);
+            attachNetworkInfo(draft.id, 2, context);
+            attachLog(draft.id, 3, context);
+            attachOperations(draft.id, 4, context);
+            attachLogcat(draft.id, 5, context);
+
+            EntityOperation.queue(db, draft, EntityOperation.ADD);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        return draft;
+    }
+
+    private static StringBuilder getAppInfo(Context context) {
+        StringBuilder sb = new StringBuilder();
+
+        // Get version info
+        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        sb.append(String.format("%s: %s/%s %s/%s%s\r\n",
+                context.getString(R.string.app_name),
+                BuildConfig.APPLICATION_ID,
+                installer,
+                BuildConfig.VERSION_NAME,
+                Helper.hasValidFingerprint(context) ? "1" : "3",
+                Helper.isPro(context) ? "+" : ""));
+        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
+        sb.append("\r\n");
+
+        // Get device info
+        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
+        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
+        sb.append(String.format("Model: %s\r\n", Build.MODEL));
+        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
+        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+        sb.append(String.format("Host: %s\r\n", Build.HOST));
+        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
+        sb.append(String.format("Id: %s\r\n", Build.ID));
+        sb.append("\r\n");
+
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean ignoring = true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+            int bucket = usm.getAppStandbyBucket();
+            sb.append(String.format("Standby bucket: %d\r\n", bucket));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+            sb.append(String.format("Data saving: %b\r\n", saving));
+        }
+
+        sb.append("\r\n");
+
+        return sb;
+    }
+
+    private static void attachSettings(long id, int sequence, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment ops = new EntityAttachment();
+        ops.message = id;
+        ops.sequence = sequence;
+        ops.name = "settings.txt";
+        ops.type = "text/plain";
+        ops.size = null;
+        ops.progress = 0;
+        ops.id = db.attachment().insertAttachment(ops);
+
+        OutputStream os = null;
+        File file = EntityAttachment.getFile(context, ops.id);
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            int size = 0;
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            Map<String, ?> settings = prefs.getAll();
+            for (String key : settings.keySet())
+                size += write(os, key + "=" + settings.get(key) + "\r\n");
+
+            ops.size = size;
+            ops.progress = null;
+            ops.available = true;
+            db.attachment().updateAttachment(ops);
+        } finally {
+            if (os != null)
+                os.close();
+        }
+    }
+
+    private static void attachNetworkInfo(long id, int sequence, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment ops = new EntityAttachment();
+        ops.message = id;
+        ops.sequence = sequence;
+        ops.name = "network.txt";
+        ops.type = "text/plain";
+        ops.size = null;
+        ops.progress = 0;
+        ops.id = db.attachment().insertAttachment(ops);
+
+        OutputStream os = null;
+        File file = EntityAttachment.getFile(context, ops.id);
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            int size = 0;
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo ani = cm.getActiveNetworkInfo();
+            size += write(os, "active=" + ani + "\r\n\r\n");
+
+            for (Network network : cm.getAllNetworks()) {
+                NetworkInfo ni = cm.getNetworkInfo(network);
+                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                size += write(os, "network=" + ni + " capabilities=" + caps + "\r\n\r\n");
+            }
+
+            ops.size = size;
+            ops.progress = null;
+            ops.available = true;
+            db.attachment().updateAttachment(ops);
+        } finally {
+            if (os != null)
+                os.close();
+        }
+    }
+
+    private static void attachLog(long id, int sequence, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment log = new EntityAttachment();
+        log.message = id;
+        log.sequence = sequence;
+        log.name = "log.txt";
+        log.type = "text/plain";
+        log.size = null;
+        log.progress = 0;
+        log.id = db.attachment().insertAttachment(log);
+
+        OutputStream os = null;
+        File file = EntityAttachment.getFile(context, log.id);
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            int size = 0;
+            long from = new Date().getTime() - 24 * 3600 * 1000L;
+            DateFormat DF = SimpleDateFormat.getTimeInstance();
+
+            for (EntityLog entry : db.log().getLogs(from))
+                size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
+
+            log.size = size;
+            log.progress = null;
+            log.available = true;
+            db.attachment().updateAttachment(log);
+        } finally {
+            if (os != null)
+                os.close();
+        }
+    }
+
+    private static void attachOperations(long id, int sequence, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment ops = new EntityAttachment();
+        ops.message = id;
+        ops.sequence = sequence;
+        ops.name = "operations.txt";
+        ops.type = "text/plain";
+        ops.size = null;
+        ops.progress = 0;
+        ops.id = db.attachment().insertAttachment(ops);
+
+        OutputStream os = null;
+        File file = EntityAttachment.getFile(context, ops.id);
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            int size = 0;
+            DateFormat DF = SimpleDateFormat.getTimeInstance();
+
+            for (EntityOperation op : db.operation().getOperations())
+                size += write(os, String.format("%s %d %s %s %s\r\n",
+                        DF.format(op.created),
+                        op.message == null ? -1 : op.message,
+                        op.name,
+                        op.args,
+                        op.error));
+
+            ops.size = size;
+            ops.progress = null;
+            ops.available = true;
+            db.attachment().updateAttachment(ops);
+        } finally {
+            if (os != null)
+                os.close();
+        }
+    }
+
+    private static void attachLogcat(long id, int sequence, Context context) throws IOException {
+        DB db = DB.getInstance(context);
+
+        EntityAttachment logcat = new EntityAttachment();
+        logcat.message = id;
+        logcat.sequence = sequence;
+        logcat.name = "logcat.txt";
+        logcat.type = "text/plain";
+        logcat.size = null;
+        logcat.progress = 0;
+        logcat.id = db.attachment().insertAttachment(logcat);
+
+        Process proc = null;
+        BufferedReader br = null;
+        OutputStream os = null;
+        File file = EntityAttachment.getFile(context, logcat.id);
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+
+            String[] cmd = new String[]{"logcat",
+                    "-d",
+                    "-v", "threadtime",
+                    //"-t", "1000",
+                    Helper.TAG + ":I"};
+            proc = Runtime.getRuntime().exec(cmd);
+            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+            int size = 0;
+
+            String line;
+            while ((line = br.readLine()) != null)
+                size += write(os, line + "\r\n");
+
+            logcat.size = size;
+            logcat.progress = null;
+            logcat.available = true;
+            db.attachment().updateAttachment(logcat);
+        } finally {
+            if (os != null)
+                os.close();
+            if (br != null)
+                br.close();
+            if (proc != null)
+                proc.destroy();
+        }
+    }
+
+    private static int write(OutputStream os, String text) throws IOException {
+        byte[] bytes = text.getBytes();
+        os.write(bytes);
+        return bytes.length;
     }
 
     static String humanReadableByteCount(long bytes, boolean si) {
@@ -469,55 +736,6 @@ public class Helper {
             Log.e(TAG, Log.getStackTraceString(ex));
             return false;
         }
-    }
-
-    static StringBuilder getAppInfo(Context context) {
-        StringBuilder sb = new StringBuilder();
-
-        // Get version info
-        String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("%s: %s/%s %s/%s%s\r\n",
-                context.getString(R.string.app_name),
-                BuildConfig.APPLICATION_ID,
-                installer,
-                BuildConfig.VERSION_NAME,
-                Helper.hasValidFingerprint(context) ? "1" : "3",
-                Helper.isPro(context) ? "+" : ""));
-        sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
-        sb.append("\r\n");
-
-        // Get device info
-        sb.append(String.format("Brand: %s\r\n", Build.BRAND));
-        sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
-        sb.append(String.format("Model: %s\r\n", Build.MODEL));
-        sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
-        sb.append(String.format("Host: %s\r\n", Build.HOST));
-        sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
-        sb.append(String.format("Id: %s\r\n", Build.ID));
-        sb.append("\r\n");
-
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        boolean ignoring = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
-        sb.append(String.format("Battery optimizations: %b\r\n", !ignoring));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
-            int bucket = usm.getAppStandbyBucket();
-            sb.append(String.format("Standby bucket: %d\r\n", bucket));
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
-            sb.append(String.format("Data saving: %b\r\n", saving));
-        }
-
-        sb.append("\r\n");
-
-        return sb;
     }
 
     static String sha256(String data) throws NoSuchAlgorithmException {

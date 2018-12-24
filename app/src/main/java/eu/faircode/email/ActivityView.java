@@ -37,10 +37,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Icon;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -68,7 +64,6 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -79,21 +74,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.URL;
 import java.text.Collator;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Properties;
 
-import javax.mail.Address;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -553,53 +543,22 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 File file = new File(context.getCacheDir(), "crash.log");
                 if (file.exists()) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(context.getString(R.string.title_crash_info_remark)).append("\n\n\n\n");
-                    sb.append(Helper.getAppInfo(context));
-
-                    BufferedReader in = null;
                     try {
-                        String line;
-                        in = new BufferedReader(new FileReader(file));
-                        while ((line = in.readLine()) != null)
-                            sb.append(line).append("\r\n");
-                    } finally {
-                        if (in != null)
-                            in.close();
-                    }
-
-                    file.delete();
-
-                    String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-
-                    EntityMessage draft = null;
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        EntityFolder drafts = db.folder().getPrimaryDrafts();
-                        if (drafts != null) {
-                            draft = new EntityMessage();
-                            draft.account = drafts.account;
-                            draft.folder = drafts.id;
-                            draft.msgid = EntityMessage.generateMessageId();
-                            draft.to = new Address[]{Helper.myAddress()};
-                            draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " crash log";
-                            draft.content = true;
-                            draft.received = new Date().getTime();
-                            draft.setContactInfo(context);
-                            draft.id = db.message().insertMessage(draft);
-                            draft.write(context, body);
-
-                            EntityOperation.queue(db, draft, EntityOperation.ADD);
+                        BufferedReader in = null;
+                        try {
+                            String line;
+                            in = new BufferedReader(new FileReader(file));
+                            while ((line = in.readLine()) != null)
+                                sb.append(line).append("\r\n");
+                        } finally {
+                            if (in != null)
+                                in.close();
                         }
 
-                        db.setTransactionSuccessful();
+                        return Helper.getDebugInfo(R.string.title_crash_info_remark, null, sb.toString(), context).id;
                     } finally {
-                        db.endTransaction();
+                        file.delete();
                     }
-
-                    return (draft == null ? null : draft.id);
                 }
 
                 return null;
@@ -616,7 +575,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
             }
         }.load(this, new Bundle());
     }
@@ -948,252 +910,25 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onDebugInfo() {
         new SimpleTask<Long>() {
             @Override
-            protected Long onLoad(Context context, Bundle args) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(context.getString(R.string.title_debug_info_remark)).append("\n\n\n\n");
-                sb.append(Helper.getAppInfo(context));
-
-                String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
-
-                EntityMessage draft;
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityFolder drafts = db.folder().getPrimaryDrafts();
-                    if (drafts == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-
-                    draft = new EntityMessage();
-                    draft.account = drafts.account;
-                    draft.folder = drafts.id;
-                    draft.msgid = EntityMessage.generateMessageId();
-                    draft.to = new Address[]{Helper.myAddress()};
-                    draft.subject = context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME + " debug info";
-                    draft.content = true;
-                    draft.received = new Date().getTime();
-                    draft.setContactInfo(context);
-                    draft.id = db.message().insertMessage(draft);
-                    draft.write(context, body);
-
-                    // Attach settings
-                    {
-                        EntityAttachment ops = new EntityAttachment();
-                        ops.message = draft.id;
-                        ops.sequence = 1;
-                        ops.name = "settings.txt";
-                        ops.type = "text/plain";
-                        ops.size = null;
-                        ops.progress = 0;
-                        ops.id = db.attachment().insertAttachment(ops);
-
-                        OutputStream os = null;
-                        File file = EntityAttachment.getFile(context, ops.id);
-                        try {
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            int size = 0;
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-                            Map<String, ?> settings = prefs.getAll();
-                            for (String key : settings.keySet())
-                                size += write(os, key + "=" + settings.get(key) + "\r\n");
-
-                            ops.size = size;
-                            ops.progress = null;
-                            ops.available = true;
-                            db.attachment().updateAttachment(ops);
-                        } finally {
-                            if (os != null)
-                                os.close();
-                        }
-                    }
-
-                    // Attach network info
-                    {
-                        EntityAttachment ops = new EntityAttachment();
-                        ops.message = draft.id;
-                        ops.sequence = 2;
-                        ops.name = "network.txt";
-                        ops.type = "text/plain";
-                        ops.size = null;
-                        ops.progress = 0;
-                        ops.id = db.attachment().insertAttachment(ops);
-
-                        OutputStream os = null;
-                        File file = EntityAttachment.getFile(context, ops.id);
-                        try {
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            int size = 0;
-                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-                            NetworkInfo ani = cm.getActiveNetworkInfo();
-                            size += write(os, "active=" + ani + "\r\n\r\n");
-
-                            for (Network network : cm.getAllNetworks()) {
-                                NetworkInfo ni = cm.getNetworkInfo(network);
-                                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                                size += write(os, "network=" + ni + " capabilities=" + caps + "\r\n\r\n");
-                            }
-
-                            ops.size = size;
-                            ops.progress = null;
-                            ops.available = true;
-                            db.attachment().updateAttachment(ops);
-                        } finally {
-                            if (os != null)
-                                os.close();
-                        }
-                    }
-
-                    // Attach recent log
-                    {
-                        EntityAttachment log = new EntityAttachment();
-                        log.message = draft.id;
-                        log.sequence = 3;
-                        log.name = "log.txt";
-                        log.type = "text/plain";
-                        log.size = null;
-                        log.progress = 0;
-                        log.id = db.attachment().insertAttachment(log);
-
-                        OutputStream os = null;
-                        File file = EntityAttachment.getFile(context, log.id);
-                        try {
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            int size = 0;
-                            long from = new Date().getTime() - 24 * 3600 * 1000L;
-                            DateFormat DF = SimpleDateFormat.getTimeInstance();
-
-                            for (EntityLog entry : db.log().getLogs(from))
-                                size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
-
-                            log.size = size;
-                            log.progress = null;
-                            log.available = true;
-                            db.attachment().updateAttachment(log);
-                        } finally {
-                            if (os != null)
-                                os.close();
-                        }
-                    }
-
-                    // Attach operations
-                    {
-                        EntityAttachment ops = new EntityAttachment();
-                        ops.message = draft.id;
-                        ops.sequence = 4;
-                        ops.name = "operations.txt";
-                        ops.type = "text/plain";
-                        ops.size = null;
-                        ops.progress = 0;
-                        ops.id = db.attachment().insertAttachment(ops);
-
-                        OutputStream os = null;
-                        File file = EntityAttachment.getFile(context, ops.id);
-                        try {
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            int size = 0;
-                            DateFormat DF = SimpleDateFormat.getTimeInstance();
-
-                            for (EntityOperation op : db.operation().getOperations())
-                                size += write(os, String.format("%s %d %s %s %s\r\n",
-                                        DF.format(op.created),
-                                        op.message == null ? -1 : op.message,
-                                        op.name,
-                                        op.args,
-                                        op.error));
-
-                            ops.size = size;
-                            ops.progress = null;
-                            ops.available = true;
-                            db.attachment().updateAttachment(ops);
-                        } finally {
-                            if (os != null)
-                                os.close();
-                        }
-                    }
-
-                    // Attach logcat
-                    {
-                        EntityAttachment logcat = new EntityAttachment();
-                        logcat.message = draft.id;
-                        logcat.sequence = 5;
-                        logcat.name = "logcat.txt";
-                        logcat.type = "text/plain";
-                        logcat.size = null;
-                        logcat.progress = 0;
-                        logcat.id = db.attachment().insertAttachment(logcat);
-
-                        Process proc = null;
-                        BufferedReader br = null;
-                        OutputStream os = null;
-                        File file = EntityAttachment.getFile(context, logcat.id);
-                        try {
-                            os = new BufferedOutputStream(new FileOutputStream(file));
-
-                            String[] cmd = new String[]{"logcat",
-                                    "-d",
-                                    "-v", "threadtime",
-                                    //"-t", "1000",
-                                    Helper.TAG + ":I"};
-                            proc = Runtime.getRuntime().exec(cmd);
-                            br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-
-                            int size = 0;
-
-                            String line;
-                            while ((line = br.readLine()) != null)
-                                size += write(os, line + "\r\n");
-
-                            logcat.size = size;
-                            logcat.progress = null;
-                            logcat.available = true;
-                            db.attachment().updateAttachment(logcat);
-                        } finally {
-                            if (os != null)
-                                os.close();
-                            if (br != null)
-                                br.close();
-                            if (proc != null)
-                                proc.destroy();
-                        }
-                    }
-
-                    EntityOperation.queue(db, draft, EntityOperation.ADD);
-
-                    db.setTransactionSuccessful();
-                } catch (IOException ex) {
-                    Log.e(Helper.TAG, ex + "\n" + Log.getStackTraceString(ex));
-                    return null;
-                } finally {
-                    db.endTransaction();
-                }
-
-                return draft.id;
+            protected Long onLoad(Context context, Bundle args) throws IOException {
+                return Helper.getDebugInfo(R.string.title_debug_info_remark, null, null, context).id;
             }
 
             @Override
             protected void onLoaded(Bundle args, Long id) {
-                if (id != null)
-                    startActivity(new Intent(ActivityView.this, ActivityCompose.class)
-                            .putExtra("action", "edit")
-                            .putExtra("id", id));
+                startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                        .putExtra("action", "edit")
+                        .putExtra("id", id));
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Toast.makeText(ActivityView.this, ex.toString(), Toast.LENGTH_LONG).show();
             }
 
-            int write(OutputStream os, String text) throws IOException {
-                byte[] bytes = text.getBytes();
-                os.write(bytes);
-                return bytes.length;
-            }
         }.load(this, new Bundle());
     }
 
