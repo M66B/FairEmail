@@ -50,6 +50,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -124,6 +126,8 @@ public class FragmentMessages extends FragmentEx {
     private Map<Long, Spanned> bodies = new HashMap<>();
 
     private BoundaryCallbackMessages searchCallback = null;
+
+    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
@@ -1622,100 +1626,101 @@ public class FragmentMessages extends FragmentEx {
         model.set(getContext(), folder, search, REMOTE_PAGE_SIZE);
 
         // Observe folder/messages/search
-        if (TextUtils.isEmpty(search)) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String sort = prefs.getString("sort", "time");
-            boolean debug = prefs.getBoolean("debug", false);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String sort = prefs.getString("sort", "time");
+        boolean debug = prefs.getBoolean("debug", false);
 
-            // Sort changed
-            if (messages != null)
-                messages.removeObservers(getViewLifecycleOwner());
+        // Sort changed
+        if (messages != null)
+            messages.removeObservers(getViewLifecycleOwner());
 
-            switch (viewType) {
-                case UNIFIED:
-                    messages = new LivePagedListBuilder<>(
-                            db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE).build();
-                    break;
+        LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
+        switch (viewType) {
+            case UNIFIED:
+                builder = new LivePagedListBuilder<>(
+                        db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE);
+                break;
 
-                case FOLDER:
-                    if (searchCallback == null)
-                        searchCallback = new BoundaryCallbackMessages(this, model,
-                                new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                                    @Override
-                                    public void onLoading() {
-                                        pbWait.setVisibility(View.VISIBLE);
-                                    }
+            case FOLDER:
+                if (searchCallback == null)
+                    searchCallback = new BoundaryCallbackMessages(this, model,
+                            new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                                @Override
+                                public void onLoading() {
+                                    pbWait.setVisibility(View.VISIBLE);
+                                }
 
-                                    @Override
-                                    public void onLoaded() {
-                                        pbWait.setVisibility(View.GONE);
-                                    }
+                                @Override
+                                public void onLoaded() {
+                                    pbWait.setVisibility(View.GONE);
+                                }
 
-                                    @Override
-                                    public void onError(Throwable ex) {
-                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                                    .setMessage(Helper.formatThrowable(ex))
-                                                    .setPositiveButton(android.R.string.cancel, null)
-                                                    .create()
-                                                    .show();
-                                    }
-                                });
+                                @Override
+                                public void onError(Throwable ex) {
+                                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                                .setMessage(Helper.formatThrowable(ex))
+                                                .setPositiveButton(android.R.string.cancel, null)
+                                                .create()
+                                                .show();
+                                }
+                            });
 
-                    PagedList.Config config = new PagedList.Config.Builder()
-                            .setPageSize(LOCAL_PAGE_SIZE)
-                            .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                            .build();
-                    LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(folder, threading, sort, false, debug), config);
-                    builder.setBoundaryCallback(searchCallback);
-                    messages = builder.build();
+                PagedList.Config configFolder = new PagedList.Config.Builder()
+                        .setPageSize(LOCAL_PAGE_SIZE)
+                        .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                        .build();
+                builder = new LivePagedListBuilder<>(
+                        db.message().pagedFolder(folder, threading, sort, false, debug), configFolder);
+                builder.setBoundaryCallback(searchCallback);
+                break;
 
-                    break;
+            case THREAD:
+                builder = new LivePagedListBuilder<>(
+                        db.message().pagedThread(account, thread, threading ? null : id, debug), LOCAL_PAGE_SIZE);
+                break;
 
-                case THREAD:
-                    messages = new LivePagedListBuilder<>(
-                            db.message().pagedThread(account, thread, threading ? null : id, debug), LOCAL_PAGE_SIZE).build();
-                    break;
-            }
-        } else {
-            if (searchCallback == null)
-                searchCallback = new BoundaryCallbackMessages(this, model,
-                        new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
-                            @Override
-                            public void onLoading() {
-                                tvNoEmail.setVisibility(View.GONE);
-                                pbWait.setVisibility(View.VISIBLE);
-                            }
+            case SEARCH:
+                if (searchCallback == null)
+                    searchCallback = new BoundaryCallbackMessages(this, model,
+                            new BoundaryCallbackMessages.IBoundaryCallbackMessages() {
+                                @Override
+                                public void onLoading() {
+                                    tvNoEmail.setVisibility(View.GONE);
+                                    pbWait.setVisibility(View.VISIBLE);
+                                }
 
-                            @Override
-                            public void onLoaded() {
-                                pbWait.setVisibility(View.GONE);
-                                if (messages.getValue() == null || messages.getValue().size() == 0)
-                                    tvNoEmail.setVisibility(View.VISIBLE);
-                            }
+                                @Override
+                                public void onLoaded() {
+                                    pbWait.setVisibility(View.GONE);
+                                    if (messages.getValue() == null || messages.getValue().size() == 0)
+                                        tvNoEmail.setVisibility(View.VISIBLE);
+                                }
 
-                            @Override
-                            public void onError(Throwable ex) {
-                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                            .setMessage(Helper.formatThrowable(ex))
-                                            .setPositiveButton(android.R.string.cancel, null)
-                                            .create()
-                                            .show();
-                            }
-                        });
+                                @Override
+                                public void onError(Throwable ex) {
+                                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                                .setMessage(Helper.formatThrowable(ex))
+                                                .setPositiveButton(android.R.string.cancel, null)
+                                                .create()
+                                                .show();
+                                }
+                            });
 
-            PagedList.Config config = new PagedList.Config.Builder()
-                    .setPageSize(LOCAL_PAGE_SIZE)
-                    .setPrefetchDistance(REMOTE_PAGE_SIZE)
-                    .build();
-            LivePagedListBuilder<Integer, TupleMessageEx> builder = new LivePagedListBuilder<>(
-                    db.message().pagedFolder(folder, threading, "time", true, false), config);
-            builder.setBoundaryCallback(searchCallback);
-            messages = builder.build();
+                PagedList.Config configSearch = new PagedList.Config.Builder()
+                        .setPageSize(LOCAL_PAGE_SIZE)
+                        .setPrefetchDistance(REMOTE_PAGE_SIZE)
+                        .build();
+                builder = new LivePagedListBuilder<>(
+                        db.message().pagedFolder(folder, threading, "time", true, false), configSearch);
+                builder.setBoundaryCallback(searchCallback);
+                break;
         }
 
+        builder.setFetchExecutor(executor);
+
+        messages = builder.build();
         messages.observe(getViewLifecycleOwner(), new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
