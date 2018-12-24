@@ -247,4 +247,9 @@ public class HtmlHelper {
                 Html.escapeHtml(MessageHelper.getFormattedAddresses(message.from, true)),
                 sanitize ? sanitize(html, true) : getBody(html));
     }
+
+    static String getPreview(String body) {
+        String text = (body == null ? null : Jsoup.parse(body).text());
+        return (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+    }
 }

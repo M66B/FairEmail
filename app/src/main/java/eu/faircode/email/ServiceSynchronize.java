@@ -2475,11 +2475,10 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (!message.content)
                 if (!metered || (message.size != null && message.size < download)) {
-                    String html = helper.getHtml();
-                    String text = (html == null ? null : Jsoup.parse(html).text());
-                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
-                    message.write(context, html);
-                    db.message().setMessageContent(message.id, true, preview);
+                    String body = helper.getHtml();
+                    message.write(context, body);
+                    db.message().setMessageContent(
+                            message.id, true, HtmlHelper.getPreview(body));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
                 }
 

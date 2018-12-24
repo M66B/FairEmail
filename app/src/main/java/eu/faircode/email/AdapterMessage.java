@@ -816,7 +816,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             @Override
-            protected SpannableStringBuilder onLoad(final Context context, final Bundle args) {
+            protected SpannableStringBuilder onLoad(Context context, final Bundle args) {
+                DB db = DB.getInstance(context);
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 if (body == null)
                     try {
@@ -824,7 +825,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } catch (IOException ex) {
                         Log.e(ex);
                         body = ex.toString();
-                        DB.getInstance(context).message().setMessageContent(message.id, false, null);
+                        db.message().setMessageContent(message.id, false, null);
                     }
 
                 Spanned html = decodeHtml(message, body);

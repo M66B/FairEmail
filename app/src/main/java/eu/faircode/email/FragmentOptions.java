@@ -41,8 +41,6 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 
-import org.jsoup.Jsoup;
-
 import java.io.IOException;
 
 import androidx.annotation.NonNull;
@@ -229,10 +227,9 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                                 EntityMessage message = db.message().getMessage(id);
                                 try {
                                     Log.i("Building preview id=" + id);
-                                    String html = message.read(context);
-                                    String text = (html == null ? null : Jsoup.parse(html).text());
-                                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
-                                    db.message().setMessageContent(message.id, true, preview);
+                                    String body = message.read(context);
+                                    db.message().setMessageContent(
+                                            message.id, true, HtmlHelper.getPreview(body));
                                 } catch (IOException ex) {
                                     Log.e(ex);
                                     db.message().setMessageContent(message.id, false, null);

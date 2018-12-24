@@ -1241,9 +1241,8 @@ public class FragmentCompose extends FragmentEx {
                     result.draft.id = db.message().insertMessage(result.draft);
                     result.draft.write(context, body == null ? "" : body);
 
-                    String text = (body == null ? null : Jsoup.parse(body).text());
-                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
-                    db.message().setMessageContent(result.draft.id, true, preview);
+                    db.message().setMessageContent(
+                            result.draft.id, true, HtmlHelper.getPreview(body));
 
                     if ("new".equals(action)) {
                         ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
@@ -1657,9 +1656,8 @@ public class FragmentCompose extends FragmentEx {
                 if (dirty) {
                     db.message().updateMessage(draft);
                     draft.write(context, body);
-                    String text = (body == null ? null : Jsoup.parse(body).text());
-                    String preview = (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
-                    db.message().setMessageContent(draft.id, true, preview);
+                    db.message().setMessageContent(
+                            draft.id, true, HtmlHelper.getPreview(body));
                 }
 
                 // Execute action
