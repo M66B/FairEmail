@@ -2518,19 +2518,6 @@ public class ServiceSynchronize extends LifecycleService {
         private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
         @Override
-        public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            try {
-                if (!started) {
-                    EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
-                    if (suitableNetwork())
-                        queue_reload(true, "connect " + network);
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
-
-        @Override
         public void onAvailable(Network network) {
             try {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -2538,6 +2525,19 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (!started && suitableNetwork())
                     queue_reload(true, "connect " + network);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
+            try {
+                if (!started) {
+                    EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
+                    if (suitableNetwork())
+                        queue_reload(true, "connect " + network);
+                }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
