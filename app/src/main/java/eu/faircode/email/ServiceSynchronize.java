@@ -940,6 +940,11 @@ public class ServiceSynchronize extends LifecycleService {
                             final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                             try {
                                 ifolder.open(Folder.READ_WRITE);
+                            } catch (MessagingException ex) {
+                                // Including ReadOnlyFolderException
+                                db.folder().setFolderState(folder.id, null);
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                continue;
                             } catch (Throwable ex) {
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 throw ex;
