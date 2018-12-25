@@ -47,11 +47,6 @@ public interface DaoFolder {
             " WHERE account.synchronize AND folder.synchronize AND unified")
     List<EntityFolder> getFoldersSynchronizingUnified();
 
-    @Query("SELECT * FROM folder" +
-            " WHERE account = :account" +
-            " AND type = '" + EntityFolder.USER + "'")
-    List<EntityFolder> getUserFolders(long account);
-
     @Query("SELECT folder.*, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN message.content = 1 THEN 1 ELSE 0 END) AS content" +
@@ -139,6 +134,9 @@ public interface DaoFolder {
 
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
+
+    @Query("SELECT download FROM folder WHERE id = :id")
+    boolean getFolderDownload(long id);
 
     @Insert
     long insertFolder(EntityFolder folder);

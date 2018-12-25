@@ -96,6 +96,7 @@ public class EntityOperation {
             JSONArray jargs = new JSONArray();
             jargs.put(folder.initialize ? Math.min(EntityFolder.DEFAULT_INIT, folder.keep_days) : folder.sync_days);
             jargs.put(folder.keep_days);
+            jargs.put(folder.download);
 
             EntityOperation operation = new EntityOperation();
             operation.folder = folder.id;

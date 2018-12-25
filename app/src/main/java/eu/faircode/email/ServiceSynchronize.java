@@ -986,7 +986,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                 try {
                                                     db.beginTransaction();
                                                     downloadMessage(ServiceSynchronize.this,
-                                                            folder, ifolder, (IMAPMessage) imessage, message.id);
+                                                            folder, ifolder, (IMAPMessage) imessage,
+                                                            message.id, db.folder().getFolderDownload(folder.id));
                                                     db.setTransactionSuccessful();
                                                 } finally {
                                                     db.endTransaction();
@@ -1072,7 +1073,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             try {
                                                 db.beginTransaction();
                                                 downloadMessage(ServiceSynchronize.this,
-                                                        folder, ifolder, (IMAPMessage) e.getMessage(), message.id);
+                                                        folder, ifolder, (IMAPMessage) e.getMessage(),
+                                                        message.id, db.folder().getFolderDownload(folder.id));
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -2016,6 +2018,7 @@ public class ServiceSynchronize extends LifecycleService {
         try {
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
+            boolean download = jargs.getBoolean(2);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days);
 
@@ -2127,7 +2130,8 @@ public class ServiceSynchronize extends LifecycleService {
                         db.beginTransaction();
                         EntityMessage message = synchronizeMessage(
                                 this,
-                                folder, ifolder, (IMAPMessage) isub[j], false, true);
+                                folder, ifolder, (IMAPMessage) isub[j],
+                                false, true);
                         ids[from + j] = message.id;
                         db.setTransactionSuccessful();
                     } catch (MessageRemovedException ex) {
@@ -2173,7 +2177,10 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         db.beginTransaction();
                         if (ids[from + j] != null)
-                            downloadMessage(this, folder, ifolder, (IMAPMessage) isub[j], ids[from + j]);
+                            downloadMessage(
+                                    this,
+                                    folder, ifolder, (IMAPMessage) isub[j],
+                                    ids[from + j], download);
                         db.setTransactionSuccessful();
                     } catch (FolderClosedException ex) {
                         throw ex;
@@ -2426,7 +2433,10 @@ public class ServiceSynchronize extends LifecycleService {
         return message;
     }
 
-    private static void downloadMessage(Context context, EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage, long id) throws MessagingException, IOException {
+    private static void downloadMessage(
+            Context context,
+            EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
+            long id, boolean download) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         EntityMessage message = db.message().getMessage(id);
         if (message == null)
@@ -2435,11 +2445,11 @@ public class ServiceSynchronize extends LifecycleService {
         if (message.setContactInfo(context))
             db.message().updateMessage(message);
 
-        if (folder.download) {
+        if (download) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            long download = prefs.getInt("download", 32768);
-            if (download == 0)
-                download = Long.MAX_VALUE;
+            long maxSize = prefs.getInt("download", 32768);
+            if (maxSize == 0)
+                maxSize = Long.MAX_VALUE;
 
             List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
             MessageHelper helper = new MessageHelper(imessage);
@@ -2448,13 +2458,13 @@ public class ServiceSynchronize extends LifecycleService {
 
             boolean fetch = false;
             if (!message.content)
-                if (!metered || (message.size != null && message.size < download))
+                if (!metered || (message.size != null && message.size < maxSize))
                     fetch = true;
 
             if (!fetch)
                 for (EntityAttachment attachment : attachments)
                     if (!attachment.available)
-                        if (!metered || (attachment.size != null && attachment.size < download)) {
+                        if (!metered || (attachment.size != null && attachment.size < maxSize)) {
                             fetch = true;
                             break;
                         }
@@ -2474,7 +2484,7 @@ public class ServiceSynchronize extends LifecycleService {
             }
 
             if (!message.content)
-                if (!metered || (message.size != null && message.size < download)) {
+                if (!metered || (message.size != null && message.size < maxSize)) {
                     String body = helper.getHtml();
                     message.write(context, body);
                     db.message().setMessageContent(
@@ -2486,7 +2496,7 @@ public class ServiceSynchronize extends LifecycleService {
             for (int i = 0; i < attachments.size(); i++) {
                 EntityAttachment attachment = attachments.get(i);
                 if (!attachment.available)
-                    if (!metered || (attachment.size != null && attachment.size < download)) {
+                    if (!metered || (attachment.size != null && attachment.size < maxSize)) {
                         if (iattachments == null)
                             iattachments = helper.getAttachments();
                         // Attachments of drafts might not have been uploaded yet

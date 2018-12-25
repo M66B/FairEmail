@@ -202,8 +202,7 @@ public class FragmentFolder extends FragmentEx {
                                 db.folder().insertFolder(create);
                             } else {
                                 reload = (!folder.synchronize.equals(synchronize) ||
-                                        !folder.poll.equals(poll) ||
-                                        !folder.download.equals(download));
+                                        !folder.poll.equals(poll));
 
                                 Calendar cal_keep = Calendar.getInstance();
                                 cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
