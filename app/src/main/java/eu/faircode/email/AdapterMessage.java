@@ -113,6 +113,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private ViewType viewType;
     private boolean outgoing;
     private int zoom;
+    private boolean internet;
     private IProperties properties;
 
     private boolean threading;
@@ -175,8 +176,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private TextView tvHeaders;
         private ProgressBar pbHeaders;
+        private TextView tvNoInternetHeaders;
 
         private RecyclerView rvAttachment;
+        private TextView tvNoInternetAttachments;
 
         private BottomNavigationView bnvActions;
 
@@ -185,6 +188,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibImages;
         private TextView tvBody;
         private ProgressBar pbBody;
+        private TextView tvNoInternetBody;
 
         private Group grpAddress;
         private Group grpHeaders;
@@ -230,6 +234,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvHeaders = itemView.findViewById(R.id.tvHeaders);
             pbHeaders = itemView.findViewById(R.id.pbHeaders);
+            tvNoInternetHeaders = itemView.findViewById(R.id.tvNoInternetHeaders);
 
             rvAttachment = itemView.findViewById(R.id.rvAttachment);
             rvAttachment.setHasFixedSize(false);
@@ -240,6 +245,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapter = new AdapterAttachment(context, owner, true);
             rvAttachment.setAdapter(adapter);
 
+            tvNoInternetAttachments = itemView.findViewById(R.id.tvNoInternetAttachments);
+
             bnvActions = itemView.findViewById(R.id.bnvActions);
 
             btnHtml = itemView.findViewById(R.id.btnHtml);
@@ -247,6 +254,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages = itemView.findViewById(R.id.ibImages);
             tvBody = itemView.findViewById(R.id.tvBody);
             pbBody = itemView.findViewById(R.id.pbBody);
+            tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
 
             grpAddress = itemView.findViewById(R.id.grpAddress);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
@@ -299,11 +307,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywords.setVisibility(View.GONE);
 
             pbHeaders.setVisibility(View.GONE);
+            tvNoInternetHeaders.setVisibility(View.GONE);
+
+            tvNoInternetAttachments.setVisibility(View.GONE);
+
             bnvActions.setVisibility(View.GONE);
             btnHtml.setVisibility(View.GONE);
             ibQuotes.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
+            tvNoInternetBody.setVisibility(View.GONE);
 
             grpAddress.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
@@ -412,6 +425,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            tvNoInternetAttachments.setVisibility(View.GONE);
             tvSubject.setText(message.subject);
 
             if (viewType == ViewType.THREAD || viewType == ViewType.SEARCH)
@@ -466,7 +480,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAddress.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses ? View.VISIBLE : View.GONE);
             tvKeywords.setVisibility(View.GONE);
             ivAddContact.setVisibility(viewType == ViewType.THREAD && show_expanded && show_addresses && contacts && message.from != null ? View.VISIBLE : View.GONE);
-            pbHeaders.setVisibility(View.GONE);
+
+            if (show_headers && show_expanded && message.headers == null) {
+                pbHeaders.setVisibility(internet ? View.VISIBLE : View.GONE);
+                tvNoInternetHeaders.setVisibility(internet ? View.GONE : View.VISIBLE);
+            } else {
+                pbHeaders.setVisibility(View.GONE);
+                tvNoInternetHeaders.setVisibility(View.GONE);
+            }
+
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
@@ -474,6 +496,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibQuotes.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             ibImages.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
             pbBody.setVisibility(View.GONE);
+            tvNoInternetBody.setVisibility(View.GONE);
 
             bnvActions.setTag(null);
 
@@ -521,7 +544,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned body = properties.getBody(message.id);
                 tvBody.setText(body);
                 tvBody.setMovementMethod(new UrlHandler());
-                pbBody.setVisibility(View.VISIBLE);
+                if (internet || message.content)
+                    pbBody.setVisibility(View.VISIBLE);
+                else
+                    tvNoInternetBody.setVisibility(View.VISIBLE);
 
                 if (body == null && message.content) {
                     Bundle args = new Bundle();
@@ -537,6 +563,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             attachments = new ArrayList<>();
 
                         adapter.set(attachments);
+
+                        boolean downloading = false;
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.progress != null) {
+                                downloading = true;
+                                break;
+                            }
+
+                        tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
 
                         if (message.content) {
                             Bundle args = new Bundle();
@@ -1228,7 +1263,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setValue("headers", data.message.id, show_headers);
             if (show_headers && data.message.headers == null) {
                 grpHeaders.setVisibility(View.VISIBLE);
-                pbHeaders.setVisibility(View.VISIBLE);
+                if (internet)
+                    pbHeaders.setVisibility(View.VISIBLE);
+                else
+                    tvNoInternetHeaders.setVisibility(View.VISIBLE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", data.message.id);
@@ -1644,6 +1682,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.viewType = viewType;
         this.outgoing = outgoing;
         this.zoom = zoom;
+        this.internet = (Helper.isMetered(context, false) != null);
         this.properties = properties;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1680,6 +1719,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     void setZoom(int zoom) {
         this.zoom = zoom;
         notifyDataSetChanged();
+    }
+
+    void checkInternet() {
+        boolean internet = (Helper.isMetered(context, false) != null);
+        if (this.internet != internet) {
+            this.internet = internet;
+            notifyDataSetChanged();
+        }
     }
 
     @Override

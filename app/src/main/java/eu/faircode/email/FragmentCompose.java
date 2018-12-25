@@ -30,6 +30,10 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -129,7 +133,9 @@ public class FragmentCompose extends FragmentEx {
     private ImageView ivBccAdd;
     private EditText etSubject;
     private RecyclerView rvAttachment;
+    private TextView tvNoInternetAttachments;
     private EditText etBody;
+    private TextView tvNoInternet;
     private TextView tvSignature;
     private TextView tvReference;
     private BottomNavigationView edit_bar;
@@ -178,7 +184,9 @@ public class FragmentCompose extends FragmentEx {
         ivBccAdd = view.findViewById(R.id.ivBccAdd);
         etSubject = view.findViewById(R.id.etSubject);
         rvAttachment = view.findViewById(R.id.rvAttachment);
+        tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         etBody = view.findViewById(R.id.etBody);
+        tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         tvReference = view.findViewById(R.id.tvReference);
         edit_bar = view.findViewById(R.id.edit_bar);
@@ -302,12 +310,13 @@ public class FragmentCompose extends FragmentEx {
         setSubtitle(R.string.title_compose);
         tvExtraPrefix.setText(null);
         tvExtraSuffix.setText(null);
+        etBody.setText(null);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
         grpAddresses.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
-        etBody.setVisibility(View.GONE);
+        tvNoInternet.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReference.setVisibility(View.GONE);
         edit_bar.setVisibility(View.GONE);
@@ -386,6 +395,8 @@ public class FragmentCompose extends FragmentEx {
         adapter = new AdapterAttachment(getContext(), getViewLifecycleOwner(), false);
         rvAttachment.setAdapter(adapter);
 
+        tvNoInternetAttachments.setVisibility(View.GONE);
+
         pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
         pgpService.bindToService();
 
@@ -455,6 +466,11 @@ public class FragmentCompose extends FragmentEx {
     public void onResume() {
         super.onResume();
 
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
+
         if (!pgpService.isBound())
             pgpService.bindToService();
     }
@@ -463,7 +479,48 @@ public class FragmentCompose extends FragmentEx {
     public void onPause() {
         if (autosave)
             onAction(R.id.action_save);
+
         super.onPause();
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        cm.unregisterNetworkCallback(networkCallback);
+    }
+
+    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            check();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+            check();
+        }
+
+        @Override
+        public void onLost(Network network) {
+            check();
+        }
+
+        private void check() {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        checkInternet();
+                }
+            });
+        }
+    };
+
+    private void checkInternet() {
+        boolean internet = (Helper.isMetered(getContext(), false) != null);
+
+        Boolean content = (Boolean) tvNoInternet.getTag();
+        tvNoInternet.setVisibility(!internet && content != null && !content ? View.VISIBLE : View.GONE);
+
+        Boolean downloading = (Boolean) rvAttachment.getTag();
+        tvNoInternetAttachments.setVisibility(!internet && downloading != null && downloading ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -1448,6 +1505,16 @@ public class FragmentCompose extends FragmentEx {
 
                             adapter.set(attachments);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+
+                            boolean downloading = false;
+                            for (EntityAttachment attachment : attachments)
+                                if (attachment.progress != null) {
+                                    downloading = true;
+                                    break;
+                                }
+
+                            rvAttachment.setTag(downloading);
+                            checkInternet();
                         }
                     });
 
@@ -1457,73 +1524,77 @@ public class FragmentCompose extends FragmentEx {
                     // Draft was deleted
                     if (draft == null || draft.ui_hide)
                         finish();
-                    else if (draft.content && state == State.NONE) {
-                        state = State.LOADING;
+                    else {
+                        tvNoInternet.setTag(draft.content);
+                        checkInternet();
 
-                        Bundle args = new Bundle();
-                        args.putLong("id", result.draft.id);
-                        if (result.draft.replying != null)
-                            args.putLong("reference", result.draft.replying);
-                        else if (result.draft.forwarding != null)
-                            args.putLong("reference", result.draft.forwarding);
+                        if (draft.content && state == State.NONE) {
+                            state = State.LOADING;
 
-                        new SimpleTask<Spanned[]>() {
-                            @Override
-                            protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
-                                long id = args.getLong("id");
-                                final long reference = args.getLong("reference", -1);
+                            Bundle args = new Bundle();
+                            args.putLong("id", result.draft.id);
+                            if (result.draft.replying != null)
+                                args.putLong("reference", result.draft.replying);
+                            else if (result.draft.forwarding != null)
+                                args.putLong("reference", result.draft.forwarding);
 
-                                String body = EntityMessage.read(context, id);
-                                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
+                            new SimpleTask<Spanned[]>() {
+                                @Override
+                                protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
+                                    long id = args.getLong("id");
+                                    final long reference = args.getLong("reference", -1);
 
-                                return new Spanned[]{
-                                        Html.fromHtml(body, cidGetter, null),
-                                        quote == null ? null : Html.fromHtml(quote,
-                                                new Html.ImageGetter() {
-                                                    @Override
-                                                    public Drawable getDrawable(String source) {
-                                                        return HtmlHelper.decodeImage(source, context, reference, false);
-                                                    }
-                                                },
-                                                null)};
-                            }
+                                    String body = EntityMessage.read(context, id);
+                                    String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
 
-                            @Override
-                            protected void onLoaded(Bundle args, Spanned[] texts) {
-                                etBody.setText(texts[0]);
-                                etBody.setSelection(0);
-                                tvReference.setText(texts[1]);
+                                    return new Spanned[]{
+                                            Html.fromHtml(body, cidGetter, null),
+                                            quote == null ? null : Html.fromHtml(quote,
+                                                    new Html.ImageGetter() {
+                                                        @Override
+                                                        public Drawable getDrawable(String source) {
+                                                            return HtmlHelper.decodeImage(source, context, reference, false);
+                                                        }
+                                                    },
+                                                    null)};
+                                }
 
-                                state = State.LOADED;
-                                autosave = true;
+                                @Override
+                                protected void onLoaded(Bundle args, Spanned[] texts) {
+                                    etBody.setText(texts[0]);
+                                    etBody.setSelection(0);
+                                    tvReference.setText(texts[1]);
 
-                                pbWait.setVisibility(View.GONE);
-                                etBody.setVisibility(View.VISIBLE);
-                                grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
-                                edit_bar.setVisibility(View.VISIBLE);
-                                bottom_navigation.setVisibility(View.VISIBLE);
-                                Helper.setViewsEnabled(view, true);
+                                    state = State.LOADED;
+                                    autosave = true;
 
-                                getActivity().invalidateOptionsMenu();
+                                    pbWait.setVisibility(View.GONE);
+                                    grpReference.setVisibility(texts[1] == null ? View.GONE : View.VISIBLE);
+                                    edit_bar.setVisibility(View.VISIBLE);
+                                    bottom_navigation.setVisibility(View.VISIBLE);
+                                    Helper.setViewsEnabled(view, true);
 
-                                new Handler().post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if (TextUtils.isEmpty(etTo.getText()))
-                                            etTo.requestFocus();
-                                        else if (TextUtils.isEmpty(etSubject.getText()))
-                                            etSubject.requestFocus();
-                                        else
-                                            etBody.requestFocus();
-                                    }
-                                });
-                            }
+                                    getActivity().invalidateOptionsMenu();
 
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.load(FragmentCompose.this, args);
+                                    new Handler().post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if (TextUtils.isEmpty(etTo.getText()))
+                                                etTo.requestFocus();
+                                            else if (TextUtils.isEmpty(etSubject.getText()))
+                                                etSubject.requestFocus();
+                                            else
+                                                etBody.requestFocus();
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                }
+                            }.load(FragmentCompose.this, args);
+                        }
                     }
                 }
             });

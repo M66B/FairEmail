@@ -185,6 +185,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
+            <TextView
+                android:id="@+id/tvNoInternetAttachments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_no_internet"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="@id/rvAttachment"
+                app:layout_constraintStart_toStartOf="@id/rvAttachment"
+                app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+
             <View
                 android:id="@+id/vSeparator"
                 android:layout_width="match_parent"
@@ -192,7 +202,7 @@
                 android:layout_marginTop="6dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvAttachment" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
 
             <EditText
                 android:id="@+id/etBody"
@@ -209,6 +219,17 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+
+            <TextView
+                android:id="@+id/tvNoInternet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_no_internet"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="@id/etBody"
+                app:layout_constraintEnd_toEndOf="@id/etBody"
+                app:layout_constraintStart_toStartOf="@id/etBody"
+                app:layout_constraintTop_toTopOf="@id/etBody" />
 
             <View
                 android:id="@+id/vSeparatorSignature"

@@ -26,6 +26,10 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -1422,7 +1426,47 @@ public class FragmentMessages extends FragmentEx {
     public void onResume() {
         super.onResume();
         grpSupport.setVisibility(Helper.isPro(getContext()) ? View.GONE : View.VISIBLE);
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        cm.unregisterNetworkCallback(networkCallback);
+    }
+
+    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            check();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+            check();
+        }
+
+        @Override
+        public void onLost(Network network) {
+            check();
+        }
+
+        private void check() {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        adapter.checkInternet();
+                }
+            });
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
