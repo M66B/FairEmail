@@ -15,8 +15,8 @@
         <item quantity="other">Synchroniseren: %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">Één operatie resterend</item>
-        <item quantity="other">%1$d acties resterend</item>
+        <item quantity="one">Één bewerking resterend</item>
+        <item quantity="other">%1$d bewerkingen resterend</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">Één nieuw bericht</item>
@@ -37,7 +37,7 @@
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
     <string name="menu_answers">Sjablonen</string>
-    <string name="menu_operations">Operaties</string>
+    <string name="menu_operations">Bewerkingen</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Ondersteuning</string>
     <string name="menu_pro">Pro functies</string>

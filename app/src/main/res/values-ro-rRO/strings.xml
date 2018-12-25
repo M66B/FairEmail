@@ -110,6 +110,7 @@
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_autoclose">Închide automat conversaţiile</string>
+    <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
@@ -215,7 +216,7 @@
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
-    <string name="title_seen">Marchează ca Citit</string>
+    <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
     <string name="title_flag">Marcare</string>
     <string name="title_unflag">Anulare marcare</string>

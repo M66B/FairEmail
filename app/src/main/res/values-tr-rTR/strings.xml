@@ -107,6 +107,9 @@
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
+    <string name="title_advanced_enabled_hint">İletileri alma ve göndermeyi toptan devre dışı bırakın veya etkinleştirin</string>
+    <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
+    <string name="title_advanced_browse_hint">Aşağı doğru kaydırarak daha çok ileti indirin</string>
     <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
     <string name="title_advanced_threading_hint">Birbnirlerine bağlı grup iletileri</string>
     <string name="title_select">Seçin &#8230;</string>
@@ -142,6 +145,7 @@
     <string name="title_synchronize_identity">Senkronize et (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
+    <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
@@ -299,8 +303,8 @@
     <string name="title_legend_synchronizing">Senkronize ediliyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
-    <string name="title_legend_metered">Bağlantı ölçüldü</string>
-    <string name="title_legend_unmetered">Bağlantı ölçülmedi</string>
+    <string name="title_legend_metered">Bağlantı ölçülü</string>
+    <string name="title_legend_unmetered">Bağlantı ölçüsüz</string>
     <string name="title_legend_sync_keep">Mesajların senkronize edileceği / saklanacağı gün sayısı</string>
     <string name="title_legend_download_fetch">İndirilen ileti metinlerinin / alınan başlıkların sayısı</string>
     <string name="title_hint_folder_actions">Ayarlar için uzun basın</string>

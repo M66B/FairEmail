@@ -300,6 +300,7 @@
     <string name="title_no">Нет</string>
     <string name="title_undo">Отменить</string>
     <string name="title_add">Добавить</string>
+    <string name="title_browse">Обзор</string>
     <string name="title_report">Отчет</string>
     <string name="title_try">Попробуйте FairEmail, приложение с открытым исходным кодом, срвместимое с электронной почтой для Android</string>
     <string name="title_pro_feature">Это функция версии Pro</string>
