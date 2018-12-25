@@ -220,7 +220,7 @@ public class ViewModelBrowse extends ViewModel {
                         if (message == null) {
                             message = ServiceSynchronize.synchronizeMessage(
                                     state.context,
-                                    folder, state.ifolder, (IMAPMessage) isub[j], true, false);
+                                    folder, state.ifolder, (IMAPMessage) isub[j], true);
                             count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);

@@ -982,7 +982,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     db.beginTransaction();
                                                     message = synchronizeMessage(
                                                             ServiceSynchronize.this,
-                                                            folder, ifolder, (IMAPMessage) imessage, false, false);
+                                                            folder, ifolder, (IMAPMessage) imessage, false);
                                                     db.setTransactionSuccessful();
                                                 } finally {
                                                     db.endTransaction();
@@ -1069,7 +1069,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 db.beginTransaction();
                                                 message = synchronizeMessage(
                                                         ServiceSynchronize.this,
-                                                        folder, ifolder, (IMAPMessage) e.getMessage(), false, false);
+                                                        folder, ifolder, (IMAPMessage) e.getMessage(), false);
                                                 db.setTransactionSuccessful();
                                             } finally {
                                                 db.endTransaction();
@@ -2136,7 +2136,7 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityMessage message = synchronizeMessage(
                                 this,
                                 folder, ifolder, (IMAPMessage) isub[j],
-                                false, true);
+                                false);
                         ids[from + j] = message.id;
                         db.setTransactionSuccessful();
                     } catch (MessageRemovedException ex) {
@@ -2219,7 +2219,7 @@ public class ServiceSynchronize extends LifecycleService {
     static EntityMessage synchronizeMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
-            boolean browsed, boolean full) throws MessagingException, IOException {
+            boolean browsed) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
 
         if (imessage.isExpunged()) {
@@ -2412,7 +2412,7 @@ public class ServiceSynchronize extends LifecycleService {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.ui_hide && full) {
+            if (message.ui_hide && db.operation().getOperationCount(folder.id, message.id) == 0) {
                 update = true;
                 message.ui_hide = false;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
