@@ -63,6 +63,60 @@ Note that your contacts could unknowingly send malicious messages if they got in
 
 ## Frequently Asked Questions
 
+* [(1) Which permissions are needed and why?](#user-content-faq1)
+* [(2) Why is there a permanent notification shown?](#user-content-faq2)
+* [(3) What are operations and why are they pending?](#user-content-faq3)
+* [(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?](#user-content-faq4)
+* [(5) How can I customize the message view?](#user-content-faq5)
+* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
+* [(7) Why are messages in the outbox not moved to the sent folder?](#user-content-faq7)
+* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
+* [(9) What are identities?](#user-content-faq9)
+* [(11) Why is POP not supported?](#user-content-faq11)
+* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
+* [(12) How does encryption/decryption work?](#user-content-faq12)
+* [(13) How does search on server work?](#user-content-faq13)
+* [(14) How can I setup Outlook with 2FA?](#user-content-faq14)
+* [(15) Why does the message text keep loading?](#user-content-faq15)
+* [(16) Why are messages not being synchronized?](#user-content-faq16)
+* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
+* [(18) Why is the message preview not always shown?](#user-content-faq18)
+* [(19) Why are the pro features so expensive?](#user-content-faq19)
+* [(20) Can I get a refund?](#user-content-faq20)
+* [(21) How do I enable the notification light?](#user-content-faq21)
+* [(22) Why do I get 'Couldn't connect to host' ?](#user-content-faq22)
+* [(23) Why do I get 'Too many simultaneous connections' ?](#user-content-faq23)
+* [(24) What is browse messages on the server?](#user-content-faq24)
+* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
+* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
+* [(27) How can I differentiate external and embedded images?](#user-content-faq27)
+* [(28) How can I manage status bar notifications?](#user-content-faq28)
+* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
+* [(30) How can I use the provided quick settings?](#user-content-faq30)
+* [(31) How can I use the provided shortcuts?](#user-content-faq31)
+* [(32) How can I check if reading email is really safe?](#user-content-faq32)
+* [(33) Why are edited sender addresses not working?](#user-content-faq33)
+* [(34) How are identities matched?](#user-content-faq34)
+* [(35) Why should I be careful with viewing images, attachments and the original message?](#user-content-faq35)
+* [(36) How are settings files encrypted?](#user-content-faq36)
+* [(37) How are passwords stored?](#user-content-faq37)
+* [(38) Can you help me restore my Play store purchase?](#user-content-faq38)
+* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
+* [(40) How can I reduce the network usage of FairEmail?](#user-content-faq40)
+* [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
+* [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
+* [(43) Can you show the original ... ?](#user-content-faq43)
+* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
+* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
+* [(46) Why does the message list keep refreshing?](#user-content-faq46)
+* [(47) How can I solve 'No primary account or no drafts folder' ?](#user-content-faq47)
+* [(48) How can I solve 'No primary account or no archive folder' ?](#user-content-faq48)
+* [(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?](#user-content-faq49)
+* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
+* [(51) How are folders sorted?](#user-content-faq51)
+
+[I have another question.](#support)
+
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
@@ -275,7 +329,7 @@ stop apps and services too aggressively.
 
 
 <a name="faq17"></a>
-**(17) ~~Why does manual synchronize not work?~~**
+**~~(17) Why does manual synchronize not work?~~**
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
