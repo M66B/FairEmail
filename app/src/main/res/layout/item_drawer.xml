@@ -2,14 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/ivItem"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:gravity="center_vertical"
         android:src="@drawable/baseline_mail_outline_24"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,14 +19,16 @@
         android:id="@+id/tvItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="?android:attr/listPreferredItemPaddingStart"
-        android:ellipsize="end"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:ellipsize="start"
         android:gravity="center_vertical"
-        android:maxLines="1"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:minHeight="42dp"
+        android:singleLine="true"
         android:text="Menu item"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ivItem"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
