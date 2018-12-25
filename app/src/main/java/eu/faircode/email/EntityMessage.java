@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 
@@ -35,6 +36,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.mail.Address;
@@ -44,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -139,6 +143,9 @@ public class EntityMessage implements Serializable {
     public String error;
     public Long last_attempt; // send
 
+    @Ignore
+    private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+
     static String generateMessageId() {
         StringBuilder sb = new StringBuilder();
         sb.append('<')
@@ -190,6 +197,16 @@ public class EntityMessage implements Serializable {
         }
     }
 
+    private class ContactInfo {
+        Uri lookupUri;
+        String displayName;
+
+        ContactInfo(Uri lookupUri, String displayName) {
+            this.lookupUri = lookupUri;
+            this.displayName = displayName;
+        }
+    }
+
     boolean setContactInfo(Context context) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -197,8 +214,21 @@ public class EntityMessage implements Serializable {
 
             try {
                 if (this.from != null)
-                    for (int i = 0; i < this.from.length; i++) {
-                        String email = ((InternetAddress) this.from[i]).getAddress();
+                    for (Address from : this.from) {
+                        InternetAddress address = ((InternetAddress) from);
+                        String email = address.getAddress();
+
+                        synchronized (emailContactInfo) {
+                            if (emailContactInfo.containsKey(email)) {
+                                ContactInfo info = emailContactInfo.get(email);
+                                this.avatar = info.lookupUri.toString();
+                                if (!TextUtils.isEmpty(info.displayName))
+                                    address.setPersonal(info.displayName);
+                                return true;
+                            }
+                        }
+
+
                         Cursor cursor = null;
                         try {
                             ContentResolver resolver = context.getContentResolver();
@@ -218,11 +248,16 @@ public class EntityMessage implements Serializable {
                                 long contactId = cursor.getLong(colContactId);
                                 String lookupKey = cursor.getString(colLookupKey);
                                 String displayName = cursor.getString(colDisplayName);
+                                Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                                this.avatar = ContactsContract.Contacts.getLookupUri(contactId, lookupKey).toString();
+                                this.avatar = lookupUri.toString();
 
                                 if (!TextUtils.isEmpty(displayName))
-                                    ((InternetAddress) this.from[i]).setPersonal(displayName);
+                                    address.setPersonal(displayName);
+
+                                synchronized (emailContactInfo) {
+                                    emailContactInfo.put(email, new ContactInfo(lookupUri, displayName));
+                                }
 
                                 return true;
                             }
