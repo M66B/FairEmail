@@ -1088,6 +1088,8 @@ public class FragmentCompose extends FragmentEx {
                     if ("edit".equals(action))
                         throw new IllegalStateException("Draft not found hide=" + (result.draft != null));
 
+                    List<EntityIdentity> identities = db.identity().getIdentities();
+
                     EntityMessage ref = db.message().getMessage(reference);
                     if (ref == null) {
                         long aid = args.getLong("account", -1);
@@ -1101,8 +1103,6 @@ public class FragmentCompose extends FragmentEx {
                         result.account = db.account().getAccount(ref.account);
 
                         // Reply to recipient, not to known self
-                        List<EntityIdentity> identities = db.identity().getIdentities();
-
                         if (ref.reply != null && ref.reply.length > 0) {
                             String reply = Helper.canonicalAddress(((InternetAddress) ref.reply[0]).getAddress());
                             for (EntityIdentity identity : identities) {
@@ -1177,12 +1177,9 @@ public class FragmentCompose extends FragmentEx {
                             Log.w(ex);
                         }
 
-                        result.draft.subject = args.getString("subject");
-                        body = args.getString("body");
-                        if (body == null)
-                            body = "";
-                        else
-                            body = body.replaceAll("\\r?\\n", "<br />");
+                        result.draft.subject = args.getString("subject", "");
+                        body = args.getString("body", "");
+                        body = body.replaceAll("\\r?\\n", "<br />");
                     } else {
                         result.draft.thread = ref.thread;
 
@@ -1197,7 +1194,6 @@ public class FragmentCompose extends FragmentEx {
                                     addresses.addAll(Arrays.asList(ref.to));
                                 if (ref.cc != null)
                                     addresses.addAll(Arrays.asList(ref.cc));
-                                List<EntityIdentity> identities = db.identity().getIdentities();
                                 for (Address address : new ArrayList<>(addresses)) {
                                     String cc = Helper.canonicalAddress(((InternetAddress) address).getAddress());
                                     for (EntityIdentity identity : identities) {
@@ -1233,6 +1229,29 @@ public class FragmentCompose extends FragmentEx {
 
                             body = text + body;
                         }
+                    }
+
+
+                    // Select identity matching from address
+                    String from = null;
+                    EntityIdentity primary = null;
+                    if (result.draft.from != null && result.draft.from.length > 0)
+                        from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
+                    for (EntityIdentity identity : identities) {
+                        String email = Helper.canonicalAddress(identity.email);
+                        if (email.equals(from)) {
+                            result.draft.identity = identity.id;
+                            result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+                            break;
+                        }
+                        if (identity.primary)
+                            primary = identity;
+                    }
+
+                    // Select primary identity
+                    if (result.draft.identity == null && primary != null) {
+                        result.draft.identity = primary.id;
+                        result.draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
                     }
 
                     result.draft.received = new Date().getTime();
@@ -1391,38 +1410,14 @@ public class FragmentCompose extends FragmentEx {
                                     adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                                     spIdentity.setAdapter(adapter);
 
-                                    boolean found = false;
-
-                                    // Select earlier selected identity
+                                    // Select identity
                                     if (result.draft.identity != null)
                                         for (int pos = 0; pos < identities.size(); pos++) {
                                             if (identities.get(pos).id.equals(result.draft.identity)) {
                                                 spIdentity.setSelection(pos);
-                                                found = true;
                                                 break;
                                             }
                                         }
-
-                                    // Select identity matching from address
-                                    if (!found && result.draft.from != null && result.draft.from.length > 0) {
-                                        String from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
-                                        for (int pos = 0; pos < identities.size(); pos++) {
-                                            String email = Helper.canonicalAddress(identities.get(pos).email);
-                                            if (email.equals(from)) {
-                                                spIdentity.setSelection(pos);
-                                                found = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-
-                                    // Select primary identity
-                                    if (!found)
-                                        for (int pos = 0; pos < identities.size(); pos++)
-                                            if (identities.get(pos).primary) {
-                                                spIdentity.setSelection(pos);
-                                                break;
-                                            }
                                 }
                             });
                         }
