@@ -114,6 +114,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
+* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
 
 [I have another question.](#support)
 
@@ -293,7 +294,7 @@ Searching messages is a pro feature.
 To use Outlook with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
 
-Unfortunately, Outlook doesn't support OAuth for IMAP/SMTP connections, so there is no other way.
+Unfortunately, Outlook doesn't properly support OAuth for IMAP/SMTP connections, so there is no other way.
 
 
 <a name="faq15"></a>
@@ -790,6 +791,15 @@ Some providers prefix some folders with INBOX, but these folders are in fact jus
 It is not possible to make an exception for this because some other providers prefix all folders with INBOX.
 
 Note that you can give folders a display name by long pressing on a folder name, which can be useful because the display name will be used for sorting.
+
+
+<a name="faq52"></a>
+**(52) Why does it take some time to reconnect to an account?**
+
+There is no reliable way to know if an account connection was terminated gracefully or forcefully.
+Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems
+like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
+To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
 
 ## Support
