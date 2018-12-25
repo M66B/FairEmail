@@ -1625,10 +1625,10 @@ public class FragmentCompose extends FragmentEx {
                 boolean dirty =
                         ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
                                 (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
-                                !EntityMessage.equal(draft.from, afrom) ||
-                                !EntityMessage.equal(draft.to, ato) ||
-                                !EntityMessage.equal(draft.cc, acc) ||
-                                !EntityMessage.equal(draft.bcc, abcc) ||
+                                !MessageHelper.equal(draft.from, afrom) ||
+                                !MessageHelper.equal(draft.to, ato) ||
+                                !MessageHelper.equal(draft.cc, acc) ||
+                                !MessageHelper.equal(draft.bcc, abcc) ||
                                 (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
 
                 // Update draft

@@ -255,11 +255,11 @@ public class EntityMessage implements Serializable {
                     //(this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
                     (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
-                    equal(this.from, other.from) &&
-                    equal(this.to, other.to) &&
-                    equal(this.cc, other.cc) &&
-                    equal(this.bcc, other.bcc) &&
-                    equal(this.reply, other.reply) &&
+                    MessageHelper.equal(this.from, other.from) &&
+                    MessageHelper.equal(this.to, other.to) &&
+                    MessageHelper.equal(this.cc, other.cc) &&
+                    MessageHelper.equal(this.bcc, other.bcc) &&
+                    MessageHelper.equal(this.reply, other.reply) &&
                     (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
@@ -300,11 +300,11 @@ public class EntityMessage implements Serializable {
                     (this.inreplyto == null ? other.inreplyto == null : this.inreplyto.equals(other.inreplyto)) &&
                     (this.thread == null ? other.thread == null : this.thread.equals(other.thread)) &&
                     (this.avatar == null ? other.avatar == null : this.avatar.equals(other.avatar)) &&
-                    equal(this.from, other.from) &&
-                    equal(this.to, other.to) &&
-                    equal(this.cc, other.cc) &&
-                    equal(this.bcc, other.bcc) &&
-                    equal(this.reply, other.reply) &&
+                    MessageHelper.equal(this.from, other.from) &&
+                    MessageHelper.equal(this.to, other.to) &&
+                    MessageHelper.equal(this.cc, other.cc) &&
+                    MessageHelper.equal(this.bcc, other.bcc) &&
+                    MessageHelper.equal(this.reply, other.reply) &&
                     (this.headers == null ? other.headers == null : this.headers.equals(other.headers)) &&
                     (this.subject == null ? other.subject == null : this.subject.equals(other.subject)) &&
                     (this.size == null ? other.size == null : this.size.equals(other.size)) &&
@@ -326,22 +326,5 @@ public class EntityMessage implements Serializable {
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;
-    }
-
-    static boolean equal(Address[] a1, Address[] a2) {
-        if (a1 == null && a2 == null)
-            return true;
-
-        if (a1 == null || a2 == null)
-            return false;
-
-        if (a1.length != a2.length)
-            return false;
-
-        for (int i = 0; i < a1.length; i++)
-            if (!a1[i].toString().equals(a2[i].toString()))
-                return false;
-
-        return true;
     }
 }

@@ -21,13 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.webkit.MimeTypeMap;
 
 import org.jsoup.Jsoup;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
@@ -359,12 +357,6 @@ public class MessageHelper {
         this.imessage = message;
     }
 
-    MessageHelper(String raw, Session isession) throws MessagingException {
-        byte[] bytes = Base64.decode(raw, Base64.URL_SAFE);
-        InputStream is = new ByteArrayInputStream(bytes);
-        this.imessage = new MimeMessage(isession, is);
-    }
-
     boolean getSeen() throws MessagingException {
         return imessage.isSet(Flags.Flag.SEEN);
     }
@@ -654,12 +646,20 @@ public class MessageHelper {
         return result;
     }
 
-    String getRaw() throws IOException, MessagingException {
-        if (raw == null) {
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            imessage.writeTo(os);
-            raw = Base64.encodeToString(os.toByteArray(), Base64.URL_SAFE);
-        }
-        return raw;
+    static boolean equal(Address[] a1, Address[] a2) {
+        if (a1 == null && a2 == null)
+            return true;
+
+        if (a1 == null || a2 == null)
+            return false;
+
+        if (a1.length != a2.length)
+            return false;
+
+        for (int i = 0; i < a1.length; i++)
+            if (!a1[i].toString().equals(a2[i].toString()))
+                return false;
+
+        return true;
     }
 }
