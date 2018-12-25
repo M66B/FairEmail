@@ -229,13 +229,53 @@
             app:layout_constraintTop_toTopOf="@id/ivContacts" />
 
         <ImageView
+            android:id="@+id/ivView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_visibility_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_view"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivView"
+            app:layout_constraintStart_toEndOf="@id/ivView"
+            app:layout_constraintTop_toTopOf="@id/ivView" />
+
+        <ImageView
+            android:id="@+id/ivDownload"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_cloud_download_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivView" />
+
+        <TextView
+            android:id="@+id/tvDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_download"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivDownload"
+            app:layout_constraintStart_toEndOf="@id/ivDownload"
+            app:layout_constraintTop_toTopOf="@id/ivDownload" />
+
+        <ImageView
             android:id="@+id/ivExternalImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_image_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivContacts" />
+            app:layout_constraintTop_toBottomOf="@id/ivDownload" />
 
         <TextView
             android:id="@+id/tvExternalImage"
@@ -515,7 +555,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="24dp"
             android:gravity="center_vertical"
-            android:text="123/456"
+            android:text="12/34"
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintBottom_toBottomOf="@+id/tvDownloadFetchLegend"
             app:layout_constraintStart_toStartOf="parent"
@@ -555,7 +595,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
-            android:text="123/456"
+            android:text="12/34"
             android:textAppearance="@android:style/TextAppearance.Small"
             app:layout_constraintBottom_toBottomOf="@+id/tvSyncKeepLegend"
             app:layout_constraintStart_toStartOf="parent"
