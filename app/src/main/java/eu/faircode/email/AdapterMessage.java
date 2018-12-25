@@ -349,56 +349,59 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
             }
 
-            ivAvatar.setVisibility(compact ? View.GONE : View.INVISIBLE);
+            if (avatars || identicons) {
+                ivAvatar.setVisibility(compact ? View.GONE : View.INVISIBLE);
 
-            Bundle aargs = new Bundle();
-            aargs.putLong("id", message.id);
-            aargs.putString("uri", message.avatar);
-            if (message.from != null && message.from.length > 0)
-                aargs.putString("from", message.from[0].toString());
+                Bundle aargs = new Bundle();
+                aargs.putLong("id", message.id);
+                aargs.putString("uri", message.avatar);
+                if (message.from != null && message.from.length > 0)
+                    aargs.putString("from", message.from[0].toString());
 
-            ivAvatar.setTag(message.id);
+                ivAvatar.setTag(message.id);
 
-            new SimpleTask<Drawable>() {
-                @Override
-                protected Drawable onLoad(Context context, Bundle args) {
-                    String uri = args.getString("uri");
-                    if (avatars && !outgoing && uri != null)
-                        try {
-                            ContentResolver resolver = context.getContentResolver();
-                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
-                            if (is != null)
-                                return Drawable.createFromStream(is, "avatar");
-                        } catch (SecurityException ex) {
-                            Log.e(ex);
+                new SimpleTask<Drawable>() {
+                    @Override
+                    protected Drawable onLoad(Context context, Bundle args) {
+                        String uri = args.getString("uri");
+                        if (avatars && !outgoing && uri != null)
+                            try {
+                                ContentResolver resolver = context.getContentResolver();
+                                InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
+                                if (is != null)
+                                    return Drawable.createFromStream(is, "avatar");
+                            } catch (SecurityException ex) {
+                                Log.e(ex);
+                            }
+
+                        String from = args.getString("from");
+                        if (identicons && !outgoing && from != null) {
+                            return new BitmapDrawable(
+                                    context.getResources(),
+                                    Identicon.generate(from, dp24, 5, "light".equals(theme)));
                         }
 
-                    String from = args.getString("from");
-                    if (identicons && !outgoing && from != null) {
-                        return new BitmapDrawable(
-                                context.getResources(),
-                                Identicon.generate(from, dp24, 5, "light".equals(theme)));
+                        return null;
                     }
 
-                    return null;
-                }
-
-                @Override
-                protected void onLoaded(Bundle args, Drawable avatar) {
-                    if (avatar != null) {
-                        if ((long) ivAvatar.getTag() == args.getLong("id")) {
-                            ivAvatar.setImageDrawable(avatar);
-                            ivAvatar.setVisibility(View.VISIBLE);
-                        } else
-                            Log.i("Skipping avatar");
+                    @Override
+                    protected void onLoaded(Bundle args, Drawable avatar) {
+                        if (avatar != null) {
+                            if ((long) ivAvatar.getTag() == args.getLong("id")) {
+                                ivAvatar.setImageDrawable(avatar);
+                                ivAvatar.setVisibility(View.VISIBLE);
+                            } else
+                                Log.i("Skipping avatar");
+                        }
                     }
-                }
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
-                }
-            }.load(context, owner, aargs);
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(context, owner, ex);
+                    }
+                }.load(context, owner, aargs);
+            } else
+                ivAvatar.setVisibility(View.GONE);
 
             vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(View.VISIBLE);
