@@ -235,6 +235,7 @@
     <string name="title_no_saf">Storage access framework niet beschikbaar</string>
     <string name="title_no_stream">Een verouderde app verzond een bestandsnaam in plaats van een bestandsstroom</string>
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
+    <string name="title_no_internet">Geen internet verbinding</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_image_unavailable">Sommige afbeeldingen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
@@ -314,6 +315,8 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Bijlage</string>
     <string name="title_legend_contacts">Contacten</string>
+    <string name="title_legend_view">Inhoud weergeven</string>
+    <string name="title_legend_download">Inhoud downloaden</string>
     <string name="title_legend_external_image">Plaatshouder externe afbeelding</string>
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>
     <string name="title_legend_broken_image">Defecte afbeelding</string>
