@@ -75,6 +75,11 @@ public class ViewModelBrowse extends ViewModel {
         currentState.index = -1;
     }
 
+    boolean isSearching() {
+        State state = currentState;
+        return (state != null && state.search != null);
+    }
+
     void load() throws MessagingException, IOException {
         State state = currentState;
         if (state == null)

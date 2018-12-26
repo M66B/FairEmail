@@ -87,7 +87,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 @Override
                 public void run() {
                     try {
-                        searching = true;
+                        searching = model.isSearching();
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
