@@ -1057,7 +1057,10 @@ public class FragmentMessages extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, MessageTarget result) {
-                        moveAsk(result);
+                        if (EntityFolder.JUNK.equals(result.target.type))
+                            moveAskConfirmed(result);
+                        else
+                            moveAsk(result);
                     }
 
                     @Override
