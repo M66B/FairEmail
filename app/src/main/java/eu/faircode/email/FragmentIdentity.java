@@ -59,6 +59,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
+import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
 import java.util.ArrayList;
@@ -345,8 +346,14 @@ public class FragmentIdentity extends FragmentEx {
                     @Override
                     protected SRVRecord onLoad(Context context, Bundle args) throws Throwable {
                         String dns = "_submission._tcp." + args.getString("domain");
-                        Log.i("Lookup dns=" + dns);
-                        Record[] records = new Lookup(dns, Type.SRV).run();
+                        Lookup lookup = new Lookup(dns, Type.SRV);
+                        // https://dns.watch/
+                        SimpleResolver resolver = new SimpleResolver("84.200.69.80");
+                        lookup.setResolver(resolver);
+                        Log.i("Lookup dns=" + dns + " @" + resolver.getAddress());
+                        Record[] records = lookup.run();
+                        if (lookup.getResult() != Lookup.SUCCESSFUL)
+                            throw new IllegalArgumentException(lookup.getErrorString());
                         Log.i("Found dns=" + (records == null ? -1 : records.length));
                         if (records != null)
                             for (int i = 0; i < records.length; i++) {
