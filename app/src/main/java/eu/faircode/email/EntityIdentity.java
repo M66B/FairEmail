@@ -49,15 +49,13 @@ public class EntityIdentity {
     public String name;
     @NonNull
     public String email;
-    public String display;
-    public String replyto;
-    public String bcc;
-    @NonNull
-    public Boolean delivery_receipt;
-    @NonNull
-    public Boolean read_receipt;
     @NonNull
     public Long account;
+    public String display;
+    public Integer color;
+    public String signature;
+    @NonNull
+    public Integer auth_type;
     @NonNull
     public String host; // SMTP
     @NonNull
@@ -71,15 +69,17 @@ public class EntityIdentity {
     @NonNull
     public String password;
     @NonNull
-    public Integer auth_type;
-    @NonNull
-    public Boolean primary;
-    public Integer color;
-    public String signature;
-    @NonNull
     public Boolean synchronize;
     @NonNull
-    public Boolean store_sent;
+    public Boolean primary;
+    public String replyto;
+    public String bcc;
+    @NonNull
+    public Boolean delivery_receipt;
+    @NonNull
+    public Boolean read_receipt;
+    @NonNull
+    public Boolean store_sent = false; // obsolete
     public Long sent_folder;
     public Boolean tbd;
     public String state;
@@ -88,25 +88,26 @@ public class EntityIdentity {
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("name", name);
-        json.put("display", display);
         json.put("email", email);
-        json.put("replyto", replyto);
-        json.put("bcc", bcc);
-        json.put("delivery_receipt", delivery_receipt);
-        json.put("read_receipt", read_receipt);
+        json.put("display", display);
+        if (color != null)
+            json.put("color", color);
+        json.put("signature", signature);
         // not account
+        json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
         json.put("port", port);
         json.put("user", user);
         json.put("password", password);
-        json.put("auth_type", auth_type);
-        json.put("primary", primary);
-        if (color != null)
-            json.put("color", color);
-        json.put("signature", signature);
         json.put("synchronize", synchronize);
+        json.put("primary", primary);
+
+        json.put("replyto", replyto);
+        json.put("bcc", bcc);
+        json.put("delivery_receipt", delivery_receipt);
+        json.put("read_receipt", read_receipt);
         json.put("store_sent", store_sent);
         if (sent_folder != null)
             json.put("sent_folder", sent_folder);
@@ -118,11 +119,26 @@ public class EntityIdentity {
     public static EntityIdentity fromJSON(JSONObject json) throws JSONException {
         EntityIdentity identity = new EntityIdentity();
         identity.name = json.getString("name");
+        identity.email = json.getString("email");
 
         if (json.has("display"))
             identity.display = json.getString("display");
 
-        identity.email = json.getString("email");
+        if (json.has("color"))
+            identity.color = json.getInt("color");
+        if (json.has("signature"))
+            identity.signature = json.getString("signature");
+
+        identity.auth_type = json.getInt("auth_type");
+        identity.host = json.getString("host");
+        identity.starttls = json.getBoolean("starttls");
+        identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
+        identity.port = json.getInt("port");
+        identity.user = json.getString("user");
+        identity.password = json.getString("password");
+
+        identity.synchronize = json.getBoolean("synchronize");
+        identity.primary = json.getBoolean("primary");
 
         if (json.has("replyto"))
             identity.replyto = json.getString("replyto");
@@ -140,22 +156,8 @@ public class EntityIdentity {
         else
             identity.read_receipt = false;
 
-        identity.host = json.getString("host");
-        identity.starttls = json.getBoolean("starttls");
-        identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
-        identity.port = json.getInt("port");
-        identity.user = json.getString("user");
-        identity.password = json.getString("password");
-        identity.auth_type = json.getInt("auth_type");
-        identity.primary = json.getBoolean("primary");
-
-        if (json.has("color"))
-            identity.color = json.getInt("color");
-        if (json.has("signature"))
-            identity.signature = json.getString("signature");
-
-        identity.synchronize = json.getBoolean("synchronize");
-        identity.store_sent = json.getBoolean("store_sent");
+        if (json.has("store_sent"))
+            identity.store_sent = json.getBoolean("store_sent");
 
         if (json.has("sent_folder"))
             identity.sent_folder = json.getLong("sent_folder");
@@ -169,19 +171,21 @@ public class EntityIdentity {
             EntityIdentity other = (EntityIdentity) obj;
             return (this.name.equals(other.name) &&
                     this.email.equals(other.email) &&
-                    (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
                     this.account.equals(other.account) &&
+                    (this.display == null ? other.display == null : this.display.equals(other.display)) &&
+                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
+                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
                     this.host.equals(other.host) &&
                     this.starttls.equals(other.starttls) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
-                    this.primary.equals(other.primary) &&
-                    (this.color == null ? other.color == null : this.color.equals(other.color)) &&
-                    (this.signature == null ? other.signature == null : this.signature.equals(other.signature)) &&
                     this.synchronize.equals(other.synchronize) &&
-                    this.store_sent.equals(other.store_sent) &&
+                    this.primary.equals(other.primary) &&
+                    (this.replyto == null ? other.replyto == null : this.replyto.equals(other.replyto)) &&
+                    this.delivery_receipt.equals(other.delivery_receipt) &&
+                    this.read_receipt.equals(other.read_receipt) &&
                     (this.sent_folder == null ? other.sent_folder == null : this.sent_folder.equals(other.sent_folder)) &&
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&

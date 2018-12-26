@@ -72,20 +72,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccount" />
 
-        <Button
-            android:id="@+id/btnAdvanced"
-            style="@style/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_setup_advanced"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spAccount" />
-
-        <!-- email -->
-
         <TextView
             android:id="@+id/tvDisplay"
             android:layout_width="wrap_content"
@@ -95,7 +81,7 @@
             android:text="@string/title_display_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
+            app:layout_constraintTop_toBottomOf="@id/spAccount" />
 
         <EditText
             android:id="@+id/etDisplay"
@@ -107,78 +93,81 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
 
-        <!-- reply to -->
-
-        <TextView
-            android:id="@+id/tvReplyTo"
+        <Button
+            android:id="@+id/btnColor"
+            style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_identity_reply_to"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_account_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etDisplay" />
 
-        <EditText
-            android:id="@+id/etReplyTo"
-            android:layout_width="match_parent"
+        <View
+            android:id="@+id/vwColor"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/btnColor"
+            app:layout_constraintTop_toTopOf="@id/btnColor" />
+
+        <ImageView
+            android:id="@+id/ibColorDefault"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
-            android:hint="@string/title_optional"
-            android:inputType="textEmailAddress"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+            android:layout_marginStart="12dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="@id/btnColor"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toTopOf="@id/btnColor" />
 
         <TextView
-            android:id="@+id/tvBcc"
+            android:id="@+id/tvSignature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_bcc"
+            android:text="@string/title_account_signature"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
         <EditText
-            android:id="@+id/etBcc"
-            android:layout_width="match_parent"
+            android:id="@+id/etSignature"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
+            android:fontFamily="monospace"
             android:hint="@string/title_optional"
-            android:inputType="textEmailAddress"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
-
-        <CheckBox
-            android:id="@+id/cbDeliveryReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_delivery_receipt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etBcc" />
-
-        <CheckBox
-            android:id="@+id/cbReadReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_read_receipt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbDeliveryReceipt" />
-
-        <TextView
-            android:id="@+id/tvReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_receipt_remark"
+            android:inputType="textCapSentences|textMultiLine"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/ibPro"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
+
+        <ImageButton
+            android:id="@+id/ibPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="@id/etSignature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etSignature" />
+
+        <Button
+            android:id="@+id/btnAdvanced"
+            style="@style/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_setup_advanced"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etSignature" />
 
         <!--- provider -->
 
@@ -190,7 +179,7 @@
             android:text="@string/title_provider"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
 
         <Spinner
             android:id="@+id/spProvider"
@@ -309,7 +298,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPort" />
 
-        <!-- password -->
+        <!-- username -->
 
         <TextView
             android:id="@+id/tvUser"
@@ -361,70 +350,6 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnColor"
-            style="@style/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_account_color"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
-
-        <View
-            android:id="@+id/vwColor"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:background="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@id/btnColor"
-            app:layout_constraintStart_toEndOf="@id/btnColor"
-            app:layout_constraintTop_toTopOf="@id/btnColor" />
-
-        <ImageView
-            android:id="@+id/ibColorDefault"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="@id/btnColor"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@id/btnColor" />
-
-        <TextView
-            android:id="@+id/tvSignature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_account_signature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnColor" />
-
-        <EditText
-            android:id="@+id/etSignature"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:hint="@string/title_optional"
-            android:inputType="textCapSentences|textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toStartOf="@+id/ibPro"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSignature" />
-
-        <ImageButton
-            android:id="@+id/ibPro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:src="@drawable/baseline_info_24"
-            app:layout_constraintBottom_toBottomOf="@id/etSignature"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/etSignature" />
-
         <CheckBox
             android:id="@+id/cbSynchronize"
             android:layout_width="wrap_content"
@@ -432,7 +357,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_synchronize_identity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSignature" />
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <CheckBox
             android:id="@+id/cbPrimary"
@@ -443,6 +368,79 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSynchronize" />
 
+        <!-- reply to -->
+
+        <TextView
+            android:id="@+id/tvReplyTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_reply_to"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+
+        <EditText
+            android:id="@+id/etReplyTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="@string/title_optional"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+        <TextView
+            android:id="@+id/tvBcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_bcc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etReplyTo" />
+
+        <EditText
+            android:id="@+id/etBcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="@string/title_optional"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+
+        <CheckBox
+            android:id="@+id/cbDeliveryReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_delivery_receipt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBcc" />
+
+        <CheckBox
+            android:id="@+id/cbReadReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_read_receipt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbDeliveryReceipt" />
+
+        <TextView
+            android:id="@+id/tvReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_receipt_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
+
         <TextView
             android:id="@+id/tvSent"
             android:layout_width="wrap_content"
@@ -451,7 +449,7 @@
             android:text="@string/title_store_copy"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
+            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
 
         <Spinner
             android:id="@+id/spSent"
@@ -506,6 +504,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDisplay,etDisplay,tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
+            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
