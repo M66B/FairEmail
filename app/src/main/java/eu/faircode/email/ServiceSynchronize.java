@@ -1933,6 +1933,8 @@ public class ServiceSynchronize extends LifecycleService {
 
             Folder defaultFolder = istore.getDefaultFolder();
             char separator = defaultFolder.getSeparator();
+            EntityLog.log(ServiceSynchronize.this, "Folder separator=" + separator);
+
             Folder[] ifolders = defaultFolder.list("*");
             Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
 
