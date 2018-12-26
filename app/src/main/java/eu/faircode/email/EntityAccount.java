@@ -43,9 +43,9 @@ public class EntityAccount {
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
-    public String name;
-    public String signature; // obsolete
-    public String prefix; // namespace
+
+    @NonNull
+    public Integer auth_type;
     @NonNull
     public String host; // IMAP
     @NonNull
@@ -58,19 +58,23 @@ public class EntityAccount {
     public String user;
     @NonNull
     public String password;
-    @NonNull
-    public Integer auth_type;
+
+    public String name;
+    public String signature; // obsolete
+    public Integer color;
+
     @NonNull
     public Boolean synchronize;
     @NonNull
     public Boolean primary;
     @NonNull
-    public Boolean browse;
-    public Integer color;
-    @NonNull
     public Boolean notify;
     @NonNull
+    public Boolean browse;
+    @NonNull
     public Integer poll_interval; // keep-alive interval
+    public String prefix; // namespace
+
     public Long created;
     public Boolean tbd;
     public String state;
