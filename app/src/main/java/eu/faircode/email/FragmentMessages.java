@@ -430,8 +430,8 @@ public class FragmentMessages extends FragmentEx {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    swipeRefresh.setEnabled(false);
                     if (selectionTracker.hasSelection()) {
+                        swipeRefresh.setEnabled(false);
                         if (messages != null)
                             messages.removeObservers(getViewLifecycleOwner());
                         fabMore.show();
