@@ -33,6 +33,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_identity_email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
         <!--- linked account -->
 
         <TextView
@@ -43,7 +63,7 @@
             android:text="@string/title_account_linked"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
 
         <Spinner
             android:id="@+id/spAccount"
@@ -87,26 +107,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etDisplay" />
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
-            android:inputType="textEmailAddress"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
-
         <!-- reply to -->
 
         <TextView
@@ -117,7 +117,7 @@
             android:text="@string/title_identity_reply_to"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+            app:layout_constraintTop_toBottomOf="@id/etDisplay" />
 
         <EditText
             android:id="@+id/etReplyTo"
@@ -506,6 +506,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDisplay,etDisplay,tvEmail,etEmail,tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
+            app:constraint_referenced_ids="tvDisplay,etDisplay,tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

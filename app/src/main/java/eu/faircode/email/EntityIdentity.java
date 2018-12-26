@@ -47,9 +47,9 @@ public class EntityIdentity {
     public Long id;
     @NonNull
     public String name;
-    public String display;
     @NonNull
     public String email;
+    public String display;
     public String replyto;
     public String bcc;
     @NonNull

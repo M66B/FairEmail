@@ -171,7 +171,7 @@ public class FragmentFolder extends FragmentEx {
                             keep_days = sync_days;
 
                         boolean reload;
-                        DB db = DB.getInstance(getContext());
+                        DB db = DB.getInstance(context);
                         try {
                             db.beginTransaction();
 
@@ -233,7 +233,7 @@ public class FragmentFolder extends FragmentEx {
                         }
 
                         if (reload)
-                            ServiceSynchronize.reload(getContext(), "save folder");
+                            ServiceSynchronize.reload(context, "save folder");
 
                         return null;
                     }
@@ -308,7 +308,7 @@ public class FragmentFolder extends FragmentEx {
                             protected Void onLoad(Context context, Bundle args) {
                                 long id = args.getLong("id");
 
-                                DB db = DB.getInstance(getContext());
+                                DB db = DB.getInstance(context);
                                 int count = db.operation().getOperationCount(id, null);
                                 if (count > 0)
                                     throw new IllegalArgumentException(
@@ -316,7 +316,7 @@ public class FragmentFolder extends FragmentEx {
                                                     R.plurals.title_notification_operations, count, count));
                                 db.folder().setFolderTbd(id);
 
-                                ServiceSynchronize.reload(getContext(), "delete folder");
+                                ServiceSynchronize.reload(context, "delete folder");
 
                                 return null;
                             }

@@ -451,13 +451,13 @@ public class FragmentAccount extends FragmentEx {
                         int auth_type = args.getInt("auth_type");
 
                         if (TextUtils.isEmpty(host))
-                            throw new Throwable(getContext().getString(R.string.title_no_host));
+                            throw new Throwable(context.getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
                             port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
-                            throw new Throwable(getContext().getString(R.string.title_no_user));
+                            throw new Throwable(context.getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password) && !insecure)
-                            throw new Throwable(getContext().getString(R.string.title_no_password));
+                            throw new Throwable(context.getString(R.string.title_no_password));
 
                         CheckResult result = new CheckResult();
                         result.folders = new ArrayList<>();
@@ -647,17 +647,17 @@ public class FragmentAccount extends FragmentEx {
                         EntityFolder junk = (EntityFolder) args.getSerializable("junk");
 
                         if (TextUtils.isEmpty(host))
-                            throw new Throwable(getContext().getString(R.string.title_no_host));
+                            throw new Throwable(context.getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
                             port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
-                            throw new Throwable(getContext().getString(R.string.title_no_user));
+                            throw new Throwable(context.getString(R.string.title_no_user));
                         if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                            throw new Throwable(getContext().getString(R.string.title_no_password));
+                            throw new Throwable(context.getString(R.string.title_no_password));
                         if (TextUtils.isEmpty(interval))
                             interval = "19";
                         if (synchronize && drafts == null)
-                            throw new Throwable(getContext().getString(R.string.title_no_drafts));
+                            throw new Throwable(context.getString(R.string.title_no_drafts));
 
                         if (TextUtils.isEmpty(prefix))
                             prefix = null;
@@ -816,10 +816,10 @@ public class FragmentAccount extends FragmentEx {
                         }
 
                         if (reload)
-                            ServiceSynchronize.reload(getContext(), "save account");
+                            ServiceSynchronize.reload(context, "save account");
 
                         if (!synchronize) {
-                            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                            NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("receive", account.id.intValue());
                         }
 
@@ -1070,7 +1070,7 @@ public class FragmentAccount extends FragmentEx {
                                 DB db = DB.getInstance(context);
                                 db.account().setAccountTbd(id);
 
-                                ServiceSynchronize.reload(getContext(), "delete account");
+                                ServiceSynchronize.reload(context, "delete account");
 
                                 return null;
                             }

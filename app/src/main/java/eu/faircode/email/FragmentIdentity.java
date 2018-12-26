@@ -29,6 +29,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,7 +47,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -74,11 +74,10 @@ import androidx.fragment.app.FragmentTransaction;
 public class FragmentIdentity extends FragmentEx {
     private ViewGroup view;
     private EditText etName;
+    private EditText etEmail;
     private EditText etDisplay;
     private Spinner spAccount;
     private Button btnAdvanced;
-    private TextView tvEmail;
-    private EditText etEmail;
     private EditText etReplyTo;
     private EditText etBcc;
     private CheckBox cbDeliveryReceipt;
@@ -134,12 +133,11 @@ public class FragmentIdentity extends FragmentEx {
 
         // Get controls
         etName = view.findViewById(R.id.etName);
+        etEmail = view.findViewById(R.id.etEmail);
         spAccount = view.findViewById(R.id.spAccount);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         etDisplay = view.findViewById(R.id.etDisplay);
-        tvEmail = view.findViewById(R.id.tvEmail);
-        etEmail = view.findViewById(R.id.etEmail);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
@@ -383,8 +381,8 @@ public class FragmentIdentity extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("name", etName.getText().toString());
-                args.putString("display", etDisplay.getText().toString());
                 args.putString("email", etEmail.getText().toString());
+                args.putString("display", etDisplay.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
                 args.putString("bcc", etBcc.getText().toString());
                 args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
@@ -429,17 +427,19 @@ public class FragmentIdentity extends FragmentEx {
                         EntityFolder sent = (EntityFolder) args.getSerializable("sent");
 
                         if (TextUtils.isEmpty(name))
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_name));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                         if (TextUtils.isEmpty(email))
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_email));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                            throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
                         if (TextUtils.isEmpty(host))
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_host));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
                             port = (starttls ? "587" : "465");
                         if (TextUtils.isEmpty(user))
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_user));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                         if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                            throw new IllegalArgumentException(getContext().getString(R.string.title_no_password));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                         email = email.toLowerCase();
 
@@ -531,7 +531,7 @@ public class FragmentIdentity extends FragmentEx {
                         }
 
                         if (reload)
-                            ServiceSynchronize.reload(getContext(), "save identity");
+                            ServiceSynchronize.reload(context, "save identity");
 
                         return null;
                     }
@@ -601,8 +601,8 @@ public class FragmentIdentity extends FragmentEx {
             protected void onLoaded(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
-                    etDisplay.setText(identity == null ? null : identity.display);
                     etEmail.setText(identity == null ? null : identity.email);
+                    etDisplay.setText(identity == null ? null : identity.display);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
@@ -787,7 +787,7 @@ public class FragmentIdentity extends FragmentEx {
                                 DB db = DB.getInstance(context);
                                 db.identity().setIdentityTbd(id);
 
-                                ServiceSynchronize.reload(getContext(), "delete identity");
+                                ServiceSynchronize.reload(context, "delete identity");
 
                                 return null;
                             }
