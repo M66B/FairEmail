@@ -1933,7 +1933,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             Folder defaultFolder = istore.getDefaultFolder();
             char separator = defaultFolder.getSeparator();
-            EntityLog.log(ServiceSynchronize.this, "Folder separator=" + separator);
+            EntityLog.log(this, account.name + " folder separator=" + separator);
 
             Folder[] ifolders = defaultFolder.list("*");
             Log.i("Remote folder count=" + ifolders.length + " separator=" + separator);
@@ -1944,8 +1944,8 @@ public class ServiceSynchronize extends LifecycleService {
                 String type = null;
                 boolean selectable = true;
                 String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                EntityLog.log(ServiceSynchronize.this,
-                        account.name + ":" + fullName + " attrs=" + TextUtils.join(" ", attrs));
+                EntityLog.log(this, account.name + ":" + fullName +
+                        " attrs=" + TextUtils.join(" ", attrs));
                 for (String attr : attrs) {
                     if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
                         selectable = false;
@@ -1989,11 +1989,17 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i(folder.name + " exists");
 
                         if (folder.display == null) {
-                            if (display != null)
+                            if (display != null) {
                                 db.folder().setFolderDisplay(folder.id, display);
+                                EntityLog.log(this, account.name + ":" + folder.name +
+                                        " removed prefix display=" + display + " separator=" + separator);
+                            }
                         } else {
-                            if (account.prefix == null && folder.name.endsWith(separator + folder.display))
+                            if (account.prefix == null && folder.name.endsWith(separator + folder.display)) {
                                 db.folder().setFolderDisplay(folder.id, null);
+                                EntityLog.log(this, account.name + ":" + folder.name +
+                                        " restored prefix display=" + folder.display + " separator=" + separator);
+                            }
                         }
 
                         db.folder().setFolderLevel(folder.id, level);
