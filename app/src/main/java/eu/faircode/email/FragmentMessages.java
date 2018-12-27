@@ -577,6 +577,8 @@ public class FragmentMessages extends FragmentEx {
                             for (EntityMessage threaded : messages) {
                                 result.ids.add(threaded.id);
                                 db.message().setMessageUiHide(threaded.id, true);
+                                // Prevent new message notification on undo
+                                db.message().setMessageUiIgnored(threaded.id, true);
                             }
 
                             db.setTransactionSuccessful();
