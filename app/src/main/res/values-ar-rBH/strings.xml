@@ -86,7 +86,6 @@
     <string name="title_no_password">كلمة المرور مفقودة</string>
     <string name="title_no_drafts">لا يوجد مجلد المسودات مختارة</string>
     <string name="title_no_primary_drafts">لا يوجد حساب أساسي أو لا مجلد المسودات</string>
-    <string name="title_no_primary_archive">لا يوجد حساب أساسي أو لا مجلد المسودات</string>
     <string name="title_unified_folder">وتظهر في علبة موحد</string>
     <string name="title_folder_exists">يوجد مجلد %1$s</string>
     <string name="title_folder_unified">علبة وارد موحدة</string>

@@ -172,7 +172,6 @@
     <string name="title_no_password">Lipsește parola</string>
     <string name="title_no_drafts">Nici un folder selectat pentru ciorne</string>
     <string name="title_no_primary_drafts">Nici un cont principal sau nici un dosar pentru ciorne</string>
-    <string name="title_no_primary_archive">Nici un cont principal sau nici un dosar pentru arhive</string>
     <string name="title_no_idle">Acest furnizor de servicii e-mail nu suporta mesaje push. Acest fapt va duce la întârzierea recepției mesajelor și un consum mai mare al bateriei.</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>

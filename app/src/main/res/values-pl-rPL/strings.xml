@@ -156,7 +156,6 @@
     <string name="title_no_password">Brak hasła</string>
     <string name="title_no_drafts">Nie wybrano folderu szkiców</string>
     <string name="title_no_primary_drafts">Brak konta podstawowego lub brak folderu szkiców</string>
-    <string name="title_no_primary_archive">Brak konta podstawowego lub brak folderu archiwum</string>
     <string name="title_no_idle">Ten dostawca nie obsługuje wiadomości push. To opóźni otrzymywanie nowych wiadomości i zwiększy zużycie baterii.</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>

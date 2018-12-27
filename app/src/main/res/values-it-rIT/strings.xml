@@ -166,7 +166,6 @@
     <string name="title_no_password">Password mancante</string>
     <string name="title_no_drafts">Nessuna cartella bozze selezionata</string>
     <string name="title_no_primary_drafts">Nessun account principale o nessuna cartella bozze</string>
-    <string name="title_no_primary_archive">Nessun account principale o nessuna cartella di archivio</string>
     <string name="title_no_idle">Questo fornitore non supporta i messaggi push. Ciò ritarderà la ricezione di nuovi messaggi e aumenterà l\'utilizzo della batteria.</string>
     <string name="title_account_delete">Eliminare questo account permanentemente?</string>
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>

@@ -166,7 +166,6 @@
     <string name="title_no_password">Wachtwoord ontbreekt</string>
     <string name="title_no_drafts">Geen concepten map geslecteerd</string>
     <string name="title_no_primary_drafts">Geen primair account of geen map voor concepten</string>
-    <string name="title_no_primary_archive">Geen primair account of geen archief</string>
     <string name="title_no_idle">Deze provider biedt geen ondersteuning voor push-berichten. Dit zal het ontvangen van nieuwe berichten vertragen en het gebruik van de batterij te verhogen.</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
@@ -336,6 +335,7 @@
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
     <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
     <string name="title_hint_folder_actions">Druk lang voor opties</string>
+    <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; veeg naar rechts om te archiveren (indien beschikbaar)</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om te beginnen met het selecteren van meerdere berichten</string>

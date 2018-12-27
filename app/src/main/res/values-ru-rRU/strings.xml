@@ -129,7 +129,6 @@
     <string name="title_no_password">Пароль отсутствует</string>
     <string name="title_no_drafts">Папка черновиков не выбрана</string>
     <string name="title_no_primary_drafts">Нет основной учетной записи или папки с черновиками</string>
-    <string name="title_no_primary_archive">Нет основной учетной записи или папки для архива</string>
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход батареи.</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>

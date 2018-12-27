@@ -165,7 +165,6 @@
     <string name="title_no_password">Şifrə əskikdir</string>
     <string name="title_no_drafts">Heç bir qaralama qovluğu seçilmədi</string>
     <string name="title_no_primary_drafts">Üstünlük verilən hesab və ya qaralama qovluğu yoxdur</string>
-    <string name="title_no_primary_archive">Üstünlük verilən hesab və ya arxiv qovluq yoxdur</string>
     <string name="title_no_idle">Bu təchizatçı ani mesajları dəstəkləmir. Bu, yeni mesajların alınmasını gecikdirəcək və batareyanın istifadəsini artıracaq.</string>
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>

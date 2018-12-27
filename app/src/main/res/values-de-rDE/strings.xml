@@ -166,8 +166,7 @@
     <string name="title_no_password">Passwort fehlt</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner ausgewählt</string>
     <string name="title_no_primary_drafts">Kein Hauptkonto oder kein Entwürfe-Ordner</string>
-    <string name="title_no_primary_archive">Kein Hauptkonto oder kein Archiv-Ordner</string>
-    <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Dies verzögert den Empfang neuer Nachrichten und erhöht den Batterie-Verbrauch.</string>
+    <string name="title_no_idle">Dieser Anbieter unterstützt keine Pushnachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
@@ -189,7 +188,7 @@
     <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
-    <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht die Akku- und Datennutzung</string>
+    <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht den Akkuverbrauch und die Datennutzung</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
     <string name="title_folder_name_missing">Ordnername fehlt</string>
@@ -336,6 +335,7 @@
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichtentexte / empfangenen Kopfzeilen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
+    <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden nicht alle Ordner und E-Mails standardmäßig synchronisiert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>

@@ -166,7 +166,6 @@
     <string name="title_no_password">Falta contraseña</string>
     <string name="title_no_drafts">No se seleccionó carpeta de borradores</string>
     <string name="title_no_primary_drafts">No hay cuenta primaria o no hay carpeta de borradores</string>
-    <string name="title_no_primary_archive">No hay cuenta primaria o no hay carpeta de archivados</string>
     <string name="title_no_idle">Este proveedor no soporta mensajes PUSH. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
