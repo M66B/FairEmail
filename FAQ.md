@@ -116,7 +116,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
 * [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [(54) How do I use the namespace prefixes?](#user-content-faq54)
+* [(54) How do I use a namespace prefix?](#user-content-faq54)
 
 
 [I have another question.](#support)
@@ -812,9 +812,10 @@ Since there is often more than one message in a conversation, this is not possib
 
 
 <a name="faq54"></a>
-**(54) How do I use the namespace prefixes?**
+**(54) How do I use a namespace prefix?**
 
-The namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.
+A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.
+
 For example the Gmail spam folder is called:
 
 ```
