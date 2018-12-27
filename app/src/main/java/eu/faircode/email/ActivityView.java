@@ -385,12 +385,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         protected Long onLoad(Context context, Bundle args) {
                             DB db = DB.getInstance(context);
 
-                            EntityFolder archive = db.folder().getPrimaryArchive();
-                            if (archive == null)
-                                throw new IllegalArgumentException(getString(R.string.title_no_primary_archive));
-
                             db.message().resetSearch();
 
+                            EntityFolder archive = db.folder().getPrimaryArchive();
+                            if (archive == null)
+                                throw new IllegalArgumentException("No primary archive");
                             return archive.id;
                         }
 

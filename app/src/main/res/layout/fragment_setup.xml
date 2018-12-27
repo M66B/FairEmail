@@ -66,18 +66,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAccountDone" />
 
-        <TextView
-            android:id="@+id/tvNoPrimaryArchive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_no_primary_archive"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
-
         <View
             android:id="@+id/vSeparatorAccount"
             android:layout_width="match_parent"
@@ -85,7 +73,7 @@
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryArchive" />
+            app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
 
         <!-- identity -->
 

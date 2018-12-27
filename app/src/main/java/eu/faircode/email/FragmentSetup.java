@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -93,7 +94,6 @@ public class FragmentSetup extends FragmentEx {
     private Button btnAccount;
     private TextView tvAccountDone;
     private TextView tvNoPrimaryDrafts;
-    private TextView tvNoPrimaryArchive;
 
     private Button btnIdentity;
     private TextView tvIdentityDone;
@@ -138,7 +138,6 @@ public class FragmentSetup extends FragmentEx {
         btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
         tvNoPrimaryDrafts = view.findViewById(R.id.tvNoPrimaryDrafts);
-        tvNoPrimaryArchive = view.findViewById(R.id.tvNoPrimaryArchive);
 
         btnIdentity = view.findViewById(R.id.btnIdentity);
         tvIdentityDone = view.findViewById(R.id.tvIdentityDone);
@@ -286,7 +285,6 @@ public class FragmentSetup extends FragmentEx {
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
         tvNoPrimaryDrafts.setVisibility(View.GONE);
-        tvNoPrimaryArchive.setVisibility(View.GONE);
 
         btnIdentity.setEnabled(false);
         tvIdentityDone.setText(null);
@@ -386,7 +384,13 @@ public class FragmentSetup extends FragmentEx {
                 livePrimaryArchive.observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
                     @Override
                     public void onChanged(EntityFolder archive) {
-                        tvNoPrimaryArchive.setVisibility(done && archive == null ? View.VISIBLE : View.GONE);
+                        PackageManager pm = getContext().getPackageManager();
+                        pm.setComponentEnabledSetting(
+                                new ComponentName(getContext(), ActivitySearch.class),
+                                archive == null
+                                        ? PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                                        : PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                PackageManager.DONT_KILL_APP);
                     }
                 });
             }
