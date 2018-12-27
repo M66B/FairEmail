@@ -160,6 +160,7 @@ public interface DaoMessage {
     @Query("SELECT id" +
             " FROM message" +
             " WHERE folder = :folder" +
+            " AND NOT ui_hide" +
             " ORDER BY message.received DESC")
     List<Long> getMessageByFolder(long folder);
 
@@ -168,7 +169,8 @@ public interface DaoMessage {
             " WHERE account = :account" +
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
-            " AND (:folder IS NULL OR message.folder = :folder)")
+            " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND NOT ui_hide")
     List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
 
     @Query("SELECT message.* FROM message" +
@@ -179,7 +181,8 @@ public interface DaoMessage {
 
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
-            " AND ui_seen")
+            " AND ui_seen" +
+            " AND NOT ui_hide")
     List<EntityMessage> getMessageSeen(long folder);
 
     @Query("SELECT id FROM message" +
@@ -245,9 +248,6 @@ public interface DaoMessage {
 
     @Update
     int updateMessage(EntityMessage message);
-
-    @Query("UPDATE message SET uid = :uid WHERE id = :id")
-    int setMessageUid(long id, Long uid);
 
     @Query("UPDATE message SET seen = :seen WHERE id = :id")
     int setMessageSeen(long id, boolean seen);
