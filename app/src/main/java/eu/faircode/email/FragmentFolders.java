@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.ToggleButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,7 +45,7 @@ public class FragmentFolders extends FragmentEx {
     private ImageButton ibHintActions;
     private ToggleButton tbShowHidden;
     private RecyclerView rvFolder;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpHintActions;
     private Group grpReady;
     private FloatingActionButton fab;

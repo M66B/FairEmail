@@ -64,7 +64,6 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -138,7 +137,7 @@ public class FragmentCompose extends FragmentEx {
     private TextView tvReference;
     private BottomNavigationView edit_bar;
     private BottomNavigationView bottom_navigation;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpHeader;
     private Group grpExtra;
     private Group grpAddresses;

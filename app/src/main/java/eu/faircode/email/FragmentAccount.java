@@ -51,7 +51,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -117,7 +116,7 @@ public class FragmentAccount extends FragmentEx {
     private EditText etPrefix;
 
     private Button btnCheck;
-    private ProgressBar pbCheck;
+    private ContentLoadingProgressBar pbCheck;
     private TextView tvIdle;
 
     private ArrayAdapter<EntityFolder> adapter;
@@ -128,8 +127,8 @@ public class FragmentAccount extends FragmentEx {
     private Spinner spJunk;
 
     private Button btnSave;
-    private ProgressBar pbSave;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbSave;
+    private ContentLoadingProgressBar pbWait;
 
     private Group grpServer;
     private Group grpAuthorize;

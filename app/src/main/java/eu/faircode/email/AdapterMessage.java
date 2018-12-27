@@ -62,7 +62,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -160,7 +159,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivThread;
         private TextView tvPreview;
         private TextView tvError;
-        private ProgressBar pbLoading;
+        private ContentLoadingProgressBar pbLoading;
 
         private ImageView ivExpanderAddress;
         private TextView tvFromEx;
@@ -175,7 +174,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvKeywords;
 
         private TextView tvHeaders;
-        private ProgressBar pbHeaders;
+        private ContentLoadingProgressBar pbHeaders;
         private TextView tvNoInternetHeaders;
 
         private RecyclerView rvAttachment;
@@ -187,7 +186,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibQuotes;
         private ImageButton ibImages;
         private TextView tvBody;
-        private ProgressBar pbBody;
+        private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
 
         private Group grpAddress;

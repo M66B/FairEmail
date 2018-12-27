@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -42,7 +41,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentIdentities extends FragmentEx {
     private RecyclerView rvIdentity;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
     private ObjectAnimator animator;

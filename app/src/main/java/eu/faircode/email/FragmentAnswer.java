@@ -28,7 +28,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,7 +41,7 @@ public class FragmentAnswer extends FragmentEx {
     private EditText etName;
     private EditText etText;
     private BottomNavigationView bottom_navigation;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
     private long id = -1;

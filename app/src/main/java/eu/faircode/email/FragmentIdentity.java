@@ -44,7 +44,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -110,8 +109,8 @@ public class FragmentIdentity extends FragmentEx {
     private Spinner spSent;
 
     private Button btnSave;
-    private ProgressBar pbSave;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbSave;
+    private ContentLoadingProgressBar pbWait;
 
     private Group grpAuthorize;
     private Group grpAdvanced;

@@ -34,7 +34,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -57,8 +56,8 @@ public class FragmentFolder extends FragmentEx {
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
     private Button btnSave;
-    private ProgressBar pbSave;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbSave;
+    private ContentLoadingProgressBar pbWait;
 
     private long id = -1;
     private long account = -1;

@@ -26,7 +26,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,7 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentLogs extends FragmentEx {
     private RecyclerView rvLog;
-    private ProgressBar pbWait;
+    private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
     private boolean autoScroll = true;
