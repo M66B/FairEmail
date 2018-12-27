@@ -657,7 +657,7 @@ public class FragmentMessages extends FragmentEx {
                                 if (!result.target.id.equals(threaded.folder) &&
                                         !EntityFolder.DRAFTS.equals(folder.type) &&
                                         !EntityFolder.OUTBOX.equals(folder.type) &&
-                                        (!EntityFolder.SENT.equals(folder.type) || EntityFolder.ARCHIVE.equals(result.target.type)) &&
+                                        (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(result.target.type)) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
                                         !EntityFolder.JUNK.equals(folder.type))
                                     result.ids.add(threaded.id);
