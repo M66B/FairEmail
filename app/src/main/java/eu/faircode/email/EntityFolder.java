@@ -144,8 +144,8 @@ public class EntityFolder implements Serializable {
             DRAFTS,
             SENT,
             ARCHIVE,
-            TRASH
-            // not spam
+            TRASH,
+            JUNK
     );
 
     public EntityFolder() {
