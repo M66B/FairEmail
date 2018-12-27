@@ -180,9 +180,7 @@ public class MessageHelper {
         if (message.replying != null)
             replying = db.message().getMessage(message.replying);
 
-        if (replying == null)
-            imessage.addHeader("References", message.msgid);
-        else {
+        if (replying != null) {
             imessage.addHeader("In-Reply-To", replying.msgid);
             imessage.addHeader("References", (replying.references == null ? "" : replying.references + " ") + replying.msgid);
         }
