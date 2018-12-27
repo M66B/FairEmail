@@ -159,6 +159,7 @@
     <string name="title_check">Controleer</string>
     <string name="title_no_name">Naam ontbreekt</string>
     <string name="title_no_email">Email adres ontbreekt</string>
+    <string name="title_email_invalid">E-mail adres ongeldig</string>
     <string name="title_no_account">Account ontbreekt</string>
     <string name="title_no_host">Hostnaam ontbreekt</string>
     <string name="title_no_user">Gebruikersnaam ontbreekt</string>
@@ -170,7 +171,7 @@
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_pop">POP wordt niet ondersteund</string>
-    <string name="title_identity_sent_hint">Verzonden berichten worden al automatisch opgeslagen in de verzonden map in de meeste gevallen</string>
+    <string name="title_identity_sent_hint">Verzonden berichten worden meestal al automatisch opgeslagen in de verzonden map</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
@@ -289,6 +290,7 @@
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>
     <string name="title_sort_on_starred">Met ster</string>
+    <string name="title_sort_on_sender">Afzender</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_address_sent">Verzonden:</string>
     <string name="title_address_unsent">Niet verzonden:</string>

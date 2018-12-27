@@ -165,6 +165,7 @@
     <string name="title_check">Verificare</string>
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
+    <string name="title_email_invalid">Adresa de e-mail nu este validă</string>
     <string name="title_no_account">Lipsește contul</string>
     <string name="title_no_host">Lipsește numele serverului</string>
     <string name="title_no_user">Lipsește numele de utilizator</string>
@@ -241,6 +242,7 @@
     <string name="title_no_saf">Nu se poate accesa stocarea locală</string>
     <string name="title_no_stream">O aplicație invechită a trimis calea fișierului în locul unui flux de date</string>
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
+    <string name="title_no_internet">Nu există conexiune la internet</string>
     <string name="title_attachment_saved">Atașament salvat</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_image_unavailable">Unele imagini nu sunt descărcate și nu vor fi adăugate, continuați?</string>
@@ -320,6 +322,8 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
     <string name="title_legend_contacts">Contacte</string>
+    <string name="title_legend_view">Afișează conținutul</string>
+    <string name="title_legend_download">Descarcă conținutul</string>
     <string name="title_legend_external_image">Înlocuitor imagine externă</string>
     <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
     <string name="title_legend_broken_image">Imagine coruptă</string>

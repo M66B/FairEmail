@@ -159,6 +159,7 @@
     <string name="title_check">Vérifier</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
+    <string name="title_email_invalid">Adresse e-mail invalide</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>
     <string name="title_no_user">Nom d\'utilisateur manquant</string>
@@ -289,6 +290,7 @@
     <string name="title_sort_on_time">Date</string>
     <string name="title_sort_on_unread">Non lu(s)</string>
     <string name="title_sort_on_starred">Suivis</string>
+    <string name="title_sort_on_sender">Expéditeur</string>
     <string name="title_zoom">Taille du texte</string>
     <string name="title_address_sent">Envoyé :</string>
     <string name="title_address_unsent">Non envoyé :</string>
@@ -315,6 +317,8 @@
     <string name="title_legend_cc">Cc/Cci</string>
     <string name="title_legend_attachment">Pièce jointe</string>
     <string name="title_legend_contacts">Contacts</string>
+    <string name="title_legend_view">Voir le contenu</string>
+    <string name="title_legend_download">Télécharger le contenu</string>
     <string name="title_legend_external_image">Espace réservé pour une image externe</string>
     <string name="title_legend_embedded_image">Espace réservé pour une image intégrée</string>
     <string name="title_legend_broken_image">Image non disponible</string>

@@ -159,6 +159,7 @@
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
+    <string name="title_email_invalid">E-Mail-Adresse ungültig</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
     <string name="title_no_user">Benutzername fehlt</string>
@@ -235,6 +236,7 @@
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">Eine veraltete App verschickte den Dateinamen anstelle des Datenstroms</string>
     <string name="title_no_contacts">Kontaktauswahl nicht verfügbar</string>
+    <string name="title_no_internet">Keine Internetverbindung</string>
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachment_unavailable">Einige Anlagen wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
     <string name="title_image_unavailable">Einige Bilder wurden nicht heruntergeladen und werden nicht hinzugefügt, fortsetzen?</string>
@@ -288,6 +290,7 @@
     <string name="title_sort_on_time">Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
     <string name="title_sort_on_starred">Favoriten</string>
+    <string name="title_sort_on_sender">Absender</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_address_sent">Gesendet:</string>
     <string name="title_address_unsent">Nicht gesendet:</string>
@@ -314,6 +317,8 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Anhang</string>
     <string name="title_legend_contacts">Kontakte</string>
+    <string name="title_legend_view">Inhalt anzeigen</string>
+    <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>

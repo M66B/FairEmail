@@ -158,6 +158,7 @@
     <string name="title_check">Yoxla</string>
     <string name="title_no_name">Ad əskikdir</string>
     <string name="title_no_email">E-poçt ünvanı əskikdir</string>
+    <string name="title_email_invalid">E-poçt ünvanı yalnışdır</string>
     <string name="title_no_account">Hesab əskikdir</string>
     <string name="title_no_host">Host adı əskikdir</string>
     <string name="title_no_user">İstifadəçi adı əskikdir</string>
@@ -169,6 +170,7 @@
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_pop">POP dəstəklənmir</string>
+    <string name="title_identity_sent_hint">Göndərilən mesajlar, əksər hallarda göndərilənlər qovluğunda avtomatik olaraq saxlanılır</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
@@ -231,7 +233,9 @@
     <string name="title_no_answers">Heç bir cavab şablonu təyin edilmədi</string>
     <string name="title_no_viewer">%1$s üçün heç bir görüntüləmə tətbiqi yoxdur</string>
     <string name="title_no_saf">Anbar müraciət çərçivəsi mövcud deyil</string>
+    <string name="title_no_stream">Köhnə bir tətbiq, fayl axını əvəzinə fayl yolu göndərdi</string>
     <string name="title_no_contacts">Şəxs seçici mövcud deyil</string>
+    <string name="title_no_internet">İnternet bağlantısı yoxdur</string>
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və əlavə edilməyəcək, davam edək?</string>
     <string name="title_image_unavailable">Bəzi təsvirlər endirilmədi və əlavə edilməyəcək, davam edək?</string>
@@ -311,6 +315,8 @@
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Qoşma</string>
     <string name="title_legend_contacts">Şəxslər</string>
+    <string name="title_legend_view">Məzmuna bax</string>
+    <string name="title_legend_download">Məzmunu endir</string>
     <string name="title_legend_broken_image">Zədələnmiş təsvir</string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
     <string name="title_legend_synchronize_off">Eyniləşdirmə bağlı</string>

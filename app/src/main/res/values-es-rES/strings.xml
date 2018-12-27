@@ -159,6 +159,7 @@
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
+    <string name="title_email_invalid">Dirección de correo electrónico no válida</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>
     <string name="title_no_user">Falta nombre de usuario</string>
@@ -289,6 +290,7 @@
     <string name="title_sort_on_time">Tiempo</string>
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
+    <string name="title_sort_on_sender">Remitente</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_address_sent">Enviado/s:</string>
     <string name="title_address_unsent">No enviado/s:</string>

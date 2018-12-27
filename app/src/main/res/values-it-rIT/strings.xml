@@ -159,6 +159,7 @@
     <string name="title_check">Controlla</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
+    <string name="title_email_invalid">Indirizzo email non valido</string>
     <string name="title_no_account">Account mancante</string>
     <string name="title_no_host">Nome dell\'host mancante</string>
     <string name="title_no_user">Nome utente mancante</string>
@@ -235,6 +236,7 @@
     <string name="title_no_saf">Storage access framework non disponibile</string>
     <string name="title_no_stream">Un\'app obsoleta ha inviato un percorso file invece di un flusso di file</string>
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
+    <string name="title_no_internet">Nessuna connessione Internet</string>
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
     <string name="title_image_unavailable">Alcune immagini non vengono scaricate e non verranno aggiunte, continuare?</string>
@@ -314,6 +316,8 @@
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
     <string name="title_legend_contacts">Contatti</string>
+    <string name="title_legend_view">Mostra il contenuto</string>
+    <string name="title_legend_download">Scarica il contenuto</string>
     <string name="title_legend_external_image">Segnaposto immagine esterna</string>
     <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
     <string name="title_legend_broken_image">Immagine spezzata</string>
