@@ -1138,15 +1138,17 @@ public class ServiceSynchronize extends LifecycleService {
 
                         // Observe operations
                         Handler handler = new Handler(getMainLooper()) {
+                            private List<Long> handling = new ArrayList<>();
                             private LiveData<List<EntityOperation>> liveOperations;
 
                             @Override
                             public void handleMessage(android.os.Message msg) {
                                 Log.i(account.name + "/" + folder.name + " observe=" + msg.what);
                                 try {
-                                    if (msg.what == 0)
+                                    if (msg.what == 0) {
                                         liveOperations.removeObserver(observer);
-                                    else {
+                                        handling.clear();
+                                    } else {
                                         liveOperations = db.operation().liveOperations(folder.id);
                                         liveOperations.observe(ServiceSynchronize.this, observer);
                                     }
@@ -1156,7 +1158,6 @@ public class ServiceSynchronize extends LifecycleService {
                             }
 
                             private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
-                                private List<Long> handling = new ArrayList<>();
                                 private final ExecutorService folderExecutor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                 private final PowerManager.WakeLock wlFolder = pm.newWakeLock(
                                         PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":folder." + folder.id);
@@ -1228,13 +1229,6 @@ public class ServiceSynchronize extends LifecycleService {
                                             }
                                         });
                                     }
-                                }
-
-                                @Override
-                                public boolean equals(@Nullable Object obj) {
-                                    boolean eq = super.equals(obj);
-                                    Log.i(account.name + "/" + folder.name + " equal=" + eq + " observer=" + observer + " other=" + obj);
-                                    return eq;
                                 }
                             };
                         };
@@ -2635,21 +2629,22 @@ public class ServiceSynchronize extends LifecycleService {
                             db.folder().setFolderError(outbox.id, null);
 
                             handler = new Handler(getMainLooper()) {
+                                private List<Long> handling = new ArrayList<>();
                                 private LiveData<List<EntityOperation>> liveOperations;
 
                                 @Override
                                 public void handleMessage(android.os.Message msg) {
                                     Log.i(outbox.name + " observe=" + msg.what);
-                                    if (msg.what == 0)
+                                    if (msg.what == 0) {
                                         liveOperations.removeObserver(observer);
-                                    else {
+                                        handling.clear();
+                                    } else {
                                         liveOperations = db.operation().liveOperations(outbox.id);
                                         liveOperations.observe(ServiceSynchronize.this, observer);
                                     }
                                 }
 
                                 private Observer<List<EntityOperation>> observer = new Observer<List<EntityOperation>>() {
-                                    private List<Long> handling = new ArrayList<>();
                                     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
                                     PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
                                     PowerManager.WakeLock wl = pm.newWakeLock(
