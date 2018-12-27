@@ -43,10 +43,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentFolders extends FragmentEx {
     private ImageButton ibHintActions;
+    private ImageButton ibHintSync;
     private ToggleButton tbShowHidden;
     private RecyclerView rvFolder;
     private ContentLoadingProgressBar pbWait;
     private Group grpHintActions;
+    private Group grpHintSync;
     private Group grpReady;
     private FloatingActionButton fab;
 
@@ -69,21 +71,32 @@ public class FragmentFolders extends FragmentEx {
 
         // Get controls
         ibHintActions = view.findViewById(R.id.ibHintActions);
+        ibHintSync = view.findViewById(R.id.ibHintSync);
         tbShowHidden = view.findViewById(R.id.tbShowHidden);
         rvFolder = view.findViewById(R.id.rvFolder);
         pbWait = view.findViewById(R.id.pbWait);
         grpHintActions = view.findViewById(R.id.grpHintActions);
+        grpHintSync = view.findViewById(R.id.grpHintSync);
         grpReady = view.findViewById(R.id.grpReady);
         fab = view.findViewById(R.id.fab);
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         ibHintActions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 prefs.edit().putBoolean("folder_actions", true).apply();
                 grpHintActions.setVisibility(View.GONE);
+            }
+        });
+
+        ibHintSync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("folder_sync", true).apply();
+                grpHintSync.setVisibility(View.GONE);
             }
         });
 
@@ -130,6 +143,7 @@ public class FragmentFolders extends FragmentEx {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         grpHintActions.setVisibility(prefs.getBoolean("folder_actions", false) ? View.GONE : View.VISIBLE);
+        grpHintSync.setVisibility(prefs.getBoolean("folder_sync", false) ? View.GONE : View.VISIBLE);
 
         DB db = DB.getInstance(getContext());
 

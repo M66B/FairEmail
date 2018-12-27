@@ -37,13 +37,47 @@
             app:layout_constraintTop_toTopOf="@id/tvHintActions" />
 
         <View
-            android:id="@+id/vSeparator"
+            android:id="@+id/vSeparatorActions"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="6dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHintActions" />
+
+        <TextView
+            android:id="@+id/tvHintSync"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center_vertical"
+            android:minHeight="33dp"
+            android:text="@string/title_hint_folder_sync"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/ibHintSync"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorActions" />
+
+        <ImageButton
+            android:id="@+id/ibHintSync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="@id/tvHintSync"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvHintSync" />
+
+        <View
+            android:id="@+id/vSeparatorSync"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHintSync" />
 
         <ToggleButton
             android:id="@+id/tbShowHidden"
@@ -56,7 +90,7 @@
             android:textOn="@string/title_hide_folders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator" />
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorSync" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFolder"
@@ -84,7 +118,13 @@
             android:id="@+id/grpHintActions"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvHintActions,ibHintActions,vSeparator" />
+            app:constraint_referenced_ids="tvHintActions,ibHintActions,vSeparatorActions" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpHintSync"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvHintSync,ibHintSync,vSeparatorSync" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpReady"
