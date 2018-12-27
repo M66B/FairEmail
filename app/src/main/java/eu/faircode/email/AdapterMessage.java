@@ -418,7 +418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 flagged = (message.count - message.unflagged > 0);
             ivFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged ? colorAccent : textColorSecondary));
-            ivFlagged.setVisibility(View.VISIBLE);
+            ivFlagged.setVisibility(message.uid == null ? View.GONE : View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
             tvSize.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
