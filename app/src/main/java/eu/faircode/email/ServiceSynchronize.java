@@ -2350,6 +2350,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.inreplyto = helper.getInReplyTo();
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(uid);
+            message.sender = MessageHelper.getSortKey(helper.getFrom());
             message.from = helper.getFrom();
             message.to = helper.getTo();
             message.cc = helper.getCc();

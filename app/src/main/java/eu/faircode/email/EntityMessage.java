@@ -74,6 +74,7 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"folder", "uid"}, unique = true),
                 @Index(value = {"msgid", "folder"}, unique = true),
                 @Index(value = {"thread"}),
+                @Index(value = {"sender"}),
                 @Index(value = {"received"}),
                 @Index(value = {"ui_seen"}),
                 @Index(value = {"ui_flagged"}),
@@ -103,6 +104,7 @@ public class EntityMessage implements Serializable {
     public String inreplyto;
     public String thread; // compose = null
     public String avatar; // Contact lookup URI
+    public String sender; // sort key
     public Address[] from;
     public Address[] to;
     public Address[] cc;

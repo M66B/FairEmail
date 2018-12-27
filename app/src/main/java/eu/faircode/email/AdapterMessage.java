@@ -451,13 +451,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (debug) {
-                String text = message.error +
-                        "\n" + message.uid + "/" + message.id + " " + df.format(new Date(message.received)) +
+                String text = "error=" + message.error +
+                        "\n uid=" + message.uid + " id=" + message.id + " " + df.format(new Date(message.received)) +
                         "\n" + (message.ui_hide ? "HIDDEN " : "") +
-                        "seen=" + message.seen + "/" + message.ui_seen + "/" + message.unseen +
+                        "seen=" + message.seen + "/" + message.ui_seen + " unseen=" + message.unseen +
                         " found=" + message.ui_found +
-                        "\n" + message.msgid +
-                        "\n" + message.thread;
+                        "\n msgid=" + message.msgid +
+                        "\n thread=" + message.thread +
+                        "\n sender=" + message.sender;
 
                 tvError.setText(text);
                 tvError.setVisibility(View.VISIBLE);

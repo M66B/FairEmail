@@ -1285,7 +1285,6 @@ public class FragmentCompose extends FragmentEx {
                         }
                     }
 
-
                     // Select identity matching from address
                     String from = null;
                     EntityIdentity primary = null;
@@ -1307,6 +1306,8 @@ public class FragmentCompose extends FragmentEx {
                         result.draft.identity = primary.id;
                         result.draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
                     }
+
+                    result.draft.sender = MessageHelper.getSortKey(result.draft.from);
 
                     result.draft.received = new Date().getTime();
                     result.draft.setContactInfo(context);
@@ -1658,6 +1659,7 @@ public class FragmentCompose extends FragmentEx {
                 // Update draft
                 draft.identity = ident;
                 draft.extra = extra;
+                draft.sender = MessageHelper.getSortKey(afrom);
                 draft.from = afrom;
                 draft.to = ato;
                 draft.cc = acc;

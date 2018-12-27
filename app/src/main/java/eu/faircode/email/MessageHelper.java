@@ -463,6 +463,17 @@ public class MessageHelper {
         return TextUtils.join(", ", formatted);
     }
 
+    static String getSortKey(Address[] addresses) {
+        if (addresses == null || addresses.length == 0)
+            return null;
+        InternetAddress address = (InternetAddress) addresses[0];
+        String personal = address.getPersonal();
+        if (TextUtils.isEmpty(personal))
+            return address.getAddress();
+        else
+            return personal;
+    }
+
     String getHtml() throws MessagingException, IOException {
         return getHtml(imessage);
     }

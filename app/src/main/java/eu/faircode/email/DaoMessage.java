@@ -63,7 +63,9 @@ public interface DaoMessage {
             " AND (NOT message.ui_hide OR :debug)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(unified) > 0" +
-            " ORDER BY CASE" +
+            " ORDER BY" +
+            " CASE WHEN 'sender' = :sort THEN message.sender ELSE '' END," +
+            " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_unified + " > 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " > 0" +
             "  ELSE 0" +
@@ -99,7 +101,9 @@ public interface DaoMessage {
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " ORDER BY CASE" +
+            " ORDER BY" +
+            " CASE WHEN 'sender' = :sort THEN message.sender ELSE '' END," +
+            " CASE" +
             "  WHEN 'unread' = :sort THEN " + unseen_folder + " > 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " > 0" +
             "  ELSE 0" +

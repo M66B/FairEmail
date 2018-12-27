@@ -47,7 +47,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 26,
+        version = 27,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -329,6 +329,34 @@ public abstract class DB extends RoomDatabase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         int browse = (prefs.getBoolean("browse", true) ? 1 : 0);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `browse` INTEGER NOT NULL DEFAULT " + browse);
+                    }
+                })
+                .addMigrations(new Migration(26, 27) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `sender` TEXT");
+
+                        Cursor cursor = null;
+                        try {
+                            cursor = db.query("SELECT `id`, `from` FROM message");
+                            while (cursor.moveToNext()) {
+                                long id = cursor.getLong(0);
+                                String json = cursor.getString(1);
+                                Address[] from = Converters.decodeAddresses(json);
+                                String sender = MessageHelper.getSortKey(from);
+                                if (sender != null)
+                                    db.execSQL(
+                                            "UPDATE message SET sender = ? WHERE id = ?",
+                                            new Object[]{sender, id});
+                            }
+
+                        } finally {
+                            if (cursor != null)
+                                cursor.close();
+                        }
+
+                        db.execSQL("CREATE  INDEX `index_message_sender` ON `message` (`sender`)");
                     }
                 })
                 .build();
