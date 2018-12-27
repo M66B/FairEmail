@@ -88,7 +88,6 @@ public class FragmentIdentity extends FragmentEx {
     private ImageButton ibPro;
 
     private Button btnAdvanced;
-    private TextView tvProvider;
     private Spinner spProvider;
     private EditText etDomain;
     private Button btnAutoConfig;
@@ -148,7 +147,6 @@ public class FragmentIdentity extends FragmentEx {
         ibPro = view.findViewById(R.id.ibPro);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
-        tvProvider = view.findViewById(R.id.tvProvider);
         spProvider = view.findViewById(R.id.spProvider);
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
@@ -283,7 +281,7 @@ public class FragmentIdentity extends FragmentEx {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, tvProvider.getTop());
+                            ((ScrollView) view).smoothScrollTo(0, btnAdvanced.getTop());
                         }
                     });
             }
