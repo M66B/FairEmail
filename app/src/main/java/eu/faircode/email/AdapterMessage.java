@@ -528,7 +528,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SpannableStringBuilder ssb = new SpannableStringBuilder(message.headers);
                     int index = 0;
                     for (String line : message.headers.split("\n")) {
-                        if (!Character.isWhitespace(line.charAt(0))) {
+                        if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
                             int colon = line.indexOf(':');
                             if (colon > 0)
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), index, index + colon, 0);
