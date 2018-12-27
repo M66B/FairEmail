@@ -180,8 +180,7 @@ IMAP STARTTLS: the EFF [writes](https://www.eff.org/nl/deeplinks/2018/06/announc
 Empty password: your username is likely easily guessed, so this is very insecure.
 
 If you still want to use an invalid security certificate, IMAP STARTTLS or an empty password,
-you'll need to enable insecure connections in the advanced settings and also in the account and/or identity settings.
-Additionally, IMAP STARTTLS needs to be enabled in the account settings too.
+you'll need to enable insecure connections in the account and/or identity settings.
 
 
 <a name="faq5"></a>

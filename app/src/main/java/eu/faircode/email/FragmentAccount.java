@@ -29,14 +29,12 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -157,9 +155,6 @@ public class FragmentAccount extends FragmentEx {
         setSubtitle(R.string.title_edit_account);
         setHasOptionsMenu(true);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        final boolean insecure = prefs.getBoolean("insecure", false);
-
         view = (ViewGroup) inflater.inflate(R.layout.fragment_account, container, false);
 
         // Get controls
@@ -218,8 +213,6 @@ public class FragmentAccount extends FragmentEx {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
                 Provider provider = (Provider) adapterView.getSelectedItem();
                 grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
-                cbStartTls.setVisibility(position == 1 && insecure ? View.VISIBLE : View.GONE);
-                cbInsecure.setVisibility(position == 1 && insecure ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
                 btnAuthorize.setVisibility(provider.type == null ? View.GONE : View.VISIBLE);

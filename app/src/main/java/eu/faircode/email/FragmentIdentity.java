@@ -21,12 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -115,6 +113,7 @@ public class FragmentIdentity extends FragmentEx {
     private ProgressBar pbSave;
     private ProgressBar pbWait;
 
+    private Group grpAuthorize;
     private Group grpAdvanced;
 
     private long id = -1;
@@ -135,9 +134,6 @@ public class FragmentIdentity extends FragmentEx {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.title_edit_identity);
         setHasOptionsMenu(true);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        final boolean insecure = prefs.getBoolean("insecure", false);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_identity, container, false);
 
@@ -177,6 +173,7 @@ public class FragmentIdentity extends FragmentEx {
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
 
+        grpAuthorize = view.findViewById(R.id.grpAuthorize);
         grpAdvanced = view.findViewById(R.id.grpAdvanced);
 
         // Wire controls
@@ -184,11 +181,10 @@ public class FragmentIdentity extends FragmentEx {
         spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0)
                     grpAdvanced.setVisibility(View.GONE);
                 tilPassword.setPasswordVisibilityToggleEnabled(position == 0);
-                btnSave.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
                 Integer tag = (Integer) adapterView.getTag();
                 if (tag != null && tag.equals(position))
@@ -284,7 +280,6 @@ public class FragmentIdentity extends FragmentEx {
             public void onClick(View v) {
                 int visibility = (grpAdvanced.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
                 grpAdvanced.setVisibility(visibility);
-                cbInsecure.setVisibility(insecure ? visibility : View.GONE);
                 if (visibility == View.VISIBLE)
                     new Handler().post(new Runnable() {
                         @Override
@@ -606,8 +601,10 @@ public class FragmentIdentity extends FragmentEx {
         tilPassword.setPasswordVisibilityToggleEnabled(id < 0);
         btnSave.setVisibility(View.GONE);
         btnAdvanced.setVisibility(View.GONE);
-        grpAdvanced.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+
+        grpAuthorize.setVisibility(View.GONE);
+        grpAdvanced.setVisibility(View.GONE);
 
         return view;
     }
