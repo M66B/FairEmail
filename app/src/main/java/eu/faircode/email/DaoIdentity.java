@@ -70,8 +70,8 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET error = :error WHERE id = :id")
     int setIdentityError(long id, String error);
 
-    @Query("UPDATE identity SET `primary` = 0")
-    void resetPrimary();
+    @Query("UPDATE identity SET `primary` = 0 WHERE account = :account")
+    void resetPrimary(long account);
 
     @Query("UPDATE identity SET tbd = 1 WHERE id = :id")
     int setIdentityTbd(long id);

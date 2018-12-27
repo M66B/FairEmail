@@ -1285,7 +1285,9 @@ public class FragmentCompose extends FragmentEx {
                     }
 
                     // Select identity matching from address
+                    int icount = 0;
                     String from = null;
+                    EntityIdentity first = null;
                     EntityIdentity primary = null;
                     if (result.draft.from != null && result.draft.from.length > 0)
                         from = Helper.canonicalAddress(((InternetAddress) result.draft.from[0]).getAddress());
@@ -1296,14 +1298,24 @@ public class FragmentCompose extends FragmentEx {
                             result.draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
                             break;
                         }
-                        if (identity.primary)
-                            primary = identity;
+                        if (identity.account.equals(result.draft.account)) {
+                            icount++;
+                            if (identity.primary)
+                                primary = identity;
+                            if (first == null)
+                                first = identity;
+                        }
                     }
 
                     // Select primary identity
-                    if (result.draft.identity == null && primary != null) {
-                        result.draft.identity = primary.id;
-                        result.draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
+                    if (result.draft.identity == null) {
+                        if (primary != null) {
+                            result.draft.identity = primary.id;
+                            result.draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
+                        } else if (first != null && icount == 1) {
+                            result.draft.identity = first.id;
+                            result.draft.from = new InternetAddress[]{new InternetAddress(first.email, first.name)};
+                        }
                     }
 
                     result.draft.sender = MessageHelper.getSortKey(result.draft.from);

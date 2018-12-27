@@ -551,7 +551,7 @@ public class FragmentIdentity extends FragmentEx {
                             identity.error = null;
 
                             if (identity.primary)
-                                db.identity().resetPrimary();
+                                db.identity().resetPrimary(account);
 
                             if (update)
                                 db.identity().updateIdentity(identity);
