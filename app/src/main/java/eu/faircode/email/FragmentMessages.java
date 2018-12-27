@@ -1379,7 +1379,8 @@ public class FragmentMessages extends FragmentEx {
                                     trashable = true;
                                 if (!EntityFolder.isOutgoing(folder.type) &&
                                         !EntityFolder.TRASH.equals(folder.type) &&
-                                        !EntityFolder.JUNK.equals(folder.type))
+                                        !EntityFolder.JUNK.equals(folder.type) &&
+                                        !EntityFolder.ARCHIVE.equals(folder.type))
                                     archivable = true;
                             }
 
