@@ -108,7 +108,6 @@ import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -119,7 +118,6 @@ public class FragmentCompose extends FragmentEx {
     private enum State {NONE, LOADING, LOADED}
 
     private ViewGroup view;
-    private Spinner spAccount;
     private Spinner spIdentity;
     private ImageView ivIdentityAdd;
     private TextView tvExtraPrefix;
@@ -170,7 +168,6 @@ public class FragmentCompose extends FragmentEx {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_compose, container, false);
 
         // Get controls
-        spAccount = view.findViewById(R.id.spAccount);
         spIdentity = view.findViewById(R.id.spIdentity);
         ivIdentityAdd = view.findViewById(R.id.ivIdentityAdd);
         tvExtraPrefix = view.findViewById(R.id.tvExtraPrefix);
@@ -1414,85 +1411,42 @@ public class FragmentCompose extends FragmentEx {
 
             final DB db = DB.getInstance(getContext());
 
-            db.account().liveAccounts(true).observe(getViewLifecycleOwner(), new Observer<List<EntityAccount>>() {
-                private LiveData<List<EntityIdentity>> liveIdentities = null;
-
+            db.identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
                 @Override
-                public void onChanged(List<EntityAccount> accounts) {
-                    if (accounts == null)
-                        accounts = new ArrayList<>();
+                public void onChanged(List<TupleIdentityEx> identities) {
+                    if (identities == null)
+                        identities = new ArrayList<>();
 
-                    Log.i("Set accounts=" + accounts.size());
+                    Log.i("Set identities=" + identities.size());
 
-                    // Sort accounts
-                    Collections.sort(accounts, new Comparator<EntityAccount>() {
+                    // Sort identities
+                    Collections.sort(identities, new Comparator<TupleIdentityEx>() {
                         @Override
-                        public int compare(EntityAccount a1, EntityAccount a2) {
-                            return a1.name.compareTo(a2.name);
+                        public int compare(TupleIdentityEx i1, TupleIdentityEx i2) {
+                            int a = i1.accountName.compareTo(i2.accountName);
+                            if (a != 0)
+                                return a;
+                            int d = i1.getDisplayName().compareTo(i2.getDisplayName());
+                            if (d != 0)
+                                return d;
+                            return i1.email.compareTo(i2.email);
                         }
                     });
 
-                    // Show accounts
-                    AccountAdapter adapter = new AccountAdapter(getContext(), accounts);
+                    // Show identities
+                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
                     adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-                    spAccount.setAdapter(adapter);
+                    spIdentity.setAdapter(adapter);
 
-                    spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            EntityAccount account = (EntityAccount) parent.getAdapter().getItem(position);
-
-                            if (liveIdentities != null)
-                                liveIdentities.removeObservers(getViewLifecycleOwner());
-                            liveIdentities = db.identity().liveIdentities(account.id, true);
-
-                            liveIdentities.observe(getViewLifecycleOwner(), new Observer<List<EntityIdentity>>() {
-                                @Override
-                                public void onChanged(@Nullable List<EntityIdentity> identities) {
-                                    if (identities == null)
-                                        identities = new ArrayList<>();
-
-                                    Log.i("Set identities=" + identities.size());
-
-                                    // Sort identities
-                                    Collections.sort(identities, new Comparator<EntityIdentity>() {
-                                        @Override
-                                        public int compare(EntityIdentity i1, EntityIdentity i2) {
-                                            return i1.toString().compareTo(i2.toString());
-                                        }
-                                    });
-
-                                    // Show identities
-                                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
-                                    adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-                                    spIdentity.setAdapter(adapter);
-
-                                    // Select identity
-                                    if (result.draft.identity != null)
-                                        for (int pos = 0; pos < identities.size(); pos++) {
-                                            if (identities.get(pos).id.equals(result.draft.identity)) {
-                                                spIdentity.setSelection(pos);
-                                                break;
-                                            }
-                                        }
-                                }
-                            });
+                    // Select identity
+                    if (result.draft.identity != null)
+                        for (int pos = 0; pos < identities.size(); pos++) {
+                            if (identities.get(pos).id.equals(result.draft.identity)) {
+                                spIdentity.setSelection(pos);
+                                break;
+                            }
                         }
 
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-                            IdentityAdapter adapter = new IdentityAdapter(getContext(), new ArrayList<EntityIdentity>());
-                            adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-                            spIdentity.setAdapter(adapter);
-                        }
-                    });
-
-                    // Select account
-                    for (int pos = 0; pos < accounts.size(); pos++)
-                        if (accounts.get(pos).id.equals(result.draft.account)) {
-                            spAccount.setSelection(pos);
-                            break;
-                        }
                 }
             });
 
@@ -1915,44 +1869,11 @@ public class FragmentCompose extends FragmentEx {
         EntityAccount account;
     }
 
-    public class AccountAdapter extends ArrayAdapter<EntityAccount> {
+    public class IdentityAdapter extends ArrayAdapter<TupleIdentityEx> {
         private Context context;
-        private List<EntityAccount> accounts;
+        private List<TupleIdentityEx> identities;
 
-        AccountAdapter(@NonNull Context context, List<EntityAccount> accounts) {
-            super(context, 0, accounts);
-            this.context = context;
-            this.accounts = accounts;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            return getLayout(position, convertView, parent, R.layout.spinner_item1);
-        }
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getLayout(position, convertView, parent, R.layout.spinner_item1_dropdown);
-        }
-
-        View getLayout(int position, View convertView, ViewGroup parent, int resid) {
-            View view = LayoutInflater.from(context).inflate(resid, parent, false);
-
-            EntityAccount account = accounts.get(position);
-
-            TextView text1 = view.findViewById(android.R.id.text1);
-            text1.setText(account.name);
-
-            return view;
-        }
-    }
-
-    public class IdentityAdapter extends ArrayAdapter<EntityIdentity> {
-        private Context context;
-        private List<EntityIdentity> identities;
-
-        IdentityAdapter(@NonNull Context context, List<EntityIdentity> identities) {
+        IdentityAdapter(@NonNull Context context, List<TupleIdentityEx> identities) {
             super(context, 0, identities);
             this.context = context;
             this.identities = identities;
@@ -1972,10 +1893,10 @@ public class FragmentCompose extends FragmentEx {
         View getLayout(int position, View convertView, ViewGroup parent, int resid) {
             View view = LayoutInflater.from(context).inflate(resid, parent, false);
 
-            EntityIdentity identity = identities.get(position);
+            TupleIdentityEx identity = identities.get(position);
 
             TextView text1 = view.findViewById(android.R.id.text1);
-            text1.setText(identity.toString());
+            text1.setText(identity.accountName + "/" + identity.getDisplayName() + (identity.primary ? " ★" : ""));
 
             TextView text2 = view.findViewById(android.R.id.text2);
             text2.setText(identity.email);

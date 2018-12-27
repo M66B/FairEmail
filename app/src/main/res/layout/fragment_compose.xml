@@ -16,22 +16,13 @@
             android:layout_height="wrap_content">
 
             <Spinner
-                android:id="@+id/spAccount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Spinner
                 android:id="@+id/spIdentity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spAccount" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivIdentityAdd"

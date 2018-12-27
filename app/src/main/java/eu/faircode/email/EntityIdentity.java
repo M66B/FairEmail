@@ -197,9 +197,4 @@ public class EntityIdentity {
     String getDisplayName() {
         return (display == null ? name : display);
     }
-
-    @Override
-    public String toString() {
-        return getDisplayName() + (primary ? " ★" : "");
-    }
 }
