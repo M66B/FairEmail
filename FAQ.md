@@ -115,6 +115,9 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
+* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
+* [(54) How do I use the namespace prefixes?](#user-content-faq54)
+
 
 [I have another question.](#support)
 
@@ -799,6 +802,26 @@ There is no reliable way to know if an account connection was terminated gracefu
 Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems
 like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
 To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
+
+
+<a name="faq53"></a>
+**(53) Can you stick the message action bar to the top/bottom?**
+
+The message action bar works on a message and the bottom action bar works on the conversation.
+Since there is often more than one message in a conversation, this is not possible.
+
+
+<a name="faq54"></a>
+**(54) How do I use the namespace prefixes?**
+
+The namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.
+For example the Gmail spam folder is called:
+
+```
+[Gmail]/Spam
+```
+
+By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.
 
 
 ## Support
