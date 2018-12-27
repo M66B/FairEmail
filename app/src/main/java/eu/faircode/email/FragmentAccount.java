@@ -402,7 +402,7 @@ public class FragmentAccount extends FragmentEx {
                     new Handler().post(new Runnable() {
                         @Override
                         public void run() {
-                            ((ScrollView) view).smoothScrollTo(0, cbPrimary.getTop());
+                            ((ScrollView) view).smoothScrollTo(0, cbSynchronize.getTop());
                         }
                     });
             }
