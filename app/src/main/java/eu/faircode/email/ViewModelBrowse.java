@@ -44,6 +44,7 @@ import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
 import javax.mail.search.RecipientStringTerm;
+import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
 
 import androidx.lifecycle.ViewModel;
@@ -168,22 +169,26 @@ public class ViewModelBrowse extends ViewModel {
                 Log.i("Boundary searching=" + state.search);
                 if (state.search == null)
                     state.imessages = state.ifolder.getMessages();
-                else
-                    state.imessages = state.ifolder.search(
+                else {
+                    SearchTerm term = new OrTerm(
                             new OrTerm(
-                                    new OrTerm(
-                                            new OrTerm(
-                                                    new FromStringTerm(state.search),
-                                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
-                                            ),
-                                            new OrTerm(
-                                                    new SubjectTerm(state.search),
-                                                    new BodyTerm(state.search)
-                                            )
-                                    ),
-                                    new FlagTerm(new Flags(Helper.sanitizeKeyword(state.search)), true)
+                                    new FromStringTerm(state.search),
+                                    new RecipientStringTerm(Message.RecipientType.TO, state.search)
+                            ),
+                            new OrTerm(
+                                    new SubjectTerm(state.search),
+                                    new BodyTerm(state.search)
                             )
                     );
+
+                    if (folder.keywords.length > 0) {
+                        Log.i("Boundary search for keywords");
+                        term = new OrTerm(term, new FlagTerm(
+                                new Flags(Helper.sanitizeKeyword(state.search)), true));
+                    }
+
+                    state.imessages = state.ifolder.search(term);
+                }
                 Log.i("Boundary found messages=" + state.imessages.length);
 
                 state.index = state.imessages.length - 1;
