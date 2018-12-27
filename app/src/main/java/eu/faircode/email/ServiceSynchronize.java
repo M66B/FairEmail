@@ -1759,7 +1759,7 @@ public class ServiceSynchronize extends LifecycleService {
             // Send message
             Address[] to = imessage.getAllRecipients();
             itransport.sendMessage(imessage, to);
-            Log.i("Sent via " + ident.host + "/" + ident.user +
+            EntityLog.log(this, "Sent via " + ident.host + "/" + ident.user +
                     " to " + TextUtils.join(", ", to));
 
             try {
