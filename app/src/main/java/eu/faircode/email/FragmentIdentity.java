@@ -46,7 +46,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.android.colorpicker.ColorPickerDialog;
 import com.android.colorpicker.ColorPickerSwatch;
@@ -877,7 +876,7 @@ public class FragmentIdentity extends FragmentEx {
             @Override
             protected void onLoaded(Bundle args, IdentityFolders result) {
                 EntityFolder none = new EntityFolder();
-                none.name = "";
+                none.name = "-";
                 result.folders.add(0, none);
 
                 adapter.clear();

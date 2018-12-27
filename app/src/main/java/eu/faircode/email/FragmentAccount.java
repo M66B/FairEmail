@@ -1192,7 +1192,7 @@ public class FragmentAccount extends FragmentEx {
         EntityFolder.sort(getContext(), folders);
 
         EntityFolder none = new EntityFolder();
-        none.name = "";
+        none.name = "-";
         folders.add(0, none);
 
         adapter.clear();
