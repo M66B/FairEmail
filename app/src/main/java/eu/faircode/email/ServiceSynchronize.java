@@ -1506,6 +1506,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
+
+                            if (ex instanceof MessageRemovedException)
+                                db.message().deleteMessage(op.message);
+
                             continue;
                         } else if (ex instanceof MessagingException) {
                             // Socket timeout is a recoverable condition (send message)
