@@ -429,21 +429,22 @@ public class FragmentMessages extends FragmentEx {
             selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
                 @Override
                 public void onSelectionChanged() {
-                    if (selectionTracker.hasSelection()) {
-                        swipeRefresh.setEnabled(false);
-                        if (messages != null)
-                            messages.removeObservers(getViewLifecycleOwner());
-                        fabMore.show();
-                    } else {
-                        predicate.clearAccount();
-                        fabMore.hide();
-                        try {
+                    try {
+                        if (selectionTracker.hasSelection()) {
+                            swipeRefresh.setEnabled(false);
+                            if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                if (messages != null)
+                                    messages.removeObservers(getViewLifecycleOwner());
+                            fabMore.show();
+                        } else {
+                            predicate.clearAccount();
+                            fabMore.hide();
                             if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                                 loadMessages();
-                        } catch (IllegalStateException ex) {
-                            Log.w(ex);
+                            swipeRefresh.setEnabled(true);
                         }
-                        swipeRefresh.setEnabled(true);
+                    } catch (IllegalStateException ex) {
+                        Log.w(ex);
                     }
                 }
             });
