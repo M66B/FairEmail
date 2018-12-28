@@ -147,6 +147,7 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
+    private static final long YIELD_DURATION = 200L; // milliseconds
 
     static final int PI_WHY = 1;
     static final int PI_CLEAR = 2;
@@ -184,9 +185,14 @@ public class ServiceSynchronize extends LifecycleService {
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
                 executor.submit(new Runnable() {
+                    PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                    PowerManager.WakeLock wl = pm.newWakeLock(
+                            PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":notify");
+
                     @Override
                     public void run() {
                         try {
+                            wl.acquire();
                             Log.i("Notification messages=" + messages.size());
 
                             Widget.update(ServiceSynchronize.this, messages.size());
@@ -258,9 +264,16 @@ public class ServiceSynchronize extends LifecycleService {
                             }
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            wl.release();
                         }
                     }
                 });
+
+                try {
+                    Thread.sleep(YIELD_DURATION);
+                } catch (InterruptedException ignored) {
+                }
             }
         });
     }
@@ -1228,6 +1241,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                 }
                                             }
                                         });
+                                        state.yield();
                                     }
                                 }
                             };
@@ -2688,6 +2702,7 @@ public class ServiceSynchronize extends LifecycleService {
                                                     }
                                                 }
                                             });
+                                            state.yield();
                                         }
                                     }
                                 };
@@ -2833,6 +2848,7 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
             });
+            state.yield();
 
             started = doStart;
         }
@@ -2885,7 +2901,7 @@ public class ServiceSynchronize extends LifecycleService {
         void yield() {
             try {
                 // Give interrupted thread some time to acquire wake lock
-                Thread.sleep(500L);
+                Thread.sleep(YIELD_DURATION);
             } catch (InterruptedException ignored) {
             }
         }
