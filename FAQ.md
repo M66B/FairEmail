@@ -117,7 +117,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
 * [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
 * [(54) How do I use a namespace prefix?](#user-content-faq54)
-
+* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 
 [I have another question.](#support)
 
@@ -823,6 +823,14 @@ For example the Gmail spam folder is called:
 ```
 
 By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.
+
+
+<a name="faq55"></a>
+**(55) How can I mark all messages as read / move or delete all messages?**
+
+You can use multiple select for this.
+Long press the first message, don't lift your finger and slide down to the last message.
+Then use the three dot action button to execute the desired action.
 
 
 ## Support
