@@ -110,7 +110,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?](#user-content-faq45)
 * [(46) Why does the message list keep refreshing?](#user-content-faq46)
 * [(47) How can I solve 'No primary account or no drafts folder' ?](#user-content-faq47)
-* [(48) How can I solve 'No primary account or no archive folder' ?](#user-content-faq48)
+* [~~(48) How can I solve 'No primary account or no archive folder' ?~~](#user-content-faq48)
 * [(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
@@ -244,9 +244,9 @@ You can configure these by setting the email address field to the alias address 
 <a name="faq10"></a>
 **~~(10) What does 'UIDPLUS not supported' mean?~~**
 
-~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).~~
-~~This IMAP extension is required to implement two way synchronization, which is not an optional feature.~~
-~~So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
+~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
+This IMAP extension is required to implement two way synchronization, which is not an optional feature.
+So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
 
 <a name="faq11"></a>
@@ -753,11 +753,11 @@ so you'll need to select one account to be the primary account and/or you'll nee
 
 
 <a name="faq48"></a>
-**(48) How can I solve 'No primary account or no archive folder' ?**
+**~~(48) How can I solve 'No primary account or no archive folder' ?~~**
 
-You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
+~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
 FairEmail needs to know where to search,
-so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.
+so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
 
 
 <a name="faq49"></a>
