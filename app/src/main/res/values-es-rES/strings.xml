@@ -335,6 +335,7 @@
     <string name="title_legend_sync_keep">Número de días para sincronizar / mantener mensajes</string>
     <string name="title_legend_download_fetch">Número de cuerpos de mensaje descargados / cabeceras recuperadas</string>
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
+    <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de Preguntas Frecuentes para obtener ayuda</string>
     <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>

@@ -289,6 +289,7 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
+    <string name="title_sort_on_sender">Mittente</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_address_sent">Inviati:</string>
     <string name="title_address_unsent">Non inviati:</string>
@@ -314,6 +315,7 @@
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
+    <string name="title_legend_answered">Risposto</string>
     <string name="title_legend_contacts">Contatti</string>
     <string name="title_legend_view">Mostra il contenuto</string>
     <string name="title_legend_download">Scarica il contenuto</string>
@@ -334,6 +336,7 @@
     <string name="title_legend_sync_keep">Numero di giorni da sincronizzare / di cui mantenere i messaggi</string>
     <string name="title_legend_download_fetch">Numero di corpi messaggio scaricati / intestazioni recuperate</string>
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
+    <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; scorri a destra per archiviare (se disponibile)</string>
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>

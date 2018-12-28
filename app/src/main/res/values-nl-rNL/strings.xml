@@ -315,6 +315,7 @@
     <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Bijlage</string>
+    <string name="title_legend_answered">Beantwoord</string>
     <string name="title_legend_contacts">Contacten</string>
     <string name="title_legend_view">Inhoud weergeven</string>
     <string name="title_legend_download">Inhoud downloaden</string>

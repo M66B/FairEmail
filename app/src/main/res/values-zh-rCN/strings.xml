@@ -88,6 +88,7 @@
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_unified">聚合收件箱</string>
+    <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_compact">简洁信息视图</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -97,6 +98,9 @@
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
+    <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
+    <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
+    <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_updates">检查更新</string>
