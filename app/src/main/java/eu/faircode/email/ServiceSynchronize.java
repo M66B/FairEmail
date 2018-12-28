@@ -2821,6 +2821,8 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(ServiceSynchronize.this, "Queue reload " +
                     " doStop=" + doStop + " doStart=" + doStart + " queued=" + queued + " " + reason);
 
+            started = doStart;
+
             queued++;
             queue.submit(new Runnable() {
                 PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -2880,8 +2882,6 @@ public class ServiceSynchronize extends LifecycleService {
                 Thread.sleep(YIELD_DURATION);
             } catch (InterruptedException ignored) {
             }
-
-            started = doStart;
         }
     }
 
