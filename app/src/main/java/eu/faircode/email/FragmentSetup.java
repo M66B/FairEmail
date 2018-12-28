@@ -410,10 +410,14 @@ public class FragmentSetup extends FragmentEx {
     public void onResume() {
         super.onResume();
 
-        PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
         boolean ignoring = true;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+                ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+            }
+        }
         btnDoze.setEnabled(!ignoring);
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
