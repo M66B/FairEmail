@@ -52,6 +52,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptions extends FragmentEx implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swEnabled;
+    private SwitchCompat swUpdates;
 
     private SwitchCompat swMetered;
     private Spinner spDownload;
@@ -75,7 +76,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swConfirm;
     private SwitchCompat swSender;
 
-    private SwitchCompat swUpdates;
     private SwitchCompat swDebug;
 
     private Group grpNotification;
@@ -90,6 +90,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
 
         // Get controls
         swEnabled = view.findViewById(R.id.swEnabled);
+        swUpdates = view.findViewById(R.id.swUpdates);
 
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
@@ -113,7 +114,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swConfirm = view.findViewById(R.id.swConfirm);
         swSender = view.findViewById(R.id.swSender);
 
-        swUpdates = view.findViewById(R.id.swUpdates);
         swDebug = view.findViewById(R.id.swDebug);
 
         grpNotification = view.findViewById(R.id.grpNotification);
@@ -130,6 +130,15 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                 ServiceSynchronize.reload(getContext(), "enabled=" + checked);
             }
         });
+
+        swUpdates.setChecked(prefs.getBoolean("updates", true));
+        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("updates", checked).apply();
+            }
+        });
+        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
 
         swMetered.setChecked(prefs.getBoolean("metered", true));
         swMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -324,15 +333,6 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                 prefs.edit().putBoolean("sender", checked).apply();
             }
         });
-
-        swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("updates", checked).apply();
-            }
-        });
-        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
 
         swDebug.setChecked(prefs.getBoolean("debug", false));
         swDebug.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
