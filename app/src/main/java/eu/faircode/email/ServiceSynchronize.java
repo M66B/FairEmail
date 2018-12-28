@@ -1848,8 +1848,6 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         StringBuilder sb = new StringBuilder();
-        if (BuildConfig.DEBUG)
-            sb.append(imessage.getFlags().toString()).append("\n");
 
         Enumeration<Header> headers = imessage.getAllHeaders();
         while (headers.hasMoreElements()) {
