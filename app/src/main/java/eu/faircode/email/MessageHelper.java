@@ -467,11 +467,9 @@ public class MessageHelper {
         if (addresses == null || addresses.length == 0)
             return null;
         InternetAddress address = (InternetAddress) addresses[0];
-        String personal = address.getPersonal();
-        if (TextUtils.isEmpty(personal))
-            return address.getAddress();
-        else
-            return personal;
+        // Sort on name will result in inconsistent results
+        // because the sender name and sender contact name can differ
+        return address.getAddress();
     }
 
     String getHtml() throws MessagingException, IOException {

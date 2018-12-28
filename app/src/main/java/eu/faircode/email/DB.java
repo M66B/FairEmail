@@ -47,7 +47,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 27,
+        version = 28,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -336,27 +336,34 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `sender` TEXT");
+                        db.execSQL("CREATE  INDEX `index_message_sender` ON `message` (`sender`)");
+                    }
+                })
+                .addMigrations(new Migration(27, 28) {
+                    @Override
+                    public void migrate(SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
 
                         Cursor cursor = null;
                         try {
                             cursor = db.query("SELECT `id`, `from` FROM message");
-                            while (cursor.moveToNext()) {
-                                long id = cursor.getLong(0);
-                                String json = cursor.getString(1);
-                                Address[] from = Converters.decodeAddresses(json);
-                                String sender = MessageHelper.getSortKey(from);
-                                if (sender != null)
+                            while (cursor.moveToNext())
+                                try {
+                                    long id = cursor.getLong(0);
+                                    String json = cursor.getString(1);
+                                    Address[] from = Converters.decodeAddresses(json);
+                                    String sender = MessageHelper.getSortKey(from);
                                     db.execSQL(
                                             "UPDATE message SET sender = ? WHERE id = ?",
                                             new Object[]{sender, id});
-                            }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
 
                         } finally {
                             if (cursor != null)
                                 cursor.close();
                         }
-
-                        db.execSQL("CREATE  INDEX `index_message_sender` ON `message` (`sender`)");
                     }
                 })
                 .build();
