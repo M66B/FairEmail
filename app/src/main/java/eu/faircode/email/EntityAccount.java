@@ -179,4 +179,10 @@ public class EntityAccount {
         } else
             return false;
     }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name + (primary ? " ★" : "");
+    }
 }
