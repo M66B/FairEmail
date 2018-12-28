@@ -19,12 +19,18 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -69,6 +75,7 @@ import javax.mail.Transport;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 public class FragmentIdentity extends FragmentEx {
@@ -229,6 +236,30 @@ public class FragmentIdentity extends FragmentEx {
                 adapter.clear();
             }
         });
+
+        // READ_PROFILE was removed with SDK 23
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
+                        == PackageManager.PERMISSION_GRANTED) {
+            Cursor cursor = null;
+            try {
+                cursor = getContext().getContentResolver().query(
+                        Uri.withAppendedPath(
+                                ContactsContract.Profile.CONTENT_URI,
+                                ContactsContract.Contacts.Data.CONTENT_DIRECTORY),
+                        new String[]{
+                                ContactsContract.Profile.DISPLAY_NAME
+                        },
+                        null, null, null);
+                if (cursor != null && cursor.moveToNext())
+                    etName.setHint(cursor.getString(0));
+            } catch (SecurityException ex) {
+                Log.w(ex);
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+            }
+        }
 
         vwColor.setBackgroundColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
@@ -403,9 +434,16 @@ public class FragmentIdentity extends FragmentEx {
 
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
+                String name = etName.getText().toString();
+                if (TextUtils.isEmpty(name)) {
+                    CharSequence hint = etName.getHint();
+                    if (!TextUtils.isEmpty(hint))
+                        name = hint.toString();
+                }
+
                 Bundle args = new Bundle();
                 args.putLong("id", id);
-                args.putString("name", etName.getText().toString());
+                args.putString("name", name);
                 args.putString("email", etEmail.getText().toString());
                 args.putString("display", etDisplay.getText().toString());
                 args.putString("replyto", etReplyTo.getText().toString());
