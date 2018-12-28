@@ -332,7 +332,7 @@ public class ServiceSynchronize extends LifecycleService {
                     break;
 
                 case "reload":
-                    serviceManager.queue_reload(true, intent.getStringExtra("reason"));
+                    serviceManager.service_reload(intent.getStringExtra("reason"));
                     break;
 
                 case "clear":
@@ -2545,41 +2545,47 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onAvailable(Network network) {
-            try {
-                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
+            synchronized (queue) {
+                try {
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
 
-                if (!started && suitableNetwork())
-                    queue_reload(true, "connect " + network);
-            } catch (Throwable ex) {
-                Log.e(ex);
+                    if (!started && suitableNetwork())
+                        queue_reload(true, "connect " + network);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         }
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            try {
-                if (!started) {
-                    EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
-                    if (suitableNetwork())
-                        queue_reload(true, "connect " + network);
+            synchronized (queue) {
+                try {
+                    if (!started) {
+                        EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
+                        if (suitableNetwork())
+                            queue_reload(true, "connect " + network);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
         }
 
         @Override
         public void onLost(Network network) {
-            try {
-                EntityLog.log(ServiceSynchronize.this, "Lost " + network);
+            synchronized (queue) {
+                try {
+                    EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
-                if (started && !suitableNetwork()) {
-                    lastLost = new Date().getTime();
-                    queue_reload(false, "disconnect " + network);
+                    if (started && !suitableNetwork()) {
+                        lastLost = new Date().getTime();
+                        queue_reload(false, "disconnect " + network);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
         }
 
@@ -2606,10 +2612,22 @@ public class ServiceSynchronize extends LifecycleService {
             EntityLog.log(ServiceSynchronize.this, "Service init");
         }
 
+        private void service_reload(String reason) {
+            synchronized (queue) {
+                try {
+                    serviceManager.queue_reload(true, reason);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        }
+
         private void service_destroy() {
-            EntityLog.log(ServiceSynchronize.this, "Service destroy");
-            if (started)
-                queue_reload(false, "service destroy");
+            synchronized (queue) {
+                EntityLog.log(ServiceSynchronize.this, "Service destroy");
+                if (started)
+                    queue_reload(false, "service destroy");
+            }
         }
 
         private void start() {
