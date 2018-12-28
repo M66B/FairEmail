@@ -228,9 +228,10 @@ public class ViewModelBrowse extends ViewModel {
                         Log.i("Boundary sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(state.fid, uid);
                         if (message == null) {
-                            message = ServiceSynchronize.synchronizeMessage(
-                                    state.context,
+                            message = ServiceSynchronize.synchronizeMessage(state.context,
                                     folder, state.ifolder, (IMAPMessage) isub[j], true);
+                            ServiceSynchronize.downloadMessage(state.context,
+                                    folder, state.ifolder, (IMAPMessage) isub[j], message.id, false);
                             count++;
                         }
                         db.message().setMessageFound(message.account, message.thread);

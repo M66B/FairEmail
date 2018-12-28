@@ -2443,7 +2443,7 @@ public class ServiceSynchronize extends LifecycleService {
         return message;
     }
 
-    private static void downloadMessage(
+    static void downloadMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder, IMAPMessage imessage,
             long id, boolean download) throws MessagingException, IOException {
