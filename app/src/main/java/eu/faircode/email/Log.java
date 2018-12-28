@@ -4,7 +4,10 @@ public class Log {
     static final String TAG = "fairemail";
 
     public static int i(String msg) {
-        return android.util.Log.i(TAG, msg);
+        if (BuildConfig.BETA_RELEASE)
+            return android.util.Log.i(TAG, msg);
+        else
+            return 0;
     }
 
     public static int w(String msg) {

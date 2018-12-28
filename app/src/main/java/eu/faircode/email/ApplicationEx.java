@@ -48,7 +48,8 @@ public class ApplicationEx extends Application {
                 if (ownFault(ex)) {
                     Log.e(ex);
 
-                    if (!Helper.isPlayStoreInstall(ApplicationEx.this))
+                    if (BuildConfig.BETA_RELEASE ||
+                            !Helper.isPlayStoreInstall(ApplicationEx.this))
                         writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
