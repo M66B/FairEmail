@@ -306,7 +306,7 @@ public class FragmentCompose extends FragmentEx {
         setSubtitle(R.string.title_compose);
         tvExtraPrefix.setText(null);
         tvExtraSuffix.setText(null);
-        etBody.setText(null);
+        etBody.setVisibility(View.GONE);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
@@ -1421,7 +1421,7 @@ public class FragmentCompose extends FragmentEx {
 
             getActivity().invalidateOptionsMenu();
 
-            final DB db = DB.getInstance(getContext());
+            DB db = DB.getInstance(getContext());
 
             db.identity().liveIdentities().observe(getViewLifecycleOwner(), new Observer<List<TupleIdentityEx>>() {
                 @Override
@@ -1529,6 +1529,7 @@ public class FragmentCompose extends FragmentEx {
                                 protected void onLoaded(Bundle args, Spanned[] texts) {
                                     etBody.setText(texts[0]);
                                     etBody.setSelection(0);
+                                    etBody.setVisibility(View.VISIBLE);
                                     tvReference.setText(texts[1]);
 
                                     state = State.LOADED;
