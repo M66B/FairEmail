@@ -209,13 +209,33 @@
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
         <ImageView
+            android:id="@+id/ivAnswered"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_reply_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+
+        <TextView
+            android:id="@+id/tvAnswered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_answered"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivAnswered"
+            app:layout_constraintStart_toEndOf="@id/ivAnswered"
+            app:layout_constraintTop_toTopOf="@id/ivAnswered" />
+
+        <ImageView
             android:id="@+id/ivContacts"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/ivAnswered" />
 
         <TextView
             android:id="@+id/tvContacts"
