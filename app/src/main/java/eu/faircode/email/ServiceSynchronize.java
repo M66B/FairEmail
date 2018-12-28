@@ -1501,14 +1501,16 @@ public class ServiceSynchronize extends LifecycleService {
 
                         if (ex instanceof MessageRemovedException ||
                                 ex instanceof FolderNotFoundException ||
-                                ex instanceof SendFailedException) {
+                                ex instanceof SendFailedException ||
+                                ex instanceof IllegalArgumentException) {
                             Log.w("Unrecoverable", ex);
 
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
 
-                            if (ex instanceof MessageRemovedException)
-                                db.message().deleteMessage(op.message);
+                            if (message != null &&
+                                    ex instanceof MessageRemovedException)
+                                db.message().deleteMessage(message.id);
 
                             continue;
                         } else if (ex instanceof MessagingException) {
