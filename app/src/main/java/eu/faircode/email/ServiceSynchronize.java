@@ -2554,7 +2554,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onAvailable(Network network) {
-            synchronized (queue) {
+            synchronized (this) {
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     EntityLog.log(ServiceSynchronize.this, "Available " + network + " " + cm.getNetworkInfo(network));
@@ -2569,12 +2569,12 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            synchronized (queue) {
+            synchronized (this) {
                 try {
                     if (!started) {
                         EntityLog.log(ServiceSynchronize.this, "Network " + network + " capabilities " + capabilities);
                         if (suitableNetwork())
-                            queue_reload(true, "connect " + network);
+                            queue_reload(true, "capabilities " + network);
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
@@ -2584,7 +2584,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         @Override
         public void onLost(Network network) {
-            synchronized (queue) {
+            synchronized (this) {
                 try {
                     EntityLog.log(ServiceSynchronize.this, "Lost " + network);
 
@@ -2622,7 +2622,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void service_reload(String reason) {
-            synchronized (queue) {
+            synchronized (this) {
                 try {
                     serviceManager.queue_reload(true, reason);
                 } catch (Throwable ex) {
@@ -2632,7 +2632,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         private void service_destroy() {
-            synchronized (queue) {
+            synchronized (this) {
                 EntityLog.log(ServiceSynchronize.this, "Service destroy");
                 if (started)
                     queue_reload(false, "service destroy");
@@ -2875,7 +2875,11 @@ public class ServiceSynchronize extends LifecycleService {
                     }
                 }
             });
-            state.yield();
+
+            try {
+                Thread.sleep(YIELD_DURATION);
+            } catch (InterruptedException ignored) {
+            }
 
             started = doStart;
         }
