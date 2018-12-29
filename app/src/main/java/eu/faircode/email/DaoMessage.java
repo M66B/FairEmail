@@ -49,7 +49,7 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", COUNT(message.id) AS count" +
+            ", COUNT(DISTINCT message.msgid) AS count" +
             ", " + unseen_unified + " AS unseen" +
             ", " + unflagged_unified + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
@@ -85,7 +85,7 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", COUNT(message.id) AS count" +
+            ", COUNT(DISTINCT message.msgid) AS count" +
             ", " + unseen_folder + " AS unseen" +
             ", " + unflagged_folder + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
