@@ -118,13 +118,22 @@ public class FragmentEx extends Fragment {
         super.onDestroy();
     }
 
+    @Override
+    public void setHasOptionsMenu(boolean hasMenu) {
+        super.setHasOptionsMenu(!isPane() && hasMenu);
+    }
+
     private void updateSubtitle() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
-        Bundle args = getArguments();
-        if (activity != null && (args == null || !args.getBoolean("pane"))) {
+        if (activity != null && !isPane()) {
             ActionBar actionbar = activity.getSupportActionBar();
             if (actionbar != null)
                 actionbar.setSubtitle(subtitle);
         }
+    }
+
+    private boolean isPane() {
+        Bundle args = getArguments();
+        return (args != null && args.getBoolean("pane"));
     }
 }
