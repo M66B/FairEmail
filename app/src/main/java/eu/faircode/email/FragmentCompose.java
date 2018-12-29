@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -524,13 +525,15 @@ public class FragmentCompose extends FragmentEx {
         }
 
         private void check() {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        checkInternet();
-                }
-            });
+            Activity activity = getActivity();
+            if (activity != null)
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                            checkInternet();
+                    }
+                });
         }
     };
 

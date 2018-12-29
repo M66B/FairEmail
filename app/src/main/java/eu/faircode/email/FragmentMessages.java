@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1396,13 +1397,15 @@ public class FragmentMessages extends FragmentEx {
         }
 
         private void check() {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                        adapter.checkInternet();
-                }
-            });
+            Activity activity = getActivity();
+            if (activity != null)
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                            adapter.checkInternet();
+                    }
+                });
         }
     };
 
