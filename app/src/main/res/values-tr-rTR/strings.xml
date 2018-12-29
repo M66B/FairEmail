@@ -161,9 +161,7 @@
     <string name="title_pop">POP desteklenmiyor</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_delete_local">Yerel mesajları sil</string>
-    <string name="title_empty_trash">Çöp kutusunu boşalt</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
-    <string name="title_empty_trash_ask">Tüm çöpe atılan iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Ekran adı</string>

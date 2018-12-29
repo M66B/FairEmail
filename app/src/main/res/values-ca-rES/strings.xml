@@ -106,9 +106,7 @@
     <string name="title_pop">POP no està suportat</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_delete_local">Esborra els missatges locals</string>
-    <string name="title_empty_trash">Buida la paperera</string>
     <string name="title_edit_properties">Edita les propietats</string>
-    <string name="title_empty_trash_ask">Vols buidar la paperera?</string>
     <string name="title_folder_name">Nom de carpeta</string>
     <string name="title_display_name">Mostrar el nom</string>
     <string name="title_hide_folders">Amaga les carpetes ocultes</string>

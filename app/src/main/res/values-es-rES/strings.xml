@@ -173,9 +173,7 @@
     <string name="title_identity_sent_hint">Los mensajes enviados serán guardados automáticamente en la carpeta de enviados en la mayoría de los casos</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
-    <string name="title_empty_trash">Vaciar Papelera</string>
     <string name="title_edit_properties">Editar propiedades</string>
-    <string name="title_empty_trash_ask">¿Eliminar los mensajes de la Papelera permanentemente?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>
@@ -315,6 +313,7 @@
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
+    <string name="title_legend_answered">Respondido</string>
     <string name="title_legend_contacts">Contactos</string>
     <string name="title_legend_view">Ver contenido</string>
     <string name="title_legend_download">Descargar contenido</string>

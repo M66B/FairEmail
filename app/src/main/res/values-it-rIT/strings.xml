@@ -173,9 +173,7 @@
     <string name="title_identity_sent_hint">I messaggi inviati verranno già automaticamente salvati nella cartella Inviati nella maggior parte dei casi</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
-    <string name="title_empty_trash">Svuota cestino</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
-    <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>

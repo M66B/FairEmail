@@ -173,9 +173,7 @@
     <string name="title_identity_sent_hint">Versendete Nachrichten werden schon in fast allen Fällen automatisch im \'Versendet\' Ordner gespeichert</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
-    <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
-    <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
     <string name="title_delete_operation">Lösche Operationen mit einer Fehlermeldung?</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Name</string>
@@ -315,6 +313,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Anhang</string>
+    <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_contacts">Kontakte</string>
     <string name="title_legend_view">Inhalt anzeigen</string>
     <string name="title_legend_download">Inhalt herunterladen</string>

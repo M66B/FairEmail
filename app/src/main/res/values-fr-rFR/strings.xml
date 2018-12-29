@@ -173,9 +173,7 @@
     <string name="title_identity_sent_hint">Les messages envoyés seront automatiquement stockés dans le dossier Envoyés déjà dans la plupart des cas</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
-    <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
-    <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>

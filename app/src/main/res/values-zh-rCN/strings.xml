@@ -116,10 +116,15 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
     <string name="title_identity_reply_to">回复地址</string>
+    <string name="title_identity_read_receipt">请求读取回执</string>
+    <string name="title_identity_delivery_receipt">请求发出凭据</string>
+    <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
     <string name="title_optional">可选</string>
     <string name="title_account_linked">已绑定的账户</string>
     <string name="title_account_name">账户名</string>
     <string name="title_account_name_hint">用于区分文件夹</string>
+    <string name="title_account_prefix">命名空间前缀</string>
+    <string name="title_account_prefix_hint">用于简化文件夹名</string>
     <string name="title_account_signature">签名文本</string>
     <string name="title_account_color">颜色</string>
     <string name="title_account_notify">单独的通知</string>
@@ -144,9 +149,11 @@
     <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
     <string name="title_primary_identity">默认身份</string>
+    <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
+    <string name="title_email_invalid">邮件地址无效</string>
     <string name="title_no_account">缺少账户</string>
     <string name="title_no_host">缺少主机名称</string>
     <string name="title_no_user">缺少用户名</string>
@@ -157,11 +164,10 @@
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_pop">不支持POP</string>
+    <string name="title_identity_sent_hint">在大多数情况下, 已发送的邮件将已经自动保存在已发送的文件夹中</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
-    <string name="title_empty_trash">清空垃圾箱</string>
     <string name="title_edit_properties">编辑属性</string>
-    <string name="title_empty_trash_ask">永久性删除所有垃圾邮件</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
@@ -177,6 +183,7 @@
     <string name="title_sync_days_remark">增加该值将增加电池和数据的使用量</string>
     <string name="title_keep_days">保留邮件(天)</string>
     <string name="title_keep_all">保留所有邮件</string>
+    <string name="title_folder_name_missing">缺少文件夹名</string>
     <string name="title_folder_exists">文件夹 %1$s 存在</string>
     <string name="title_folder_delete">是否永久删除此文件夹及其包含的任何邮件？</string>
     <string name="title_folder_unified">聚合收件箱</string>
@@ -217,7 +224,9 @@
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
     <string name="title_no_saf">存储访问框架不可用</string>
+    <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
+    <string name="title_no_internet">无网络连接</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachment_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
     <string name="title_image_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
@@ -271,6 +280,7 @@
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>
     <string name="title_sort_on_starred">星标记</string>
+    <string name="title_sort_on_sender">发件人</string>
     <string name="title_zoom">文本大小</string>
     <string name="title_address_sent">发送：</string>
     <string name="title_address_unsent">未发送:</string>
@@ -296,7 +306,10 @@
     <string name="title_legend_thread">对话</string>
     <string name="title_legend_cc">抄送或密送</string>
     <string name="title_legend_attachment">附件</string>
+    <string name="title_legend_answered">已回答</string>
     <string name="title_legend_contacts">联系人</string>
+    <string name="title_legend_view">查看内容</string>
+    <string name="title_legend_download">下载内容</string>
     <string name="title_legend_external_image">外部图像占位符</string>
     <string name="title_legend_embedded_image">嵌入的图像占位符</string>
     <string name="title_legend_broken_image">损坏的图像</string>
@@ -314,9 +327,11 @@
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
     <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
     <string name="title_hint_folder_actions">长按以显示更多选项</string>
+    <string name="title_hint_folder_sync">为了减少电池和网络的使用量, 默认情况下, 并非所有文件夹和邮件都将同步</string>
     <string name="title_hint_support">如果您要提问或有问题，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑至垃圾箱；向右滑归档(如果可用)</string>
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
+    <string name="title_hint_message_compact">你可以在高级选项中选择更紧凑的邮件视图</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_select_app">选择应用</string>
@@ -326,6 +341,7 @@
     <string name="title_no">否</string>
     <string name="title_undo">撤销</string>
     <string name="title_add">添加</string>
+    <string name="title_browse">浏览</string>
     <string name="title_report">报告</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>

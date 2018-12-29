@@ -150,6 +150,7 @@
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
+    <string name="title_email_invalid">Błędny adres e-mail</string>
     <string name="title_no_account">Brak konta</string>
     <string name="title_no_host">Brak nazwy hosta</string>
     <string name="title_no_user">Brak nazwy użytkownika</string>
@@ -162,9 +163,7 @@
     <string name="title_pop">POP nie jest wspierane</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
-    <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
-    <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
@@ -180,6 +179,7 @@
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
     <string name="title_keep_all">Przechowuj wszystkie wiadomości</string>
+    <string name="title_folder_name_missing">Brak nazwy folderu</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Usunąć bezpowrotnie ten folder i wszystkie wiadomości, które zawiera?</string>
     <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>
@@ -219,6 +219,7 @@
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
+    <string name="title_no_internet">Brak połączenia internetowego</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachment_unavailable">Niektóre załączniki nie są pobrane i nie zostaną dodane, kontynuować?</string>
     <string name="title_image_unavailable">Niektóre obrazki nie są pobrane i nie zostaną dodane, kontynuować?</string>
@@ -272,6 +273,7 @@
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytane</string>
     <string name="title_sort_on_starred">Oznaczone</string>
+    <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_address_sent">Wysłane:</string>
     <string name="title_address_unsent">Niewysłane:</string>
@@ -297,7 +299,10 @@
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_cc">DW/UDW</string>
     <string name="title_legend_attachment">Załącznik</string>
+    <string name="title_legend_answered">Odpowiedziano</string>
     <string name="title_legend_contacts">Kontakty</string>
+    <string name="title_legend_view">Zobacz zawartość</string>
+    <string name="title_legend_download">Pobierz zawartość</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_synchronize_on">Synchronizacja włączona</string>
     <string name="title_legend_synchronize_off">Synchronizacja wyłączona</string>
@@ -325,6 +330,7 @@
     <string name="title_no">Nie</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_add">Dodaj</string>
+    <string name="title_browse">Przeglądaj</string>
     <string name="title_report">Raport</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>

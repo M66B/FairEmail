@@ -104,7 +104,6 @@
     <string name="title_no_password">Adgangskode mangler</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
-    <string name="title_empty_trash">Tøm papirkurv</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_synchronize_folder">Synkronisér (modtag meddelelser)</string>
