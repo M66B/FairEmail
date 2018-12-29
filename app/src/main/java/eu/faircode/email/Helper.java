@@ -568,8 +568,11 @@ public class Helper {
 
     static String canonicalAddress(String address) {
         String[] a = address.split("@");
-        if (a.length > 0)
-            a[0] = a[0].split("\\+")[0];
+        if (a.length > 0) {
+            String[] extra = a[0].split("\\+");
+            if (extra.length > 0)
+                a[0] = extra[0];
+        }
         return TextUtils.join("@", a);
     }
 
