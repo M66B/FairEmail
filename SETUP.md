@@ -12,7 +12,22 @@ Your email provider should support secure connections.
 If your provider doesn't support secure connections and you care at least a little about your privacy,
 you are strongly advised to switch to another provider.
 
-For security reasons, your account need to have a non empty password set.
+For security reasons, your account should not have a non empty password.
+
+
+## Quick setup
+
+Just enter your name, email address and password and tap *Quick setup*.
+
+This will work for most mayor email providers.
+
+If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+
+To use Gmail, you'll need to enable access for "less secure" apps,
+see [here](https://support.google.com/accounts/answer/6010255) for Google's instructions
+or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
+Less secure is relative and other providers just allow access in the same way,
+but if you are concerned you can complete the setup by setting up an account and an identity in another way too, see below.
 
 
 ## Account - to receive email
