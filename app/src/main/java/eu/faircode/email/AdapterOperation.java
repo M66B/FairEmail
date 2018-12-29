@@ -74,7 +74,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         private void unwire() {
             itemView.setOnClickListener(null);
-            itemView.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleOperationEx operation) {
