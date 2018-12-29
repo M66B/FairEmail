@@ -118,6 +118,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
 * [(54) How do I use a namespace prefix?](#user-content-faq54)
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
+* [(56) Can you add support for JMAP?](#user-content-faq56)
 
 [I have another question.](#support)
 
@@ -831,6 +832,14 @@ By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove
 You can use multiple select for this.
 Long press the first message, don't lift your finger and slide down to the last message.
 Then use the three dot action button to execute the desired action.
+
+
+<a name="faq56"></a>
+**(56) Can you add support for JMAP?**
+
+There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
+so it is not worth to add support for this to FairEmail.
+
 
 
 ## Support
