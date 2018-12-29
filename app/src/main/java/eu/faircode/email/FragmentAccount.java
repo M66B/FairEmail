@@ -62,12 +62,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
-import org.xbill.DNS.Lookup;
-import org.xbill.DNS.Record;
-import org.xbill.DNS.SRVRecord;
-import org.xbill.DNS.SimpleResolver;
-import org.xbill.DNS.Type;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -267,53 +262,40 @@ public class FragmentAccount extends FragmentEx {
         btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etDomain.setEnabled(false);
-                btnAutoConfig.setEnabled(false);
 
                 Bundle args = new Bundle();
                 args.putString("domain", etDomain.getText().toString());
 
-                new SimpleTask<SRVRecord>() {
+                new SimpleTask<Provider>() {
                     @Override
-                    protected SRVRecord onLoad(Context context, Bundle args) throws Throwable {
-                        // https://tools.ietf.org/html/rfc6186
-                        String dns = "_imaps._tcp." + args.getString("domain");
-                        Lookup lookup = new Lookup(dns, Type.SRV);
-                        // https://dns.watch/
-                        SimpleResolver resolver = new SimpleResolver("84.200.69.80");
-                        lookup.setResolver(resolver);
-                        Log.i("Lookup dns=" + dns + " @" + resolver.getAddress());
-                        Record[] records = lookup.run();
-                        if (lookup.getResult() != Lookup.SUCCESSFUL)
-                            throw new IllegalArgumentException(lookup.getErrorString());
-                        Log.i("Found dns=" + (records == null ? -1 : records.length));
-                        if (records != null)
-                            for (int i = 0; i < records.length; i++) {
-                                SRVRecord srv = (SRVRecord) records[i];
-                                Log.i("SRV=" + srv);
-                                return srv;
-                            }
-
-                        throw new IllegalArgumentException(getString(R.string.title_no_settings));
+                    protected void onInit(Bundle args) {
+                        etDomain.setEnabled(false);
+                        btnAutoConfig.setEnabled(false);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, SRVRecord srv) {
+                    protected void onCleanup(Bundle args) {
                         etDomain.setEnabled(true);
                         btnAutoConfig.setEnabled(true);
-                        if (srv != null) {
-                            etHost.setText(srv.getTarget().toString(true));
-                            etPort.setText(Integer.toString(srv.getPort()));
-                            cbStartTls.setChecked(srv.getPort() == 143);
-                        }
+                    }
+
+                    @Override
+                    protected Provider onLoad(Context context, Bundle args) throws Throwable {
+                        String domain = args.getString("domain");
+                        return Provider.fromDomain(context, domain);
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Provider provider) {
+                        etHost.setText(provider.imap_host);
+                        etPort.setText(Integer.toString(provider.imap_port));
+                        cbStartTls.setChecked(provider.imap_starttls);
                     }
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        etDomain.setEnabled(true);
-                        btnAutoConfig.setEnabled(true);
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        if (ex instanceof IOException)
+                            Snackbar.make(view, R.string.title_no_settings, Snackbar.LENGTH_LONG).show();
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
