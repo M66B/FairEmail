@@ -367,6 +367,7 @@ public class FragmentIdentity extends FragmentEx {
                 new SimpleTask<SRVRecord>() {
                     @Override
                     protected SRVRecord onLoad(Context context, Bundle args) throws Throwable {
+                        // https://tools.ietf.org/html/rfc6186
                         String dns = "_submission._tcp." + args.getString("domain");
                         Lookup lookup = new Lookup(dns, Type.SRV);
                         // https://dns.watch/
