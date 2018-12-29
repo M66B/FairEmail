@@ -57,6 +57,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -69,6 +70,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
@@ -295,6 +297,29 @@ public class FragmentCompose extends FragmentEx {
                         onAction(action);
                 }
                 return false;
+            }
+        });
+
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int bottom = view.getBottom()
+                        - edit_bar.getHeight()
+                        - Helper.dp2pixels(56, view.getContext()); // full bottom navigation
+                int remain = bottom - etBody.getTop();
+                int threshold = Helper.dp2pixels(100, view.getContext());
+                Log.i("Reduce remain=" + remain + " threshold=" + threshold);
+
+                boolean reduce = (remain < threshold);
+                boolean reduced = (bottom_navigation.getLabelVisibilityMode() == LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+                if (reduce != reduced) {
+                    bottom_navigation.setLabelVisibilityMode(reduce
+                            ? LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                            : LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+                    ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
+                    params.height = Helper.dp2pixels(reduce ? 36 : 56, view.getContext());
+                    bottom_navigation.setLayoutParams(params);
+                }
             }
         });
 
