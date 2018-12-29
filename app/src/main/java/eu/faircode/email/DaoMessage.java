@@ -170,6 +170,7 @@ public interface DaoMessage {
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
+            " AND NOT uid IS NULL" +
             " AND NOT ui_hide")
     List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
 

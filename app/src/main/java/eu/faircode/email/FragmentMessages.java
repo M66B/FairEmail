@@ -465,7 +465,7 @@ public class FragmentMessages extends FragmentEx {
                     return 0;
 
                 TupleMessageEx message = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList().get(pos);
-                if (message == null ||
+                if (message == null || message.uid == null ||
                         (values.containsKey("expanded") && values.get("expanded").contains(message.id)) ||
                         EntityFolder.DRAFTS.equals(message.folderType) ||
                         EntityFolder.OUTBOX.equals(message.folderType))
@@ -1826,20 +1826,21 @@ public class FragmentMessages extends FragmentEx {
 
                                 boolean trashable = false;
                                 boolean archivable = false;
-                                for (EntityMessage message : messages) {
-                                    EntityFolder folder = db.folder().getFolder(message.folder);
-                                    if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                                            !EntityFolder.OUTBOX.equals(folder.type) &&
-                                            // allow sent
-                                            !EntityFolder.TRASH.equals(folder.type) &&
-                                            !EntityFolder.JUNK.equals(folder.type))
-                                        trashable = true;
-                                    if (!EntityFolder.isOutgoing(folder.type) &&
-                                            !EntityFolder.TRASH.equals(folder.type) &&
-                                            !EntityFolder.JUNK.equals(folder.type) &&
-                                            !EntityFolder.ARCHIVE.equals(folder.type))
-                                        archivable = true;
-                                }
+                                for (EntityMessage message : messages)
+                                    if (message.uid != null) {
+                                        EntityFolder folder = db.folder().getFolder(message.folder);
+                                        if (!EntityFolder.DRAFTS.equals(folder.type) &&
+                                                !EntityFolder.OUTBOX.equals(folder.type) &&
+                                                // allow sent
+                                                !EntityFolder.TRASH.equals(folder.type) &&
+                                                !EntityFolder.JUNK.equals(folder.type))
+                                            trashable = true;
+                                        if (!EntityFolder.isOutgoing(folder.type) &&
+                                                !EntityFolder.TRASH.equals(folder.type) &&
+                                                !EntityFolder.JUNK.equals(folder.type) &&
+                                                !EntityFolder.ARCHIVE.equals(folder.type))
+                                            archivable = true;
+                                    }
 
                                 return new Boolean[]{trashable, archivable};
                             }
