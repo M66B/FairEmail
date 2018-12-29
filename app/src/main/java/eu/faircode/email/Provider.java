@@ -56,6 +56,9 @@ public class Provider {
     public String smtp_host;
     public int smtp_port;
     public boolean smtp_starttls;
+    public UserType user = UserType.EMAIL;
+
+    enum UserType {LOCAL, EMAIL}
 
     private Provider() {
     }
@@ -120,19 +123,16 @@ public class Provider {
         return result;
     }
 
-    static Provider fromDomain(Context context, String domain) throws IOException, XmlPullParserException {
+    static Provider fromDomain(Context context, String domain) throws IOException {
         try {
-            return Provider.fromDNS(context, domain);
-        } catch (TextParseException ex) {
+            return Provider.fromISPDB(domain);
+        } catch (Throwable ex) {
             Log.w(ex);
-            throw new UnknownHostException(domain);
-        } catch (UnknownHostException ex) {
-            Log.w(ex);
-            return Provider.fromConfig(context, domain);
+            return Provider.fromDNS(domain);
         }
     }
 
-    private static Provider fromConfig(Context context, String domain) throws IOException, XmlPullParserException {
+    private static Provider fromISPDB(String domain) throws IOException, XmlPullParserException {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
         Log.i("Fetching " + url);
@@ -203,11 +203,27 @@ public class Provider {
                                 provider.imap_starttls = true;
                             else if (smtp)
                                 provider.smtp_starttls = true;
-                        }
+                        } else
+                            Log.w("Unknown socket type=" + socket);
                     }
-
                     continue;
+
+                } else if ("username".equals(xml.getName())) {
+                    eventType = xml.next();
+                    if (eventType == XmlPullParser.TEXT) {
+                        String username = xml.getText();
+                        Log.i("Username=" + username);
+                        if ("%EMAILADDRESS%".equals(username))
+                            provider.user = UserType.EMAIL;
+                        else if ("%EMAILLOCALPART%".equals(username))
+                            provider.user = UserType.LOCAL;
+                        else
+                            Log.w("Unknown username type=" + username);
+                    }
+                    continue;
+
                 }
+
             } else if (eventType == XmlPullParser.END_TAG) {
                 if ("incomingServer".equals(xml.getName()))
                     imap = false;
@@ -225,7 +241,7 @@ public class Provider {
         return provider;
     }
 
-    private static Provider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
+    private static Provider fromDNS(String domain) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
         SRVRecord imap = lookup("_imaps._tcp." + domain);
         SRVRecord smtp = lookup("_submission._tcp." + domain);

@@ -222,10 +222,10 @@ public class FragmentSetup extends FragmentEx {
                         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
                             throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
 
-                        String domain = email.split("@")[1];
-                        Provider provider = Provider.fromDomain(context, domain);
+                        String[] dparts = email.split("@");
+                        Provider provider = Provider.fromDomain(context, dparts[1]);
 
-                        String user = email; // TODO
+                        String user = (provider.user == Provider.UserType.EMAIL ? email : dparts[0]);
 
                         Character separator;
                         long now = new Date().getTime();
