@@ -109,8 +109,7 @@ public class HtmlHelper {
     }
 
     static Drawable decodeImage(String source, Context context, long id, boolean show) {
-        float scale = context.getResources().getDisplayMetrics().density;
-        int px = Math.round(48 * scale);
+        int px = Helper.dp2pixels(48, context);
 
         if (TextUtils.isEmpty(source)) {
             Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());

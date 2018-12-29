@@ -327,7 +327,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
 
-        this.dp12 = Math.round(12 * context.getResources().getDisplayMetrics().density);
+        this.dp12 = Helper.dp2pixels(12, context);
 
         setHasStableIds(true);
     }
