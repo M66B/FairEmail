@@ -86,7 +86,7 @@
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
     <string name="title_setup_quick">Quick config</string>
-    <string name="title_setup_quick_remark">Quick config can be used for most mayor providers</string>
+    <string name="title_setup_quick_remark">Quick config can be used for most major providers</string>
     <string name="title_setup_account">Manage accounts</string>
     <string name="title_setup_account_remark">To receive email</string>
     <string name="title_setup_identity">Manage identities</string>

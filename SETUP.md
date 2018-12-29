@@ -19,7 +19,7 @@ For security reasons, your account should not have a non empty password.
 
 Just enter your name, email address and password and tap *Quick setup*.
 
-This will work for most mayor email providers.
+This will work for most major email providers.
 
 If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
 
