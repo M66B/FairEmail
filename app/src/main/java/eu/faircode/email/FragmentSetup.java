@@ -38,6 +38,7 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,6 +54,9 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+import com.sun.mail.imap.IMAPFolder;
+import com.sun.mail.imap.IMAPStore;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -65,8 +69,10 @@ import java.io.OutputStream;
 import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -76,6 +82,9 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
+import javax.mail.Folder;
+import javax.mail.Session;
+import javax.mail.Transport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -90,6 +99,11 @@ public class FragmentSetup extends FragmentEx {
     private ViewGroup view;
 
     private ImageButton ibHelp;
+
+    private EditText etName;
+    private EditText etEmail;
+    private TextInputLayout tilPassword;
+    private Button btnQuick;
 
     private Button btnAccount;
     private TextView tvAccountDone;
@@ -135,6 +149,11 @@ public class FragmentSetup extends FragmentEx {
         // Get controls
         ibHelp = view.findViewById(R.id.ibHelp);
 
+        etName = view.findViewById(R.id.etName);
+        etEmail = view.findViewById(R.id.etEmail);
+        tilPassword = view.findViewById(R.id.tilPassword);
+        btnQuick = view.findViewById(R.id.btnQuick);
+
         btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
         tvNoPrimaryDrafts = view.findViewById(R.id.tvNoPrimaryDrafts);
@@ -162,6 +181,216 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onClick(View v) {
                 startActivity(getIntentHelp());
+            }
+        });
+
+        btnQuick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("name", etName.getText().toString());
+                args.putString("email", etEmail.getText().toString());
+                args.putString("password", tilPassword.getEditText().getText().toString());
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        etName.setEnabled(false);
+                        etEmail.setEnabled(false);
+                        tilPassword.setEnabled(false);
+                        btnQuick.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onCleanup(Bundle args) {
+                        etName.setEnabled(true);
+                        etEmail.setEnabled(true);
+                        tilPassword.setEnabled(true);
+                        btnQuick.setEnabled(true);
+                    }
+
+                    @Override
+                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                        String name = args.getString("name");
+                        String email = args.getString("email");
+                        String password = args.getString("password");
+
+                        if (TextUtils.isEmpty(name))
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_name));
+                        if (TextUtils.isEmpty(email))
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                            throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
+
+                        String domain = email.split("@")[1];
+                        Provider provider = Provider.fromDomain(context, domain);
+
+                        String user = email; // TODO
+
+                        Character separator;
+                        long now = new Date().getTime();
+
+                        List<EntityFolder> folders = new ArrayList<>();
+
+                        {
+                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Session isession = Session.getInstance(props, null);
+                            isession.setDebug(true);
+                            IMAPStore istore = null;
+                            try {
+                                istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps");
+                                istore.connect(provider.imap_host, provider.imap_port, user, password);
+
+                                separator = istore.getDefaultFolder().getSeparator();
+
+                                boolean drafts = false;
+                                for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                                    String type = null;
+                                    boolean selectable = true;
+                                    String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+                                    Log.i(ifolder.getFullName() + " attrs=" + TextUtils.join(" ", attrs));
+                                    for (String attr : attrs) {
+                                        if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
+                                            selectable = false;
+                                        if (attr.startsWith("\\")) {
+                                            int index = EntityFolder.SYSTEM_FOLDER_ATTR.indexOf(attr.substring(1));
+                                            if (index >= 0) {
+                                                type = EntityFolder.SYSTEM_FOLDER_TYPE.get(index);
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    if (selectable && type != null) {
+                                        EntityFolder folder = new EntityFolder();
+                                        folder.name = ifolder.getFullName();
+                                        folder.type = type;
+                                        folder.level = EntityFolder.getLevel(separator, folder.name);
+                                        folder.synchronize = EntityFolder.SYSTEM_FOLDER_SYNC.contains(type);
+                                        folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                                        folder.keep_days = EntityFolder.DEFAULT_KEEP;
+                                        folders.add(folder);
+
+                                        if (EntityFolder.DRAFTS.equals(type))
+                                            drafts = true;
+                                    }
+                                }
+
+                                if (!drafts)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+                            } finally {
+                                if (istore != null)
+                                    istore.close();
+                            }
+                        }
+
+                        {
+                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Session isession = Session.getInstance(props, null);
+                            isession.setDebug(true);
+                            Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps");
+                            try {
+                                itransport.connect(provider.smtp_host, provider.smtp_port, user, password);
+                            } finally {
+                                itransport.close();
+                            }
+                        }
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+                            EntityAccount primary = db.account().getPrimaryAccount();
+
+                            // Create account
+                            EntityAccount account = new EntityAccount();
+
+                            account.auth_type = Helper.AUTH_TYPE_PASSWORD;
+                            account.host = provider.imap_host;
+                            account.starttls = provider.imap_starttls;
+                            account.insecure = false;
+                            account.port = provider.imap_port;
+                            account.user = user;
+                            account.password = password;
+
+                            account.name = provider.name;
+                            account.color = null;
+
+                            account.synchronize = true;
+                            account.primary = (primary == null);
+                            account.notify = false;
+                            account.browse = true;
+                            account.poll_interval = 19;
+                            account.prefix = provider.prefix; // TODO
+
+                            account.created = now;
+                            account.error = null;
+                            account.last_connected = now;
+
+                            account.id = db.account().insertAccount(account);
+
+                            // Create folders
+                            for (EntityFolder folder : folders) {
+                                folder.account = account.id;
+                                folder.id = db.folder().insertFolder(folder);
+                            }
+
+                            // Create identity
+                            EntityIdentity identity = new EntityIdentity();
+                            identity.name = name;
+                            identity.email = email;
+                            identity.account = account.id;
+
+                            identity.display = null;
+                            identity.color = null;
+                            identity.signature = null;
+
+                            identity.auth_type = Helper.AUTH_TYPE_PASSWORD;
+                            identity.host = provider.smtp_host;
+                            identity.starttls = provider.smtp_starttls;
+                            identity.insecure = false;
+                            identity.port = provider.smtp_port;
+                            identity.user = user;
+                            identity.password = password;
+                            identity.synchronize = true;
+                            identity.primary = true;
+
+                            identity.replyto = null;
+                            identity.bcc = null;
+                            identity.delivery_receipt = false;
+                            identity.read_receipt = false;
+                            identity.store_sent = false;
+                            identity.sent_folder = null;
+                            identity.error = null;
+
+                            identity.id = db.identity().insertIdentity(identity);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        ServiceSynchronize.reload(context, "quick setup");
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onLoaded(Bundle args, Void data) {
+                        finish();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                    .setMessage(Helper.formatThrowable(ex))
+                                    .setPositiveButton(android.R.string.cancel, null)
+                                    .create()
+                                    .show();
+                    }
+                }.load(FragmentSetup.this, args);
             }
         });
 
