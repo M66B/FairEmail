@@ -204,8 +204,10 @@
 
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_delete_local">Delete local messages</string>
+    <string name="title_empty_trash">Empty trash</string>
     <string name="title_edit_properties">Edit properties</string>
 
+    <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
     <string name="title_delete_operation">Delete operations with an error message?</string>
 
     <string name="title_folder_name">Folder name</string>
