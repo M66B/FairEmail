@@ -1585,17 +1585,18 @@ public class FragmentMessages extends FragmentEx {
                 try {
                     db.beginTransaction();
 
-                    for (EntityMessage message : db.message().getMessageSeen(outbox)) {
-                        EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        EntityFolder sent = db.folder().getFolderByType(identity.account, EntityFolder.SENT);
-                        if (sent != null) {
-                            message.folder = sent.id;
-                            message.uid = null;
-                            db.message().updateMessage(message);
-                            Log.i("Appending sent msgid=" + message.msgid);
-                            EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                    for (EntityMessage message : db.message().getMessageSeen(outbox))
+                        if (message.identity != null) {
+                            EntityIdentity identity = db.identity().getIdentity(message.identity);
+                            EntityFolder sent = db.folder().getFolderByType(identity.account, EntityFolder.SENT);
+                            if (sent != null) {
+                                message.folder = sent.id;
+                                message.uid = null;
+                                db.message().updateMessage(message);
+                                Log.i("Appending sent msgid=" + message.msgid);
+                                EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                            }
                         }
-                    }
 
                     db.setTransactionSuccessful();
                 } finally {
