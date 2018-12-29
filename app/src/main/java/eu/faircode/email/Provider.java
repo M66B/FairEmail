@@ -61,6 +61,8 @@ public class Provider {
 
     enum UserType {LOCAL, EMAIL}
 
+    private static final int TIMEOUT = 20 * 1000; // milliseconds
+
     private Provider() {
     }
 
@@ -140,8 +142,8 @@ public class Provider {
         Log.i("Fetching " + url);
 
         HttpURLConnection request = (HttpURLConnection) url.openConnection();
-        request.setReadTimeout(20 * 1000);
-        request.setConnectTimeout(20 * 1000);
+        request.setReadTimeout(TIMEOUT);
+        request.setConnectTimeout(TIMEOUT);
         request.setRequestMethod("GET");
         request.setDoInput(true);
         request.connect();
