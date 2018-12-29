@@ -665,8 +665,8 @@ public class FragmentAccount extends FragmentEx {
                         if (TextUtils.isEmpty(prefix))
                             prefix = null;
 
-                        long now = new Date().getTime();
                         Character separator = null;
+                        long now = new Date().getTime();
 
                         DB db = DB.getInstance(context);
                         EntityAccount account = db.account().getAccount(id);
@@ -697,8 +697,8 @@ public class FragmentAccount extends FragmentEx {
                                     } else
                                         throw ex;
                                 }
-                            } finally {
                                 separator = istore.getDefaultFolder().getSeparator();
+                            } finally {
                                 if (istore != null)
                                     istore.close();
                             }
