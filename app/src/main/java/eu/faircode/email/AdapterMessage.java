@@ -880,7 +880,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         body = message.read(context);
                     } catch (IOException ex) {
                         Log.e(ex);
-                        body = ex.toString();
+                        body = "";
                         db.message().setMessageContent(message.id, false, null);
                     }
 
