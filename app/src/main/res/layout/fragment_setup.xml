@@ -78,6 +78,16 @@
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <TextView
+            android:id="@+id/tvQuickRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_setup_quick_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+
+        <TextView
             android:id="@+id/tvInstructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +96,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuickRemark" />
 
         <View
             android:id="@+id/vSeparatorQuick"
