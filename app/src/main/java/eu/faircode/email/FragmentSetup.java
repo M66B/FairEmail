@@ -37,7 +37,9 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -104,6 +106,7 @@ public class FragmentSetup extends FragmentEx {
     private EditText etEmail;
     private TextInputLayout tilPassword;
     private Button btnQuick;
+    private TextView tvInstructions;
 
     private Button btnAccount;
     private TextView tvAccountDone;
@@ -153,6 +156,7 @@ public class FragmentSetup extends FragmentEx {
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnQuick = view.findViewById(R.id.btnQuick);
+        tvInstructions = view.findViewById(R.id.tvInstructions);
 
         btnAccount = view.findViewById(R.id.btnAccount);
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
@@ -224,6 +228,9 @@ public class FragmentSetup extends FragmentEx {
 
                         String[] dparts = email.split("@");
                         Provider provider = Provider.fromDomain(context, dparts[1]);
+
+                        if (provider.documentation != null)
+                            args.putString("documentation", provider.documentation.toString());
 
                         String user = (provider.user == Provider.UserType.EMAIL ? email : dparts[0]);
 
@@ -381,6 +388,11 @@ public class FragmentSetup extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
+                        if (args.containsKey("documentation")) {
+                            tvInstructions.setText(Html.fromHtml(args.getString("documentation")));
+                            tvInstructions.setVisibility(View.VISIBLE);
+                        }
+
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
@@ -510,6 +522,8 @@ public class FragmentSetup extends FragmentEx {
 
         // Initialize
         ibHelp.setVisibility(View.GONE);
+        tvInstructions.setVisibility(View.GONE);
+        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);

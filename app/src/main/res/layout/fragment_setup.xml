@@ -77,6 +77,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
+        <TextView
+            android:id="@+id/tvInstructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="provider instructions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+
         <View
             android:id="@+id/vSeparatorQuick"
             android:layout_width="match_parent"
@@ -84,7 +95,7 @@
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnQuick" />
+            app:layout_constraintTop_toBottomOf="@id/tvInstructions" />
 
         <!-- account -->
 
