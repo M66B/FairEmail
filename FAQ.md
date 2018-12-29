@@ -135,6 +135,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * Use accounts on the device (USE_CREDENTIALS): needed to select accounts on Android version 5.1 Lollipop and before (not used on later Android versions)
 * Optional: find accounts on the device (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
 
+<br />
 
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
@@ -148,6 +149,7 @@ Background: this is necessary because of the introduction of [doze mode](https:/
 
 If you came here by clicking on the notification, you should known that the next click will open the unified inbox.
 
+<br />
 
 <a name="faq3"></a>
 **(3) What are operations and why are they pending?**
@@ -170,6 +172,7 @@ The low priority status bar notification shows the number of pending operations,
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).
 
+<br />
 
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?**
@@ -186,6 +189,7 @@ Empty password: your username is likely easily guessed, so this is very insecure
 If you still want to use an invalid security certificate, IMAP STARTTLS or an empty password,
 you'll need to enable insecure connections in the account and/or identity settings.
 
+<br />
 
 <a name="faq5"></a>
 **(5) How can I customize the message view?**
@@ -203,6 +207,7 @@ If the list of addresses is long, you can collapse the addresses section with th
 
 Unfortunately, it is impossible to make everybody happy and adding lots of settings would not only be confusing, but also never be sufficient.
 
+<br />
 
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
@@ -214,6 +219,7 @@ See here for instructions: [https://support.google.com/accounts/answer/185833](h
 
 If this doesn't work, see here for more solutions: [https://support.google.com/mail/accounts/answer/78754](https://support.google.com/mail/accounts/answer/78754)
 
+<br />
 
 <a name="faq7"></a>
 **(7) Why are messages in the outbox not moved to the sent folder?**
@@ -224,6 +230,7 @@ If this doesn't happen, your provider might not keep track of sent messages or y
 In these cases you can use the advanced identity setting *Store a copy of sent messages in* and select the sent folder.
 There is a menu to move sent messages in the outbox to the sent folder.
 
+<br />
 
 <a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
@@ -233,6 +240,7 @@ See here for more information: [https://support.office.com/en-us/article/what-is
 
 Please see [here](#frequently-requested-features) about ActiveSync support.
 
+<br />
 
 <a name="faq9"></a>
 **(9) What are identities?**
@@ -242,6 +250,8 @@ Identities represent email addresses you are sending *from*.
 Some providers allow you to have multiple email aliases.
 You can configure these by setting the email address field to the alias address and setting the user name field to your main email address.
 
+<br />
+
 <a name="faq10"></a>
 **~~(10) What does 'UIDPLUS not supported' mean?~~**
 
@@ -249,6 +259,7 @@ You can configure these by setting the email address field to the alias address 
 This IMAP extension is required to implement two way synchronization, which is not an optional feature.
 So, unless your provider can enable this extension, you cannot use FairEmail for this provider.~~
 
+<br />
 
 <a name="faq11"></a>
 **(11) Why is POP not supported?**
@@ -257,6 +268,7 @@ Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/
 using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary battery usage and delayed new message notifications.
 Moreover, POP is unsuitable for two way synchronization and more often than not people read email on different devices.
 
+<br />
 
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
@@ -279,6 +291,7 @@ Note that signed only or encrypted only messages are not supported, see here for
 
 If you like, you can verify a signature by opening the *signature.asc* attachment.
 
+<br />
 
 <a name="faq13"></a>
 **(13) How does search on server work?**
@@ -290,6 +303,7 @@ The message text of local messages will not be searched if the message text was 
 Searching by the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 Searching messages is a pro feature.
 
+<br />
 
 <a name="faq14"></a>
 **(14) How can I setup Outlook with 2FA?**
@@ -299,6 +313,7 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 
 Unfortunately, Outlook doesn't properly support OAuth for IMAP/SMTP connections, so there is no other way.
 
+<br />
 
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
@@ -311,6 +326,7 @@ In the advanced settings you can set the maximum size for automatically download
 
 Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
 
+<br />
 
 <a name="faq16"></a>
 **(16) Why are messages not being synchronized?**
@@ -331,6 +347,7 @@ in particular of Huawei (see [here](https://www.forbes.com/sites/bensin/2016/07/
 or Xiaomi (see [here](https://www.forbes.com/sites/bensin/2016/11/17/how-to-fix-push-notifications-on-xiaomis-miui-8-for-real/) for a fix)
 stop apps and services too aggressively.
 
+<br />
 
 <a name="faq17"></a>
 **~~(17) Why does manual synchronize not work?~~**
@@ -339,6 +356,7 @@ stop apps and services too aggressively.
 
 ~~See the previous question for more information.~~
 
+<br />
 
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
@@ -346,6 +364,7 @@ stop apps and services too aggressively.
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
 See also [this FAQ](#user-content-faq15).
 
+<br />
 
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
@@ -364,6 +383,7 @@ which means that FairEmail is basically free to use.
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 
+<br />
 
 <a name="faq20"></a>
 **(20) Can I get a refund?**
@@ -386,6 +406,7 @@ Before Android 8 Oreo: there is an advanced option in the setup for this.
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
 
+<br />
 
 <a name="faq22"></a>
 **(22) Why do I get 'Couldn't connect to host' ?**
@@ -401,6 +422,7 @@ Possible causes are:
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
+<br />
 
 <a name="faq23"></a>
 **(23) Why do I get 'Too many simultaneous connections' ?**
@@ -422,6 +444,7 @@ The maximum number of simultaneous folder connections for Gmail is 15,
 so you can synchronize at most 15 folders simultaneously on *all* your devices at the same time.
 See [here](https://support.google.com/mail/answer/7126229) for details.
 
+<br />
 
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
@@ -430,6 +453,7 @@ Browse messages on the server will fetch messages from the email server in real 
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
 You can disable this feature under *Setup* > *Advanced options* > *Browse messages on the server*.
 
+<br />
 
 <a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
@@ -441,6 +465,7 @@ for example because your custom ROM does not include it or because it was remove
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 
+<br />
 
 <a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
@@ -448,6 +473,7 @@ No app, except maybe file managers, targeting Android 4.4 KitKat or later should
 Yes, you can translate the texts of FairEmail in your own language [here](https://crowdin.com/project/open-source-email).
 Registration is free.
 
+<br />
 
 <a name="faq27"></a>
 **(27) How can I differentiate external and embedded images?**
@@ -466,6 +492,7 @@ Broken image:
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
+<br />
 
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
@@ -488,6 +515,7 @@ On Android before Android 8 Oreo you can set the notification sound in the advan
 
 See [this FAQ](#user-content-faq21) if your device has a notification light.
 
+<br />
 
 <a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
@@ -497,6 +525,7 @@ and enable either *Show in unified inbox*
 or *Notify new messages* (available on Android 7 Nougat and later only)
 and tap *Save*.
 
+<br />
 
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
@@ -509,6 +538,7 @@ There are quick settings (settings tiles) available to:
 Quick settings require Android 7.0 Nougat or later.
 The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
 
+<br />
 
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
@@ -521,12 +551,14 @@ There are shortcuts available to:
 Shortcuts require Android 7.1 Nougat or later.
 The usage of shortcuts is explained [here](https://support.google.com/android/answer/2781850).
 
+<br />
 
 <a name="faq32"></a>
 **(32) How can I check if reading email is really safe?**
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
+<br />
 
 <a name="faq33"></a>
 **(33) Why are edited sender addresses not working?**
@@ -544,6 +576,7 @@ This means that the edited sender address was automatically replaced by a valida
 
 Note that this is independent of receiving messages.
 
+<br />
 
 <a name="faq34"></a>
 **(34) How are identities matched?**
@@ -559,6 +592,7 @@ Identities are matched on e-mail address in this order:
 Matched identities can be used to color code messages. The identity color takes precedence over the account color.
 Setting colors is a pro feature.
 
+<br />
 
 <a name="faq35"></a>
 **(35) Why should I be careful with viewing images, attachments and the original message?**
@@ -569,6 +603,7 @@ but will also leak your IP address.
 Opening attachments or viewing an original message might execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
+<br />
 
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
@@ -580,6 +615,7 @@ Long version:
 * The 256 bit key is generated with *PBKDF2WithHmacSHA1* using a 128 bit secure random salt and 65536 iterations
 * The cipher is *AES/CBC/PKCS5Padding*
 
+<br />
 
 <a name="faq37"></a>
 **(37) How are passwords stored?**
@@ -589,6 +625,7 @@ Since encrypting passwords would require a secret and the background service nee
 Storing a secret together with encrypted passwords would not add anything, so passwords are stored in plain text in a safe, inaccessible place.
 Recent Android versions encrypt all data anyway.
 
+<br />
 
 <a name="faq38"></a>
 **(38) Can you help me restore my Play store purchase?**
@@ -611,6 +648,7 @@ Note that:
 
 If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
+<br />
 
 <a name="faq39"></a>
 **(39) How can I reduce the battery usage of FairEmail?**
@@ -653,6 +691,7 @@ consider switching to a modern provider which supports push messages (IMAP IDLE)
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme (this is a pro feature).
 
+<br />
 
 <a name="faq40"></a>
 **(40) How can I reduce the network usage of FairEmail?**
@@ -663,6 +702,7 @@ Additionally, you can set FairEmail to download small messages and attachments o
 or let FairEmail connect via unmetered connections only.
 These advanced settings are accessible via *Setup* > *Advanced options*.
 
+<br />
 
 <a name="faq41"></a>
 **(41) How can I fix the error 'Handshake failed' ?**
@@ -682,6 +722,7 @@ See also [this FAQ](#user-content-faq4).
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER*' is either caused by a bug in the SSL protocol implementation
 or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
 
+<br />
 
 <a name="faq42"></a>
 **(42) Can you add a new provider to the list of providers?**
@@ -711,6 +752,7 @@ Please make sure receiving and sending messages works properly.
 
 See below about how to contact me.
 
+<br />
 
 <a name="faq43"></a>
 **(43) Can you show the original ... ?**
@@ -718,6 +760,7 @@ See below about how to contact me.
 Show original, shows the original message as the sender has sent it, including original margins, styling, etc.
 FairEmail does and will not alter this in any way.
 
+<br />
 
 <a name="faq44"></a>
 **(44) Can you show contact photos / identicons in the sent folder?**
@@ -725,6 +768,7 @@ FairEmail does and will not alter this in any way.
 Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.
 Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.
 
+<br />
 
 <a name="faq45"></a>
 **(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!' ?**
@@ -732,6 +776,7 @@ Getting contact photos for both the sender and receiver is not really an option 
 You'll get the message *This key is not available. To use it, you must import it as one of your own!*
 when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
 
+<br />
 
 <a name="faq46"></a>
 **(46) Why does the message list keep refreshing?**
@@ -742,6 +787,7 @@ You can see the progress of the synchronization in the folder list. See the lege
 The speed of your device and internet connection and the number of days to synchronize messages for determine how long synchronization will take.
 Note that you shouldn't set the number of days to synchronize messages for to more than one day in most cases, see also [this FAQ](#user-content-faq39).
 
+<br />
 
 <a name="faq47"></a>
 **(47) How can I solve 'No primary account or no drafts folder' ?**
@@ -752,6 +798,7 @@ This can happen for example when you start FairEmail to compose a message from a
 FairEmail needs to know where to store the draft,
 so you'll need to select one account to be the primary account and/or you'll need to select a drafts folder for the primary account.
 
+<br />
 
 <a name="faq48"></a>
 **~~(48) How can I solve 'No primary account or no archive folder' ?~~**
@@ -760,6 +807,7 @@ so you'll need to select one account to be the primary account and/or you'll nee
 FairEmail needs to know where to search,
 so you'll need to select one account to be the primary account and/or you'll need to select a archive folder for the primary account.~~
 
+<br />
 
 <a name="faq49"></a>
 **(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?**
@@ -772,6 +820,7 @@ You can fix this by switching to an up-to-date file manager meant for recent And
 
 See also [question 25](#user-content-faq25).
 
+<br />
 
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
@@ -783,6 +832,7 @@ Mobile devices are just not very suitable to download and store years of message
 You can better use the search on server function (see [question 13](#user-content-faq13)), which is faster and more efficient.
 Note that searching through a lot of messages stored locally would only delay searching and use extra battery power.
 
+<br />
 
 <a name="faq51"></a>
 **(51) How are folders sorted?**
@@ -795,6 +845,7 @@ It is not possible to make an exception for this because some other providers pr
 
 Note that you can give folders a display name by long pressing on a folder name, which can be useful because the display name will be used for sorting.
 
+<br />
 
 <a name="faq52"></a>
 **(52) Why does it take some time to reconnect to an account?**
@@ -804,6 +855,7 @@ Trying to reconnect to an account while the account connection was terminated fo
 like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
 To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
+<br />
 
 <a name="faq53"></a>
 **(53) Can you stick the message action bar to the top/bottom?**
@@ -811,6 +863,7 @@ To prevent such problems, FairEmail waits 90 seconds until trying to reconnect a
 The message action bar works on a message and the bottom action bar works on the conversation.
 Since there is often more than one message in a conversation, this is not possible.
 
+<br />
 
 <a name="faq54"></a>
 **(54) How do I use a namespace prefix?**
@@ -825,6 +878,7 @@ For example the Gmail spam folder is called:
 
 By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.
 
+<br />
 
 <a name="faq55"></a>
 **(55) How can I mark all messages as read / move or delete all messages?**
@@ -833,6 +887,7 @@ You can use multiple select for this.
 Long press the first message, don't lift your finger and slide down to the last message.
 Then use the three dot action button to execute the desired action.
 
+<br />
 
 <a name="faq56"></a>
 **(56) Can you add support for JMAP?**
@@ -840,6 +895,7 @@ Then use the three dot action button to execute the desired action.
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
 so it is not worth to add support for this to FairEmail.
 
+<br />
 
 
 ## Support
