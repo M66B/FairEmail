@@ -447,13 +447,13 @@ public class FragmentAccount extends FragmentEx {
                         int auth_type = args.getInt("auth_type");
 
                         if (TextUtils.isEmpty(host))
-                            throw new Throwable(context.getString(R.string.title_no_host));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
                             port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
-                            throw new Throwable(context.getString(R.string.title_no_user));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                         if (TextUtils.isEmpty(password) && !insecure)
-                            throw new Throwable(context.getString(R.string.title_no_password));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                         CheckResult result = new CheckResult();
                         result.folders = new ArrayList<>();
@@ -550,11 +550,14 @@ public class FragmentAccount extends FragmentEx {
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
 
-                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.cancel, null)
-                                .create()
-                                .show();
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                    .setMessage(Helper.formatThrowable(ex))
+                                    .setPositiveButton(android.R.string.cancel, null)
+                                    .create()
+                                    .show();
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -645,17 +648,17 @@ public class FragmentAccount extends FragmentEx {
                         EntityFolder junk = (EntityFolder) args.getSerializable("junk");
 
                         if (TextUtils.isEmpty(host))
-                            throw new Throwable(context.getString(R.string.title_no_host));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                         if (TextUtils.isEmpty(port))
                             port = (starttls ? "143" : "993");
                         if (TextUtils.isEmpty(user))
-                            throw new Throwable(context.getString(R.string.title_no_user));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                         if (synchronize && TextUtils.isEmpty(password) && !insecure)
-                            throw new Throwable(context.getString(R.string.title_no_password));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_password));
                         if (TextUtils.isEmpty(interval))
                             interval = "19";
                         if (synchronize && drafts == null)
-                            throw new Throwable(context.getString(R.string.title_no_drafts));
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
 
                         if (Color.TRANSPARENT == color)
                             color = null;
@@ -837,11 +840,14 @@ public class FragmentAccount extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.cancel, null)
-                                .create()
-                                .show();
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                    .setMessage(Helper.formatThrowable(ex))
+                                    .setPositiveButton(android.R.string.cancel, null)
+                                    .create()
+                                    .show();
                     }
                 }.load(FragmentAccount.this, args);
             }

@@ -600,11 +600,14 @@ public class FragmentIdentity extends FragmentEx {
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
 
-                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                .setMessage(Helper.formatThrowable(ex))
-                                .setPositiveButton(android.R.string.cancel, null)
-                                .create()
-                                .show();
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                    .setMessage(Helper.formatThrowable(ex))
+                                    .setPositiveButton(android.R.string.cancel, null)
+                                    .create()
+                                    .show();
                     }
                 }.load(FragmentIdentity.this, args);
             }
