@@ -132,7 +132,12 @@ public class Provider {
             return Provider.fromISPDB(domain);
         } catch (Throwable ex) {
             Log.w(ex);
-            return Provider.fromDNS(domain);
+            try {
+                return Provider.fromDNS(domain);
+            } catch (UnknownHostException ex1) {
+                Log.w(ex1);
+                throw new IllegalArgumentException(context.getString(R.string.title_no_settings));
+            }
         }
     }
 
