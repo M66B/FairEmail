@@ -206,6 +206,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spProvider" />
 
+        <TextView
+            android:id="@+id/tvDomainHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_optional"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDomain" />
+
         <EditText
             android:id="@+id/etDomain"
             android:layout_width="match_parent"
@@ -214,7 +224,7 @@
             android:inputType="textUri"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDomain" />
+            app:layout_constraintTop_toBottomOf="@id/tvDomainHint" />
 
         <Button
             android:id="@+id/btnAutoConfig"
