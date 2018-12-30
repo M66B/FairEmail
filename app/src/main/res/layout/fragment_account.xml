@@ -577,7 +577,7 @@
             android:id="@+id/grpServer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvDomain,etDomain,btnAutoConfig,tvImap,tvPop,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
+            app:constraint_referenced_ids="tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvImap,tvPop,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"

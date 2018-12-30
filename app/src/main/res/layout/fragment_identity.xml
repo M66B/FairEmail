@@ -524,6 +524,6 @@
             android:id="@+id/grpAdvanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
+            app:constraint_referenced_ids="tvReplyTo,etReplyTo,tvBcc,etBcc,cbDeliveryReceipt,cbReadReceipt,tvReceipt,tvProvider,spProvider,tvDomain,tvDomainHint,etDomain,btnAutoConfig,tvSmtp,tvHost,etHost,cbStartTls,cbInsecure,tvPort,etPort,tvUser,etUser,tvPassword,tilPassword,cbSynchronize,cbPrimary,tvSent,spSent,tvSentHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
