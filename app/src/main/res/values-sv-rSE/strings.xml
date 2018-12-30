@@ -135,7 +135,6 @@
     <string name="title_account_notify">Separera aviseringar</string>
     <string name="title_domain">Domännamn</string>
     <string name="title_autoconfig">Hämta inställningar</string>
-    <string name="title_no_settings">Inställningar hittades inte</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Leverantör</string>

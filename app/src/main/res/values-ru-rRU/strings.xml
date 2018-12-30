@@ -10,6 +10,18 @@
     <string name="tile_unseen">Новые сообщения</string>
     <string name="shortcut_compose">Составить</string>
     <string name="shortcut_setup">Установка</string>
+    <plurals name="title_tile_unseen">
+        <item quantity="one">%1$d новое</item>
+        <item quantity="few">%1$d новых</item>
+        <item quantity="many">%1$d новые</item>
+        <item quantity="other">%1$d новых</item>
+    </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Переместить сообщение %1$d %2$s?</item>
+        <item quantity="few">Перемещение сообщений %1$d к %2$s?</item>
+        <item quantity="many">Перемещение сообщений %1$d к %2$s?</item>
+        <item quantity="other">Перемещение сообщений %1$d к %2$s?</item>
+    </plurals>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="menu_setup">Установка</string>
     <string name="menu_answers">Шаблоны</string>
@@ -43,6 +55,8 @@
     <string name="title_setup_password_invalid">Пароль неверный</string>
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
+    <string name="title_setup_quick">Быстрая настройка</string>
+    <string name="title_setup_quick_remark">Быстрые настройки могут быть использованы для большинства основных поставщиков</string>
     <string name="title_setup_account">Управление аккаунтами</string>
     <string name="title_setup_account_remark">Подключить электронную почту</string>
     <string name="title_setup_identity">Управление идентификаторами</string>
@@ -62,6 +76,8 @@
     <string name="title_advanced">Дополнительные опции</string>
     <string name="title_advanced_section_general">Общее</string>
     <string name="title_advanced_section_connection">Соединение</string>
+    <string name="title_advanced_section_display">Дисплей</string>
+    <string name="title_advanced_section_behavior">Режимы</string>
     <string name="title_advanced_section_misc">Разное</string>
     <string name="title_advanced_enabled">Cинхронизировать</string>
     <string name="title_advanced_metered">Использовать другие соединения</string>
@@ -82,6 +98,7 @@
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
     <string name="title_advanced_debug">Режим отладки</string>
+    <string name="title_advanced_enabled_hint">Глобальное отключение или включение полученых и отправленных сообщений</string>
     <string name="title_advanced_browse_hint">Загрузить больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
@@ -101,7 +118,6 @@
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
-    <string name="title_no_settings">Настройки не найдены</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Провайдер</string>

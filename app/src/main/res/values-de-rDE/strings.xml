@@ -67,6 +67,8 @@
     <string name="title_setup_password_invalid">Passwort ungültig</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
+    <string name="title_setup_quick">Schnellkonfiguration</string>
+    <string name="title_setup_quick_remark">Schnellkonfiguration kann für die meisten größeren Anbieter genutzt werden</string>
     <string name="title_setup_account">Konten verwalten</string>
     <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
     <string name="title_setup_identity">Identitäten verwalten</string>
@@ -136,7 +138,6 @@
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
-    <string name="title_no_settings">Einstellungen nicht gefunden</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Anbieter</string>
@@ -173,7 +174,9 @@
     <string name="title_identity_sent_hint">Versendete Nachrichten werden schon in fast allen Fällen automatisch im \'Versendet\' Ordner gespeichert</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
+    <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
+    <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
     <string name="title_delete_operation">Lösche Operationen mit einer Fehlermeldung?</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Name</string>

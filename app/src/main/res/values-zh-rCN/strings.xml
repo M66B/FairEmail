@@ -130,7 +130,6 @@
     <string name="title_account_notify">单独的通知</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
-    <string name="title_no_settings">设置未找到</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">服务提供商</string>

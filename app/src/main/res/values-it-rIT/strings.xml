@@ -67,6 +67,11 @@
     <string name="title_setup_password_invalid">Password non valida</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
+    <string name="title_setup_quick">Configurazione rapida</string>
+    <string name="title_setup_quick_remark">La configurazione rapida può essere utilizzata per la maggior parte dei principali provider</string>
+    <string name="title_setup_no_settings">Nessuna impostazione trovata per \'%1$s\'</string>
+    <string name="title_setup_quick_success">Sono stati aggiunti un account e un\'identità. Puoi rivedere i dettagli qui sotto usando i pulsanti \'gestisci\'.</string>
+    <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
     <string name="title_setup_account">Gestisci account</string>
     <string name="title_setup_account_remark">Per ricevere email</string>
     <string name="title_setup_identity">Gestione identità</string>
@@ -136,7 +141,6 @@
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_domain">Nome dominio</string>
     <string name="title_autoconfig">Ottieni impostazioni</string>
-    <string name="title_no_settings">Impostazioni non trovate</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Fornitore</string>
@@ -173,7 +177,9 @@
     <string name="title_identity_sent_hint">I messaggi inviati verranno già automaticamente salvati nella cartella Inviati nella maggior parte dei casi</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
+    <string name="title_empty_trash">Svuota cestino</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
+    <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>

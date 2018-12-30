@@ -77,7 +77,6 @@
     <string name="title_account_color">Color</string>
     <string name="title_domain">Nom de domini</string>
     <string name="title_autoconfig">Obté la configuració de</string>
-    <string name="title_no_settings">Configuració no trobada</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Proveïdor</string>

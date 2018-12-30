@@ -136,7 +136,6 @@
     <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>
-    <string name="title_no_settings">Tənzimləmələr tapılmadı</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Təchizatçı</string>

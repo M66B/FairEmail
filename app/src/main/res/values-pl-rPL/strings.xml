@@ -127,7 +127,6 @@
     <string name="title_account_notify">Oddzielne powiadomienia</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
-    <string name="title_no_settings">Ustawienia nie znalezione</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Dostawca</string>

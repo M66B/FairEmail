@@ -67,6 +67,7 @@
     <string name="title_setup_password_invalid">Contraseña no válida</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
+    <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_account">Gestionar cuentas</string>
     <string name="title_setup_account_remark">Para recibir correo electrónico</string>
     <string name="title_setup_identity">Gestionar identidades</string>
@@ -136,7 +137,6 @@
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
-    <string name="title_no_settings">Ajustes no encontrados</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Proveedor</string>
@@ -173,7 +173,9 @@
     <string name="title_identity_sent_hint">Los mensajes enviados serán guardados automáticamente en la carpeta de enviados en la mayoría de los casos</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
+    <string name="title_empty_trash">Vaciar papelera</string>
     <string name="title_edit_properties">Editar propiedades</string>
+    <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_folder_name">Nombre de carpeta</string>
     <string name="title_display_name">Nombre para mostrar</string>

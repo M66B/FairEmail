@@ -134,7 +134,6 @@
     <string name="title_account_notify">Ayrı bildirimler</string>
     <string name="title_domain">Alan adı</string>
     <string name="title_autoconfig">Ayarları al</string>
-    <string name="title_no_settings">Ayarlar bulunamadı</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Sağlayıcı</string>

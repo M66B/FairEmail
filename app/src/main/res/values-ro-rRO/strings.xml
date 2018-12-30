@@ -142,7 +142,6 @@
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
-    <string name="title_no_settings">Setările nu a fost găsite</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Furnizor</string>
