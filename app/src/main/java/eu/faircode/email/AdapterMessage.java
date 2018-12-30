@@ -112,6 +112,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private FragmentManager fragmentManager;
     private ViewType viewType;
     private boolean outgoing;
+    private int zoom;
     private boolean internet;
     private IProperties properties;
 
@@ -1691,6 +1692,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.fragmentManager = fragmentManager;
         this.viewType = viewType;
         this.outgoing = outgoing;
+        this.zoom = zoom;
         this.internet = (Helper.isMetered(context, false) != null);
         this.properties = properties;
 
@@ -1727,8 +1729,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void setZoom(int zoom) {
-        textSize = Helper.getTextSize(context, zoom);
-        notifyDataSetChanged();
+        if (this.zoom != zoom) {
+            this.zoom = zoom;
+            textSize = Helper.getTextSize(context, zoom);
+            notifyDataSetChanged();
+        }
     }
 
     void checkInternet() {

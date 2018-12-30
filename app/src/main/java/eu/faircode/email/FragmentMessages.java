@@ -100,17 +100,17 @@ public class FragmentMessages extends FragmentEx {
     private FloatingActionButton fab;
     private FloatingActionButton fabMore;
 
-    private long account = -1;
-    private long folder = -1;
-    private boolean outgoing = false;
-    private String thread = null;
-    private long id = -1;
-    private String search = null;
+    private long account;
+    private long folder;
+    private boolean outgoing;
+    private String thread;
+    private long id;
+    private String search;
 
-    private int zoom = 0;
-    private boolean threading = true;
-    private boolean actionbar = false;
-    private boolean autoclose = false;
+    private boolean compact;
+    private boolean threading;
+    private boolean actionbar;
+    private boolean autoclose;
 
     private long primary = -1;
     private boolean outbox = false;
@@ -151,8 +151,7 @@ public class FragmentMessages extends FragmentEx {
         search = args.getString("search");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        compact = prefs.getBoolean("compact", false);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
         autoclose = prefs.getBoolean("autoclose", true);
@@ -316,6 +315,7 @@ public class FragmentMessages extends FragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvMessage.setLayoutManager(llm);
 
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         adapter = new AdapterMessage(
                 getContext(), getViewLifecycleOwner(), getFragmentManager(),
                 viewType, outgoing,
@@ -1370,6 +1370,10 @@ public class FragmentMessages extends FragmentEx {
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        adapter.setZoom(zoom);
     }
 
     @Override
@@ -1509,37 +1513,29 @@ public class FragmentMessages extends FragmentEx {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
         switch (item.getItemId()) {
             case R.id.menu_sort_on_time:
-                prefs.edit().putString("sort", "time").apply();
                 item.setChecked(true);
-                loadMessages();
+                onMenuSort("time");
                 return true;
 
             case R.id.menu_sort_on_unread:
-                prefs.edit().putString("sort", "unread").apply();
                 item.setChecked(true);
-                loadMessages();
+                onMenuSort("unread");
                 return true;
 
             case R.id.menu_sort_on_starred:
-                prefs.edit().putString("sort", "starred").apply();
                 item.setChecked(true);
-                loadMessages();
+                onMenuSort("starred");
                 return true;
 
             case R.id.menu_sort_on_sender:
-                prefs.edit().putString("sort", "sender").apply();
                 item.setChecked(true);
-                loadMessages();
+                onMenuSort("sender");
                 return true;
 
             case R.id.menu_zoom:
-                zoom = ++zoom % 3;
-                prefs.edit().putInt("zoom", zoom).apply();
-                adapter.setZoom(zoom);
+                onMenuZoom();
                 return true;
 
             case R.id.menu_folders:
@@ -1554,6 +1550,20 @@ public class FragmentMessages extends FragmentEx {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuSort(String sort) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putString("sort", sort).apply();
+        loadMessages();
+    }
+
+    private void onMenuZoom() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        zoom = ++zoom % 3;
+        prefs.edit().putInt("zoom", zoom).apply();
+        adapter.setZoom(zoom);
     }
 
     private void onMenuFolders() {
