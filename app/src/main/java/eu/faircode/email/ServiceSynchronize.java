@@ -616,7 +616,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             mbuilder
                     .addExtras(args)
-                    .setSmallIcon(R.drawable.baseline_mail_24)
+                    .setSmallIcon(R.drawable.baseline_email_white_24)
                     .setContentTitle(MessageHelper.getFormattedAddresses(message.from, true))
                     .setSubText(message.accountName + " · " + folderName)
                     .setContentIntent(piContent)
