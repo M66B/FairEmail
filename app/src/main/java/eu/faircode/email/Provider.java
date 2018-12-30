@@ -142,6 +142,12 @@ public class Provider {
     }
 
     private static Provider fromISPDB(String domain) throws IOException, XmlPullParserException {
+        Provider provider = new Provider(domain);
+        if ("gmail.com".equals(domain)) {
+            provider.documentation = new StringBuilder();
+            provider.documentation.append("<a href=\"https://www.google.com/settings/security/lesssecureapps\">Enable access for \"less secure\" apps</a>");
+        }
+
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
         Log.i("Fetching " + url);
@@ -162,7 +168,6 @@ public class Provider {
         boolean smtp = false;
         String href = null;
         String title = null;
-        Provider provider = new Provider(domain);
         int eventType = xml.getEventType();
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if (eventType == XmlPullParser.START_TAG) {
