@@ -41,7 +41,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_faq">Hilfe</string>
     <string name="menu_pro">Pro-Funktionen</string>
-    <string name="menu_privacy">Datenschutz</string>
+    <string name="menu_privacy">Datenschutzerklärung</string>
     <string name="menu_about">Über</string>
     <string name="menu_invite">Einladen</string>
     <string name="menu_rate">Bewerte die App</string>
@@ -69,6 +69,9 @@
     <string name="title_setup_imported">Einstellungen importiert</string>
     <string name="title_setup_quick">Schnellkonfiguration</string>
     <string name="title_setup_quick_remark">Schnellkonfiguration kann für die meisten größeren Anbieter genutzt werden</string>
+    <string name="title_setup_no_settings">Keine Einstellungen gefunden für \'%1$s\'</string>
+    <string name="title_setup_quick_success">Ein Konto und eine Identität wurden hinzugefügt. Sie können die Details unter Verwendung den \"verwalten\"-Schaltflächen überprüfen.</string>
+    <string name="title_setup_quick_failed">Sie können unten versuchen, ein Konto und eine Identität zu konfigurieren</string>
     <string name="title_setup_account">Konten verwalten</string>
     <string name="title_setup_account_remark">Um E-Mails zu erhalten</string>
     <string name="title_setup_identity">Identitäten verwalten</string>
@@ -171,7 +174,7 @@
     <string name="title_account_delete">Möchten Sie dieses Konto unwiderruflich löschen?</string>
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
-    <string name="title_identity_sent_hint">Versendete Nachrichten werden schon in fast allen Fällen automatisch im \'Versendet\' Ordner gespeichert</string>
+    <string name="title_identity_sent_hint">Versendete E-Mails werden in den meisten Fällen automatisch im Gesendet-Ordner gespeichert</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
@@ -337,7 +340,7 @@
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichtentexte / empfangenen Kopfzeilen</string>
     <string name="title_hint_folder_actions">Gedrückt halten für weitere Optionen</string>
-    <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden nicht alle Ordner und E-Mails standardmäßig synchronisiert</string>
+    <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Nach links wischen um zu Löschen; nach rechts wischen um zu Archivieren (falls vorhanden)</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
