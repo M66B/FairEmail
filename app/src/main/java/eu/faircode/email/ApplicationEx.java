@@ -104,6 +104,9 @@ public class ApplicationEx extends Application {
             if (ex instanceof RuntimeException && ex.getCause() instanceof DeadSystemException)
                 return false;
 
+        if (BuildConfig.BETA_RELEASE)
+            return true;
+
         while (ex != null) {
             for (StackTraceElement ste : ex.getStackTrace())
                 if (ste.getClassName().startsWith(getPackageName()))
