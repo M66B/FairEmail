@@ -72,8 +72,8 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def appcompat_version = "1.1.0-alpha01"
-    def recyclerview_version = "1.1.0-alpha01"
+    def appcompat_version = "1.0.2"
+    def recyclerview_version = "1.0.0"
     def coordinatorlayout_version = "1.0.0"
     def constraintlayout_version = "1.1.3"
     def material_version = "1.0.0"
