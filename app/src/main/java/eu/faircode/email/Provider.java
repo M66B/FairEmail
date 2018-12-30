@@ -129,11 +129,11 @@ public class Provider {
 
     static Provider fromDomain(Context context, String domain) throws IOException {
         try {
-            return Provider.fromISPDB(domain);
+            return Provider.fromISPDB(context, domain);
         } catch (Throwable ex) {
             Log.w(ex);
             try {
-                return Provider.fromDNS(domain);
+                return Provider.fromDNS(context, domain);
             } catch (UnknownHostException ex1) {
                 Log.w(ex1);
                 throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
@@ -141,11 +141,14 @@ public class Provider {
         }
     }
 
-    private static Provider fromISPDB(String domain) throws IOException, XmlPullParserException {
+    private static Provider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
         Provider provider = new Provider(domain);
         if ("gmail.com".equals(domain)) {
             provider.documentation = new StringBuilder();
-            provider.documentation.append("<a href=\"https://www.google.com/settings/security/lesssecureapps\">Enable access for \"less secure\" apps</a>");
+            provider.documentation
+                    .append("<a href=\"https://www.google.com/settings/security/lesssecureapps\">")
+                    .append(context.getString(R.string.title_setup_setting_gmail))
+                    .append("</a>");
         }
 
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
@@ -320,7 +323,7 @@ public class Provider {
         return provider;
     }
 
-    private static Provider fromDNS(String domain) throws TextParseException, UnknownHostException {
+    private static Provider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
         SRVRecord imap = lookup("_imaps._tcp." + domain);
         SRVRecord smtp = lookup("_submission._tcp." + domain);
