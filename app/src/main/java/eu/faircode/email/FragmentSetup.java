@@ -195,7 +195,7 @@ public class FragmentSetup extends FragmentEx {
             public void onClick(View v) {
                 Bundle args = new Bundle();
                 args.putString("name", etName.getText().toString());
-                args.putString("email", etEmail.getText().toString());
+                args.putString("email", etEmail.getText().toString().trim());
                 args.putString("password", tilPassword.getEditText().getText().toString());
 
                 new SimpleTask<Void>() {

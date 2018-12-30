@@ -429,10 +429,10 @@ public class FragmentIdentity extends FragmentEx {
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putString("name", name);
-                args.putString("email", etEmail.getText().toString());
+                args.putString("email", etEmail.getText().toString().trim());
                 args.putString("display", etDisplay.getText().toString());
-                args.putString("replyto", etReplyTo.getText().toString());
-                args.putString("bcc", etBcc.getText().toString());
+                args.putString("replyto", etReplyTo.getText().toString().trim());
+                args.putString("bcc", etBcc.getText().toString().trim());
                 args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
                 args.putBoolean("read_receipt", cbReadReceipt.isChecked());
                 args.putLong("account", account == null ? -1 : account.id);
