@@ -6,13 +6,7 @@ You'll need to add at least one account to receive email and at least one identi
 
 ## Requirements
 
-An internet connection is required to add accounts and identities.
-
-Your email provider should support secure connections.
-If your provider doesn't support secure connections and you care at least a little about your privacy,
-you are strongly advised to switch to another provider.
-
-For security reasons, your account should not have a non empty password.
+An internet connection is required to setup accounts and identities.
 
 
 ## Quick setup
