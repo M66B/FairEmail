@@ -188,6 +188,8 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
+        tilPassword.setHintEnabled(false);
+
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
