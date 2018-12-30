@@ -119,11 +119,7 @@ public class Helper {
 
         if (browse) {
             Intent view = new Intent(Intent.ACTION_VIEW, uri);
-            PackageManager pm = context.getPackageManager();
-            if (view.resolveActivity(pm) == null)
-                Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
-            else
-                context.startActivity(view);
+            context.startActivity(getChooser(context, view));
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
