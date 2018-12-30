@@ -412,13 +412,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 ivExpander.setVisibility(View.GONE);
 
-            boolean flagged;
-            if (viewType == ViewType.THREAD)
-                flagged = (message.unflagged == 0);
-            else
-                flagged = (message.count - message.unflagged > 0);
-            ivFlagged.setImageResource(flagged ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged ? colorAccent : textColorSecondary));
+            int flagged = (message.count - message.unflagged);
+            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
             ivFlagged.setVisibility(message.uid == null ? View.INVISIBLE : View.VISIBLE);
 
             tvFrom.setText(MessageHelper.getFormattedAddresses(outgoing ? message.to : message.from, false));
@@ -446,7 +442,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCount.setVisibility(View.GONE);
                 ivThread.setVisibility(View.GONE);
             } else {
-                tvCount.setText(Integer.toString(message.count));
+                tvCount.setText(Integer.toString(message.visible));
                 ivThread.setVisibility(View.VISIBLE);
             }
 

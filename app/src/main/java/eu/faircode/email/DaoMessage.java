@@ -49,11 +49,12 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", COUNT(DISTINCT message.msgid) AS count" +
+            ", COUNT(message.id) AS count" +
             ", " + unseen_unified + " AS unseen" +
             ", " + unflagged_unified + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", 0 AS duplicate" +
+            ", COUNT(DISTINCT message.msgid) AS visible" +
             ", MAX(CASE WHEN folder.unified THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -85,10 +86,11 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", COUNT(DISTINCT message.msgid) AS count" +
+            ", COUNT(message.id) AS count" +
             ", " + unseen_folder + " AS unseen" +
             ", " + unflagged_folder + " AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", COUNT(DISTINCT message.msgid) AS visible" +
             ", 0 AS duplicate" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
@@ -114,10 +116,11 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
+            ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", 1 AS visible" +
 
             ", ((folder.type = '" + EntityFolder.ARCHIVE + "' OR folder.type = '" + EntityFolder.SENT + "')" +
             " AND EXISTS (" +
@@ -194,10 +197,11 @@ public interface DaoMessage {
     @Query("SELECT message.*" +
             ", account.name AS accountName, identity.color AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType" +
-            ", (SELECT COUNT(m1.id) FROM message m1 WHERE m1.account = message.account AND m1.thread = message.thread AND NOT m1.ui_hide) AS count" +
+            ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
+            ", 1 AS visible" +
             ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
@@ -213,6 +217,7 @@ public interface DaoMessage {
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
             ", 0 AS attachments" +
+            ", 1 AS visible" +
             ", 0 AS duplicate" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
