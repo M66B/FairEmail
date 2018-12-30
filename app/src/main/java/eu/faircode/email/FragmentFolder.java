@@ -126,10 +126,6 @@ public class FragmentFolder extends FragmentEx {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.setViewsEnabled(view, false);
-                btnSave.setEnabled(false);
-                pbSave.setVisibility(View.VISIBLE);
-
                 Bundle args = new Bundle();
                 args.putLong("id", id);
                 args.putLong("account", account);
@@ -147,6 +143,20 @@ public class FragmentFolder extends FragmentEx {
                         : etKeepDays.getText().toString());
 
                 new SimpleTask<Void>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        Helper.setViewsEnabled(view, false);
+                        btnSave.setEnabled(false);
+                        pbSave.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    protected void onCleanup(Bundle args) {
+                        Helper.setViewsEnabled(view, true);
+                        btnSave.setEnabled(true);
+                        pbSave.setVisibility(View.GONE);
+                    }
+
                     @Override
                     protected Void onLoad(Context context, Bundle args) {
                         long id = args.getLong("id");
@@ -244,10 +254,6 @@ public class FragmentFolder extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.setViewsEnabled(view, true);
-                        btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
-
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
