@@ -42,7 +42,7 @@
         android:id="@+id/menu_folders"
         android:icon="@drawable/baseline_folder_open_24"
         android:title="@string/title_folder_primary"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_move_sent"

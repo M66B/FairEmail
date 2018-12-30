@@ -1489,7 +1489,6 @@ public class FragmentMessages extends FragmentEx {
                 folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_sort_on).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
-        menu.findItem(R.id.menu_zoom).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
         menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
         menu.findItem(R.id.menu_move_sent).setVisible(outbox);

@@ -177,6 +177,25 @@ public class Helper {
         return Math.round(dp * scale);
     }
 
+    static float getTextSize(int zoom, Context context) {
+        TypedArray ta = null;
+        try {
+            if (zoom == 0)
+                ta = context.obtainStyledAttributes(
+                        R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
+            else if (zoom == 2)
+                ta = context.obtainStyledAttributes(
+                        R.style.TextAppearance_AppCompat_Large, new int[]{android.R.attr.textSize});
+            else
+                ta = context.obtainStyledAttributes(
+                        R.style.TextAppearance_AppCompat_Medium, new int[]{android.R.attr.textSize});
+            return ta.getDimension(0, 0) / context.getResources().getDisplayMetrics().density;
+        } finally {
+            if (ta != null)
+                ta.recycle();
+        }
+    }
+
     static int resolveColor(Context context, int attr) {
         int[] attrs = new int[]{attr};
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs);
