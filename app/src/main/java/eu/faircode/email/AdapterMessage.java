@@ -1705,8 +1705,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.confirm = prefs.getBoolean("confirm", false);
         this.debug = prefs.getBoolean("debug", false);
 
-        this.dp24 = Helper.dp2pixels(24, context);
-        this.textSize = Helper.getTextSize(zoom, context);
+        this.dp24 = Helper.dp2pixels(context, 24);
+        this.textSize = Helper.getTextSize(context, zoom);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
@@ -1726,7 +1726,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void setZoom(int zoom) {
-        textSize = Helper.getTextSize(zoom, context);
+        textSize = Helper.getTextSize(context, zoom);
         notifyDataSetChanged();
     }
 

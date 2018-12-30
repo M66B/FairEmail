@@ -306,9 +306,9 @@ public class FragmentCompose extends FragmentEx {
             public void onGlobalLayout() {
                 int bottom = view.getBottom()
                         - edit_bar.getHeight()
-                        - Helper.dp2pixels(56, view.getContext()); // full bottom navigation
+                        - Helper.dp2pixels(view.getContext(), 56); // full bottom navigation
                 int remain = bottom - etBody.getTop();
-                int threshold = Helper.dp2pixels(100, view.getContext());
+                int threshold = Helper.dp2pixels(view.getContext(), 100);
                 Log.i("Reduce remain=" + remain + " threshold=" + threshold);
 
                 boolean reduce = (remain < threshold);
@@ -318,7 +318,7 @@ public class FragmentCompose extends FragmentEx {
                             ? LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
                             : LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
                     ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
-                    params.height = Helper.dp2pixels(reduce ? 36 : 56, view.getContext());
+                    params.height = Helper.dp2pixels(view.getContext(), reduce ? 36 : 56);
                     bottom_navigation.setLayoutParams(params);
                 }
             }
@@ -1864,7 +1864,7 @@ public class FragmentCompose extends FragmentEx {
                 }
             }
 
-            int px = Helper.dp2pixels(12, getContext());
+            int px = Helper.dp2pixels(getContext(), 12);
             Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
             d.setBounds(0, 0, px, px);
             return d;

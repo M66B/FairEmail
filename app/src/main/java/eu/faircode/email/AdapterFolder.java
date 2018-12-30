@@ -183,9 +183,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
             ivSync.setImageTintList(ColorStateList.valueOf(
-                    Helper.resolveColor(context,
-                            folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
-                                    ? R.attr.colorUnread : android.R.attr.textColorSecondary)));
+                    Helper.resolveColor(context, folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
+                            ? R.attr.colorUnread : android.R.attr.textColorSecondary
+                    )));
 
             tvKeywords.setText(TextUtils.join(" ", folder.keywords));
             tvKeywords.setVisibility(debug && folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
@@ -378,7 +378,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
 
-        this.dp12 = Helper.dp2pixels(12, context);
+        this.dp12 = Helper.dp2pixels(context, 12);
 
         setHasStableIds(true);
     }

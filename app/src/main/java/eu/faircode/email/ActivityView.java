@@ -553,7 +553,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 in.close();
                         }
 
-                        return Helper.getDebugInfo(R.string.title_crash_info_remark, null, sb.toString(), context).id;
+                        return Helper.getDebugInfo(context, R.string.title_crash_info_remark, null, sb.toString()).id;
                     } finally {
                         file.delete();
                     }
@@ -909,7 +909,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Long>() {
             @Override
             protected Long onLoad(Context context, Bundle args) throws IOException {
-                return Helper.getDebugInfo(R.string.title_debug_info_remark, null, null, context).id;
+                return Helper.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
             }
 
             @Override
@@ -1016,8 +1016,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (tv != null) {
                 tv.setText(item.title);
 
-                tv.setTextColor(Helper.resolveColor(getContext(),
-                        item.highlight ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+                tv.setTextColor(Helper.resolveColor(getContext(), item.highlight ? R.attr.colorUnread : android.R.attr.textColorSecondary
+                ));
             }
 
             return row;

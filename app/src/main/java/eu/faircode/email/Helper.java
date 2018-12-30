@@ -172,12 +172,12 @@ public class Helper {
         return intent;
     }
 
-    static int dp2pixels(int dp, Context context) {
+    static int dp2pixels(Context context, int dp) {
         float scale = context.getResources().getDisplayMetrics().density;
         return Math.round(dp * scale);
     }
 
-    static float getTextSize(int zoom, Context context) {
+    static float getTextSize(Context context, int zoom) {
         TypedArray ta = null;
         try {
             if (zoom == 0)
@@ -254,7 +254,7 @@ public class Helper {
                             new SimpleTask<Long>() {
                                 @Override
                                 protected Long onLoad(Context context, Bundle args) throws Throwable {
-                                    return getDebugInfo(R.string.title_crash_info_remark, ex, null, context).id;
+                                    return getDebugInfo(context, R.string.title_crash_info_remark, ex, null).id;
                                 }
 
                                 @Override
@@ -280,7 +280,7 @@ public class Helper {
             ApplicationEx.writeCrashLog(context, ex);
     }
 
-    static EntityMessage getDebugInfo(int title, Throwable ex, String log, Context context) throws IOException {
+    static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n\n\n");
         sb.append(Helper.getAppInfo(context));
@@ -312,11 +312,11 @@ public class Helper {
             draft.id = db.message().insertMessage(draft);
             draft.write(context, body);
 
-            attachSettings(draft.id, 1, context);
-            attachNetworkInfo(draft.id, 2, context);
-            attachLog(draft.id, 3, context);
-            attachOperations(draft.id, 4, context);
-            attachLogcat(draft.id, 5, context);
+            attachSettings(context, draft.id, 1);
+            attachNetworkInfo(context, draft.id, 2);
+            attachLog(context, draft.id, 3);
+            attachOperations(context, draft.id, 4);
+            attachLogcat(context, draft.id, 5);
 
             EntityOperation.queue(db, draft, EntityOperation.ADD);
 
@@ -376,7 +376,7 @@ public class Helper {
         return sb;
     }
 
-    private static void attachSettings(long id, int sequence, Context context) throws IOException {
+    private static void attachSettings(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment ops = new EntityAttachment();
@@ -410,7 +410,7 @@ public class Helper {
         }
     }
 
-    private static void attachNetworkInfo(long id, int sequence, Context context) throws IOException {
+    private static void attachNetworkInfo(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment ops = new EntityAttachment();
@@ -449,7 +449,7 @@ public class Helper {
         }
     }
 
-    private static void attachLog(long id, int sequence, Context context) throws IOException {
+    private static void attachLog(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment log = new EntityAttachment();
@@ -483,7 +483,7 @@ public class Helper {
         }
     }
 
-    private static void attachOperations(long id, int sequence, Context context) throws IOException {
+    private static void attachOperations(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment ops = new EntityAttachment();
@@ -521,7 +521,7 @@ public class Helper {
         }
     }
 
-    private static void attachLogcat(long id, int sequence, Context context) throws IOException {
+    private static void attachLogcat(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
         EntityAttachment logcat = new EntityAttachment();
