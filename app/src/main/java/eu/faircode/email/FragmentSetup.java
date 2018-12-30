@@ -392,6 +392,10 @@ public class FragmentSetup extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, Void data) {
+                        etName.setText(null);
+                        etEmail.setText(null);
+                        tilPassword.getEditText().setText(null);
+
                         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                                 .setMessage(R.string.title_setup_quick_success)
                                 .setPositiveButton(android.R.string.ok, null)
