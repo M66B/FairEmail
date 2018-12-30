@@ -58,7 +58,7 @@ import com.android.colorpicker.ColorPickerSwatch;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -387,8 +387,8 @@ public class FragmentIdentity extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IOException)
-                            Snackbar.make(view, R.string.title_no_settings, Snackbar.LENGTH_LONG).show();
+                        if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }

@@ -87,6 +87,9 @@
     <string name="title_setup_imported">Settings imported</string>
     <string name="title_setup_quick">Quick config</string>
     <string name="title_setup_quick_remark">Quick config can be used for most major providers</string>
+    <string name="title_setup_no_settings">No settings found for \'%1$s\'</string>
+    <string name="title_setup_quick_success">An account and an identity have been added. You can review the details below using the \'manage\' buttons.</string>
+    <string name="title_setup_quick_failed">You can try to configure an account and an identity below</string>
     <string name="title_setup_account">Manage accounts</string>
     <string name="title_setup_account_remark">To receive email</string>
     <string name="title_setup_identity">Manage identities</string>
@@ -166,7 +169,6 @@
     <string name="title_account_notify">Separate notifications</string>
     <string name="title_domain">Domain name</string>
     <string name="title_autoconfig">Get settings</string>
-    <string name="title_no_settings">Settings not found</string>
     <string name="title_imap">IMAP</string>
     <string name="title_smtp">SMTP</string>
     <string name="title_provider">Provider</string>

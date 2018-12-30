@@ -136,7 +136,7 @@ public class Provider {
                 return Provider.fromDNS(domain);
             } catch (UnknownHostException ex1) {
                 Log.w(ex1);
-                throw new IllegalArgumentException(context.getString(R.string.title_no_settings));
+                throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
             }
         }
     }
@@ -335,8 +335,8 @@ public class Provider {
     private static SRVRecord lookup(String dns) throws TextParseException, UnknownHostException {
         Lookup lookup = new Lookup(dns, Type.SRV);
 
-        // https://dns.watch/
-        SimpleResolver resolver = new SimpleResolver("84.200.69.80");
+        // https://dns.watch/ 84.200.69.80
+        SimpleResolver resolver = new SimpleResolver("8.8.8.8");
         lookup.setResolver(resolver);
         Log.i("Lookup dns=" + dns + " @" + resolver.getAddress());
         Record[] records = lookup.run();

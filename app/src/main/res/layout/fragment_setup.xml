@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <ImageButton
             android:id="@+id/ibHelp"
             android:layout_width="wrap_content"
@@ -86,6 +85,31 @@
             app:layout_constraintTop_toBottomOf="@id/btnQuick" />
 
         <TextView
+            android:id="@+id/tvQuickError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="error"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuickRemark" />
+
+        <TextView
+            android:id="@+id/tvQuickFailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_quick_failed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuickError" />
+
+        <TextView
             android:id="@+id/tvInstructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +118,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuickRemark" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuickFailed" />
 
         <View
             android:id="@+id/vSeparatorQuick"
@@ -347,5 +371,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbBlackTheme" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpQuickError"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvQuickError,tvQuickFailed" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -90,6 +90,7 @@ import javax.mail.Transport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
@@ -106,6 +107,8 @@ public class FragmentSetup extends FragmentEx {
     private EditText etEmail;
     private TextInputLayout tilPassword;
     private Button btnQuick;
+    private TextView tvQuickError;
+    private Group grpQuickError;
     private TextView tvInstructions;
 
     private Button btnAccount;
@@ -156,6 +159,8 @@ public class FragmentSetup extends FragmentEx {
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnQuick = view.findViewById(R.id.btnQuick);
+        tvQuickError = view.findViewById(R.id.tvQuickError);
+        grpQuickError = view.findViewById(R.id.grpQuickError);
         tvInstructions = view.findViewById(R.id.tvInstructions);
 
         btnAccount = view.findViewById(R.id.btnAccount);
@@ -205,6 +210,8 @@ public class FragmentSetup extends FragmentEx {
                         etEmail.setEnabled(false);
                         tilPassword.setEnabled(false);
                         btnQuick.setEnabled(false);
+                        grpQuickError.setVisibility(View.GONE);
+                        tvInstructions.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -385,7 +392,11 @@ public class FragmentSetup extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, Void data) {
-                        finish();
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                .setMessage(R.string.title_setup_quick_success)
+                                .setPositiveButton(android.R.string.ok, null)
+                                .create()
+                                .show();
                     }
 
                     @Override
@@ -397,12 +408,10 @@ public class FragmentSetup extends FragmentEx {
 
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                    .setMessage(Helper.formatThrowable(ex))
-                                    .setPositiveButton(android.R.string.cancel, null)
-                                    .create()
-                                    .show();
+                        else {
+                            tvQuickError.setText(Helper.formatThrowable(ex));
+                            grpQuickError.setVisibility(View.VISIBLE);
+                        }
                     }
                 }.load(FragmentSetup.this, args);
             }
@@ -524,6 +533,7 @@ public class FragmentSetup extends FragmentEx {
 
         // Initialize
         ibHelp.setVisibility(View.GONE);
+        grpQuickError.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
