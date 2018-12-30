@@ -175,7 +175,17 @@ public class Provider {
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if (eventType == XmlPullParser.START_TAG) {
                 String name = xml.getName();
-                if ("incomingServer".equals(name)) {
+                if ("displayShortName".equals(name)) {
+                    // <displayShortName>GMail</displayShortName>
+                    eventType = xml.next();
+                    if (eventType == XmlPullParser.TEXT) {
+                        String display = xml.getText();
+                        Log.i("Name=" + display);
+                        provider.name = display;
+                    }
+                    continue;
+
+                } else if ("incomingServer".equals(name)) {
                     // <incomingServer type="imap">
                     //   <hostname>imap.gmail.com</hostname>
                     //   <port>993</port>
