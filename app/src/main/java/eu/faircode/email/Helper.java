@@ -189,7 +189,7 @@ public class Helper {
             else
                 ta = context.obtainStyledAttributes(
                         R.style.TextAppearance_AppCompat_Medium, new int[]{android.R.attr.textSize});
-            return ta.getDimension(0, 0) / context.getResources().getDisplayMetrics().density;
+            return ta.getDimension(0, 0);
         } finally {
             if (ta != null)
                 ta.recycle();

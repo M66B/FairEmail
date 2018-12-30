@@ -52,6 +52,7 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -471,8 +472,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCount.setTypeface(null, typeface);
 
             if (textSize != 0) {
-                tvFrom.setTextSize(textSize);
-                tvSubject.setTextSize(textSize);
+                tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             }
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
@@ -545,7 +546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bnvActions.setVisibility(View.VISIBLE);
 
                 if (textSize != 0)
-                    tvBody.setTextSize(textSize);
+                    tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
                 Spanned body = properties.getBody(message.id);
                 tvBody.setText(body);
