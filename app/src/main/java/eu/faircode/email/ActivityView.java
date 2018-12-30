@@ -177,8 +177,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DrawerItem item = (DrawerItem) parent.getAdapter().getItem(position);
                 switch (item.getId()) {
-                    case 0: // separator
-                        return;
                     case -1:
                         onMenuFolders((long) item.getData());
                         break;
@@ -1023,6 +1021,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
             return row;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            DrawerItem item = getItem(position);
+            return (item != null && item.id != 0);
         }
     }
 
