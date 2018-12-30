@@ -96,7 +96,6 @@ public class FragmentAccount extends FragmentEx {
     private EditText etUser;
     private TextInputLayout tilPassword;
 
-    private TextView tvName;
     private EditText etName;
     private Button btnColor;
     private View vwColor;
@@ -123,6 +122,8 @@ public class FragmentAccount extends FragmentEx {
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
+    private TextView tvError;
+
     private ContentLoadingProgressBar pbWait;
 
     private Group grpServer;
@@ -166,7 +167,6 @@ public class FragmentAccount extends FragmentEx {
         tilPassword = view.findViewById(R.id.tilPassword);
 
         etName = view.findViewById(R.id.etName);
-        tvName = view.findViewById(R.id.tvName);
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
@@ -192,6 +192,7 @@ public class FragmentAccount extends FragmentEx {
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+        tvError = view.findViewById(R.id.tvError);
 
         pbWait = view.findViewById(R.id.pbWait);
 
@@ -257,12 +258,9 @@ public class FragmentAccount extends FragmentEx {
             }
         });
 
-        btnAutoConfig.setEnabled(false);
-
         btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Bundle args = new Bundle();
                 args.putString("domain", etDomain.getText().toString());
 
@@ -414,14 +412,6 @@ public class FragmentAccount extends FragmentEx {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.setViewsEnabled(view, false);
-                btnAuthorize.setEnabled(false);
-                btnCheck.setEnabled(false);
-                pbCheck.setVisibility(View.VISIBLE);
-                tvIdle.setVisibility(View.GONE);
-                grpFolders.setVisibility(View.GONE);
-                btnSave.setVisibility(View.GONE);
-
                 Provider provider = (Provider) spProvider.getSelectedItem();
 
                 Bundle args = new Bundle();
@@ -435,6 +425,26 @@ public class FragmentAccount extends FragmentEx {
                 args.putInt("auth_type", authorized == null ? Helper.AUTH_TYPE_PASSWORD : provider.getAuthType());
 
                 new SimpleTask<CheckResult>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        Helper.setViewsEnabled(view, false);
+                        btnAuthorize.setEnabled(false);
+                        btnCheck.setEnabled(false);
+                        pbCheck.setVisibility(View.VISIBLE);
+                        tvIdle.setVisibility(View.GONE);
+                        grpFolders.setVisibility(View.GONE);
+                        btnSave.setVisibility(View.GONE);
+                        tvError.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    protected void onCleanup(Bundle args) {
+                        Helper.setViewsEnabled(view, true);
+                        btnAuthorize.setEnabled(true);
+                        btnCheck.setEnabled(true);
+                        pbCheck.setVisibility(View.GONE);
+                    }
+
                     @Override
                     protected CheckResult onLoad(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
@@ -524,11 +534,6 @@ public class FragmentAccount extends FragmentEx {
 
                     @Override
                     protected void onLoaded(Bundle args, CheckResult result) {
-                        Helper.setViewsEnabled(view, true);
-                        btnAuthorize.setEnabled(true);
-                        btnCheck.setEnabled(true);
-                        pbCheck.setVisibility(View.GONE);
-
                         tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
 
                         setFolders(result.folders);
@@ -543,21 +548,21 @@ public class FragmentAccount extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.setViewsEnabled(view, true);
-                        btnAuthorize.setEnabled(true);
-                        btnCheck.setEnabled(true);
-                        pbCheck.setVisibility(View.GONE);
                         grpFolders.setVisibility(View.GONE);
                         btnSave.setVisibility(View.GONE);
 
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                    .setMessage(Helper.formatThrowable(ex))
-                                    .setPositiveButton(android.R.string.cancel, null)
-                                    .create()
-                                    .show();
+                        else {
+                            tvError.setText(Helper.formatThrowable(ex));
+                            tvError.setVisibility(View.VISIBLE);
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                                }
+                            });
+                        }
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -566,12 +571,6 @@ public class FragmentAccount extends FragmentEx {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.setViewsEnabled(view, false);
-                btnAuthorize.setEnabled(false);
-                btnCheck.setEnabled(false);
-                btnSave.setEnabled(false);
-                pbSave.setVisibility(View.VISIBLE);
-
                 Provider provider = (Provider) spProvider.getSelectedItem();
 
                 EntityFolder drafts = (EntityFolder) spDrafts.getSelectedItem();
@@ -619,6 +618,25 @@ public class FragmentAccount extends FragmentEx {
                 args.putSerializable("junk", junk);
 
                 new SimpleTask<Void>() {
+                    @Override
+                    protected void onInit(Bundle args) {
+                        Helper.setViewsEnabled(view, false);
+                        btnAuthorize.setEnabled(false);
+                        btnCheck.setEnabled(false);
+                        btnSave.setEnabled(false);
+                        pbSave.setVisibility(View.VISIBLE);
+                        tvError.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    protected void onCleanup(Bundle args) {
+                        Helper.setViewsEnabled(view, true);
+                        btnAuthorize.setEnabled(true);
+                        btnCheck.setEnabled(true);
+                        btnSave.setEnabled(true);
+                        pbSave.setVisibility(View.GONE);
+                    }
+
                     @Override
                     protected Void onLoad(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
@@ -834,20 +852,18 @@ public class FragmentAccount extends FragmentEx {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.setViewsEnabled(view, true);
-                        btnAuthorize.setEnabled(true);
-                        btnCheck.setEnabled(true);
-                        btnSave.setEnabled(true);
-                        pbSave.setVisibility(View.GONE);
-
                         if (ex instanceof IllegalArgumentException)
                             Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                    .setMessage(Helper.formatThrowable(ex))
-                                    .setPositiveButton(android.R.string.cancel, null)
-                                    .create()
-                                    .show();
+                        else {
+                            tvError.setText(Helper.formatThrowable(ex));
+                            tvError.setVisibility(View.VISIBLE);
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ((ScrollView) view).smoothScrollTo(0, tvError.getBottom());
+                                }
+                            });
+                        }
                     }
                 }.load(FragmentAccount.this, args);
             }
@@ -864,6 +880,9 @@ public class FragmentAccount extends FragmentEx {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+
+        btnAutoConfig.setEnabled(false);
+
         btnAuthorize.setVisibility(View.GONE);
         cbStartTls.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
@@ -878,6 +897,7 @@ public class FragmentAccount extends FragmentEx {
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        tvError.setVisibility(View.GONE);
 
         grpServer.setVisibility(View.GONE);
         grpAuthorize.setVisibility(View.GONE);

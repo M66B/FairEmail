@@ -90,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:autoLink="web"
             android:gravity="center_horizontal"
             android:text="error"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
