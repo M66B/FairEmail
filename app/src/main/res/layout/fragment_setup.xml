@@ -53,9 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:autofillHints="password"
-            android:inputType="textPassword"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEmail"
             app:passwordToggleEnabled="true">
@@ -65,7 +62,8 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="password"
                 android:hint="@string/title_setup_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
