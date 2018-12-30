@@ -189,6 +189,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("compact", checked).apply();
+                prefs.edit().remove("zoom").apply();
             }
         });
 
