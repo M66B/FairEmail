@@ -63,6 +63,7 @@
     <string name="title_setup_password_invalid">Senha inválida</string>
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
+    <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_account">Gerenciar contas</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
     <string name="title_setup_identity">Gerenciar identidades</string>
@@ -77,12 +78,16 @@
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema escuro</string>
     <string name="title_setup_black_background">Fundo preto</string>
+    <string name="title_advanced">Opções avançadas</string>
     <string name="title_advanced_section_general">Geral</string>
     <string name="title_advanced_section_connection">Conexão</string>
     <string name="title_advanced_section_display">Exibição</string>
+    <string name="title_advanced_section_behavior">Comportamento</string>
     <string name="title_advanced_section_misc">Diversos</string>
     <string name="title_advanced_enabled">Sincronizar</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
+    <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
+    <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -91,6 +96,7 @@
     <string name="title_identity_delivery_receipt">Solicitar recibo de entrega</string>
     <string name="title_identity_receipt_remark">A maioria dos provedores ignoram solicitações de recebimento</string>
     <string name="title_optional">Opcional</string>
+    <string name="title_account_linked">Conta vinculada</string>
     <string name="title_account_name">Nome da conta</string>
     <string name="title_account_name_hint">Usada para diferenciar pastas</string>
     <string name="title_account_signature">Texto da assinatura</string>
@@ -109,6 +115,7 @@
     <string name="title_user">Nome de usuário</string>
     <string name="title_password">Senha</string>
     <string name="title_authorize">Selecionar conta</string>
+    <string name="title_authorizing">Autorizando a conta &#8230;</string>
     <string name="title_setup_advanced">Avançado</string>
     <string name="title_synchronize_account">Sincronizar (receber mensagens)</string>
     <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
@@ -121,6 +128,8 @@
     <string name="title_no_host">Nome do servidor faltante</string>
     <string name="title_no_user">Nome do usuário faltante</string>
     <string name="title_no_password">Senha faltante</string>
+    <string name="title_no_drafts">Nenhuma pasta de rascunhos selecionada</string>
+    <string name="title_no_primary_drafts">Nenhuma conta primária ou pasta de rascunhos</string>
     <string name="title_account_delete">Excluir esta conta permanentemente?</string>
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_pop">POP não é suportado</string>
@@ -224,6 +233,7 @@
     <string name="title_legend_thread">Conversação</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Anexo</string>
+    <string name="title_legend_answered">Respondida</string>
     <string name="title_legend_contacts">Contatos</string>
     <string name="title_legend_view">Ver conteúdo</string>
     <string name="title_legend_download">Baixar conteúdo</string>
