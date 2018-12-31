@@ -41,7 +41,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
     You should have received a copy of the GNU General Public License
     along with FairEmail.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright 2018 by Marcel Bokhorst (M66B)
+    Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
 // https://developer.android.com/topic/libraries/architecture/room.html
