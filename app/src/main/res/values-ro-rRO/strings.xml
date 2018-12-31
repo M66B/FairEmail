@@ -72,6 +72,12 @@
     <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
+    <string name="title_setup_quick">Configurare rapidă</string>
+    <string name="title_setup_quick_remark">Configurarea rapidă poate fi utilizată pentru furnizorii cunoscuți</string>
+    <string name="title_setup_setting_gmail">Permite accesul pentru applicații \"mai puţin sigure\"</string>
+    <string name="title_setup_no_settings">Nu s-au gasit setări pentru \'%1$s\'</string>
+    <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate. Puteți vedea detaliile mai jos utilizând butoanele \'gestionare\'.</string>
+    <string name="title_setup_quick_failed">Puteţi încerca de asemenea să configurați un cont şi o identitate mai jos</string>
     <string name="title_setup_account">Gestionarea conturilor</string>
     <string name="title_setup_account_remark">Pentru a primi e-mail</string>
     <string name="title_setup_identity">Gestionarea identităţilor</string>
@@ -177,7 +183,9 @@
     <string name="title_identity_sent_hint">În cele mai multe cazuri mesajele trimise se stochează automat în dosarul corespunzător</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
+    <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_edit_properties">Editare proprietăți</string>
+    <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
@@ -291,6 +299,7 @@
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Marcat</string>
+    <string name="title_sort_on_sender">Expeditor</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_address_sent">Trimis:</string>
     <string name="title_address_unsent">Netrimis:</string>
@@ -316,6 +325,7 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
+    <string name="title_legend_answered">S-a răspuns</string>
     <string name="title_legend_contacts">Contacte</string>
     <string name="title_legend_view">Afișează conținutul</string>
     <string name="title_legend_download">Descarcă conținutul</string>
@@ -336,6 +346,7 @@
     <string name="title_legend_sync_keep">Numărul de zile de sincronizat / păstrat mesaje</string>
     <string name="title_legend_download_fetch">Numărul de mesaje / antete de descărcat</string>
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
+    <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
