@@ -53,7 +53,8 @@ public interface DaoAccount {
             "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
             "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
-            "    AND NOT ui_seen) AS unseen" +
+            "    AND NOT ui_seen" +
+            "    AND NOT ui_hide) AS unseen" +
             " FROM account" +
             " WHERE synchronize = :synchronize")
     LiveData<List<TupleAccountEx>> liveAccounts(boolean synchronize, boolean threading);
