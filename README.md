@@ -16,7 +16,6 @@ This email app might be for you if your current email app:
 This app is minimalistic by design, so you can concentrate on reading and writing messages.
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
-See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-FAQ2).
 
 ## Main features
 
@@ -46,6 +45,7 @@ See also [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md
 
 ## Simple
 
+* Quick setup
 * Easy navigation
 * No unnecessary settings
 * No bells and whistles
@@ -139,7 +139,7 @@ FairEmail uses:
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
-Copyright (c) 2018 Marcel Bokhorst. All rights reserved
+Copyright (c) 2018-2019 Marcel Bokhorst. All rights reserved
 
 FairEmail is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
