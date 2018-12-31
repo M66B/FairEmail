@@ -50,6 +50,7 @@
                 android:id="@+id/etExtra"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/tvExtraSuffix"
                 app:layout_constraintStart_toEndOf="@id/tvExtraPrefix"

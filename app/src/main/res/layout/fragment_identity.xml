@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="name"
-            android:inputType="textCapSentences"
+            android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/title_optional"
-            android:inputType="textCapSentences"
+            android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />

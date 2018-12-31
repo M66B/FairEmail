@@ -28,7 +28,7 @@
             android:layout_marginEnd="12dp"
             android:autofillHints="name"
             android:hint="@string/title_identity_name"
-            android:inputType="textCapSentences"
+            android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibHelp" />

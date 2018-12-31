@@ -774,11 +774,11 @@ public class FragmentSetup extends FragmentEx {
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                EditText etPassword1 = dview.findViewById(R.id.etPassword1);
-                                EditText etPassword2 = dview.findViewById(R.id.etPassword2);
+                                TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
+                                TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
 
-                                String password1 = etPassword1.getText().toString();
-                                String password2 = etPassword2.getText().toString();
+                                String password1 = etPassword1.getEditText().getText().toString();
+                                String password2 = etPassword2.getEditText().getText().toString();
 
                                 if (TextUtils.isEmpty(password1))
                                     Snackbar.make(view, R.string.title_setup_password_missing, Snackbar.LENGTH_LONG).show();

@@ -367,7 +367,7 @@ public class FragmentFolder extends FragmentEx {
             protected void onExecuted(Bundle args, EntityFolder folder) {
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
-                    etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
+                    etDisplay.setText(folder == null ? null : folder.display);
                     etDisplay.setHint(folder == null ? null : folder.name);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
@@ -386,6 +386,7 @@ public class FragmentFolder extends FragmentEx {
                 pbWait.setVisibility(View.GONE);
                 Helper.setViewsEnabled(view, true);
                 etName.setEnabled(folder == null);
+                etDisplay.setEnabled(folder == null || !EntityFolder.INBOX.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
                 btnSave.setEnabled(true);
