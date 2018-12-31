@@ -161,7 +161,8 @@ public interface DaoFolder {
 
     @Query("UPDATE folder" +
             " SET type = '" + EntityFolder.USER + "'" +
-            " WHERE account = :account")
+            " WHERE account = :account" +
+            " AND type <> '" + EntityFolder.SYSTEM + "'")
     int setFoldersUser(long account);
 
     @Query("UPDATE folder" +

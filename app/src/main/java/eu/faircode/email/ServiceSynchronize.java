@@ -2025,10 +2025,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                         db.folder().setFolderLevel(folder.id, level);
 
+                        // Compatibility
                         if ("Inbox_sub".equals(folder.type))
                             db.folder().setFolderType(folder.id, EntityFolder.USER);
-                        else if (EntityFolder.USER.equals(folder.type) &&
-                                type != null && !EntityFolder.USER.equals(type))
+                        if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
                     }
                 }

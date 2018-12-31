@@ -816,8 +816,12 @@ public class FragmentAccount extends FragmentEx {
                             }
 
                             db.folder().setFoldersUser(account.id);
+
                             for (EntityFolder folder : folders) {
                                 folder.level = EntityFolder.getLevel(separator, folder.name);
+                                if (account.prefix != null && folder.name.startsWith(account.prefix + separator))
+                                    folder.display = folder.name.substring(account.prefix.length() + 1);
+
                                 EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                                 if (existing == null) {
                                     folder.account = account.id;
