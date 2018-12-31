@@ -2030,6 +2030,8 @@ public class ServiceSynchronize extends LifecycleService {
                             db.folder().setFolderType(folder.id, EntityFolder.USER);
                         if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
                             db.folder().setFolderType(folder.id, type);
+                        if (EntityFolder.SYSTEM.equals(folder.type) && EntityFolder.USER.equals(type))
+                            db.folder().setFolderType(folder.id, type);
                     }
                 }
             }
