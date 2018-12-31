@@ -108,13 +108,13 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
                 new SimpleTask<EntityFolder>() {
                     @Override
-                    protected EntityFolder onLoad(Context context, Bundle args) {
+                    protected EntityFolder onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
                         return DB.getInstance(context).folder().getFolder(id);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, EntityFolder folder) {
+                    protected void onExecuted(Bundle args, EntityFolder folder) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
@@ -127,20 +127,20 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-                }.load(context, owner, args);
+                }.execute(context, owner, args);
             } else {
                 Bundle args = new Bundle();
                 args.putLong("id", operation.message);
 
                 new SimpleTask<EntityMessage>() {
                     @Override
-                    protected EntityMessage onLoad(Context context, Bundle args) {
+                    protected EntityMessage onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
                         return DB.getInstance(context).message().getMessage(id);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, EntityMessage message) {
+                    protected void onExecuted(Bundle args, EntityMessage message) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_THREAD)
@@ -153,7 +153,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(context, owner, ex);
                     }
-                }.load(context, owner, args);
+                }.execute(context, owner, args);
             }
         }
     }

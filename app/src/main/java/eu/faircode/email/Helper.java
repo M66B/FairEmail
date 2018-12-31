@@ -253,12 +253,12 @@ public class Helper {
                         public void onClick(DialogInterface dialog, int which) {
                             new SimpleTask<Long>() {
                                 @Override
-                                protected Long onLoad(Context context, Bundle args) throws Throwable {
+                                protected Long onExecute(Context context, Bundle args) throws Throwable {
                                     return getDebugInfo(context, R.string.title_crash_info_remark, ex, null).id;
                                 }
 
                                 @Override
-                                protected void onLoaded(Bundle args, Long id) {
+                                protected void onExecuted(Bundle args, Long id) {
                                     context.startActivity(
                                             new Intent(context, ActivityCompose.class)
                                                     .putExtra("action", "edit")
@@ -272,7 +272,7 @@ public class Helper {
                                     else
                                         Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                                 }
-                            }.load(context, owner, new Bundle());
+                            }.execute(context, owner, new Bundle());
                         }
                     })
                     .show();

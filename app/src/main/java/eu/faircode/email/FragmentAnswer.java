@@ -107,13 +107,13 @@ public class FragmentAnswer extends FragmentEx {
 
         new SimpleTask<EntityAnswer>() {
             @Override
-            protected EntityAnswer onLoad(Context context, Bundle args) throws Throwable {
+            protected EntityAnswer onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 return DB.getInstance(context).answer().getAnswer(id);
             }
 
             @Override
-            protected void onLoaded(Bundle args, EntityAnswer answer) {
+            protected void onExecuted(Bundle args, EntityAnswer answer) {
                 etName.setText(answer == null ? null : answer.name);
                 etText.setText(answer == null ? null : Html.fromHtml(answer.text));
                 bottom_navigation.findViewById(R.id.action_delete).setVisibility(answer == null ? View.GONE : View.VISIBLE);
@@ -126,7 +126,7 @@ public class FragmentAnswer extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void onActionTrash() {
@@ -142,14 +142,14 @@ public class FragmentAnswer extends FragmentEx {
 
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
                                 DB.getInstance(context).answer().deleteAnswer(id);
                                 return null;
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Void data) {
+                            protected void onExecuted(Bundle args, Void data) {
                                 finish();
                             }
 
@@ -158,7 +158,7 @@ public class FragmentAnswer extends FragmentEx {
                                 Helper.setViewsEnabled(view, true);
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentAnswer.this, args);
+                        }.execute(FragmentAnswer.this, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -175,7 +175,7 @@ public class FragmentAnswer extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 String name = args.getString("name");
                 String text = args.getString("text");
@@ -197,7 +197,7 @@ public class FragmentAnswer extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, Void data) {
                 finish();
             }
 
@@ -206,7 +206,7 @@ public class FragmentAnswer extends FragmentEx {
                 Helper.setViewsEnabled(view, true);
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void handleExit() {

@@ -266,25 +266,25 @@ public class FragmentAccount extends FragmentEx {
 
                 new SimpleTask<Provider>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         etDomain.setEnabled(false);
                         btnAutoConfig.setEnabled(false);
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         etDomain.setEnabled(true);
                         btnAutoConfig.setEnabled(true);
                     }
 
                     @Override
-                    protected Provider onLoad(Context context, Bundle args) throws Throwable {
+                    protected Provider onExecute(Context context, Bundle args) throws Throwable {
                         String domain = args.getString("domain");
                         return Provider.fromDomain(context, domain);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Provider provider) {
+                    protected void onExecuted(Bundle args, Provider provider) {
                         etHost.setText(provider.imap_host);
                         etPort.setText(Integer.toString(provider.imap_port));
                         cbStartTls.setChecked(provider.imap_starttls);
@@ -297,7 +297,7 @@ public class FragmentAccount extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args);
             }
         });
 
@@ -426,7 +426,7 @@ public class FragmentAccount extends FragmentEx {
 
                 new SimpleTask<CheckResult>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         Helper.setViewsEnabled(view, false);
                         btnAuthorize.setEnabled(false);
                         btnCheck.setEnabled(false);
@@ -438,7 +438,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
@@ -446,7 +446,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected CheckResult onLoad(Context context, Bundle args) throws Throwable {
+                    protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         String host = args.getString("host");
                         boolean starttls = args.getBoolean("starttls");
@@ -533,7 +533,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, CheckResult result) {
+                    protected void onExecuted(Bundle args, CheckResult result) {
                         tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
 
                         setFolders(result.folders);
@@ -564,7 +564,7 @@ public class FragmentAccount extends FragmentEx {
                             });
                         }
                     }
-                }.load(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args);
             }
         });
 
@@ -619,7 +619,7 @@ public class FragmentAccount extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         Helper.setViewsEnabled(view, false);
                         btnAuthorize.setEnabled(false);
                         btnCheck.setEnabled(false);
@@ -629,7 +629,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         Helper.setViewsEnabled(view, true);
                         btnAuthorize.setEnabled(true);
                         btnCheck.setEnabled(true);
@@ -638,7 +638,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
 
                         int auth_type = args.getInt("auth_type");
@@ -846,7 +846,7 @@ public class FragmentAccount extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Void data) {
+                    protected void onExecuted(Bundle args, Void data) {
                         getFragmentManager().popBackStack();
                     }
 
@@ -865,7 +865,7 @@ public class FragmentAccount extends FragmentEx {
                             });
                         }
                     }
-                }.load(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args);
             }
         });
 
@@ -926,13 +926,13 @@ public class FragmentAccount extends FragmentEx {
 
         new SimpleTask<EntityAccount>() {
             @Override
-            protected EntityAccount onLoad(Context context, Bundle args) {
+            protected EntityAccount onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).account().getAccount(id);
             }
 
             @Override
-            protected void onLoaded(Bundle args, EntityAccount account) {
+            protected void onExecuted(Bundle args, EntityAccount account) {
                 // Get providers
                 List<Provider> providers = Provider.loadProfiles(getContext());
                 providers.add(0, new Provider(getString(R.string.title_select)));
@@ -984,12 +984,12 @@ public class FragmentAccount extends FragmentEx {
 
                     new SimpleTask<EntityAccount>() {
                         @Override
-                        protected EntityAccount onLoad(Context context, Bundle args) {
+                        protected EntityAccount onExecute(Context context, Bundle args) {
                             return DB.getInstance(context).account().getPrimaryAccount();
                         }
 
                         @Override
-                        protected void onLoaded(Bundle args, EntityAccount primary) {
+                        protected void onExecuted(Bundle args, EntityAccount primary) {
                             if (primary == null)
                                 cbPrimary.setChecked(true);
                         }
@@ -998,7 +998,7 @@ public class FragmentAccount extends FragmentEx {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
-                    }.load(FragmentAccount.this, new Bundle());
+                    }.execute(FragmentAccount.this, new Bundle());
                 } else {
                     int provider = savedInstanceState.getInt("provider");
                     spProvider.setTag(provider);
@@ -1022,13 +1022,13 @@ public class FragmentAccount extends FragmentEx {
 
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
-                    protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                    protected List<EntityFolder> onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
                         return DB.getInstance(context).folder().getFolders(account);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, List<EntityFolder> folders) {
+                    protected void onExecuted(Bundle args, List<EntityFolder> folders) {
                         if (folders == null)
                             folders = new ArrayList<>();
                         setFolders(folders);
@@ -1038,14 +1038,14 @@ public class FragmentAccount extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentAccount.this, args);
+                }.execute(FragmentAccount.this, args);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     @Override
@@ -1088,7 +1088,7 @@ public class FragmentAccount extends FragmentEx {
 
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
 
                                 DB db = DB.getInstance(context);
@@ -1100,7 +1100,7 @@ public class FragmentAccount extends FragmentEx {
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Void data) {
+                            protected void onExecuted(Bundle args, Void data) {
                                 getFragmentManager().popBackStack();
                             }
 
@@ -1108,7 +1108,7 @@ public class FragmentAccount extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentAccount.this, args);
+                        }.execute(FragmentAccount.this, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)

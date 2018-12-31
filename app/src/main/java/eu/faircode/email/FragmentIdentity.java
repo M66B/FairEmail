@@ -366,25 +366,25 @@ public class FragmentIdentity extends FragmentEx {
 
                 new SimpleTask<Provider>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         etDomain.setEnabled(false);
                         btnAutoConfig.setEnabled(false);
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         etDomain.setEnabled(true);
                         btnAutoConfig.setEnabled(true);
                     }
 
                     @Override
-                    protected Provider onLoad(Context context, Bundle args) throws Throwable {
+                    protected Provider onExecute(Context context, Bundle args) throws Throwable {
                         String domain = args.getString("domain");
                         return Provider.fromDomain(context, domain);
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Provider provider) {
+                    protected void onExecuted(Bundle args, Provider provider) {
                         etHost.setText(provider.smtp_host);
                         etPort.setText(Integer.toString(provider.smtp_port));
                         cbStartTls.setChecked(provider.smtp_starttls);
@@ -397,7 +397,7 @@ public class FragmentIdentity extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args);
             }
         });
 
@@ -452,7 +452,7 @@ public class FragmentIdentity extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         Helper.setViewsEnabled(view, false);
                         btnSave.setEnabled(false);
                         pbSave.setVisibility(View.VISIBLE);
@@ -460,14 +460,14 @@ public class FragmentIdentity extends FragmentEx {
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         Helper.setViewsEnabled(view, true);
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
                     }
 
                     @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         String name = args.getString("name");
                         String email = args.getString("email");
@@ -606,7 +606,7 @@ public class FragmentIdentity extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Void data) {
+                    protected void onExecuted(Bundle args, Void data) {
                         getFragmentManager().popBackStack();
                     }
 
@@ -625,7 +625,7 @@ public class FragmentIdentity extends FragmentEx {
                             });
                         }
                     }
-                }.load(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args);
             }
         });
 
@@ -668,13 +668,13 @@ public class FragmentIdentity extends FragmentEx {
 
         new SimpleTask<EntityIdentity>() {
             @Override
-            protected EntityIdentity onLoad(Context context, Bundle args) {
+            protected EntityIdentity onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).identity().getIdentity(id);
             }
 
             @Override
-            protected void onLoaded(Bundle args, final EntityIdentity identity) {
+            protected void onExecuted(Bundle args, final EntityIdentity identity) {
                 if (savedInstanceState == null) {
                     etName.setText(identity == null ? null : identity.name);
                     etEmail.setText(identity == null ? null : identity.email);
@@ -703,12 +703,12 @@ public class FragmentIdentity extends FragmentEx {
                     if (identity == null)
                         new SimpleTask<Integer>() {
                             @Override
-                            protected Integer onLoad(Context context, Bundle args) {
+                            protected Integer onExecute(Context context, Bundle args) {
                                 return DB.getInstance(context).identity().getSynchronizingIdentityCount();
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Integer count) {
+                            protected void onExecuted(Bundle args, Integer count) {
                                 cbPrimary.setChecked(count == 0);
                             }
 
@@ -716,7 +716,7 @@ public class FragmentIdentity extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentIdentity.this, new Bundle());
+                        }.execute(FragmentIdentity.this, new Bundle());
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("advanced"));
@@ -743,12 +743,12 @@ public class FragmentIdentity extends FragmentEx {
 
                 new SimpleTask<List<EntityAccount>>() {
                     @Override
-                    protected List<EntityAccount> onLoad(Context context, Bundle args) {
+                    protected List<EntityAccount> onExecute(Context context, Bundle args) {
                         return DB.getInstance(context).account().getAccounts();
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, List<EntityAccount> accounts) {
+                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                         if (accounts == null)
                             accounts = new ArrayList<>();
 
@@ -812,14 +812,14 @@ public class FragmentIdentity extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentIdentity.this, args);
+                }.execute(FragmentIdentity.this, args);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     @Override
@@ -860,7 +860,7 @@ public class FragmentIdentity extends FragmentEx {
 
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
 
                                 DB db = DB.getInstance(context);
@@ -872,7 +872,7 @@ public class FragmentIdentity extends FragmentEx {
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Void data) {
+                            protected void onExecuted(Bundle args, Void data) {
                                 getFragmentManager().popBackStack();
                             }
 
@@ -880,7 +880,7 @@ public class FragmentIdentity extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentIdentity.this, args);
+                        }.execute(FragmentIdentity.this, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -903,7 +903,7 @@ public class FragmentIdentity extends FragmentEx {
 
         new SimpleTask<IdentityFolders>() {
             @Override
-            protected IdentityFolders onLoad(Context context, Bundle args) {
+            protected IdentityFolders onExecute(Context context, Bundle args) {
                 long aid = args.getLong("account");
                 long iid = args.getLong("identity");
 
@@ -918,7 +918,7 @@ public class FragmentIdentity extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, IdentityFolders result) {
+            protected void onExecuted(Bundle args, IdentityFolders result) {
                 EntityFolder none = new EntityFolder();
                 none.name = "-";
                 result.folders.add(0, none);
@@ -947,7 +947,7 @@ public class FragmentIdentity extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     class IdentityFolders {

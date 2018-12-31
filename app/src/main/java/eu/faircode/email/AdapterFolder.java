@@ -262,7 +262,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     new SimpleTask<Boolean>() {
                         @Override
-                        protected Boolean onLoad(Context context, Bundle args) {
+                        protected Boolean onExecute(Context context, Bundle args) {
                             long aid = args.getLong("account");
                             long fid = args.getLong("folder");
 
@@ -276,7 +276,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         }
 
                         @Override
-                        protected void onLoaded(Bundle args, Boolean connected) {
+                        protected void onExecuted(Bundle args, Boolean connected) {
                             if (!connected)
                                 Snackbar.make(itemView, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
                         }
@@ -285,7 +285,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(context, owner, ex);
                         }
-                    }.load(context, owner, args);
+                    }.execute(context, owner, args);
                 }
 
                 private void OnActionDeleteLocal() {
@@ -295,7 +295,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                     new SimpleTask<Void>() {
                         @Override
-                        protected Void onLoad(Context context, Bundle args) {
+                        protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
                             boolean outbox = args.getBoolean("outbox");
                             Log.i("Delete local messages outbox=" + outbox);
@@ -310,7 +310,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         public void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(context, owner, ex);
                         }
-                    }.load(context, owner, args);
+                    }.execute(context, owner, args);
                 }
 
                 private void onActionEmptyTrash() {
@@ -325,7 +325,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                                     new SimpleTask<Void>() {
                                         @Override
-                                        protected Void onLoad(Context context, Bundle args) {
+                                        protected Void onExecute(Context context, Bundle args) {
                                             long id = args.getLong("id");
 
                                             DB db = DB.getInstance(context);
@@ -349,7 +349,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                         protected void onException(Bundle args, Throwable ex) {
                                             Helper.unexpectedError(context, owner, ex);
                                         }
-                                    }.load(context, owner, args);
+                                    }.execute(context, owner, args);
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)

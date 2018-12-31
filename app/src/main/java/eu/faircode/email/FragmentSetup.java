@@ -205,7 +205,7 @@ public class FragmentSetup extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         etName.setEnabled(false);
                         etEmail.setEnabled(false);
                         tilPassword.setEnabled(false);
@@ -215,7 +215,7 @@ public class FragmentSetup extends FragmentEx {
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         etName.setEnabled(true);
                         etEmail.setEnabled(true);
                         tilPassword.setEnabled(true);
@@ -223,7 +223,7 @@ public class FragmentSetup extends FragmentEx {
                     }
 
                     @Override
-                    protected Void onLoad(Context context, Bundle args) throws Throwable {
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
                         String name = args.getString("name");
                         String email = args.getString("email");
                         String password = args.getString("password");
@@ -391,7 +391,7 @@ public class FragmentSetup extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Void data) {
+                    protected void onExecuted(Bundle args, Void data) {
                         etName.setText(null);
                         etEmail.setText(null);
                         tilPassword.getEditText().setText(null);
@@ -417,7 +417,7 @@ public class FragmentSetup extends FragmentEx {
                             grpQuickError.setVisibility(View.VISIBLE);
                         }
                     }
-                }.load(FragmentSetup.this, args);
+                }.execute(FragmentSetup.this, args);
             }
         });
 
@@ -567,7 +567,7 @@ public class FragmentSetup extends FragmentEx {
         // Create outbox
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -596,7 +596,7 @@ public class FragmentSetup extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, new Bundle());
+        }.execute(this, new Bundle());
 
         return view;
     }
@@ -750,7 +750,7 @@ public class FragmentSetup extends FragmentEx {
         if (has && !init)
             new SimpleTask<Void>() {
                 @Override
-                protected Void onLoad(Context context, Bundle args) {
+                protected Void onExecute(Context context, Bundle args) {
                     DB db = DB.getInstance(context);
                     for (EntityFolder folder : db.folder().getFoldersSynchronizing())
                         EntityOperation.sync(db, folder.id);
@@ -761,7 +761,7 @@ public class FragmentSetup extends FragmentEx {
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                 }
-            }.load(FragmentSetup.this, new Bundle());
+            }.execute(FragmentSetup.this, new Bundle());
     }
 
     @Override
@@ -871,7 +871,7 @@ public class FragmentSetup extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
@@ -954,7 +954,7 @@ public class FragmentSetup extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, Void data) {
                 Snackbar.make(view, R.string.title_setup_exported, Snackbar.LENGTH_LONG).show();
             }
 
@@ -965,7 +965,7 @@ public class FragmentSetup extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void handleImport(Intent data, String password) {
@@ -975,7 +975,7 @@ public class FragmentSetup extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) throws Throwable {
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
@@ -1092,7 +1092,7 @@ public class FragmentSetup extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, Void data) {
                 Snackbar.make(view, R.string.title_setup_imported, Snackbar.LENGTH_LONG).show();
             }
 
@@ -1105,6 +1105,6 @@ public class FragmentSetup extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 }

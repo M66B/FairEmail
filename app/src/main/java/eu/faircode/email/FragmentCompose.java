@@ -462,7 +462,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putString("subject", getArguments().getString("subject"));
                 args.putString("body", getArguments().getString("body"));
                 args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
-                draftLoader.load(this, args);
+                draftLoader.execute(this, args);
             } else {
                 Bundle args = new Bundle();
                 args.putString("action", "edit");
@@ -470,7 +470,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putLong("account", -1);
                 args.putLong("reference", -1);
                 args.putLong("answer", -1);
-                draftLoader.load(this, args);
+                draftLoader.execute(this, args);
             }
         } else {
             working = savedInstanceState.getLong("working");
@@ -480,7 +480,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("account", -1);
             args.putLong("reference", -1);
             args.putLong("answer", -1);
-            draftLoader.load(this, args);
+            draftLoader.execute(this, args);
         }
     }
 
@@ -718,7 +718,7 @@ public class FragmentCompose extends FragmentEx {
 
         new SimpleTask<PendingIntent>() {
             @Override
-            protected PendingIntent onLoad(Context context, Bundle args) throws Throwable {
+            protected PendingIntent onExecute(Context context, Bundle args) throws Throwable {
                 // Get arguments
                 long id = args.getLong("id");
                 Intent data = args.getParcelable("data");
@@ -838,7 +838,7 @@ public class FragmentCompose extends FragmentEx {
             }
 
             @Override
-            protected void onLoaded(Bundle args, PendingIntent pi) {
+            protected void onExecuted(Bundle args, PendingIntent pi) {
                 if (pi != null)
                     try {
                         startIntentSenderForResult(
@@ -858,7 +858,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     @Override
@@ -938,14 +938,14 @@ public class FragmentCompose extends FragmentEx {
 
         new SimpleTask<EntityAttachment>() {
             @Override
-            protected EntityAttachment onLoad(Context context, Bundle args) throws IOException {
+            protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
                 return addAttachment(context, id, uri, image);
             }
 
             @Override
-            protected void onLoaded(Bundle args, EntityAttachment attachment) {
+            protected void onExecuted(Bundle args, EntityAttachment attachment) {
                 if (image) {
                     File file = EntityAttachment.getFile(getContext(), attachment.id);
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
@@ -969,7 +969,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void handleExit() {
@@ -1023,8 +1023,8 @@ public class FragmentCompose extends FragmentEx {
 
         args.putString("body", Html.toHtml(spannable));
 
-        Log.i("Run load id=" + working);
-        actionLoader.load(this, args);
+        Log.i("Run execute id=" + working);
+        actionLoader.execute(this, args);
     }
 
     private boolean isEmpty() {
@@ -1144,7 +1144,7 @@ public class FragmentCompose extends FragmentEx {
 
     private SimpleTask<DraftAccount> draftLoader = new SimpleTask<DraftAccount>() {
         @Override
-        protected DraftAccount onLoad(Context context, Bundle args) throws IOException {
+        protected DraftAccount onExecute(Context context, Bundle args) throws IOException {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
@@ -1425,7 +1425,7 @@ public class FragmentCompose extends FragmentEx {
         }
 
         @Override
-        protected void onLoaded(Bundle args, final DraftAccount result) {
+        protected void onExecuted(Bundle args, final DraftAccount result) {
             working = result.draft.id;
 
             final String action = getArguments().getString("action");
@@ -1530,7 +1530,7 @@ public class FragmentCompose extends FragmentEx {
 
                             new SimpleTask<Spanned[]>() {
                                 @Override
-                                protected Spanned[] onLoad(final Context context, Bundle args) throws Throwable {
+                                protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
                                     long id = args.getLong("id");
                                     final long reference = args.getLong("reference", -1);
 
@@ -1550,7 +1550,7 @@ public class FragmentCompose extends FragmentEx {
                                 }
 
                                 @Override
-                                protected void onLoaded(Bundle args, Spanned[] texts) {
+                                protected void onExecuted(Bundle args, Spanned[] texts) {
                                     etBody.setText(texts[0]);
                                     etBody.setSelection(0);
                                     etBody.setVisibility(View.VISIBLE);
@@ -1584,7 +1584,7 @@ public class FragmentCompose extends FragmentEx {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                 }
-                            }.load(FragmentCompose.this, args);
+                            }.execute(FragmentCompose.this, args);
                         }
                     }
                 }
@@ -1599,21 +1599,21 @@ public class FragmentCompose extends FragmentEx {
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
-        protected void onInit(Bundle args) {
+        protected void onPreExecute(Bundle args) {
             busy = true;
             Helper.setViewsEnabled(view, false);
             getActivity().invalidateOptionsMenu();
         }
 
         @Override
-        protected void onCleanup(Bundle args) {
+        protected void onPostExecute(Bundle args) {
             busy = false;
             Helper.setViewsEnabled(view, true);
             getActivity().invalidateOptionsMenu();
         }
 
         @Override
-        protected EntityMessage onLoad(final Context context, Bundle args) throws Throwable {
+        protected EntityMessage onExecute(final Context context, Bundle args) throws Throwable {
             // Get data
             long id = args.getLong("id");
             int action = args.getInt("action");
@@ -1813,7 +1813,7 @@ public class FragmentCompose extends FragmentEx {
         }
 
         @Override
-        protected void onLoaded(Bundle args, EntityMessage draft) {
+        protected void onExecuted(Bundle args, EntityMessage draft) {
             int action = args.getInt("action");
             Log.i("Loaded action id=" + (draft == null ? null : draft.id) + " action=" + action);
 

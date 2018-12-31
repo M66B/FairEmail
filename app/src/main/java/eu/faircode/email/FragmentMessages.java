@@ -211,7 +211,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<Boolean>() {
                     @Override
-                    protected Boolean onLoad(Context context, Bundle args) {
+                    protected Boolean onExecute(Context context, Bundle args) {
                         long fid = args.getLong("folder");
 
                         boolean connected = false;
@@ -253,7 +253,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Boolean connected) {
+                    protected void onExecuted(Bundle args, Boolean connected) {
                         if (!connected) {
                             swipeRefresh.setRefreshing(false);
                             Snackbar.make(view, R.string.title_sync_queued, Snackbar.LENGTH_LONG).show();
@@ -264,7 +264,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
         });
 
@@ -373,7 +373,7 @@ public class FragmentMessages extends FragmentEx {
 
                         new SimpleTask<MessageTarget>() {
                             @Override
-                            protected MessageTarget onLoad(Context context, Bundle args) {
+                            protected MessageTarget onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
                                 String name = args.getString("name");
                                 boolean type = args.getBoolean("type");
@@ -400,7 +400,7 @@ public class FragmentMessages extends FragmentEx {
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, MessageTarget result) {
+                            protected void onExecuted(Bundle args, MessageTarget result) {
                                 moveAsk(result);
                             }
 
@@ -408,7 +408,7 @@ public class FragmentMessages extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentMessages.this, args);
+                        }.execute(FragmentMessages.this, args);
                     }
                 });
 
@@ -545,7 +545,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<MessageTarget>() {
                     @Override
-                    protected MessageTarget onLoad(Context context, Bundle args) {
+                    protected MessageTarget onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
                         boolean thread = args.getBoolean("thread");
                         int direction = args.getInt("direction");
@@ -592,7 +592,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(final Bundle args, final MessageTarget result) {
+                    protected void onExecuted(final Bundle args, final MessageTarget result) {
                         moveUndo(result);
                     }
 
@@ -600,7 +600,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
         }).attachToRecyclerView(rvMessage);
 
@@ -640,7 +640,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<MessageTarget>() {
                     @Override
-                    protected MessageTarget onLoad(Context context, Bundle args) {
+                    protected MessageTarget onExecute(Context context, Bundle args) {
                         long account = args.getLong("account");
                         String thread = args.getString("thread");
                         long id = args.getLong("id");
@@ -676,7 +676,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, MessageTarget result) {
+                    protected void onExecuted(Bundle args, MessageTarget result) {
                         moveAsk(result);
                     }
 
@@ -684,7 +684,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
 
             private void onActionNavigate(ViewModelMessages.Target target) {
@@ -744,7 +744,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<Boolean[]>() {
                     @Override
-                    protected Boolean[] onLoad(Context context, Bundle args) {
+                    protected Boolean[] onExecute(Context context, Bundle args) {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
@@ -782,7 +782,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, final Boolean[] result) {
+                    protected void onExecuted(Bundle args, final Boolean[] result) {
                         PopupMenu popupMenu = new PopupMenu(getContext(), fabMore);
 
                         if (result[0] && !result[9])
@@ -854,7 +854,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
 
             private long[] getSelection() {
@@ -877,7 +877,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) {
+                    protected Void onExecute(Context context, Bundle args) {
                         long[] ids = args.getLongArray("ids");
                         boolean seen = args.getBoolean("seen");
 
@@ -907,7 +907,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
 
             private void onActionFlag(boolean flagged) {
@@ -919,7 +919,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) {
+                    protected Void onExecute(Context context, Bundle args) {
                         long[] ids = args.getLongArray("ids");
                         boolean flagged = args.getBoolean("flagged");
 
@@ -949,7 +949,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
 
             private void onActionJunk() {
@@ -978,7 +978,7 @@ public class FragmentMessages extends FragmentEx {
 
                                 new SimpleTask<Void>() {
                                     @Override
-                                    protected Void onLoad(Context context, Bundle args) {
+                                    protected Void onExecute(Context context, Bundle args) {
                                         long[] ids = args.getLongArray("ids");
 
                                         DB db = DB.getInstance(context);
@@ -1010,7 +1010,7 @@ public class FragmentMessages extends FragmentEx {
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
-                                }.load(FragmentMessages.this, args);
+                                }.execute(FragmentMessages.this, args);
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null)
@@ -1026,7 +1026,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<MessageTarget>() {
                     @Override
-                    protected MessageTarget onLoad(Context context, Bundle args) {
+                    protected MessageTarget onExecute(Context context, Bundle args) {
                         String type = args.getString("type");
                         long[] ids = args.getLongArray("ids");
 
@@ -1059,7 +1059,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, MessageTarget result) {
+                    protected void onExecuted(Bundle args, MessageTarget result) {
                         if (EntityFolder.JUNK.equals(result.target.type))
                             moveAskConfirmed(result);
                         else
@@ -1070,7 +1070,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
 
             private void onActionMove() {
@@ -1080,7 +1080,7 @@ public class FragmentMessages extends FragmentEx {
 
                 new SimpleTask<List<EntityFolder>>() {
                     @Override
-                    protected List<EntityFolder> onLoad(Context context, Bundle args) {
+                    protected List<EntityFolder> onExecute(Context context, Bundle args) {
                         long fid = args.getLong("folder");
                         long[] ids = args.getLongArray("ids");
 
@@ -1112,7 +1112,7 @@ public class FragmentMessages extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(final Bundle args, List<EntityFolder> folders) {
+                    protected void onExecuted(final Bundle args, List<EntityFolder> folders) {
                         PopupMenu popupMenu = new PopupMenu(getContext(), popupAnchor);
 
                         int order = 0;
@@ -1128,7 +1128,7 @@ public class FragmentMessages extends FragmentEx {
 
                                 new SimpleTask<MessageTarget>() {
                                     @Override
-                                    protected MessageTarget onLoad(Context context, Bundle args) {
+                                    protected MessageTarget onExecute(Context context, Bundle args) {
                                         long[] ids = args.getLongArray("ids");
                                         long target = args.getLong("target");
 
@@ -1159,7 +1159,7 @@ public class FragmentMessages extends FragmentEx {
                                     }
 
                                     @Override
-                                    protected void onLoaded(Bundle args, MessageTarget result) {
+                                    protected void onExecuted(Bundle args, MessageTarget result) {
                                         moveAsk(result);
                                     }
 
@@ -1167,7 +1167,7 @@ public class FragmentMessages extends FragmentEx {
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
-                                }.load(FragmentMessages.this, args);
+                                }.execute(FragmentMessages.this, args);
 
                                 return true;
                             }
@@ -1180,7 +1180,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
         });
 
@@ -1449,13 +1449,13 @@ public class FragmentMessages extends FragmentEx {
 
                     new SimpleTask<Void>() {
                         @Override
-                        protected Void onLoad(Context context, Bundle args) {
+                        protected Void onExecute(Context context, Bundle args) {
                             DB.getInstance(context).message().resetSearch();
                             return null;
                         }
 
                         @Override
-                        protected void onLoaded(Bundle args, Void data) {
+                        protected void onExecuted(Bundle args, Void data) {
                             FragmentMessages fragment = new FragmentMessages();
                             fragment.setArguments(args);
 
@@ -1468,7 +1468,7 @@ public class FragmentMessages extends FragmentEx {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
-                    }.load(FragmentMessages.this, args);
+                    }.execute(FragmentMessages.this, args);
                 } else {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
@@ -1587,7 +1587,7 @@ public class FragmentMessages extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long outbox = args.getLong("folder");
 
                 DB db = DB.getInstance(context);
@@ -1619,7 +1619,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void loadMessages() {
@@ -1826,7 +1826,7 @@ public class FragmentMessages extends FragmentEx {
 
                         new SimpleTask<Boolean[]>() {
                             @Override
-                            protected Boolean[] onLoad(Context context, Bundle args) {
+                            protected Boolean[] onExecute(Context context, Bundle args) {
                                 long account = args.getLong("account");
                                 String thread = args.getString("thread");
                                 long id = args.getLong("id");
@@ -1856,7 +1856,7 @@ public class FragmentMessages extends FragmentEx {
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Boolean[] data) {
+                            protected void onExecuted(Bundle args, Boolean[] data) {
                                 bottom_navigation.getMenu().findItem(R.id.action_delete).setVisible(trashes.size() > 0 && data[0]);
                                 bottom_navigation.getMenu().findItem(R.id.action_archive).setVisible(archives.size() > 0 && data[1]);
                                 bottom_navigation.setVisibility(View.VISIBLE);
@@ -1866,7 +1866,7 @@ public class FragmentMessages extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentMessages.this, args);
+                        }.execute(FragmentMessages.this, args);
                     }
 
                 } else {
@@ -1900,7 +1900,7 @@ public class FragmentMessages extends FragmentEx {
 
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
@@ -1928,7 +1928,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 
     private void moveAsk(final MessageTarget result) {
@@ -1962,7 +1962,7 @@ public class FragmentMessages extends FragmentEx {
         // Move messages
         new SimpleTask<Void>() {
             @Override
-            protected Void onLoad(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
                 try {
                     MessageTarget result = (MessageTarget) args.getSerializable("result");
@@ -1989,7 +1989,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(FragmentMessages.this, args);
+        }.execute(FragmentMessages.this, args);
     }
 
     private void moveUndo(final MessageTarget result) {
@@ -2012,7 +2012,7 @@ public class FragmentMessages extends FragmentEx {
                 // Show message again
                 new SimpleTask<Void>() {
                     @Override
-                    protected Void onLoad(Context context, Bundle args) {
+                    protected Void onExecute(Context context, Bundle args) {
                         DB db = DB.getInstance(context);
                         MessageTarget result = (MessageTarget) args.getSerializable("result");
                         for (long id : result.ids) {
@@ -2026,7 +2026,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args);
             }
         });
         snackbar.show();

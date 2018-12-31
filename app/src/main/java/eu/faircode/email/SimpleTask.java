@@ -36,7 +36,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 //
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
-// Make sure to not access any member in any outer scope from onLoad
+// Make sure to not access any member in any outer scope from onExecute
 // Results will not be delivered to destroyed fragments
 //
 
@@ -48,19 +48,19 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
-    public void load(Context context, LifecycleOwner owner, Bundle args) {
+    public void execute(Context context, LifecycleOwner owner, Bundle args) {
         run(context, owner, args);
     }
 
-    public void load(LifecycleService service, Bundle args) {
+    public void execute(LifecycleService service, Bundle args) {
         run(service, service, args);
     }
 
-    public void load(AppCompatActivity activity, Bundle args) {
+    public void execute(AppCompatActivity activity, Bundle args) {
         run(activity, activity, args);
     }
 
-    public void load(final Fragment fragment, Bundle args) {
+    public void execute(final Fragment fragment, Bundle args) {
         try {
             run(fragment.getContext(), fragment.getViewLifecycleOwner(), args);
         } catch (IllegalStateException ex) {
@@ -117,7 +117,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         this.stored = null;
 
         try {
-            onInit(args);
+            onPreExecute(args);
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -133,7 +133,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                 final Result result = new Result();
 
                 try {
-                    result.data = onLoad(context, args);
+                    result.data = onExecute(context, args);
                 } catch (Throwable ex) {
                     Log.e(ex);
                     result.ex = ex;
@@ -158,15 +158,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         } else {
             Log.i("Delivery task " + this);
             try {
-                if (result.ex == null)
-                    onLoaded(args, (T) result.data);
-                else
-                    onException(args, result.ex);
+                onPostExecute(args);
             } catch (Throwable ex) {
                 Log.e(ex);
             } finally {
                 try {
-                    onCleanup(args);
+                    if (result.ex == null)
+                        onExecuted(args, (T) result.data);
+                    else
+                        onException(args, result.ex);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -175,17 +175,17 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         }
     }
 
-    protected void onInit(Bundle args) {
+    protected void onPreExecute(Bundle args) {
     }
 
-    protected abstract T onLoad(Context context, Bundle args) throws Throwable;
+    protected abstract T onExecute(Context context, Bundle args) throws Throwable;
 
-    protected void onLoaded(Bundle args, T data) {
+    protected void onExecuted(Bundle args, T data) {
     }
 
     protected abstract void onException(Bundle args, Throwable ex);
 
-    protected void onCleanup(Bundle args) {
+    protected void onPostExecute(Bundle args) {
     }
 
     private static class Result {

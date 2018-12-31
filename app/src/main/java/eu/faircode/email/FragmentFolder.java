@@ -144,21 +144,21 @@ public class FragmentFolder extends FragmentEx {
 
                 new SimpleTask<Void>() {
                     @Override
-                    protected void onInit(Bundle args) {
+                    protected void onPreExecute(Bundle args) {
                         Helper.setViewsEnabled(view, false);
                         btnSave.setEnabled(false);
                         pbSave.setVisibility(View.VISIBLE);
                     }
 
                     @Override
-                    protected void onCleanup(Bundle args) {
+                    protected void onPostExecute(Bundle args) {
                         Helper.setViewsEnabled(view, true);
                         btnSave.setEnabled(true);
                         pbSave.setVisibility(View.GONE);
                     }
 
                     @Override
-                    protected Void onLoad(Context context, Bundle args) {
+                    protected Void onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
                         long aid = args.getLong("account");
                         String name = args.getString("name");
@@ -248,7 +248,7 @@ public class FragmentFolder extends FragmentEx {
                     }
 
                     @Override
-                    protected void onLoaded(Bundle args, Void data) {
+                    protected void onExecuted(Bundle args, Void data) {
                         getFragmentManager().popBackStack();
                     }
 
@@ -259,7 +259,7 @@ public class FragmentFolder extends FragmentEx {
                         else
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.load(FragmentFolder.this, args);
+                }.execute(FragmentFolder.this, args);
             }
         });
 
@@ -310,7 +310,7 @@ public class FragmentFolder extends FragmentEx {
 
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
 
                                 DB db = DB.getInstance(context);
@@ -327,7 +327,7 @@ public class FragmentFolder extends FragmentEx {
                             }
 
                             @Override
-                            protected void onLoaded(Bundle args, Void data) {
+                            protected void onExecuted(Bundle args, Void data) {
                                 getFragmentManager().popBackStack();
                             }
 
@@ -342,7 +342,7 @@ public class FragmentFolder extends FragmentEx {
                                 else
                                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentFolder.this, args);
+                        }.execute(FragmentFolder.this, args);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -358,13 +358,13 @@ public class FragmentFolder extends FragmentEx {
 
         new SimpleTask<EntityFolder>() {
             @Override
-            protected EntityFolder onLoad(Context context, Bundle args) {
+            protected EntityFolder onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return DB.getInstance(context).folder().getFolder(id);
             }
 
             @Override
-            protected void onLoaded(Bundle args, EntityFolder folder) {
+            protected void onExecuted(Bundle args, EntityFolder folder) {
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : (folder.display == null ? folder.name : folder.display));
@@ -398,6 +398,6 @@ public class FragmentFolder extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.load(this, args);
+        }.execute(this, args);
     }
 }

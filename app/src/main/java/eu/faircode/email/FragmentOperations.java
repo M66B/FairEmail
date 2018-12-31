@@ -137,7 +137,7 @@ public class FragmentOperations extends FragmentEx {
                     public void onClick(DialogInterface dialog, int which) {
                         new SimpleTask<Void>() {
                             @Override
-                            protected Void onLoad(Context context, Bundle args) {
+                            protected Void onExecute(Context context, Bundle args) {
                                 DB db = DB.getInstance(context);
                                 List<EntityOperation> ops = db.operation().getOperationsError();
                                 Log.i("Operations with error count=" + ops.size());
@@ -154,7 +154,7 @@ public class FragmentOperations extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.load(FragmentOperations.this, new Bundle());
+                        }.execute(FragmentOperations.this, new Bundle());
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
