@@ -209,13 +209,33 @@
             app:layout_constraintTop_toTopOf="@id/ivAttachment" />
 
         <ImageView
+            android:id="@+id/ivDraft"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+
+        <TextView
+            android:id="@+id/tvDraft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_draft"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivDraft"
+            app:layout_constraintStart_toEndOf="@id/ivDraft"
+            app:layout_constraintTop_toTopOf="@id/ivDraft" />
+
+        <ImageView
             android:id="@+id/ivAnswered"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/ivDraft" />
 
         <TextView
             android:id="@+id/tvAnswered"

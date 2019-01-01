@@ -153,6 +153,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
+        private ImageView ivDraft;
         private ImageView ivAnswered;
         private ImageView ivAttachments;
         private TextView tvSubject;
@@ -211,6 +212,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom = itemView.findViewById(R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
+            ivDraft = itemView.findViewById(R.id.ivDraft);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -295,6 +297,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvFrom.setText(null);
             tvSize.setText(null);
             tvTime.setText(null);
+            ivDraft.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
@@ -340,6 +343,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivDraft.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
@@ -423,6 +427,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setVisibility(message.size == null || message.content ? View.GONE : View.VISIBLE);
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
 
+            ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);

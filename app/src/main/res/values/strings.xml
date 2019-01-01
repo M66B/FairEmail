@@ -370,6 +370,7 @@
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Attachment</string>
+    <string name="title_legend_draft">Draft/edit</string>
     <string name="title_legend_answered">Answered</string>
     <string name="title_legend_contacts">Contacts</string>
     <string name="title_legend_view">View content</string>
