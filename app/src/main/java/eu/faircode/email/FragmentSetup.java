@@ -20,6 +20,10 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
 import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -96,6 +100,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 
+import static android.accounts.AccountManager.newChooseAccountIntent;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentSetup extends FragmentEx {
@@ -105,6 +110,7 @@ public class FragmentSetup extends FragmentEx {
 
     private EditText etName;
     private EditText etEmail;
+    private Button btnAuthorize;
     private TextInputLayout tilPassword;
     private Button btnQuick;
     private TextView tvQuickError;
@@ -135,6 +141,8 @@ public class FragmentSetup extends FragmentEx {
 
     private Drawable check;
 
+    private int auth_type = Helper.AUTH_TYPE_PASSWORD;
+
     private static final int KEY_ITERATIONS = 65536;
     private static final int KEY_LENGTH = 256;
 
@@ -156,6 +164,7 @@ public class FragmentSetup extends FragmentEx {
         ibHelp = view.findViewById(R.id.ibHelp);
 
         etName = view.findViewById(R.id.etName);
+        btnAuthorize = view.findViewById(R.id.btnAuthorize);
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnQuick = view.findViewById(R.id.btnQuick);
@@ -193,6 +202,19 @@ public class FragmentSetup extends FragmentEx {
             }
         });
 
+        btnAuthorize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String permission = Manifest.permission.GET_ACCOUNTS;
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O &&
+                        ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                    Log.i("Requesting " + permission);
+                    requestPermissions(new String[]{permission}, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                } else
+                    selectAccount();
+            }
+        });
+
         tilPassword.setHintEnabled(false);
 
         btnQuick.setOnClickListener(new View.OnClickListener() {
@@ -202,6 +224,7 @@ public class FragmentSetup extends FragmentEx {
                 args.putString("name", etName.getText().toString());
                 args.putString("email", etEmail.getText().toString().trim());
                 args.putString("password", tilPassword.getEditText().getText().toString());
+                args.putInt("auth_type", auth_type);
 
                 new SimpleTask<Void>() {
                     @Override
@@ -227,6 +250,7 @@ public class FragmentSetup extends FragmentEx {
                         String name = args.getString("name");
                         String email = args.getString("email");
                         String password = args.getString("password");
+                        int auth_type = args.getInt("auth_type");
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(context.getString(R.string.title_no_name));
@@ -249,7 +273,7 @@ public class FragmentSetup extends FragmentEx {
                         List<EntityFolder> folders = new ArrayList<>();
 
                         {
-                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, false);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             IMAPStore istore = null;
@@ -301,7 +325,7 @@ public class FragmentSetup extends FragmentEx {
                         }
 
                         {
-                            Properties props = MessageHelper.getSessionProperties(Helper.AUTH_TYPE_PASSWORD, false);
+                            Properties props = MessageHelper.getSessionProperties(auth_type, false);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
                             Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps");
@@ -320,7 +344,7 @@ public class FragmentSetup extends FragmentEx {
                             // Create account
                             EntityAccount account = new EntityAccount();
 
-                            account.auth_type = Helper.AUTH_TYPE_PASSWORD;
+                            account.auth_type = auth_type;
                             account.host = provider.imap_host;
                             account.starttls = provider.imap_starttls;
                             account.insecure = false;
@@ -360,7 +384,7 @@ public class FragmentSetup extends FragmentEx {
                             identity.color = null;
                             identity.signature = null;
 
-                            identity.auth_type = Helper.AUTH_TYPE_PASSWORD;
+                            identity.auth_type = auth_type;
                             identity.host = provider.smtp_host;
                             identity.starttls = provider.smtp_starttls;
                             identity.insecure = false;
@@ -443,7 +467,7 @@ public class FragmentSetup extends FragmentEx {
             @Override
             public void onClick(View view) {
                 btnPermissions.setEnabled(false);
-                requestPermissions(permissions, 1);
+                requestPermissions(permissions, ActivitySetup.REQUEST_PERMISSION);
             }
         });
 
@@ -732,7 +756,11 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        checkPermissions(permissions, grantResults, false);
+        if (requestCode == ActivitySetup.REQUEST_PERMISSION)
+            checkPermissions(permissions, grantResults, false);
+        else if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT)
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                selectAccount();
     }
 
     private void checkPermissions(String[] permissions, @NonNull int[] grantResults, boolean init) {
@@ -766,7 +794,7 @@ public class FragmentSetup extends FragmentEx {
 
     @Override
     public void onActivityResult(final int requestCode, int resultCode, final Intent data) {
-        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT)
+        if (requestCode == ActivitySetup.REQUEST_EXPORT || requestCode == ActivitySetup.REQUEST_IMPORT) {
             if (resultCode == RESULT_OK && data != null) {
                 final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
                 new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
@@ -795,6 +823,43 @@ public class FragmentSetup extends FragmentEx {
                         })
                         .show();
             }
+        } else if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT) {
+            if (resultCode == RESULT_OK && data != null) {
+                String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
+
+                AccountManager am = AccountManager.get(getContext());
+                Account[] accounts = am.getAccountsByType(type);
+                Log.i("Accounts=" + accounts.length);
+                for (final Account account : accounts)
+                    if (name.equals(account.name)) {
+                        am.getAuthToken(
+                                account,
+                                Helper.getAuthTokenType(type),
+                                new Bundle(),
+                                getActivity(),
+                                new AccountManagerCallback<Bundle>() {
+                                    @Override
+                                    public void run(AccountManagerFuture<Bundle> future) {
+                                        try {
+                                            Bundle bundle = future.getResult();
+                                            String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
+                                            Log.i("Got token");
+
+                                            etEmail.setText(account.name);
+                                            tilPassword.getEditText().setText(token);
+                                            auth_type = Helper.AUTH_TYPE_GMAIL;
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                        }
+                                    }
+                                },
+                                null);
+                        break;
+                    }
+            }
+        }
     }
 
     private void onMenuPrivacy() {
@@ -1106,5 +1171,20 @@ public class FragmentSetup extends FragmentEx {
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args);
+    }
+
+    private void selectAccount() {
+        Log.i("Select account");
+        startActivityForResult(
+                Helper.getChooser(getContext(), newChooseAccountIntent(
+                        null,
+                        null,
+                        new String[]{"com.google"},
+                        false,
+                        null,
+                        null,
+                        null,
+                        null)),
+                ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
     }
 }
