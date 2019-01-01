@@ -207,7 +207,7 @@ public class FragmentCompose extends FragmentEx {
                 tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at));
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
                 if (pro) {
-                    tvSignature.setText(identity == null ? null : Html.fromHtml(identity.signature));
+                    tvSignature.setText(identity == null || identity.signature == null ? null : Html.fromHtml(identity.signature));
                     grpSignature.setVisibility(identity == null || TextUtils.isEmpty(identity.signature) ? View.GONE : View.VISIBLE);
                 }
             }
