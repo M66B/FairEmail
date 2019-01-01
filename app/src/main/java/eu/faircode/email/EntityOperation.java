@@ -92,9 +92,18 @@ public class EntityOperation {
 
     static void sync(DB db, long fid) {
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
+
             EntityFolder folder = db.folder().getFolder(fid);
+
+            int sync_days = folder.sync_days;
+            if (folder.last_sync != null) {
+                int ago_days = (int) ((new Date().getTime() - folder.last_sync) / (24 * 3600 * 1000L)) + 1;
+                if (ago_days > sync_days)
+                    sync_days = ago_days;
+            }
+
             JSONArray jargs = new JSONArray();
-            jargs.put(folder.initialize ? Math.min(EntityFolder.DEFAULT_INIT, folder.keep_days) : folder.sync_days);
+            jargs.put(folder.initialize ? Math.min(EntityFolder.DEFAULT_INIT, folder.keep_days) : sync_days);
             jargs.put(folder.keep_days);
             jargs.put(folder.download);
 

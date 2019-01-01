@@ -91,6 +91,7 @@ public class EntityFolder implements Serializable {
     public String state;
     public String sync_state;
     public String error;
+    public Long last_sync;
 
     static final String INBOX = "Inbox";
     static final String OUTBOX = "Outbox";
@@ -197,7 +198,8 @@ public class EntityFolder implements Serializable {
                     (this.tbd == null ? other.tbd == null : this.tbd.equals(other.tbd)) &&
                     (this.state == null ? other.state == null : this.state.equals(other.state)) &&
                     (this.sync_state == null ? other.sync_state == null : this.sync_state.equals(other.sync_state)) &&
-                    (this.error == null ? other.error == null : this.error.equals(other.error)));
+                    (this.error == null ? other.error == null : this.error.equals(other.error)) &&
+                    (this.last_sync == null ? other.last_sync == null : this.last_sync.equals(other.last_sync)));
         } else
             return false;
     }

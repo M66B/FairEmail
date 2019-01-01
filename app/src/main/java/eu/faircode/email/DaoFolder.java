@@ -191,6 +191,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET initialize = 0 WHERE id = :id")
     int setFolderInitialized(long id);
 
+    @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id")
+    int setFolderSync(long id, long last_sync);
+
     @Query("UPDATE folder SET tbc = 0 WHERE id = :id")
     int resetFolderTbc(long id);
 

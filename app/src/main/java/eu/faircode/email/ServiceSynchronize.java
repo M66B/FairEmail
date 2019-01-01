@@ -2248,6 +2248,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             if (state.running)
                 db.folder().setFolderInitialized(folder.id);
+            db.folder().setFolderSync(folder.id, new Date().getTime());
 
             db.folder().setFolderError(folder.id, null);
         } finally {
