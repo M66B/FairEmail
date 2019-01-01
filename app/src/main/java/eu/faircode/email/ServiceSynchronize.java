@@ -2379,7 +2379,7 @@ public class ServiceSynchronize extends LifecycleService {
             message.cc = helper.getCc();
             message.bcc = helper.getBcc();
             message.reply = helper.getReply();
-            message.subject = imessage.getSubject();
+            message.subject = helper.getSubject();
             message.size = helper.getSize();
             message.content = false;
             message.received = imessage.getReceivedDate().getTime();

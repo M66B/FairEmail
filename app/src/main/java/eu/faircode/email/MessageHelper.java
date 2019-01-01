@@ -54,6 +54,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParseException;
 
 public class MessageHelper {
@@ -433,6 +434,19 @@ public class MessageHelper {
             return imessage.getReplyTo();
         else
             return null;
+    }
+
+    String getSubject() throws MessagingException, UnsupportedEncodingException {
+        String subject = imessage.getSubject();
+        if (subject != null && subject.indexOf("=?") >= 0) {
+            String prev;
+            do {
+                prev = subject;
+                subject = MimeUtility.decodeText(subject);
+            }
+            while (!subject.equals(prev));
+        }
+        return subject;
     }
 
     Integer getSize() throws MessagingException {
