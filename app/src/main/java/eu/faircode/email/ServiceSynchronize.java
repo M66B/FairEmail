@@ -2090,7 +2090,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(folder.name + " local old=" + old);
 
             // Get list of local uids
-            List<Long> uids = db.message().getUids(folder.id, sync_time);
+            List<Long> uids = db.message().getUids(folder.id, null);
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
@@ -2122,6 +2122,15 @@ public class ServiceSynchronize extends LifecycleService {
                     reportError(account, folder, ex);
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
+
+            long[] auids = Helper.toLongArray(uids);
+            Message[] iuids = ifolder.getMessagesByUID(auids);
+            for (int i = 0; i < iuids.length; i++)
+                if (iuids[i] != null)
+                    uids.remove(auids[i]);
+
+            long getuid = SystemClock.elapsedRealtime();
+            Log.i(folder.name + " remote getuid=" + (SystemClock.elapsedRealtime() - getuid) + " ms");
 
             // Delete local messages not at remote
             Log.i(folder.name + " delete=" + uids.size());

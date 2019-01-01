@@ -250,9 +250,9 @@ public interface DaoMessage {
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
-            " AND received >= :received" +
+            " AND (received IS NULL OR received >= :received)" +
             " AND NOT uid IS NULL")
-    List<Long> getUids(long folder, long received);
+    List<Long> getUids(long folder, Long received);
 
     @Insert
     long insertMessage(EntityMessage message);
