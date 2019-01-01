@@ -136,9 +136,9 @@ public class EntityFolder implements Serializable {
             USER
     );
 
-    static final int DEFAULT_INIT = 7; // days
-    static final int DEFAULT_SYNC = 1; // days
-    static final int DEFAULT_KEEP = 14; // days
+    static final int DEFAULT_INIT = 14; // days
+    static final int DEFAULT_SYNC = 7; // days
+    static final int DEFAULT_KEEP = 30; // days
 
     static final List<String> SYSTEM_FOLDER_SYNC = Arrays.asList(
             DRAFTS,
