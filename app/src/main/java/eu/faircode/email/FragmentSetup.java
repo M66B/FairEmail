@@ -293,6 +293,15 @@ public class FragmentSetup extends FragmentEx {
 
                         List<EntityFolder> folders = new ArrayList<>();
 
+                        EntityFolder inbox = new EntityFolder();
+                        inbox.name = "INBOX";
+                        inbox.type = EntityFolder.INBOX;
+                        inbox.synchronize = true;
+                        inbox.unified = true;
+                        inbox.notify = true;
+                        inbox.sync_days = EntityFolder.DEFAULT_SYNC;
+                        inbox.keep_days = EntityFolder.DEFAULT_KEEP;
+
                         {
                             Properties props = MessageHelper.getSessionProperties(auth_type, false);
                             Session isession = Session.getInstance(props, null);
