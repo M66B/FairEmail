@@ -2056,6 +2056,9 @@ public class ServiceSynchronize extends LifecycleService {
             int keep_days = jargs.getInt(1);
             boolean download = jargs.getBoolean(2);
 
+            if (keep_days == sync_days)
+                keep_days++;
+
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
@@ -2070,7 +2073,7 @@ public class ServiceSynchronize extends LifecycleService {
 
             Calendar cal_keep = Calendar.getInstance();
             cal_keep.add(Calendar.DAY_OF_MONTH, -keep_days);
-            cal_keep.set(Calendar.HOUR_OF_DAY, 12);
+            cal_keep.set(Calendar.HOUR_OF_DAY, 0);
             cal_keep.set(Calendar.MINUTE, 0);
             cal_keep.set(Calendar.SECOND, 0);
             cal_keep.set(Calendar.MILLISECOND, 0);
