@@ -311,6 +311,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">Kopia/Dold kopia</string>
     <string name="title_legend_attachment">Bilaga</string>
+    <string name="title_legend_draft">Utkast/redigera</string>
     <string name="title_legend_answered">Besvarad</string>
     <string name="title_legend_contacts">Kontakter</string>
     <string name="title_legend_view">Visa innehåll</string>
