@@ -347,7 +347,8 @@ public class FragmentSetup extends FragmentEx {
                                 }
 
                                 if (!drafts)
-                                    throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+                                    throw new IllegalArgumentException(
+                                            context.getString(R.string.title_setup_no_settings));
                             } finally {
                                 if (istore != null)
                                     istore.close();
