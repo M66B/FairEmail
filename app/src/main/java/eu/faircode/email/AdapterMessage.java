@@ -1073,6 +1073,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         db.beginTransaction();
 
                                         EntityMessage message = db.message().getMessage(id);
+                                        if (message == null)
+                                            return null;
+
                                         EntityFolder junk = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
                                         EntityOperation.queue(db, message, EntityOperation.MOVE, junk.id);
 
@@ -1220,6 +1223,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.beginTransaction();
 
                         EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
                         EntityOperation.queue(db, message, EntityOperation.SEEN, false);
 
                         db.setTransactionSuccessful();
@@ -1258,11 +1264,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean thread = args.getBoolean("thread");
 
                     DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    List<EntityMessage> messages = db.message().getMessageByThread(
-                            message.account, message.thread, threading && thread ? null : id, message.folder);
-                    for (EntityMessage threaded : messages)
-                        EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                message.account, message.thread, threading && thread ? null : id, message.folder);
+                        for (EntityMessage threaded : messages)
+                            EntityOperation.queue(db, threaded, EntityOperation.FLAG, flagged);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
 
                     return null;
                 }
@@ -1291,9 +1308,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
                         Long id = args.getLong("id");
+
                         DB db = DB.getInstance(context);
-                        EntityMessage message = db.message().getMessage(id);
-                        EntityOperation.queue(db, message, EntityOperation.HEADERS);
+                        try {
+                            db.beginTransaction();
+
+                            EntityMessage message = db.message().getMessage(id);
+                            if (message == null)
+                                return null;
+
+                            EntityOperation.queue(db, message, EntityOperation.HEADERS);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
                         return null;
                     }
 
@@ -1529,6 +1558,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             db.beginTransaction();
 
                                             EntityMessage message = db.message().getMessage(id);
+                                            if (message == null)
+                                                return null;
+
                                             if (message.uid == null && !TextUtils.isEmpty(message.error)) {
                                                 // outbox
                                                 db.message().deleteMessage(id);
@@ -1568,11 +1600,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<List<EntityFolder>>() {
                 @Override
                 protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                    EntityMessage message;
+                    List<EntityFolder> folders = new ArrayList<>();
+
                     DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
 
-                    EntityMessage message = db.message().getMessage(args.getLong("id"));
+                        message = db.message().getMessage(args.getLong("id"));
+                        if (message == null)
+                            return folders;
 
-                    List<EntityFolder> folders = db.folder().getFolders(message.account);
+                        folders = db.folder().getFolders(message.account);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
                     List<EntityFolder> targets = new ArrayList<>();
                     for (EntityFolder folder : folders)
                         if (!folder.hide &&
