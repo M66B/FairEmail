@@ -296,6 +296,7 @@ public class FragmentSetup extends FragmentEx {
                         EntityFolder inbox = new EntityFolder();
                         inbox.name = "INBOX";
                         inbox.type = EntityFolder.INBOX;
+                        inbox.level = 0;
                         inbox.synchronize = true;
                         inbox.unified = true;
                         inbox.notify = true;
