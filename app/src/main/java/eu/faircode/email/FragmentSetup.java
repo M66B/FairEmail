@@ -38,11 +38,14 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -214,6 +217,24 @@ public class FragmentSetup extends FragmentEx {
                     selectAccount();
             }
         });
+
+        TextWatcher credentialsWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                auth_type = Helper.AUTH_TYPE_PASSWORD;
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        };
+
+        etEmail.addTextChangedListener(credentialsWatcher);
+        tilPassword.getEditText().addTextChangedListener(credentialsWatcher);
 
         tilPassword.setHintEnabled(false);
 
@@ -833,6 +854,10 @@ public class FragmentSetup extends FragmentEx {
                 Log.i("Accounts=" + accounts.length);
                 for (final Account account : accounts)
                     if (name.equals(account.name)) {
+                        btnAuthorize.setEnabled(false);
+                        final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
+                        snackbar.show();
+
                         am.getAuthToken(
                                 account,
                                 Helper.getAuthTokenType(type),
@@ -852,6 +877,14 @@ public class FragmentSetup extends FragmentEx {
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                        } finally {
+                                            btnAuthorize.setEnabled(true);
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    snackbar.dismiss();
+                                                }
+                                            }, 1000);
                                         }
                                     }
                                 },
