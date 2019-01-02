@@ -34,6 +34,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -397,10 +398,15 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         Boolean metered = Helper.isMetered(getContext(), false);
-        menu.findItem(R.id.menu_metered).setVisible(metered != null);
-        if (metered != null)
-            menu.findItem(R.id.menu_metered).setIcon(
+
+        MenuItem menuMetered = menu.findItem(R.id.menu_metered);
+        menuMetered.setVisible(metered != null);
+        if (metered != null) {
+            menuMetered.setIcon(
                     metered ? R.drawable.baseline_attach_money_24 : R.drawable.baseline_money_off_24);
+            menuMetered.setTitle(
+                    metered ? R.string.title_legend_metered : R.string.title_legend_unmetered);
+        }
         super.onPrepareOptionsMenu(menu);
     }
 
