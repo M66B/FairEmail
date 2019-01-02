@@ -66,6 +66,10 @@
     <string name="title_setup_password_invalid">Ogiltigt lösenord</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
+    <string name="title_setup_setting_gmail">Aktivera åtkomst för ”mindre säkra” appar</string>
+    <string name="title_setup_no_settings">Inga inställningar hittades för \"%1$s\"</string>
+    <string name="title_setup_quick_success">Ett konto och en identitet har lagts till. Du kan granska detaljer nedan med knapparna \'hantera\'.</string>
+    <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
     <string name="title_setup_account">Hantera konton</string>
     <string name="title_setup_account_remark">Att ta emot e-post</string>
     <string name="title_setup_identity">Hantera identiteter</string>
@@ -169,7 +173,9 @@
     <string name="title_identity_sent_hint">Skickade meddelanden sparas automatiskt i mappen skickade redan i de flesta fall</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
+    <string name="title_empty_trash">Töm papperskorgen</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
+    <string name="title_empty_trash_ask">Ta bort alla meddelanden i papperskorgen permanent?</string>
     <string name="title_delete_operation">Ta bort åtgärder med ett felmeddelande?</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>

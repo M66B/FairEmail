@@ -66,6 +66,9 @@
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
+    <string name="title_setup_quick">Szybka konfiguracja</string>
+    <string name="title_setup_quick_remark">Szybka konfiguracja może być użyta dla większości głównych dostawców</string>
+    <string name="title_setup_no_settings">Nie znaleziono ustawień dla \'%1$s\'</string>
     <string name="title_setup_account">Zarządzaj kontami</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
     <string name="title_setup_identity">Zarządzaj tożsamościami</string>
@@ -162,6 +165,7 @@
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
+    <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
@@ -316,6 +320,7 @@
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / nagłówków</string>
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
+    <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
     <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>

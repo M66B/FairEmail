@@ -319,6 +319,7 @@
     <string name="title_legend_thread">Fil de discussion</string>
     <string name="title_legend_cc">Cc/Cci</string>
     <string name="title_legend_attachment">Pièce jointe</string>
+    <string name="title_legend_draft">Brouillon/modifier</string>
     <string name="title_legend_answered">Répondu</string>
     <string name="title_legend_contacts">Contacts</string>
     <string name="title_legend_view">Voir le contenu</string>

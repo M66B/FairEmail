@@ -37,7 +37,7 @@
     <string name="menu_setup">Kurulum</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
-    <string name="menu_legend">Yazıt</string>
+    <string name="menu_legend">Simgelerin anlamları</string>
     <string name="menu_faq">Destek</string>
     <string name="menu_pro">Pro özellikleri</string>
     <string name="menu_privacy">Gizlilik</string>
@@ -66,6 +66,11 @@
     <string name="title_setup_password_invalid">Parola geçersiz</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
+    <string name="title_setup_quick">Hızlı yapılandırma</string>
+    <string name="title_setup_quick_remark">Hızlı yapılandırma büyük sağlayıcıların çoğunda kullanılabilir</string>
+    <string name="title_setup_setting_gmail">\"Daha az güvenli\" uygulamalara erişimi etkinleştir</string>
+    <string name="title_setup_no_settings">%1$s için ayar bulunamadı</string>
+    <string name="title_setup_quick_success">Bir hesap ve bir kimlik eklendi. \'Yönet\' düğmelerini kullanarak aşağıdaki ayrıntıları inceleyebilirsiniz.</string>
     <string name="title_setup_account">Hesapları Yönet</string>
     <string name="title_setup_account_remark">E-posta almak için</string>
     <string name="title_setup_identity">Kimlikleri Yönet</string>
@@ -114,6 +119,7 @@
     <string name="title_advanced_browse_hint">Aşağı doğru kaydırarak daha çok ileti indirin</string>
     <string name="title_advanced_unified_hint">Birleşik gelen kutusu klasörlerini veya birleşik gelen kutusu iletilerini göster</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
@@ -311,10 +317,13 @@
     <string name="title_legend_thread">Sohbet</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Ek</string>
+    <string name="title_legend_draft">Taslak/düzenle</string>
     <string name="title_legend_answered">Yanıtlanmış</string>
     <string name="title_legend_contacts">Kişiler</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
     <string name="title_legend_download">İçeriği indir</string>
+    <string name="title_legend_external_image">Harici resim vekili</string>
+    <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>
     <string name="title_legend_broken_image">Bozuk görüntü</string>
     <string name="title_legend_synchronize_on">Eşzamanlama açık</string>
     <string name="title_legend_synchronize_off">Eşzamanlama kapalı</string>

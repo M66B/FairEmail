@@ -325,6 +325,7 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Atașament</string>
+    <string name="title_legend_draft">Ciornă/editare</string>
     <string name="title_legend_answered">S-a răspuns</string>
     <string name="title_legend_contacts">Contacte</string>
     <string name="title_legend_view">Afișează conținutul</string>

@@ -319,6 +319,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Anhang</string>
+    <string name="title_legend_draft">Entwurf/bearbeiten</string>
     <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_contacts">Kontakte</string>
     <string name="title_legend_view">Inhalt anzeigen</string>
