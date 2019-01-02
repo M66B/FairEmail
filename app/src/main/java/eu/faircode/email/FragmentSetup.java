@@ -855,6 +855,9 @@ public class FragmentSetup extends FragmentEx {
                 for (final Account account : accounts)
                     if (name.equals(account.name)) {
                         btnAuthorize.setEnabled(false);
+                        etEmail.setEnabled(false);
+                        tilPassword.setEnabled(false);
+                        btnQuick.setEnabled(false);
                         final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
                         snackbar.show();
 
@@ -879,6 +882,9 @@ public class FragmentSetup extends FragmentEx {
                                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
                                             btnAuthorize.setEnabled(true);
+                                            etEmail.setEnabled(true);
+                                            tilPassword.setEnabled(true);
+                                            btnQuick.setEnabled(true);
                                             new Handler().postDelayed(new Runnable() {
                                                 @Override
                                                 public void run() {
