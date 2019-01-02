@@ -301,6 +301,7 @@ public class FragmentSetup extends FragmentEx {
                         inbox.notify = true;
                         inbox.sync_days = EntityFolder.DEFAULT_SYNC;
                         inbox.keep_days = EntityFolder.DEFAULT_KEEP;
+                        folders.add(inbox);
 
                         {
                             Properties props = MessageHelper.getSessionProperties(auth_type, false);
