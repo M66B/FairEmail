@@ -250,10 +250,26 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         DB.getInstance(this).account().liveAccounts(true, threading).observe(this, new Observer<List<TupleAccountEx>>() {
+            private List<TupleAccountEx> last = new ArrayList<>();
+
             @Override
             public void onChanged(@Nullable List<TupleAccountEx> accounts) {
                 if (accounts == null)
                     accounts = new ArrayList<>();
+
+                boolean changed = false;
+                if (last.size() == accounts.size()) {
+                    for (int i = 0; i < accounts.size(); i++)
+                        if (!last.get(i).equals(accounts.get(i))) {
+                            changed = true;
+                            break;
+                        }
+                } else
+                    changed = true;
+
+                if (!changed)
+                    return;
+                last = accounts;
 
                 ArrayAdapterDrawer drawerArray = new ArrayAdapterDrawer(ActivityView.this);
 
