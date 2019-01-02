@@ -20,20 +20,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                app:layout_constraintEnd_toStartOf="@+id/ivIdentityAdd"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivIdentityAdd"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:src="@drawable/baseline_person_add_24"
-                app:layout_constraintBottom_toBottomOf="@id/spIdentity"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/spIdentity" />
 
             <TextView
                 android:id="@+id/tvExtraPrefix"

@@ -121,7 +121,6 @@ public class FragmentCompose extends FragmentEx {
 
     private ViewGroup view;
     private Spinner spIdentity;
-    private ImageView ivIdentityAdd;
     private TextView tvExtraPrefix;
     private EditText etExtra;
     private TextView tvExtraSuffix;
@@ -171,7 +170,6 @@ public class FragmentCompose extends FragmentEx {
 
         // Get controls
         spIdentity = view.findViewById(R.id.spIdentity);
-        ivIdentityAdd = view.findViewById(R.id.ivIdentityAdd);
         tvExtraPrefix = view.findViewById(R.id.tvExtraPrefix);
         etExtra = view.findViewById(R.id.etExtra);
         tvExtraSuffix = view.findViewById(R.id.tvExtraSuffix);
@@ -218,18 +216,6 @@ public class FragmentCompose extends FragmentEx {
                 tvExtraSuffix.setText(null);
                 tvSignature.setText(null);
                 grpSignature.setVisibility(View.GONE);
-            }
-        });
-
-        ivIdentityAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentIdentity fragment = new FragmentIdentity();
-                fragment.setArguments(new Bundle());
-
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
-                fragmentTransaction.commit();
             }
         });
 
