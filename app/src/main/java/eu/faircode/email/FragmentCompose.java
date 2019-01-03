@@ -1300,9 +1300,11 @@ public class FragmentCompose extends FragmentEx {
                         }
 
                         if ("reply".equals(action) || "reply_all".equals(action))
-                            result.draft.subject = context.getString(R.string.title_subject_reply, ref.subject);
+                            result.draft.subject = context.getString(R.string.title_subject_reply,
+                                    ref.subject == null ? "" : ref.subject);
                         else if ("forward".equals(action))
-                            result.draft.subject = context.getString(R.string.title_subject_forward, ref.subject);
+                            result.draft.subject = context.getString(R.string.title_subject_forward,
+                                    ref.subject == null ? "" : ref.subject);
 
                         if (answer > 0 && ("reply".equals(action) || "reply_all".equals(action))) {
                             String text = db.answer().getAnswer(answer).text;
