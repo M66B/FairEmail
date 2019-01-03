@@ -582,21 +582,26 @@ public class FragmentCompose extends FragmentEx {
         if (start == end)
             Snackbar.make(view, R.string.title_no_selection, Snackbar.LENGTH_LONG).show();
         else {
-            SpannableString s = new SpannableString(etBody.getText());
+            final SpannableString s = new SpannableString(etBody.getText());
+
             switch (id) {
                 case R.id.menu_bold:
                     s.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     break;
+
                 case R.id.menu_italic:
                     s.setSpan(new StyleSpan(Typeface.ITALIC), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     break;
+
                 case R.id.menu_clear:
                     for (Object span : s.getSpans(start, end, Object.class))
                         if (!(span instanceof ImageSpan))
                             s.removeSpan(span);
                     break;
+
                 case R.id.menu_link:
                     Uri uri = null;
+
                     ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                     if (cbm.hasPrimaryClip()) {
                         String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
@@ -604,12 +609,36 @@ public class FragmentCompose extends FragmentEx {
                         if (uri.getScheme() == null)
                             uri = null;
                     }
-                    if (uri == null)
-                        Snackbar.make(view, R.string.title_clipboard_empty, Snackbar.LENGTH_LONG).show();
-                    else
+
+                    if (uri == null) {
+                        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
+                        final int fStart = start;
+                        final int fEnd = end;
+                        final EditText etLink = view.findViewById(R.id.etLink);
+                        etLink.setText("https://");
+                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                .setView(view)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        s.setSpan(new URLSpan(etLink.getText().toString()), fStart, fEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        etBody.setText(s);
+                                        etBody.setSelection(fEnd);
+                                    }
+                                })
+                                .show();
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                etLink.requestFocus();
+                            }
+                        });
+                        return;
+                    } else
                         s.setSpan(new URLSpan(uri.toString()), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     break;
             }
+
             etBody.setText(s);
             etBody.setSelection(end);
         }
