@@ -253,6 +253,7 @@ public class FragmentSetup extends FragmentEx {
                         etName.setEnabled(false);
                         etEmail.setEnabled(false);
                         tilPassword.setEnabled(false);
+                        btnAuthorize.setEnabled(false);
                         btnQuick.setEnabled(false);
                         grpQuickError.setVisibility(View.GONE);
                         tvInstructions.setVisibility(View.GONE);
@@ -263,6 +264,7 @@ public class FragmentSetup extends FragmentEx {
                         etName.setEnabled(true);
                         etEmail.setEnabled(true);
                         tilPassword.setEnabled(true);
+                        btnAuthorize.setEnabled(true);
                         btnQuick.setEnabled(true);
                     }
 
@@ -866,9 +868,9 @@ public class FragmentSetup extends FragmentEx {
                 Log.i("Accounts=" + accounts.length);
                 for (final Account account : accounts)
                     if (name.equals(account.name)) {
-                        btnAuthorize.setEnabled(false);
                         etEmail.setEnabled(false);
                         tilPassword.setEnabled(false);
+                        btnAuthorize.setEnabled(false);
                         btnQuick.setEnabled(false);
                         final Snackbar snackbar = Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_SHORT);
                         snackbar.show();
@@ -893,9 +895,9 @@ public class FragmentSetup extends FragmentEx {
                                             Log.e(ex);
                                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
-                                            btnAuthorize.setEnabled(true);
                                             etEmail.setEnabled(true);
                                             tilPassword.setEnabled(true);
+                                            btnAuthorize.setEnabled(true);
                                             btnQuick.setEnabled(true);
                                             new Handler().postDelayed(new Runnable() {
                                                 @Override
