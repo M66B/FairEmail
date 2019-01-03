@@ -355,8 +355,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (avatars || identicons) {
-                ivAvatar.setVisibility(compact ? View.GONE : View.INVISIBLE);
-
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putString("uri", message.avatar);
@@ -366,6 +364,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivAvatar.setTag(message.id);
 
                 new SimpleTask<Drawable>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ivAvatar.setVisibility(View.INVISIBLE);
+                    }
+
                     @Override
                     protected Drawable onExecute(Context context, Bundle args) {
                         String uri = args.getString("uri");
@@ -380,24 +383,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                         String from = args.getString("from");
-                        if (identicons && !outgoing && from != null) {
+                        if (identicons && !outgoing && from != null)
                             return new BitmapDrawable(
                                     context.getResources(),
                                     Identicon.generate(from, dp24, 5, "light".equals(theme)));
-                        }
 
                         return null;
                     }
 
                     @Override
                     protected void onExecuted(Bundle args, Drawable avatar) {
-                        if (avatar != null) {
-                            if ((long) ivAvatar.getTag() == args.getLong("id")) {
+                        if ((long) ivAvatar.getTag() == args.getLong("id")) {
+                            if (avatar == null && !outgoing)
+                                ivAvatar.setImageResource(R.drawable.baseline_person_24);
+                            else
                                 ivAvatar.setImageDrawable(avatar);
-                                ivAvatar.setVisibility(View.VISIBLE);
-                            } else
-                                Log.i("Skipping avatar");
-                        }
+                            ivAvatar.setVisibility(View.VISIBLE);
+                        } else
+                            Log.i("Skipping avatar");
                     }
 
                     @Override
