@@ -610,33 +610,30 @@ public class FragmentCompose extends FragmentEx {
                             uri = null;
                     }
 
-                    if (uri == null) {
-                        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
-                        final int fStart = start;
-                        final int fEnd = end;
-                        final EditText etLink = view.findViewById(R.id.etLink);
-                        etLink.setText("https://");
-                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                .setView(view)
-                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        s.setSpan(new URLSpan(etLink.getText().toString()), fStart, fEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        etBody.setText(s);
-                                        etBody.setSelection(fEnd);
-                                    }
-                                })
-                                .show();
-                        new Handler().post(new Runnable() {
-                            @Override
-                            public void run() {
-                                etLink.requestFocus();
-                            }
-                        });
-                        return;
-                    } else
-                        s.setSpan(new URLSpan(uri.toString()), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    break;
+                    View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_link, null);
+                    final int fStart = start;
+                    final int fEnd = end;
+                    final EditText etLink = view.findViewById(R.id.etLink);
+                    etLink.setText(uri == null ? "https://" : uri.toString());
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setView(view)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    s.setSpan(new URLSpan(etLink.getText().toString()), fStart, fEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    etBody.setText(s);
+                                    etBody.setSelection(fEnd);
+                                }
+                            })
+                            .show();
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            etLink.requestFocus();
+                        }
+                    });
+
+                    return;
             }
 
             etBody.setText(s);
