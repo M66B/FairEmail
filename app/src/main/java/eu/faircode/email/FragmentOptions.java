@@ -68,6 +68,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
     private SwitchCompat swLight;
     private Button btnSound;
 
+    private SwitchCompat swPull;
     private SwitchCompat swSwipe;
     private SwitchCompat swActionbar;
     private SwitchCompat swAutoClose;
@@ -106,6 +107,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
 
+        swPull = view.findViewById(R.id.swPull);
         swSwipe = view.findViewById(R.id.swSwipe);
         swActionbar = view.findViewById(R.id.swActionbar);
         swAutoClose = view.findViewById(R.id.swAutoClose);
@@ -269,6 +271,14 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false);
                 intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
                 startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_SOUND);
+            }
+        });
+
+        swPull.setChecked(prefs.getBoolean("pull", true));
+        swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("pull", checked).apply();
             }
         });
 

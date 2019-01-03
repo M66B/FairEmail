@@ -109,6 +109,7 @@ public class FragmentMessages extends FragmentEx {
 
     private boolean compact;
     private boolean threading;
+    private boolean pull;
     private boolean actionbar;
     private boolean autoclose;
 
@@ -150,12 +151,6 @@ public class FragmentMessages extends FragmentEx {
         id = args.getLong("id", -1);
         search = args.getString("search");
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        compact = prefs.getBoolean("compact", false);
-        threading = prefs.getBoolean("threading", true);
-        actionbar = prefs.getBoolean("actionbar", true);
-        autoclose = prefs.getBoolean("autoclose", true);
-
         if (TextUtils.isEmpty(search))
             if (thread == null)
                 if (folder < 0)
@@ -166,6 +161,19 @@ public class FragmentMessages extends FragmentEx {
                 viewType = AdapterMessage.ViewType.THREAD;
         else
             viewType = AdapterMessage.ViewType.SEARCH;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        compact = prefs.getBoolean("compact", false);
+
+        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+            pull = prefs.getBoolean("pull", true);
+        else
+            pull = false;
+
+        threading = prefs.getBoolean("threading", true);
+        actionbar = prefs.getBoolean("actionbar", true);
+        autoclose = prefs.getBoolean("autoclose", true);
+
     }
 
     @Override
@@ -442,7 +450,7 @@ public class FragmentMessages extends FragmentEx {
                             fabMore.hide();
                             if (getViewLifecycleOwner().getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                                 loadMessages();
-                            swipeRefresh.setEnabled(true);
+                            swipeRefresh.setEnabled(pull);
                         }
                     } catch (IllegalStateException ex) {
                         Log.w(ex);
@@ -1187,7 +1195,7 @@ public class FragmentMessages extends FragmentEx {
         ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
 
         // Initialize
-        swipeRefresh.setEnabled(viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        swipeRefresh.setEnabled(pull);
         tvNoEmail.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);

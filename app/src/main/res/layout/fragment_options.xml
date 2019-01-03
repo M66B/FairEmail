@@ -287,6 +287,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvSectionBehavior" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swPull"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/title_advanced_pull_refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vSeparator4"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSwipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -295,7 +307,7 @@
             android:layout_marginEnd="12dp"
             android:text="@string/title_advanced_swipe"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vSeparator4"
+            app:layout_constraintTop_toBottomOf="@id/swPull"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
