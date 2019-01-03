@@ -64,10 +64,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.jsoup.Jsoup;
 import org.xml.sax.XMLReader;
 
 import java.io.IOException;
@@ -1294,6 +1296,59 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args);
         }
 
+        private void onShare(ActionData data) {
+            Bundle args = new Bundle();
+            args.putLong("id", data.message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(context.getString(R.string.title_from))
+                            .append(' ')
+                            .append(MessageHelper.getFormattedAddresses(message.from, true))
+                            .append("\r\n");
+
+                    if (message.subject != null) {
+                        sb.append(context.getString(R.string.title_subject))
+                                .append(' ')
+                                .append(message.subject)
+                                .append("\r\n");
+                    }
+
+                    sb.append("\r\n");
+                    sb.append(Jsoup.parse(message.read(context)).text());
+
+                    return sb.toString();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String text) {
+                    Intent share = new Intent();
+                    share.setAction(Intent.ACTION_SEND);
+                    share.putExtra(Intent.EXTRA_TEXT, text);
+                    share.setType("text/plain");
+
+                    PackageManager pm = context.getPackageManager();
+                    if (share.resolveActivity(pm) == null)
+                        Toast.makeText(context, R.string.title_no_viewer, Toast.LENGTH_LONG).show();
+                    else
+                        context.startActivity(share);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+
+                }
+            }.execute(context, owner, args);
+
+        }
+
         private void onShowHeaders(ActionData data) {
             boolean show_headers = !properties.getValue("headers", data.message.id);
             properties.setValue("headers", data.message.id, show_headers);
@@ -1493,6 +1548,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(data.message.uid != null);
 
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.content);
+
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(data.message.uid != null);
 
@@ -1522,6 +1579,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_unseen:
                             onUnseen(data);
+                            return true;
+                        case R.id.menu_share:
+                            onShare(data);
                             return true;
                         case R.id.menu_show_headers:
                             onShowHeaders(data);

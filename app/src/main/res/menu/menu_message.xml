@@ -25,6 +25,10 @@
         android:title="@string/title_unseen" />
 
     <item
+        android:id="@+id/menu_share"
+        android:title="@string/title_share" />
+
+    <item
         android:id="@+id/menu_show_headers"
         android:checkable="true"
         android:title="@string/title_show_headers" />
