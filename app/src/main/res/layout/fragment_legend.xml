@@ -189,33 +189,13 @@
             app:layout_constraintTop_toTopOf="@id/ivCC" />
 
         <ImageView
-            android:id="@+id/ivAttachment"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/baseline_attachment_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivCC" />
-
-        <TextView
-            android:id="@+id/tvAttachment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/title_legend_attachment"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivAttachment"
-            app:layout_constraintStart_toEndOf="@id/ivAttachment"
-            app:layout_constraintTop_toTopOf="@id/ivAttachment" />
-
-        <ImageView
             android:id="@+id/ivDraft"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/ivCC" />
 
         <TextView
             android:id="@+id/tvDraft"
@@ -249,13 +229,33 @@
             app:layout_constraintTop_toTopOf="@id/ivAnswered" />
 
         <ImageView
+            android:id="@+id/ivAttachment"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_attachment_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAnswered" />
+
+        <TextView
+            android:id="@+id/tvAttachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_attachment"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivAttachment"
+            app:layout_constraintStart_toEndOf="@id/ivAttachment"
+            app:layout_constraintTop_toTopOf="@id/ivAttachment" />
+
+        <ImageView
             android:id="@+id/ivContacts"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAnswered" />
+            app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
 
         <TextView
             android:id="@+id/tvContacts"
