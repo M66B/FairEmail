@@ -119,6 +119,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(54) How do I use a namespace prefix?](#user-content-faq54)
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 * [(56) Can you add support for JMAP?](#user-content-faq56)
+* [(57) Can I use HTML in signatures?](#user-content-faq57)
 
 [I have another question.](#support)
 
@@ -894,6 +895,15 @@ Then use the three dot action button to execute the desired action.
 
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
 so it is not worth to add support for this to FairEmail.
+
+<br />
+
+<a name="faq57"></a>
+**(57) Can I use HTML in signatures?**
+
+Yes, you can use HTML in signatures if you paste HTML formatted text into the signature field.
+
+See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
 
 <br />
 
