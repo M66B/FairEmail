@@ -354,7 +354,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvError.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
             }
 
-            if (avatars || identicons) {
+            if (!outgoing && (avatars || identicons)) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
                 aargs.putString("uri", message.avatar);
@@ -372,7 +372,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected Drawable onExecute(Context context, Bundle args) {
                         String uri = args.getString("uri");
-                        if (avatars && !outgoing && uri != null)
+                        if (avatars && uri != null)
                             try {
                                 ContentResolver resolver = context.getContentResolver();
                                 InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, Uri.parse(uri));
@@ -383,7 +383,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                         String from = args.getString("from");
-                        if (identicons && !outgoing && from != null)
+                        if (identicons && from != null)
                             return new BitmapDrawable(
                                     context.getResources(),
                                     Identicon.generate(from, dp24, 5, "light".equals(theme)));
@@ -394,7 +394,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected void onExecuted(Bundle args, Drawable avatar) {
                         if ((long) ivAvatar.getTag() == args.getLong("id")) {
-                            if (avatar == null && !outgoing)
+                            if (avatar == null)
                                 ivAvatar.setImageResource(R.drawable.baseline_person_24);
                             else
                                 ivAvatar.setImageDrawable(avatar);
