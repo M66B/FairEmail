@@ -487,6 +487,17 @@ public class FragmentAccount extends FragmentEx {
 
                             result.idle = istore.hasCapability("IDLE");
 
+                            boolean archive = false;
+                            boolean drafts = false;
+                            boolean trash = false;
+                            boolean sent = false;
+                            boolean junk = false;
+                            EntityFolder altArchive = null;
+                            EntityFolder altDrafts = null;
+                            EntityFolder altTrash = null;
+                            EntityFolder altSent = null;
+                            EntityFolder altJunk = null;
+
                             for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                                 // Check folder attributes
                                 String type = null;
@@ -519,10 +530,45 @@ public class FragmentAccount extends FragmentEx {
                                     }
                                     result.folders.add(folder);
 
+                                    if (type == null) {
+                                        if (folder.name.toLowerCase().contains("archive"))
+                                            altArchive = folder;
+                                        if (folder.name.toLowerCase().contains("draft"))
+                                            altDrafts = folder;
+                                        if (folder.name.toLowerCase().contains("trash"))
+                                            altTrash = folder;
+                                        if (folder.name.toLowerCase().contains("sent"))
+                                            altSent = folder;
+                                        if (folder.name.toLowerCase().contains("junk"))
+                                            altJunk = folder;
+                                    } else {
+                                        if (EntityFolder.ARCHIVE.equals(type))
+                                            archive = true;
+                                        else if (EntityFolder.DRAFTS.equals(type))
+                                            drafts = true;
+                                        else if (EntityFolder.TRASH.equals(type))
+                                            trash = true;
+                                        else if (EntityFolder.SENT.equals(type))
+                                            sent = true;
+                                        else if (EntityFolder.JUNK.equals(type))
+                                            junk = true;
+                                    }
+
                                     Log.i(folder.name + " id=" + folder.id +
                                             " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
                                 }
                             }
+
+                            if (!archive && altArchive != null)
+                                altArchive.type = EntityFolder.ARCHIVE;
+                            if (!drafts && altDrafts != null)
+                                altDrafts.type = EntityFolder.DRAFTS;
+                            if (!trash && altTrash != null)
+                                altTrash.type = EntityFolder.TRASH;
+                            if (!sent && altSent != null)
+                                altSent.type = EntityFolder.SENT;
+                            if (!junk && altJunk != null)
+                                altJunk.type = EntityFolder.JUNK;
 
                         } finally {
                             if (istore != null)
