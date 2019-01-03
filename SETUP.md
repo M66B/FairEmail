@@ -13,6 +13,8 @@ An internet connection is required to setup accounts and identities.
 
 Just enter your name, email address and password and tap *Quick setup*.
 
+If you have a Google account, you can use *Select account* instead of entering an email address and a password.
+
 This will work for most major email providers.
 
 If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
