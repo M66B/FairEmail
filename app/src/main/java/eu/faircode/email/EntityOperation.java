@@ -19,10 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -72,22 +76,22 @@ public class EntityOperation {
     static final String ATTACHMENT = "attachment";
     static final String SYNC = "sync";
 
-    static void queue(DB db, EntityMessage message, String name) {
+    static void queue(Context context, DB db, EntityMessage message, String name) {
         JSONArray jargs = new JSONArray();
-        queue(db, message, name, jargs);
+        queue(context, db, message, name, jargs);
     }
 
-    static void queue(DB db, EntityMessage message, String name, Object value) {
+    static void queue(Context context, DB db, EntityMessage message, String name, Object value) {
         JSONArray jargs = new JSONArray();
         jargs.put(value);
-        queue(db, message, name, jargs);
+        queue(context, db, message, name, jargs);
     }
 
-    static void queue(DB db, EntityMessage message, String name, Object value1, Object value2) {
+    static void queue(Context context, DB db, EntityMessage message, String name, Object value1, Object value2) {
         JSONArray jargs = new JSONArray();
         jargs.put(value1);
         jargs.put(value2);
-        queue(db, message, name, jargs);
+        queue(context, db, message, name, jargs);
     }
 
     static void sync(DB db, long fid) {
@@ -121,7 +125,7 @@ public class EntityOperation {
         }
     }
 
-    private static void queue(DB db, EntityMessage message, String name, JSONArray jargs) {
+    private static void queue(Context context, DB db, EntityMessage message, String name, JSONArray jargs) {
         try {
             if (SEEN.equals(name)) {
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
@@ -139,8 +143,52 @@ public class EntityOperation {
 
             else if (MOVE.equals(name)) {
                 EntityFolder source = db.folder().getFolder(message.folder);
-                if (!EntityFolder.ARCHIVE.equals(source.type))
+                EntityFolder target = db.folder().getFolder(jargs.getLong(0));
+
+                if (!EntityFolder.ARCHIVE.equals(source.type) || EntityFolder.TRASH.equals(target.type))
                     db.message().setMessageUiHide(message.id, true);
+
+                // Create copy without uid in target folder
+                // Message with same msgid can be in archive and source folder
+                if (db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
+                    long id = message.id;
+                    long uid = message.uid;
+                    message.id = null;
+                    message.uid = null;
+                    message.folder = target.id;
+                    long newid = db.message().insertMessage(message);
+                    message.id = id;
+                    message.uid = uid;
+                    message.folder = source.id;
+                    if (message.content)
+                        try {
+                            Helper.copy(
+                                    EntityMessage.getFile(context, id),
+                                    EntityMessage.getFile(context, newid));
+                        } catch (IOException ex) {
+                            Log.e(ex);
+                            db.message().setMessageContent(newid, false, null);
+                        }
+
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                    for (EntityAttachment attachment : attachments) {
+                        long aid = attachment.id;
+                        attachment.id = null;
+                        attachment.message = newid;
+                        attachment.progress = null;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+                        if (attachment.available)
+                            try {
+                                Helper.copy(
+                                        EntityAttachment.getFile(context, aid),
+                                        EntityAttachment.getFile(context, attachment.id));
+                            } catch (IOException ex) {
+                                Log.e(ex);
+                                attachment.available = false;
+                                db.attachment().updateAttachment(attachment);
+                            }
+                    }
+                }
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);

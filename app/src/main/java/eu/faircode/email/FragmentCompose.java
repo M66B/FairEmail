@@ -1470,14 +1470,14 @@ public class FragmentCompose extends FragmentEx {
                         }
                     }
 
-                    EntityOperation.queue(db, result.draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, db, result.draft, EntityOperation.ADD);
                 } else {
                     // Existing draft
                     result.account = db.account().getAccount(result.draft.account);
                     if (!result.draft.content) {
                         if (result.draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
-                        EntityOperation.queue(db, result.draft, EntityOperation.BODY);
+                        EntityOperation.queue(context, db, result.draft, EntityOperation.BODY);
                     }
                 }
 
@@ -1723,14 +1723,14 @@ public class FragmentCompose extends FragmentEx {
                     draft.content = false;
                     draft.ui_hide = true;
                     draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(db, draft, EntityOperation.DELETE);
+                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
                     draft.id = id;
                     draft.account = aid;
                     draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
                     draft.content = true;
                     draft.ui_hide = false;
-                    EntityOperation.queue(db, draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                 }
 
                 // Convert data
@@ -1798,7 +1798,7 @@ public class FragmentCompose extends FragmentEx {
 
                 // Execute action
                 if (action == R.id.action_delete) {
-                    EntityOperation.queue(db, draft, EntityOperation.DELETE);
+                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
                     if (!empty) {
                         Handler handler = new Handler(context.getMainLooper());
@@ -1810,7 +1810,7 @@ public class FragmentCompose extends FragmentEx {
                     }
                 } else if (action == R.id.action_save || action == R.id.menu_encrypt) {
                     if (dirty) {
-                        EntityOperation.queue(db, draft, EntityOperation.ADD);
+                        EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
                         Handler handler = new Handler(context.getMainLooper());
                         handler.post(new Runnable() {
@@ -1835,7 +1835,7 @@ public class FragmentCompose extends FragmentEx {
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                     // Delete draft (cannot move to outbox)
-                    EntityOperation.queue(db, draft, EntityOperation.DELETE);
+                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
                     // Copy message to outbox
                     draft.id = null;
@@ -1854,11 +1854,11 @@ public class FragmentCompose extends FragmentEx {
                         Helper.copy(file, EntityAttachment.getFile(context, attachment.id));
                     }
 
-                    EntityOperation.queue(db, draft, EntityOperation.SEND);
+                    EntityOperation.queue(context, db, draft, EntityOperation.SEND);
 
                     if (draft.replying != null) {
                         EntityMessage replying = db.message().getMessage(draft.replying);
-                        EntityOperation.queue(db, replying, EntityOperation.ANSWERED, true);
+                        EntityOperation.queue(context, db, replying, EntityOperation.ANSWERED, true);
                     }
 
                     Handler handler = new Handler(context.getMainLooper());

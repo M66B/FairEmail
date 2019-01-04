@@ -180,11 +180,15 @@ public interface DaoMessage {
             " AND NOT ui_hide")
     List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
 
-    @Query("SELECT message.* FROM message" +
-            " JOIN folder ON folder.id = message.folder" +
-            " WHERE message.account = :account" +
-            " AND message.msgid = :msgid")
+    @Query("SELECT * FROM message" +
+            " WHERE account = :account" +
+            " AND msgid = :msgid")
     List<EntityMessage> getMessageByMsgId(long account, String msgid);
+
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE folder = :folder" +
+            " AND msgid = :msgid")
+    int countMessageByMsgId(long folder, String msgid);
 
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +

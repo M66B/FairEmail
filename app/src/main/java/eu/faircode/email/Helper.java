@@ -318,7 +318,7 @@ public class Helper {
             attachOperations(context, draft.id, 4);
             attachLogcat(context, draft.id, 5);
 
-            EntityOperation.queue(db, draft, EntityOperation.ADD);
+            EntityOperation.queue(context, db, draft, EntityOperation.ADD);
 
             db.setTransactionSuccessful();
         } finally {

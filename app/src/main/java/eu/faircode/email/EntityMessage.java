@@ -285,7 +285,7 @@ public class EntityMessage implements Serializable {
                     //(this.identity == null ? other.identity == null : this.identity.equals(other.identity)) &&
                     //(this.replying == null ? other.replying == null : this.replying.equals(other.replying)) &&
                     //(this.forwarding == null ? other.forwarding == null : this.forwarding.equals(other.forwarding)) &&
-                    //(this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
+                    (this.uid == null ? other.uid == null : this.uid.equals(other.uid)) &&
                     (this.msgid == null ? other.msgid == null : this.msgid.equals(other.msgid)) && // debug info
                     //(this.references == null ? other.references == null : this.references.equals(other.references)) &&
                     //(this.deliveredto == null ? other.deliveredto == null : this.deliveredto.equals(other.deliveredto)) &&
@@ -305,7 +305,6 @@ public class EntityMessage implements Serializable {
                     //(this.sent == null ? other.sent == null : this.sent.equals(other.sent)) &&
                     this.received.equals(other.received) &&
                     this.stored.equals(other.stored) && // updated after decryption
-                    //this.stored.equals(other.stored) &&
                     //this.seen.equals(other.seen) &&
                     //this.answered.equals(other.answered) &&
                     //this.flagged.equals(other.flagged) &&

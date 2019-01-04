@@ -239,7 +239,7 @@ public class FragmentOptions extends FragmentEx implements SharedPreferences.OnS
                                     Log.e(ex);
                                     db.message().setMessageContent(message.id, false, null);
                                     if (!metered)
-                                        EntityOperation.queue(db, message, EntityOperation.BODY);
+                                        EntityOperation.queue(context, db, message, EntityOperation.BODY);
                                 }
                             }
 

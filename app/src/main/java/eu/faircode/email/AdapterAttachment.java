@@ -251,7 +251,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                     db.attachment().setProgress(id, 0);
 
                                     EntityMessage msg = db.message().getMessage(message);
-                                    EntityOperation.queue(db, msg, EntityOperation.ATTACHMENT, sequence);
+                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, sequence);
 
                                     db.setTransactionSuccessful();
                                 } finally {

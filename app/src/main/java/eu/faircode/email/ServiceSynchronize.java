@@ -365,7 +365,7 @@ public class ServiceSynchronize extends LifecycleService {
 
                                     switch (parts[0]) {
                                         case "seen":
-                                            EntityOperation.queue(db, message, EntityOperation.SEEN, true);
+                                            EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.SEEN, true);
                                             break;
 
                                         case "archive":
@@ -373,13 +373,13 @@ public class ServiceSynchronize extends LifecycleService {
                                             if (archive == null)
                                                 archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                                             if (archive != null)
-                                                EntityOperation.queue(db, message, EntityOperation.MOVE, archive.id);
+                                                EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.MOVE, archive.id);
                                             break;
 
                                         case "trash":
                                             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                                             if (trash != null)
-                                                EntityOperation.queue(db, message, EntityOperation.MOVE, trash.id);
+                                                EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.MOVE, trash.id);
                                             break;
 
                                         case "ignore":
@@ -1699,9 +1699,6 @@ public class ServiceSynchronize extends LifecycleService {
             Folder itarget = istore.getFolder(target.name);
             itarget.appendMessages(new Message[]{icopy});
         }
-
-        if (EntityFolder.ARCHIVE.equals(folder.type))
-            db.message().setMessageUiHide(message.id, false);
     }
 
     private void doDelete(EntityFolder folder, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws MessagingException, JSONException {
@@ -1816,7 +1813,7 @@ public class ServiceSynchronize extends LifecycleService {
                         message.uid = null;
                         db.message().updateMessage(message);
                         Log.i("Appending sent msgid=" + message.msgid);
-                        EntityOperation.queue(db, message, EntityOperation.ADD); // Could already exist
+                        EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.ADD); // Could already exist
                     }
                 }
 
