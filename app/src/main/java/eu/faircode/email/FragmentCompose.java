@@ -275,15 +275,39 @@ public class FragmentCompose extends FragmentEx {
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int action = item.getItemId();
+                final int action = item.getItemId();
+
                 switch (action) {
                     case R.id.action_delete:
                         onDelete();
                         break;
+                    case R.id.action_send:
+                        try {
+                            String to = etTo.getText().toString();
+                            InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
+                            if (ato.length == 0)
+                                throw new IllegalArgumentException(getString(R.string.title_to_missing));
+
+                            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                                    .setMessage(getString(R.string.title_ask_send,
+                                            MessageHelper.getFormattedAddresses(ato, false)))
+                                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            onAction(action);
+                                        }
+                                    })
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show();
+                        } catch (Throwable ex) {
+                            onAction(action);
+                        }
+                        break;
                     default:
                         onAction(action);
                 }
-                return false;
+
+                return true;
             }
         });
 
@@ -1584,9 +1608,9 @@ public class FragmentCompose extends FragmentEx {
                                     new Handler().post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            if (TextUtils.isEmpty(etTo.getText()))
+                                            if (TextUtils.isEmpty(etTo.getText().toString().trim()))
                                                 etTo.requestFocus();
-                                            else if (TextUtils.isEmpty(etSubject.getText()))
+                                            else if (TextUtils.isEmpty(etSubject.getText().toString()))
                                                 etSubject.requestFocus();
                                             else
                                                 etBody.requestFocus();
