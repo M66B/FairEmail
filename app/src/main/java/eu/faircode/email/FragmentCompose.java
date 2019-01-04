@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
@@ -149,18 +150,24 @@ public class FragmentCompose extends FragmentEx {
 
     private AdapterAttachment adapter;
 
+    private boolean pro;
+    private boolean autosend;
+
     private long working = -1;
     private State state = State.NONE;
     private boolean autosave = false;
     private boolean busy = false;
-    private boolean pro = false;
 
     private OpenPgpServiceConnection pgpService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         pro = Helper.isPro(getContext());
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        autosend = prefs.getBoolean("autosend", false);
     }
 
     @Override
@@ -282,6 +289,11 @@ public class FragmentCompose extends FragmentEx {
                         onDelete();
                         break;
                     case R.id.action_send:
+                        if (autosend) {
+                            onAction(action);
+                            break;
+                        }
+
                         try {
                             String to = etTo.getText().toString();
                             InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
