@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -698,6 +699,7 @@ public class FragmentCompose extends FragmentEx {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
@@ -919,11 +921,22 @@ public class FragmentCompose extends FragmentEx {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == ActivityCompose.REQUEST_IMAGE) {
-                if (data != null)
-                    handleAddAttachment(data, true);
+                if (data != null) {
+                    Uri uri = data.getData();
+                    if (uri != null)
+                        handleAddAttachment(uri, true);
+                }
             } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
-                if (data != null)
-                    handleAddAttachment(data, false);
+                if (data != null) {
+                    ClipData clipData = data.getClipData();
+                    if (clipData != null)
+                        for (int i = 0; i < clipData.getItemCount(); i++) {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            Uri uri = item.getUri();
+                            if (uri != null)
+                                handleAddAttachment(uri, false);
+                        }
+                }
             } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT) {
                 if (data != null) {
                     data.setAction(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
@@ -981,14 +994,10 @@ public class FragmentCompose extends FragmentEx {
         }
     }
 
-    private void handleAddAttachment(Intent data, final boolean image) {
-        Uri uri = data.getData();
-        if (uri == null)
-            return;
-
+    private void handleAddAttachment(Uri uri, final boolean image) {
         Bundle args = new Bundle();
         args.putLong("id", working);
-        args.putParcelable("uri", data.getData());
+        args.putParcelable("uri", uri);
 
         new SimpleTask<EntityAttachment>() {
             @Override
