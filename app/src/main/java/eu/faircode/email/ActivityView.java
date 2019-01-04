@@ -821,7 +821,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected Long onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
-                return DB.getInstance(context).folder().getFolderByType(account, EntityFolder.INBOX).id;
+                DB db = DB.getInstance(context);
+                EntityFolder inbox = db.folder().getFolderByType(account, EntityFolder.INBOX);
+                return (inbox == null ? -1 : inbox.id);
             }
 
             @Override
