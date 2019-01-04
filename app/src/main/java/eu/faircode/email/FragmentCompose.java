@@ -310,17 +310,12 @@ public class FragmentCompose extends FragmentEx {
                                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
+                                            if (cbNotAgain.isChecked())
+                                                prefs.edit().putBoolean("autosend", true).apply();
                                             onAction(action);
                                         }
                                     })
                                     .setNegativeButton(android.R.string.cancel, null)
-                                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                        @Override
-                                        public void onDismiss(DialogInterface dialog) {
-                                            if (cbNotAgain.isChecked())
-                                                prefs.edit().putBoolean("autosend", true).apply();
-                                        }
-                                    })
                                     .show();
                         } catch (Throwable ex) {
                             onAction(action);

@@ -1964,17 +1964,12 @@ public class FragmentMessages extends FragmentEx {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (cbNotAgain.isChecked())
+                            prefs.edit().putBoolean("automove", true).apply();
                         moveAskConfirmed(result);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        if (cbNotAgain.isChecked())
-                            prefs.edit().putBoolean("automove", true).apply();
-                    }
-                })
                 .show();
     }
 
