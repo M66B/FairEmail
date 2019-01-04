@@ -1343,7 +1343,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-
+                    Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, args);
 
