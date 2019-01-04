@@ -193,7 +193,6 @@
     <string name="title_send">Enviar</string>
     <string name="title_view">Visualizar</string>
     <string name="title_no_selection">Nada selecionado</string>
-    <string name="title_clipboard_empty">A área de transferência está vazia</string>
     <string name="title_style_bold">Negrito</string>
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_clear">Limpar formatação</string>

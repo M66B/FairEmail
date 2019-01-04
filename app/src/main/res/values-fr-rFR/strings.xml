@@ -106,6 +106,7 @@
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
+    <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_swipe">Gestes de balayage</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
@@ -221,6 +222,7 @@
     <string name="title_forward">Transférer</string>
     <string name="title_forward_raw">Transférer en mode brut</string>
     <string name="title_reply_all">Répondre à tous</string>
+    <string name="title_share">Partager</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
@@ -268,7 +270,6 @@
     <string name="title_send">Envoyer</string>
     <string name="title_view">Voir</string>
     <string name="title_no_selection">Rien n\'est sélectionné</string>
-    <string name="title_clipboard_empty">Presse-papier vide</string>
     <string name="title_style_bold">Gras</string>
     <string name="title_style_italic">Italique</string>
     <string name="title_style_clear">Effacer la mise en forme</string>

@@ -73,13 +73,13 @@
     <string name="title_setup_quick_success">Ett konto och en identitet har lagts till. Du kan granska detaljer nedan med knapparna \'hantera\'.</string>
     <string name="title_setup_quick_failed">Du kan prova att konfigurera ett konto och en identitet nedan också</string>
     <string name="title_setup_account">Hantera konton</string>
-    <string name="title_setup_account_remark">Att ta emot e-post</string>
+    <string name="title_setup_account_remark">Ta emot e-post</string>
     <string name="title_setup_identity">Hantera identiteter</string>
-    <string name="title_setup_identity_remark">Att skicka e-post</string>
+    <string name="title_setup_identity_remark">Skicka e-post</string>
     <string name="title_setup_permissions">Bevilja behörigheter</string>
-    <string name="title_setup_permissions_remark">Att få tillgång till kontaktinformation (frivillig)</string>
+    <string name="title_setup_permissions_remark">Få tillgång till kontaktinformation (frivillig)</string>
     <string name="title_setup_doze">Inaktivera batterioptimering</string>
-    <string name="title_setup_doze_remark">Att kontinuerligt ta emot e-post (valfritt)</string>
+    <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, Välj ”alla program” högst upp, Välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_data">Inaktivera datasparande</string>
     <string name="title_setup_notifications">Hantera aviseringar</string>
@@ -111,7 +111,7 @@
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
-    <string name="title_advanced_automove">Bekräfta att flytta meddelanden</string>
+    <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_confirm">Bekräfta åtgärder som kan läcka känslig information</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
@@ -263,7 +263,6 @@
     <string name="title_send">Skicka</string>
     <string name="title_view">Visa</string>
     <string name="title_no_selection">Inget valt</string>
-    <string name="title_clipboard_empty">Urklipp är tomt</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_clear">Rensa formatering</string>

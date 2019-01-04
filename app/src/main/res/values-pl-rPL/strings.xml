@@ -164,6 +164,7 @@
     <string name="title_pop">POP nie jest wspierane</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
+    <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
@@ -250,7 +251,6 @@
     <string name="title_send">Wyślij</string>
     <string name="title_view">Podgląd</string>
     <string name="title_no_selection">Nic nie wybrano</string>
-    <string name="title_clipboard_empty">Schowek pusty</string>
     <string name="title_style_bold">Pogrubienie</string>
     <string name="title_style_italic">Kursywa</string>
     <string name="title_style_clear">Wyczyść formatowanie</string>
@@ -301,6 +301,7 @@
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_cc">DW/UDW</string>
     <string name="title_legend_attachment">Załącznik</string>
+    <string name="title_legend_draft">Szkic/edycja</string>
     <string name="title_legend_answered">Odpowiedziano</string>
     <string name="title_legend_contacts">Kontakty</string>
     <string name="title_legend_view">Zobacz zawartość</string>

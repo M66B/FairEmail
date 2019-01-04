@@ -106,6 +106,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
+    <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_swipe">Azioni swipe</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
@@ -221,6 +222,7 @@
     <string name="title_forward">Inoltra</string>
     <string name="title_forward_raw">Inoltra formato raw</string>
     <string name="title_reply_all">Rispondi a tutti</string>
+    <string name="title_share">Condividi</string>
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
@@ -268,7 +270,6 @@
     <string name="title_send">Invia</string>
     <string name="title_view">Visualizza</string>
     <string name="title_no_selection">Nessuna selezione</string>
-    <string name="title_clipboard_empty">Appunti vuoti</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>
     <string name="title_style_clear">Cancella formattazione</string>

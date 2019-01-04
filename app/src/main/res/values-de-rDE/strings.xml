@@ -81,7 +81,7 @@
     <string name="title_setup_doze">Akku-Optimierung ausschalten</string>
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
     <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
-    <string name="title_setup_data">Deaktivere Datenreduzierung</string>
+    <string name="title_setup_data">Deaktiviere Datenreduzierung</string>
     <string name="title_setup_notifications">Benachrichtigungen einstellen</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
     <string name="title_setup_done">Erledigt</string>
@@ -97,7 +97,7 @@
     <string name="title_advanced_enabled">Synchronisieren</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
-    <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
+    <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_unified">Sammeleingang</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_compact">Kompakte Nachrichtenansicht</string>
@@ -106,6 +106,7 @@
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
+    <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_swipe">Wischgesten</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
@@ -152,7 +153,7 @@
     <string name="title_user">Benutzername</string>
     <string name="title_password">Passwort</string>
     <string name="title_authorize">Konto wählen</string>
-    <string name="title_authorizing">Autorisieren Konto &#8230;</string>
+    <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_store_copy">Kopien der gesendeten E-Mails aufbewahren in:</string>
     <string name="title_synchronize_account">Synchronisieren (E-Mails empfangen)</string>
@@ -221,6 +222,7 @@
     <string name="title_forward">Weiterleiten</string>
     <string name="title_forward_raw">Weiterleiten in Rohform</string>
     <string name="title_reply_all">Antworten an alle</string>
+    <string name="title_share">Teilen</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
     <string name="title_manage_keywords">Schlagwörter verwalten</string>
     <string name="title_add_keyword">Schlagwort hinzufügen</string>
@@ -268,7 +270,6 @@
     <string name="title_send">Senden</string>
     <string name="title_view">Zeigen</string>
     <string name="title_no_selection">Nichts ausgewählt</string>
-    <string name="title_clipboard_empty">Zwischenablage ist leer</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_clear">Formatierung entfernen</string>
@@ -355,7 +356,7 @@
     <string name="title_no">Nein</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
-    <string name="title_browse">Durchsuchen</string>
+    <string name="title_browse">Browser</string>
     <string name="title_report">Bericht</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>

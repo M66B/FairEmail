@@ -233,7 +233,6 @@
     <string name="title_send">Отправить</string>
     <string name="title_view">Просмотреть</string>
     <string name="title_no_selection">Ничего не выбрано</string>
-    <string name="title_clipboard_empty">Буфер обмена пуст</string>
     <string name="title_style_bold">Жирный</string>
     <string name="title_style_italic">Курсив</string>
     <string name="title_style_clear">Очистить форматирование</string>

@@ -253,7 +253,6 @@
     <string name="title_send">发送</string>
     <string name="title_view">查看</string>
     <string name="title_no_selection">未选中任何内容</string>
-    <string name="title_clipboard_empty">剪贴板为空</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
     <string name="title_style_clear">清除格式</string>

@@ -274,7 +274,6 @@
     <string name="title_send">Trimite</string>
     <string name="title_view">Afisare</string>
     <string name="title_no_selection">Nimic selectat</string>
-    <string name="title_clipboard_empty">Clipboardul este gol</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
     <string name="title_style_clear">Elimină toate formatările</string>
