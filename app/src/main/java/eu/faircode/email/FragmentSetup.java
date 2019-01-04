@@ -24,6 +24,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.accounts.OperationCanceledException;
 import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -893,7 +894,8 @@ public class FragmentSetup extends FragmentEx {
                                             auth_type = Helper.AUTH_TYPE_GMAIL;
                                         } catch (Throwable ex) {
                                             Log.e(ex);
-                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                            if (!(ex instanceof OperationCanceledException))
+                                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
                                             etEmail.setEnabled(true);
                                             tilPassword.setEnabled(true);

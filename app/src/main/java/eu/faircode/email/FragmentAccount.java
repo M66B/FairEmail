@@ -24,6 +24,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -1210,7 +1211,8 @@ public class FragmentAccount extends FragmentEx {
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
-                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                            if (!(ex instanceof OperationCanceledException))
+                                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
                                             btnAuthorize.setEnabled(true);
                                             etUser.setEnabled(true);
