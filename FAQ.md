@@ -905,6 +905,10 @@ Yes, you can use HTML in signatures if you paste HTML formatted text into the si
 
 See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
 
+You can for example past this into the signature field:
+
+This is *italic*, this is *bold* and this is [a link](https://example.org).
+
 <br />
 
 
