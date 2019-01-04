@@ -78,8 +78,9 @@ public class FragmentAnswer extends FragmentEx {
                     case R.id.action_save:
                         onActionSave();
                         return true;
+                    default:
+                        return false;
                 }
-                return false;
             }
         });
 
