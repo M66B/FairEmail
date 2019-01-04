@@ -42,6 +42,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -1943,24 +1944,38 @@ public class FragmentMessages extends FragmentEx {
         if (result.target == null)
             return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("automove", false))
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("automove", false)) {
             moveAskConfirmed(result);
-        else {
-            String title = getResources().getQuantityString(
-                    R.plurals.title_moving_messages, result.ids.size(),
-                    result.ids.size(), result.target.getDisplayName(getContext()));
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setMessage(title)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            moveAskConfirmed(result);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            return;
         }
+
+        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+        final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+        tvMessage.setText(getResources().getQuantityString(
+                R.plurals.title_moving_messages,
+                result.ids.size(), result.ids.size(),
+                result.target.getDisplayName(getContext())));
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        moveAskConfirmed(result);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        if (cbNotAgain.isChecked())
+                            prefs.edit().putBoolean("automove", true).apply();
+                    }
+                })
+                .show();
     }
 
     private void moveAskConfirmed(MessageTarget result) {

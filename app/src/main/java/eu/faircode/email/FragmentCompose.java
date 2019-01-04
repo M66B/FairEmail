@@ -63,6 +63,7 @@ import android.view.ViewTreeObserver;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
@@ -151,7 +152,6 @@ public class FragmentCompose extends FragmentEx {
     private AdapterAttachment adapter;
 
     private boolean pro;
-    private boolean autosend;
 
     private long working = -1;
     private State state = State.NONE;
@@ -163,11 +163,7 @@ public class FragmentCompose extends FragmentEx {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         pro = Helper.isPro(getContext());
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        autosend = prefs.getBoolean("autosend", false);
     }
 
     @Override
@@ -289,6 +285,8 @@ public class FragmentCompose extends FragmentEx {
                         onDelete();
                         break;
                     case R.id.action_send:
+                        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        boolean autosend = prefs.getBoolean("autosend", false);
                         if (autosend) {
                             onAction(action);
                             break;
@@ -300,9 +298,15 @@ public class FragmentCompose extends FragmentEx {
                             if (ato.length == 0)
                                 throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
+                            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+                            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+                            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+                            tvMessage.setText(getString(R.string.title_ask_send,
+                                    MessageHelper.getFormattedAddresses(ato, false)));
+
                             new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                    .setMessage(getString(R.string.title_ask_send,
-                                            MessageHelper.getFormattedAddresses(ato, false)))
+                                    .setView(dview)
                                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
@@ -310,6 +314,13 @@ public class FragmentCompose extends FragmentEx {
                                         }
                                     })
                                     .setNegativeButton(android.R.string.cancel, null)
+                                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                        @Override
+                                        public void onDismiss(DialogInterface dialog) {
+                                            if (cbNotAgain.isChecked())
+                                                prefs.edit().putBoolean("autosend", true).apply();
+                                        }
+                                    })
                                     .show();
                         } catch (Throwable ex) {
                             onAction(action);

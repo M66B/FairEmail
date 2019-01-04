@@ -413,6 +413,7 @@
     <string name="title_add">Add</string>
     <string name="title_browse">Browse</string>
     <string name="title_report">Report</string>
+    <string name="title_no_ask_again">Do not ask this again</string>
 
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
 
