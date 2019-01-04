@@ -43,6 +43,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 public abstract class SimpleTask<T> implements LifecycleObserver {
     private LifecycleOwner owner;
     private boolean paused;
+    private boolean destroyed;
     private Bundle args;
     private Result stored;
 
@@ -105,7 +106,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         Log.i("Destroy task " + this);
         owner.getLifecycle().removeObserver(this);
         owner = null;
-        paused = true;
+        destroyed = true;
         args = null;
         stored = null;
     }
@@ -113,16 +114,17 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void run(final Context context, LifecycleOwner owner, final Bundle args) {
         this.owner = owner;
         this.paused = false;
+        this.destroyed = false;
         this.args = null;
         this.stored = null;
+
+        owner.getLifecycle().addObserver(this);
 
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
             Log.e(ex);
         }
-
-        owner.getLifecycle().addObserver(this);
 
         final Handler handler = new Handler();
 
@@ -151,27 +153,31 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     private void deliver(Bundle args, Result result) {
+        if (destroyed)
+            return;
+
         if (paused) {
             Log.i("Deferring delivery task " + this);
             this.args = args;
             this.stored = result;
-        } else {
-            Log.i("Delivery task " + this);
+            return;
+        }
+
+        Log.i("Delivery task " + this);
+        try {
+            onPostExecute(args);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        } finally {
             try {
-                onPostExecute(args);
+                if (result.ex == null)
+                    onExecuted(args, (T) result.data);
+                else
+                    onException(args, result.ex);
             } catch (Throwable ex) {
                 Log.e(ex);
-            } finally {
-                try {
-                    if (result.ex == null)
-                        onExecuted(args, (T) result.data);
-                    else
-                        onException(args, result.ex);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-                onDestroyed();
             }
+            onDestroyed();
         }
     }
 
