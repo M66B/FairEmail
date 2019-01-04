@@ -115,7 +115,7 @@
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_confirm">Bevestigen van acties die privacy gevoelige informatie kunnen lekken</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
-    <string name="title_advanced_autosend">Bevestig het zenden van berichten</string>
+    <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen en verzenden van berichten</string>
@@ -360,6 +360,7 @@
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Bladeren</string>
     <string name="title_report">Rapporteer</string>
+    <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

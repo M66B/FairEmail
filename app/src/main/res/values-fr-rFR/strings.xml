@@ -115,6 +115,7 @@
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_confirm">Confirmer les actions qui peuvent entraîner une fuite d\'informations sensibles privées</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
+    <string name="title_advanced_autosend">Confirmer l’envoi des messages</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception et l\'envoi de messages</string>
@@ -282,6 +283,7 @@
     <string name="title_attachments_missing">Pièces jointes en cours de chargement</string>
     <string name="title_draft_deleted">Brouillon supprimé</string>
     <string name="title_draft_saved">Brouillon enregistré</string>
+    <string name="title_ask_send">Envoyer le message à %1$s ?</string>
     <string name="title_queued">Envoi du message</string>
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
@@ -358,6 +360,7 @@
     <string name="title_add">Ajouter</string>
     <string name="title_browse">Parcourir</string>
     <string name="title_report">Rapport</string>
+    <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>

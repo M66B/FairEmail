@@ -115,6 +115,7 @@
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_confirm">Aktionen bestätigen, die datenschutzrelevante Information preisgeben können</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
+    <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_enabled_hint">Vollständiges de-/aktivieren der Empfangs- und Versandfunktion von E-Mails</string>
@@ -282,6 +283,7 @@
     <string name="title_attachments_missing">Anhänge werden noch geladen</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
+    <string name="title_ask_send">Nachricht an %1$s senden?</string>
     <string name="title_queued">Nachricht senden\u2026</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
@@ -358,6 +360,7 @@
     <string name="title_add">Hinzufügen</string>
     <string name="title_browse">Browser</string>
     <string name="title_report">Bericht</string>
+    <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_try">Testen Sie FairEmail, eine opensource und datenschutzfreundliche E-Mail-App für Android</string>
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>

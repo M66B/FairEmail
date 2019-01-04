@@ -106,7 +106,6 @@
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
-    <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
