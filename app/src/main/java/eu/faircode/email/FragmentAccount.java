@@ -24,6 +24,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -63,6 +64,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 
+import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -1211,7 +1213,11 @@ public class FragmentAccount extends FragmentEx {
                                             tilPassword.getEditText().setText(token);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
-                                            if (!(ex instanceof OperationCanceledException))
+                                            if (ex instanceof OperationCanceledException ||
+                                                    ex instanceof AuthenticatorException ||
+                                                    ex instanceof IOException)
+                                                Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                                            else
                                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                         } finally {
                                             btnAuthorize.setEnabled(true);
