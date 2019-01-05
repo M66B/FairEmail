@@ -76,8 +76,6 @@ public class EntityFolder implements Serializable {
     public Integer sync_days;
     @NonNull
     public Integer keep_days;
-    @NonNull
-    public Boolean initialize = true;
     public String display;
     @NonNull
     public Boolean hide = false;
@@ -86,6 +84,9 @@ public class EntityFolder implements Serializable {
     @NonNull
     public Boolean notify = false;
     public String[] keywords;
+
+    @NonNull
+    public Boolean initialize = true;
     public Boolean tbc; // to be created
     public Boolean tbd; // to be deleted
     public String state;
@@ -188,6 +189,7 @@ public class EntityFolder implements Serializable {
                     this.level.equals(other.level) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.poll.equals(other.poll) &&
+                    this.download.equals(other.download) &&
                     this.sync_days.equals(other.sync_days) &&
                     this.keep_days.equals(other.keep_days) &&
                     (this.display == null ? other.display == null : this.display.equals(other.display)) &&
@@ -216,6 +218,7 @@ public class EntityFolder implements Serializable {
         json.put("level", level);
         json.put("synchronize", synchronize);
         json.put("poll", poll);
+        json.put("download", download);
         json.put("sync_days", sync_days);
         json.put("keep_days", keep_days);
         json.put("display", display);
@@ -236,10 +239,12 @@ public class EntityFolder implements Serializable {
             folder.level = 0;
 
         folder.synchronize = json.getBoolean("synchronize");
+
         if (json.has("poll"))
             folder.poll = json.getBoolean("poll");
-        else
-            folder.poll = false;
+
+        if (json.has("download"))
+            folder.download = json.getBoolean("download");
 
         if (json.has("after"))
             folder.sync_days = json.getInt("after");
