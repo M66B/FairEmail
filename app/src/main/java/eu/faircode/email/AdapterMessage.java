@@ -183,6 +183,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvAttachment;
         private Button btnDownloadAttachments;
+        private Button btnSaveAttachments;
         private TextView tvNoInternetAttachments;
 
         private BottomNavigationView bnvActions;
@@ -251,6 +252,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setAdapter(adapter);
 
             btnDownloadAttachments = itemView.findViewById(R.id.btnDownloadAttachments);
+            btnSaveAttachments = itemView.findViewById(R.id.btnSaveAttachments);
             tvNoInternetAttachments = itemView.findViewById(R.id.tvNoInternetAttachments);
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
@@ -274,6 +276,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
             btnDownloadAttachments.setOnClickListener(this);
+            btnSaveAttachments.setOnClickListener(this);
             btnHtml.setOnClickListener(this);
             ibQuotes.setOnClickListener(this);
             ibImages.setOnClickListener(this);
@@ -287,6 +290,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
             btnDownloadAttachments.setOnClickListener(null);
+            btnSaveAttachments.setOnClickListener(null);
             btnHtml.setOnClickListener(null);
             ibQuotes.setOnClickListener(null);
             ibImages.setOnClickListener(null);
@@ -319,6 +323,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetHeaders.setVisibility(View.GONE);
 
             btnDownloadAttachments.setVisibility(View.GONE);
+            btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             bnvActions.setVisibility(View.GONE);
@@ -442,6 +447,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
+            btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
             tvSubject.setText(message.subject);
 
@@ -590,18 +596,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         adapter.set(attachments);
 
+                        boolean download = false;
+                        boolean save = (attachments.size() > 1);
                         boolean downloading = false;
-                        boolean all = (attachments.size() > 1);
                         for (EntityAttachment attachment : attachments) {
-                            if (attachment.progress != null) {
-                                downloading = true;
-                                break;
-                            }
+                            if (attachment.progress == null && !attachment.available)
+                                download = true;
                             if (!attachment.available)
-                                all = false;
+                                save = false;
+                            if (attachment.progress != null)
+                                downloading = true;
                         }
 
-                        btnDownloadAttachments.setVisibility(all ? View.VISIBLE : View.GONE);
+                        btnDownloadAttachments.setVisibility(download ? View.VISIBLE : View.GONE);
+                        btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
                         tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
 
                         if (message.content) {
@@ -708,6 +716,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onToggleAddresses(pos, message);
                 else if (view.getId() == R.id.btnDownloadAttachments)
                     onDownloadAttachments(message);
+                else if (view.getId() == R.id.btnSaveAttachments)
+                    onSaveAttachments(message);
                 else if (view.getId() == R.id.btnHtml)
                     onShowHtml(message);
                 else if (view.getId() == R.id.ibQuotes)
@@ -807,7 +817,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             notifyItemChanged(pos);
         }
 
-        private void onDownloadAttachments(TupleMessageEx message) {
+        private void onDownloadAttachments(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage msg = db.message().getMessage(id);
+                        if (message != null)
+                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+                                if (attachment.progress == null && !attachment.available) {
+                                    db.attachment().setProgress(attachment.id, 0);
+                                    EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, attachment.sequence);
+                                }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(context, owner, ex);
+                }
+            }.execute(context, owner, args);
+        }
+
+        private void onSaveAttachments(TupleMessageEx message) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_STORE_ATTACHMENTS)
