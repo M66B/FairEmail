@@ -112,6 +112,7 @@
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
+    <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_swipe">Acțiuni glisare</string>
     <string name="title_advanced_actionbar">Bara de acțiuni corversație</string>
     <string name="title_advanced_autoclose">Închide automat conversaţiile</string>
@@ -120,6 +121,7 @@
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_confirm">Confirmarea operațiilor care ar putea divulga informații confidențiale</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
+    <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_enabled_hint">Control global pentru recepția și trimiterea mesajelor</string>
@@ -227,6 +229,7 @@
     <string name="title_forward">Redirecționează</string>
     <string name="title_forward_raw">Redirecționează mesajul original</string>
     <string name="title_reply_all">Răspunde tuturor</string>
+    <string name="title_share">Partajează</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
@@ -286,6 +289,7 @@
     <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
+    <string name="title_ask_send">Trimite un mesaj către %1$s?</string>
     <string name="title_queued">Expediere mesaj</string>
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
@@ -362,6 +366,7 @@
     <string name="title_add">Adaugă</string>
     <string name="title_browse">Răsfoire</string>
     <string name="title_report">Raportează</string>
+    <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>

@@ -31,7 +31,7 @@
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Één bericht verplaatsen naar %2$s ?</item>
-        <item quantity="other">%1$d berichten verplaatsen naar %2$s ?</item>
+        <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
     </plurals>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
     <string name="menu_setup">Installatie</string>
@@ -227,6 +227,8 @@
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_manage_keywords">Trefwoorden beheren</string>
     <string name="title_add_keyword">Trefwoord toevoegen</string>
+    <string name="title_download_all">Alles downloaden</string>
+    <string name="title_save_all">Alles opslaan</string>
     <string name="title_show_html">Toon origineel</string>
     <string name="title_trash">Weggooien</string>
     <string name="title_delete">Verwijder</string>
@@ -244,6 +246,7 @@
     <string name="title_no_contacts">Contact kiezer niet beschikbaar</string>
     <string name="title_no_internet">Geen internet verbinding</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
+    <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachment_unavailable">Sommige bijlagen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_image_unavailable">Sommige afbeeldingen zijn niet gedownload en zullen niet toegevoegd worden, doorgaan?</string>
     <string name="title_ask_delete">Verwijder bericht permanent?</string>
@@ -280,7 +283,7 @@
     <string name="title_show_addresses">Toon CC/BCC</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
-    <string name="title_attachments_missing">Bijlagen nog worden geladen</string>
+    <string name="title_attachments_missing">Bijlagen worden nog geladen</string>
     <string name="title_draft_deleted">Concept weggegooid</string>
     <string name="title_draft_saved">Concept opgeslagen</string>
     <string name="title_ask_send">Verstuur bericht naar %1$s?</string>

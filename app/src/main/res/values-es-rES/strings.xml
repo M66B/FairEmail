@@ -106,6 +106,7 @@
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
+    <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_swipe">Acciones al deslizar</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
@@ -114,6 +115,7 @@
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_confirm">Confirmar acciones que podrían filtrar información privada sensible</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
+    <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_debug">Modo de depuración</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción y envío de mensajes</string>
@@ -221,6 +223,7 @@
     <string name="title_forward">Reenviar</string>
     <string name="title_forward_raw">Reenviar sin formato</string>
     <string name="title_reply_all">Responder a todos</string>
+    <string name="title_share">Compartir</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_add_keyword">Agregar palabra clave</string>
@@ -280,6 +283,7 @@
     <string name="title_attachments_missing">Adjuntos todavía cargándose</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
+    <string name="title_ask_send">¿Enviar mensaje a %1$s?</string>
     <string name="title_queued">Enviando mensaje</string>
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Desencriptar</string>
@@ -356,6 +360,7 @@
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
     <string name="title_report">Reportar</string>
+    <string name="title_no_ask_again">No preguntar esto de nuevo</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

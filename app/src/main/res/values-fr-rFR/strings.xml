@@ -227,6 +227,8 @@
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
+    <string name="title_download_all">Télécharger tout</string>
+    <string name="title_save_all">Enregistrer tout</string>
     <string name="title_show_html">Afficher l\'original</string>
     <string name="title_trash">Corbeille</string>
     <string name="title_delete">Supprimer</string>
@@ -244,6 +246,7 @@
     <string name="title_no_contacts">Sélecteur de contact non disponible</string>
     <string name="title_no_internet">Pas de connexion Internet</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
+    <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachment_unavailable">Certaines pièces jointes ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
     <string name="title_image_unavailable">Certaines images ne sont pas téléchargées et ne seront pas ajoutées, continuer ?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement ?</string>
