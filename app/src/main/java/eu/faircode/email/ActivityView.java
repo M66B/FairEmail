@@ -1492,7 +1492,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityView.this, R.string.title_attachments_saved, Toast.LENGTH_LONG).show();
             }
 
             @Override
