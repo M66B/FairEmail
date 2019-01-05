@@ -2049,6 +2049,8 @@ public class FragmentMessages extends FragmentEx {
         });
         snackbar.show();
 
+        final Context context = getContext().getApplicationContext();
+
         // Wait
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -2058,8 +2060,6 @@ public class FragmentMessages extends FragmentEx {
                 // Remove snackbar
                 if (snackbar.isShown())
                     snackbar.dismiss();
-
-                final Context context = getContext().getApplicationContext();
 
                 new Thread(new Runnable() {
                     @Override
