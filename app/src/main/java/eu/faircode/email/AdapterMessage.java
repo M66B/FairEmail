@@ -1632,6 +1632,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 // outbox
                                                 db.message().deleteMessage(id);
 
+                                                db.folder().setFolderError(message.folder, null);
                                                 db.identity().setIdentityError(message.identity, null);
 
                                                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
