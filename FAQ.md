@@ -119,6 +119,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 * [(56) Can you add support for JMAP?](#user-content-faq56)
 * [(57) Can I use HTML in signatures?](#user-content-faq57)
+* [(58) What does an open/closed email icon mean?](#user-content-faq58)
 
 [I have another question.](#support)
 
@@ -900,13 +901,28 @@ so it is not worth to add support for this to FairEmail.
 <a name="faq57"></a>
 **(57) Can I use HTML in signatures?**
 
-Yes, you can use HTML in signatures if you paste HTML formatted text into the signature field.
+Yes, you can use HTML in signatures if you paste HTML formatted text into the signature field or use the *Edit as HTML* button.
 
 See [here](https://stackoverflow.com/questions/44410675/supported-html-tags-on-android-textview) for which HTML tags are supported.
 
 You can for example past this into the signature field:
 
 This is *italic*, this is *bold* and this is [a link](https://example.org).
+
+<br />
+
+<a name="faq58"></a>
+**(58) What does an open/closed email icon mean?**
+
+The email icon in the folder list can be open (outlined) or closed (solid):
+
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_mail_outline_black_48dp.png)
+
+Message bodies and attachments are not downloaded by default.
+
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
+
+Message bodies and attachments are downloaded by default.
 
 <br />
 
