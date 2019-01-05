@@ -43,12 +43,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HtmlHelper {
+    private static final int PREVIEW_SIZE = 250;
     private static Pattern pattern = Pattern.compile("([http|https]+://[\\w\\S(\\.|:|/)]+)");
+    private static final List<String> heads = Arrays.asList("p", "h1", "h2", "h3", "h4", "h5", "tr");
+    private static final List<String> tails = Arrays.asList("br", "dd", "dt", "p", "h1", "h2", "h3", "h4", "h5");
 
     static String getBody(String html) {
         return Jsoup.parse(html).body().html();
@@ -251,6 +256,36 @@ public class HtmlHelper {
 
     static String getPreview(String body) {
         String text = (body == null ? null : Jsoup.parse(body).text());
-        return (text == null ? null : text.substring(0, Math.min(text.length(), 250)));
+        return (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
+    }
+
+    static String getText(String html) {
+        final StringBuilder sb = new StringBuilder();
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            public void head(Node node, int depth) {
+                if (node instanceof TextNode)
+                    sb.append(((TextNode) node).text());
+                else {
+                    String name = node.nodeName();
+                    if (name.equals("li"))
+                        sb.append("\n * ");
+                    else if (name.equals("dt"))
+                        sb.append("  ");
+                    else if (heads.contains(name))
+                        sb.append("\n");
+                }
+            }
+
+            public void tail(Node node, int depth) {
+                String name = node.nodeName();
+                if (tails.contains(name))
+                    sb.append("\n");
+                else if (name.equals("a"))
+                    sb.append(" <").append(node.absUrl("href")).append(">");
+            }
+        }, Jsoup.parse(html));
+
+        return sb.toString();
     }
 }

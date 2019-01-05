@@ -65,7 +65,6 @@ import com.sun.mail.util.MailConnectException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -147,7 +146,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
-    private static final int PREVIEW_SIZE = 250;
     private static final int ACCOUNT_ERROR_AFTER = 90; // minutes
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
     private static final long STOP_DELAY = 5000L; // milliseconds
@@ -645,11 +643,11 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (message.content)
                     try {
-                        String html = message.read(ServiceSynchronize.this);
+                        String html = message.read(this);
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
-                        sb.append(Jsoup.parse(html).text());
+                        sb.append(HtmlHelper.getPreview(html));
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);
@@ -1277,7 +1275,7 @@ public class ServiceSynchronize extends LifecycleService {
                     };
 
                     String id = BuildConfig.APPLICATION_ID + ".POLL." + account.id;
-                    PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
+                    PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
                     registerReceiver(alarm, new IntentFilter(id));
 
                     // Keep alive
@@ -1335,7 +1333,7 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.e(account.name, ex);
                     reportError(account, null, ex);
 
-                    EntityLog.log(ServiceSynchronize.this, account.name + " " + Helper.formatThrowable(ex));
+                    EntityLog.log(this, account.name + " " + Helper.formatThrowable(ex));
                     db.account().setAccountError(account.id, Helper.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
@@ -1351,9 +1349,9 @@ public class ServiceSynchronize extends LifecycleService {
 
                     // Close store
                     try {
-                        EntityLog.log(ServiceSynchronize.this, account.name + " store closing");
+                        EntityLog.log(this, account.name + " store closing");
                         istore.close();
-                        EntityLog.log(ServiceSynchronize.this, account.name + " store closed");
+                        EntityLog.log(this, account.name + " store closed");
                     } catch (Throwable ex) {
                         Log.w(account.name, ex);
                     } finally {
@@ -1389,7 +1387,7 @@ public class ServiceSynchronize extends LifecycleService {
                             };
 
                             String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id;
-                            PendingIntent pi = PendingIntent.getBroadcast(ServiceSynchronize.this, 0, new Intent(id), 0);
+                            PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
                             registerReceiver(alarm, new IntentFilter(id));
 
                             AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -1817,7 +1815,7 @@ public class ServiceSynchronize extends LifecycleService {
                         message.uid = null;
                         db.message().updateMessage(message);
                         Log.i("Appending sent msgid=" + message.msgid);
-                        EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.ADD); // Could already exist
+                        EntityOperation.queue(this, db, message, EntityOperation.ADD); // Could already exist
                     }
                 }
 
@@ -1900,8 +1898,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
         String html = helper.getHtml();
-        String text = (html == null ? null : Jsoup.parse(html).text());
-        String preview = (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
+        String preview = HtmlHelper.getPreview(html);
         message.write(this, html);
         db.message().setMessageContent(message.id, true, preview);
     }

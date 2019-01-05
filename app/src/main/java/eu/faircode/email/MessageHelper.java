@@ -23,8 +23,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
-import org.jsoup.Jsoup;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -290,7 +288,7 @@ public class MessageHelper {
                 body.append(identity.signature);
         }
 
-        String plain = Jsoup.parse(body.toString()).text();
+        String plain = HtmlHelper.getText(body.toString());
 
         StringBuilder html = new StringBuilder();
         html.append("<!DOCTYPE html>").append("\n");

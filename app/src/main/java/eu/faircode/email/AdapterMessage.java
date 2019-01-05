@@ -69,7 +69,6 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
 import org.xml.sax.XMLReader;
 
 import java.io.IOException;
@@ -1324,7 +1323,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     sb.append("\r\n");
-                    sb.append(Jsoup.parse(message.read(context)).text());
+                    sb.append(HtmlHelper.getText(message.read(context)));
 
                     return sb.toString();
                 }
