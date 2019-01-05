@@ -34,7 +34,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class DialogBuilderLifecycle extends AlertDialog.Builder implements LifecycleObserver {
     private LifecycleOwner owner;
     private AlertDialog dialog;
-    private boolean hasMessage = false;
+    private CharSequence title = null;
+    private CharSequence message = null;
 
     public DialogBuilderLifecycle(Context context, LifecycleOwner owner) {
         super(context);
@@ -48,16 +49,13 @@ public class DialogBuilderLifecycle extends AlertDialog.Builder implements Lifec
 
     @Override
     public AlertDialog.Builder setTitle(int titleId) {
-        if (hasMessage)
-            throw new IllegalArgumentException("Custom message set");
-        return super.setTitle(titleId);
+        return setTitle(getContext().getString(titleId));
     }
 
     @Override
     public AlertDialog.Builder setTitle(@Nullable CharSequence title) {
-        if (hasMessage)
-            throw new IllegalArgumentException("Custom message set");
-        return super.setTitle(title);
+        this.title = title;
+        return this;
     }
 
     @Override
@@ -67,16 +65,23 @@ public class DialogBuilderLifecycle extends AlertDialog.Builder implements Lifec
 
     @Override
     public AlertDialog.Builder setMessage(@Nullable CharSequence message) {
-        hasMessage = true;
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
-        TextView tvMessage = dview.findViewById(R.id.tvMessage);
-        tvMessage.setText(message);
-        setView(dview);
+        this.message = message;
         return this;
     }
 
     @Override
     public AlertDialog create() {
+        if (title == null && message != null) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+            TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            tvMessage.setText(message);
+            setView(dview);
+        } else {
+            if (title != null)
+                super.setTitle(title);
+            if (message != null)
+                super.setMessage(message);
+        }
         dialog = super.create();
         owner.getLifecycle().addObserver(this);
         return dialog;
@@ -87,5 +92,7 @@ public class DialogBuilderLifecycle extends AlertDialog.Builder implements Lifec
         dialog.dismiss();
         owner = null;
         dialog = null;
+        title = null;
+        message = null;
     }
 }
