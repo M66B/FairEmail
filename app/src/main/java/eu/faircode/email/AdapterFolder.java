@@ -73,7 +73,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivUnified;
         private TextView tvType;
         private TextView tvAfter;
-        private ImageView ivDownload;
         private ImageView ivSync;
         private TextView tvKeywords;
         private TextView tvError;
@@ -96,7 +95,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivUnified = itemView.findViewById(R.id.ivUnified);
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
-            ivDownload = itemView.findViewById(R.id.ivDownload);
             ivSync = itemView.findViewById(R.id.ivSync);
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
@@ -176,10 +174,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (folder.account == null) {
                 tvAfter.setText(null);
-                ivDownload.setVisibility(View.GONE);
                 ivSync.setImageResource(R.drawable.baseline_sync_24);
             } else {
-                ivDownload.setVisibility(folder.download ? View.VISIBLE : View.GONE);
                 if (folder.keep_days == Integer.MAX_VALUE)
                     tvAfter.setText(String.format("%d/∞", folder.sync_days));
                 else

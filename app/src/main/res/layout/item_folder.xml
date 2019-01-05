@@ -108,19 +108,9 @@
             android:minHeight="24dp"
             android:text="type"
             android:textAppearance="@android:style/TextAppearance.Small"
-            app:layout_constraintEnd_toStartOf="@+id/ivDownload"
+            app:layout_constraintEnd_toStartOf="@+id/tvAfter"
             app:layout_constraintStart_toEndOf="@id/vwLevel"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-        <ImageView
-            android:id="@+id/ivDownload"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/baseline_cloud_download_24"
-            app:layout_constraintBottom_toBottomOf="@id/tvType"
-            app:layout_constraintEnd_toStartOf="@+id/tvAfter"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
 
         <TextView
             android:id="@+id/tvAfter"
