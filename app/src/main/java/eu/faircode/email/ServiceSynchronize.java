@@ -53,9 +53,13 @@ import android.text.TextUtils;
 import android.util.LongSparseArray;
 
 import com.sun.mail.iap.ConnectionException;
+import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.imap.protocol.FetchResponse;
+import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
@@ -2046,8 +2050,8 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    private void synchronizeMessages(EntityAccount account, EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, ServiceState state) throws JSONException, MessagingException, IOException {
-        DB db = DB.getInstance(this);
+    private void synchronizeMessages(EntityAccount account, final EntityFolder folder, IMAPFolder ifolder, JSONArray jargs, ServiceState state) throws JSONException, MessagingException, IOException {
+        final DB db = DB.getInstance(this);
         try {
             int sync_days = jargs.getInt(0);
             int keep_days = jargs.getInt(1);
@@ -2090,7 +2094,7 @@ public class ServiceSynchronize extends LifecycleService {
             Log.i(folder.name + " local old=" + old);
 
             // Get list of local uids
-            List<Long> uids = db.message().getUids(folder.id, null);
+            final List<Long> uids = db.message().getUids(folder.id, null);
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
@@ -2123,14 +2127,36 @@ public class ServiceSynchronize extends LifecycleService {
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                 }
 
-            long[] auids = Helper.toLongArray(uids);
-            Message[] iuids = ifolder.getMessagesByUID(auids);
-            for (int i = 0; i < iuids.length; i++)
-                if (iuids[i] != null)
-                    uids.remove(auids[i]);
+            if (uids.size() > 0) {
+                ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                    @Override
+                    public Object doCommand(IMAPProtocol protocol) {
+                        Log.i("Executing uid fetch count=" + uids.size());
+                        Response[] responses = protocol.command(
+                                "UID FETCH " + TextUtils.join(",", uids) + " (UID)", null);
 
-            long getuid = SystemClock.elapsedRealtime();
-            Log.i(folder.name + " remote getuid=" + (SystemClock.elapsedRealtime() - getuid) + " ms");
+                        for (int i = 0; i < responses.length; i++) {
+                            if (responses[i] instanceof FetchResponse) {
+                                FetchResponse fr = (FetchResponse) responses[i];
+                                UID uid = fr.getItem(UID.class);
+                                if (uid != null)
+                                    uids.remove(uid.uid);
+                            } else {
+                                if (responses[i].isOK())
+                                    Log.i(folder.name + " response=" + responses[i]);
+                                else {
+                                    Log.e(folder.name + " response=" + responses[i]);
+                                    db.folder().setFolderError(folder.id, responses[i].toString());
+                                }
+                            }
+                        }
+                        return null;
+                    }
+                });
+
+                long getuid = SystemClock.elapsedRealtime();
+                Log.i(folder.name + " remote uids=" + (SystemClock.elapsedRealtime() - getuid) + " ms");
+            }
 
             // Delete local messages not at remote
             Log.i(folder.name + " delete=" + uids.size());
