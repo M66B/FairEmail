@@ -25,6 +25,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/#pro\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
         }
         play {
@@ -34,6 +35,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/pro/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"\""
         }
         debug {
@@ -43,6 +45,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/pro/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
         }
     }
