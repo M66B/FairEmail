@@ -163,7 +163,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             tvMessages.setText(String.format("%d/%d", folder.content, folder.messages));
-            ivMessages.setImageResource(folder.download && !EntityFolder.OUTBOX.equals(folder.type)
+            ivMessages.setImageResource(folder.download || EntityFolder.OUTBOX.equals(folder.type)
                     ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
 
             ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.INVISIBLE);
