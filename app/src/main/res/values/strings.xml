@@ -206,6 +206,7 @@
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_pop">POP is not supported</string>
     <string name="title_identity_sent_hint">Sent messages will automatically be stored in the sent folder already in most cases</string>
+    <string name="title_edit_html">Edit as HTML</string>
 
     <string name="title_unseen_count" translatable="false">%1$s (%2$d)</string>
 

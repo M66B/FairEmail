@@ -33,6 +33,7 @@ import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
@@ -88,6 +89,7 @@ public class FragmentIdentity extends FragmentEx {
     private ImageView ibColorDefault;
     private EditText etSignature;
     private ImageButton ibPro;
+    private Button btnHtml;
 
     private Button btnAdvanced;
     private Spinner spProvider;
@@ -149,6 +151,7 @@ public class FragmentIdentity extends FragmentEx {
         ibColorDefault = view.findViewById(R.id.ibColorDefault);
         etSignature = view.findViewById(R.id.etSignature);
         ibPro = view.findViewById(R.id.ibPro);
+        btnHtml = view.findViewById(R.id.btnHtml);
 
         btnAdvanced = view.findViewById(R.id.btnAdvanced);
         spProvider = view.findViewById(R.id.spProvider);
@@ -301,6 +304,26 @@ public class FragmentIdentity extends FragmentEx {
                 fragmentTransaction.hide(FragmentIdentity.this);
                 fragmentTransaction.add(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
                 fragmentTransaction.commit();
+            }
+        });
+
+        btnHtml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_html, null);
+                final EditText etHtml = dview.findViewById(R.id.etHtml);
+                etHtml.setText(Html.toHtml(etSignature.getText()));
+
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Spanned html = Html.fromHtml(etHtml.getText().toString());
+                                etSignature.setText(html);
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -736,6 +759,7 @@ public class FragmentIdentity extends FragmentEx {
                     lp.width = 0;
                     ibPro.setLayoutParams(lp);
                 }
+                btnHtml.setEnabled(pro);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 

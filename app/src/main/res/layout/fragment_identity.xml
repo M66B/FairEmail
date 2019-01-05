@@ -162,6 +162,17 @@
             app:layout_constraintTop_toTopOf="@id/etSignature" />
 
         <Button
+            android:id="@+id/btnHtml"
+            style="@style/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_edit_html"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etSignature" />
+
+        <Button
             android:id="@+id/btnAdvanced"
             style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -171,7 +182,7 @@
             android:minHeight="0dp"
             android:text="@string/title_setup_advanced"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSignature" />
+            app:layout_constraintTop_toBottomOf="@id/btnHtml" />
 
         <!--- provider -->
 
@@ -529,7 +540,7 @@
             android:id="@+id/grpAuthorize"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,btnAdvanced,btnSave" />
+            app:constraint_referenced_ids="tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,btnColor,vwColor,ibColorDefault,tvSignature,etSignature,ibPro,btnHtml,btnAdvanced,btnSave" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAdvanced"
