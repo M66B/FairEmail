@@ -58,6 +58,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private long account;
     private boolean debug;
     private int dp12;
+    private int colorUnread;
+    private int textColorSecondary;
 
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> filtered = new ArrayList<>();
@@ -70,6 +72,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivNotify;
         private TextView tvName;
         private TextView tvMessages;
+        private ImageView ivMessages;
         private ImageView ivUnified;
         private TextView tvType;
         private TextView tvAfter;
@@ -92,6 +95,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivNotify = itemView.findViewById(R.id.ivNotify);
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
+            ivMessages = itemView.findViewById(R.id.ivMessages);
             ivUnified = itemView.findViewById(R.id.ivUnified);
             tvType = itemView.findViewById(R.id.tvType);
             tvAfter = itemView.findViewById(R.id.tvAfter);
@@ -156,9 +160,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             else
                 tvName.setText(name);
             tvName.setTypeface(null, folder.unseen > 0 ? Typeface.BOLD : Typeface.NORMAL);
-            tvName.setTextColor(Helper.resolveColor(context, folder.unseen > 0 ? R.attr.colorUnread : android.R.attr.textColorSecondary));
+            tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             tvMessages.setText(String.format("%d/%d", folder.content, folder.messages));
+            ivMessages.setImageResource(folder.download && !EntityFolder.OUTBOX.equals(folder.type)
+                    ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
 
             ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.INVISIBLE);
 
@@ -183,9 +189,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
             }
             ivSync.setImageTintList(ColorStateList.valueOf(
-                    Helper.resolveColor(context, folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
-                            ? R.attr.colorUnread : android.R.attr.textColorSecondary
-                    )));
+                    folder.synchronize && folder.initialize && !EntityFolder.OUTBOX.equals(folder.type)
+                            ? colorUnread : textColorSecondary));
 
             tvKeywords.setText(TextUtils.join(" ", folder.keywords));
             tvKeywords.setVisibility(debug && folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
@@ -379,6 +384,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.debug = prefs.getBoolean("debug", false);
 
         this.dp12 = Helper.dp2pixels(context, 12);
+        this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);
     }
