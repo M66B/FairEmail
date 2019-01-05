@@ -178,8 +178,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintCompact" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvFolder"
+            <eu.faircode.email.FixedRecyclerView
+                android:id="@+id/rvMessage"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scrollbarStyle="outsideOverlay"
@@ -247,7 +247,7 @@
                 android:id="@+id/grpReady"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="rvFolder" />
+                app:constraint_referenced_ids="rvMessage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
