@@ -149,6 +149,13 @@ public class EntityFolder implements Serializable {
             TRASH,
             JUNK
     );
+    static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Arrays.asList(
+            true, // drafts
+            true, // sent
+            false, // archive
+            false, // trash
+            false // junk
+    ); // MUST match SYSTEM_FOLDER_SYNC
 
     public EntityFolder() {
     }

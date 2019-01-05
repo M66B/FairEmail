@@ -338,11 +338,13 @@ public class FragmentSetup extends FragmentEx {
                                     }
 
                                     if (selectable && type != null) {
+                                        int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                         EntityFolder folder = new EntityFolder();
                                         folder.name = ifolder.getFullName();
                                         folder.type = type;
                                         folder.level = EntityFolder.getLevel(separator, folder.name);
-                                        folder.synchronize = EntityFolder.SYSTEM_FOLDER_SYNC.contains(type);
+                                        folder.synchronize = (sync >= 0);
+                                        folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                                         folders.add(folder);

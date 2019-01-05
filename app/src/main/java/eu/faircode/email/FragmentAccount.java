@@ -524,10 +524,12 @@ public class FragmentAccount extends FragmentEx {
                                     DB db = DB.getInstance(context);
                                     EntityFolder folder = db.folder().getFolderByName(id, ifolder.getFullName());
                                     if (folder == null) {
+                                        int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                         folder = new EntityFolder();
                                         folder.name = ifolder.getFullName();
                                         folder.type = (type == null ? EntityFolder.USER : type);
-                                        folder.synchronize = (type != null && EntityFolder.SYSTEM_FOLDER_SYNC.contains(type));
+                                        folder.synchronize = (sync >= 0);
+                                        folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
                                     }
