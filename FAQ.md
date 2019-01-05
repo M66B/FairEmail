@@ -110,7 +110,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(46) Why does the message list keep refreshing?](#user-content-faq46)
 * [(47) How can I solve 'No primary account or no drafts folder' ?](#user-content-faq47)
 * [~~(48) How can I solve 'No primary account or no archive folder' ?~~](#user-content-faq48)
-* [(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?](#user-content-faq49)
+* [(49) How can I fix 'An outdated app sent a file path instead of a file stream' ?](#user-content-faq49)
 * [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
@@ -811,13 +811,13 @@ so you'll need to select one account to be the primary account and/or you'll nee
 <br />
 
 <a name="faq49"></a>
-**(49) How can I fix 'FileNotFoundException ... (Permission denied)' ?**
+**(49) How can I fix 'An outdated app sent a file path instead of a file stream' ?**
 
-You likely selected an attachment or image with an outdated file manager assuming all apps still have storage permissions.
+You likely selected or sent an attachment or image with an outdated file manager or an outdated app that assumes all apps still have storage permissions.
 For security and privacy reasons modern apps like FairEmail have no full access to all files anymore.
-This can result into the error message *FileNotFoundException ... (Permission denied)*
+This can result into the error message *An outdated app sent a file path instead of a file stream*
 when a file name instead of a file stream is presented to FairEmail.
-You can fix this by switching to an up-to-date file manager meant for recent Android versions.
+You can fix this by switching to an up-to-date file manager or an app designed for recent Android versions.
 
 See also [question 25](#user-content-faq25).
 
