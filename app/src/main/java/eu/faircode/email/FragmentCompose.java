@@ -1112,8 +1112,10 @@ public class FragmentCompose extends FragmentEx {
 
     private static EntityAttachment addAttachment(Context context, long id, Uri uri,
                                                   boolean image) throws IOException {
-        if ("file".equals(uri.getScheme()))
+        if ("file".equals(uri.getScheme())) {
+            Log.w("Add attachment uri=" + uri);
             throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+        }
 
         EntityAttachment attachment = new EntityAttachment();
 
@@ -1661,7 +1663,11 @@ public class FragmentCompose extends FragmentEx {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
-            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            // External app sending absolute file
+            if (ex instanceof IllegalArgumentException)
+                Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+            else
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
 

@@ -1009,8 +1009,10 @@ public class FragmentSetup extends FragmentEx {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
-                if ("file".equals(uri.getScheme()))
+                if ("file".equals(uri.getScheme())) {
+                    Log.w("Export uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
 
                 OutputStream out = null;
                 try {
@@ -1113,8 +1115,10 @@ public class FragmentSetup extends FragmentEx {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
-                if ("file".equals(uri.getScheme()))
+                if ("file".equals(uri.getScheme())) {
+                    Log.w("Import uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
 
                 InputStream in = null;
                 try {
