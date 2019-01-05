@@ -2436,7 +2436,8 @@ public class ServiceSynchronize extends LifecycleService {
             int sequence = 1;
             for (EntityAttachment attachment : helper.getAttachments()) {
                 Log.i(folder.name + " attachment seq=" + sequence +
-                        " name=" + attachment.name + " type=" + attachment.type + " cid=" + attachment.cid);
+                        " name=" + attachment.name + " type=" + attachment.type +
+                        " cid=" + attachment.cid + " pgp=" + attachment.encryption);
                 if (!TextUtils.isEmpty(attachment.cid) &&
                         db.attachment().getAttachment(message.id, attachment.cid) != null) {
                     Log.i("Skipping duplicated CID");

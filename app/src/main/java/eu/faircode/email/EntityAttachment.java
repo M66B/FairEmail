@@ -57,6 +57,9 @@ public class EntityAttachment {
     static final String TABLE_NAME = "attachment";
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
 
+    static final Integer PGP_MESSAGE = 1;
+    static final Integer PGP_SIGNATURE = 2;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
@@ -67,8 +70,8 @@ public class EntityAttachment {
     @NonNull
     public String type;
     public String cid; // Content-ID
+    public Integer encryption;
     public Integer size;
-
     public Integer progress;
     @NonNull
     public Boolean available = false;

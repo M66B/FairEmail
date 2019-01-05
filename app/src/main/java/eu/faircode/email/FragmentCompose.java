@@ -785,7 +785,7 @@ public class FragmentCompose extends FragmentEx {
                 EntityMessage message = db.message().getMessage(id);
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : new ArrayList<>(attachments))
-                    if ("encrypted.asc".equals(attachment.name) || "signature.asc".equals(attachment.name))
+                    if (attachment.encryption != null)
                         attachments.remove(attachment);
 
                 // Build message
@@ -822,7 +822,7 @@ public class FragmentCompose extends FragmentEx {
 
                             // Delete previously encrypted data
                             for (EntityAttachment attachment : db.attachment().getAttachments(id))
-                                if ("encrypted.asc".equals(attachment.name) || "signature.asc".equals(attachment.name))
+                                if (attachment.encryption != null)
                                     db.attachment().deleteAttachment(attachment.id);
 
                             int seq = db.attachment().getAttachmentSequence(id);
@@ -832,6 +832,7 @@ public class FragmentCompose extends FragmentEx {
                             attachment1.sequence = seq + 1;
                             attachment1.name = "encrypted.asc";
                             attachment1.type = "application/octet-stream";
+                            attachment1.encryption = EntityAttachment.PGP_MESSAGE;
                             attachment1.id = db.attachment().insertAttachment(attachment1);
 
                             File file1 = EntityAttachment.getFile(context, attachment1.id);
@@ -856,6 +857,7 @@ public class FragmentCompose extends FragmentEx {
                             attachment2.sequence = seq + 2;
                             attachment2.name = "signature.asc";
                             attachment2.type = "application/octet-stream";
+                            attachment2.encryption = EntityAttachment.PGP_SIGNATURE;
                             attachment2.id = db.attachment().insertAttachment(attachment2);
 
                             File file2 = EntityAttachment.getFile(context, attachment2.id);
@@ -1435,6 +1437,7 @@ public class FragmentCompose extends FragmentEx {
                                 copy.name = attachment.name;
                                 copy.type = attachment.type;
                                 copy.cid = attachment.cid;
+                                copy.encryption = attachment.encryption;
                                 copy.size = attachment.size;
                                 copy.progress = attachment.progress;
                                 copy.available = attachment.available;

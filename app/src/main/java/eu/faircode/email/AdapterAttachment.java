@@ -128,7 +128,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             progressbar.setVisibility(
                     attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
-            tvType.setText(attachment.type + " " + attachment.cid);
+            tvType.setText(attachment.type + " " + attachment.cid + " " + attachment.encryption);
             tvType.setVisibility(debug ? View.VISIBLE : View.GONE);
         }
 

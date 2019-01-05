@@ -1218,7 +1218,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 // Find encrypted data
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                 for (EntityAttachment attachment : attachments)
-                    if ("encrypted.asc".equals(attachment.name)) {
+                    if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
                         if (!attachment.available)
                             throw new IllegalArgumentException(getString(R.string.title_attachments_missing));
 
@@ -1291,7 +1291,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment a : attachments)
-                                    if (!"encrypted.asc".equals(a.name))
+                                    if (a.encryption == null)
                                         db.attachment().deleteAttachment(a.id);
 
                                 // Add decrypted attachments
