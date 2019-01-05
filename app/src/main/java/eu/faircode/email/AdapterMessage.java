@@ -182,6 +182,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetHeaders;
 
         private RecyclerView rvAttachment;
+        private Button btnDownloadAttachments;
         private TextView tvNoInternetAttachments;
 
         private BottomNavigationView bnvActions;
@@ -249,6 +250,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapter = new AdapterAttachment(context, owner, true);
             rvAttachment.setAdapter(adapter);
 
+            btnDownloadAttachments = itemView.findViewById(R.id.btnDownloadAttachments);
             tvNoInternetAttachments = itemView.findViewById(R.id.tvNoInternetAttachments);
 
             bnvActions = itemView.findViewById(R.id.bnvActions);
@@ -271,6 +273,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setOnClickListener(this);
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
+            btnDownloadAttachments.setOnClickListener(this);
             btnHtml.setOnClickListener(this);
             ibQuotes.setOnClickListener(this);
             ibImages.setOnClickListener(this);
@@ -283,6 +286,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
+            btnDownloadAttachments.setOnClickListener(null);
             btnHtml.setOnClickListener(null);
             ibQuotes.setOnClickListener(null);
             ibImages.setOnClickListener(null);
@@ -314,6 +318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbHeaders.setVisibility(View.GONE);
             tvNoInternetHeaders.setVisibility(View.GONE);
 
+            btnDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             bnvActions.setVisibility(View.GONE);
@@ -436,6 +441,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
+            btnDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
             tvSubject.setText(message.subject);
 
@@ -584,12 +590,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         adapter.set(attachments);
 
                         boolean downloading = false;
-                        for (EntityAttachment attachment : attachments)
+                        boolean all = (attachments.size() > 1);
+                        for (EntityAttachment attachment : attachments) {
                             if (attachment.progress != null) {
                                 downloading = true;
                                 break;
                             }
+                            if (!attachment.available)
+                                all = false;
+                        }
 
+                        btnDownloadAttachments.setVisibility(all ? View.VISIBLE : View.GONE);
                         tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
 
                         if (message.content) {
@@ -694,6 +705,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else if (viewType == ViewType.THREAD) {
                 if (view.getId() == R.id.ivExpanderAddress)
                     onToggleAddresses(pos, message);
+                else if (view.getId() == R.id.btnDownloadAttachments)
+                    onDownloadAttachments(message);
                 else if (view.getId() == R.id.btnHtml)
                     onShowHtml(message);
                 else if (view.getId() == R.id.ibQuotes)
@@ -791,6 +804,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
             notifyItemChanged(pos);
+        }
+
+        private void onDownloadAttachments(TupleMessageEx message) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(ActivityView.ACTION_STORE_ATTACHMENTS)
+                            .putExtra("id", message.id));
         }
 
         private void onShowHtml(final TupleMessageEx message) {

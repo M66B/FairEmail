@@ -46,7 +46,6 @@ None at this moment.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
 * Better design: please let me know what you have in mind [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
-* Save all attachments: there is no [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) API to selected multiple files to save.
 * S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 * ActiveSync: there are no maintained, open source libraries providing the ActiveSync protocol, so this cannot be added.
 

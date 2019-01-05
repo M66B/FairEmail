@@ -546,6 +546,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
+        <Button
+            android:id="@+id/btnDownloadAttachments"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_save_all"
+            app:layout_constraintEnd_toEndOf="@id/rvAttachment"
+            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+
         <TextView
             android:id="@+id/tvNoInternetAttachments"
             android:layout_width="wrap_content"
@@ -554,7 +565,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="@id/rvAttachment"
             app:layout_constraintStart_toStartOf="@id/rvAttachment"
-            app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
+            app:layout_constraintTop_toBottomOf="@id/btnDownloadAttachments" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnvActions"

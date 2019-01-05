@@ -93,6 +93,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -123,7 +124,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_THREAD = 2;
 
     static final int REQUEST_ATTACHMENT = 1;
-    static final int REQUEST_DECRYPT = 2;
+    static final int REQUEST_ATTACHMENTS = 2;
+    static final int REQUEST_DECRYPT = 3;
 
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
     static final String ACTION_VIEW_THREAD = BuildConfig.APPLICATION_ID + ".VIEW_THREAD";
@@ -131,6 +133,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_FOLDER = BuildConfig.APPLICATION_ID + ".EDIT_FOLDER";
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
+    static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
@@ -466,6 +469,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_FOLDER);
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_STORE_ATTACHMENT);
+        iff.addAction(ACTION_STORE_ATTACHMENTS);
         iff.addAction(ACTION_DECRYPT);
         iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
@@ -1066,6 +1070,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditAnswer(intent);
                 else if (ACTION_STORE_ATTACHMENT.equals(action))
                     onStoreAttachment(intent);
+                else if (ACTION_STORE_ATTACHMENTS.equals(action))
+                    onStoreAttachments(intent);
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
                 else if (ACTION_SHOW_PRO.equals(action))
@@ -1152,6 +1158,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(this, create), REQUEST_ATTACHMENT);
+    }
+
+    private void onStoreAttachments(Intent intent) {
+        message = intent.getLongExtra("id", -1);
+        Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        //tree.putExtra("android.content.extra.SHOW_ADVANCED", true);
+        if (tree.resolveActivity(getPackageManager()) == null)
+            Snackbar.make(getVisibleView(), R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(this, tree), REQUEST_ATTACHMENTS);
     }
 
     private void onDecrypt(Intent intent) {
@@ -1337,75 +1353,152 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK)
             if (requestCode == REQUEST_ATTACHMENT) {
-                if (data != null) {
-                    Bundle args = new Bundle();
-                    args.putLong("id", attachment);
-                    args.putParcelable("uri", data.getData());
+                if (data != null)
+                    saveAttachment(data);
+            } else if (requestCode == REQUEST_ATTACHMENTS) {
+                if (data != null)
+                    saveAttachments(data);
 
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) throws Throwable {
-                            long id = args.getLong("id");
-                            Uri uri = args.getParcelable("uri");
-
-                            if ("file".equals(uri.getScheme()))
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-
-                            File file = EntityAttachment.getFile(context, id);
-
-                            ParcelFileDescriptor pfd = null;
-                            FileOutputStream fos = null;
-                            FileInputStream fis = null;
-                            try {
-                                pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                                fos = new FileOutputStream(pfd.getFileDescriptor());
-                                fis = new FileInputStream(file);
-
-                                byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
-                                int read;
-                                while ((read = fis.read(buffer)) != -1)
-                                    fos.write(buffer, 0, read);
-                            } finally {
-                                try {
-                                    if (pfd != null)
-                                        pfd.close();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
-                                }
-                                try {
-                                    if (fos != null)
-                                        fos.close();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
-                                }
-                                try {
-                                    if (fis != null)
-                                        fis.close();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
-                                }
-                            }
-
-                            return null;
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Void data) {
-                            Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof IllegalArgumentException)
-                                Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                            else
-                                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
-                        }
-                    }.execute(this, args);
-                }
             } else if (requestCode == REQUEST_DECRYPT) {
                 if (data != null)
                     decrypt(data, message);
             }
+    }
+
+    private void saveAttachment(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", attachment);
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                if ("file".equals(uri.getScheme()))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+
+                File file = EntityAttachment.getFile(context, id);
+
+                ParcelFileDescriptor pfd = null;
+                FileOutputStream fos = null;
+                FileInputStream fis = null;
+                try {
+                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                    fos = new FileOutputStream(pfd.getFileDescriptor());
+                    fis = new FileInputStream(file);
+
+                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                    int read;
+                    while ((read = fis.read(buffer)) != -1)
+                        fos.write(buffer, 0, read);
+                } finally {
+                    try {
+                        if (pfd != null)
+                            pfd.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (fos != null)
+                            fos.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (fis != null)
+                            fis.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(getVisibleView(), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.execute(this, args);
+    }
+
+    private void saveAttachments(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", message);
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                DB db = DB.getInstance(context);
+                DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
+                for (EntityAttachment attachment : db.attachment().getAttachments(id)) {
+                    File file = EntityAttachment.getFile(context, attachment.id);
+
+                    String name = attachment.name;
+                    if (TextUtils.isEmpty(name))
+                        name = Long.toString(attachment.id);
+                    DocumentFile document = tree.createFile(attachment.type, name);
+
+                    ParcelFileDescriptor pfd = null;
+                    FileOutputStream fos = null;
+                    FileInputStream fis = null;
+                    try {
+                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
+                        fos = new FileOutputStream(pfd.getFileDescriptor());
+                        fis = new FileInputStream(file);
+
+                        byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                        int read;
+                        while ((read = fis.read(buffer)) != -1)
+                            fos.write(buffer, 0, read);
+                    } finally {
+                        try {
+                            if (pfd != null)
+                                pfd.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                        try {
+                            if (fos != null)
+                                fos.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                        try {
+                            if (fis != null)
+                                fis.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Toast.makeText(ActivityView.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(ActivityView.this, ActivityView.this, ex);
+            }
+        }.execute(this, args);
     }
 }
