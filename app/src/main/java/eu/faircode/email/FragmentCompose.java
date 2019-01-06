@@ -1180,8 +1180,10 @@ public class FragmentCompose extends FragmentEx {
                         db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
                 }
 
-                if (image)
+                if (image) {
                     attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
+                    db.attachment().setCid(attachment.id, attachment.cid);
+                }
 
                 db.attachment().setDownloaded(attachment.id, size);
             } finally {

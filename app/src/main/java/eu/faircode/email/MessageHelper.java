@@ -616,6 +616,7 @@ public class MessageHelper {
         }
 
         if (content instanceof InputStream || content instanceof String) {
+            // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
             String disposition;
             try {
                 disposition = part.getDisposition();

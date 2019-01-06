@@ -183,6 +183,7 @@
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_pop">POP nu este acceptat</string>
     <string name="title_identity_sent_hint">În cele mai multe cazuri mesajele trimise se stochează automat în dosarul corespunzător</string>
+    <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
@@ -233,6 +234,8 @@
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
+    <string name="title_download_all">Descarcă tot</string>
+    <string name="title_save_all">Salvează tot</string>
     <string name="title_show_html">Arată originalul</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_delete">Şterge</string>
@@ -250,6 +253,7 @@
     <string name="title_no_contacts">Selectorul de contacte nu este disponibil</string>
     <string name="title_no_internet">Nu există conexiune la internet</string>
     <string name="title_attachment_saved">Atașament salvat</string>
+    <string name="title_attachments_saved">Atașamente salvate</string>
     <string name="title_attachment_unavailable">Unele fișiere atașate nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_image_unavailable">Unele imagini nu sunt descărcate și nu vor fi adăugate, continuați?</string>
     <string name="title_ask_delete">Ștergeți definitiv mesajul?</string>

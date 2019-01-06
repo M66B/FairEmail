@@ -68,6 +68,11 @@ public interface DaoAttachment {
             " WHERE id = :id")
     void setDownloaded(long id, Integer size);
 
+    @Query("UPDATE attachment" +
+            " SET cid = :cid" +
+            " WHERE id = :id")
+    void setCid(long id, String cid);
+
     @Insert
     long insertAttachment(EntityAttachment attachment);
 
