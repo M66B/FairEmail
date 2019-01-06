@@ -334,6 +334,8 @@
     <string name="title_legend_external_image">Espace réservé pour une image externe</string>
     <string name="title_legend_embedded_image">Espace réservé pour une image intégrée</string>
     <string name="title_legend_broken_image">Image non disponible</string>
+    <string name="title_legend_download_off">Télécharger le contenu des messages à la demande </string>
+    <string name="title_legend_download_on">Télécharger le contenu des messages automatiquement</string>
     <string name="title_legend_synchronize_on">Synchronisation activée</string>
     <string name="title_legend_synchronize_off">Synchronisation désactivée</string>
     <string name="title_legend_primary">Primaire / Favori</string>

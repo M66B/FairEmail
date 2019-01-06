@@ -334,6 +334,8 @@
     <string name="title_legend_external_image">Plaatshouder externe afbeelding</string>
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>
     <string name="title_legend_broken_image">Defecte afbeelding</string>
+    <string name="title_legend_download_off">Inhoud van berichten op aanvraag downloaden </string>
+    <string name="title_legend_download_on">Inhoud van berichten automatisch downloaden</string>
     <string name="title_legend_synchronize_on">Synchronisatie aan</string>
     <string name="title_legend_synchronize_off">Synchronisatie uit</string>
     <string name="title_legend_primary">Primair/ster</string>

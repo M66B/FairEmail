@@ -346,6 +346,8 @@
     <string name="title_legend_external_image">Внешнее изображение</string>
     <string name="title_legend_embedded_image">Встроенное изображение</string>
     <string name="title_legend_broken_image">Повреждённое изображение</string>
+    <string name="title_legend_download_off">Загрузить содержание сообщения по требованию </string>
+    <string name="title_legend_download_on">Автоматически загружать содержимое сообщения</string>
     <string name="title_legend_synchronize_on">Синхронизация вкл</string>
     <string name="title_legend_synchronize_off">Синхронизация выкл</string>
     <string name="title_legend_primary">Начальная/отмеченная</string>
