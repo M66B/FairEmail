@@ -1919,9 +1919,14 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Download attachment
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        EntityAttachment a = helper.getAttachments().get(sequence - 1);
-        attachment.part = a.part;
-        attachment.download(this, db);
+        List<EntityAttachment> attachments = helper.getAttachments();
+        if (sequence - 1 < attachments.size()) {
+            attachment.part = attachments.get(sequence - 1).part;
+            attachment.download(this, db);
+        } else {
+            db.attachment().setProgress(attachment.id, null);
+            throw new IllegalArgumentException("Attachment not found seq=" + sequence + " size=" + attachments.size());
+        }
     }
 
     private void synchronizeFolders(EntityAccount account, IMAPStore istore, ServiceState state) throws MessagingException {
