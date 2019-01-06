@@ -143,13 +143,6 @@ public class Provider {
 
     private static Provider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
         Provider provider = new Provider(domain);
-        if ("gmail.com".equals(domain)) {
-            provider.documentation = new StringBuilder();
-            provider.documentation
-                    .append("<a href=\"https://www.google.com/settings/security/lesssecureapps\">")
-                    .append(context.getString(R.string.title_setup_setting_gmail))
-                    .append("</a>");
-        }
 
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
@@ -308,15 +301,7 @@ public class Provider {
                     if (href != null) {
                         if (title == null)
                             title = href;
-
-                        if (provider.documentation == null)
-                            provider.documentation = new StringBuilder();
-                        else
-                            provider.documentation.append("<br /><br />");
-
-                        provider.documentation
-                                .append("<a href=\"").append(href).append("\">").append(title).append("</a>");
-
+                        addDocumentation(provider, href, title);
                         href = null;
                         title = null;
                     }
@@ -330,7 +315,8 @@ public class Provider {
 
         Log.i("imap=" + provider.imap_host + ":" + provider.imap_port + ":" + provider.imap_starttls);
         Log.i("smtp=" + provider.smtp_host + ":" + provider.smtp_port + ":" + provider.smtp_starttls);
-        return provider;
+
+        return addSpecials(context, provider);
     }
 
     private static Provider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
@@ -347,6 +333,30 @@ public class Provider {
         provider.smtp_port = smtp.getPort();
         provider.smtp_starttls = (provider.smtp_port == 587);
 
+        return addSpecials(context, provider);
+    }
+
+    private static void addDocumentation(Provider provider, String href, String title) {
+        if (provider.documentation == null)
+            provider.documentation = new StringBuilder();
+        else
+            provider.documentation.append("<br /><br />");
+
+        provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
+    }
+
+    private static Provider addSpecials(Context context, Provider provider) {
+        for (Provider predefined : loadProfiles(context))
+            if (provider.imap_host.equals(predefined.imap_host)) {
+                provider.prefix = predefined.prefix;
+                break;
+            }
+
+        if ("imap.gmail.com".equals(provider.imap_host))
+            addDocumentation(provider,
+                    "https://www.google.com/settings/security/lesssecureapps",
+                    context.getString(R.string.title_setup_setting_gmail));
+
         return provider;
     }
 
@@ -358,16 +368,18 @@ public class Provider {
         lookup.setResolver(resolver);
         Log.i("Lookup dns=" + dns + " @" + resolver.getAddress());
         Record[] records = lookup.run();
+
         if (lookup.getResult() != Lookup.SUCCESSFUL)
             if (lookup.getResult() == Lookup.HOST_NOT_FOUND)
                 throw new UnknownHostException(dns);
             else
                 throw new IllegalArgumentException(lookup.getErrorString());
+
         Log.i("Found dns=" + (records == null ? -1 : records.length));
         return (records == null || records.length == 0 ? null : (SRVRecord) records[0]);
     }
 
-    public int getAuthType() {
+    int getAuthType() {
         if ("com.google".equals(type))
             return Helper.AUTH_TYPE_GMAIL;
         return Helper.AUTH_TYPE_PASSWORD;

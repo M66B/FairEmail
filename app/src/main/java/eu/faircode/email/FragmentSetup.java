@@ -399,7 +399,7 @@ public class FragmentSetup extends FragmentEx {
                             account.notify = false;
                             account.browse = true;
                             account.poll_interval = 19;
-                            account.prefix = provider.prefix; // TODO
+                            account.prefix = provider.prefix;
 
                             account.created = now;
                             account.error = null;
