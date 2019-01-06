@@ -177,6 +177,7 @@
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_pop">POP wird nicht unterstützt</string>
     <string name="title_identity_sent_hint">Versendete E-Mails werden in den meisten Fällen automatisch im Gesendet-Ordner gespeichert</string>
+    <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_delete_local">Lösche lokale Nachrichten</string>
     <string name="title_empty_trash">Papierkorb leeren</string>

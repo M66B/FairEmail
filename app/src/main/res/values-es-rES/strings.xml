@@ -177,6 +177,7 @@
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_pop">POP no está soportado</string>
     <string name="title_identity_sent_hint">Los mensajes enviados serán guardados automáticamente en la carpeta de enviados en la mayoría de los casos</string>
+    <string name="title_edit_html">Editar como HTML</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_empty_trash">Vaciar papelera</string>
@@ -227,6 +228,8 @@
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_add_keyword">Agregar palabra clave</string>
+    <string name="title_download_all">Descargar todo</string>
+    <string name="title_save_all">Guardar todo</string>
     <string name="title_show_html">Mostrar original</string>
     <string name="title_trash">Papelera</string>
     <string name="title_delete">Eliminar</string>
@@ -244,6 +247,7 @@
     <string name="title_no_contacts">Selector de contactos no disponible</string>
     <string name="title_no_internet">No hay conexión a internet</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
+    <string name="title_attachments_saved">Adjuntos guardados</string>
     <string name="title_attachment_unavailable">Algunos adjuntos no están descargados y no serán agregados, ¿continuar?</string>
     <string name="title_image_unavailable">Algunas imágenes no están descargadas y no serán aagregadas, ¿continuar?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>

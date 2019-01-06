@@ -177,6 +177,7 @@
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_pop">POP n\'est pas supporté</string>
     <string name="title_identity_sent_hint">Les messages envoyés seront automatiquement stockés dans le dossier Envoyés déjà dans la plupart des cas</string>
+    <string name="title_edit_html">Modifier en HTML</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_empty_trash">Vider la corbeille</string>

@@ -177,6 +177,7 @@
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_pop">POP wordt niet ondersteund</string>
     <string name="title_identity_sent_hint">Verzonden berichten worden meestal al automatisch opgeslagen in de verzonden map</string>
+    <string name="title_edit_html">Als HTML bewerken</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
