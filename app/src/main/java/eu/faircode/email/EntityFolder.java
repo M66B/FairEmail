@@ -151,7 +151,7 @@ public class EntityFolder implements Serializable {
     );
     static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Arrays.asList(
             true, // drafts
-            true, // sent
+            false, // sent
             false, // archive
             false, // trash
             false // junk
