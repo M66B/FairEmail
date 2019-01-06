@@ -103,7 +103,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void bindTo(EntityAttachment attachment) {
-            ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
+            ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
