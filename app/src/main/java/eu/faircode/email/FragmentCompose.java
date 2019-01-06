@@ -101,6 +101,7 @@ import java.util.Properties;
 
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -1145,6 +1146,8 @@ public class FragmentCompose extends FragmentEx {
                 attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
             if (attachment.type == null)
                 attachment.type = "application/octet-stream";
+            if (image)
+                attachment.disposition = Part.INLINE;
 
             attachment.size = (s == null ? null : Integer.parseInt(s));
             attachment.progress = 0;
@@ -1422,12 +1425,13 @@ public class FragmentCompose extends FragmentEx {
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
                             if (attachment.available &&
-                                    ("forward".equals(action) || attachment.cid != null)) {
+                                    ("forward".equals(action) || attachment.isInline())) {
                                 EntityAttachment copy = new EntityAttachment();
                                 copy.message = result.draft.id;
                                 copy.sequence = ++sequence;
                                 copy.name = attachment.name;
                                 copy.type = attachment.type;
+                                copy.disposition = attachment.disposition;
                                 copy.cid = attachment.cid;
                                 copy.encryption = attachment.encryption;
                                 copy.size = attachment.size;

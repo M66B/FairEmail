@@ -340,6 +340,8 @@ public class MessageHelper {
                         }
                     });
                     bpAttachment.setDataHandler(new DataHandler(dataSource));
+                    if (attachment.disposition != null)
+                        bpAttachment.setDisposition(attachment.disposition);
                     if (attachment.cid != null)
                         bpAttachment.setHeader("Content-ID", attachment.cid);
 
@@ -639,6 +641,7 @@ public class MessageHelper {
                 EntityAttachment attachment = new EntityAttachment();
                 attachment.name = filename;
                 attachment.type = ct.getBaseType().toLowerCase();
+                attachment.disposition = disposition;
                 attachment.size = part.getSize();
                 attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
                 attachment.encryption = (pgp ? EntityAttachment.PGP_MESSAGE : null);

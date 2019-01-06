@@ -43,7 +43,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -288,17 +287,5 @@ public class HtmlHelper {
         }, Jsoup.parse(html));
 
         return sb.toString();
-    }
-
-    static List<String> getCids(String html) {
-        List<String> result = new ArrayList<>();
-
-        for (Element element : Jsoup.parse(html).select("img")) {
-            String src = element.attr("src");
-            if (src.startsWith("cid:"))
-                result.add("<" + src.substring(4) + ">");
-        }
-
-        return result;
     }
 }

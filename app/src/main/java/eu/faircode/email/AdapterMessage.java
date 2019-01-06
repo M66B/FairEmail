@@ -630,7 +630,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         List<EntityAttachment> images = new ArrayList<>();
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.cid == null && attachment.type.startsWith("image"))
+                            if (attachment.type.startsWith("image") && !attachment.isInline())
                                 images.add(attachment);
                         adapterImage.set(images);
                         rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.INVISIBLE);
@@ -1850,7 +1850,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     long id = args.getLong("id");
                     List<EntityAttachment> attachments = DB.getInstance(context).attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
-                        if (attachment.cid != null && !attachment.available)
+                        if (!attachment.available && attachment.isInline())
                             return false;
                     return true;
                 }

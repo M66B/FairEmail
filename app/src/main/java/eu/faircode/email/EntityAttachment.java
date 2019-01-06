@@ -32,6 +32,7 @@ import java.io.OutputStream;
 
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
+import javax.mail.Part;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -69,6 +70,7 @@ public class EntityAttachment {
     public String name;
     @NonNull
     public String type;
+    public String disposition;
     public String cid; // Content-ID
     public Integer encryption;
     public Integer size;
@@ -78,6 +80,10 @@ public class EntityAttachment {
 
     @Ignore
     BodyPart part;
+
+    boolean isInline() {
+        return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE));
+    }
 
     static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "attachments");

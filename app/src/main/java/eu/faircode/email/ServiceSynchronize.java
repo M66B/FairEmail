@@ -1901,11 +1901,6 @@ public class ServiceSynchronize extends LifecycleService {
         String preview = HtmlHelper.getPreview(body);
         message.write(this, body);
         db.message().setMessageContent(message.id, true, preview);
-
-        List<String> cids = HtmlHelper.getCids(body);
-        for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
-            if (attachment.cid != null && !cids.contains(attachment.cid))
-                db.attachment().clearCid(attachment.id);
     }
 
     private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -2566,11 +2561,6 @@ public class ServiceSynchronize extends LifecycleService {
                     db.message().setMessageContent(
                             message.id, true, HtmlHelper.getPreview(body));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
-
-                    List<String> cids = HtmlHelper.getCids(body);
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.cid != null && !cids.contains(attachment.cid))
-                            db.attachment().clearCid(attachment.id);
                 }
 
             List<EntityAttachment> iattachments = null;

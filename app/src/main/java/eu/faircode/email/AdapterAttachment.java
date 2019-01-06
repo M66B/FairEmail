@@ -103,7 +103,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void bindTo(EntityAttachment attachment) {
-            ivDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
+            ivDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
 
             if (attachment.size != null)
@@ -128,7 +128,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             progressbar.setVisibility(
                     attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
-            tvType.setText(attachment.type + " " + attachment.cid + " " + attachment.encryption);
+            tvType.setText(attachment.type + " " + attachment.disposition + " " + attachment.cid + " " + attachment.encryption);
             tvType.setVisibility(debug ? View.VISIBLE : View.GONE);
         }
 
