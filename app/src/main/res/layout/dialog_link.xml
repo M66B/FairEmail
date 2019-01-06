@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title_open_link"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
