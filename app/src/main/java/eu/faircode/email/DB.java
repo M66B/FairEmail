@@ -87,11 +87,7 @@ public abstract class DB extends RoomDatabase {
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
-            sInstance = migrate(context, Room
-                    .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
-                    .openHelperFactory(new RequerySQLiteOpenHelperFactory())
-                    .setQueryExecutor(executor)
-                    .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING));
+            sInstance = migrate(context, getBuilder(context));
 
             Log.i("sqlite version=" + exec(sInstance, "SELECT sqlite_version() AS sqlite_version"));
             Log.i("sqlite sync=" + exec(sInstance, "PRAGMA synchronous"));
@@ -99,6 +95,18 @@ public abstract class DB extends RoomDatabase {
         }
 
         return sInstance;
+    }
+
+    public static synchronized DB getInstanceMainThread(Context context) {
+        return migrate(context, getBuilder(context).allowMainThreadQueries());
+    }
+
+    private static RoomDatabase.Builder getBuilder(Context context) {
+        return Room
+                .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)
+                .openHelperFactory(new RequerySQLiteOpenHelperFactory())
+                .setQueryExecutor(executor)
+                .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING);
     }
 
     private static String exec(DB db, String command) {

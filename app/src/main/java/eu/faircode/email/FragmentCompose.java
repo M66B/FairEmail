@@ -1628,7 +1628,7 @@ public class FragmentCompose extends FragmentEx {
 
         new SimpleTask<EntityMessage>() {
             @Override
-            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+            protected EntityMessage onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
@@ -1647,7 +1647,8 @@ public class FragmentCompose extends FragmentEx {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
-                showDraft(draft);
+                if (draft != null && state == State.NONE)
+                    showDraft(draft);
             }
 
             @Override
@@ -1990,7 +1991,7 @@ public class FragmentCompose extends FragmentEx {
         @Override
         public Drawable getDrawable(String source) {
             if (source != null && source.startsWith("cid:")) {
-                DB db = DB.getInstance(getContext());
+                DB db = DB.getInstanceMainThread(getContext());
                 String cid = "<" + source.substring(4) + ">";
                 EntityAttachment attachment = db.attachment().getAttachment(working, cid);
                 if (attachment != null) {
