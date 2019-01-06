@@ -105,6 +105,7 @@ import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Context context;
@@ -195,12 +196,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
 
+        private RecyclerView rvImage;
+
         private Group grpAddress;
         private Group grpHeaders;
         private Group grpAttachments;
         private Group grpExpanded;
 
-        private AdapterAttachment adapter;
+        private AdapterAttachment adapterAttachment;
+        private AdapterImage adapterImage;
         private LiveData<List<EntityAttachment>> liveAttachments = null;
         private Observer<List<EntityAttachment>> observerAttachments = null;
 
@@ -248,8 +252,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setLayoutManager(llm);
             rvAttachment.setItemAnimator(null);
 
-            adapter = new AdapterAttachment(context, owner, true);
-            rvAttachment.setAdapter(adapter);
+            adapterAttachment = new AdapterAttachment(context, owner, true);
+            rvAttachment.setAdapter(adapterAttachment);
 
             btnDownloadAttachments = itemView.findViewById(R.id.btnDownloadAttachments);
             btnSaveAttachments = itemView.findViewById(R.id.btnSaveAttachments);
@@ -263,6 +267,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody = itemView.findViewById(R.id.tvBody);
             pbBody = itemView.findViewById(R.id.pbBody);
             tvNoInternetBody = itemView.findViewById(R.id.tvNoInternetBody);
+
+            rvImage = itemView.findViewById(R.id.rvImage);
+            rvImage.setHasFixedSize(false);
+            StaggeredGridLayoutManager sglm =
+                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            rvImage.setLayoutManager(sglm);
+            adapterImage = new AdapterImage(context, owner);
+            rvImage.setAdapter(adapterImage);
 
             grpAddress = itemView.findViewById(R.id.grpAddress);
             grpHeaders = itemView.findViewById(R.id.grpHeaders);
@@ -332,6 +344,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
+
+            rvImage.setVisibility(View.GONE);
 
             grpAddress.setVisibility(View.GONE);
             ivAddContact.setVisibility(View.GONE);
@@ -519,6 +533,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
+            rvImage.setVisibility(View.GONE);
+
             grpHeaders.setVisibility(show_headers && show_expanded ? View.VISIBLE : View.GONE);
             grpAttachments.setVisibility(message.attachments > 0 && show_expanded ? View.VISIBLE : View.GONE);
             bnvActions.setVisibility(viewType == ViewType.THREAD && show_expanded ? View.INVISIBLE : View.GONE);
@@ -594,7 +610,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (attachments == null)
                             attachments = new ArrayList<>();
 
-                        adapter.set(attachments);
+                        adapterAttachment.set(attachments);
 
                         boolean download = false;
                         boolean save = (attachments.size() > 1);
@@ -608,9 +624,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 downloading = true;
                         }
 
-                        btnDownloadAttachments.setVisibility(download ? View.VISIBLE : View.GONE);
+                        btnDownloadAttachments.setVisibility(download && internet ? View.VISIBLE : View.GONE);
                         btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
                         tvNoInternetAttachments.setVisibility(downloading && !internet ? View.VISIBLE : View.GONE);
+
+                        List<EntityAttachment> images = new ArrayList<>();
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.cid == null && attachment.type.startsWith("image"))
+                                images.add(attachment);
+                        adapterImage.set(images);
+                        rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.INVISIBLE);
 
                         if (message.content) {
                             Bundle args = new Bundle();
