@@ -36,7 +36,7 @@ None at this moment.
 
 * Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
-* Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful.
+* Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
 * Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
@@ -48,6 +48,7 @@ None at this moment.
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 * ActiveSync: there are no maintained, open source libraries providing the ActiveSync protocol, so this cannot be added.
+* Automatically go to the next message on deleting a message: since the 'next' message can either be an older or a newer message this would be confusing. You can disable auto closing in the advanced options and use the bottom navigation bar instead.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
@@ -120,6 +121,8 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(56) Can you add support for JMAP?](#user-content-faq56)
 * [(57) Can I use HTML in signatures?](#user-content-faq57)
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
+* [(59) Can original messages be opened in the browser?](#user-content-faq59)
+* [(60) Did you known ...?](#user-content-faq60)
 
 [I have another question.](#support)
 
@@ -923,6 +926,26 @@ Message bodies and attachments are not downloaded by default.
 ![External image](https://raw.githubusercontent.com/google/material-design-icons/master/communication/1x_web/ic_email_black_48dp.png)
 
 Message bodies and attachments are downloaded by default.
+
+<br />
+
+<a name="faq59"></a>
+**(59) Can original messages be opened in the browser?**
+
+For security reasons the files with the original message texts are not accessible to other apps, so this is not possible.
+In theory the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) could be used to share these files,
+but even Google's Chrome cannot handle this.
+
+<br />
+
+<a name="faq60"></a>
+**(60) Did you know ... ?**
+
+* Did you know that you can long press the 'write message' icon to go to the drafts folder?
+* Did you know that you can long press the account name in the navigation menu to go to the inbox of that account?
+* Did you know there is an advanced option to mark messages read when they are moved and that archiving and trashing is also moving?
+* Did you know that you can select text (or an email address) in any app on recent Android versions and let FairEmail search for it? You'll need to set a primary account and an archive folder for this to work, so FairEmail knows where to search. There will be 'FairEmail' in the menu with copy, cut, etc.
+* Did you know that FairEmail has a tablet mode? Rotate your device in landscape mode and conversation threads will be opened in a second column if there is enough screen space.
 
 <br />
 
