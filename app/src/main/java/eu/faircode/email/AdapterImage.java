@@ -20,20 +20,29 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -47,7 +56,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     private List<EntityAttachment> all = new ArrayList<>();
     private List<EntityAttachment> filtered = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         ImageView image;
         TextView caption;
@@ -60,6 +69,14 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             caption = itemView.findViewById(R.id.caption);
         }
 
+        private void wire() {
+            itemView.setOnClickListener(this);
+        }
+
+        private void unwire() {
+            itemView.setOnClickListener(null);
+        }
+
         private void bindTo(EntityAttachment attachment) {
             if (attachment.available) {
                 Drawable d = BitmapDrawable.createFromPath(
@@ -69,9 +86,89 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                 else
                     image.setImageDrawable(d);
             } else
-                image.setImageResource(R.drawable.baseline_image_24);
+                image.setImageResource(attachment.progress == null
+                        ? R.drawable.baseline_image_24 : R.drawable.baseline_hourglass_empty_24);
 
             caption.setText(attachment.name);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            EntityAttachment attachment = filtered.get(pos);
+            if (attachment.available) {
+                // Build file name
+                File file = EntityAttachment.getFile(context, attachment.id);
+
+                // https://developer.android.com/reference/android/support/v4/content/FileProvider
+                final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                Log.i("uri=" + uri);
+
+                // Build intent
+                final Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(uri, attachment.type);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                if (!TextUtils.isEmpty(attachment.name))
+                    intent.putExtra(Intent.EXTRA_TITLE, attachment.name);
+                Log.i("Sharing " + file + " type=" + attachment.type);
+                Log.i("Intent=" + intent);
+
+                // Get targets
+                PackageManager pm = context.getPackageManager();
+                List<ResolveInfo> ris = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+                for (ResolveInfo ri : ris) {
+                    Log.i("Target=" + ri);
+                    context.grantUriPermission(ri.activityInfo.packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                }
+
+                // Check if viewer available
+                if (ris.size() == 0) {
+                    Toast.makeText(context, context.getString(R.string.title_no_viewer, attachment.type), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                context.startActivity(intent);
+            } else {
+                if (attachment.progress == null) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", attachment.id);
+                    args.putLong("message", attachment.message);
+                    args.putInt("sequence", attachment.sequence);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            long message = args.getLong("message");
+                            long sequence = args.getInt("sequence");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                db.attachment().setProgress(id, 0);
+
+                                EntityMessage msg = db.message().getMessage(message);
+                                EntityOperation.queue(context, db, msg, EntityOperation.ATTACHMENT, sequence);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(context, owner, ex);
+                        }
+                    }.execute(context, owner, args);
+                }
+            }
         }
     }
 
@@ -175,7 +272,11 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.unwire();
+
         EntityAttachment attachment = filtered.get(position);
         holder.bindTo(attachment);
+
+        holder.wire();
     }
 }
