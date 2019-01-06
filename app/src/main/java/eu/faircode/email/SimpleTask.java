@@ -52,15 +52,27 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     public void execute(Context context, LifecycleOwner owner, Bundle args) {
-        run(context, owner, args, null);
+        execute(context, owner, args, null);
+    }
+
+    public void execute(Context context, LifecycleOwner owner, Bundle args, String name) {
+        run(context, owner, args, name);
     }
 
     public void execute(LifecycleService service, Bundle args) {
-        run(service, service, args, null);
+        execute(service, args, null);
+    }
+
+    public void execute(LifecycleService service, Bundle args, String name) {
+        run(service, service, args, name);
     }
 
     public void execute(AppCompatActivity activity, Bundle args) {
-        run(activity, activity, args, null);
+        execute(activity, args, null);
+    }
+
+    public void execute(AppCompatActivity activity, Bundle args, String name) {
+        run(activity, activity, args, name);
     }
 
     public void execute(Fragment fragment, Bundle args) {
