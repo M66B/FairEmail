@@ -1489,11 +1489,17 @@ public class FragmentCompose extends FragmentEx {
                 } else {
                     // Existing draft
                     result.account = db.account().getAccount(result.draft.account);
+
                     if (!result.draft.content) {
                         if (result.draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
                         EntityOperation.queue(context, db, result.draft, EntityOperation.BODY);
                     }
+
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(result.draft.id);
+                    for (EntityAttachment attachment : attachments)
+                        if (!attachment.available)
+                            EntityOperation.queue(context, db, result.draft, EntityOperation.ATTACHMENT, attachment.sequence);
                 }
 
                 db.setTransactionSuccessful();
@@ -1576,9 +1582,6 @@ public class FragmentCompose extends FragmentEx {
                             adapter.set(attachments);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-                            if (result.draft.content)
-                                showDraft(result.draft);
-
                             boolean downloading = false;
                             for (EntityAttachment attachment : attachments)
                                 if (attachment.progress != null) {
@@ -1588,12 +1591,14 @@ public class FragmentCompose extends FragmentEx {
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
+
+                            checkDraft(result.draft.id);
                         }
                     });
 
             db.message().liveMessage(result.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
-                public void onChanged(final EntityMessage draft) {
+                public void onChanged(EntityMessage draft) {
                     // Draft was deleted
                     if (draft == null || draft.ui_hide)
                         finish();
@@ -1601,8 +1606,7 @@ public class FragmentCompose extends FragmentEx {
                         tvNoInternet.setTag(draft.content);
                         checkInternet();
 
-                        if (draft.content && state == State.NONE)
-                            showDraft(result.draft);
+                        checkDraft(draft.id);
                     }
                 }
             });
@@ -1617,6 +1621,41 @@ public class FragmentCompose extends FragmentEx {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
         }
     };
+
+    private void checkDraft(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+
+                EntityMessage draft = db.message().getMessage(id);
+                if (!draft.content)
+                    return null;
+
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments)
+                    if (!attachment.available)
+                        return null;
+
+                return draft;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                showDraft(draft);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args);
+    }
 
     private void showDraft(EntityMessage draft) {
         Bundle args = new Bundle();
