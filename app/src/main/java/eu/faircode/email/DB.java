@@ -97,10 +97,6 @@ public abstract class DB extends RoomDatabase {
         return sInstance;
     }
 
-    public static synchronized DB getInstanceMainThread(Context context) {
-        return migrate(context, getBuilder(context).allowMainThreadQueries());
-    }
-
     private static RoomDatabase.Builder getBuilder(Context context) {
         return Room
                 .databaseBuilder(context.getApplicationContext(), DB.class, DB_NAME)

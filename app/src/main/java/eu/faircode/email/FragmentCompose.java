@@ -30,9 +30,11 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LevelListDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -40,6 +42,7 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.OpenableColumns;
@@ -493,7 +496,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putString("subject", getArguments().getString("subject"));
                 args.putString("body", getArguments().getString("body"));
                 args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
-                draftLoader.execute(this, args);
+                draftLoader.execute(this, args, "draft:new");
             } else {
                 Bundle args = new Bundle();
                 args.putString("action", "edit");
@@ -501,7 +504,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putLong("account", -1);
                 args.putLong("reference", -1);
                 args.putLong("answer", -1);
-                draftLoader.execute(this, args);
+                draftLoader.execute(this, args, "draft:edit");
             }
         } else {
             working = savedInstanceState.getLong("working");
@@ -511,7 +514,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("account", -1);
             args.putLong("reference", -1);
             args.putLong("answer", -1);
-            draftLoader.execute(this, args);
+            draftLoader.execute(this, args, "draft:instance");
         }
     }
 
@@ -912,7 +915,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "encrypt");
     }
 
     @Override
@@ -1040,7 +1043,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "add:attachment");
     }
 
     private void handleExit() {
@@ -1098,7 +1101,7 @@ public class FragmentCompose extends FragmentEx {
         dirty = false;
 
         Log.i("Run execute id=" + working);
-        actionLoader.execute(this, args);
+        actionLoader.execute(this, args, "action:" + action);
     }
 
     private boolean isEmpty() {
@@ -1655,7 +1658,7 @@ public class FragmentCompose extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "draft:check");
     }
 
     private void showDraft(EntityMessage draft) {
@@ -1667,11 +1670,6 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("reference", draft.forwarding);
 
         new SimpleTask<Spanned[]>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                state = State.LOADING;
-            }
-
             @Override
             protected void onPostExecute(Bundle args) {
                 state = State.LOADED;
@@ -1731,7 +1729,7 @@ public class FragmentCompose extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentCompose.this, args);
+        }.execute(FragmentCompose.this, args, "draft:show");
     }
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
@@ -1989,25 +1987,72 @@ public class FragmentCompose extends FragmentEx {
 
     private Html.ImageGetter cidGetter = new Html.ImageGetter() {
         @Override
-        public Drawable getDrawable(String source) {
-            if (source != null && source.startsWith("cid:")) {
-                DB db = DB.getInstanceMainThread(getContext());
-                String cid = "<" + source.substring(4) + ">";
-                EntityAttachment attachment = db.attachment().getAttachment(working, cid);
-                if (attachment != null) {
-                    File file = EntityAttachment.getFile(getContext(), attachment.id);
-                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    if (d != null) {
-                        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-                        return d;
-                    }
-                }
-            }
+        public Drawable getDrawable(final String source) {
+            final LevelListDrawable lld = new LevelListDrawable();
 
+            Resources res = getContext().getResources();
             int px = Helper.dp2pixels(getContext(), 48);
-            Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
-            d.setBounds(0, 0, px, px);
-            return d;
+
+            // Level 0: broken image
+            Drawable broken = res.getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
+            broken.setBounds(0, 0, px, px);
+            lld.addLevel(0, 0, broken);
+
+            // Level 1: place holder
+            Drawable placeholder = res.getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
+            placeholder.setBounds(0, 0, px, px);
+            lld.addLevel(1, 1, placeholder);
+
+            lld.setBounds(0, 0, px, px);
+
+            if (source != null && source.startsWith("cid:")) {
+                lld.setLevel(1); // placeholder
+
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Bundle args = new Bundle();
+                        args.putLong("id", working);
+                        args.putString("cid", "<" + source.substring(4) + ">");
+
+                        new SimpleTask<Drawable>() {
+                            @Override
+                            protected Drawable onExecute(Context context, Bundle args) {
+                                long id = args.getLong("id");
+                                String cid = args.getString("cid");
+
+                                DB db = DB.getInstance(context);
+                                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                                if (attachment == null)
+                                    return null;
+
+                                File file = EntityAttachment.getFile(getContext(), attachment.id);
+                                return Drawable.createFromPath(file.getAbsolutePath());
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, Drawable image) {
+                                if (image == null)
+                                    lld.setLevel(0); // broken
+                                else {
+                                    lld.addLevel(2, 2, image);
+                                    lld.setLevel(2); // image
+                                    lld.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+                                }
+                                etBody.requestLayout();
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                            }
+                        }.execute(FragmentCompose.this, args, source);
+                    }
+                });
+            } else
+                lld.setLevel(0); // broken
+
+            return lld;
         }
     };
 

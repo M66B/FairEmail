@@ -26,6 +26,7 @@ import android.os.Handler;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -45,25 +46,30 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private boolean paused;
     private boolean destroyed;
     private Bundle args;
+    private String name;
     private Result stored;
 
     private static ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     public void execute(Context context, LifecycleOwner owner, Bundle args) {
-        run(context, owner, args);
+        run(context, owner, args, null);
     }
 
     public void execute(LifecycleService service, Bundle args) {
-        run(service, service, args);
+        run(service, service, args, null);
     }
 
     public void execute(AppCompatActivity activity, Bundle args) {
-        run(activity, activity, args);
+        run(activity, activity, args, null);
     }
 
-    public void execute(final Fragment fragment, Bundle args) {
+    public void execute(Fragment fragment, Bundle args) {
+        execute(fragment, args, null);
+    }
+
+    public void execute(final Fragment fragment, Bundle args, String name) {
         try {
-            run(fragment.getContext(), fragment.getViewLifecycleOwner(), args);
+            run(fragment.getContext(), fragment.getViewLifecycleOwner(), args, name);
         } catch (IllegalStateException ex) {
             Log.w(ex);
         }
@@ -111,11 +117,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         stored = null;
     }
 
-    private void run(final Context context, LifecycleOwner owner, final Bundle args) {
+    private void run(final Context context, LifecycleOwner owner, final Bundle args, String name) {
         this.owner = owner;
         this.paused = false;
         this.destroyed = false;
         this.args = null;
+        this.name = name;
         this.stored = null;
 
         owner.getLifecycle().addObserver(this);
@@ -197,5 +204,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static class Result {
         Throwable ex;
         Object data;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return (name == null ? super.toString() : name);
     }
 }
