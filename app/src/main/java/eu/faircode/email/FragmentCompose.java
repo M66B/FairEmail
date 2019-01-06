@@ -1934,7 +1934,7 @@ public class FragmentCompose extends FragmentEx {
                 }
             }
 
-            int px = Helper.dp2pixels(getContext(), 12);
+            int px = Helper.dp2pixels(getContext(), 48);
             Drawable d = getContext().getResources().getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
             d.setBounds(0, 0, px, px);
             return d;
