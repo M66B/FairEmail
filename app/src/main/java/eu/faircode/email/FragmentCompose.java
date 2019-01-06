@@ -926,13 +926,18 @@ public class FragmentCompose extends FragmentEx {
             } else if (requestCode == ActivityCompose.REQUEST_ATTACHMENT) {
                 if (data != null) {
                     ClipData clipData = data.getClipData();
-                    if (clipData != null)
+                    if (clipData == null) {
+                        Uri uri = data.getData();
+                        if (uri != null)
+                            handleAddAttachment(uri, false);
+                    } else {
                         for (int i = 0; i < clipData.getItemCount(); i++) {
                             ClipData.Item item = clipData.getItemAt(i);
                             Uri uri = item.getUri();
                             if (uri != null)
                                 handleAddAttachment(uri, false);
                         }
+                    }
                 }
             } else if (requestCode == ActivityCompose.REQUEST_ENCRYPT) {
                 if (data != null) {
