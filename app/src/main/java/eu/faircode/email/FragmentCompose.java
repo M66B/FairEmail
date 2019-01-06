@@ -159,6 +159,7 @@ public class FragmentCompose extends FragmentEx {
     private State state = State.NONE;
     private boolean autosave = false;
     private boolean busy = false;
+    private boolean dirty = false;
 
     private OpenPgpServiceConnection pgpService;
 
@@ -1003,6 +1004,11 @@ public class FragmentCompose extends FragmentEx {
 
         new SimpleTask<EntityAttachment>() {
             @Override
+            protected void onPostExecute(Bundle args) {
+                dirty = true;
+            }
+
+            @Override
             protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
@@ -1079,7 +1085,6 @@ public class FragmentCompose extends FragmentEx {
         args.putString("cc", etCc.getText().toString());
         args.putString("bcc", etBcc.getText().toString());
         args.putString("subject", etSubject.getText().toString());
-        args.putBoolean("empty", isEmpty());
 
         Spannable spannable = etBody.getText();
         UnderlineSpan[] uspans = spannable.getSpans(0, spannable.length(), UnderlineSpan.class);
@@ -1087,6 +1092,10 @@ public class FragmentCompose extends FragmentEx {
             spannable.removeSpan(uspan);
 
         args.putString("body", Html.toHtml(spannable));
+
+        args.putBoolean("empty", isEmpty());
+        args.putBoolean("dirty", dirty);
+        dirty = false;
 
         Log.i("Run execute id=" + working);
         actionLoader.execute(this, args);
@@ -1713,7 +1722,9 @@ public class FragmentCompose extends FragmentEx {
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
             String body = args.getString("body");
+
             boolean empty = args.getBoolean("empty");
+            boolean dirty = args.getBoolean("dirty");
 
             EntityMessage draft;
 
@@ -1785,7 +1796,7 @@ public class FragmentCompose extends FragmentEx {
                     extra = null;
 
                 Long ident = (identity == null ? null : identity.id);
-                boolean dirty =
+                dirty = dirty ||
                         ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
                                 (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
                                 !MessageHelper.equal(draft.from, afrom) ||
