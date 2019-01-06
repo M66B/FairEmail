@@ -23,6 +23,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -279,8 +282,10 @@ public class MessageHelper {
     static void build(Context context, EntityMessage message, MimeMessage imessage) throws IOException, MessagingException {
         DB db = DB.getInstance(context);
 
+        String html = message.read(context);
+
         StringBuilder body = new StringBuilder();
-        body.append(message.read(context));
+        body.append(html);
 
         if (Helper.isPro(context) && message.identity != null) {
             EntityIdentity identity = db.identity().getIdentity(message.identity);
@@ -288,38 +293,51 @@ public class MessageHelper {
                 body.append(identity.signature);
         }
 
-        String plain = HtmlHelper.getText(body.toString());
+        String plainContent = HtmlHelper.getText(body.toString());
 
-        StringBuilder html = new StringBuilder();
-        html.append("<!DOCTYPE html>").append("\n");
-        html.append("<html>").append("\n");
-        html.append("<head>").append("\n");
-        html.append("<meta charset=\"utf-8\" /> ").append("\n");
-        html.append("</head>").append("\n");
-        html.append("<body>").append("\n");
-        html.append(body.toString()).append("\n");
-        html.append("</body>").append("\n");
-        html.append("</html>").append("\n");
+        StringBuilder htmlContent = new StringBuilder();
+        htmlContent.append("<!DOCTYPE html>").append("\n");
+        htmlContent.append("<html>").append("\n");
+        htmlContent.append("<head>").append("\n");
+        htmlContent.append("<meta charset=\"utf-8\" /> ").append("\n");
+        htmlContent.append("</head>").append("\n");
+        htmlContent.append("<body>").append("\n");
+        htmlContent.append(body.toString()).append("\n");
+        htmlContent.append("</body>").append("\n");
+        htmlContent.append("</html>").append("\n");
 
-        BodyPart plainBody = new MimeBodyPart();
-        plainBody.setContent(plain, "text/plain; charset=" + Charset.defaultCharset().name());
+        BodyPart plainPart = new MimeBodyPart();
+        plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
-        BodyPart htmlBody = new MimeBodyPart();
-        htmlBody.setContent(html.toString(), "text/html; charset=" + Charset.defaultCharset().name());
+        BodyPart htmlPart = new MimeBodyPart();
+        htmlPart.setContent(htmlContent.toString(), "text/html; charset=" + Charset.defaultCharset().name());
 
-        Multipart alternative = new MimeMultipart("alternative");
-        alternative.addBodyPart(plainBody);
-        alternative.addBodyPart(htmlBody);
+        Multipart alternativePart = new MimeMultipart("alternative");
+        alternativePart.addBodyPart(plainPart);
+        alternativePart.addBodyPart(htmlPart);
+
+        List<String> cids = new ArrayList<>();
+        for (Element element : Jsoup.parse(html).select("img")) {
+            String src = element.attr("src");
+            if (src.startsWith("cid:"))
+                cids.add("<" + src.substring(4) + ">");
+        }
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        if (attachments.size() == 0) {
-            imessage.setContent(alternative);
-        } else {
-            Multipart multipart = new MimeMultipart("mixed");
+        for (EntityAttachment attachment : new ArrayList<>(attachments))
+            if (attachment.isInline() && attachment.cid != null && !cids.contains(attachment.cid)) {
+                Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                attachments.remove(attachment);
+            }
 
-            BodyPart bp = new MimeBodyPart();
-            bp.setContent(alternative);
-            multipart.addBodyPart(bp);
+        if (attachments.size() == 0)
+            imessage.setContent(alternativePart);
+        else {
+            Multipart mixedPart = new MimeMultipart("mixed");
+
+            BodyPart attachmentPart = new MimeBodyPart();
+            attachmentPart.setContent(alternativePart);
+            mixedPart.addBodyPart(attachmentPart);
 
             for (final EntityAttachment attachment : attachments)
                 if (attachment.available) {
@@ -345,10 +363,10 @@ public class MessageHelper {
                     if (attachment.cid != null)
                         bpAttachment.setHeader("Content-ID", attachment.cid);
 
-                    multipart.addBodyPart(bpAttachment);
+                    mixedPart.addBodyPart(bpAttachment);
                 }
 
-            imessage.setContent(multipart);
+            imessage.setContent(mixedPart);
         }
     }
 
