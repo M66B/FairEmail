@@ -843,10 +843,7 @@ public class FragmentCompose extends FragmentEx {
                                 os1 = new BufferedOutputStream(new FileOutputStream(file1));
                                 os1.write(bytes1);
 
-                                attachment1.size = bytes1.length;
-                                attachment1.progress = null;
-                                attachment1.available = true;
-                                db.attachment().updateAttachment(attachment1);
+                                db.attachment().setDownloaded(attachment1.id, bytes1.length);
                             } finally {
                                 if (os1 != null)
                                     os1.close();
@@ -868,10 +865,7 @@ public class FragmentCompose extends FragmentEx {
                                 os2 = new BufferedOutputStream(new FileOutputStream(file2));
                                 os2.write(bytes2);
 
-                                attachment2.size = bytes2.length;
-                                attachment2.progress = null;
-                                attachment2.available = true;
-                                db.attachment().updateAttachment(attachment2);
+                                db.attachment().setDownloaded(attachment2.id, bytes2.length);
                             } finally {
                                 if (os2 != null)
                                     os2.close();
@@ -1186,10 +1180,7 @@ public class FragmentCompose extends FragmentEx {
                 if (image)
                     attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
 
-                attachment.size = size;
-                attachment.progress = null;
-                attachment.available = true;
-                db.attachment().updateAttachment(attachment);
+                db.attachment().setDownloaded(attachment.id, size);
             } finally {
                 try {
                     if (is != null)
@@ -1201,8 +1192,7 @@ public class FragmentCompose extends FragmentEx {
             }
         } catch (IOException ex) {
             // Reset progress on failure
-            attachment.progress = null;
-            db.attachment().updateAttachment(attachment);
+            db.attachment().setProgress(attachment.id, null);
             throw ex;
         }
 

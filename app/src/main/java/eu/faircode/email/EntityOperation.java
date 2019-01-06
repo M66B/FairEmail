@@ -184,8 +184,7 @@ public class EntityOperation {
                                         EntityAttachment.getFile(context, attachment.id));
                             } catch (IOException ex) {
                                 Log.e(ex);
-                                attachment.available = false;
-                                db.attachment().updateAttachment(attachment);
+                                db.attachment().setProgress(attachment.id, null);
                             }
                     }
                 }

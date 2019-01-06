@@ -643,11 +643,11 @@ public class ServiceSynchronize extends LifecycleService {
 
                 if (message.content)
                     try {
-                        String html = message.read(this);
+                        String body = message.read(this);
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(message.subject))
                             sb.append(message.subject).append("<br>");
-                        sb.append(HtmlHelper.getPreview(html));
+                        sb.append(HtmlHelper.getPreview(body));
                         mbuilder.setStyle(new Notification.BigTextStyle().bigText(Html.fromHtml(sb.toString())));
                     } catch (IOException ex) {
                         Log.e(ex);
@@ -1897,10 +1897,15 @@ public class ServiceSynchronize extends LifecycleService {
             throw new MessageRemovedException();
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        String html = helper.getHtml();
-        String preview = HtmlHelper.getPreview(html);
-        message.write(this, html);
+        String body = helper.getHtml();
+        String preview = HtmlHelper.getPreview(body);
+        message.write(this, body);
         db.message().setMessageContent(message.id, true, preview);
+
+        List<String> cids = HtmlHelper.getCids(body);
+        for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+            if (attachment.cid != null && !cids.contains(attachment.cid))
+                db.attachment().clearCid(attachment.id);
     }
 
     private void doAttachment(EntityFolder folder, EntityOperation op, IMAPFolder ifolder, EntityMessage message, JSONArray jargs, DB db) throws JSONException, MessagingException, IOException {
@@ -2561,6 +2566,11 @@ public class ServiceSynchronize extends LifecycleService {
                     db.message().setMessageContent(
                             message.id, true, HtmlHelper.getPreview(body));
                     Log.i(folder.name + " downloaded message id=" + message.id + " size=" + message.size);
+
+                    List<String> cids = HtmlHelper.getCids(body);
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.cid != null && !cids.contains(attachment.cid))
+                            db.attachment().clearCid(attachment.id);
                 }
 
             List<EntityAttachment> iattachments = null;

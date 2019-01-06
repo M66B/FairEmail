@@ -107,7 +107,7 @@ public class EntityAttachment {
         OutputStream os = null;
         try {
             this.progress = null;
-            db.attachment().updateAttachment(this);
+            db.attachment().setProgress(this.id, null);
 
             is = this.part.getInputStream();
             os = new BufferedOutputStream(new FileOutputStream(file));
@@ -127,13 +127,13 @@ public class EntityAttachment {
             this.size = size;
             this.progress = null;
             this.available = true;
-            db.attachment().updateAttachment(this);
+            db.attachment().setDownloaded(this.id, size);
 
             Log.i("Downloaded attachment size=" + this.size);
         } catch (IOException ex) {
             // Reset progress on failure
             this.progress = null;
-            db.attachment().updateAttachment(this);
+            db.attachment().setProgress(this.id, null);
             throw ex;
         } finally {
             try {

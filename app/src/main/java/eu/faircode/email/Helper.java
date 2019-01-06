@@ -379,17 +379,17 @@ public class Helper {
     private static void attachSettings(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
-        EntityAttachment ops = new EntityAttachment();
-        ops.message = id;
-        ops.sequence = sequence;
-        ops.name = "settings.txt";
-        ops.type = "text/plain";
-        ops.size = null;
-        ops.progress = 0;
-        ops.id = db.attachment().insertAttachment(ops);
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "settings.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
 
         OutputStream os = null;
-        File file = EntityAttachment.getFile(context, ops.id);
+        File file = EntityAttachment.getFile(context, attachment.id);
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
@@ -400,10 +400,7 @@ public class Helper {
             for (String key : settings.keySet())
                 size += write(os, key + "=" + settings.get(key) + "\r\n");
 
-            ops.size = size;
-            ops.progress = null;
-            ops.available = true;
-            db.attachment().updateAttachment(ops);
+            db.attachment().setDownloaded(attachment.id, size);
         } finally {
             if (os != null)
                 os.close();
@@ -413,17 +410,17 @@ public class Helper {
     private static void attachNetworkInfo(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
-        EntityAttachment ops = new EntityAttachment();
-        ops.message = id;
-        ops.sequence = sequence;
-        ops.name = "network.txt";
-        ops.type = "text/plain";
-        ops.size = null;
-        ops.progress = 0;
-        ops.id = db.attachment().insertAttachment(ops);
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "network.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
 
         OutputStream os = null;
-        File file = EntityAttachment.getFile(context, ops.id);
+        File file = EntityAttachment.getFile(context, attachment.id);
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
@@ -439,10 +436,7 @@ public class Helper {
                 size += write(os, "network=" + ni + " capabilities=" + caps + "\r\n\r\n");
             }
 
-            ops.size = size;
-            ops.progress = null;
-            ops.available = true;
-            db.attachment().updateAttachment(ops);
+            db.attachment().setDownloaded(attachment.id, size);
         } finally {
             if (os != null)
                 os.close();
@@ -473,10 +467,7 @@ public class Helper {
             for (EntityLog entry : db.log().getLogs(from))
                 size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
 
-            log.size = size;
-            log.progress = null;
-            log.available = true;
-            db.attachment().updateAttachment(log);
+            db.attachment().setDownloaded(log.id, size);
         } finally {
             if (os != null)
                 os.close();
@@ -486,17 +477,17 @@ public class Helper {
     private static void attachOperations(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
-        EntityAttachment ops = new EntityAttachment();
-        ops.message = id;
-        ops.sequence = sequence;
-        ops.name = "operations.txt";
-        ops.type = "text/plain";
-        ops.size = null;
-        ops.progress = 0;
-        ops.id = db.attachment().insertAttachment(ops);
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "operations.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
 
         OutputStream os = null;
-        File file = EntityAttachment.getFile(context, ops.id);
+        File file = EntityAttachment.getFile(context, attachment.id);
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
@@ -511,10 +502,7 @@ public class Helper {
                         op.args,
                         op.error));
 
-            ops.size = size;
-            ops.progress = null;
-            ops.available = true;
-            db.attachment().updateAttachment(ops);
+            db.attachment().setDownloaded(attachment.id, size);
         } finally {
             if (os != null)
                 os.close();
@@ -524,19 +512,19 @@ public class Helper {
     private static void attachLogcat(Context context, long id, int sequence) throws IOException {
         DB db = DB.getInstance(context);
 
-        EntityAttachment logcat = new EntityAttachment();
-        logcat.message = id;
-        logcat.sequence = sequence;
-        logcat.name = "logcat.txt";
-        logcat.type = "text/plain";
-        logcat.size = null;
-        logcat.progress = 0;
-        logcat.id = db.attachment().insertAttachment(logcat);
+        EntityAttachment attachment = new EntityAttachment();
+        attachment.message = id;
+        attachment.sequence = sequence;
+        attachment.name = "logcat.txt";
+        attachment.type = "text/plain";
+        attachment.size = null;
+        attachment.progress = 0;
+        attachment.id = db.attachment().insertAttachment(attachment);
 
         Process proc = null;
         BufferedReader br = null;
         OutputStream os = null;
-        File file = EntityAttachment.getFile(context, logcat.id);
+        File file = EntityAttachment.getFile(context, attachment.id);
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
@@ -554,10 +542,7 @@ public class Helper {
             while ((line = br.readLine()) != null)
                 size += write(os, line + "\r\n");
 
-            logcat.size = size;
-            logcat.progress = null;
-            logcat.available = true;
-            db.attachment().updateAttachment(logcat);
+            db.attachment().setDownloaded(attachment.id, size);
         } finally {
             if (os != null)
                 os.close();
