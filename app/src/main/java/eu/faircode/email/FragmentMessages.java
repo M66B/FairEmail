@@ -273,7 +273,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:refresh");
             }
         });
 
@@ -417,7 +417,7 @@ public class FragmentMessages extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentMessages.this, args);
+                        }.execute(FragmentMessages.this, args, "messages:move");
                     }
                 });
 
@@ -609,7 +609,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:swipe");
             }
         }).attachToRecyclerView(rvMessage);
 
@@ -693,7 +693,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:move");
             }
 
             private void onActionNavigate(ViewModelMessages.Target target) {
@@ -863,7 +863,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:more");
             }
 
             private long[] getSelection() {
@@ -916,7 +916,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:seen");
             }
 
             private void onActionFlag(boolean flagged) {
@@ -958,7 +958,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:flag");
             }
 
             private void onActionJunk() {
@@ -1019,7 +1019,7 @@ public class FragmentMessages extends FragmentEx {
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
-                                }.execute(FragmentMessages.this, args);
+                                }.execute(FragmentMessages.this, args, "messages:delete");
                             }
                         })
                         .setNegativeButton(android.R.string.cancel, null)
@@ -1079,7 +1079,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:move");
             }
 
             private void onActionMove() {
@@ -1176,7 +1176,7 @@ public class FragmentMessages extends FragmentEx {
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                                     }
-                                }.execute(FragmentMessages.this, args);
+                                }.execute(FragmentMessages.this, args, "messages:move");
 
                                 return true;
                             }
@@ -1189,7 +1189,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:move");
             }
         });
 
@@ -1477,7 +1477,7 @@ public class FragmentMessages extends FragmentEx {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                         }
-                    }.execute(FragmentMessages.this, args);
+                    }.execute(FragmentMessages.this, args, "messages:resetsearch");
                 } else {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
@@ -1628,7 +1628,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "messages:movesent");
     }
 
     private void loadMessages() {
@@ -1875,7 +1875,7 @@ public class FragmentMessages extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentMessages.this, args);
+                        }.execute(FragmentMessages.this, args, "messages:navigation");
                     }
 
                 } else {
@@ -1937,7 +1937,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args);
+        }.execute(this, args, "messages:expand");
     }
 
     private void moveAsk(final MessageTarget result) {
@@ -2007,7 +2007,7 @@ public class FragmentMessages extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentMessages.this, args);
+        }.execute(FragmentMessages.this, args, "messages:move");
     }
 
     private void moveUndo(final MessageTarget result) {
@@ -2044,7 +2044,7 @@ public class FragmentMessages extends FragmentEx {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                     }
-                }.execute(FragmentMessages.this, args);
+                }.execute(FragmentMessages.this, args, "messages:undo");
             }
         });
         snackbar.show();
