@@ -367,7 +367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             pbLoading.setVisibility(View.GONE);
 
-            itemView.setAlpha(message.uid == null ? LOW_LIGHT : 1.0f);
+            itemView.setAlpha(message.uid == null && !EntityFolder.OUTBOX.equals(message.folderType) ? LOW_LIGHT : 1.0f);
 
             if (viewType == ViewType.THREAD) {
                 ivFlagged.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
