@@ -283,7 +283,8 @@ To encrypt a message before sending, just select the menu *Encrypt*. Similarly, 
 Encryption is [Autocrypt](https://autocrypt.org/) compatible. For security reasons received messages are not decrypted automatically.
 Encryption/decryption is a pro feature.
 
-Sending inline PGP encrypted messages is not supported, see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
+Inline PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
+see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
 S/MIME is not supported because it is not used much and because key management is complex.
 There are also [security concerns](https://security.stackexchange.com/a/83752).
@@ -294,7 +295,7 @@ Note that signed only or encrypted only messages are not supported, see here for
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-If you like, you can verify a signature by opening the *signature.asc* attachment.
+If you want, you can verify a signature by opening the *signature.asc* attachment.
 
 <br />
 
