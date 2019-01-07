@@ -7,7 +7,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 261
-        versionName "1.$versionCode"
+        versionName "1.261"
         archivesBaseName = "FairEmail-v$versionName"
 
         javaCompileOptions {
@@ -24,19 +24,6 @@ android {
             useProguard = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "BETA_RELEASE", "true"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/#pro\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
-        }
-        play {
-            debuggable = false
-            minifyEnabled = true
-            useProguard = true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "boolean", "BETA_RELEASE", "true"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
-            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/pro/\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
         }
         debug {
             debuggable = true
@@ -44,9 +31,23 @@ android {
             useProguard = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "BETA_RELEASE", "true"
+        }
+    }
+
+    flavorDimensions "all"
+
+    productFlavors {
+        full {
+            dimension "all"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
             buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/pro/\""
             buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/open-source-email/releases/latest\""
+        }
+        play {
+            dimension "all"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
+            buildConfigField "String", "PRO_FEATURES", "\"https://email.faircode.eu/#pro\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"\""
         }
     }
 
