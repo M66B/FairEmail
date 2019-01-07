@@ -66,6 +66,12 @@
     <string name="title_setup_password_invalid">Şifrə etibarsızdır</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>
+    <string name="title_setup_quick">Cəld konfiqurasiya</string>
+    <string name="title_setup_quick_remark">Cəld konfiqurasiya bir çox böyük təchizatçı üçün istifadə edilə bilər</string>
+    <string name="title_setup_setting_gmail">\"Daha az təhlükəsiz\" tətbiqlərə müraciəti fəallaşdır</string>
+    <string name="title_setup_no_settings">\'%1$s\' üçün tənzimləmə tapılmadı</string>
+    <string name="title_setup_quick_success">Bir hesab və bir kimlik əlavə edildi. \'İdarə et\' düymələrindən istifadə edərək təfsilatları nəzərdən keçirə bilərsiniz.</string>
+    <string name="title_setup_quick_failed">Həmçinin bir hesab və bir kimliyi də konfiqurasiya etməyə cəhd edə bilərsiniz</string>
     <string name="title_setup_account">Hesabları idarә et</string>
     <string name="title_setup_account_remark">E-poçt alma</string>
     <string name="title_setup_identity">Kimlikləri idarə et</string>
@@ -100,6 +106,7 @@
     <string name="title_advanced_preview">Mesaj ilkin baxışını göstər</string>
     <string name="title_advanced_light">Bildiriş işığından istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsi seç</string>
+    <string name="title_advanced_pull_refresh">Təzələmək üçün aşağı çəkin</string>
     <string name="title_advanced_swipe">Sürüşdürmə hərəkətləri</string>
     <string name="title_advanced_actionbar">Söhbət hərəkət sətri</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
@@ -108,6 +115,7 @@
     <string name="title_advanced_automove">Hərəkətli mesajları təsdiqlə</string>
     <string name="title_advanced_confirm">Gizlilik həssaslı məlumatların sızmasına səbəb ola biləcək hərəkətləri təsdiqlə</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
+    <string name="title_advanced_autosend">Mesajların göndərilməsini təsdiqlə</string>
     <string name="title_advanced_updates">Yeniləmələri yoxla</string>
     <string name="title_advanced_debug">Sazlama rejimi</string>
     <string name="title_advanced_enabled_hint">Qlobal olaraq mesajların göndərilməsi və alınmasını fəallaşdır və ya ləğv et</string>
@@ -168,9 +176,12 @@
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_pop">POP dəstəklənmir</string>
     <string name="title_identity_sent_hint">Göndərilən mesajlar, əksər hallarda göndərilənlər qovluğunda avtomatik olaraq saxlanılır</string>
+    <string name="title_edit_html">HTML kimi düzəliş et</string>
     <string name="title_synchronize_now">İndi eyniləşdir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
+    <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
+    <string name="title_empty_trash_ask">Bütün tullantı mesajları birdəfəlik silinsin?</string>
     <string name="title_delete_operation">Bir xəta mesajı ilə əməliyyatlar silinsin?</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
@@ -212,9 +223,12 @@
     <string name="title_forward">Yönləndir</string>
     <string name="title_forward_raw">Yönləndirmə sətri</string>
     <string name="title_reply_all">Hamısını cavabla</string>
+    <string name="title_share">Paylaş</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_manage_keywords">Açar sözləri idarə et</string>
     <string name="title_add_keyword">Açarsöz əlavə et</string>
+    <string name="title_download_all">Hamısını endir</string>
+    <string name="title_save_all">Hamısını saxla</string>
     <string name="title_show_html">Həqiqisini göstər</string>
     <string name="title_trash">Tullantı</string>
     <string name="title_delete">Sil</string>
@@ -232,6 +246,7 @@
     <string name="title_no_contacts">Şəxs seçici mövcud deyil</string>
     <string name="title_no_internet">İnternet bağlantısı yoxdur</string>
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
+    <string name="title_attachments_saved">Qoşma saxlanıldı</string>
     <string name="title_attachment_unavailable">Bəzi qoşmalar endirilmədi və əlavə edilməyəcək, davam edək?</string>
     <string name="title_image_unavailable">Bəzi təsvirlər endirilmədi və əlavə edilməyəcək, davam edək?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
@@ -271,6 +286,7 @@
     <string name="title_attachments_missing">Qoşmalar hələ də yüklənir</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>
+    <string name="title_ask_send">%1$s mesaj göndərilsin?</string>
     <string name="title_queued">Mesaj göndərilir</string>
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
@@ -283,6 +299,7 @@
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>
     <string name="title_sort_on_starred">Ulduzlu</string>
+    <string name="title_sort_on_sender">Göndərən</string>
     <string name="title_zoom">Mətn həcmi</string>
     <string name="title_address_sent">Göndərildi:</string>
     <string name="title_address_unsent">Göndərilmədi:</string>
@@ -308,10 +325,14 @@
     <string name="title_legend_thread">Söhbət</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Qoşma</string>
+    <string name="title_legend_draft">Qaralama/düzəliş</string>
+    <string name="title_legend_answered">Cavablandı</string>
     <string name="title_legend_contacts">Şəxslər</string>
     <string name="title_legend_view">Məzmuna bax</string>
     <string name="title_legend_download">Məzmunu endir</string>
     <string name="title_legend_broken_image">Zədələnmiş təsvir</string>
+    <string name="title_legend_download_off">Tələb olunan mesaj məzmununu endirin </string>
+    <string name="title_legend_download_on">Mesaj məzmununu avtomatik endir</string>
     <string name="title_legend_synchronize_on">Eyniləşdirmə açıq</string>
     <string name="title_legend_synchronize_off">Eyniləşdirmə bağlı</string>
     <string name="title_legend_primary">Üstünlük verilən/ulduzlu</string>
@@ -326,9 +347,11 @@
     <string name="title_legend_sync_keep">Mesajları eyniləşdirmək / saxlamaq üçün gün sayı</string>
     <string name="title_legend_download_fetch">Endirilmiş mesaj məzmunu / alınmış başlıq sayı</string>
     <string name="title_hint_folder_actions">Variantlar üçün uzun basın</string>
+    <string name="title_hint_folder_sync">Batereya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantı üçün sola; arxiv üçün sağa sürüşdür (əgər varsa)</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
+    <string name="title_hint_message_compact">Qabaqcıl seçimlərdən daha yığcam mesajı görünüşünü seçə bilərsiniz</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_open_link">Bağlantını aç</string>
     <string name="title_select_app">Tətbiq seç</string>
@@ -340,6 +363,7 @@
     <string name="title_add">Əlavə et</string>
     <string name="title_browse">Nəzər yetir</string>
     <string name="title_report">Bildir</string>
+    <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_try">Android üçün açıq mənbəli, gizlilik dostu, e-poçt tətbiqi olan FairEmail-ı sınayın</string>
     <string name="title_pro_feature">Bu Pro xüsusiyyətidir</string>
     <string name="title_pro_list">Pro xüsusiyyətlərinin siyahısı</string>

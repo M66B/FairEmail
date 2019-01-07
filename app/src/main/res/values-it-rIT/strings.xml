@@ -177,6 +177,7 @@
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_pop">POP non è supportato</string>
     <string name="title_identity_sent_hint">I messaggi inviati verranno già automaticamente salvati nella cartella Inviati nella maggior parte dei casi</string>
+    <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_empty_trash">Svuota cestino</string>
@@ -227,6 +228,8 @@
     <string name="title_show_headers">Visualizza header</string>
     <string name="title_manage_keywords">Gestione parole chiave</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
+    <string name="title_download_all">Scarica tutti</string>
+    <string name="title_save_all">Salva tutto</string>
     <string name="title_show_html">Visualizza originale</string>
     <string name="title_trash">Cestino</string>
     <string name="title_delete">Elimina</string>
@@ -244,6 +247,7 @@
     <string name="title_no_contacts">Selettore di contatti non disponibile</string>
     <string name="title_no_internet">Nessuna connessione Internet</string>
     <string name="title_attachment_saved">Allegato salvato</string>
+    <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachment_unavailable">Alcuni allegati non vengono scaricati e non verranno aggiunti, continuare?</string>
     <string name="title_image_unavailable">Alcune immagini non vengono scaricate e non verranno aggiunte, continuare?</string>
     <string name="title_ask_delete">Eliminare il messaggio permanentemente?</string>
@@ -330,6 +334,8 @@
     <string name="title_legend_external_image">Segnaposto immagine esterna</string>
     <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
     <string name="title_legend_broken_image">Immagine spezzata</string>
+    <string name="title_legend_download_off">Scarica il contenuto del messaggio su richiesta </string>
+    <string name="title_legend_download_on">Scarica il contenuto del messaggio automaticamente</string>
     <string name="title_legend_synchronize_on">Sincronizzazione ON</string>
     <string name="title_legend_synchronize_off">Sincronizzazione OFF</string>
     <string name="title_legend_primary">Primario/stellato</string>

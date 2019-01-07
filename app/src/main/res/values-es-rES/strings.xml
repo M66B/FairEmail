@@ -334,6 +334,8 @@
     <string name="title_legend_external_image">Imagen externa</string>
     <string name="title_legend_embedded_image">Imagen insertada</string>
     <string name="title_legend_broken_image">Imagen rota</string>
+    <string name="title_legend_download_off">Descargar el contenido de mensajes bajo demanda </string>
+    <string name="title_legend_download_on">Descargar el contenido de mensajes automáticamente</string>
     <string name="title_legend_synchronize_on">Sincronización activada</string>
     <string name="title_legend_synchronize_off">Sincronización desactivada</string>
     <string name="title_legend_primary">Primario/destacado</string>

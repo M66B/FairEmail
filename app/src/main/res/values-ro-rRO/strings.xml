@@ -340,6 +340,8 @@
     <string name="title_legend_external_image">Înlocuitor imagine externă</string>
     <string name="title_legend_embedded_image">Înlocuitor imagine incorporată</string>
     <string name="title_legend_broken_image">Imagine coruptă</string>
+    <string name="title_legend_download_off">Descarcă mesajul complet, la cerere </string>
+    <string name="title_legend_download_on">Descarcă mesajul complet, automat</string>
     <string name="title_legend_synchronize_on">Sincronizare activată</string>
     <string name="title_legend_synchronize_off">Sincronizare dezactivată</string>
     <string name="title_legend_primary">Primar/marcat</string>

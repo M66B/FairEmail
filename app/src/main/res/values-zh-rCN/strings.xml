@@ -60,6 +60,10 @@
     <string name="title_setup_password_invalid">密码无效</string>
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
+    <string name="title_setup_quick">快速配置</string>
+    <string name="title_setup_quick_remark">快速配置可用于大多数主要提供商</string>
+    <string name="title_setup_setting_gmail">启用对 \"安全性较低\" 的应用的访问</string>
+    <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_account">管理账户</string>
     <string name="title_setup_account_remark">用于接收电子邮件</string>
     <string name="title_setup_identity">管理身份</string>
@@ -94,6 +98,7 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
+    <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_swipe">滑动操作</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
@@ -102,6 +107,7 @@
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_confirm">确认执行可能泄露隐私敏感信息的操作</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
+    <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件的接收和发送</string>
@@ -163,9 +169,12 @@
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_pop">不支持POP</string>
     <string name="title_identity_sent_hint">在大多数情况下, 已发送的邮件将已经自动保存在已发送的文件夹中</string>
+    <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_delete_local">删除本地消息</string>
+    <string name="title_empty_trash">清空垃圾箱</string>
     <string name="title_edit_properties">编辑属性</string>
+    <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
@@ -206,9 +215,12 @@
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
     <string name="title_reply_all">回复全部</string>
+    <string name="title_share">分享</string>
     <string name="title_show_headers">显示标题</string>
     <string name="title_manage_keywords">关键字管理</string>
     <string name="title_add_keyword">添加关键字</string>
+    <string name="title_download_all">下载全部</string>
+    <string name="title_save_all">保存全部</string>
     <string name="title_show_html">显示原件</string>
     <string name="title_trash">回收站</string>
     <string name="title_delete">删除</string>
@@ -226,6 +238,7 @@
     <string name="title_no_contacts">联系选择器不可用</string>
     <string name="title_no_internet">无网络连接</string>
     <string name="title_attachment_saved">附件已保存</string>
+    <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachment_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
     <string name="title_image_unavailable">一些附件未被下载并将不会添加，仍要继续吗？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
@@ -265,6 +278,7 @@
     <string name="title_attachments_missing">附件加载中</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
+    <string name="title_ask_send">要把消息发送给 %1$s 吗？</string>
     <string name="title_queued">正在发送邮件</string>
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>
@@ -310,6 +324,8 @@
     <string name="title_legend_external_image">外部图像占位符</string>
     <string name="title_legend_embedded_image">嵌入的图像占位符</string>
     <string name="title_legend_broken_image">损坏的图像</string>
+    <string name="title_legend_download_off">按需下载邮件内容 </string>
+    <string name="title_legend_download_on">自动下载邮件内容</string>
     <string name="title_legend_synchronize_on">同步开启</string>
     <string name="title_legend_synchronize_off">同步关闭</string>
     <string name="title_legend_primary">主要的/星标</string>
@@ -340,6 +356,7 @@
     <string name="title_add">添加</string>
     <string name="title_browse">浏览</string>
     <string name="title_report">报告</string>
+    <string name="title_no_ask_again">别再询问</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>
