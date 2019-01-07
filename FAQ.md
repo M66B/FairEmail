@@ -123,6 +123,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(58) What does an open/closed email icon mean?](#user-content-faq58)
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
+* [(61) Why are some messages shown dimmed?](#user-content-faq61)
 
 [I have another question.](#support)
 
@@ -949,6 +950,16 @@ but even Google's Chrome cannot handle this.
 
 <br />
 
+<a name="faq61"></a>
+**(61) Why are some messages shown dimmed?**
+
+Messages shown dimmed are locally moved messages for which the move is not confirmed by the server yet.
+This can happen when there is no connection with the server or when the messages are too old to be synchronized.
+Eventually, these messages will be synchronized when the connection to the server is restored or will be deleted if they are too old to be synchronized.
+
+You can view these messages, but you cannot move these messages again until the previous move has been confirmed by the server.
+
+<br />
 
 ## Support
 
