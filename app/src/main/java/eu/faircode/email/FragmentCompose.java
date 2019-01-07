@@ -72,6 +72,7 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -288,8 +289,9 @@ public class FragmentCompose extends FragmentEx {
 
                 switch (action) {
                     case R.id.action_delete:
-                        onDelete();
+                        onActionDelete();
                         break;
+
                     case R.id.action_send:
                         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                         boolean autosend = prefs.getBoolean("autosend", false);
@@ -327,6 +329,7 @@ public class FragmentCompose extends FragmentEx {
                             onAction(action);
                         }
                         break;
+
                     default:
                         onAction(action);
                 }
@@ -496,7 +499,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putString("subject", getArguments().getString("subject"));
                 args.putString("body", getArguments().getString("body"));
                 args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
-                draftLoader.execute(this, args, "draft:new");
+                draftLoader.execute(this, args, "compose:new");
             } else {
                 Bundle args = new Bundle();
                 args.putString("action", "edit");
@@ -504,7 +507,7 @@ public class FragmentCompose extends FragmentEx {
                 args.putLong("account", -1);
                 args.putLong("reference", -1);
                 args.putLong("answer", -1);
-                draftLoader.execute(this, args, "draft:edit");
+                draftLoader.execute(this, args, "compose:edit");
             }
         } else {
             working = savedInstanceState.getLong("working");
@@ -514,7 +517,7 @@ public class FragmentCompose extends FragmentEx {
             args.putLong("account", -1);
             args.putLong("reference", -1);
             args.putLong("answer", -1);
-            draftLoader.execute(this, args, "draft:instance");
+            draftLoader.execute(this, args, "compose:instance");
         }
     }
 
@@ -614,6 +617,9 @@ public class FragmentCompose extends FragmentEx {
             case R.id.menu_encrypt:
                 onAction(R.id.menu_encrypt);
                 return true;
+            case R.id.menu_send_after:
+                onMenuSendAfter();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -689,6 +695,62 @@ public class FragmentCompose extends FragmentEx {
         }
     }
 
+    private void onMenuSendAfter() {
+        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
+        final NumberPicker npHours = dview.findViewById(R.id.npHours);
+        final NumberPicker npDays = dview.findViewById(R.id.npDays);
+
+        npHours.setMinValue(0);
+        npHours.setMaxValue(24);
+
+        npDays.setMinValue(0);
+        npDays.setMaxValue(90);
+
+        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                .setTitle(R.string.title_send_after)
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            int hours = npHours.getValue();
+                            int days = npDays.getValue();
+                            long duration = (hours + days * 24) * 3600L * 1000L;
+
+                            Bundle args = new Bundle();
+                            args.putLong("id", working);
+                            args.putLong("wakeup", new Date().getTime() + duration);
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) {
+                                    long id = args.getLong("id");
+                                    Long wakeup = args.getLong("wakeup");
+
+                                    DB db = DB.getInstance(context);
+                                    db.message().setMessageSnoozed(id, wakeup);
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onExecuted(Bundle args, Void data) {
+                                    onAction(R.id.action_send);
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                }
+                            }.execute(FragmentCompose.this, args, "compose:send:after");
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                })
+                .show();
+    }
+
     private void onMenuImage() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -716,7 +778,7 @@ public class FragmentCompose extends FragmentEx {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
     }
 
-    private void onDelete() {
+    private void onActionDelete() {
         new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
                 .setMessage(R.string.title_ask_discard)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -915,7 +977,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args, "encrypt");
+        }.execute(this, args, "compose:encrypt");
     }
 
     @Override
@@ -1043,7 +1105,7 @@ public class FragmentCompose extends FragmentEx {
                 else
                     Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args, "add:attachment");
+        }.execute(this, args, "compose:attachment:add");
     }
 
     private void handleExit() {
@@ -1101,7 +1163,7 @@ public class FragmentCompose extends FragmentEx {
         dirty = false;
 
         Log.i("Run execute id=" + working);
-        actionLoader.execute(this, args, "action:" + action);
+        actionLoader.execute(this, args, "compose:action:" + action);
     }
 
     private boolean isEmpty() {
@@ -1658,7 +1720,7 @@ public class FragmentCompose extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args, "draft:check");
+        }.execute(this, args, "compose:check");
     }
 
     private void showDraft(EntityMessage draft) {
@@ -1729,7 +1791,7 @@ public class FragmentCompose extends FragmentEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(FragmentCompose.this, args, "draft:show");
+        }.execute(FragmentCompose.this, args, "compose:show");
     }
 
     private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
@@ -1926,24 +1988,27 @@ public class FragmentCompose extends FragmentEx {
                         Helper.copy(file, EntityAttachment.getFile(context, attachment.id));
                     }
 
-                    EntityOperation.queue(context, db, draft, EntityOperation.SEND);
+                    if (draft.ui_snoozed == null)
+                        EntityOperation.queue(context, db, draft, EntityOperation.SEND);
 
-                    if (draft.replying != null) {
-                        EntityMessage replying = db.message().getMessage(draft.replying);
-                        EntityOperation.queue(context, db, replying, EntityOperation.ANSWERED, true);
+                    if (draft.ui_snoozed == null) {
+                        Handler handler = new Handler(context.getMainLooper());
+                        handler.post(new Runnable() {
+                            public void run() {
+                                Toast.makeText(context, R.string.title_queued, Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
-
-                    Handler handler = new Handler(context.getMainLooper());
-                    handler.post(new Runnable() {
-                        public void run() {
-                            Toast.makeText(context, R.string.title_queued, Toast.LENGTH_LONG).show();
-                        }
-                    });
                 }
 
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
+            }
+
+            if (action == R.id.action_send && draft.ui_snoozed != null) {
+                Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
+                EntityMessage.snooze(getContext(), draft.id, draft.ui_snoozed);
             }
 
             return draft;
@@ -2046,7 +2111,7 @@ public class FragmentCompose extends FragmentEx {
                             protected void onException(Bundle args, Throwable ex) {
                                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
                             }
-                        }.execute(FragmentCompose.this, args, source);
+                        }.execute(FragmentCompose.this, args, "compose:cid:" + source);
                     }
                 });
             } else

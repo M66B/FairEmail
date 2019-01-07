@@ -391,7 +391,12 @@ public class ServiceSynchronize extends LifecycleService {
                                             break;
 
                                         case "snooze":
-                                            db.message().setMessageSnoozed(message.id, null);
+                                            EntityFolder folder = db.folder().getFolder(message.folder);
+                                            if (EntityFolder.OUTBOX.equals(folder.type)) {
+                                                Log.i("Delayed send id=" + message.id);
+                                                EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.SEND);
+                                            } else
+                                                db.message().setMessageSnoozed(message.id, null);
                                             break;
 
                                         default:
@@ -1824,6 +1829,11 @@ public class ServiceSynchronize extends LifecycleService {
                         Log.i("Appending sent msgid=" + message.msgid);
                         EntityOperation.queue(this, db, message, EntityOperation.ADD); // Could already exist
                     }
+                }
+
+                if (message.replying != null) {
+                    EntityMessage replying = db.message().getMessage(message.replying);
+                    EntityOperation.queue(this, db, replying, EntityOperation.ANSWERED, true);
                 }
 
                 db.setTransactionSuccessful();

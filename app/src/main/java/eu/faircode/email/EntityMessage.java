@@ -101,7 +101,7 @@ public class EntityMessage implements Serializable {
     public String extra; // plus
     public Long replying;
     public Long forwarding;
-    public Long uid; // compose = null
+    public Long uid; // compose/moved = null
     public String msgid;
     public String references;
     public String deliveredto;
