@@ -562,7 +562,7 @@ public class ServiceSynchronize extends LifecycleService {
                 sb.append("<strong>").append(MessageHelper.getFormattedAddresses(message.from, false)).append("</strong>");
                 if (!TextUtils.isEmpty(message.subject))
                     sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(new Date(message.received)));
+                sb.append(" ").append(df.format(message.received));
                 sb.append("<br>");
             }
 

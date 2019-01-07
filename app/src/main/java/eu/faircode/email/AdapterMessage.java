@@ -561,7 +561,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvCc.setText(MessageHelper.getFormattedAddresses(message.cc, true));
                 tvBcc.setText(MessageHelper.getFormattedAddresses(message.bcc, true));
 
-                tvTimeEx.setText(df.format(new Date(message.received)));
+                tvTimeEx.setText(df.format(message.received));
 
                 tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
                 if (!message.duplicate)
@@ -776,7 +776,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowSnoozed(TupleMessageEx message) {
             if (message.ui_snoozed != null)
-                Toast.makeText(context, new Date(message.ui_snoozed).toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, SimpleDateFormat.getDateTimeInstance()
+                        .format(message.ui_snoozed), Toast.LENGTH_LONG).show();
         }
 
         private void onToggleFlag(TupleMessageEx message) {
