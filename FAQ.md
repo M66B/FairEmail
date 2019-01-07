@@ -34,13 +34,14 @@ None at this moment.
 
 ## Frequently requested features
 
-* Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably.
+* Swipe left/right to go to previous/next message: besides that swiping left/right is already being used to move messages to archive/trash, swiping also selects message text, so this will not work reliably. You can use the bottom navigation bar instead.
+* Automatically go to the next message on deleting a message: since the 'next' message can either be an older or a newer message this would be confusing. You can disable auto closing in the advanced options and use the bottom navigation bar instead.
 * Rich text editor: besides that very few people would use this on a small mobile device, Android doesn't support a rich text editor and most rich text editor open source projects are abandoned.
 * Widget to read e-mail: widgets can have limited user interaction only, so a widget to read e-mail would not be very useful. Moreover, it would be not very useful to duplicate functions which are already available in the app.
-* Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
 * Resize images: this is not a feature directly related to email and there are plenty of apps that can do this for you.
 * Calendar events: opening the attached calendar file should open the related calendar app.
-* Snooze/send timer: snoozing and delaying sending is not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol).
+* Executing filter rules: filter rules should be executed on the server because a battery powered device with possibly an unstable internet connection is not suitable for this.
+* Snooze/send timer: basically the same as executing filter rules. Snoozing and delayed sending is not supported by [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). You could move messages to a "to do" folder instead.
 * Badge count: there is no standard Android API for this and third party solutions might stop working anytime. For example *ShortcutBadger* [has lots of problems](https://github.com/leolin310148/ShortcutBadger/issues). You can use the provided widget instead.
 * Switch language: although it is possible to change the language of an app, Android is not designed for this. Better fix the translation in your language if needed, see [this FAQ](#user-content-faq26) about how to.
 * Select identities to show in unified inbox: this would add complexity for something which would hardly be used.
@@ -48,14 +49,13 @@ None at this moment.
 * Hide archived messages: hiding archived messages which exists in other folders too would have a performance impact.
 * S/MIME encryption: only PGP encryption will be supported, see [this FAQ](#user-content-faq12) for more information.
 * ActiveSync: there are no maintained, open source libraries providing the ActiveSync protocol, so this cannot be added.
-* Automatically go to the next message on deleting a message: since the 'next' message can either be an older or a newer message this would be confusing. You can disable auto closing in the advanced options and use the bottom navigation bar instead.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Open links without confirmation
 * Show original message without confirmation
 * Hide addresses by default: addresses play an important role in determining if a message is authentic
-* Direct file/folder access: for security/privacy reasons apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider)
+* Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider)
 
 Confirmation or hiding the addresses section is just one tap, which is just a small price for better privacy.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
