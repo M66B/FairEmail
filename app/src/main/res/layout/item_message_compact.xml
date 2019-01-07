@@ -113,13 +113,23 @@
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView
+            android:id="@+id/ivSnoozed"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/baseline_timelapse_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
+            app:layout_constraintStart_toEndOf="@id/ivDraft"
+            app:layout_constraintTop_toTopOf="@+id/tvSubject" />
+
+        <ImageView
             android:id="@+id/ivAnswered"
             android:layout_width="21dp"
             android:layout_height="21dp"
             android:layout_marginStart="6dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-            app:layout_constraintStart_toEndOf="@id/ivDraft"
+            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
             app:layout_constraintTop_toTopOf="@+id/tvSubject" />
 
         <ImageView

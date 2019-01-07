@@ -274,6 +274,7 @@
     <string name="title_more">More</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Move</string>
+    <string name="title_snooze">Snooze</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>
     <string name="title_moving">Moving to %1$s</string>
@@ -352,6 +353,7 @@
     <string name="title_address_sent">Sent:</string>
     <string name="title_address_unsent">Unsent:</string>
     <string name="title_address_invalid">Invalid:</string>
+    <string name="title_snoozed">Snoozed</string>
     <string name="title_move_sent">Move to sent</string>
 
     <string name="title_previous">Previous</string>
@@ -377,6 +379,7 @@
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Attachment</string>
+    <string name="title_legend_snoozed">Snoozed</string>
     <string name="title_legend_draft">Draft/edit</string>
     <string name="title_legend_answered">Answered</string>
     <string name="title_legend_contacts">Contacts</string>
@@ -418,6 +421,8 @@
     <string name="title_undo">Undo</string>
     <string name="title_add">Add</string>
     <string name="title_browse">Browse</string>
+    <string name="title_hours">Hours</string>
+    <string name="title_days">Days</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Do not ask this again</string>
 

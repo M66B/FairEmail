@@ -44,6 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -52,6 +53,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -744,6 +746,7 @@ public class FragmentMessages extends FragmentEx {
             private final int action_delete = 7;
             private final int action_junk = 8;
             private final int action_move = 9;
+            private final int action_snooze = 10;
 
             @Override
             public void onClick(View v) {
@@ -814,10 +817,12 @@ public class FragmentMessages extends FragmentEx {
                                 popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
                         if (!result[8] && !result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_junk, 6, R.string.title_spam);
+                            popupMenu.getMenu().add(Menu.NONE, action_junk, 7, R.string.title_spam);
 
                         if (!result[9])
-                            popupMenu.getMenu().add(Menu.NONE, action_move, 7, R.string.title_move);
+                            popupMenu.getMenu().add(Menu.NONE, action_move, 8, R.string.title_move);
+
+                        popupMenu.getMenu().add(Menu.NONE, action_snooze, 9, R.string.title_snooze);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -849,6 +854,9 @@ public class FragmentMessages extends FragmentEx {
                                         return true;
                                     case action_move:
                                         onActionMove();
+                                        return true;
+                                    case action_snooze:
+                                        onActionSnooze();
                                         return true;
                                     default:
                                         return false;
@@ -1191,6 +1199,85 @@ public class FragmentMessages extends FragmentEx {
                     }
                 }.execute(FragmentMessages.this, args, "messages:move");
             }
+
+            private void onActionSnooze() {
+                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+                final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
+                final NumberPicker npHours = dview.findViewById(R.id.npHours);
+                final NumberPicker npDays = dview.findViewById(R.id.npDays);
+
+                npHours.setMinValue(0);
+                npHours.setMaxValue(24);
+
+                npDays.setMinValue(0);
+                npDays.setMaxValue(30);
+
+                npHours.setValue(prefs.getInt("snooze_hours", 1));
+                npDays.setValue(prefs.getInt("snooze_days", 0));
+
+                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                        .setTitle(R.string.title_snooze)
+                        .setView(dview)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    int hours = npHours.getValue();
+                                    int days = npDays.getValue();
+                                    long duration = (hours + days * 24) * 3600L * 1000L;
+
+                                    if (duration > 0) {
+                                        prefs.edit().putInt("snooze_hours", hours).apply();
+                                        prefs.edit().putInt("snooze_days", days).apply();
+                                    }
+
+                                    Bundle args = new Bundle();
+                                    args.putLongArray("ids", getSelection());
+                                    args.putLong("wakeup", duration == 0 ? 0 : new Date().getTime() + duration);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) {
+                                            long[] ids = args.getLongArray("ids");
+                                            Long wakeup = args.getLong("wakeup");
+                                            if (wakeup == 0)
+                                                wakeup = null;
+
+                                            DB db = DB.getInstance(context);
+                                            for (long id : ids) {
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message != null) {
+                                                    List<EntityMessage> messages = db.message().getMessageByThread(
+                                                            message.account, message.thread, threading ? null : id, null);
+                                                    for (EntityMessage threaded : messages) {
+                                                        db.message().setMessageSnoozed(threaded.id, wakeup);
+                                                        EntityMessage.snooze(context, threaded.id, wakeup);
+                                                    }
+                                                }
+                                            }
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                        }
+                                    }.execute(FragmentMessages.this, args, "messages:snooze");
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                            }
+                        })
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                selectionTracker.clearSelection();
+                            }
+                        })
+                        .show();
+            }
         });
 
         ((ActivityBase) getActivity()).addBackPressedListener(onBackPressedListener);
@@ -1498,15 +1585,14 @@ public class FragmentMessages extends FragmentEx {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         menu.findItem(R.id.menu_search).setVisible(
                 folder >= 0 && viewType != AdapterMessage.ViewType.SEARCH);
+
         menu.findItem(R.id.menu_sort_on).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
-        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
-        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
-        menu.findItem(R.id.menu_move_sent).setVisible(outbox);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
         if ("time".equals(sort))
             menu.findItem(R.id.menu_sort_on_time).setChecked(true);
@@ -1516,6 +1602,15 @@ public class FragmentMessages extends FragmentEx {
             menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
         else if ("sender".equals(sort))
             menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
+
+        menu.findItem(R.id.menu_folders).setVisible(primary >= 0);
+        menu.findItem(R.id.menu_folders).setIcon(connected ? R.drawable.baseline_folder_24 : R.drawable.baseline_folder_open_24);
+
+        menu.findItem(R.id.menu_snoozed).setVisible(!outbox &&
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+        menu.findItem(R.id.menu_snoozed).setChecked(prefs.getBoolean("snoozed", false));
+
+        menu.findItem(R.id.menu_move_sent).setVisible(outbox);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -1543,6 +1638,10 @@ public class FragmentMessages extends FragmentEx {
                 onMenuSort("sender");
                 return true;
 
+            case R.id.menu_snoozed:
+                onMenuSnoozed();
+                return true;
+
             case R.id.menu_zoom:
                 onMenuZoom();
                 return true;
@@ -1564,6 +1663,13 @@ public class FragmentMessages extends FragmentEx {
     private void onMenuSort(String sort) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putString("sort", sort).apply();
+        loadMessages();
+    }
+
+    private void onMenuSnoozed() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean snoozed = prefs.getBoolean("snoozed", false);
+        prefs.edit().putBoolean("snoozed", !snoozed).apply();
         loadMessages();
     }
 
@@ -1640,6 +1746,7 @@ public class FragmentMessages extends FragmentEx {
         // Observe folder/messages/search
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
+        boolean snoozed = prefs.getBoolean("snoozed", false);
         boolean debug = prefs.getBoolean("debug", false);
         Log.i("Load messages type=" + viewType + " sort=" + sort + " debug=" + debug);
 
@@ -1651,7 +1758,7 @@ public class FragmentMessages extends FragmentEx {
         switch (viewType) {
             case UNIFIED:
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedUnifiedInbox(threading, sort, debug), LOCAL_PAGE_SIZE);
+                        db.message().pagedUnifiedInbox(threading, sort, snoozed, debug), LOCAL_PAGE_SIZE);
                 break;
 
             case FOLDER:
@@ -1684,7 +1791,7 @@ public class FragmentMessages extends FragmentEx {
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(folder, threading, sort, false, debug), configFolder);
+                        db.message().pagedFolder(folder, threading, sort, snoozed, false, debug), configFolder);
                 builder.setBoundaryCallback(searchCallback);
                 break;
 
@@ -1726,7 +1833,7 @@ public class FragmentMessages extends FragmentEx {
                         .setPrefetchDistance(REMOTE_PAGE_SIZE)
                         .build();
                 builder = new LivePagedListBuilder<>(
-                        db.message().pagedFolder(folder, threading, "time", true, false), configSearch);
+                        db.message().pagedFolder(folder, threading, "time", snoozed, true, false), configSearch);
                 builder.setBoundaryCallback(searchCallback);
                 break;
         }

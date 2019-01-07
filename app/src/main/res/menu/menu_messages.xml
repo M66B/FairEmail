@@ -45,6 +45,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_snoozed"
+        android:checkable="true"
+        android:title="@string/title_snoozed"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_move_sent"
         android:title="@string/title_move_sent"
         app:showAsAction="never" />

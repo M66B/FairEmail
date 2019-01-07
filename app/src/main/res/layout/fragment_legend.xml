@@ -198,13 +198,34 @@
             app:layout_constraintTop_toTopOf="@id/ivCC" />
 
         <ImageView
+            android:id="@+id/ivSnoozed"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/baseline_timelapse_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCC" />
+
+        <TextView
+            android:id="@+id/tvSnoozed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="@string/title_legend_snoozed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSnoozed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSnoozed"
+            app:layout_constraintTop_toTopOf="@id/ivSnoozed" />
+
+        <ImageView
             android:id="@+id/ivDraft"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="18dp"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivCC" />
+            app:layout_constraintTop_toBottomOf="@id/ivSnoozed" />
 
         <TextView
             android:id="@+id/tvDraft"

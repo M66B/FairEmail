@@ -23,6 +23,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.List;
+
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+
 public class ReceiverAutostart extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -30,6 +34,22 @@ public class ReceiverAutostart extends BroadcastReceiver {
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             EntityLog.log(context, intent.getAction());
             ServiceSynchronize.init(context);
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        DB db = DB.getInstance(context);
+                        List<EntityMessage> messages = db.message().getSnoozed();
+                        for (EntityMessage message : messages)
+                            EntityMessage.snooze(context, message.id, message.ui_snoozed);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+            thread.start();
         }
     }
 }

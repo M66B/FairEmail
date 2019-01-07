@@ -157,6 +157,7 @@ public class ServiceSynchronize extends LifecycleService {
     static final int PI_ARCHIVE = 4;
     static final int PI_TRASH = 5;
     static final int PI_IGNORED = 6;
+    static final int PI_SNOOZED = 7;
 
     @Override
     public void onCreate() {
@@ -355,6 +356,7 @@ public class ServiceSynchronize extends LifecycleService {
                     case "archive":
                     case "trash":
                     case "ignore":
+                    case "snooze":
                         executor.submit(new Runnable() {
                             @Override
                             public void run() {
@@ -386,6 +388,10 @@ public class ServiceSynchronize extends LifecycleService {
 
                                         case "ignore":
                                             db.message().setMessageUiIgnored(message.id, true);
+                                            break;
+
+                                        case "snooze":
+                                            db.message().setMessageSnoozed(message.id, null);
                                             break;
 
                                         default:
@@ -1153,6 +1159,7 @@ public class ServiceSynchronize extends LifecycleService {
                                     }
                                 }
                             }, "idler." + folder.id);
+                            idler.setPriority(THREAD_PRIORITY_BACKGROUND);
                             idler.start();
                             idlers.add(idler);
 
@@ -2953,6 +2960,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         void runnable(Runnable runnable, String name) {
             thread = new Thread(runnable, name);
+            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
         }
 
         void release() {
@@ -2982,7 +2990,6 @@ public class ServiceSynchronize extends LifecycleService {
         }
 
         void start() {
-            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
             thread.start();
             yield();
         }

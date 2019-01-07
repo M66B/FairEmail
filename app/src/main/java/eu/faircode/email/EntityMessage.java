@@ -20,8 +20,11 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -81,7 +84,8 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"ui_hide"}),
                 @Index(value = {"ui_found"}),
                 @Index(value = {"ui_ignored"}),
-                @Index(value = {"ui_browsed"})
+                @Index(value = {"ui_browsed"}),
+                @Index(value = {"ui_snoozed"})
         }
 )
 public class EntityMessage implements Serializable {
@@ -142,6 +146,7 @@ public class EntityMessage implements Serializable {
     public Boolean ui_ignored = false;
     @NonNull
     public Boolean ui_browsed = false;
+    public Long ui_snoozed;
     public String error;
     public Long last_attempt; // send
 
@@ -276,6 +281,21 @@ public class EntityMessage implements Serializable {
         return false;
     }
 
+    static void snooze(Context context, long id, Long wakeup) {
+        Intent snoozed = new Intent(context, ServiceSynchronize.class);
+        snoozed.setAction("snooze:" + id);
+        PendingIntent pi = PendingIntent.getService(context, ServiceSynchronize.PI_SNOOZED, snoozed, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (wakeup == null) {
+            Log.i("Cancel snooze id=" + id);
+            am.cancel(pi);
+        } else {
+            Log.i("Set snooze id=" + id + " wakeup=" + new Date(wakeup));
+            am.set(AlarmManager.RTC_WAKEUP, wakeup, pi);
+        }
+    }
+
     public boolean uiEquals(Object obj) {
         if (obj instanceof EntityMessage) {
             EntityMessage other = (EntityMessage) obj;
@@ -315,6 +335,8 @@ public class EntityMessage implements Serializable {
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
+                    //this.ui_browsed.equals(other.ui_browsed) &&
+                    (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;
@@ -359,6 +381,8 @@ public class EntityMessage implements Serializable {
                     this.ui_hide.equals(other.ui_hide) &&
                     this.ui_found.equals(other.ui_found) &&
                     this.ui_ignored.equals(other.ui_ignored) &&
+                    this.ui_browsed.equals(other.ui_browsed) &&
+                    (this.ui_snoozed == null ? other.ui_snoozed == null : this.ui_snoozed.equals(other.ui_snoozed)) &&
                     (this.error == null ? other.error == null : this.error.equals(other.error)));
         }
         return false;

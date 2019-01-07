@@ -156,6 +156,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvSize;
         private TextView tvTime;
         private ImageView ivDraft;
+        private ImageView ivSnoozed;
         private ImageView ivAnswered;
         private ImageView ivAttachments;
         private TextView tvSubject;
@@ -220,6 +221,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivDraft = itemView.findViewById(R.id.ivDraft);
+            ivSnoozed = itemView.findViewById(R.id.ivSnoozed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(R.id.tvSubject);
@@ -284,6 +286,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void wire() {
             itemView.setOnClickListener(this);
+            ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
             ivExpanderAddress.setOnClickListener(this);
             ivAddContact.setOnClickListener(this);
@@ -298,6 +301,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void unwire() {
             itemView.setOnClickListener(null);
+            ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
             ivExpanderAddress.setOnClickListener(null);
             ivAddContact.setOnClickListener(null);
@@ -319,6 +323,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setText(null);
             tvTime.setText(null);
             ivDraft.setVisibility(View.GONE);
+            ivSnoozed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
@@ -371,6 +376,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSize.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivDraft.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
+                ivSnoozed.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(message.duplicate ? LOW_LIGHT : 1.0f);
@@ -457,6 +463,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setText(DateUtils.getRelativeTimeSpanString(context, message.received));
 
             ivDraft.setVisibility(message.drafts > 0 ? View.VISIBLE : View.GONE);
+            ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
@@ -729,7 +736,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             TupleMessageEx message = differ.getItem(pos);
 
-            if (view.getId() == R.id.ivFlagged)
+            if (view.getId() == R.id.ivSnoozed)
+                onShowSnoozed(message);
+            else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
             else if (view.getId() == R.id.ivAddContact)
                 onAddContact(message);
@@ -1344,6 +1353,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "message:unseen");
         }
 
+        private void onShowSnoozed(TupleMessageEx message) {
+            if (message.ui_snoozed != null)
+                Toast.makeText(context, new Date(message.ui_snoozed).toString(), Toast.LENGTH_LONG).show();
+        }
+
         private void onToggleFlag(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
@@ -1436,7 +1450,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(context, owner, ex);
                 }
             }.execute(context, owner, args, "message:share");
-
         }
 
         private void onShowHeaders(ActionData data) {
