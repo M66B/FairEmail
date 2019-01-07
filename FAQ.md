@@ -942,6 +942,7 @@ but even Google's Chrome cannot handle this.
 <a name="faq60"></a>
 **(60) Did you know ... ?**
 
+* Did you know that starred messages are always synchronized/kept?
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
 * Did you know that you can long press the account name in the navigation menu to go to the inbox of that account?
 * Did you know there is an advanced option to mark messages read when they are moved and that archiving and trashing is also moving?
