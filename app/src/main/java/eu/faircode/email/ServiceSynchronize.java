@@ -395,8 +395,8 @@ public class ServiceSynchronize extends LifecycleService {
                                             if (EntityFolder.OUTBOX.equals(folder.type)) {
                                                 Log.i("Delayed send id=" + message.id);
                                                 EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.SEND);
-                                            } else
-                                                db.message().setMessageSnoozed(message.id, null);
+                                            }
+                                            db.message().setMessageSnoozed(message.id, null);
                                             break;
 
                                         default:
