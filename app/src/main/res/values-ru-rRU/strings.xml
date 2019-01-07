@@ -296,7 +296,6 @@
     <string name="title_show_addresses">Показать CC / BCC</string>
     <string name="title_from_missing">Отправитель отсутствует</string>
     <string name="title_to_missing">Получатель отсутствует</string>
-    <string name="title_attachments_missing">В процессе загрузки вложений</string>
     <string name="title_draft_deleted">Черновик отклонен</string>
     <string name="title_draft_saved">Черновик сохранен</string>
     <string name="title_ask_send">Отправить сообщение для %1$s?</string>

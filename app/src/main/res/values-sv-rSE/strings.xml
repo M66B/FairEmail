@@ -272,7 +272,6 @@
     <string name="title_show_addresses">Visa kopia/dold kopia</string>
     <string name="title_from_missing">Avsändaren saknas</string>
     <string name="title_to_missing">Mottagare saknas</string>
-    <string name="title_attachments_missing">Bilagor läses fortfarande in</string>
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
     <string name="title_queued">Skickar meddelande</string>

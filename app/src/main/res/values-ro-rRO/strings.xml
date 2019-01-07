@@ -290,7 +290,6 @@
     <string name="title_show_addresses">Arată CC/BCC</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
-    <string name="title_attachments_missing">Atașamentele încă se încarcă</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
     <string name="title_ask_send">Trimite un mesaj către %1$s?</string>

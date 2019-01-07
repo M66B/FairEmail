@@ -284,7 +284,6 @@
     <string name="title_show_addresses">CC/BCC anzeigen</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
-    <string name="title_attachments_missing">Anhänge werden noch geladen</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send">Nachricht an %1$s senden?</string>

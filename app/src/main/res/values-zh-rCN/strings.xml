@@ -275,7 +275,6 @@
     <string name="title_show_addresses">显示抄送和密送</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
-    <string name="title_attachments_missing">附件加载中</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
     <string name="title_ask_send">要把消息发送给 %1$s 吗？</string>

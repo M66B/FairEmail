@@ -260,7 +260,6 @@
     <string name="title_show_addresses">Pokaż DW/UDW</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
-    <string name="title_attachments_missing">Załączniki są wciąż ładowane</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
     <string name="title_queued">Wysyłanie wiadomości</string>

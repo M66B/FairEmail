@@ -284,7 +284,6 @@
     <string name="title_show_addresses">Afficher Cc/Cci</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
-    <string name="title_attachments_missing">Pièces jointes en cours de chargement</string>
     <string name="title_draft_deleted">Brouillon supprimé</string>
     <string name="title_draft_saved">Brouillon enregistré</string>
     <string name="title_ask_send">Envoyer le message à %1$s ?</string>

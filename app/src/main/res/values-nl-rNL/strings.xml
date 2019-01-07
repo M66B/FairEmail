@@ -236,6 +236,7 @@
     <string name="title_more">Meer</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Verplaatsen</string>
+    <string name="title_snooze">Sluimeren</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
     <string name="title_moving">Verplaatsen naar %1$s</string>
@@ -284,7 +285,7 @@
     <string name="title_show_addresses">Toon CC/BCC</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
-    <string name="title_attachments_missing">Bijlagen worden nog geladen</string>
+    <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
     <string name="title_draft_deleted">Concept weggegooid</string>
     <string name="title_draft_saved">Concept opgeslagen</string>
     <string name="title_ask_send">Verstuur bericht naar %1$s?</string>
@@ -305,6 +306,7 @@
     <string name="title_address_sent">Verzonden:</string>
     <string name="title_address_unsent">Niet verzonden:</string>
     <string name="title_address_invalid">Ongeldig:</string>
+    <string name="title_snoozed">Gesluimerd</string>
     <string name="title_move_sent">Verplaats naar verzonden</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
@@ -326,6 +328,7 @@
     <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Bijlage</string>
+    <string name="title_legend_snoozed">Gesluimerd</string>
     <string name="title_legend_draft">Concept/bewerken</string>
     <string name="title_legend_answered">Beantwoord</string>
     <string name="title_legend_contacts">Contacten</string>
@@ -365,6 +368,8 @@
     <string name="title_undo">Ongedaan maken</string>
     <string name="title_add">Toevoegen</string>
     <string name="title_browse">Bladeren</string>
+    <string name="title_hours">Uren</string>
+    <string name="title_days">Dagen</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>

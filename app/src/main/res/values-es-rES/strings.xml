@@ -284,7 +284,6 @@
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
-    <string name="title_attachments_missing">Adjuntos todavía cargándose</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_ask_send">¿Enviar mensaje a %1$s?</string>

@@ -202,7 +202,6 @@
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_to_missing">Destinatário faltante</string>
-    <string name="title_attachments_missing">Anexos ainda carregando</string>
     <string name="title_draft_saved">Rascunho salvo</string>
     <string name="title_encrypt">Criptografar</string>
     <string name="title_decrypt">Descriptografar</string>

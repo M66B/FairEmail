@@ -275,7 +275,6 @@
     <string name="title_show_addresses">CC/BCC göster</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
-    <string name="title_attachments_missing">Ekler hala yükleniyor</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
     <string name="title_queued">İleti gönderiliyor</string>

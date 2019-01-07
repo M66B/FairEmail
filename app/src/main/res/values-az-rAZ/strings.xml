@@ -283,7 +283,6 @@
     <string name="title_show_addresses">CC/BCC göstər</string>
     <string name="title_from_missing">Göndərən əskikdir</string>
     <string name="title_to_missing">Alıcı əskikdir</string>
-    <string name="title_attachments_missing">Qoşmalar hələ də yüklənir</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>
     <string name="title_ask_send">%1$s mesaj göndərilsin?</string>

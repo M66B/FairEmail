@@ -167,7 +167,6 @@
     <string name="title_show_addresses">Vis CC/BCC</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_to_missing">Modtager mangler</string>
-    <string name="title_attachments_missing">Vedhæftede filer indlæses stadig</string>
     <string name="title_draft_saved">Kladde gemt</string>
     <string name="title_queued">Sender besked</string>
     <string name="title_encrypt">Kryptér</string>

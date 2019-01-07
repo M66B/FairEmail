@@ -165,7 +165,6 @@
     <string name="title_show_addresses">Mostra CC/CCO</string>
     <string name="title_from_missing">Falta l\'emissor</string>
     <string name="title_to_missing">Falta el receptor</string>
-    <string name="title_attachments_missing">Els adjunts encara s\'estan carregant</string>
     <string name="title_draft_deleted">Esborrany eliminat</string>
     <string name="title_draft_saved">Esborrany desat</string>
     <string name="title_queued">Enviant missatge</string>

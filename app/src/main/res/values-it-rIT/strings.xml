@@ -236,6 +236,7 @@
     <string name="title_more">Altro</string>
     <string name="title_spam">Posta indesiderata</string>
     <string name="title_move">Sposta</string>
+    <string name="title_snooze">Posticipa</string>
     <string name="title_archive">Archivo</string>
     <string name="title_reply">Rispondi</string>
     <string name="title_moving">Spostamento in %1$s</string>
@@ -284,7 +285,7 @@
     <string name="title_show_addresses">Mostra CC/CCN</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
-    <string name="title_attachments_missing">Allegati ancora in fase di caricamento</string>
+    <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_draft_deleted">Bozza eliminata</string>
     <string name="title_draft_saved">Bozza salvata</string>
     <string name="title_ask_send">Inviare messaggio a %1$s?</string>
@@ -305,6 +306,7 @@
     <string name="title_address_sent">Inviati:</string>
     <string name="title_address_unsent">Non inviati:</string>
     <string name="title_address_invalid">Non validi:</string>
+    <string name="title_snoozed">Posticipato</string>
     <string name="title_move_sent">Sposta in posta inviata</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
@@ -326,6 +328,7 @@
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_cc">CC/CCN</string>
     <string name="title_legend_attachment">Allegato</string>
+    <string name="title_legend_snoozed">Posticipato</string>
     <string name="title_legend_draft">Bozza/modifica</string>
     <string name="title_legend_answered">Risposto</string>
     <string name="title_legend_contacts">Contatti</string>
@@ -365,6 +368,8 @@
     <string name="title_undo">Annulla</string>
     <string name="title_add">Aggiungi</string>
     <string name="title_browse">Esplora</string>
+    <string name="title_hours">Ore</string>
+    <string name="title_days">Giorni</string>
     <string name="title_report">Report</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
