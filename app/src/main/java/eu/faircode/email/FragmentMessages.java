@@ -810,11 +810,10 @@ public class FragmentMessages extends FragmentEx {
                         if (result[4] && !result[6] && !result[9]) // has archive and not is archive
                             popupMenu.getMenu().add(Menu.NONE, action_archive, 5, R.string.title_archive);
 
-                        if (result[5]) // has trash
-                            if (result[7] || result[9]) // is trash or drafts
-                                popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_trash);
-                            else
-                                popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
+                        if (result[7] || result[9]) // is trash/drafts
+                            popupMenu.getMenu().add(Menu.NONE, action_delete, 6, R.string.title_delete);
+                        else if (result[5]) // has trash
+                            popupMenu.getMenu().add(Menu.NONE, action_trash, 6, R.string.title_trash);
 
                         if (!result[8] && !result[9])
                             popupMenu.getMenu().add(Menu.NONE, action_junk, 7, R.string.title_spam);
@@ -1008,9 +1007,7 @@ public class FragmentMessages extends FragmentEx {
                                                     List<EntityMessage> messages = db.message().getMessageByThread(
                                                             message.account, message.thread, threading ? null : id, message.folder);
                                                     for (EntityMessage threaded : messages)
-                                                        if (threaded.uid == null && !TextUtils.isEmpty(threaded.error)) // outbox
-                                                            db.message().deleteMessage(threaded.id);
-                                                        else
+                                                        if (threaded.uid != null)
                                                             EntityOperation.queue(context, db, threaded, EntityOperation.DELETE);
                                                 }
                                             }
@@ -1211,7 +1208,7 @@ public class FragmentMessages extends FragmentEx {
                 npHours.setMaxValue(24);
 
                 npDays.setMinValue(0);
-                npDays.setMaxValue(30);
+                npDays.setMaxValue(90);
 
                 npHours.setValue(prefs.getInt("snooze_hours", 1));
                 npDays.setValue(prefs.getInt("snooze_days", 0));
