@@ -123,6 +123,7 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
+* [(62) Can CRAM-MD5 authentication be supported?](#user-content-faq62)
 
 [I have another question.](#support)
 
@@ -959,6 +960,13 @@ This can happen when there is no connection with the server or when the messages
 Eventually, these messages will be synchronized when the connection to the server is restored or will be deleted if they are too old to be synchronized.
 
 You can view these messages, but you cannot move these messages again until the previous move has been confirmed by the server.
+
+<br />
+
+<a name="faq62"></a>
+**(62) Can CRAM-MD5 authentication be supported?**
+
+Unfortunately, [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication, so CRAM-MD5 authentication cannot be supported.
 
 <br />
 
