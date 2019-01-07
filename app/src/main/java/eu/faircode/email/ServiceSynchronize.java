@@ -2234,6 +2234,9 @@ public class ServiceSynchronize extends LifecycleService {
                     }
             }
 
+            // Delete not synchronized messages without uid
+            db.message().deleteOrphans(folder.id);
+
             db.folder().setFolderSyncState(folder.id, "downloading");
 
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
