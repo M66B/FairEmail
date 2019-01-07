@@ -129,7 +129,7 @@ public class HtmlHelper {
         if (show) {
             // Embedded images
             if (embedded) {
-                String cid = "<" + source.split(":")[1] + ">";
+                String cid = "<" + source.substring(4) + ">";
                 EntityAttachment attachment = DB.getInstance(context).attachment().getAttachment(id, cid);
                 if (attachment == null) {
                     Drawable d = context.getResources().getDrawable(R.drawable.baseline_broken_image_24, context.getTheme());
