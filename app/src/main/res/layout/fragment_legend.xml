@@ -33,7 +33,7 @@
             android:id="@+id/ivNotify"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_notifications_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivInbox" />
@@ -54,7 +54,7 @@
             android:id="@+id/ivUnified"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_folder_special_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivNotify" />
@@ -75,7 +75,7 @@
             android:id="@+id/ivArchive"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_archive_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivUnified" />
@@ -117,7 +117,7 @@
             android:id="@+id/ivPrimaryDisconnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_folder_open_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivTrash" />
@@ -138,7 +138,7 @@
             android:id="@+id/ivPrimaryConnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_folder_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected" />
@@ -159,7 +159,7 @@
             android:id="@+id/ivThread"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_message_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
@@ -180,7 +180,7 @@
             android:id="@+id/ivCC"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_people_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivThread" />
@@ -201,7 +201,7 @@
             android:id="@+id/ivSnoozed"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_timelapse_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivCC" />
@@ -222,7 +222,7 @@
             android:id="@+id/ivDraft"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_edit_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSnoozed" />
@@ -243,7 +243,7 @@
             android:id="@+id/ivAnswered"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_reply_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDraft" />
@@ -264,7 +264,7 @@
             android:id="@+id/ivAttachment"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_attachment_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAnswered" />
@@ -285,7 +285,7 @@
             android:id="@+id/ivContacts"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_import_contacts_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivAttachment" />
@@ -306,7 +306,7 @@
             android:id="@+id/ivView"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_visibility_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivContacts" />
@@ -327,7 +327,7 @@
             android:id="@+id/ivDownload"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_download_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivView" />
@@ -348,7 +348,7 @@
             android:id="@+id/ivExternalImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_image_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownload" />
@@ -369,7 +369,7 @@
             android:id="@+id/ivEmbeddedImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_photo_library_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivExternalImage" />
@@ -390,7 +390,7 @@
             android:id="@+id/ivBrokenImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_broken_image_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivEmbeddedImage" />
@@ -411,7 +411,7 @@
             android:id="@+id/ivDownloadOff"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_mail_outline_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivBrokenImage" />
@@ -432,7 +432,7 @@
             android:id="@+id/ivDownloadOn"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_mail_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloadOff" />
@@ -453,7 +453,7 @@
             android:id="@+id/ivSynchronize"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_sync_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDownloadOn" />
@@ -474,7 +474,7 @@
             android:id="@+id/ivSynchronizeOff"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_sync_disabled_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
@@ -495,7 +495,7 @@
             android:id="@+id/ivPrimary"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_star_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff" />
@@ -516,7 +516,7 @@
             android:id="@+id/ivDisconnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_off_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPrimary" />
@@ -537,7 +537,7 @@
             android:id="@+id/ivConnecting"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_queue_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDisconnected" />
@@ -558,7 +558,7 @@
             android:id="@+id/ivConnected"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivConnecting" />
@@ -579,7 +579,7 @@
             android:id="@+id/ivSynchronizing"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_compare_arrows_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvConnected" />
@@ -600,7 +600,7 @@
             android:id="@+id/ivDownloading"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_cloud_download_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSynchronizing" />
@@ -621,7 +621,7 @@
             android:id="@+id/ivClosing"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_close_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDownloading" />
@@ -642,7 +642,7 @@
             android:id="@+id/ivMetered"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_attach_money_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvClosing" />
@@ -663,7 +663,7 @@
             android:id="@+id/ivUnmetered"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/baseline_money_off_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMetered" />
