@@ -559,10 +559,11 @@ public class FragmentIdentity extends FragmentEx {
 
                         // Check SMTP server
                         if (check) {
+                            String transportType = (starttls ? "smtp" : "smtps");
                             Properties props = MessageHelper.getSessionProperties(auth_type, insecure);
                             Session isession = Session.getInstance(props, null);
                             isession.setDebug(true);
-                            Transport itransport = isession.getTransport(starttls ? "smtp" : "smtps");
+                            Transport itransport = isession.getTransport(transportType);
                             try {
                                 try {
                                     itransport.connect(host, Integer.parseInt(port), user, password);

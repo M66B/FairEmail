@@ -1742,9 +1742,13 @@ public class ServiceSynchronize extends LifecycleService {
             db.message().setMessageLastAttempt(message.id, message.last_attempt);
         }
 
-        // Create session
+        String transportType = (ident.starttls ? "smtp" : "smtps");
+
+        // Get properties
         Properties props = MessageHelper.getSessionProperties(ident.auth_type, ident.insecure);
         props.put("mail.smtp.localhost", ident.host);
+
+        // Create session
         final Session isession = Session.getInstance(props, null);
 
         // Create message
@@ -1774,7 +1778,7 @@ public class ServiceSynchronize extends LifecycleService {
 
         // Create transport
         // TODO: cache transport?
-        Transport itransport = isession.getTransport(ident.starttls ? "smtp" : "smtps");
+        Transport itransport = isession.getTransport(transportType);
         try {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
