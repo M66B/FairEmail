@@ -155,7 +155,6 @@ public class ViewModelBrowse extends ViewModel {
 
             try {
                 Properties props = MessageHelper.getSessionProperties(account.auth_type, account.insecure);
-                props.setProperty("mail.imap.throwsearchexception", "true");
                 Session isession = Session.getInstance(props, null);
 
                 Log.i("Boundary connecting account=" + account.name);

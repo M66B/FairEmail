@@ -92,6 +92,7 @@ public class MessageHelper {
         //props.put("mail.imaps.compress.level", "-1");
         //props.put("mail.imaps.compress.strategy", "0");
 
+        props.put("mail.imaps.throwsearchexception", "true");
         props.put("mail.imaps.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imaps.peek", "true");
 
@@ -110,6 +111,7 @@ public class MessageHelper {
 
         props.put("mail.imap.compress.enable", "true");
 
+        props.put("mail.imap.throwsearchexception", "true");
         props.put("mail.imap.fetchsize", Integer.toString(FETCH_SIZE));
         props.put("mail.imap.peek", "true");
 
