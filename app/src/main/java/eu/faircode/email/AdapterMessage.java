@@ -1405,39 +1405,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", data.message.id);
 
-            new SimpleTask<String>() {
+            new SimpleTask<String[]>() {
                 @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
+                protected String[] onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
                     EntityMessage message = db.message().getMessage(id);
 
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(context.getString(R.string.title_from))
-                            .append(' ')
-                            .append(MessageHelper.getFormattedAddresses(message.from, true))
-                            .append("\r\n");
+                    String from = null;
+                    if (message.from != null && message.from.length > 0)
+                        from = ((InternetAddress) message.from[0]).getAddress();
 
-                    if (message.subject != null) {
-                        sb.append(context.getString(R.string.title_subject))
-                                .append(' ')
-                                .append(message.subject)
-                                .append("\r\n");
-                    }
-
-                    sb.append("\r\n");
-                    sb.append(HtmlHelper.getText(message.read(context)));
-
-                    return sb.toString();
+                    return new String[]{
+                            from,
+                            message.subject,
+                            HtmlHelper.getText(message.read(context))
+                    };
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, String text) {
+                protected void onExecuted(Bundle args, String[] text) {
                     Intent share = new Intent();
                     share.setAction(Intent.ACTION_SEND);
-                    share.putExtra(Intent.EXTRA_TEXT, text);
                     share.setType("text/plain");
+                    if (!TextUtils.isEmpty(text[0]))
+                        share.putExtra(Intent.EXTRA_EMAIL, new String[]{text[0]});
+                    if (!TextUtils.isEmpty(text[1]))
+                        share.putExtra(Intent.EXTRA_SUBJECT, text[1]);
+                    share.putExtra(Intent.EXTRA_TEXT, text[2]);
 
                     PackageManager pm = context.getPackageManager();
                     if (share.resolveActivity(pm) == null)
