@@ -143,12 +143,9 @@
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Fournisseur</string>
     <string name="title_custom">Personnalisé</string>
     <string name="title_host">Nom d\'hôte</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d\'utilisateur</string>
@@ -276,6 +273,7 @@
     <string name="title_send">Envoyer</string>
     <string name="title_view">Voir</string>
     <string name="title_send_after">Envoyer après &#8230;</string>
+    <string name="title_ask_resize">Réduire la taille de %1$s pour l’affichage sur les écrans ?</string>
     <string name="title_no_selection">Rien n\'est sélectionné</string>
     <string name="title_style_bold">Gras</string>
     <string name="title_style_italic">Italique</string>

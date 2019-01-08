@@ -143,12 +143,9 @@
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Proveedor</string>
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nombre de host</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
@@ -236,6 +233,7 @@
     <string name="title_more">Más</string>
     <string name="title_spam">Spam</string>
     <string name="title_move">Mover</string>
+    <string name="title_snooze">Posponer</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
     <string name="title_moving">Moviendo a %1$s</string>
@@ -274,6 +272,8 @@
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
     <string name="title_view">Vista</string>
+    <string name="title_send_after">Enviar después de &#8230;</string>
+    <string name="title_ask_resize">¿Reducir el tamaño de %1$s para mostrar en pantallas?</string>
     <string name="title_no_selection">Nada seleccionado</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
@@ -284,6 +284,7 @@
     <string name="title_show_addresses">Mostrar CC/CCO</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
+    <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
     <string name="title_ask_send">¿Enviar mensaje a %1$s?</string>
@@ -304,6 +305,7 @@
     <string name="title_address_sent">Enviado/s:</string>
     <string name="title_address_unsent">No enviado/s:</string>
     <string name="title_address_invalid">Inválido/s:</string>
+    <string name="title_snoozed">Pospuesto</string>
     <string name="title_move_sent">Mover a enviados</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
@@ -325,6 +327,7 @@
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_cc">CC/CCO</string>
     <string name="title_legend_attachment">Adjunto</string>
+    <string name="title_legend_snoozed">Pospuesto</string>
     <string name="title_legend_draft">Borrador/editar</string>
     <string name="title_legend_answered">Respondido</string>
     <string name="title_legend_contacts">Contactos</string>
@@ -364,6 +367,8 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_add">Agregar</string>
     <string name="title_browse">Explorar</string>
+    <string name="title_hours">Horas</string>
+    <string name="title_days">Días</string>
     <string name="title_report">Reportar</string>
     <string name="title_no_ask_again">No preguntar esto de nuevo</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>

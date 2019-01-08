@@ -79,12 +79,9 @@
     <string name="title_account_notify">Adskilte meddelelser</string>
     <string name="title_domain">Domænenavn</string>
     <string name="title_autoconfig">Hent indstillinger</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Udbyder</string>
     <string name="title_custom">Tilpas</string>
     <string name="title_host">Værtsnavn</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>
     <string name="title_password">Adgangskode</string>

@@ -143,12 +143,9 @@
     <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Təchizatçı</string>
     <string name="title_custom">Xüsusi</string>
     <string name="title_host">Host adı</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Təhlükəsiz olmayan bağlantılara icazə ver</string>
     <string name="title_port">Bağlantı nöqtəsi nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>

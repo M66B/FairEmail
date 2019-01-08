@@ -149,12 +149,9 @@
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Furnizor</string>
     <string name="title_custom">Personalizat</string>
     <string name="title_host">Nume gazdă</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>

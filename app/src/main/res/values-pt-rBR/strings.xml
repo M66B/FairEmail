@@ -103,12 +103,9 @@
     <string name="title_account_notify">Notificações separadas</string>
     <string name="title_domain">Nome do domínio</string>
     <string name="title_autoconfig">Obter configurações</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Provedor</string>
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nome do servidor</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Permitir conexões inseguras</string>
     <string name="title_port">Número da porta</string>
     <string name="title_user">Nome de usuário</string>

@@ -76,12 +76,9 @@
     <string name="title_account_color">Color</string>
     <string name="title_domain">Nom de domini</string>
     <string name="title_autoconfig">Obté la configuració de</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Proveïdor</string>
     <string name="title_custom">Personalitzat</string>
     <string name="title_host">Nom del servidor</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_port">Número de port</string>
     <string name="title_user">Nom d\'usuari</string>
     <string name="title_password">Contrasenya</string>

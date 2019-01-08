@@ -135,12 +135,9 @@
     <string name="title_account_notify">单独的通知</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">服务提供商</string>
     <string name="title_custom">自定义</string>
     <string name="title_host">主机名称</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
     <string name="title_port">端口</string>
     <string name="title_user">用户名</string>

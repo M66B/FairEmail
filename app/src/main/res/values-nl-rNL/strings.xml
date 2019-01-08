@@ -143,12 +143,9 @@
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_domain">Domeinnaam</string>
     <string name="title_autoconfig">Instellingen ophalen</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Aanbieder</string>
     <string name="title_custom">Aangepast</string>
     <string name="title_host">Hostnaam</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
@@ -276,6 +273,7 @@
     <string name="title_send">Verzenden</string>
     <string name="title_view">Weergeven</string>
     <string name="title_send_after">Verzenden na &#8230;</string>
+    <string name="title_ask_resize">%1$s verkleinen voor weergave op schermen?</string>
     <string name="title_no_selection">Niets geselecteerd</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>

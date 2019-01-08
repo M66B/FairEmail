@@ -155,12 +155,9 @@
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Провайдер</string>
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
-    <string name="title_starttls">Расширение протокола обмена текстовой информацией в открытом виде</string>
     <string name="title_allow_insecure">Разрешить небезопасные соединения</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>

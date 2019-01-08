@@ -143,12 +143,9 @@
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Anbieter</string>
     <string name="title_custom">Benutzerdefiniert</string>
     <string name="title_host">Hostname</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
@@ -275,6 +272,8 @@
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
     <string name="title_view">Zeigen</string>
+    <string name="title_send_after">Sende nach &#8230;</string>
+    <string name="title_ask_resize">Reduziere die Größe von %1$s für die Anzeige auf Displays?</string>
     <string name="title_no_selection">Nichts ausgewählt</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
@@ -306,6 +305,7 @@
     <string name="title_address_sent">Gesendet:</string>
     <string name="title_address_unsent">Nicht gesendet:</string>
     <string name="title_address_invalid">Ungültig:</string>
+    <string name="title_snoozed">Zurückgestellt</string>
     <string name="title_move_sent">In den Gesendet-Ordner verschieben</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
@@ -327,6 +327,7 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_cc">CC/BCC</string>
     <string name="title_legend_attachment">Anhang</string>
+    <string name="title_legend_snoozed">Zurückgestellt</string>
     <string name="title_legend_draft">Entwurf/bearbeiten</string>
     <string name="title_legend_answered">Beantwortet</string>
     <string name="title_legend_contacts">Kontakte</string>

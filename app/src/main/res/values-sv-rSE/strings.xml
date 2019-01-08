@@ -140,12 +140,9 @@
     <string name="title_account_notify">Separera aviseringar</string>
     <string name="title_domain">Domännamn</string>
     <string name="title_autoconfig">Hämta inställningar</string>
-    <string name="title_imap">IMAP</string>
-    <string name="title_smtp">SMTP</string>
     <string name="title_provider">Leverantör</string>
     <string name="title_custom">Anpassad</string>
     <string name="title_host">Värdnamn</string>
-    <string name="title_starttls">STARTTLS</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
