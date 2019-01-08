@@ -1866,7 +1866,18 @@ public class FragmentCompose extends FragmentEx {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    return HtmlHelper.decodeImage(source, context, reference, false);
+                                    Drawable image = HtmlHelper.decodeImage(source, context, reference, true);
+
+                                    float width = context.getResources().getDisplayMetrics().widthPixels -
+                                            Helper.dp2pixels(context, 12); // margins;
+                                    if (image.getIntrinsicWidth() > width) {
+                                        float scale = width / image.getIntrinsicWidth();
+                                        image.setBounds(0, 0,
+                                                Math.round(image.getIntrinsicWidth() * scale),
+                                                Math.round(image.getIntrinsicHeight() * scale));
+                                    }
+
+                                    return image;
                                 }
                             },
                             null);
@@ -2223,7 +2234,16 @@ public class FragmentCompose extends FragmentEx {
                                 else {
                                     lld.addLevel(2, 2, image);
                                     lld.setLevel(2); // image
-                                    lld.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+
+                                    float scale = 1.0f;
+                                    float width = getContext().getResources().getDisplayMetrics().widthPixels -
+                                            Helper.dp2pixels(getContext(), 12); // margins;
+                                    if (image.getIntrinsicWidth() > width)
+                                        scale = width / image.getIntrinsicWidth();
+
+                                    lld.setBounds(0, 0,
+                                            Math.round(image.getIntrinsicWidth() * scale),
+                                            Math.round(image.getIntrinsicHeight() * scale));
                                 }
                                 etBody.requestLayout();
                             }

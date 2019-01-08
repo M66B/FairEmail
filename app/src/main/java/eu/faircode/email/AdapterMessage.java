@@ -1036,7 +1036,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.message().setMessageContent(message.id, false, null);
                     }
 
-                Spanned html = decodeHtml(message, body);
+                Spanned html = decodeHtml(context, message, body);
 
                 SpannableStringBuilder builder = new SpannableStringBuilder(html);
                 QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
@@ -1077,14 +1077,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         };
 
-        private Spanned decodeHtml(final EntityMessage message, String body) {
+        private Spanned decodeHtml(final Context context, final EntityMessage message, String body) {
             final boolean show_quotes = properties.getValue("quotes", message.id);
             final boolean show_images = properties.getValue("images", message.id);
 
             return Html.fromHtml(HtmlHelper.sanitize(body, show_quotes), new Html.ImageGetter() {
                 @Override
                 public Drawable getDrawable(String source) {
-                    return HtmlHelper.decodeImage(source, context, message.id, show_images);
+                    Drawable image = HtmlHelper.decodeImage(source, context, message.id, show_images);
+
+                    float width = context.getResources().getDisplayMetrics().widthPixels -
+                            Helper.dp2pixels(context, 12); // margins
+                    if (image.getIntrinsicWidth() > width) {
+                        float scale = width / image.getIntrinsicWidth();
+                        image.setBounds(0, 0,
+                                Math.round(image.getIntrinsicWidth() * scale),
+                                Math.round(image.getIntrinsicHeight() * scale));
+                    }
+
+                    return image;
                 }
             }, new Html.TagHandler() {
                 @Override
