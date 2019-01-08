@@ -223,8 +223,20 @@ public class FragmentCompose extends FragmentEx {
                 tvExtraPrefix.setText(at < 0 ? null : identity.email.substring(0, at));
                 tvExtraSuffix.setText(at < 0 ? null : identity.email.substring(at));
                 if (pro) {
-                    tvSignature.setText(identity == null || identity.signature == null ? null : Html.fromHtml(identity.signature));
-                    grpSignature.setVisibility(identity == null || TextUtils.isEmpty(identity.signature) ? View.GONE : View.VISIBLE);
+                    Spanned signature = null;
+                    if (identity != null && identity.signature != null)
+                        signature = Html.fromHtml(identity.signature, new Html.ImageGetter() {
+                            @Override
+                            public Drawable getDrawable(String source) {
+                                int px = Helper.dp2pixels(getContext(), 24);
+                                Drawable d = getContext().getResources()
+                                        .getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
+                                d.setBounds(0, 0, px, px);
+                                return d;
+                            }
+                        }, null);
+                    tvSignature.setText(signature);
+                    grpSignature.setVisibility(signature == null ? View.GONE : View.VISIBLE);
                 }
             }
 
