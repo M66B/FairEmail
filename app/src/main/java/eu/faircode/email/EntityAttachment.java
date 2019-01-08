@@ -73,7 +73,7 @@ public class EntityAttachment {
     public String disposition;
     public String cid; // Content-ID
     public Integer encryption;
-    public Integer size;
+    public Long size;
     public Integer progress;
     @NonNull
     public Boolean available = false;
@@ -117,7 +117,7 @@ public class EntityAttachment {
             is = this.part.getInputStream();
             os = new BufferedOutputStream(new FileOutputStream(file));
 
-            int size = 0;
+            long size = 0;
             byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
             for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                 size += len;
@@ -125,7 +125,7 @@ public class EntityAttachment {
 
                 // Update progress
                 if (this.size != null)
-                    db.attachment().setProgress(this.id, size * 100 / this.size);
+                    db.attachment().setProgress(this.id, (int)(size * 100 / this.size));
             }
 
             // Store attachment data

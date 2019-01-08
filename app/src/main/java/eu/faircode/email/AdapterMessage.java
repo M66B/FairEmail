@@ -636,7 +636,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         List<EntityAttachment> images = new ArrayList<>();
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.type.startsWith("image") && !attachment.isInline())
+                            if (attachment.type.startsWith("image/") && !attachment.isInline())
                                 images.add(attachment);
                         adapterImage.set(images);
                         rvImage.setVisibility(images.size() > 0 ? View.VISIBLE : View.INVISIBLE);

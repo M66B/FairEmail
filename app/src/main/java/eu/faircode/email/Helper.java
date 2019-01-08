@@ -393,7 +393,7 @@ public class Helper {
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
-            int size = 0;
+            long size = 0;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             Map<String, ?> settings = prefs.getAll();
@@ -424,7 +424,7 @@ public class Helper {
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
-            int size = 0;
+            long size = 0;
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
             NetworkInfo ani = cm.getActiveNetworkInfo();
@@ -460,7 +460,7 @@ public class Helper {
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
-            int size = 0;
+            long size = 0;
             long from = new Date().getTime() - 24 * 3600 * 1000L;
             DateFormat DF = SimpleDateFormat.getTimeInstance();
 
@@ -491,7 +491,7 @@ public class Helper {
         try {
             os = new BufferedOutputStream(new FileOutputStream(file));
 
-            int size = 0;
+            long size = 0;
             DateFormat DF = SimpleDateFormat.getTimeInstance();
 
             for (EntityOperation op : db.operation().getOperations())
@@ -536,7 +536,7 @@ public class Helper {
             proc = Runtime.getRuntime().exec(cmd);
             br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
-            int size = 0;
+            long size = 0;
 
             String line;
             while ((line = br.readLine()) != null)

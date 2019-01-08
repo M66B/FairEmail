@@ -663,7 +663,7 @@ public class MessageHelper {
                 attachment.name = filename;
                 attachment.type = ct.getBaseType().toLowerCase();
                 attachment.disposition = disposition;
-                attachment.size = part.getSize();
+                attachment.size = (long) part.getSize();
                 attachment.cid = (cid == null || cid.length == 0 ? null : cid[0]);
                 attachment.encryption = (pgp ? EntityAttachment.PGP_MESSAGE : null);
                 attachment.part = part;

@@ -32,6 +32,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
@@ -166,6 +168,9 @@ public class FragmentCompose extends FragmentEx {
     private boolean dirty = false;
 
     private OpenPgpServiceConnection pgpService;
+
+    private static final int REDUCED_IMAGE_SIZE = 1920;
+    private static final int REDUCED_IMAGE_QUALITY = 90;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -910,7 +915,7 @@ public class FragmentCompose extends FragmentEx {
                                 os1 = new BufferedOutputStream(new FileOutputStream(file1));
                                 os1.write(bytes1);
 
-                                db.attachment().setDownloaded(attachment1.id, bytes1.length);
+                                db.attachment().setDownloaded(attachment1.id, (long) bytes1.length);
                             } finally {
                                 if (os1 != null)
                                     os1.close();
@@ -932,7 +937,7 @@ public class FragmentCompose extends FragmentEx {
                                 os2 = new BufferedOutputStream(new FileOutputStream(file2));
                                 os2.write(bytes2);
 
-                                db.attachment().setDownloaded(attachment2.id, bytes2.length);
+                                db.attachment().setDownloaded(attachment2.id, (long) bytes2.length);
                             } finally {
                                 if (os2 != null)
                                     os2.close();
@@ -1077,11 +1082,25 @@ public class FragmentCompose extends FragmentEx {
             protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
                 Long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
-                return addAttachment(context, id, uri, image);
+                EntityAttachment attachment = addAttachment(context, id, uri, image);
+
+                if ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type)) {
+                    File file = EntityAttachment.getFile(context, attachment.id);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+                    int scaleTo = REDUCED_IMAGE_SIZE;
+                    int factor = Math.min(options.outWidth / scaleTo, options.outWidth / scaleTo);
+                    if (factor > 0)
+                        args.putInt("factor", factor);
+                }
+
+                return attachment;
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityAttachment attachment) {
+            protected void onExecuted(Bundle args, final EntityAttachment attachment) {
                 if (image) {
                     File file = EntityAttachment.getFile(getContext(), attachment.id);
                     Drawable d = Drawable.createFromPath(file.getAbsolutePath());
@@ -1095,6 +1114,66 @@ public class FragmentCompose extends FragmentEx {
                     String html = Html.toHtml(s);
                     etBody.setText(Html.fromHtml(html, cidGetter, null));
                 }
+
+                final int factor = args.getInt("factor", 0);
+                if (factor > 0)
+                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
+                            .setMessage(getString(R.string.title_ask_resize, attachment.name))
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Bundle args = new Bundle();
+                                    args.putLong("id", attachment.id);
+                                    args.putInt("factor", factor);
+                                    args.putInt("quality", REDUCED_IMAGE_QUALITY);
+
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                            long id = args.getLong("id");
+                                            int factor = args.getInt("factor");
+                                            int quality = args.getInt("quality");
+
+                                            BitmapFactory.Options options = new BitmapFactory.Options();
+                                            options.inSampleSize = factor;
+
+                                            File file = EntityAttachment.getFile(context, id);
+                                            Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                                            if (scaled == null)
+                                                throw new IOException("Decode image failed");
+
+                                            Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight());
+
+                                            FileOutputStream out = null;
+                                            try {
+                                                out = new FileOutputStream(file);
+                                                scaled.compress("image/jpeg".equals(attachment.type)
+                                                                ? Bitmap.CompressFormat.JPEG
+                                                                : Bitmap.CompressFormat.PNG,
+                                                        quality, out);
+                                            } finally {
+                                                if (out != null)
+                                                    out.close();
+                                                scaled.recycle();
+                                            }
+
+                                            DB.getInstance(context).attachment().setDownloaded(id, file.length());
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            if (ex instanceof IOException)
+                                                Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                                            else
+                                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                        }
+                                    }.execute(FragmentCompose.this, args);
+                                }
+                            })
+                            .create()
+                            .show();
             }
 
             @Override
@@ -1228,7 +1307,7 @@ public class FragmentCompose extends FragmentEx {
             if (image)
                 attachment.disposition = Part.INLINE;
 
-            attachment.size = (s == null ? null : Integer.parseInt(s));
+            attachment.size = (s == null ? null : Long.parseLong(s));
             attachment.progress = 0;
 
             attachment.id = db.attachment().insertAttachment(attachment);
@@ -1248,7 +1327,7 @@ public class FragmentCompose extends FragmentEx {
                 is = context.getContentResolver().openInputStream(uri);
                 os = new BufferedOutputStream(new FileOutputStream(file));
 
-                int size = 0;
+                long size = 0;
                 byte[] buffer = new byte[EntityAttachment.ATTACHMENT_BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
@@ -1256,7 +1335,7 @@ public class FragmentCompose extends FragmentEx {
 
                     // Update progress
                     if (attachment.size != null)
-                        db.attachment().setProgress(attachment.id, size * 100 / attachment.size);
+                        db.attachment().setProgress(attachment.id, (int) (size * 100 / attachment.size));
                 }
 
                 if (image) {

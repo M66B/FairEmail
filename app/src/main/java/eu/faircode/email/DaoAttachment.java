@@ -66,7 +66,7 @@ public interface DaoAttachment {
     @Query("UPDATE attachment" +
             " SET size = :size, progress = NULL, available = 1" +
             " WHERE id = :id")
-    void setDownloaded(long id, Integer size);
+    void setDownloaded(long id, Long size);
 
     @Query("UPDATE attachment" +
             " SET cid = :cid" +
