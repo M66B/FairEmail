@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -148,9 +149,18 @@ public class EntityOperation {
                 if (!EntityFolder.ARCHIVE.equals(source.type) || EntityFolder.TRASH.equals(target.type))
                     db.message().setMessageUiHide(message.id, true);
 
+                Calendar cal_keep = Calendar.getInstance();
+                cal_keep.add(Calendar.DAY_OF_MONTH, -target.keep_days);
+                cal_keep.set(Calendar.HOUR_OF_DAY, 0);
+                cal_keep.set(Calendar.MINUTE, 0);
+                cal_keep.set(Calendar.SECOND, 0);
+                cal_keep.set(Calendar.MILLISECOND, 0);
+
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive and source folder
-                if (db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
+                if (target.synchronize &&
+                        message.received > cal_keep.getTimeInMillis() &&
+                        db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     long id = message.id;
                     long uid = message.uid;
                     message.id = null;
