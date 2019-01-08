@@ -391,12 +391,13 @@ public class ServiceSynchronize extends LifecycleService {
                                             break;
 
                                         case "snooze":
+                                            db.message().setMessageSnoozed(message.id, null);
+
                                             EntityFolder folder = db.folder().getFolder(message.folder);
                                             if (EntityFolder.OUTBOX.equals(folder.type)) {
                                                 Log.i("Delayed send id=" + message.id);
                                                 EntityOperation.queue(ServiceSynchronize.this, db, message, EntityOperation.SEND);
                                             }
-                                            db.message().setMessageSnoozed(message.id, null);
                                             break;
 
                                         default:
