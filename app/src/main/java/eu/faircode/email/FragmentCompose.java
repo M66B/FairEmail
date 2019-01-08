@@ -52,9 +52,11 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
@@ -1835,18 +1837,36 @@ public class FragmentCompose extends FragmentEx {
                 final long reference = args.getLong("reference", -1);
 
                 String body = EntityMessage.read(context, id);
-                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
+                Spanned spannedBody = Html.fromHtml(body, cidGetter, null);
 
-                return new Spanned[]{
-                        Html.fromHtml(body, cidGetter, null),
-                        quote == null ? null : Html.fromHtml(quote,
-                                new Html.ImageGetter() {
-                                    @Override
-                                    public Drawable getDrawable(String source) {
-                                        return HtmlHelper.decodeImage(source, context, reference, false);
-                                    }
-                                },
-                                null)};
+                String quote = (reference < 0 ? null : HtmlHelper.getQuote(context, reference, true));
+                Spanned spannedReference = null;
+                if (quote != null) {
+                    Spanned spannedQuote = Html.fromHtml(quote,
+                            new Html.ImageGetter() {
+                                @Override
+                                public Drawable getDrawable(String source) {
+                                    return HtmlHelper.decodeImage(source, context, reference, false);
+                                }
+                            },
+                            null);
+
+                    int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                    SpannableStringBuilder builder = new SpannableStringBuilder(spannedQuote);
+                    QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
+                    for (QuoteSpan quoteSpan : quoteSpans) {
+                        builder.setSpan(
+                                new StyledQuoteSpan(colorPrimary),
+                                builder.getSpanStart(quoteSpan),
+                                builder.getSpanEnd(quoteSpan),
+                                builder.getSpanFlags(quoteSpan));
+                        builder.removeSpan(quote);
+                    }
+
+                    spannedReference = builder;
+                }
+
+                return new Spanned[]{spannedBody, spannedReference};
             }
 
             @Override

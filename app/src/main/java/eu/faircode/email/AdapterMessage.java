@@ -29,9 +29,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -1041,42 +1039,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned html = decodeHtml(message, body);
 
                 SpannableStringBuilder builder = new SpannableStringBuilder(html);
-                QuoteSpan[] quotes = builder.getSpans(0, builder.length(), QuoteSpan.class);
-                for (QuoteSpan quote : quotes) {
+                QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
+                for (QuoteSpan quoteSpan : quoteSpans) {
                     builder.setSpan(
-                            new StyledQuoteSpan(),
-                            builder.getSpanStart(quote),
-                            builder.getSpanEnd(quote),
-                            builder.getSpanFlags(quote));
-                    builder.removeSpan(quote);
+                            new StyledQuoteSpan(colorPrimary),
+                            builder.getSpanStart(quoteSpan),
+                            builder.getSpanEnd(quoteSpan),
+                            builder.getSpanFlags(quoteSpan));
+                    builder.removeSpan(quoteSpan);
                 }
 
                 return builder;
-            }
-
-            class StyledQuoteSpan extends QuoteSpan {
-                StyledQuoteSpan() {
-                    super(colorPrimary);
-                }
-
-                @Override
-                public int getLeadingMargin(boolean first) {
-                    return 6 /* stripeWidth */ + 12 /* gapWidth */;
-                }
-
-                @Override
-                public void drawLeadingMargin(@NonNull Canvas c, @NonNull Paint p, int x, int dir, int top, int baseline, int bottom, @NonNull CharSequence text, int start, int end, boolean first, @NonNull Layout layout) {
-                    Paint.Style style = p.getStyle();
-                    int color = p.getColor();
-
-                    p.setStyle(Paint.Style.FILL);
-                    p.setColor(getColor());
-
-                    c.drawRect(x, top, x + dir * 6 /* stripeWidth */, bottom, p);
-
-                    p.setStyle(style);
-                    p.setColor(color);
-                }
             }
 
             @Override
