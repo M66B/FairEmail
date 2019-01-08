@@ -1921,92 +1921,94 @@ public class FragmentCompose extends FragmentEx {
 
                 Log.i("Load action id=" + draft.id + " action=" + action);
 
-                // Move draft to new account
-                if (draft.account != aid && aid >= 0) {
-                    Long uid = draft.uid;
-                    String msgid = draft.msgid;
+                if (action != R.id.action_delete) {
+                    // Move draft to new account
+                    if (draft.account != aid && aid >= 0) {
+                        Long uid = draft.uid;
+                        String msgid = draft.msgid;
 
-                    draft.uid = null;
-                    draft.msgid = null;
-                    db.message().updateMessage(draft);
+                        draft.uid = null;
+                        draft.msgid = null;
+                        db.message().updateMessage(draft);
 
-                    draft.id = null;
-                    draft.uid = uid;
-                    draft.msgid = msgid;
-                    draft.content = false;
-                    draft.ui_hide = true;
-                    draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
+                        draft.id = null;
+                        draft.uid = uid;
+                        draft.msgid = msgid;
+                        draft.content = false;
+                        draft.ui_hide = true;
+                        draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(context, db, draft, EntityOperation.DELETE);
 
-                    draft.id = id;
-                    draft.account = aid;
-                    draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
-                    draft.content = true;
-                    draft.ui_hide = false;
-                    EntityOperation.queue(context, db, draft, EntityOperation.ADD);
-                }
-
-                // Convert data
-                InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-
-                InternetAddress ato[] = null;
-                InternetAddress acc[] = null;
-                InternetAddress abcc[] = null;
-
-                if (!TextUtils.isEmpty(to))
-                    try {
-                        ato = InternetAddress.parse(to);
-                    } catch (AddressException ignored) {
+                        draft.id = id;
+                        draft.account = aid;
+                        draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                        draft.content = true;
+                        draft.ui_hide = false;
+                        EntityOperation.queue(context, db, draft, EntityOperation.ADD);
                     }
 
-                if (!TextUtils.isEmpty(cc))
-                    try {
-                        acc = InternetAddress.parse(cc);
-                    } catch (AddressException ignored) {
+                    // Get data
+                    InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+
+                    InternetAddress ato[] = null;
+                    InternetAddress acc[] = null;
+                    InternetAddress abcc[] = null;
+
+                    if (!TextUtils.isEmpty(to))
+                        try {
+                            ato = InternetAddress.parse(to);
+                        } catch (AddressException ignored) {
+                        }
+
+                    if (!TextUtils.isEmpty(cc))
+                        try {
+                            acc = InternetAddress.parse(cc);
+                        } catch (AddressException ignored) {
+                        }
+
+                    if (!TextUtils.isEmpty(bcc))
+                        try {
+                            abcc = InternetAddress.parse(bcc);
+                        } catch (AddressException ignored) {
+                        }
+
+                    if (TextUtils.isEmpty(extra))
+                        extra = null;
+
+                    Long ident = (identity == null ? null : identity.id);
+                    dirty = dirty ||
+                            ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
+                                    (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
+                                    !MessageHelper.equal(draft.from, afrom) ||
+                                    !MessageHelper.equal(draft.to, ato) ||
+                                    !MessageHelper.equal(draft.cc, acc) ||
+                                    !MessageHelper.equal(draft.bcc, abcc) ||
+                                    (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
+
+                    // Update draft
+                    draft.identity = ident;
+                    draft.extra = extra;
+                    draft.sender = MessageHelper.getSortKey(afrom);
+                    draft.from = afrom;
+                    draft.to = ato;
+                    draft.cc = acc;
+                    draft.bcc = abcc;
+                    draft.subject = subject;
+                    draft.received = new Date().getTime();
+
+                    if (action == R.id.action_send)
+                        if (draft.replying != null || draft.forwarding != null)
+                            body += HtmlHelper.getQuote(context,
+                                    draft.replying == null ? draft.forwarding : draft.replying, false);
+
+                    dirty = (dirty || !body.equals(draft.read(context)));
+
+                    if (dirty) {
+                        db.message().updateMessage(draft);
+                        draft.write(context, body);
+                        db.message().setMessageContent(
+                                draft.id, true, HtmlHelper.getPreview(body));
                     }
-
-                if (!TextUtils.isEmpty(bcc))
-                    try {
-                        abcc = InternetAddress.parse(bcc);
-                    } catch (AddressException ignored) {
-                    }
-
-                if (TextUtils.isEmpty(extra))
-                    extra = null;
-
-                Long ident = (identity == null ? null : identity.id);
-                dirty = dirty ||
-                        ((draft.identity == null ? ident != null : !draft.identity.equals(ident)) ||
-                                (draft.extra == null ? extra != null : !draft.extra.equals(extra)) ||
-                                !MessageHelper.equal(draft.from, afrom) ||
-                                !MessageHelper.equal(draft.to, ato) ||
-                                !MessageHelper.equal(draft.cc, acc) ||
-                                !MessageHelper.equal(draft.bcc, abcc) ||
-                                (draft.subject == null ? subject != null : !draft.subject.equals(subject)));
-
-                // Update draft
-                draft.identity = ident;
-                draft.extra = extra;
-                draft.sender = MessageHelper.getSortKey(afrom);
-                draft.from = afrom;
-                draft.to = ato;
-                draft.cc = acc;
-                draft.bcc = abcc;
-                draft.subject = subject;
-                draft.received = new Date().getTime();
-
-                if (action == R.id.action_send)
-                    if (draft.replying != null || draft.forwarding != null)
-                        body += HtmlHelper.getQuote(context,
-                                draft.replying == null ? draft.forwarding : draft.replying, false);
-
-                dirty = (dirty || !body.equals(draft.read(context)));
-
-                if (dirty) {
-                    db.message().updateMessage(draft);
-                    draft.write(context, body);
-                    db.message().setMessageContent(
-                            draft.id, true, HtmlHelper.getPreview(body));
                 }
 
                 // Execute action
