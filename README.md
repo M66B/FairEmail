@@ -54,6 +54,7 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Secure
 
+* No data storage on third party servers
 * Allow encrypted connections only
 * Accept valid security certificates only
 * Authentication required
