@@ -2060,14 +2060,9 @@ public class FragmentCompose extends FragmentEx {
                     draft.id = db.message().insertMessage(draft);
                     draft.write(getContext(), body);
 
-                    // Restore attachments
-                    for (EntityAttachment attachment : attachments) {
-                        File file = EntityAttachment.getFile(context, attachment.id);
-                        attachment.id = null;
-                        attachment.message = draft.id;
-                        attachment.id = db.attachment().insertAttachment(attachment);
-                        Helper.copy(file, EntityAttachment.getFile(context, attachment.id));
-                    }
+                    // Move attachments
+                    for (EntityAttachment attachment : attachments)
+                        db.attachment().setMessage(attachment.id, draft.id);
 
                     if (draft.ui_snoozed == null)
                         EntityOperation.queue(context, db, draft, EntityOperation.SEND);
