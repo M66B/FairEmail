@@ -1163,6 +1163,11 @@ public class FragmentCompose extends FragmentEx {
                                         }
 
                                         @Override
+                                        protected void onExecuted(Bundle args, Void data) {
+                                            etBody.requestLayout();
+                                        }
+
+                                        @Override
                                         protected void onException(Bundle args, Throwable ex) {
                                             if (ex instanceof IOException)
                                                 Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();

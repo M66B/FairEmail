@@ -122,7 +122,8 @@ Note that your contacts could unknowingly send malicious messages if they got in
 * [(59) Can original messages be opened in the browser?](#user-content-faq59)
 * [(60) Did you known ...?](#user-content-faq60)
 * [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Can CRAM-MD5 authentication be supported?](#user-content-faq62)
+* [(62) Which authentication methods are supported?](#user-content-faq62)
+* [(63) How are images resized for displaying on screens?](#user-content-faq63)
 
 [I have another question.](#support)
 
@@ -963,9 +964,27 @@ You can view these messages, but you cannot move these messages again until the 
 <br />
 
 <a name="faq62"></a>
-**(62) Can CRAM-MD5 authentication be supported?**
+**(62) Which authentication methods are supported?**
 
-Unfortunately, [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication, so CRAM-MD5 authentication cannot be supported.
+The following authentication methods are supported and used in this order:
+
+* LOGIN
+* PLAIN
+* DIGEST-MD5
+* NTLM
+* XOAUTH2 (used when an account was selected)
+
+SASL authentication methods, like CRAM-MD5, are not supported
+because [JavaMail for Android](https://javaee.github.io/javamail/Android) does not support SASL authentication.
+
+<br />
+
+<a name="faq63"></a>
+**(63) How are images resized for displaying on screens?**
+
+After adding an inline image or an image attachment you might be asked if you want to reduce the image size for displaying on a screens.
+If you answer "yes", the image will be resized to a maximum width and height of about 1920 pixels and saved with a compression ratio of 90 out of 100.
+Images are scaled down using whole number factors to reduce memory usage and to retain image quality.
 
 <br />
 
