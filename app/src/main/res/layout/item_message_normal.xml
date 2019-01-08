@@ -647,28 +647,21 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="btnHtml,ibQuotes,ibImages" />
 
-        <HorizontalScrollView
-            android:id="@+id/scroll"
+        <TextView
+            android:id="@+id/tvBody"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="6dp"
-            android:fillViewport="true"
+            android:fontFamily="monospace"
+            android:minHeight="60dp"
+            android:text="Body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barrier_body">
-
-            <TextView
-                android:id="@+id/tvBody"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:minHeight="60dp"
-                android:text="Body"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textIsSelectable="true" />
-        </HorizontalScrollView>
+            app:layout_constraintTop_toBottomOf="@id/barrier_body" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbBody"
@@ -676,10 +669,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/scroll"
-            app:layout_constraintEnd_toEndOf="@id/scroll"
-            app:layout_constraintStart_toStartOf="@id/scroll"
-            app:layout_constraintTop_toTopOf="@id/scroll" />
+            app:layout_constraintBottom_toBottomOf="@id/tvBody"
+            app:layout_constraintEnd_toEndOf="@id/tvBody"
+            app:layout_constraintStart_toStartOf="@id/tvBody"
+            app:layout_constraintTop_toTopOf="@id/tvBody" />
 
         <TextView
             android:id="@+id/tvNoInternetBody"
@@ -687,10 +680,10 @@
             android:layout_height="wrap_content"
             android:text="@string/title_no_internet"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/scroll"
-            app:layout_constraintEnd_toEndOf="@id/scroll"
-            app:layout_constraintStart_toStartOf="@id/scroll"
-            app:layout_constraintTop_toTopOf="@id/scroll" />
+            app:layout_constraintBottom_toBottomOf="@id/tvBody"
+            app:layout_constraintEnd_toEndOf="@id/tvBody"
+            app:layout_constraintStart_toStartOf="@id/tvBody"
+            app:layout_constraintTop_toTopOf="@id/tvBody" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvImage"
@@ -699,7 +692,7 @@
             android:layout_marginTop="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scroll" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBody" />
 
         <View
             android:id="@+id/vSeparator"
@@ -731,6 +724,6 @@
             android:id="@+id/grpExpanded"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,scroll" />
+            app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress,tvBody" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
